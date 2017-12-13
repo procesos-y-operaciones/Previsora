@@ -1,0 +1,171 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+/* ==================================================
+ Colors
+ ================================================== */
+$ligthgreen: #62bd18
+$darkgreen: #1b492c
+$white: #fff
+$black: #000
+
+/* ==================================================
+ Elements
+ 
+ form
+ buttons
+ flex-box
+ navbar
+ ================================================== */
+
+/* ==================================================
+ General
+ ================================================== */
+html, body
+    overflow-x: hidden
+    font-family: "Open Sans", Helvetica, Arial, sans-serif
+*, *:before, *:after 
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    -webkit-o-sizing: border-box
+    -ms-box-sizing: border-box
+    box-sizing: border-box
+body
+    background: darken($darkgreen, 2.5%)
+    background: -moz-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: -webkit-linear-gradient(left top, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: -o-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: -ms-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: linear-gradient(to bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+
+.edge
+    border: 1px solid darken($black, 2.5%)
+/* ================ aligment ======================*/
+.left
+    text-align: left
+.center
+    text-align: center
+.centerVertical
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: -200px 0 0 -200px
+    
+/* ================== text ========================*/
+h1, h2
+    margin-bottom: 25px  
+    letter-spacing: 2px
+.white
+    color: darken($white, 2.5%)
+/* ================== otros =======================*/
+.fw
+    width: 100%
+    
+/* ==================================================
+  form
+  ================================================== */
+.form-label
+    text-align: left
+    font-size: 15px
+    color: darken($white, 2.5%)
+.form-control
+    padding-top: 20px
+    padding-bottom: 20px
+    background: rgba(255, 255, 255, 0.1)
+    text-align: center
+    color: darken($white, 2.5%)
+    font-size: 15px
+    
+/* ==================================================
+  buttons
+  ================================================== */
+.btn 
+    margin: 5px
+    border-radius: 5px
+    padding: 10px 30px
+    font-size: 20px !important
+    letter-spacing: 1px
+.btn-default 
+    background-color: blue
+    font-weight: bold
+    color: #fff
+.btn-default:hover, .btn-default:focus 
+    border: 1px solid blue
+    background-color: blue
+    color: #fff
+.btn-inverse 
+    background-color: darken($white, 2.5%)
+    font-weight: bold
+    color: darken($darkgreen, 2.5%)
+.btn-inverse:hover, .btn-inverse:focus 
+    border: 1px solid darken($darkgreen, 2.5%)
+    color: darken($darkgreen, 2.5%)
+    
+.link
+    color: darken($white, 2.5%)
+.link:hover, .link:focus
+    color: darken($darkgreen, 2.5%)
+    
+/* ==================================================
+ flex-boxes
+ ================================================== */
+.flexBox 
+    display: -moz-flex
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+.flexWrap
+    -moz-flex-wrap: wrap
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+.verticalCenter 
+    -moz-align-items: center
+    -webkit-align-items: center
+    -ms-align-items: center
+    align-items: center
+.horizintalCenter
+    -moz-justify-content: center
+    -webkit-justify-content: center
+    -ms-justify-content: center
+    justify-content: center
+/* ==================================================
+  navbar
+  ================================================== */
+/* navbar */
+.navbar-default 
+    background-color: transparent
+    border: 0px
+    padding: 8px 48px
+.navbar-brand 
+    padding: 0px
+.navbar-brand>img 
+    height: 100%
+    padding: 0px
+    width: auto
+    
+/* Link */
+.navbar-default .navbar-nav li>a
+    width: auto
+    background-color: transparent
+    color: darken(white, 2.5%)
+    font-size: 20px
+
+
+    
+
