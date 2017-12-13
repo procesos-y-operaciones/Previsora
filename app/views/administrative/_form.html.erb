@@ -14,14 +14,14 @@
   <%= form.label "Clase de proceso" %>
   <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
 
+  <%= form.label "Subclase de proceso" %>
+  <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
+
   <%= form.label "Número de radicado correspondencia" %>
   <%= form.text_field :correspondency_radicate, class:"form-control" %>
 
   <%= form.label "Número de identificación del caso Bizagi, Acces y PA)" %>
   <%= form.text_field :case_id_bap, class:"form-control" %>
-
-  <%= form.label "Número de identificación del caso SISE" %>
-  <%= form.number_field :case_id_sise, class:"form-control" %>
 
   <%= form.label "Fecha de creación" %>
   <%= form.date_field :creation_date, class:"form-control" %>
@@ -155,12 +155,12 @@
   <%= form.label "Última actuación" %>
   <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control"}) %>
 
-  <%= form.label "Fecha última actuación" %>
-  <%= form.date_field :last_performance_date, class:"form-control" %>
+  <%= form.label "Vía gubernativa (Coljuegos) Tipoligía" %>
+  <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Reserva liberada" %>
   <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>
-
+  
   <div class="actions">
     <%= form.submit "Guardar" %>
   </div>

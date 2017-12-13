@@ -1,42 +1,42 @@
-class FiscalController < ApplicationController
+class AdministrativeController < ApplicationController
 
-  before_action :set_fiscal, only: [:show, :edit, :update, :destroy]
+  before_action :set_administrative, only: [:show, :edit, :update, :destroy]
 
   def edit
   end
 
   def new
-    @fiscal = TypeProcess.new
+    @administrative = TypeProcess.new
   end
 
   def create
-    @fiscal = TypeProcess.new
-    if @fiscal.save
-      redirect_to index_home_path, notice: 'Proceso fiscal creado satisfactoriamente.'
+    @administrative = TypeProcess.new
+    if @administrative.save
+      redirect_to index_home_path, notice: 'Proceso administrativo creado satisfactoriamente.'
     else
       render :new
     end
   end
 
   def update
-    if @fiscal.update(judicial_params)
-      redirect_to index_home_path, notice: 'Proceso fiscal actualizado satisfactoriamente.'
+    if @administrative.update(administrative_params)
+      redirect_to index_home_path, notice: 'Proceso administrativo actualizado satisfactoriamente.'
     else
       render :edit
     end
   end
 
   def destroy
-    @fiscal.destroy
-    redirect_to index_home_path, notice: 'Proceso fiscal borrado correctamente.'
+    @administrative.destroy
+    redirect_to index_home_path, notice: 'Proceso administrativo borrado correctamente.'
   end
 
   private
-    def set_judicial
-      @fiscal = TypeProcess.find(params[:id])
+    def set_administrative
+      @administrative = TypeProcess.find(params[:id])
     end
 
-    def fiscal_params
+    def administrative_params
       params.require(:type_process).permit(:process_class_id, :correspondency_radicate, :case_id_sise,
         :creation_date, :link_type_id, :departament_id, :city_case_id, :branch_policy_id, :notification_date,
         :process_radicate, :number, :exercise, :branch_commercial_id, :sinister, :attorny, :attorny_date,
