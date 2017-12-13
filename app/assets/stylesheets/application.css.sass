@@ -21,6 +21,8 @@
  ================================================== */
 $ligthgreen: #62bd18
 $darkgreen: #1b492c
+$white: #fff
+$grey: #c3c3c3
 $black: #000
 
 /* ==================================================
@@ -30,6 +32,8 @@ $black: #000
  buttons
  flex-box
  navbar
+ grid
+ unique
  ================================================== */
 
 /* ==================================================
@@ -46,33 +50,46 @@ html, body
     box-sizing: border-box
 .edge
     border: 1px solid darken($black, 2.5%)
+/* =============margin & padding ==================*/
+.p-0
+    padding: 0
+.p-30
+    padding: 30px
+.p-0-30
+    padding: 0 30px
 /* ================ aligment ======================*/
 .left
     text-align: left
 .center
     text-align: center
+.right
+    text-align: right
 .centerVertical
     position: absolute
     top: 50%
     left: 50%
     margin: -200px 0 0 -200px
-    
 /* ================== text ========================*/
 h1, h2
-    margin-bottom: 25px  
-    letter-spacing: 2px
+    margin-bottom: 25px
+    font-weight: 200px
 .black
     color: darken($black, 2.5%)
+.ligthgreen
+    background-color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen, 2.5%)
 /* ================== others ======================*/
 .fw
     width: 100%
-.gradient
-    background: darken($darkgreen, 2.5%)
-    background: -moz-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: -webkit-linear-gradient(left top, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: -o-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: -ms-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: linear-gradient(to bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+.shadow
+    box-shadow: 0 0 20px darken($grey, 2.5%)
+.grad-lg-w
+    background: darken($ligthgreen, 2.5%)
+    background: -moz-linear-gradient(left, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
+    background: -webkit-linear-gradient(left, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
+    background: -o-linear-gradient(right, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
+    background: -ms-linear-gradient(right, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
+    background: linear-gradient(to right, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
 
 /* ==================================================
   form
@@ -80,7 +97,9 @@ h1, h2
 .form-label
     text-align: left
     font-size: 15px
+    font-weight: 200px
     color: darken($black, 2.5%)
+    
 /* ==================================================
   buttons
   ================================================== */
@@ -90,13 +109,13 @@ h1, h2
     padding: 10px 30px
     font-size: 15px !important
 .btn-default 
-    background-color: blue
+    background-color: darken($ligthgreen, 2.5%)
     font-weight: bold
-    color: #fff
+    color: darken($white, 2.5%)
 .btn-default:hover, .btn-default:focus 
-    border: 1px solid blue
-    background-color: blue
-    color: #fff
+    border: 1px solid darken($ligthgreen, 2.5%)
+    background-color: darken($white, 2.5%)
+    color: darken($ligthgreen, 2.5%)
 .btn-inverse 
     background-color: darken($black, 2.5%)
     font-weight: bold
@@ -105,8 +124,14 @@ h1, h2
     border: 1px solid darken($darkgreen, 2.5%)
     color: darken($darkgreen, 2.5%)
     
+.link-inverse
+    color: darken($white, 2.5%)
+    margin: 0px 10px
+.link-inverse:hover, .link-inverse:focus
+    color: darken($darkgreen, 2.5%)
 .link
-    color: darken($black, 2.5%)
+    color: darken($ligthgreen, 2.5%)
+    margin: 0px 10px
 .link:hover, .link:focus
     color: darken($darkgreen, 2.5%)
     
@@ -133,28 +158,39 @@ h1, h2
     -webkit-justify-content: center
     -ms-justify-content: center
     justify-content: center
+    
 /* ==================================================
   navbar
   ================================================== */
 /* navbar */
 .navbar-default 
-    background-color: transparent
+    height: 100px
+    background-color: darken($ligthgreen, 2.5%)
     border: 0px
-    padding: 8px 48px
+    padding: 0px 10px 0 0
 .navbar-brand 
     padding: 0px
-.navbar-brand>img 
-    height: 100%
-    padding: 0px
+.navbar-default .image
+    height: 100px
+    padding: 0
     width: auto
-    
-/* Link */
-.navbar-default .navbar-nav li>a
-    width: auto
-    background-color: transparent
-    color: darken($black, 2.5%)
-    font-size: 20px
+.navbar-default ul
+    margin: 10px 10px 0 0 
 
+/* ==================================================
+  grid
+  ================================================== */
 
     
-
+/* ==================================================
+  unique
+  ================================================== */
+.firtsHeader   
+    width: 100%
+    height: 80px
+    background-color: darken($darkgreen, 2.5%)
+.secondHeader
+    height: 300px
+    background: darken($darkgreen, 2.5%) url("header.jpeg") no-repeat
+    background-size: cover
+    
