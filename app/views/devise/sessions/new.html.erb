@@ -6,31 +6,31 @@
     </div>
     <div class="col-sm-6">
       <h2 class="black center">Iniciar Sesión</h2>
-      
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        
+
         <div>
           <%= f.label :documento, class:"form-label" %><br />
-          <%= f.number_field :document, autofocus: true, class:"form-control" %>
+          <%= f.text_field :document, autofocus: true, class:"form-control" %>
         </div>
         <br>
         <div>
           <%= f.label :contraseña, class:"form-label" %><br />
-          <%= f.password_field :passwords, autocomplete: "off", class:"form-control" %>
+          <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
         </div>
-      
+
         <% if devise_mapping.rememberable? -%>
           <div class="field">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me, class:"" %>
           </div>
         <% end -%>
-      
+
         <div class="actions">
           <%= f.submit "Iniciar Sesión", class:"btn btn-default fw" %>
         </div>
       <% end %>
-      
+
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to "¿Olvidaste tu contraseña?", new_password_path(resource_name), class:"link" %><br />
       <% end -%>

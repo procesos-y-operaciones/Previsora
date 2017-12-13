@@ -2,6 +2,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
   def change
     create_table :type_processes do |t|
 
+      t.integer   :p_type
       t.string    :correspondency_radicate
       t.string    :case_id_bap
       t.integer   :case_id_sise
@@ -69,6 +70,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.references  :reserved_released, foreign_key: true
       t.references  :money_type, foreign_key: true
       t.references  :join_committee, foreign_key: true
+      t.references  :user, foreign_key: true
 
       t.timestamps
     end

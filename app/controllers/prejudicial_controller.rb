@@ -40,7 +40,7 @@ class PrejudicialController < ApplicationController
     end
 
     def prejudicial_params
-      params.require(:type_process).permit(:process_class_id, :correspondency_radicate, :case_id_sise,
+      params.require(:type_process).permit(:user_id, :p_type, :process_class_id, :correspondency_radicate, :case_id_sise,
         :creation_date, :link_type_id, :departament_id, :city_case_id, :branch_policy_id, :notification_date,
         :process_radicate, :number, :exercise, :branch_commercial_id, :sinister, :attorny, :attorny_date,
         :active_part, :passive_part, :branch_commercial_id, :money_type_id, :dolar_value, :detritment,

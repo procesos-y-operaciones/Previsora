@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
   end
 
   create_table "type_processes", force: :cascade do |t|
+    t.integer "p_type"
     t.string "correspondency_radicate"
     t.string "case_id_bap"
     t.integer "case_id_sise"
@@ -248,6 +249,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.integer "reserved_released_id"
     t.integer "money_type_id"
     t.integer "join_committee_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["branch_commercial_id"], name: "index_type_processes_on_branch_commercial_id"
@@ -276,6 +278,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.index ["sentence_type_desacate_id"], name: "index_type_processes_on_sentence_type_desacate_id"
     t.index ["setence_type_second_company_id"], name: "index_type_processes_on_setence_type_second_company_id"
     t.index ["subprocess_class_id"], name: "index_type_processes_on_subprocess_class_id"
+    t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
