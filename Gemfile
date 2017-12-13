@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'annotate'
 
+gem 'money-rails', '~>1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

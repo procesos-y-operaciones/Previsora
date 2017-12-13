@@ -1,0 +1,2 @@
+class CurrentStage < ApplicationRecord
+end

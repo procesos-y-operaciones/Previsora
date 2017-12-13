@@ -1,0 +1,2 @@
+class SentenceTypeDesacate < ApplicationRecord
+end

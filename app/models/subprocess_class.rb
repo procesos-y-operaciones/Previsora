@@ -1,0 +1,2 @@
+class SubprocessClass < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class BranchCommercial < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class BranchPolicy < ApplicationRecord
+end
