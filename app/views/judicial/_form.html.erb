@@ -14,6 +14,9 @@
   <%= form.label "Clase de proceso" %>
   <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
 
+  <%= form.label "Subclase de proceso" %>
+  <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
+
   <%= form.label "Número de radicado correspondencia" %>
   <%= form.text_field :correspondency_radicate, class:"form-control" %>
 
@@ -154,21 +157,6 @@
 
   <%= form.label "Fecha última actuación" %>
   <%= form.date_field :last_performance_date, class:"form-control" %>
-
-  <%= form.label "Ingresa al comité" %>
-  <%= form.collection_select(:join_committee_id, JoinCommittee.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Decisión del comité" %>
-  <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Valor autorizado por el comité" %>
-  <%= form.text_field :auth_value, class:"form-control" %>
-
-  <%= form.label "Razón de no conciliar" %>
-  <%= form.text_field :reason_conc, class:"form-control" %>
-
-  <%= form.label "Razón de no Razón de invialibilidad" %>
-  <%= form.text_field :reason_inv, class:"form-control" %>
 
   <%= form.label "Reserva liberada" %>
   <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>

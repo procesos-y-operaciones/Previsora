@@ -140,6 +140,9 @@
   <%= form.label "Reserva honorarios" %>
   <%= form.text_field :reserved_fees, class:"form-control" %>
 
+  <%= form.label "Valor coactivo" %>
+  <%= form.text_field :coactive_value, class:"form-control" %>
+
   <%= form.label "Valor embargo" %>
   <%= form.text_field :garnish_value, class:"form-control" %>
 
@@ -154,21 +157,6 @@
 
   <%= form.label "Fecha última actuación" %>
   <%= form.date_field :last_performance_date, class:"form-control" %>
-
-  <%= form.label "Ingresa al comité" %>
-  <%= form.collection_select(:join_committee_id, JoinCommittee.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Decisión del comité" %>
-  <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Valor autorizado por el comité" %>
-  <%= form.text_field :auth_value, class:"form-control" %>
-
-  <%= form.label "Razón de no conciliar" %>
-  <%= form.text_field :reason_conc, class:"form-control" %>
-
-  <%= form.label "Razón de no Razón de invialibilidad" %>
-  <%= form.text_field :reason_inv, class:"form-control" %>
 
   <%= form.label "Reserva liberada" %>
   <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>

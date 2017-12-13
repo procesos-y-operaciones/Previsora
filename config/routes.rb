@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'fiscal/edit'
+
+  get 'fiscal/new'
+
+  get 'judicial/new'
+
+  get 'judicial/edit'
+
   resources :type_processes
   resources :prejudicial
 

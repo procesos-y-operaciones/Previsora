@@ -21,12 +21,12 @@
  ================================================== */
 $ligthgreen: #62bd18
 $darkgreen: #1b492c
-$white: #fff
+$white: #000
 $black: #000
 
 /* ==================================================
  Elements
- 
+
  form
  buttons
  flex-box
@@ -39,20 +39,12 @@ $black: #000
 html, body
     overflow-x: hidden
     font-family: "Open Sans", Helvetica, Arial, sans-serif
-*, *:before, *:after 
+*, *:before, *:after
     -moz-box-sizing: border-box
     -webkit-box-sizing: border-box
     -webkit-o-sizing: border-box
     -ms-box-sizing: border-box
     box-sizing: border-box
-body
-    background: darken($darkgreen, 2.5%)
-    background: -moz-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: -webkit-linear-gradient(left top, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: -o-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: -ms-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-    background: linear-gradient(to bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
-
 .edge
     border: 1px solid darken($black, 2.5%)
 /* ================ aligment ======================*/
@@ -65,65 +57,65 @@ body
     top: 50%
     left: 50%
     margin: -200px 0 0 -200px
-    
+
 /* ================== text ========================*/
 h1, h2
-    margin-bottom: 25px  
+    margin-bottom: 25px
     letter-spacing: 2px
 .white
     color: darken($white, 2.5%)
 /* ================== otros =======================*/
 .fw
     width: 100%
-    
+
 /* ==================================================
   form
   ================================================== */
 .form-label
     text-align: left
     font-size: 15px
-    color: darken($white, 2.5%)
+    color: darken($black, 2.5%)
 .form-control
     padding-top: 20px
     padding-bottom: 20px
     background: rgba(255, 255, 255, 0.1)
     text-align: center
-    color: darken($white, 2.5%)
+    color: darken($black, 2.5%)
     font-size: 15px
-    
+
 /* ==================================================
   buttons
   ================================================== */
-.btn 
+.btn
     margin: 5px
     border-radius: 5px
     padding: 10px 30px
     font-size: 15px !important
-.btn-default 
+.btn-default
     background-color: blue
     font-weight: bold
     color: #fff
-.btn-default:hover, .btn-default:focus 
+.btn-default:hover, .btn-default:focus
     border: 1px solid blue
     background-color: blue
     color: #fff
-.btn-inverse 
+.btn-inverse
     background-color: darken($white, 2.5%)
     font-weight: bold
     color: darken($darkgreen, 2.5%)
-.btn-inverse:hover, .btn-inverse:focus 
+.btn-inverse:hover, .btn-inverse:focus
     border: 1px solid darken($darkgreen, 2.5%)
     color: darken($darkgreen, 2.5%)
-    
+
 .link
     color: darken($white, 2.5%)
 .link:hover, .link:focus
     color: darken($darkgreen, 2.5%)
-    
+
 /* ==================================================
  flex-boxes
  ================================================== */
-.flexBox 
+.flexBox
     display: -moz-flex
     display: -webkit-flex
     display: -ms-flex
@@ -133,7 +125,7 @@ h1, h2
     -webkit-flex-wrap: wrap
     -ms-flex-wrap: wrap
     flex-wrap: wrap
-.verticalCenter 
+.verticalCenter
     -moz-align-items: center
     -webkit-align-items: center
     -ms-align-items: center
@@ -147,24 +139,20 @@ h1, h2
   navbar
   ================================================== */
 /* navbar */
-.navbar-default 
+.navbar-default
     background-color: transparent
     border: 0px
     padding: 8px 48px
-.navbar-brand 
+.navbar-brand
     padding: 0px
-.navbar-brand>img 
+.navbar-brand>img
     height: 100%
     padding: 0px
     width: auto
-    
+
 /* Link */
 .navbar-default .navbar-nav li>a
     width: auto
     background-color: transparent
-    color: darken(white, 2.5%)
+    color: darken($white, 2.5%)
     font-size: 20px
-
-
-    
-
