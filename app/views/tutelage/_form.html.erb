@@ -12,6 +12,7 @@
   <% end %>
 
   <%= form.hidden_field :p_type, :value => 5 %>
+  <%= form.hidden_field :user_id, :value => current_user.id %>
 
   <%= form.label "Clase de proceso" %>
   <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>

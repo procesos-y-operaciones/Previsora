@@ -1,0 +1,12 @@
+
+<% if @processes == [] %>
+
+  <h4>Aún no tienes procesos creados.</h4>
+
+<% else %>
+
+  <% @processes.each do |p| %>
+    <%= p.p_type %>
+  <% end %>
+
+<% end %>

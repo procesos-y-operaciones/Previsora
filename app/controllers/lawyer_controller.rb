@@ -4,7 +4,7 @@ class LawyerController < ApplicationController
   end
 
   def search
-    
+    @processes = current_user.type_processes
   end
 
   def report
