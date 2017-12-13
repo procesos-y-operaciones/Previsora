@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :type, :value => 4 %>
+
   <%= form.label "Clase de proceso" %>
   <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
 
@@ -160,7 +162,7 @@
 
   <%= form.label "Reserva liberada" %>
   <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>
-  
+
   <div class="actions">
     <%= form.submit "Guardar" %>
   </div>

@@ -2,6 +2,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
   def change
     create_table :type_processes do |t|
 
+      t.integer   :type
       t.string    :correspondency_radicate
       t.string    :case_id_bap
       t.integer   :case_id_sise

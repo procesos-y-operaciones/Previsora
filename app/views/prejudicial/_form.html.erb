@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :type, :value => 1 %>
+
   <%= form.label "Clase de proceso" %>
   <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
 
