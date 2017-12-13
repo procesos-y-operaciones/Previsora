@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get 'index/coordinator'
   get 'index/administrator'
 
+  get 'lawyer/new'
+  get 'lawyer/search'
+  get 'lawyer/report'
+
   root :to => 'index#home'
 
 end
