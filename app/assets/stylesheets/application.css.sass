@@ -51,6 +51,8 @@ html, body
 .edge
     border: 1px solid darken($black, 2.5%)
 /* =============margin & padding ==================*/
+.mt-50
+    margin-top: 50px
 .p-0
     padding: 0
 .p-30
@@ -64,6 +66,8 @@ html, body
     text-align: center
 .right
     text-align: right
+.floatRight
+    float: right
 .centerVertical
     position: absolute
     top: 50%
@@ -73,10 +77,11 @@ html, body
 h1, h2
     margin-bottom: 25px
     font-weight: 200px
+.white
+    color: darken($white, 2.5%)
 .black
     color: darken($black, 2.5%)
 .ligthgreen
-    background-color: darken($ligthgreen, 2.5%)
     color: darken($ligthgreen, 2.5%)
 /* ================== others ======================*/
 .fw
@@ -99,6 +104,8 @@ h1, h2
     font-size: 15px
     font-weight: 200px
     color: darken($black, 2.5%)
+.form-control
+    margin-bottom: 25px
 
 /* ==================================================
   buttons
@@ -108,11 +115,11 @@ h1, h2
     border-radius: 5px
     padding: 10px 30px
     font-size: 15px !important
-.btn-default
+.btn-default, .btn-default:visited
     background-color: darken($ligthgreen, 2.5%)
     font-weight: bold
     color: darken($white, 2.5%)
-.btn-default:hover, .btn-default:focus
+.btn-default:hover, .btn-default:focus, .btn-default:active
     border: 1px solid darken($ligthgreen, 2.5%)
     background-color: darken($white, 2.5%)
     color: darken($ligthgreen, 2.5%)

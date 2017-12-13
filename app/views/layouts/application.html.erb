@@ -22,11 +22,11 @@
         
         <nav class="navbar navbar-default navbar-static-top">
           <div class="navbar-header">
-            <%= link_to image_tag("previsora2.jpeg", alt: "Previsora", class:"image"), nil, class:"navbar-brand" %>
+            <%= link_to image_tag("previsora2.jpeg", alt: "Previsora", class:"image"), index_home_path, class:"navbar-brand" %>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong>.
+              <p class="white"><%= current_user.email %></p>
               <%= link_to 'Editar Perfil', edit_user_registration_path, class:"link-inverse" %> 
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
             <% else %>
@@ -40,5 +40,6 @@
         
       </div>
     </div>
+    
   </body>
 </html>

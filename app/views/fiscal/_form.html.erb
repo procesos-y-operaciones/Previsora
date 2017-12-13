@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+  <div class="p-30">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-7 ">
+  
   <%= form.label "Clase de proceso" %>
   <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
 
@@ -160,8 +164,12 @@
 
   <%= form.label "Reserva liberada" %>
   <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <div class="actions">
-    <%= form.submit "Guardar" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="">
+    <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
+    <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
 <% end %>
