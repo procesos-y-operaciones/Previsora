@@ -238,10 +238,12 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.integer "last_performance_id"
     t.integer "gubernatorial_way_id"
     t.integer "notification_type_second_id"
-    t.integer "setence_type_second_comp_id"
+    t.integer "setence_type_second_company_id"
     t.integer "sentence_type_desacate_id"
     t.integer "committee_id"
     t.integer "reserved_released_id"
+    t.integer "money_type_id"
+    t.integer "join_committee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["branch_commercial_id"], name: "index_type_processes_on_branch_commercial_id"
@@ -255,9 +257,11 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.index ["gubernatorial_way_id"], name: "index_type_processes_on_gubernatorial_way_id"
     t.index ["instance_id"], name: "index_type_processes_on_instance_id"
     t.index ["internal_lawyer_id"], name: "index_type_processes_on_internal_lawyer_id"
+    t.index ["join_committee_id"], name: "index_type_processes_on_join_committee_id"
     t.index ["last_performance_id"], name: "index_type_processes_on_last_performance_id"
     t.index ["link_type_id"], name: "index_type_processes_on_link_type_id"
     t.index ["litigation_source_id"], name: "index_type_processes_on_litigation_source_id"
+    t.index ["money_type_id"], name: "index_type_processes_on_money_type_id"
     t.index ["notification_type_second_id"], name: "index_type_processes_on_notification_type_second_id"
     t.index ["office_name_id"], name: "index_type_processes_on_office_name_id"
     t.index ["process_class_id"], name: "index_type_processes_on_process_class_id"
@@ -266,7 +270,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.index ["reserved_released_id"], name: "index_type_processes_on_reserved_released_id"
     t.index ["score_contingency_id"], name: "index_type_processes_on_score_contingency_id"
     t.index ["sentence_type_desacate_id"], name: "index_type_processes_on_sentence_type_desacate_id"
-    t.index ["setence_type_second_comp_id"], name: "index_type_processes_on_setence_type_second_comp_id"
+    t.index ["setence_type_second_company_id"], name: "index_type_processes_on_setence_type_second_company_id"
     t.index ["subprocess_class_id"], name: "index_type_processes_on_subprocess_class_id"
   end
 

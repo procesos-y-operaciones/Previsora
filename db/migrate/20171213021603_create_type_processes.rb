@@ -59,10 +59,12 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.references  :last_performance, foreign_key: true
       t.references  :gubernatorial_way, foreign_key: true
       t.references  :notification_type_second, foreign_key: true
-      t.references  :setence_type_second_comp, foreign_key: true
+      t.references  :setence_type_second_company, foreign_key: true
       t.references  :sentence_type_desacate, foreign_key: true
       t.references  :committee, foreign_key: true
-      t.references  :reserved_released, foreign_key:true
+      t.references  :reserved_released, foreign_key: true
+      t.references  :money_type, foreign_key: true
+      t.references  :join_committee, foreign_key: true
 
       t.timestamps
     end

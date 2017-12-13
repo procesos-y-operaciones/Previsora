@@ -28,7 +28,7 @@ class TypeProcessesController < ApplicationController
 
     respond_to do |format|
       if @type_process.save
-        format.html { redirect_to @type_process, notice: 'Type process was successfully created.' }
+        format.html { redirect_to @type_process, notice: 'Proceso creado correctamente.' }
         format.json { render :show, status: :created, location: @type_process }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TypeProcessesController < ApplicationController
   def update
     respond_to do |format|
       if @type_process.update(type_process_params)
-        format.html { redirect_to @type_process, notice: 'Type process was successfully updated.' }
+        format.html { redirect_to @type_process, notice: 'Proceso actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @type_process }
       else
         format.html { render :edit }
@@ -56,19 +56,24 @@ class TypeProcessesController < ApplicationController
   def destroy
     @type_process.destroy
     respond_to do |format|
-      format.html { redirect_to type_processes_url, notice: 'Type process was successfully destroyed.' }
+      format.html { redirect_to type_processes_url, notice: 'Proceso borrado correctamente..' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_type_process
       @type_process = TypeProcess.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def type_process_params
-      params.require(:type_process).permit(:todo)
+      params.require(:type_process).permit(:process_class_id, :correspondency_radicate,
+          :case_id_bap, :case_id_sise, :creation_date, :link_type_id, :departament_id, :city_case_id,
+          :branch_policy_id, :notification_date, :process_radicate, :number, :exercise, :branch_commercial_id,
+          :sinister, :attorny, :attorny_date, :active_part, :passive_part, :money_type_id, :dolar_value, :detritment,
+          :ensurance_value, :score_contingency_id, :contingency_value, :contingency_reason, :contingency_resume,
+          :facts, :policy, :protection_id, :current_stage_id, :litigation_source_id, :reserved_fees, :instance_id,
+          :desition_date, :case_termination_id, :fail_value, :payed_value, :payment_date, :garnish_value, :reinsurance_type_id,
+          :reensurance_gived, :last_performance_date, :join_committee_id, :auth_value, :reason_conc, :reason_inv, :reserved_released_id)
     end
 end

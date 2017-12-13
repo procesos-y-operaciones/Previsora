@@ -75,19 +75,19 @@
   <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Valor del dólar" %>
-  <%= form.text_field :dolar_value, class:"form-control" %>
+  <%= form.number_field :dolar_value_cents, class:"form-control" %>
 
   <%= form.label "Valor pretensión / detrimento / estimación" %>
-  <%= form.text_field :detritment, class:"form-control" %>
+  <%= form.number_field :detritment_cents, class:"form-control" %>
 
   <%= form.label "Valor asegurado" %>
-  <%= form.text_field :ensurance_value, class:"form-control" %>
+  <%= form.number_field :ensurance_value_cents, class:"form-control" %>
 
   <%= form.label "Calificación contingencia" %>
   <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Valor contingencia" %>
-  <%= form.text_field :contingency_value, class:"form-control" %>
+  <%= form.number_field :contingency_value_cents, class:"form-control" %>
 
   <%= form.label "Razón contingencia" %>
   <%= form.text_field :contingency_reason, class:"form-control" %>
@@ -99,7 +99,7 @@
   <%= form.text_field :facts, class:"form-control" %>
 
   <%= form.label "Póliza" %>
-  <%= form.text_field :policy, class:"form-control" %>
+  <%= form.number_field :policy_cents, class:"form-control" %>
 
   <%= form.label "Amparo" %>
   <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control"}) %>
@@ -111,7 +111,7 @@
   <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Reserva o provisión de indemnización" %>
-  <%= form.text_field :reserved_fees, class:"form-control" %>
+  <%= form.number_field :reserve_cents, class:"form-control" %>
 
   <%= form.label "Instancias" %>
   <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>
@@ -129,25 +129,25 @@
   <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Valor fallo decisión" %>
-  <%= form.text_field :fail_value, class:"form-control" %>
+  <%= form.number_field :fail_value_cents, class:"form-control" %>
 
   <%= form.label "Valor pagado Previsora" %>
-  <%= form.text_field :payed_value, class:"form-control" %>
+  <%= form.number_field :payed_value_cents, class:"form-control" %>
 
   <%= form.label "Fecha de pago" %>
   <%= form.date_field :payment_date, class:"form-control" %>
 
   <%= form.label "Reserva honorarios" %>
-  <%= form.text_field :reserved_fees, class:"form-control" %>
+  <%= form.number_field :reserved_fees_cents, class:"form-control" %>
 
   <%= form.label "Valor embargo" %>
-  <%= form.text_field :garnish_value, class:"form-control" %>
+  <%= form.number_field :garnish_value_cents, class:"form-control" %>
 
   <%= form.label "Tipo de reaseguro" %>
   <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Reaseguro cedido" %>
-  <%= form.text_field :reensurance_gived, class:"form-control" %>
+  <%= form.number_field :reensurance_gived_cents, class:"form-control" %>
 
   <%= form.label "Última actuación" %>
   <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control"}) %>
@@ -162,7 +162,7 @@
   <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {:class=>"form-control"}) %>
 
   <%= form.label "Valor autorizado por el comité" %>
-  <%= form.text_field :auth_value, class:"form-control" %>
+  <%= form.number_field :auth_value_cents, class:"form-control" %>
 
   <%= form.label "Razón de no conciliar" %>
   <%= form.text_field :reason_conc, class:"form-control" %>
