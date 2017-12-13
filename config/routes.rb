@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'administrative/edit'
-
-  get 'administrative/new'
-
   resources :type_processes
   resources :prejudicial
   resources :judicial
   resources :fiscal
   resources :administrative
+  resources :tutelage
 
   get 'process/prejudicial'
 

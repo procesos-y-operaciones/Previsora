@@ -214,6 +214,10 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.date "last_performance_date"
     t.date "failed_notification_date"
     t.date "objection_notification_date"
+    t.string "tutelage_imp"
+    t.date "date_notification_desacate"
+    t.date "date_answer_desacate"
+    t.date "date_notification_desition_desacate"
     t.integer "auth_value_cents", default: 0, null: false
     t.string "auth_value_currency", default: "USD", null: false
     t.string "reason_conc"

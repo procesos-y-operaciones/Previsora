@@ -1,0 +1,113 @@
+<%= form_with(model: type_process, local: true) do |form| %>
+  <% if type_process.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
+
+      <ul>
+      <% type_process.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label "Clase de proceso" %>
+  <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Número de radicado correspondencia" %>
+  <%= form.text_field :correspondency_radicate, class:"form-control" %>
+
+  <%= form.label "Número de identificación del caso Bizagi, Acces y PA)" %>
+  <%= form.text_field :case_id_bap, class:"form-control" %>
+
+  <%= form.label "Fecha de creación" %>
+  <%= form.date_field :creation_date, class:"form-control" %>
+
+  <%= form.label "Departamento" %>
+  <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Ciudad donde cursa el caso" %>
+  <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Fecha de notificación / vinculación" %>
+  <%= form.date_field :notification_date, class:"form-control" %>
+
+  <%= form.label "Número de radicación del proceso" %>
+  <%= form.text_field :process_radicate, class:"form-control" %>
+
+  <%= form.label "Parte activa" %>
+  <%= form.text_field :active_part, class:"form-control" %>
+
+  <%= form.label "Parte pasiva" %>
+  <%= form.text_field :passive_part, class:"form-control" %>
+
+  <%= form.label "Nombre despacho / tipo contraloría" %>
+  <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Tipo moneda (RADIO)" %>
+  <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Valor del dólar" %>
+  <%= form.number_field :dolar_value_cents, class:"form-control" %>
+
+  <%= form.label "Resumen de la contingencia" %>
+  <%= form.text_field :contingency_resume, class:"form-control" %>
+
+  <%= form.label "Abogado interno" %>
+  <%= form.collection_select(:internal_lawyer_id, InternalLawyer.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Estado del caso" %>
+  <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Fecha de decisión" %>
+  <%= form.date_field :desition_date, class:"form-control" %>
+
+  <%= form.label "Terminación del caso" %>
+  <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Valor fallo decisión" %>
+  <%= form.number_field :fail_value_cents, class:"form-control" %>
+
+  <%= form.label "Valor pagado Previsora" %>
+  <%= form.number_field :payed_value_cents, class:"form-control" %>
+
+  <%= form.label "Fecha de pago" %>
+  <%= form.date_field :payment_date, class:"form-control" %>
+
+  <%= form.label "Reserva honorarios" %>
+  <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+
+  <%= form.label "Reaseguro cedido" %>
+  <%= form.number_field :reensurance_gived_cents, class:"form-control" %>
+
+  <%= form.label "Última actuación" %>
+  <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Vía gubernativa (Coljuegos) Tipoligía" %>
+  <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Fecha notificación fallo" %>
+  <%= form.date_field :failed_notification_date, class:"form-control" %>
+
+  <%= form.label "Fecha notificación impugnación" %>
+  <%= form.date_field :objection_notification_date, class:"form-control" %>
+
+  <%= form.label "Tipo notificación segunda instancia" %>
+  <%= form.collection_select(:notification_type_second_id, NotificationTypeSecond.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Tipo sentencia de segunda instancia" %>
+  <%= form.collection_select(:setence_type_second_company_id, SetenceTypeSecondCompany.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+  <%= form.label "Fecha notificación incidente de desacato" %>
+  <%= form.date_field :date_notification_desacate, class:"form-control" %>
+
+  <%= form.label "Fecha de contestación incidente desacato" %>
+  <%= form.date_field :date_answer_desacate, class:"form-control" %>
+
+  <%= form.label "Fecha notificación decisión incidente desacato" %>
+  <%= form.date_field :date_notification_desition_desacate, class:"form-control" %>
+
+  <div class="actions">
+    <%= form.submit "Guardar" %>
+  </div>
+<% end %>

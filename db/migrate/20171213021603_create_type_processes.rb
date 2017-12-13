@@ -35,6 +35,10 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.date      :last_performance_date
       t.date      :failed_notification_date
       t.date      :objection_notification_date
+      t.string    :tutelage_imp
+      t.date      :date_notification_desacate
+      t.date      :date_answer_desacate
+      t.date      :date_notification_desition_desacate
       t.monetize  :auth_value
       t.string    :reason_conc
       t.string    :reason_inv
