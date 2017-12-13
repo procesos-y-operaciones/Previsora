@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
   end
 
   create_table "type_processes", force: :cascade do |t|
+    t.integer "p_type"
     t.string "correspondency_radicate"
     t.string "case_id_bap"
     t.integer "case_id_sise"
