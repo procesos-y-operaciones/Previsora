@@ -21,7 +21,6 @@
  ================================================== */
 $ligthgreen: #62bd18
 $darkgreen: #1b492c
-$white: #000
 $black: #000
 
 /* ==================================================
@@ -62,11 +61,18 @@ html, body
 h1, h2
     margin-bottom: 25px
     letter-spacing: 2px
-.white
-    color: darken($white, 2.5%)
-/* ================== otros =======================*/
+.black
+    color: darken($black, 2.5%)
+/* ================== others ======================*/
 .fw
     width: 100%
+.gradient
+    background: darken($darkgreen, 2.5%)
+    background: -moz-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: -webkit-linear-gradient(left top, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: -o-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: -ms-linear-gradient(bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
+    background: linear-gradient(to bottom right, darken($darkgreen, 2.5%), darken($ligthgreen, 2.5%)) fixed
 
 /* ==================================================
   form
@@ -75,14 +81,6 @@ h1, h2
     text-align: left
     font-size: 15px
     color: darken($black, 2.5%)
-.form-control
-    padding-top: 20px
-    padding-bottom: 20px
-    background: rgba(255, 255, 255, 0.1)
-    text-align: center
-    color: darken($black, 2.5%)
-    font-size: 15px
-
 /* ==================================================
   buttons
   ================================================== */
@@ -100,7 +98,7 @@ h1, h2
     background-color: blue
     color: #fff
 .btn-inverse
-    background-color: darken($white, 2.5%)
+    background-color: darken($black, 2.5%)
     font-weight: bold
     color: darken($darkgreen, 2.5%)
 .btn-inverse:hover, .btn-inverse:focus
@@ -108,7 +106,7 @@ h1, h2
     color: darken($darkgreen, 2.5%)
 
 .link
-    color: darken($white, 2.5%)
+    color: darken($black, 2.5%)
 .link:hover, .link:focus
     color: darken($darkgreen, 2.5%)
 
@@ -154,5 +152,5 @@ h1, h2
 .navbar-default .navbar-nav li>a
     width: auto
     background-color: transparent
-    color: darken($white, 2.5%)
+    color: darken($black, 2.5%)
     font-size: 20px
