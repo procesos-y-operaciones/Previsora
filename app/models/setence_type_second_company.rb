@@ -1,0 +1,2 @@
+class SetenceTypeSecondCompany < ApplicationRecord
+end

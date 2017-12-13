@@ -1,0 +1,2 @@
+class InternalLawyer < ApplicationRecord
+end

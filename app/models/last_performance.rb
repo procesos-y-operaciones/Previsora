@@ -1,0 +1,2 @@
+class LastPerformance < ApplicationRecord
+end

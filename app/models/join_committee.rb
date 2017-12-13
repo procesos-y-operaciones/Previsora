@@ -1,0 +1,2 @@
+class JoinCommittee < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class GubernatorialWay < ApplicationRecord
+end

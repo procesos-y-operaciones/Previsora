@@ -1,0 +1,2 @@
+class ScoreContingency < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class TypeProcess < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CaseTermination < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class ReservedReleased < ApplicationRecord
+end
