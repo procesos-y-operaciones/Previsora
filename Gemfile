@@ -37,6 +37,8 @@ gem 'annotate'
 
 gem 'money-rails', '~>1'
 
+gem 'will_paginate', '~> 3.1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

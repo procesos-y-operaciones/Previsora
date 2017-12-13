@@ -70,6 +70,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.references  :reserved_released, foreign_key: true
       t.references  :money_type, foreign_key: true
       t.references  :join_committee, foreign_key: true
+      t.references  :user, foreign_key: true
 
       t.timestamps
     end
