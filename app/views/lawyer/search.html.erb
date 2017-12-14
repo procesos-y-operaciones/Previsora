@@ -5,8 +5,36 @@
 
 <% else %>
 
+  <%= will_paginate @processes %>
+  <table style="width:500px">
+  <thead>
+  <tr>
+    <th>Tipo</th>
+    <th>#Radicación</th>
+    <th>#Identificación (B,A,PA)</th>
+    <th>#Identificación (SISE)</th>
+    <th>Pasiva</th>
+    <th>Activa</th>
+    <th>Abogado</th>
+    <th>Ciudad</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @processes.each do |p| %>
-    <%= p.p_type %>
+      <tr>
+        <td><%= p.p_type %></td>
+        <td><%= p.correspondency_radicate %></td>
+        <td><%= p.case_id_bap %></td>
+        <td><%= p.case_id_sise %></td>
+        <td><%= p.passive_part %></td>
+        <td><%= p.active_part %></td>
+        <td>Abogado</td>
+        <td>Ciudad</td>
+      </tr>
   <% end %>
+  </tbody>
+  </table>
+  <%= will_paginate @processes %>
+
 
 <% end %>
