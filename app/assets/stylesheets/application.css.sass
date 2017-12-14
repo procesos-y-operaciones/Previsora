@@ -55,6 +55,8 @@ html, body
     margin: 30px
 .mt-50
     margin-top: 50px
+.mb-30
+    margin-bottom: 30px
 .p-0
     padding: 0
 .p-30
@@ -113,9 +115,9 @@ h1, h2
   buttons
   ================================================== */
 .btn-circle
-    margin: 5px
+    margin: 20px
     border-radius: 100%
-    padding: 35px 40px
+    padding: 30px
     font-size: 30px
 .btn
     margin: 5px
@@ -142,16 +144,22 @@ h1, h2
     border: 1px solid darken($ligthgreen, 2.5%)
     background: darken($ligthgreen, 2.5%)
     color: darken($white, 2.5%)
-    
-.link-inverse
-    color: darken($white, 2.5%)
+
+.link, .link:active
     margin: 0px 10px
-.link-inverse:hover, .link-inverse:focus
-    color: darken($darkgreen, 2.5%)
-.link
+    background-color: transparent !important
     color: darken($ligthgreen, 2.5%)
-    margin: 0px 10px
 .link:hover, .link:focus
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($darkgreen, 2.5%)    
+.link-inverse
+    margin: 0px 10px
+    background-color: transparent !important
+    color: darken($white, 2.5%)
+.link-inverse:hover, .link-inverse:focus
+    background-color: transparent !important
+    text-decoration: none !important
     color: darken($darkgreen, 2.5%)
 
 /* ==================================================
@@ -183,16 +191,17 @@ h1, h2
   ================================================== */
 /* navbar */
 .navbar-default
-    height: 100px
-    background-color: darken($ligthgreen, 2.5%)
+    height: 150px
+    background: darken($ligthgreen, 2.5%) url("bannerprevisora.jpg") no-repeat
+    background-size: cover
     border: 0px
     padding: 0px 10px 0 0
 .navbar-brand
     padding: 0px
 .navbar-default .image
-    height: 100px
     padding: 0
-    width: auto
+    height: 100px
+    
 .navbar-default ul
     margin: 10px 10px 0 0
 
