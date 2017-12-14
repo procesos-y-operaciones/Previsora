@@ -9,4 +9,9 @@
 #
 
 class ProcessClass < ApplicationRecord
+
+  def self.fiscal
+    [ProcessClass.find(27)]
+  end
+
 end
