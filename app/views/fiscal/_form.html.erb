@@ -1,3 +1,33 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#state').ready(function(){
+      var x = document.getElementById("state").value;
+      if(x === 'Si'){
+        document.getElementById("correspondency_radicate").readOnly = false;
+        $("#correspondency_radicate").val("");
+      }
+      else{
+         document.getElementById("correspondency_radicate").readOnly = true;
+         $("#correspondency_radicate").val("Pendiente");
+      }
+    });
+    $('#state').change(function(){
+      var x = document.getElementById("state").value;
+      if(x === 'Si'){
+        document.getElementById("correspondency_radicate").readOnly = false;
+        $("#correspondency_radicate").val("");
+      }
+      else{
+         document.getElementById("correspondency_radicate").readOnly = true;
+         $("#correspondency_radicate").val("Pendiente");
+      }
+    });
+  });
+</script>
+
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -22,14 +52,18 @@
         <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.find([3,4]), :id , :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Tiene número de radicado?" %>
-        <!--%= form.select :state, options_for_select([["Si", true], ["No", false]]), class: "form-control" %-->
+        <select id="state" class="form-control">
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+        <!--%= form.select :state, options_for_select([["Si", true], ["No", false]]), :html => { :id => "estado" }, class: "form-control" %-->
 
         <%= form.label "Número de radicado correspondencia" %>
-        <%= form.text_field :correspondency_radicate, class:"form-control" %>
-
+        <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
+        
         <%= form.label "Número de identificación del caso Bizagi, Acces y PA)" %>
         <%= form.text_field :case_id_bap, class:"form-control" %>
 
