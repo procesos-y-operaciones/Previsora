@@ -1265,3 +1265,33 @@ ReservedReleased.create([
   {name: 'NO'},
   {name: 'PENDIENTE'}
 ])
+
+SubprocessClass.create([
+  {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO'},
+  {name: 'JURISDICCION CIVIL'},
+  {name: 'VERBAL'},
+  {name: 'ORDINARIO'},
+  {name: 'OTRAS ENTIDADES'},
+  {name: 'COLJUEGOS'},
+  {name: 'POLIZAS VIDA GRUPO'},
+  {name: 'REPARACION DIRECTA'},
+  {name: 'NULIDAD Y RESTABLECIMIENTO'},
+  {name: 'EJECUTIVO'},
+  {name: 'PENAL'},
+  {name: 'ACCION POPULAR'},
+  {name: 'ACCION DE GRUPO'},
+  {name: 'ACCION DE NULIDAD'},
+  {name: 'ACCIO DE REPETICION'},
+  {name: 'ACCION CONTRA ACTUAL'},
+  {name: 'COACTIVO'},
+  {name: 'FAMILIA'},
+  {name: 'DISCIPLINARIO'},
+  {name: 'ACCION DE CUMPLIMIENTO '},
+  {name: 'ARBITRAMIENTO'},
+  {name: 'POR PRIMAS'},
+  {name: 'HIPOTECARIOS'},
+  {name: 'DIRECTOS'},
+  {name: 'ART. 86 -1437'},
+  {name: 'LEY 1437'},
+  {name: 'RESPONSABILIDAD FISCAL'}
+])
