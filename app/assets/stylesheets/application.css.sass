@@ -51,6 +51,8 @@ html, body
 .edge
     border: 1px solid darken($black, 2.5%)
 /* =============margin & padding ==================*/
+.m-30
+    margin: 30px
 .mt-50
     margin-top: 50px
 .p-0
@@ -110,16 +112,17 @@ h1, h2
 /* ==================================================
   buttons
   ================================================== */
-.btncircle
+.btn-circle
     margin: 5px
     border-radius: 100%
-    padding: 5px
-    font-size: 15px
+    padding: 35px 40px
+    font-size: 30px
 .btn
     margin: 5px
     border-radius: 5px
     padding: 10px 30px
     font-size: 15px !important
+    
 .btn-default, .btn-default:visited
     background-color: darken($ligthgreen, 2.5%)
     font-weight: bold
@@ -128,13 +131,18 @@ h1, h2
     border: 1px solid darken($ligthgreen, 2.5%)
     background-color: darken($white, 2.5%)
     color: darken($ligthgreen, 2.5%)
-.btn-inverse
-    background-color: darken($black, 2.5%)
+    
+.btn-inverse, .btn-inverse:visited
+    border: 2px solid darken($ligthgreen, 2.5%)
+    background-color: darken($white, 2.5%)
+    color: darken($ligthgreen, 2.5%)
     font-weight: bold
-    color: darken($darkgreen, 2.5%)
+    
 .btn-inverse:hover, .btn-inverse:focus
-    border: 1px solid darken($darkgreen, 2.5%)
-    color: darken($darkgreen, 2.5%)
+    border: 1px solid darken($ligthgreen, 2.5%)
+    background: darken($ligthgreen, 2.5%)
+    color: darken($white, 2.5%)
+    
 .link-inverse
     color: darken($white, 2.5%)
     margin: 0px 10px

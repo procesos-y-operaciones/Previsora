@@ -1,14 +1,22 @@
-<p>
-  Párrafo de introducción.
+<p class="m-30">
+  Párrafo de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  Párrafo de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  Párrafo de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  Párrafo de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
+  de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
 </p>
 
-<%= link_to lawyer_new_path, class: "btn btncircle" do %>
-    <i class="glyphicon glyphicon-euro"></i> Dashboard
-<% end %>
-
-<%= link_to "Crear proceso", lawyer_new_path %>
-<span class="glyphicon glyphicon-search"></span>
-
-<%= link_to "Buscar", lawyer_search_path %>
-
-<%= link_to "Reporte", lawyer_report_path %>
+<div class="container-fluid center">
+    <%= link_to lawyer_new_path, class:"" do %>
+        <span class="glyphicon glyphicon-plus btn-circle btn-inverse"></span>
+    <% end %>
+    <%= link_to lawyer_search_path do %>
+        <span class="glyphicon glyphicon-search btn-circle btn-inverse"></span>
+    <% end %>
+    <%= link_to lawyer_report_path do %>
+        <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse"></span>
+    <% end %>
+</div>
