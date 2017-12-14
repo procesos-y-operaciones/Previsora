@@ -97,6 +97,7 @@ CityCase.create([
 ])
 
 BranchPolicy.create([
+  {name: 'PENDIENTE'},
   {name: 'APARTADO'},
   {name: 'ARAUCA'},
   {name: 'ARMENIA'},
@@ -128,32 +129,33 @@ BranchPolicy.create([
 ])
 
 BranchCommercial.create([
-  {name: 'RESPONSABILIDAD CIVIL'},
-  {name: 'PREVI-ALCALDIAS'},
-  {name: 'MANEJO'},
-  {name: 'PREVI-HOSPITAL'},
-  {name: 'CUMPLIMIENTO'},
-  {name: 'PREVI-PYME'},
-  {name: 'INFIDELIDAD RIESGOS FINANCIEROS'},
-  {name: 'PREVI-EDUCATIVOS'},
-  {name: 'CAUCION JUDICIAL'},
-  {name: 'TODO RIESGO CONTRATISTA'},
-  {name: 'ACCIDENTES PERSONALES'},
-  {name: 'AGRICOLA'},
-  {name: ' AUTOMOVILES'},
-  {name: ' CAUCION JUDICIAL'},
-  {name: ' CORRIENTE DEBIL '},
-  {name: ' CUMPLIMIENTO'},
-  {name: ' INCENDIO'},
-  {name: ' RESPONSABILIDAD CIVIL'},
-  {name: ' ROTURA DE MAQUINARIA'},
-  {name: ' SALUD'},
-  {name: ' SEGURO OBLIGATORIO'},
-  {name: ' SUSTRACCION'},
-  {name: ' TODO RIESGO CONTRATISTA RESPONSABILIDAD CIVIL'},
-  {name: ' TRANSPORTES'},
-  {name: ' VIDA GRUPO'},
-  {name: 'TRASPORTES'}
+  {name: 'PENDIENTE', num: 0},
+  {name: 'RESPONSABILIDAD CIVIL', num: 1},
+  {name: 'PREVI-ALCALDIAS', num: 1},
+  {name: 'MANEJO', num: 1},
+  {name: 'PREVI-HOSPITAL', num: 1},
+  {name: 'CUMPLIMIENTO', num: 1},
+  {name: 'PREVI-PYME', num: 1},
+  {name: 'INFIDELIDAD RIESGOS FINANCIEROS', num: 1},
+  {name: 'PREVI-EDUCATIVOS', num: 1},
+  {name: 'CAUCION JUDICIAL', num: 1},
+  {name: 'TODO RIESGO CONTRATISTA', num: 1},
+  {name: 'ACCIDENTES PERSONALES', num: 1},
+  {name: 'AGRICOLA', num: 1},
+  {name: ' AUTOMOVILES', num: 1},
+  {name: ' CAUCION JUDICIAL', num: 1},
+  {name: ' CORRIENTE DEBIL ', num: 1},
+  {name: ' CUMPLIMIENTO', num: 1},
+  {name: ' INCENDIO', num: 1},
+  {name: ' RESPONSABILIDAD CIVIL', num: 1},
+  {name: ' ROTURA DE MAQUINARIA', num: 1},
+  {name: ' SALUD', num: 1},
+  {name: ' SEGURO OBLIGATORIO', num: 1},
+  {name: ' SUSTRACCION', num: 1},
+  {name: ' TODO RIESGO CONTRATISTA RESPONSABILIDAD CIVIL', num: 1},
+  {name: ' TRANSPORTES', num: 1},
+  {name: ' VIDA GRUPO', num: 1},
+  {name: 'TRASPORTES', num: 1}
 ])
 
 Protection.create([
@@ -1267,6 +1269,7 @@ ReservedReleased.create([
 ])
 
 SubprocessClass.create([
+  {name: 'SELECCIONE UNA'},
   {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO'},
   {name: 'JURISDICCION CIVIL'},
   {name: 'VERBAL'},

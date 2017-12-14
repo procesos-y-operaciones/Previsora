@@ -9,4 +9,10 @@
 #
 
 class OfficeName < ApplicationRecord
+
+  def self.fiscal
+    OfficeName.where("name like '%AUDITORIA%' OR name like '%CONTRALORIA%'")
+  end
+
+
 end

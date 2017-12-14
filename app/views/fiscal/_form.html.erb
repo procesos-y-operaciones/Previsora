@@ -19,13 +19,13 @@
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
         <%= form.label "Clase de proceso" %>
-        <%= form.text_field :process_class_id, :value => "RESPONSABILIDAD FISCAL", :readonly =>"readonly", class: "form-control" %>
+        <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.find([3,4]), :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Tiene número de radicado?" %>
-        <%= form.select :state, options_for_select([["Si", true], ["No", false]]), class: "form-control" %>
+        <!--%= form.select :state, options_for_select([["Si", true], ["No", false]]), class: "form-control" %-->
 
         <%= form.label "Número de radicado correspondencia" %>
         <%= form.text_field :correspondency_radicate, class:"form-control" %>
@@ -37,10 +37,10 @@
         <%= form.number_field :case_id_sise, class:"form-control" %>
 
         <%= form.label "Fecha de creación" %>
-        <%= form.date_field :creation_date, class:"form-control" %>
+        <%= form.date_field :creation_date, :value => Date.today, :readonly => "readonly", class:"form-control" %>
 
         <%= form.label "Tipo de vinculación" %>
-        <%= form.collection_select(:link_type_id, LinkType.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Departamento" %>
         <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
@@ -82,7 +82,7 @@
         <%= form.text_field :passive_part, class:"form-control" %>
 
         <%= form.label "Nombre despacho / tipo contraloría" %>
-        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:office_name_id, OfficeName.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Tipo moneda (RADIO)" %>
         <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>

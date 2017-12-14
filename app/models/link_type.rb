@@ -9,4 +9,9 @@
 #
 
 class LinkType < ApplicationRecord
+
+  def self.fiscal
+    [LinkType.find(4)]
+  end
+
 end

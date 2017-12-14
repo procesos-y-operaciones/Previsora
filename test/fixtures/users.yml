@@ -3,9 +3,11 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
-#  document               :integer          default(0), not null
+#  document               :string           default(""), not null
+#  name                   :string           default(""), not null
+#  role                   :integer          default(0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
