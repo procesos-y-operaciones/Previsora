@@ -26,13 +26,7 @@
           </div>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-<<<<<<< HEAD
-              <p class="white"><%= current_user.email %></p>
-              <%= link_to 'Editar Perfil', edit_user_registration_path, class:"link-inverse" %> 
-=======
-              Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Editar Perfil', edit_user_registration_path, class:"link-inverse" %>
->>>>>>> 52361a7e70264f13e286b3577240960bf2110a37
+              <%= link_to current_user.name, edit_user_registration_path, class:"link-inverse" %> 
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
             <% else %>
               <!--%= link_to "Registrarse", new_user_registration_path, class:"link-inverse"  %-->
