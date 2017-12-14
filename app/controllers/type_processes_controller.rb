@@ -30,7 +30,21 @@ class TypeProcessesController < ApplicationController
         format.html { redirect_to index_home_path, notice: 'Proceso creado correctamente.' }
         format.json { render :show, status: :created, location: @type_process }
       else
-        format.html { render :new }
+        format.html {
+          if @type_process.p_type == 1
+            redirect_to new_prejudicial_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 2
+            redirect_to new_judicial_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 3
+            redirect_to new_fiscal_path, :flash => { :error => @type_process.errors }
+          elsif @type_process.p_type == 4
+            redirect_to new_administrative_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 5
+            redirect_to new_tutelage_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+          else
+            render :new
+          end
+         }
         format.json { render json: @type_process.errors, status: :unprocessable_entity }
       end
     end
@@ -73,6 +87,9 @@ class TypeProcessesController < ApplicationController
           :ensurance_value, :score_contingency_id, :contingency_value, :contingency_reason, :contingency_resume,
           :facts, :policy, :protection_id, :current_stage_id, :litigation_source_id, :reserved_fees, :instance_id,
           :desition_date, :case_termination_id, :fail_value, :payed_value, :payment_date, :garnish_value, :reinsurance_type_id,
-          :reensurance_gived, :last_performance_date, :join_committee_id, :auth_value, :reason_conc, :reason_inv, :reserved_released_id)
+          :reensurance_gived, :last_performance_date, :join_committee_id, :auth_value, :reason_conc, :reason_inv, :reserved_released_id,
+          :subprocess_class_id, :office_name_id, :dolar_value_cents, :detritment_cents, :ensurance_value_cents, :contingency_value_cents,
+          :policy_cents, :reserve_cents, :fail_value_cents, :payed_value_cents, :reserved_fees_cents, :coactive_value_cents, :garnish_value_cents,
+          :reensurance_gived_cents)
     end
 end
