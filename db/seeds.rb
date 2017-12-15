@@ -1333,7 +1333,7 @@ CoensuranceType.create([
   {name: "ACEPTADO"}
 ])
 
-CaseTermination.create([
+CaseState.create([
   {name: "PENDIENTE"},
   {name: "EN CURSO"},
   {name: "TERMINADO"}
