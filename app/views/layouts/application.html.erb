@@ -20,8 +20,10 @@
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
 
-        <nav class="navbar navbar-default navbar-static-top">
-          <ul class="nav navbar-nav navbar-right">
+        
+        
+        <div class="division">
+          <ul class="right p-15">
             <% if user_signed_in? %>
               <%= link_to current_user.name, edit_user_registration_path, class:"link-inverse" %> 
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
@@ -30,7 +32,9 @@
               <!--%= link_to "Iniciar Sesión", new_user_session_path, class:"link-inverse"  %-->
             <% end %>
           </ul>
-        </nav>
+        </div>
+        
+        
 
         <%= yield %>
 

@@ -1,4 +1,3 @@
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
@@ -23,6 +22,18 @@
          document.getElementById("correspondency_radicate").readOnly = true;
          $("#correspondency_radicate").val("Pendiente");
       }
+    });
+    
+    var  numSiniestro = "";
+    $('#number').change(function(){
+      numSiniestro = numSiniestro.concat(document.getElementById("number").value);
+    });
+    $('#exercise').change(function(){
+      numSiniestro = numSiniestro.concat(document.getElementById("exercise").value);
+    });
+    $('#branch_commercial').change(function(){
+      numSiniestro = numSiniestro.concat(document.getElementById("branch_commercial").value);
+      $("#sinister").val(numSiniestro);
     });
   });
 </script>
@@ -92,16 +103,16 @@
         <%= form.text_field :process_radicate, class:"form-control" %>
 
         <%= form.label "Número" %>
-        <%= form.number_field :number, class:"form-control" %>
+        <%= form.number_field :number, id:"number", class:"form-control" %>
 
         <%= form.label "Ejercicio" %>
-        <%= form.number_field :exercise, class:"form-control" %>
+        <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
 
         <%= form.label "Ramo comercial" %>
-        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id,:name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
+        
         <%= form.label "Número del siniestro (/TODO)" %>
-        <%= form.text_field :sinister, class:"form-control" %>
+        <%= form.text_field :sinister, id:"sinister", class:"form-control" %>
 
         <%= form.label "Apoderado Previsora" %>
         <%= form.text_field :attorny, class:"form-control" %>
