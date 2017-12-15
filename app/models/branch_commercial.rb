@@ -10,4 +10,9 @@
 #
 
 class BranchCommercial < ApplicationRecord
+
+  def large_name
+    "#{num} - #{name}"
+  end
+
 end

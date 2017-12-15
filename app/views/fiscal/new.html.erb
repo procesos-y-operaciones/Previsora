@@ -1,6 +1,9 @@
+<!--%= flash.inspect %-->
+<!--% if flash == {} %-->
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<!--% end %-->
+
 <h2 class="center mt-50">Nueva Responsabilidad Fiscal</h2>
-Aboga Interno: <%= current_user.name %>
+<h4 class="center mt-50"><b>Abogado Interno:</b> <%= current_user.name %></h4>
 
 <%= render 'form', type_process: @fiscal %>
-
-

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213021603) do
+ActiveRecord::Schema.define(version: 20171215174507) do
 
   create_table "branch_commercials", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20171213021603) do
   end
 
   create_table "city_cases", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coensurance_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -174,7 +180,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.integer "p_type"
     t.string "correspondency_radicate"
     t.string "case_id_bap"
-    t.integer "case_id_sise"
+    t.string "case_id_sise"
     t.date "creation_date"
     t.date "notification_date"
     t.string "process_radicate"
@@ -225,6 +231,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.string "auth_value_currency", default: "USD", null: false
     t.string "reason_conc"
     t.string "reason_inv"
+    t.boolean "reinsurance_report"
     t.integer "process_class_id"
     t.integer "subprocess_class_id"
     t.integer "link_type_id"
@@ -251,6 +258,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.integer "reserved_released_id"
     t.integer "money_type_id"
     t.integer "join_committee_id"
+    t.integer "coensurance_type_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -259,6 +267,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.index ["case_state_id"], name: "index_type_processes_on_case_state_id"
     t.index ["case_termination_id"], name: "index_type_processes_on_case_termination_id"
     t.index ["city_case_id"], name: "index_type_processes_on_city_case_id"
+    t.index ["coensurance_type_id"], name: "index_type_processes_on_coensurance_type_id"
     t.index ["committee_id"], name: "index_type_processes_on_committee_id"
     t.index ["current_stage_id"], name: "index_type_processes_on_current_stage_id"
     t.index ["departament_id"], name: "index_type_processes_on_departament_id"
