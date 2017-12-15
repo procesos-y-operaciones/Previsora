@@ -52,10 +52,6 @@
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.hidden_field :internal_lawyer_id, :value => current_user.id %>
 
-        <!--//TODO-->
-        <!--%= form.label "Abogado interno: #{current_user.name}" %-->
-        <!--%= form.text_field :internal_lawyer_id, :value=>current_user.name, :readonly=>"readonly", class:"form-control" %-->
-
         <%= form.label "Clase de proceso" %>
         <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
@@ -67,7 +63,6 @@
           <option value="Si">Si</option>
           <option value="No">No</option>
         </select>
-        <!--%= form.select :state, options_for_select([["Si", true], ["No", false]]), :html => { :id => "estado" }, class: "form-control" %-->
 
         <%= form.label "Número de radicado correspondencia" %>
         <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
@@ -76,8 +71,9 @@
         <%= form.text_field :case_id_bap, class:"form-control" %>
 
         <%= form.label "Número de identificación del caso SISE" %>
-        <%= form.number_field :case_id_sise, class:"form-control" %>
+        <%= form.text_field :case_id_sise, class:"form-control" %>
 
+        <!--TODO: Today date as default.-->
         <%= form.label "Fecha de creación" %>
         <%= form.date_field :creation_date, :value => Date.today, :readonly => "readonly", class:"form-control" %>
 
@@ -96,7 +92,7 @@
         <%= form.label "Tipo de reaseguro" %>
         <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
-        <!-- Reporte reaseguro -->
+        <!-- Reporte coaseguro -->
 
         <%= form.label "Tipo de coaseguro" %>
         <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
