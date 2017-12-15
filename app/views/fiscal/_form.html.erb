@@ -46,15 +46,11 @@
 
     function litigationSourceRule(){
       litsrc = document.getElementById("litigationSource").value;
-      if(litsrc == 1){
+      if(litsrc == 2){
         document.getElementById("policyCents").readOnly = false;
         $('#protection').prop( "disabled", false );
       }
-      if(litsrc == 2){
-        document.getElementById("policyCents").readOnly = true;
-        $('#protection').prop( "disabled", true );
-      }
-      if(litsrc == 3){
+      else{
         document.getElementById("policyCents").readOnly = true;
         $('#protection').prop( "disabled", true );
       }
@@ -129,8 +125,35 @@
       else
         document.getElementById("dolarValueCents").readOnly = false;
     }
+<<<<<<< HEAD
 
     /*moneyType dolarValueCents*/
+=======
+    
+    $('#caseState').ready(function(){
+      caseStateRule();
+    });
+    $('#caseState').change(function(){
+      caseStateRule();
+    });
+    function caseStateRule(){
+      var case_state = document.getElementById("caseState").value;
+      if(case_state == 3){
+        $('#caseTermination').prop( "disabled", false );
+        $('#lastPerformance').prop( "disabled", false );
+        document.getElementById("lastPerformanceDate").readOnly = false;
+        $('#reservedReleased').prop( "disabled", false );
+      }
+      else{
+        $('#caseTermination').prop( "disabled", true );
+        $('#lastPerformance').prop( "disabled", true );
+        document.getElementById("lastPerformanceDate").readOnly = true;
+        $('#reservedReleased').prop( "disabled", true );
+      }
+    }
+    
+    /*caseState caseTermination lastPerformance lastPerformanceDate reservedReleased*/
+>>>>>>> c94eff2f2237f4e295b7b2ecbfbedc1c4439184a
   });
 
 </script>
@@ -308,13 +331,13 @@
         <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Estado del caso" %>
-        <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control", :id=>"caseState"}) %>
 
         <%= form.label "Fecha de decisión" %>
         <%= form.date_field :desition_date, class:"form-control" %>
 
         <%= form.label "Terminación del caso" %>
-        <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control", :id=>"caseTermination"}) %>
 
         <%= form.label "Valor fallo decisión" %>
         <%= form.number_field :fail_value_cents, class:"form-control" %>
@@ -339,13 +362,13 @@
         <%= form.number_field :garnish_value_cents, class:"form-control" %>
 
         <%= form.label "Última actuación" %>
-        <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control", :id=>"lastPerformance"}) %>
 
         <%= form.label "Fecha última actuación" %>
-        <%= form.date_field :last_performance_date, class:"form-control" %>
+        <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate" %>
 
         <%= form.label "Reserva depurada" %>
-        <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control", :id=>"reservedReleased"}) %>
 
       </div>
     </div>
