@@ -177,8 +177,8 @@
         <%= form.label "Valor del dólar" %>
         <%= form.number_field :dolar_value_cents, class:"form-control" %>
 
-        <%= form.label "Número del siniestro (/TODO)" %>
-        <%= form.text_field :sinister, id:"sinister", class:"form-control" %>
+        <%= form.label "Número del siniestro (completo)" %>
+        <%= form.text_field :sinister, id:"sinister", :eadOnly=>"readOnly", class:"form-control" %>
 
         <%= form.label "Reserva o provisión de indemnización" %>
         <%= form.number_field :reserve_cents, class:"form-control" %>
@@ -275,18 +275,11 @@
 
         <%= form.label "Fecha de consignación" %>
         <%= form.date_field :payment_date, class:"form-control" %>
-<<<<<<< HEAD
-
-        <%= form.label "Número de radicación de coactivo" %>
-        <%= form.text_field :coactive_value_cents, class:"form-control" %>
-
-=======
 
         <!--TODO: Mirar si hay coactivo-->
         <%= form.label "Número de radicación de coactivo" %>
         <%= form.text_field :coactive_value_cents, class:"form-control" %>
 
->>>>>>> e28b10911dfd245ea61888975f5d338993d6cc4b
         <%= form.label "Valor coactivo" %>
         <%= form.number_field :coactive_value_cents, class:"form-control" %>
 
