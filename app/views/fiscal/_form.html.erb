@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 <!--%= flash.inspect %-->
 <!--% if flash == {} %-->
   <p class="alert alert-danger"><%= flash[:error] %></p>
 <!--% end %-->
 
->>>>>>> e28b10911dfd245ea61888975f5d338993d6cc4b
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
@@ -289,18 +286,11 @@
 
         <%= form.label "Fecha de consignación" %>
         <%= form.date_field :payment_date, class:"form-control" %>
-<<<<<<< HEAD
-        
-        <%= form.label "Número de radicación de coactivo" %>
-        <%= form.text_field :coactive_value_cents, class:"form-control" %>
-        
-=======
 
         <!--TODO: Mirar si hay coactivo-->
         <%= form.label "Número de radicación de coactivo" %>
         <%= form.text_field :coactive_value_cents, class:"form-control" %>
 
->>>>>>> e28b10911dfd245ea61888975f5d338993d6cc4b
         <%= form.label "Valor coactivo" %>
         <%= form.number_field :coactive_value_cents, class:"form-control" %>
 
