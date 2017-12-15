@@ -23,7 +23,6 @@
          $("#correspondency_radicate").val("Pendiente");
       }
     });
-    
     var  numSiniestro = "";
     $('#number').change(function(){
       numSiniestro = numSiniestro.concat(document.getElementById("number").value);
@@ -35,6 +34,31 @@
       numSiniestro = numSiniestro.concat(document.getElementById("branch_commercial").value);
       $("#sinister").val(numSiniestro);
     });
+    
+    $('#litigationSource').ready(function(){
+      litigationSourceRule();
+    });
+    $('#litigationSource').change(function(){
+      litigationSourceRule();
+    });
+    
+    function litigationSourceRule(){
+      litsrc = document.getElementById("litigationSource").value;
+      if(litsrc == 1){
+        document.getElementById("policyCents").readOnly = false;
+        $('#protection').prop( "disabled", false );
+      }
+      if(litsrc == 2){
+        document.getElementById("policyCents").readOnly = true;
+        $('#protection').prop( "disabled", true );
+      }
+      if(litsrc == 3){
+        document.getElementById("policyCents").readOnly = true;
+        $('#protection').prop( "disabled", true );
+      }
+    }
+
+    
   });
 </script>
 
@@ -157,16 +181,16 @@
         <%= form.text_field :facts, class:"form-control" %>
 
         <%= form.label "Póliza" %>
-        <%= form.number_field :policy_cents, class:"form-control" %>
+        <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
 
         <%= form.label "Amparo" %>
-        <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control", :id=>"protection", :disabled=>"true"}) %>
 
         <%= form.label "Etapa actual" %>
         <%= form.collection_select(:current_stage_id, CurrentStage.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Fuente de litigio" %>
-        <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
 
         <%= form.label "Reserva o provisión de indemnización" %>
         <%= form.number_field :reserve_cents, class:"form-control" %>
