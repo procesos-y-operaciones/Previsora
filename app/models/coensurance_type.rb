@@ -1,18 +1,12 @@
 # == Schema Information
 #
-# Table name: branch_commercials
+# Table name: coensurance_types
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  num        :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class BranchCommercial < ApplicationRecord
-
-  def large_name
-    "#{num} - #{name}"
-  end
-
+class CoensuranceType < ApplicationRecord
 end

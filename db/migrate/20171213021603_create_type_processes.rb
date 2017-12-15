@@ -43,6 +43,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.monetize  :auth_value
       t.string    :reason_conc
       t.string    :reason_inv
+      t.boolean   :reinsurance_report
       #t.references  :evaluation, foreign_key: true
       t.references  :process_class, foreign_key: true
       t.references  :subprocess_class, foreign_key: true
@@ -70,6 +71,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.references  :reserved_released, foreign_key: true
       t.references  :money_type, foreign_key: true
       t.references  :join_committee, foreign_key: true
+      t.references  :coensurance_type, foreign_key: true
       t.references  :user, foreign_key: true
 
       t.timestamps

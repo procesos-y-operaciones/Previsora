@@ -1,8 +1,3 @@
-<!--%= flash.inspect %-->
-<!--% if flash == {} %-->
-  <p class="alert alert-danger"><%= flash[:error] %></p>
-<!--% end %-->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
@@ -28,25 +23,27 @@
          $("#correspondency_radicate").val("Pendiente");
       }
     });
-    var  numSiniestro = "";
+    var num=0, exer=0, comm=0, numSiniestro = "";
     $('#number').change(function(){
-      numSiniestro = numSiniestro.concat(document.getElementById("number").value);
+      num = numSiniestro.concat(document.getElementById("number").value);
+      $("#sinister").val(num+"-"+exer+"-"+comm);
     });
     $('#exercise').change(function(){
-      numSiniestro = numSiniestro.concat(document.getElementById("exercise").value);
+      exer = numSiniestro.concat(document.getElementById("exercise").value);
+      $("#sinister").val(num+"-"+exer+"-"+comm);
     });
     $('#branch_commercial').change(function(){
-      numSiniestro = numSiniestro.concat(document.getElementById("branch_commercial").value);
-      $("#sinister").val(numSiniestro);
+      comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
+      $("#sinister").val(num+"-"+exer+"-"+comm);
     });
-    
+
     $('#litigationSource').ready(function(){
       litigationSourceRule();
     });
     $('#litigationSource').change(function(){
       litigationSourceRule();
     });
-    
+
     function litigationSourceRule(){
       litsrc = document.getElementById("litigationSource").value;
       if(litsrc == 1){
@@ -174,7 +171,7 @@
         <%= form.label "Número de radicado correspondencia" %>
         <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
 
-        <%= form.label "Número de identificación del caso Bizagi, Acces y PA)" %>
+        <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <%= form.text_field :case_id_bap, class:"form-control" %>
 
         <%= form.label "Número de identificación del caso SISE" %>
@@ -192,20 +189,18 @@
 
         <%= form.label "Ciudad donde cursa el caso" %>
         <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
-        
+
         <%= form.label "Fuente de litigio" %>
         <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
 
-         <%= form.label "Tipo de reaseguro" %>
+        <%= form.label "Tipo de reaseguro" %>
         <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
-        <!-- Reporte coaseguro -->
+        <%= form.label "Reaseguro reportado" %>
+        <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]], {:class=>"form-control"}) %>
 
         <%= form.label "Tipo de coaseguro" %>
-        <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-        <!--%= form.label "Reaseguro cedido" %-->
-        <!--%= form.number_field :reensurance_gived_cents, class:"form-control" %-->
+        <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Póliza" %>
         <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
@@ -215,7 +210,7 @@
 
         <%= form.label "Número (siniestro)" %>
         <%= form.number_field :number, id:"number", class:"form-control" %>
-        
+
         <%= form.label "Ejercicio" %>
         <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
 
@@ -223,23 +218,23 @@
         <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Ramo comercial" %>
-        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id,:name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
-        
+        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
+
         <%= form.label "Tipo moneda" %>
         <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
 
         <%= form.label "Valor del dólar" %>
         <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
-        
-        <%= form.label "Número del siniestro (/TODO)" %>
-        <%= form.text_field :sinister, id:"sinister", class:"form-control" %>
-        
+
+        <%= form.label "Número del siniestro (completo)" %>
+        <%= form.text_field :sinister, id:"sinister", :eadOnly=>"readOnly", class:"form-control" %>
+
         <%= form.label "Reserva o provisión de indemnización" %>
         <%= form.number_field :reserve_cents, class:"form-control" %>
 
         <%= form.label "Reserva honorarios" %>
         <%= form.number_field :reserved_fees_cents, class:"form-control" %>
-        
+
         <%= form.label "Valor pretensión / detrimento / estimación" %>
         <%= form.number_field :detritment_cents, id:"detrimetValueCents", class:"form-control" %>
 
@@ -349,7 +344,7 @@
 
         <%= form.label "Reserva depurada" %>
         <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control"}) %>
-        
+
       </div>
     </div>
   </div>

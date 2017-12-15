@@ -176,6 +176,7 @@ BranchCommercial.create([
 ])
 
 Protection.create([
+  {name: 'PENDIENTE'},
   {name: 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL'},
   {name: 'DELITOS CONTRA LA ADMINISTRACION PUBLICA'},
   {name: 'DAÑOS EXTRAPRATIMONIALES'},
@@ -1241,6 +1242,7 @@ OfficeName.create([
 ])
 
 LitigationSource.create([
+  {name: 'PENDIENTE'},
   {name: 'SINIESTRO'},
   {name: 'PROVISION'},
   {name: 'NO APLICA'}
@@ -1323,4 +1325,16 @@ SubprocessClass.create([
   {name: 'ART. 86 -1437'},
   {name: 'LEY 1437'},
   {name: 'RESPONSABILIDAD FISCAL'}
+])
+
+CoensuranceType.create([
+  {name: "NO TIENE"},
+  {name: "CEDIDO"},
+  {name: "ACEPTADO"}
+])
+
+CaseTermination.create([
+  {name: "PENDIENTE"},
+  {name: "EN CURSO"},
+  {name: "TERMINADO"}
 ])

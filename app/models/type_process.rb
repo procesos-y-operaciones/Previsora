@@ -6,7 +6,7 @@
 #  p_type                              :integer
 #  correspondency_radicate             :string
 #  case_id_bap                         :string
-#  case_id_sise                        :integer
+#  case_id_sise                        :string
 #  creation_date                       :date
 #  notification_date                   :date
 #  process_radicate                    :string
@@ -57,6 +57,7 @@
 #  auth_value_currency                 :string           default("USD"), not null
 #  reason_conc                         :string
 #  reason_inv                          :string
+#  reinsurance_report                  :boolean
 #  process_class_id                    :integer
 #  subprocess_class_id                 :integer
 #  link_type_id                        :integer
@@ -83,6 +84,7 @@
 #  reserved_released_id                :integer
 #  money_type_id                       :integer
 #  join_committee_id                   :integer
+#  coensurance_type_id                 :integer
 #  user_id                             :integer
 #  created_at                          :datetime         not null
 #  updated_at                          :datetime         not null
@@ -98,7 +100,10 @@ class TypeProcess < ApplicationRecord
   def veritycations
     if self.p_type == 3
       if self.subprocess_class_id == 1
-        errors.add(:subprocess_class_id, "Debes seleccionar una clase de Subprocesos")
+        errors.add("Subproceso ", "debe ser seleccionado")
+      end
+      if self.case_id_bap == ""
+        errors.add("Número de identificación del caso (Bizagi, Acces y PA) ", "debe existir")
       end
     end
   end
