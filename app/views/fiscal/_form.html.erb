@@ -159,6 +159,8 @@
         <%= form.label "Clase de proceso" %>
         <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
+        <hr>
+  
         <%= form.label "Subclase de proceso" %>
         <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
 
@@ -196,9 +198,9 @@
         <%= form.label "Tipo de reaseguro" %>
         <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
-        <%= form.label "Reaseguro reportado" %>
+        <%= form.label "Reaseguro reportado" %><br>
         <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]], {:class=>"form-control"}) %>
-
+        <br>
         <%= form.label "Tipo de coaseguro" %>
         <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
