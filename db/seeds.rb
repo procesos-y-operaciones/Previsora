@@ -168,6 +168,7 @@ BranchCommercial.create([
   {name: 'PREVIPYME', num: 88},
   {name: 'PREVIHOGAR', num: 89},
   {name: 'AREAS COMUNES', num: 90},
+  {name: 'PREVITURISMO', num: 91},
   {name: 'PREVIQUIMICOS', num: 92},
   {name: 'PREVIEDUCATIVO', num: 93},
   {name: 'TODO RIESGO EMPRESARIAL', num: 94},
@@ -220,7 +221,8 @@ ScoreContingency.create([
 ])
 
 CurrentStage.create([
-  {name: 'PENDIENTE', n_type: 0},
+  {name: 'PENDIENTE', n_type: 1},
+  {name: 'PENDIENTE', n_type: 2},
   {name: 'AUTO DE APERTURA', n_type: 1},
   {name: 'AUTO DE IMPUTACIÓN', n_type: 1},
   {name: 'ARGUMENTOS DE DEFENSA', n_type: 1},

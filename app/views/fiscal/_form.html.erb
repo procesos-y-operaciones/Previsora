@@ -82,7 +82,7 @@
           $("#contingencyValueCents").val(ensValCents);
       }
     }
-    
+
     $('#subprocessClass').ready(function(){
       subprocessClassRule();
     });
@@ -113,7 +113,7 @@
         $('#currentStageOrd').show();
       }
     }
-    
+
     $('#moneyType').ready(function(){
       moneyTypeRule();
     });
@@ -129,10 +129,10 @@
       else
         document.getElementById("dolarValueCents").readOnly = false;
     }
-    
+
     /*moneyType dolarValueCents*/
   });
-  
+
 </script>
 
 
@@ -156,11 +156,11 @@
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.hidden_field :internal_lawyer_id, :value => current_user.id %>
 
+        <hr>
+
         <%= form.label "Clase de proceso" %>
         <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
-        <hr>
-  
         <%= form.label "Subclase de proceso" %>
         <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
 
