@@ -36,7 +36,7 @@ class TypeProcessesController < ApplicationController
           elsif @type_process.p_type == 2
             redirect_to new_judicial_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 3
-            redirect_to new_fiscal_path, :flash => { :error => @type_process.errors }
+            redirect_to new_fiscal_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 4
             redirect_to new_administrative_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 5

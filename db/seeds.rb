@@ -48,6 +48,7 @@ LinkType.create([
 ])
 
 Departament.create([
+  {name: 'PENDIENTE'},
   {name: 'AMAZONAS'},
   {name: 'ANTIOQUIA'},
   {name: 'ARAUCA'},
@@ -74,6 +75,7 @@ Departament.create([
 ])
 
 CityCase.create([
+  {name: 'PENDIENTE'},
   {name: 'ABEJORRAL'},
   {name: 'ABREGO'},
   {name: 'ABRIAQUI'},
@@ -130,32 +132,47 @@ BranchPolicy.create([
 
 BranchCommercial.create([
   {name: 'PENDIENTE', num: 0},
-  {name: 'RESPONSABILIDAD CIVIL', num: 1},
-  {name: 'PREVI-ALCALDIAS', num: 1},
   {name: 'MANEJO', num: 1},
-  {name: 'PREVI-HOSPITAL', num: 1},
-  {name: 'CUMPLIMIENTO', num: 1},
-  {name: 'PREVI-PYME', num: 1},
-  {name: 'INFIDELIDAD RIESGOS FINANCIEROS', num: 1},
-  {name: 'PREVI-EDUCATIVOS', num: 1},
-  {name: 'CAUCION JUDICIAL', num: 1},
-  {name: 'TODO RIESGO CONTRATISTA', num: 1},
-  {name: 'ACCIDENTES PERSONALES', num: 1},
-  {name: 'AGRICOLA', num: 1},
-  {name: ' AUTOMOVILES', num: 1},
-  {name: ' CAUCION JUDICIAL', num: 1},
-  {name: ' CORRIENTE DEBIL ', num: 1},
-  {name: ' CUMPLIMIENTO', num: 1},
-  {name: ' INCENDIO', num: 1},
-  {name: ' RESPONSABILIDAD CIVIL', num: 1},
-  {name: ' ROTURA DE MAQUINARIA', num: 1},
-  {name: ' SALUD', num: 1},
-  {name: ' SEGURO OBLIGATORIO', num: 1},
-  {name: ' SUSTRACCION', num: 1},
-  {name: ' TODO RIESGO CONTRATISTA RESPONSABILIDAD CIVIL', num: 1},
-  {name: ' TRANSPORTES', num: 1},
-  {name: ' VIDA GRUPO', num: 1},
-  {name: 'TRASPORTES', num: 1}
+  {name: 'CUMPLIMIENTO', num: 2},
+  {name: 'INCENDIO', num: 3},
+  {name: 'SUSTRACCION', num: 4},
+  {name: 'TRANSPORTES', num: 5},
+  {name: 'CASCO BARCO', num: 6},
+  {name: 'AUTOMOVILES', num: 7},
+  {name: 'SOAT', num: 8},
+  {name: 'VIDRIOS PLANOS', num: 9},
+  {name: 'CASCO AVIACION', num: 10},
+  {name: 'TERREMOTO (AMP. INCENDIO)', num: 11},
+  {name: 'TERREMOTO (AMP. CORRIENTE DEBIL)', num: 12},
+  {name: 'RESPONSABILIDAD CIVIL', num: 13},
+  {name: 'SEGURO AGRICOLA', num: 14},
+  {name: 'INFIDELIDAD DE RIESGOS FINANCIEROS', num: 15},
+  {name: 'VIDA COLECTIVO', num: 16},
+  {name: 'VIDA GRUPO', num: 17},
+  {name: 'VIDA GRUPO DEUDORES', num: 18},
+  {name: 'ACCIDENTES PERSONALES', num: 19},
+  {name: 'ESTABILIDAD Y CALIDAD DE VIVIENDA', num: 20},
+  {name: 'OBRAS CIVILES', num: 21},
+  {name: 'SALUD', num: 22},
+  {name: 'DESEMPLEO', num: 23},
+  {name: 'ADMINIST. RIESGOS PROFESIONALES', num: 24},
+  {name: 'VIDA INDIVIDUAL', num: 25},
+  {name: 'CAUCION JUDICIAL', num: 29},
+  {name: 'ROTURA DE MAQUINARIA', num: 81},
+  {name: 'MONTAJE DE MAQUINARIA', num: 82},
+  {name: 'CORRIENTE DEBIL', num: 83},
+  {name: 'TODO RIESGO CONTRATISTA', num: 84},
+  {name: 'MINAS Y PETROLEOS', num: 85},
+  {name: 'PREVIHOSPITAL', num: 86},
+  {name: 'PREVIALCALDIAS', num: 87},
+  {name: 'PREVIPYME', num: 88},
+  {name: 'PREVIHOGAR', num: 89},
+  {name: 'AREAS COMUNES', num: 90},
+  {name: 'PREVIQUIMICOS', num: 92},
+  {name: 'PREVIEDUCATIVO', num: 93},
+  {name: 'TODO RIESGO EMPRESARIAL', num: 94},
+  {name: 'PREVICAMPO', num: 95},
+  {name: 'DAÑOS MATERIALES', num: 98}
 ])
 
 Protection.create([
@@ -202,21 +219,29 @@ ScoreContingency.create([
 ])
 
 CurrentStage.create([
-  {name: 'RECURSOS (VIA GUBERNATIVA P.A)'},
-  {name: 'INICIO (ACTUACION ADMINISTRATIVA)'},
-  {name: 'FORMULACION DE CARGOS'},
-  {name: 'DECISION EJECUTORIADA'},
-  {name: 'APELACON'},
-  {name: 'ALEGATOS'},
-  {name: 'FALLO'},
-  {name: 'FALLO PRIMERA INSTANCIA'},
-  {name: 'FALLO SEGUNDA INSTANCIA'},
-  {name: 'REVISON'},
-  {name: 'PRUEBAS'},
-  {name: 'CONTESTACION DEMANDA/ LLAMAMIENTO'},
-  {name: 'CONCILIACION'},
-  {name: 'ADMISION DEMANDA'},
-  {name: 'RESPOSICION'}
+  {name: 'PENDIENTE', n_type: 0},
+  {name: 'AUTO DE APERTURA', n_type: 1},
+  {name: 'AUTO DE IMPUTACIÓN', n_type: 1},
+  {name: 'ARGUMENTOS DE DEFENSA', n_type: 1},
+  {name: 'ALEGATOS DE CONCLUSIÓN', n_type: 1},
+  {name: 'FALLO CON RESPONSABILIDAD FISCAL', n_type: 1},
+  {name: 'RECURSO DE REPOSICIÓN', n_type: 1},
+  {name: 'AUTO QUE RESUELVE LA REPOSICIÓN', n_type: 1},
+  {name: 'RECURSO DE APELACIÓN', n_type: 1},
+  {name: 'AUTO QUE RESUELVE APELACIÓN', n_type: 1},
+  {name: 'FALLO SIN RESPONSABILIDAD FISCAL', n_type: 1},
+  {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 1},
+  {name: 'AUTO DE APERTURA E IMPUTACIÓN', n_type: 2},
+  {name: 'AUDIENCIA DE DESCARGOS', n_type: 2},
+  {name: 'AUDIENCIA DE DECISIÓN', n_type: 2},
+  {name: 'FALLO CON RESPONSABILIDAD FISCAL', n_type: 2},
+  {name: 'RECURSO DE REPOSICIÓN', n_type: 2},
+  {name: 'AUTO QUE RESUELVE LA REPOSICIÓN', n_type: 2},
+  {name: 'RECURSO DE APELACIÓN', n_type: 2},
+  {name: 'AUTO QUE RESUELVE APELACIÓN', n_type: 2},
+  {name: 'FALLO SIN RESPONSABILIDAD FISCAL', n_type: 2},
+  {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 2},
+  {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 2}
 ])
 
 JoinCommittee.create([
@@ -1248,8 +1273,9 @@ GubernatorialWay.create([
 ])
 
 ReinsuranceType.create([
-  {name: 'TERMINADO CON PAGO: EN CONTRA'},
-  {name: 'TERMINADO SIN PAGO: A FAVOR'}
+  {name: 'PENDIENTE'},
+  {name: 'FACULTATIVO'},
+  {name: 'CUOTA APARTE'}
 ])
 
 SentenceTypeDesacate.create([

@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
 
   create_table "current_stages", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
