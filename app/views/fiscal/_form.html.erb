@@ -86,7 +86,56 @@
       }
     }
     
+    $('#subprocessClass').ready(function(){
+      subprocessClassRule();
+    });
+    $('#subprocessClass').change(function(){
+      subprocessClassRule();
+    });
+    function subprocessClassRule(){
+      subClass = document.getElementById("subprocessClass").value;
+      if(subClass == 1){
+        $('#currentStageVer').prop( "disabled", true );
+        $('#currentStageOrd').prop( "disabled", true );
+        $('#currentStage').hide();
+        $('#currentStageVer').hide();
+        $('#currentStageOrd').hide();
+      }
+      if(subClass == 4){
+        $('#currentStageVer').prop( "disabled", false );
+        $('#currentStageOrd').prop( "disabled", true );
+        $('#currentStage').show();
+        $('#currentStageVer').show();
+        $('#currentStageOrd').hide();
+      }
+      if(subClass == 5){
+        $('#currentStageVer').prop( "disabled", true );
+        $('#currentStageOrd').prop( "disabled", false );
+        $('#currentStage').show();
+        $('#currentStageVer').hide();
+        $('#currentStageOrd').show();
+      }
+    }
+    
+    $('#moneyType').ready(function(){
+      moneyTypeRule();
+    });
+    $('#moneyType').change(function(){
+      moneyTypeRule();
+    });
+    function moneyTypeRule(){
+      var money_type = document.getElementById("moneyType").value;
+      if(money_type == 1){
+        document.getElementById("dolarValueCents").readOnly = true;
+        $("#dolarValueCents").val(0);
+      }
+      else
+        document.getElementById("dolarValueCents").readOnly = false;
+    }
+    
+    /*moneyType dolarValueCents*/
   });
+  
 </script>
 
 
@@ -114,7 +163,7 @@
         <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
@@ -176,18 +225,12 @@
         <%= form.label "Ramo comercial" %>
         <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id,:name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
         
-        <%= form.label "Tipo moneda (RADIO)" %>
-        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Tipo moneda" %>
+        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
 
         <%= form.label "Valor del dólar" %>
-        <%= form.number_field :dolar_value_cents, class:"form-control" %>
-
-        <%= form.label "Tipo moneda (RADIO)" %>
-        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-        <%= form.label "Valor del dólar" %>
-        <%= form.number_field :dolar_value_cents, class:"form-control" %>
-
+        <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
+        
         <%= form.label "Número del siniestro (/TODO)" %>
         <%= form.text_field :sinister, id:"sinister", class:"form-control" %>
         
@@ -260,8 +303,9 @@
         <%= form.label "Hechos" %>
         <%= form.text_area :facts, class:"form-control" %>
 
-        <%= form.label "Etapa actual" %>
-        <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Etapa actual", id:"currentStage" %>
+        <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:id=>"currentStageVer", :class=>"form-control", :disabled=>"true"}) %>
+        <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ord, :id, :name, {}, {:id=>"currentStageOrd", :class=>"form-control", :disabled=>"true"}) %>
 
         <%= form.label "Instancias" %>
         <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>

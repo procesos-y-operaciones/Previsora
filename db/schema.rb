@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 20171213021603) do
     t.integer "p_type"
     t.string "correspondency_radicate"
     t.string "case_id_bap"
-    t.integer "case_id_sise"
+    t.string "case_id_sise"
     t.date "creation_date"
     t.date "notification_date"
     t.string "process_radicate"
