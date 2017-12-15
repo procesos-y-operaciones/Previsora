@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<!--%= flash.inspect %-->
+<!--% if flash == {} %-->
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<!--% end %-->
+
+>>>>>>> e28b10911dfd245ea61888975f5d338993d6cc4b
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
@@ -89,7 +97,6 @@
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-
       <ul>
       <% type_process.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -110,24 +117,24 @@
         <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.find([3,4]), :id , :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control"}) %>
 
-        <%= form.label "Tiene número de radicado?" %>
+        <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
           <option value="Si">Si</option>
           <option value="No">No</option>
         </select>
-        <!--%= form.select :state, options_for_select([["Si", true], ["No", false]]), :html => { :id => "estado" }, class: "form-control" %-->
 
         <%= form.label "Número de radicado correspondencia" %>
         <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
-        
+
         <%= form.label "Número de identificación del caso Bizagi, Acces y PA)" %>
         <%= form.text_field :case_id_bap, class:"form-control" %>
 
         <%= form.label "Número de identificación del caso SISE" %>
-        <%= form.number_field :case_id_sise, class:"form-control" %>
+        <%= form.text_field :case_id_sise, class:"form-control" %>
 
+        <!--TODO: Today date as default.-->
         <%= form.label "Fecha de creación" %>
         <%= form.date_field :creation_date, :value => Date.today, :readonly => "readonly", class:"form-control" %>
 
@@ -143,8 +150,16 @@
         <%= form.label "Fuente de litigio" %>
         <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
 
-        <%= form.label "Tipo de reaseguro" %>
+         <%= form.label "Tipo de reaseguro" %>
         <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+        <!-- Reporte coaseguro -->
+
+        <%= form.label "Tipo de coaseguro" %>
+        <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+        <!--%= form.label "Reaseguro cedido" %-->
+        <!--%= form.number_field :reensurance_gived_cents, class:"form-control" %-->
 
         <%= form.label "Póliza" %>
         <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
@@ -154,7 +169,7 @@
 
         <%= form.label "Número (siniestro)" %>
         <%= form.number_field :number, id:"number", class:"form-control" %>
-
+        
         <%= form.label "Ejercicio" %>
         <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
 
@@ -164,6 +179,12 @@
         <%= form.label "Ramo comercial" %>
         <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id,:name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
         
+        <%= form.label "Tipo moneda (RADIO)" %>
+        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
+
+        <%= form.label "Valor del dólar" %>
+        <%= form.number_field :dolar_value_cents, class:"form-control" %>
+
         <%= form.label "Tipo moneda (RADIO)" %>
         <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
@@ -194,6 +215,27 @@
         <%= form.label "Número de radicación del proceso" %>
         <%= form.text_field :process_radicate, class:"form-control" %>
 
+        <%= form.label "Reserva o provisión de indemnización" %>
+        <%= form.number_field :reserve_cents, class:"form-control" %>
+
+        <%= form.label "Reserva honorarios" %>
+        <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+
+        <%= form.label "Valor pretensión / detrimento / estimación" %>
+        <%= form.number_field :detritment_cents, class:"form-control" %>
+
+        <%= form.label "Valor asegurado" %>
+        <%= form.number_field :ensurance_value_cents, class:"form-control" %>
+
+        <%= form.label "Valor contingencia" %>
+        <%= form.number_field :contingency_value_cents, class:"form-control" %>
+
+        <%= form.label "Fecha de notificación / vinculación" %>
+        <%= form.date_field :notification_date, class:"form-control" %>
+
+        <%= form.label "Número de radicación del proceso" %>
+        <%= form.text_field :process_radicate, class:"form-control" %>
+
         <%= form.label "Apoderado Previsora" %>
         <%= form.text_field :attorny, class:"form-control" %>
 
@@ -216,13 +258,13 @@
         <%= form.text_field :contingency_reason, class:"form-control" %>
 
         <%= form.label "Resumen de la contingencia" %>
-        <%= form.text_field :contingency_resume, class:"form-control" %>
+        <%= form.text_field :contingency_resume, :readonly => "readonly", :value=>"PRESUNTO DETRIMENTO PATRIMONIAL POR INDEBIDA GESTION FISCAL", class:"form-control" %>
 
         <%= form.label "Hechos" %>
-        <%= form.text_field :facts, class:"form-control" %>
+        <%= form.text_area :facts, class:"form-control" %>
 
         <%= form.label "Etapa actual" %>
-        <%= form.collection_select(:current_stage_id, CurrentStage.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Instancias" %>
         <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>
@@ -239,15 +281,26 @@
         <%= form.label "Valor fallo decisión" %>
         <%= form.number_field :fail_value_cents, class:"form-control" %>
 
+        <%= form.label "Valor fallo a cargo de Previsora" %>
+        <%= form.number_field :fail_value_cents, class:"form-control" %>
+
         <%= form.label "Valor pagado Previsora" %>
         <%= form.number_field :payed_value_cents, class:"form-control" %>
 
         <%= form.label "Fecha de consignación" %>
         <%= form.date_field :payment_date, class:"form-control" %>
+<<<<<<< HEAD
         
         <%= form.label "Número de radicación de coactivo" %>
         <%= form.text_field :coactive_value_cents, class:"form-control" %>
         
+=======
+
+        <!--TODO: Mirar si hay coactivo-->
+        <%= form.label "Número de radicación de coactivo" %>
+        <%= form.text_field :coactive_value_cents, class:"form-control" %>
+
+>>>>>>> e28b10911dfd245ea61888975f5d338993d6cc4b
         <%= form.label "Valor coactivo" %>
         <%= form.number_field :coactive_value_cents, class:"form-control" %>
 

@@ -96,7 +96,7 @@ class TypeProcess < ApplicationRecord
   before_validation   :veritycations
 
   def veritycations
-    if self.p_type == 1
+    if self.p_type == 3
       if self.subprocess_class_id == 1
         errors.add(:subprocess_class_id, "Debes seleccionar una clase de Subprocesos")
       end
