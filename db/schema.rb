@@ -177,10 +177,10 @@ ActiveRecord::Schema.define(version: 20171215174507) do
   end
 
   create_table "type_processes", force: :cascade do |t|
-    t.integer "p_type"
-    t.string "correspondency_radicate"
-    t.string "case_id_bap"
-    t.string "case_id_sise"
+    t.integer "p_type", default: 0
+    t.string "correspondency_radicate", default: "Pendiente"
+    t.string "case_id_bap", default: "Pendiente"
+    t.string "case_id_sise", default: "Pendiente"
     t.date "creation_date"
     t.date "notification_date"
     t.string "process_radicate"
@@ -209,11 +209,14 @@ ActiveRecord::Schema.define(version: 20171215174507) do
     t.date "desition_date"
     t.integer "fail_value_cents", default: 0, null: false
     t.string "fail_value_currency", default: "USD", null: false
+    t.integer "fail_previ_cents", default: 0, null: false
+    t.string "fail_previ_currency", default: "USD", null: false
     t.integer "payed_value_cents", default: 0, null: false
     t.string "payed_value_currency", default: "USD", null: false
     t.date "payment_date"
     t.integer "reserved_fees_cents", default: 0, null: false
     t.string "reserved_fees_currency", default: "USD", null: false
+    t.string "coactive_radicate"
     t.integer "coactive_value_cents", default: 0, null: false
     t.string "coactive_value_currency", default: "USD", null: false
     t.integer "garnish_value_cents", default: 0, null: false

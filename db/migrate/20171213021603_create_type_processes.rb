@@ -27,9 +27,11 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.monetize  :reserve
       t.date      :desition_date
       t.monetize  :fail_value
+      t.monetize  :fail_previ
       t.monetize  :payed_value
       t.date      :payment_date
       t.monetize  :reserved_fees
+      t.string    :coactive_radicate
       t.monetize  :coactive_value
       t.monetize  :garnish_value
       t.monetize  :reensurance_gived

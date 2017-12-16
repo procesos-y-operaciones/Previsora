@@ -17,12 +17,45 @@
       if(x === 'Si'){
         document.getElementById("correspondency_radicate").readOnly = false;
         $("#correspondency_radicate").val("");
+
       }
       else{
          document.getElementById("correspondency_radicate").readOnly = true;
          $("#correspondency_radicate").val("Pendiente");
       }
     });
+
+    $('#coactive').ready(function(){
+      var x = document.getElementById("coactive").value;
+      if(x === 'Si'){
+        document.getElementById("coactive_radicate").readOnly = false;
+        document.getElementById("coactive_value_cents").readOnly = false;
+        $("#coactive_radicate").val("");
+        $("#coactive_value_cents").val(0);
+      }
+      else{
+         document.getElementById("coactive_radicate").readOnly = true;
+         document.getElementById("coactive_value_cents").readOnly = true;
+         $("#coactive_radicate").val("Pendiente");
+         $("#coactive_value_cents").val(-1);
+      }
+    });
+    $('#coactive').change(function(){
+      var x = document.getElementById("coactive").value;
+      if(x === 'Si'){
+        document.getElementById("coactive_radicate").readOnly = false;
+        document.getElementById("coactive_value_cents").readOnly = false;
+        $("#coactive_radicate").val("");
+        $("#coactive_value_cents").val(0);
+      }
+      else{
+        document.getElementById("coactive_radicate").readOnly = true;
+        document.getElementById("coactive_value_cents").readOnly = true;
+        $("#correspondency_radicate").val("Pendiente");
+        $("#coactive_value_cents").val(-1);
+      }
+    });
+
     var num=0, exer=0, comm=0, numSiniestro = "";
     $('#number').change(function(){
       num = numSiniestro.concat(document.getElementById("number").value);
@@ -125,11 +158,7 @@
       else
         document.getElementById("dolarValueCents").readOnly = false;
     }
-<<<<<<< HEAD
 
-    /*moneyType dolarValueCents*/
-=======
-    
     $('#caseState').ready(function(){
       caseStateRule();
     });
@@ -151,9 +180,8 @@
         $('#reservedReleased').prop( "disabled", true );
       }
     }
-    
+
     /*caseState caseTermination lastPerformance lastPerformanceDate reservedReleased*/
->>>>>>> c94eff2f2237f4e295b7b2ecbfbedc1c4439184a
   });
 
 </script>
@@ -189,8 +217,8 @@
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
-          <option value="Si">Si</option>
           <option value="No">No</option>
+          <option value="Si">Si</option>
         </select>
 
         <%= form.label "Número de radicado correspondencia" %>
@@ -202,9 +230,8 @@
         <%= form.label "Número de identificación del caso SISE" %>
         <%= form.text_field :case_id_sise, class:"form-control" %>
 
-        <!--TODO: Today date as default.-->
         <%= form.label "Fecha de creación" %>
-        <%= form.date_field :creation_date, :value => Date.today, :readonly => "readonly", class:"form-control" %>
+        <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
 
         <%= form.label "Tipo de vinculación" %>
         <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
@@ -275,27 +302,6 @@
         <%= form.label "Número de radicación del proceso" %>
         <%= form.text_field :process_radicate, class:"form-control" %>
 
-        <%= form.label "Reserva o provisión de indemnización" %>
-        <%= form.number_field :reserve_cents, class:"form-control" %>
-
-        <%= form.label "Reserva honorarios" %>
-        <%= form.number_field :reserved_fees_cents, class:"form-control" %>
-
-        <%= form.label "Valor pretensión / detrimento / estimación" %>
-        <%= form.number_field :detritment_cents, class:"form-control" %>
-
-        <%= form.label "Valor asegurado" %>
-        <%= form.number_field :ensurance_value_cents, class:"form-control" %>
-
-        <%= form.label "Valor contingencia" %>
-        <%= form.number_field :contingency_value_cents, class:"form-control" %>
-
-        <%= form.label "Fecha de notificación / vinculación" %>
-        <%= form.date_field :notification_date, class:"form-control" %>
-
-        <%= form.label "Número de radicación del proceso" %>
-        <%= form.text_field :process_radicate, class:"form-control" %>
-
         <%= form.label "Apoderado Previsora" %>
         <%= form.text_field :attorny, class:"form-control" %>
 
@@ -343,7 +349,7 @@
         <%= form.number_field :fail_value_cents, class:"form-control" %>
 
         <%= form.label "Valor fallo a cargo de Previsora" %>
-        <%= form.number_field :fail_value_cents, class:"form-control" %>
+        <%= form.number_field :fail_previ_cents, class:"form-control" %>
 
         <%= form.label "Valor pagado Previsora" %>
         <%= form.number_field :payed_value_cents, class:"form-control" %>
@@ -351,12 +357,17 @@
         <%= form.label "Fecha de consignación" %>
         <%= form.date_field :payment_date, class:"form-control" %>
 
-        <!--TODO: Mirar si hay coactivo-->
+        <%= form.label "Tiene número de radicado de coactivo?" %>
+        <select id="coactive" class="form-control">
+          <option value="No">No</option>
+          <option value="Si">Si</option>
+        </select>
+
         <%= form.label "Número de radicación de coactivo" %>
-        <%= form.text_field :coactive_value_cents, class:"form-control" %>
+        <%= form.text_field :coactive_radicate, id:"coactive_radicate", class:"form-control" %>
 
         <%= form.label "Valor coactivo" %>
-        <%= form.number_field :coactive_value_cents, class:"form-control" %>
+        <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", class:"form-control" %>
 
         <%= form.label "Valor embargo" %>
         <%= form.number_field :garnish_value_cents, class:"form-control" %>
@@ -378,4 +389,5 @@
     <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
+
 <% end %>
