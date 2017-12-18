@@ -5,7 +5,6 @@ User.create([
   {document: "5678", name: "Paula Torres", password: "123456", password_confirmation: "123456", role: 3}
 ])
 
-
 ProcessClass.create([
   {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO'},
   {name: 'JURISDICCION CIVIL'},
@@ -99,35 +98,40 @@ CityCase.create([
 ])
 
 BranchPolicy.create([
-  {name: 'PENDIENTE'},
-  {name: 'APARTADO'},
-  {name: 'ARAUCA'},
-  {name: 'ARMENIA'},
-  {name: 'BARRANQUILLA'},
-  {name: 'BOGOTA'},
-  {name: 'BUCARAMANGA'},
-  {name: 'BUENAVENTURA'},
-  {name: 'CALI'},
-  {name: 'CARTAGENA'},
-  {name: 'CUCUTA'},
-  {name: 'FLORENCIA'},
-  {name: 'IBAGUE'},
-  {name: 'MANIZALES'},
-  {name: 'MEDELLIN'},
-  {name: 'MOCOA'},
-  {name: 'MONTERIA'},
-  {name: 'NEIVA'},
-  {name: 'PASTO'},
-  {name: 'PEREIRA'},
-  {name: 'POPAYAN'},
-  {name: 'QUIBDO'},
-  {name: 'RIOHACHA'},
-  {name: 'SANTA MARTA'},
-  {name: 'SINCELEJO'},
-  {name: 'TUNJA'},
-  {name: 'VALLEDUPAR'},
-  {name: 'VILLAVICENCIO'},
-  {name: 'YOPAL'}
+  {name: 'PENDIENTE', num: 0},
+  {name: 'ARMENIA', num: 1},
+  {name: 'BARRANQUILLA', num: 2},
+  {name: 'BUCARAMANGA', num: 3},
+  {name: 'CALI', num: 4},
+  {name: 'CARTAGENA', num: 5},
+  {name: 'CUCUTA', num: 6},
+  {name: 'FLORENCIA', num: 7},
+  {name: 'IBAGUE', num: 8},
+  {name: 'MANIZALES', num: 9},
+  {name: 'MEDELLIN', num: 10},
+  {name: 'MOCOA', num: 11},
+  {name: 'MONTERIA', num: 12},
+  {name: 'NEIVA', num: 13},
+  {name: 'PASTO', num: 14},
+  {name: 'PEREIRA', num: 15},
+  {name: 'POPAYAN', num: 16},
+  {name: 'QUIBDO', num: 17},
+  {name: 'RIOHACHA', num: 18},
+  {name: 'SAN ANDRÉS', num: 19},
+  {name: 'SANTA MARTA', num: 20},
+  {name: 'SINCELEJO', num: 21},
+  {name: 'TUNJA', num: 23},
+  {name: 'VALLEDUPAR', num: 24},
+  {name: 'VILLAVICENCIO', num: 25},
+  {name: 'YOPAL', num: 26},
+  {name: 'BUENAVENTURA', num: 27},
+  {name: 'ARAUCA', num: 28},
+  {name: 'CENTRO EMPRESARIAL CORPORATIVO', num: 32},
+  {name: 'CENTRO DE SERVICIOS MASIVOS', num: 33},
+  {name: 'VIRTUAL BARRANQUILLA', num: 35},
+  {name: 'REGIONAL ESTATAL', num: 70},
+  {name: 'CASA MATRIZ', num: 80},
+  {name: 'BOGOTÁ', num: 90}
 ])
 
 BranchCommercial.create([
@@ -168,6 +172,7 @@ BranchCommercial.create([
   {name: 'PREVIPYME', num: 88},
   {name: 'PREVIHOGAR', num: 89},
   {name: 'AREAS COMUNES', num: 90},
+  {name: 'PREVITURISMO', num: 91},
   {name: 'PREVIQUIMICOS', num: 92},
   {name: 'PREVIEDUCATIVO', num: 93},
   {name: 'TODO RIESGO EMPRESARIAL', num: 94},
@@ -220,7 +225,8 @@ ScoreContingency.create([
 ])
 
 CurrentStage.create([
-  {name: 'PENDIENTE', n_type: 0},
+  {name: 'PENDIENTE', n_type: 1},
+  {name: 'PENDIENTE', n_type: 2},
   {name: 'AUTO DE APERTURA', n_type: 1},
   {name: 'AUTO DE IMPUTACIÓN', n_type: 1},
   {name: 'ARGUMENTOS DE DEFENSA', n_type: 1},
@@ -1337,4 +1343,8 @@ CaseState.create([
   {name: "PENDIENTE"},
   {name: "EN CURSO"},
   {name: "TERMINADO"}
+])
+
+LastPerformance.create([
+  {name: "PENDIENTE"}
 ])

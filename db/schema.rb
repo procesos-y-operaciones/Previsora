@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171215174507) do
 
   create_table "branch_policies", force: :cascade do |t|
     t.string "name"
+    t.integer "num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -177,20 +178,20 @@ ActiveRecord::Schema.define(version: 20171215174507) do
   end
 
   create_table "type_processes", force: :cascade do |t|
-    t.integer "p_type"
-    t.string "correspondency_radicate"
-    t.string "case_id_bap"
-    t.string "case_id_sise"
-    t.date "creation_date"
-    t.date "notification_date"
-    t.string "process_radicate"
-    t.integer "number"
-    t.integer "exercise"
-    t.string "sinister"
-    t.string "attorny"
-    t.date "attorny_date"
-    t.string "active_part"
-    t.string "passive_part"
+    t.integer "p_type", default: 0
+    t.string "correspondency_radicate", default: "Pendiente"
+    t.string "case_id_bap", default: "Pendiente"
+    t.string "case_id_sise", default: "Pendiente"
+    t.date "creation_date", default: "111990-01-01"
+    t.date "notification_date", default: "111990-01-01"
+    t.string "process_radicate", default: "Pendiente"
+    t.integer "number", default: 0
+    t.integer "exercise", default: 0
+    t.string "sinister", default: "Pendiente"
+    t.string "attorny", default: "Pendiente"
+    t.date "attorny_date", default: "111990-01-01"
+    t.string "active_part", default: "Pendiente"
+    t.string "passive_part", default: "Pendiente"
     t.integer "dolar_value_cents", default: 0, null: false
     t.string "dolar_value_currency", default: "USD", null: false
     t.integer "detritment_cents", default: 0, null: false
@@ -199,39 +200,44 @@ ActiveRecord::Schema.define(version: 20171215174507) do
     t.string "ensurance_value_currency", default: "USD", null: false
     t.integer "contingency_value_cents", default: 0, null: false
     t.string "contingency_value_currency", default: "USD", null: false
-    t.string "contingency_reason"
-    t.string "contingency_resume"
-    t.string "facts"
+    t.string "contingency_reason", default: "Pendiente"
+    t.string "contingency_resume", default: "Pendiente"
+    t.string "facts", default: "Pendiente"
     t.integer "policy_cents", default: 0, null: false
     t.string "policy_currency", default: "USD", null: false
     t.integer "reserve_cents", default: 0, null: false
     t.string "reserve_currency", default: "USD", null: false
-    t.date "desition_date"
+    t.date "desition_date", default: "111990-01-01"
     t.integer "fail_value_cents", default: 0, null: false
     t.string "fail_value_currency", default: "USD", null: false
+    t.integer "fail_previ_cents", default: 0, null: false
+    t.string "fail_previ_currency", default: "USD", null: false
     t.integer "payed_value_cents", default: 0, null: false
     t.string "payed_value_currency", default: "USD", null: false
-    t.date "payment_date"
+    t.date "payment_date", default: "111990-01-01"
     t.integer "reserved_fees_cents", default: 0, null: false
     t.string "reserved_fees_currency", default: "USD", null: false
+    t.string "coactive_radicate", default: "Pendiente"
+    t.string "policies", default: "Pendiente"
+    t.string "sinisters", default: "Pendiente"
     t.integer "coactive_value_cents", default: 0, null: false
     t.string "coactive_value_currency", default: "USD", null: false
     t.integer "garnish_value_cents", default: 0, null: false
     t.string "garnish_value_currency", default: "USD", null: false
     t.integer "reensurance_gived_cents", default: 0, null: false
     t.string "reensurance_gived_currency", default: "USD", null: false
-    t.date "last_performance_date"
-    t.date "failed_notification_date"
-    t.date "objection_notification_date"
-    t.string "tutelage_imp"
-    t.date "date_notification_desacate"
-    t.date "date_answer_desacate"
-    t.date "date_notification_desition_desacate"
+    t.date "last_performance_date", default: "111990-01-01"
+    t.date "failed_notification_date", default: "111990-01-01"
+    t.date "objection_notification_date", default: "111990-01-01"
+    t.string "tutelage_imp", default: "Pendiente"
+    t.date "date_notification_desacate", default: "111990-01-01"
+    t.date "date_answer_desacate", default: "111990-01-01"
+    t.date "date_notification_desition_desacate", default: "111990-01-01"
     t.integer "auth_value_cents", default: 0, null: false
     t.string "auth_value_currency", default: "USD", null: false
-    t.string "reason_conc"
-    t.string "reason_inv"
-    t.boolean "reinsurance_report"
+    t.string "reason_conc", default: "Pendiente"
+    t.string "reason_inv", default: "Pendiente"
+    t.boolean "reinsurance_report", default: false
     t.integer "process_class_id"
     t.integer "subprocess_class_id"
     t.integer "link_type_id"

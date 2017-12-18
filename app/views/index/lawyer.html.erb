@@ -23,7 +23,7 @@
     <%= link_to lawyer_search_path, :class=>"link" do %>
         <span class="glyphicon glyphicon-search btn-circle btn-inverse" data-toggle="tooltip" title="Buscar Caso" data-placement="auto top"></span>
     <% end %>
-    <%= link_to lawyer_report_path, :class=>"link" do %>
+    <%= link_to type_processes_path(format: "xls"), class:"link" do %>
         <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse" data-toggle="tooltip" title="Descargar Base de Datos" data-placement="auto top"></span>
     <% end %>
 </div>

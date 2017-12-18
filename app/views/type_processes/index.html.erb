@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Type Processes</h1>
-
+<p>
+Download:
+  <%= link_to "Excel", type_processes_path(format: "xls") %>
+</p>
+<!--
 <table>
   <thead>
     <tr>
@@ -23,3 +27,4 @@
 <br>
 
 <%= link_to 'New Type Process', new_type_process_path %>
+-->

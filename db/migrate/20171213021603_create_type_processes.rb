@@ -2,49 +2,53 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
   def change
     create_table :type_processes do |t|
 
-      t.integer   :p_type
-      t.string    :correspondency_radicate
-      t.string    :case_id_bap
-      t.string    :case_id_sise
-      t.date      :creation_date
-      t.date      :notification_date
-      t.string    :process_radicate
-      t.integer   :number
-      t.integer   :exercise
-      t.string    :sinister
-      t.string    :attorny
-      t.date      :attorny_date
-      t.string    :active_part
-      t.string    :passive_part
+      t.integer   :p_type, default: 0
+      t.string    :correspondency_radicate, default: "Pendiente"
+      t.string    :case_id_bap, default: "Pendiente"
+      t.string    :case_id_sise, default: "Pendiente"
+      t.date      :creation_date, default: Date.new(111990)
+      t.date      :notification_date, default: Date.new(111990)
+      t.string    :process_radicate, default: "Pendiente"
+      t.integer   :number, default: 0
+      t.integer   :exercise, default: 0
+      t.string    :sinister, default: "Pendiente"
+      t.string    :attorny, default: "Pendiente"
+      t.date      :attorny_date, default: Date.new(111990)
+      t.string    :active_part, default: "Pendiente"
+      t.string    :passive_part, default: "Pendiente"
       t.monetize  :dolar_value
       t.monetize  :detritment
       t.monetize  :ensurance_value
       t.monetize  :contingency_value
-      t.string    :contingency_reason
-      t.string    :contingency_resume
-      t.string    :facts
+      t.string    :contingency_reason, default: "Pendiente"
+      t.string    :contingency_resume, default: "Pendiente"
+      t.string    :facts, default: "Pendiente"
       t.monetize  :policy
       t.monetize  :reserve
-      t.date      :desition_date
+      t.date      :desition_date, default: Date.new(111990)
       t.monetize  :fail_value
+      t.monetize  :fail_previ
       t.monetize  :payed_value
-      t.date      :payment_date
+      t.date      :payment_date, default: Date.new(111990)
       t.monetize  :reserved_fees
+      t.string    :coactive_radicate, default: "Pendiente"
+      t.string    :policies, default: "Pendiente"
+      t.string    :sinisters, default: "Pendiente"
       t.monetize  :coactive_value
       t.monetize  :garnish_value
       t.monetize  :reensurance_gived
-      t.date      :last_performance_date
-      t.date      :failed_notification_date
-      t.date      :objection_notification_date
-      t.string    :tutelage_imp
-      t.date      :date_notification_desacate
-      t.date      :date_answer_desacate
-      t.date      :date_notification_desition_desacate
+      t.date      :last_performance_date, default: Date.new(111990)
+      t.date      :failed_notification_date, default: Date.new(111990)
+      t.date      :objection_notification_date, default: Date.new(111990)
+      t.string    :tutelage_imp, default: "Pendiente"
+      t.date      :date_notification_desacate, default: Date.new(111990)
+      t.date      :date_answer_desacate, default: Date.new(111990)
+      t.date      :date_notification_desition_desacate, default: Date.new(111990)
       t.monetize  :auth_value
-      t.string    :reason_conc
-      t.string    :reason_inv
-      t.boolean   :reinsurance_report
-      #t.references  :evaluation, foreign_key: true
+      t.string    :reason_conc, default: "Pendiente"
+      t.string    :reason_inv, default: "Pendiente"
+      t.boolean   :reinsurance_report, default: false
+
       t.references  :process_class, foreign_key: true
       t.references  :subprocess_class, foreign_key: true
       t.references  :link_type, foreign_key: true
