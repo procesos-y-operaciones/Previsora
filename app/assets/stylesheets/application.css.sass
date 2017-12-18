@@ -28,7 +28,6 @@ $black: #000
 
 /* ==================================================
  Elements
-
  form
  buttons
  flex-box
@@ -43,6 +42,7 @@ $black: #000
 html, body
     overflow-x: hidden
     font-family: "Open Sans", Helvetica, Arial, sans-serif
+    min-width: 800px
 *, *:before, *:after
     -moz-box-sizing: border-box
     -webkit-box-sizing: border-box
@@ -73,6 +73,8 @@ html, body
     text-align: center
 .right
     text-align: right
+.justify
+    text-align: justify
 .floatRight
     float: right
 .centerVertical
@@ -83,6 +85,7 @@ html, body
 /* ================== text ========================*/
 h1, h2
     margin-bottom: 25px
+    text-align: center
     font-weight: 200px
     color: darken($darkgreen, 2.5%)
 .grey
@@ -117,7 +120,7 @@ hr
     text-align: left
     font-size: 15px
     font-weight: 200px
-    color: darken($black, 2.5%)
+    color: darken($darkgreen, 2.5%)
 .form-control
     margin-bottom: 25px
 
@@ -135,41 +138,57 @@ hr
     padding: 10px 30px
     font-size: 15px !important
     
-.btn-default, .btn-default:visited
+.btn-default, .btn-default:link, .btn-default:visited
     background-color: darken($ligthgreen, 2.5%)
     font-weight: bold
     color: darken($white, 2.5%)
-.btn-default:hover, .btn-default:focus, .btn-default:active
+.btn-default:hover
+    border: 1px solid darken($ligthgreen, 2.5%)
+    background-color: darken($white, 2.5%)
+    color: darken($ligthgreen, 2.5%)
+.btn-default:active
     border: 1px solid darken($ligthgreen, 2.5%)
     background-color: darken($white, 2.5%)
     color: darken($ligthgreen, 2.5%)
     
-.btn-inverse, .btn-inverse:visited
+.btn-inverse, .btn-inverse:link, .btn-inverse:visited
     border: 2px solid darken($ligthgreen, 2.5%)
     background-color: darken($white, 2.5%)
     color: darken($ligthgreen, 2.5%)
     font-weight: bold
-    
-.btn-inverse:hover, .btn-inverse:focus
+.btn-inverse:hover
+    border: 1px solid darken($ligthgreen, 2.5%)
+    background: darken($ligthgreen, 2.5%)
+    color: darken($white, 2.5%)
+.btn-inverse:active
     border: 1px solid darken($ligthgreen, 2.5%)
     background: darken($ligthgreen, 2.5%)
     color: darken($white, 2.5%)
 
-.link, .link:active
+.link, .link:link, .link:visited
     margin: 0px 10px
     background-color: transparent !important
     color: darken($ligthgreen, 2.5%)
-.link:hover, .link:focus
+.link:hover
     background-color: transparent !important
     text-decoration: none !important
-    color: darken($darkgreen, 2.5%)    
-.link-inverse, .link-inverse:visited
+    color: darken($darkgreen, 2.5%)
+.link:active
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($darkgreen, 2.5%)
+    
+.link-inverse, .link-inverse:link, .link-inverse:visited
     margin: 0 10px
     background-color: transparent !important
     color: darken($white, 2.5%)
     font-size: 20px
     font-weight: bold
-.link-inverse:hover, .link-inverse:focus
+.link-inverse:hover
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($darkgreen, 2.5%)
+.link-inverse:active
     background-color: transparent !important
     text-decoration: none !important
     color: darken($darkgreen, 2.5%)

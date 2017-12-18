@@ -1,3 +1,10 @@
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>
+
+
 <p class="m-30">
   Párrafo de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
   de introducción. Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.Párrafo de introducción.
@@ -10,13 +17,13 @@
 </p>
 
 <div class="container-fluid center">
-    <%= link_to lawyer_new_path, class:"link" do %>
-        <span class="glyphicon glyphicon-plus btn-circle btn-inverse"></span>
+    <%= link_to lawyer_new_path, :class=>"link" do %>
+        <span class="glyphicon glyphicon-plus btn-circle btn-inverse" data-toggle="tooltip" title="Caso Nuevo" data-placement="auto top"></span>
     <% end %>
-    <%= link_to lawyer_search_path, class:"link" do %>
-        <span class="glyphicon glyphicon-search btn-circle btn-inverse"></span>
+    <%= link_to lawyer_search_path, :class=>"link" do %>
+        <span class="glyphicon glyphicon-search btn-circle btn-inverse" data-toggle="tooltip" title="Buscar Caso" data-placement="auto top"></span>
     <% end %>
-    <%= link_to lawyer_report_path, class:"link" do %>
-        <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse"></span>
+    <%= link_to lawyer_report_path, :class=>"link" do %>
+        <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse" data-toggle="tooltip" title="Descargar Base de Datos" data-placement="auto top"></span>
     <% end %>
 </div>
