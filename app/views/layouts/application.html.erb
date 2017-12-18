@@ -9,20 +9,27 @@
   </head>
 
   <body>
+    
     <div class="row p-30 ">
       <div class="col-sm-offset-1 col-sm-10 shadow p-0">
 
         <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
+          <script>
+            alert("<%= notice %>");
+          </script>
         <% end %>
 
         <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
+          <script>
+            alert("<%= alert %>");
+          </script>
         <% end %>
 
-        <div class="division">
+        
+        <div class="my-header fw">
           <ul class="right p-15">
             <% if user_signed_in? %>
+              <%= link_to "Inicio", index_lawyer_path, class:"link-inverse" %>
               <%= link_to current_user.name, edit_user_registration_path, class:"link-inverse" %> 
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
             <% else %>
