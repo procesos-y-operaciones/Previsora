@@ -90,6 +90,7 @@ class TypeProcessesController < ApplicationController
           :reensurance_gived, :last_performance_date, :join_committee_id, :auth_value, :reason_conc, :reason_inv, :reserved_released_id,
           :subprocess_class_id, :office_name_id, :dolar_value_cents, :detritment_cents, :ensurance_value_cents, :contingency_value_cents,
           :policy_cents, :reserve_cents, :fail_value_cents, :payed_value_cents, :reserved_fees_cents, :coactive_value_cents, :garnish_value_cents,
-          :reensurance_gived_cents)
+          :reensurance_gived_cents, :internal_lawyer_id, :reinsurance_report, :coensurance_type_id, :policies, :sinisters, :case_state_id, 
+          :fail_previ_cents, :coactive_radicate)
     end
 end

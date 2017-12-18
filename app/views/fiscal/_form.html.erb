@@ -56,18 +56,53 @@
       }
     });
 
-    var num=0, exer=0, comm=0, numSiniestro = "";
+    $('#more_policies').ready(function(){
+      var x = document.getElementById("more_policies").value;
+      if(x === 'Si'){
+        document.getElementById("policies").readOnly = false;
+        document.getElementById("sinisters").readOnly = false;
+        $("#policies").val("");
+        $("#sinisters").val("");
+      }
+      else{
+        document.getElementById("policies").readOnly = true;
+        document.getElementById("sinisters").readOnly = true;
+        $("#policies").val("NO APLICA");
+        $("#sinisters").val("NO APLICA");
+      }
+    });
+    $('#more_policies').change(function(){
+      var x = document.getElementById("more_policies").value;
+      if(x === 'Si'){
+        document.getElementById("policies").readOnly = false;
+        document.getElementById("sinisters").readOnly = false;
+        $("#policies").val("");
+        $("#sinisters").val("");
+      }
+      else{
+        document.getElementById("policies").readOnly = true;
+        document.getElementById("sinisters").readOnly = true;
+        $("#policies").val("NO APLICA");
+        $("#sinisters").val("NO APLICA");
+      }
+    });
+
+    var num=0, exer=0, poly=0, comm=0, numSiniestro = "";
     $('#number').change(function(){
       num = numSiniestro.concat(document.getElementById("number").value);
-      $("#sinister").val(num+"-"+exer+"-"+comm);
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm);
     });
     $('#exercise').change(function(){
       exer = numSiniestro.concat(document.getElementById("exercise").value);
-      $("#sinister").val(num+"-"+exer+"-"+comm);
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm);
+    });
+    $('#branch_policy').change(function(){
+      poly = numSiniestro.concat(document.getElementById("branch_policy").value);
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm);
     });
     $('#branch_commercial').change(function(){
       comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
-      $("#sinister").val(num+"-"+exer+"-"+comm);
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm);
     });
 
     $('#litigationSource').ready(function(){
@@ -267,7 +302,7 @@
         <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
 
         <%= form.label "Sucursal de la póliza" %>
-        <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_policy" }) %>
 
         <%= form.label "Ramo comercial" %>
         <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
@@ -279,7 +314,20 @@
         <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
 
         <%= form.label "Número del siniestro (completo)" %>
-        <%= form.text_field :sinister, id:"sinister", :eadOnly=>"readOnly", class:"form-control" %>
+        <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
+
+        <!--TODO: Mas pólizas -->
+        <%= form.label "Tiene más pólizas?" %>
+        <select id="more_policies" class="form-control">
+          <option value="No">No</option>
+          <option value="Si">Si</option>
+        </select>
+
+        <%= form.label "Número de pólizas" %>
+        <%= form.text_area :policies, id:"policies", class:"form-control" %>
+
+        <%= form.label "Número de siniestros" %>
+        <%= form.text_area :sinisters, id:"sinisters", class:"form-control" %>
 
         <%= form.label "Reserva o provisión de indemnización" %>
         <%= form.number_field :reserve_cents, class:"form-control" %>

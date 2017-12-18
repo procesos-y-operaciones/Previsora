@@ -9,4 +9,9 @@
 #
 
 class BranchPolicy < ApplicationRecord
+
+  def large_name
+    "#{num} - #{name}"
+  end
+  
 end

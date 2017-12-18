@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171215174507) do
 
   create_table "branch_policies", force: :cascade do |t|
     t.string "name"
+    t.integer "num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -217,6 +218,8 @@ ActiveRecord::Schema.define(version: 20171215174507) do
     t.integer "reserved_fees_cents", default: 0, null: false
     t.string "reserved_fees_currency", default: "USD", null: false
     t.string "coactive_radicate"
+    t.string "policies"
+    t.string "sinisters"
     t.integer "coactive_value_cents", default: 0, null: false
     t.string "coactive_value_currency", default: "USD", null: false
     t.integer "garnish_value_cents", default: 0, null: false
