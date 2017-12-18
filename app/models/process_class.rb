@@ -14,4 +14,8 @@ class ProcessClass < ApplicationRecord
     [ProcessClass.find(27)]
   end
 
+  def self.get_name(id)
+    ProcessClass.find(id).name
+  end
+
 end

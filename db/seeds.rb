@@ -5,7 +5,6 @@ User.create([
   {document: "5678", name: "Paula Torres", password: "123456", password_confirmation: "123456", role: 3}
 ])
 
-
 ProcessClass.create([
   {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO'},
   {name: 'JURISDICCION CIVIL'},

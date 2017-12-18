@@ -245,17 +245,17 @@
         <hr>
 
         <%= form.label "Clase de proceso" %>
-        <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:process_class, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
+        <%= form.collection_select(:subprocess_class, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
           <option value="No">No</option>
           <option value="Si">Si</option>
         </select>
-
+        <!--
         <%= form.label "Número de radicado correspondencia" %>
         <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
 
@@ -316,7 +316,6 @@
         <%= form.label "Número del siniestro (completo)" %>
         <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
 
-        <!--TODO: Mas pólizas -->
         <%= form.label "Tiene más pólizas?" %>
         <select id="more_policies" class="form-control">
           <option value="No">No</option>
@@ -428,7 +427,7 @@
 
         <%= form.label "Reserva depurada" %>
         <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control", :id=>"reservedReleased"}) %>
-
+        -->
       </div>
     </div>
   </div>

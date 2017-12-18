@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo de proceso</Data></Cell>
+        <Cell><Data ss:Type="String">Clase de proceso</Data></Cell>
+        <Cell><Data ss:Type="String">Subclase de proceso</Data></Cell>
+        <Cell><Data ss:Type="String">Número radicado en correspondencia</Data></Cell>
+        <Cell><Data ss:Type="String">Número identificación caso BIZAGI / ACCCES / PA</Data></Cell>
+        <Cell><Data ss:Type="String">Número identificación SISE</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha de creación</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo de vinculación</Data></Cell>
+        <Cell><Data ss:Type="String">Departamento</Data></Cell>
+        <Cell><Data ss:Type="String">Ciudad donde cursa el proceso</Data></Cell>
+        <Cell><Data ss:Type="String">Sucursal de la póliza</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha de notificicación / vinculación</Data></Cell>
+        <Cell><Data ss:Type="String">Número de radicación del proceso</Data></Cell>
+        <Cell><Data ss:Type="String">Número</Data></Cell>
+        <Cell><Data ss:Type="String">Ejercicio</Data></Cell>
+        <Cell><Data ss:Type="String">Ramo comercial</Data></Cell>
+        <Cell><Data ss:Type="String">Número de siniestro</Data></Cell>
+        <Cell><Data ss:Type="String">Apoderado Previsora</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha aasignación apoderado Previsora</Data></Cell>
+        <Cell><Data ss:Type="String">Parte activa</Data></Cell>
+        <Cell><Data ss:Type="String">Parte pasiva</Data></Cell>
+        <Cell><Data ss:Type="String">Valor pretensión / detrimento / estimación</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo de moneda</Data></Cell>
+        <Cell><Data ss:Type="String">Valor dólar</Data></Cell>
+        <Cell><Data ss:Type="String">Valor asegurado</Data></Cell>
+        <Cell><Data ss:Type="String">Calificación de la contingencia</Data></Cell>
+        <Cell><Data ss:Type="String">Valor de la contingencia</Data></Cell>
+        <Cell><Data ss:Type="String">Razón de la contingencia</Data></Cell>
+        <Cell><Data ss:Type="String">Resúmen de la contingencia</Data></Cell>
+        <Cell><Data ss:Type="String">Hechos</Data></Cell>
+        <Cell><Data ss:Type="String">Póliza</Data></Cell>
+        <Cell><Data ss:Type="String">Amparo</Data></Cell>
+        <Cell><Data ss:Type="String">Etapa actual</Data></Cell>
+        <Cell><Data ss:Type="String">Fuente de litigio</Data></Cell>
+        <Cell><Data ss:Type="String">Reserva o provisión de indemnizaciones</Data></Cell>
+        <Cell><Data ss:Type="String">Instancias</Data></Cell>
+        <Cell><Data ss:Type="String">Abogado interno</Data></Cell>
+        <Cell><Data ss:Type="String">Estado del caso</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha de decisión</Data></Cell>
+        <Cell><Data ss:Type="String">Terminación del caso</Data></Cell>
+        <Cell><Data ss:Type="String">Valor fallo decisión</Data></Cell>
+        <Cell><Data ss:Type="String">Valor pagado Previsora</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha de consignación</Data></Cell>
+        <Cell><Data ss:Type="String">Reserva honorarios</Data></Cell>
+        <Cell><Data ss:Type="String">Valor coactivo</Data></Cell>
+        <Cell><Data ss:Type="String">Valor embargo</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo de reaseguro</Data></Cell>
+        <Cell><Data ss:Type="String">Reaseguro cedido</Data></Cell>
+        <Cell><Data ss:Type="String">Última actuación</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha de última actuación</Data></Cell>
+        <Cell><Data ss:Type="String">Via gubernativa / coljuegos</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha notificación fallo (Tutela)</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha notificación de impugnacion (Tutela)</Data></Cell>
+        <Cell><Data ss:Type="String">Impugnante (Tutela)</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha notificación segunda instancia (Tutela)</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha notificación incidente desacato (Tutela)</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha notificación incidente desacato a la compañía (Tutela)</Data></Cell>
+        <Cell><Data ss:Type="String">Ingresa al comité</Data></Cell>
+        <Cell><Data ss:Type="String">Desición comité</Data></Cell>
+        <Cell><Data ss:Type="String">Valor autorizado por el comité</Data></Cell>
+        <Cell><Data ss:Type="String">Razón de no conciliar</Data></Cell>
+        <Cell><Data ss:Type="String">Razón de invialibilidad</Data></Cell>
+        <Cell><Data ss:Type="String">Reserva liberada</Data></Cell>
+      </Row>
+
+      <% @type_processes.each do |process| %>
+        <Row>
+          <Cell><Data ss:Type="Number"><%= process.id %></Data></Cell>
+        </Row>
+      <% end %>
+
+    </Table>
+  </Worksheet>
+</Workbook>

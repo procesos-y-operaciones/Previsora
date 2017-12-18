@@ -3,20 +3,20 @@
 # Table name: type_processes
 #
 #  id                                  :integer          not null, primary key
-#  p_type                              :integer
-#  correspondency_radicate             :string
-#  case_id_bap                         :string
-#  case_id_sise                        :string
-#  creation_date                       :date
-#  notification_date                   :date
-#  process_radicate                    :string
-#  number                              :integer
-#  exercise                            :integer
-#  sinister                            :string
-#  attorny                             :string
-#  attorny_date                        :date
-#  active_part                         :string
-#  passive_part                        :string
+#  p_type                              :integer          default(0)
+#  correspondency_radicate             :string           default("Pendiente")
+#  case_id_bap                         :string           default("Pendiente")
+#  case_id_sise                        :string           default("Pendiente")
+#  creation_date                       :date             default(Mon, 01 Jan 111990)
+#  notification_date                   :date             default(Mon, 01 Jan 111990)
+#  process_radicate                    :string           default("Pendiente")
+#  number                              :integer          default(0)
+#  exercise                            :integer          default(0)
+#  sinister                            :string           default("Pendiente")
+#  attorny                             :string           default("Pendiente")
+#  attorny_date                        :date             default(Mon, 01 Jan 111990)
+#  active_part                         :string           default("Pendiente")
+#  passive_part                        :string           default("Pendiente")
 #  dolar_value_cents                   :integer          default(0), not null
 #  dolar_value_currency                :string           default("USD"), not null
 #  detritment_cents                    :integer          default(0), not null
@@ -25,39 +25,44 @@
 #  ensurance_value_currency            :string           default("USD"), not null
 #  contingency_value_cents             :integer          default(0), not null
 #  contingency_value_currency          :string           default("USD"), not null
-#  contingency_reason                  :string
-#  contingency_resume                  :string
-#  facts                               :string
+#  contingency_reason                  :string           default("Pendiente")
+#  contingency_resume                  :string           default("Pendiente")
+#  facts                               :string           default("Pendiente")
 #  policy_cents                        :integer          default(0), not null
 #  policy_currency                     :string           default("USD"), not null
 #  reserve_cents                       :integer          default(0), not null
 #  reserve_currency                    :string           default("USD"), not null
-#  desition_date                       :date
+#  desition_date                       :date             default(Mon, 01 Jan 111990)
 #  fail_value_cents                    :integer          default(0), not null
 #  fail_value_currency                 :string           default("USD"), not null
+#  fail_previ_cents                    :integer          default(0), not null
+#  fail_previ_currency                 :string           default("USD"), not null
 #  payed_value_cents                   :integer          default(0), not null
 #  payed_value_currency                :string           default("USD"), not null
-#  payment_date                        :date
+#  payment_date                        :date             default(Mon, 01 Jan 111990)
 #  reserved_fees_cents                 :integer          default(0), not null
 #  reserved_fees_currency              :string           default("USD"), not null
+#  coactive_radicate                   :string           default("Pendiente")
+#  policies                            :string           default("Pendiente")
+#  sinisters                           :string           default("Pendiente")
 #  coactive_value_cents                :integer          default(0), not null
 #  coactive_value_currency             :string           default("USD"), not null
 #  garnish_value_cents                 :integer          default(0), not null
 #  garnish_value_currency              :string           default("USD"), not null
 #  reensurance_gived_cents             :integer          default(0), not null
 #  reensurance_gived_currency          :string           default("USD"), not null
-#  last_performance_date               :date
-#  failed_notification_date            :date
-#  objection_notification_date         :date
-#  tutelage_imp                        :string
-#  date_notification_desacate          :date
-#  date_answer_desacate                :date
-#  date_notification_desition_desacate :date
+#  last_performance_date               :date             default(Mon, 01 Jan 111990)
+#  failed_notification_date            :date             default(Mon, 01 Jan 111990)
+#  objection_notification_date         :date             default(Mon, 01 Jan 111990)
+#  tutelage_imp                        :string           default("Pendiente")
+#  date_notification_desacate          :date             default(Mon, 01 Jan 111990)
+#  date_answer_desacate                :date             default(Mon, 01 Jan 111990)
+#  date_notification_desition_desacate :date             default(Mon, 01 Jan 111990)
 #  auth_value_cents                    :integer          default(0), not null
 #  auth_value_currency                 :string           default("USD"), not null
-#  reason_conc                         :string
-#  reason_inv                          :string
-#  reinsurance_report                  :boolean
+#  reason_conc                         :string           default("Pendiente")
+#  reason_inv                          :string           default("Pendiente")
+#  reinsurance_report                  :boolean          default(FALSE)
 #  process_class_id                    :integer
 #  subprocess_class_id                 :integer
 #  link_type_id                        :integer
@@ -93,7 +98,9 @@
 class TypeProcess < ApplicationRecord
 
   belongs_to    :user
-  validates :p_type, :process_class_id, presence: true
+  belongs_to    :process_class
+  belongs_to    :subprocess_class
+  validates     :p_type, :process_class_id, presence: true
 
   before_validation   :veritycations
 
@@ -102,9 +109,58 @@ class TypeProcess < ApplicationRecord
       if self.subprocess_class_id == 1
         errors.add("Subproceso ", "debe ser seleccionado")
       end
-      if self.case_id_bap == ""
-        errors.add("Número de identificación del caso (Bizagi, Acces y PA) ", "debe existir")
+    end
+  end
+
+  def self.column_names_all
+    ["Id", "Tipo de proceso", "Clase de proceso", "Subclase de proceso",
+    "Radicado correspodencia", "Identificación del caso (Bizagi, Acces, PA)",
+    "Identificación del caso (SISE)", "Fecha de creación", "Tipo de vinculación",
+    "Departamento", "Ciudad donde cursa el caso", "Sucursal de Póliza",
+    "Fecha de notificación / vinculación", "Radicación del proceso", "Número",
+    "Ejercicio", "Ramo comercial", "Número siniestro", "Apoderado Previsora",
+    "Fecha de asignación apoderado", "Parte activa", "Parte pasiva", "Nombre del despacho",
+    "Tipo de moneda", "Valor del dólar", "Valor pretensión / detrimento / estimación",
+    "Valor asegurado", "Calificación de la contigencia", "Valor contingencia",
+    "Razón contingencia", "Resumen contingencia", "Póliza", "Amparo", "Etapa actual",
+    "Fuente de litigio", "Reserva", "Provisión", "Instancias", "Abogado interno",
+    "Estado del caso", "Fecha decisión", "Terminación del caso", "Valor fallo decisión",
+    "Valor pagado Previsora", "Fecha de consignación", "Reserva honorarios", "Valor coactivo",
+    "Valor embargo", "Reaseguro", "Tipo de reaseguro", "Reaseguro cedido", "Última actuación",
+    "Fecha última actuación", "Vía gubernativa (Coljuegos) Tiólogía", "Fecha notificación fallo",
+    "Fecha notificación impugnación", "Impugnante tutela", "Tipo sentencia segunda instancia - a compañía",
+    "Fecha notificación incidente de desacato", "Fecha de contestación indicende de desacato",
+    "Fecha notificación desición incidente de desacato", "Tipo de sentencia incidente de desacato - a compañía",
+    "Ingresa al comité", "Decisión comité", "Valor autorizado por el comité", "Razón de no conciliar",
+    "Reserva liberada", "Tipo de coaseguro", "Valor fallo a cargo de previsora", "Número de radicación coactivo"]
+  end
+
+  def get_content_all
+    [self.id, self.get_type_process, ProcessClass.get_name(process_class_id)]
+  end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names_all
+      all.each do |p|
+        csv << p.get_content_all
       end
+    end
+  end
+
+  def get_type_process
+    if self.p_type == 1
+      "PREJUDICIAL"
+    elsif self.p_type == 2
+      "JUDICIAL"
+    elsif self.p_type == 3
+      "FISCAL"
+    elsif self.p_type == 4
+      "PROCEDIMIENTO ADMINISTRATIVO"
+    elsif self.p_type == 5
+      "TUTELA"
+    else
+      "NO APLICA"
     end
   end
 
