@@ -49,8 +49,8 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :reason_inv, default: "Pendiente"
       t.boolean   :reinsurance_report, default: false
 
-      t.references  :process_class, foreign_key: true
-      t.references  :subprocess_class, foreign_key: true
+      t.references  :process_class,         foreign_key: true
+      t.references  :subprocess_class,      foreign_key: true
       t.references  :link_type, foreign_key: true
       t.references  :departament, foreign_key: true
       t.references  :city_case, foreign_key: true

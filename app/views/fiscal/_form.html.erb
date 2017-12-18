@@ -240,25 +240,23 @@
 
         <%= form.hidden_field :p_type, :value => 3 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
-        <%= form.hidden_field :internal_lawyer_id, :value => current_user.id %>
-
-        <hr>
+        <!--%= form.hidden_field :internal_lawyer_id, :value => current_user.id %-->
 
         <%= form.label "Clase de proceso" %>
-        <%= form.collection_select(:process_class, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:process_class_id, @process_class, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
+        <%= form.collection_select(:subprocess_class_id, @subprocess_class, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
           <option value="No">No</option>
           <option value="Si">Si</option>
         </select>
-        <!--
+
         <%= form.label "Número de radicado correspondencia" %>
         <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
-
+        <!--
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <%= form.text_field :case_id_bap, class:"form-control" %>
 

@@ -85,7 +85,7 @@ class TypeProcessesController < ApplicationController
     end
 
     def type_process_params
-      params.require(:type_process).permit(:user_id, :p_type, :process_class, :subprocess_class,
-      :internal_lawyer_id)
+      params.require(:type_process).permit(:user_id, :p_type, :process_class_id,
+       :subprocess_class_id, :internal_lawyer_id)
     end
 end

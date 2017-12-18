@@ -105,11 +105,11 @@ class TypeProcess < ApplicationRecord
   before_validation   :veritycations
 
   def veritycations
-    if self.p_type == 3
-      if self.subprocess_class_id == 1
-        errors.add("Subproceso ", "debe ser seleccionado")
-      end
-    end
+    #if self.p_type == 3
+      #if self.subprocess_class_id == 1
+        #errors.add("Subproceso ", "debe ser seleccionado")
+      #end
+    #end
   end
 
   def self.column_names_all
@@ -136,7 +136,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_content_all
-    [self.id, self.get_type_process, ProcessClass.get_name(process_class_id)]
+    [self.id, self.get_type_process]
   end
 
   def self.to_csv(options = {})
