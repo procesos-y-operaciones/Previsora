@@ -25,6 +25,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :facts, default: "NO APLICA"
       t.monetize  :policy
       t.monetize  :reserve
+      t.monetize  :provision
       t.date      :desition_date, default: Date.new(1990, 1, 1)
       t.monetize  :fail_value
       t.monetize  :fail_previ

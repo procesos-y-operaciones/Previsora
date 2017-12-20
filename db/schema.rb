@@ -207,6 +207,8 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.string "policy_currency", default: "USD", null: false
     t.integer "reserve_cents", default: 0, null: false
     t.string "reserve_currency", default: "USD", null: false
+    t.integer "provision_cents", default: 0, null: false
+    t.string "provision_currency", default: "USD", null: false
     t.date "desition_date", default: "1990-01-01"
     t.integer "fail_value_cents", default: 0, null: false
     t.string "fail_value_currency", default: "USD", null: false
