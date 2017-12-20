@@ -19,4 +19,12 @@ class CurrentStage < ApplicationRecord
     CurrentStage.where(n_type: 2)
   end
 
+  def self.judicial_admin
+    CurrentStage.where(n_type: 3)
+  end
+
+  def self.judicial_penal
+    CurrentStage.where(n_type: 5)
+  end
+
 end

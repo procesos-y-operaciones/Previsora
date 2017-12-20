@@ -14,5 +14,9 @@ class OfficeName < ApplicationRecord
     OfficeName.where("name like '%AUDITORIA%' OR name like '%CONTRALORIA%'")
   end
 
+  def self.judicial
+    OfficeName.where("name like '%JUZGADO%'").order(:name)
+  end
+
 
 end

@@ -137,6 +137,17 @@
       contingencyValueCentsRule();
     });
 
+    function contingencyValueCentsRule(){
+      detValCents = document.getElementById("detrimetValueCents").value;
+      ensValCents = document.getElementById("ensuranceValueCents").value;
+      if(detValCents!=0 && ensValCents!=0){
+        if(detValCents < ensValCents)
+          $("#contingencyValueCents").val(detValCents);
+        else
+          $("#contingencyValueCents").val(ensValCents);
+      }
+    }
+
     $('#subprocessClass').ready(function(){
       subprocessClassRule();
     });
@@ -258,7 +269,7 @@
         <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Departamento" %>
-        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
 
         <%= form.label "Ciudad donde cursa el caso" %>
         <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>

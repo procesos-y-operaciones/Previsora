@@ -11,11 +11,11 @@
 class ProcessClass < ApplicationRecord
 
   def self.fiscal
-    [ProcessClass.order(:name).find(26)]
+    [ProcessClass.find(28)]
   end
 
   def self.judicial
-    ProcessClass.find([1,10,11])
+    ProcessClass.find([1,2,11,12])
   end
 
   def self.get_name(id)
