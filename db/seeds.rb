@@ -219,6 +219,7 @@ Protection.create([
 ])
 
 ScoreContingency.create([
+  {name: 'PENDIENTE'},
   {name: 'EVENTUAL'},
   {name: 'REMOTA'},
   {name: 'PROBABLE'}
@@ -227,6 +228,10 @@ ScoreContingency.create([
 CurrentStage.create([
   {name: 'PENDIENTE', n_type: 1},
   {name: 'PENDIENTE', n_type: 2},
+  {name: 'PENDIENTE', n_type: 3},
+  {name: 'PENDIENTE', n_type: 4},
+  {name: 'PENDIENTE', n_type: 5},
+  {name: 'PENDIENTE', n_type: 6},
   {name: 'AUTO DE APERTURA', n_type: 1},
   {name: 'AUTO DE IMPUTACIÓN', n_type: 1},
   {name: 'ARGUMENTOS DE DEFENSA', n_type: 1},
@@ -248,7 +253,30 @@ CurrentStage.create([
   {name: 'AUTO QUE RESUELVE APELACIÓN', n_type: 2},
   {name: 'FALLO SIN RESPONSABILIDAD FISCAL', n_type: 2},
   {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 2},
-  {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 2}
+  {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 2},
+  {name: 'INDAGACION', n_type: 5},
+  {name: 'INVESTIGACION', n_type: 5},
+  {name: 'ETAPA DE JUZGAMIENTO', n_type: 5},
+  {name: 'AUDIENCIA DE ACUSACION', n_type: 5},
+  {name: 'AUDIENCIA PREPARATORIA', n_type: 5},
+  {name: 'AUDIENCIA DE JUICIO ORAL', n_type: 5},
+  {name: 'AUDIENCIA DE INCIDENTE DE REPARACION INTEGRAL', n_type: 5},
+  {name: 'AUDIENCIA DE CONCILIACION', n_type: 5},
+  {name: 'AUDIENCIA DE PRUEBAS Y ALEGACIONES', n_type: 5},
+  {name: 'SENTENCIA DE INCIDENTE DE REPARACION INTEGRAL', n_type: 5},
+  {name: 'PRESENTACION DE LA DEMANDA', n_type: 3},
+  {name: 'AUTO ADMISORIO DE LA DEMANDA', n_type: 3},
+  {name: 'CONTESTACION DE LA DEMANDA', n_type: 3},
+  {name: 'DEMANDA DE RECONVENCION', n_type: 3},
+  {name: 'PRUEBAS', n_type: 3},
+  {name: 'ALEGATOS DE CONCLUSION PRIMERA INSTANCIA', n_type: 3},
+  {name: 'SENTENCIA DE PRIMERA INSTANCIA', n_type: 3},
+  {name: 'APELACION', n_type: 3},
+  {name: 'AUDIENCIA DE CONCILIACION (ART 70)', n_type: 3},
+  {name: 'ALEGATOS DE CONCLUSION SEGUNDA INSTANCIA', n_type: 3},
+  {name: 'SENTENCIA SEGUNDA INSTANCIA', n_type: 3},
+  {name: 'RECURSO EXTRAORDINARIO DE UNIFICACION DE JURISPRUDENCIA', n_type: 3},
+  {name: 'RECURSO DE REVISION', n_type: 3}
 ])
 
 JoinCommittee.create([
@@ -1311,7 +1339,7 @@ ReservedReleased.create([
 ])
 
 SubprocessClass.create([
-  {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO'},
+  {name: 'PROCESOS ADMINISTRATIVOS'},
   {name: 'JURISDICCION CIVIL'},
   {name: 'VERBAL'},
   {name: 'ORDINARIO'},
@@ -1321,7 +1349,7 @@ SubprocessClass.create([
   {name: 'REPARACION DIRECTA'},
   {name: 'NULIDAD Y RESTABLECIMIENTO'},
   {name: 'EJECUTIVO'},
-  {name: 'PENAL'},
+  {name: 'PROCESOS PENALES'},
   {name: 'ACCION POPULAR'},
   {name: 'ACCION DE GRUPO'},
   {name: 'ACCION DE NULIDAD'},

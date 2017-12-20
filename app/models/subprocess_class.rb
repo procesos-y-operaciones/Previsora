@@ -14,8 +14,12 @@ class SubprocessClass < ApplicationRecord
     SubprocessClass.find([3,4])
   end
 
-  def self.judicial
-    SubprocessClass.find([])
+  def self.penal
+    SubprocessClass.find([11])
+  end
+
+  def self.admin
+    SubprocessClass.find([1])
   end
 
   def self.get_name(id)
