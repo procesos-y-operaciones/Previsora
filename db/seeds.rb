@@ -228,6 +228,10 @@ ScoreContingency.create([
 CurrentStage.create([
   {name: 'PENDIENTE', n_type: 1},
   {name: 'PENDIENTE', n_type: 2},
+  {name: 'PENDIENTE', n_type: 3},
+  {name: 'PENDIENTE', n_type: 4},
+  {name: 'PENDIENTE', n_type: 5},
+  {name: 'PENDIENTE', n_type: 6},
   {name: 'AUTO DE APERTURA', n_type: 1},
   {name: 'AUTO DE IMPUTACIÓN', n_type: 1},
   {name: 'ARGUMENTOS DE DEFENSA', n_type: 1},

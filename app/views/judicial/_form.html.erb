@@ -244,15 +244,17 @@
       $('#currentStagePenal').hide();
     }
 
-    $('#subprocessClass').ready(function(){
-      subprocessClassRule();
+    $('#subprocessPenal').ready(function(){
+      subprocessPenal();
     });
-    $('#subprocessClass').change(function(){
-      subprocessClassRule();
+    $('#subprocessPenal').change(function(){
+      subprocessPenal();
     });
-    function subprocessClassRule(){
-      subClass = document.getElementById("subprocessClass").value;
-      alert(subClass);
+    function subprocessPenal(){
+      $('#currentStageAdmin').prop( "disabled", true );
+      $('#currentStageAdmin').hide();
+      $('#currentStagePenal').prop( "disabled", false );
+      $('#currentStagePenal').show();
     }
 
     $('#moneyType').ready(function(){
@@ -320,7 +322,7 @@
         <%= form.collection_select(:process_class_id, ProcessClass.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id: "processClass", required: true}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.admin, :id , :name, {}, {class:"form-control", id:"subprocessAdmin", required: true}) %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.admin, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessAdmin", required: true}) %>
         <%= form.collection_select(:subprocess_class_id, SubprocessClass.penal, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessPenal", required: true}) %>
 
         <hr>
