@@ -14,6 +14,10 @@ class ProcessClass < ApplicationRecord
     [ProcessClass.find(27)]
   end
 
+  def self.judicial
+    ProcessClass.order(:name).find([1,2,11,12])
+  end
+
   def self.get_name(id)
     ProcessClass.find(id).name
   end

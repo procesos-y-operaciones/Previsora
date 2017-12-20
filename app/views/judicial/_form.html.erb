@@ -292,7 +292,7 @@
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
         <%= form.label "Clase de proceso" %>
-        <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:process_class_id, ProcessClass.judicial, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
         <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
