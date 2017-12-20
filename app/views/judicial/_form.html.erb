@@ -291,11 +291,15 @@
         <%= form.hidden_field :p_type, :value => 2 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
+        <hr>
+
         <%= form.label "Clase de proceso" %>
         <%= form.collection_select(:process_class_id, ProcessClass.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
         <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id , :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control", :id=>"subprocessClass"}) %>
+
+        <hr>
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
@@ -311,6 +315,8 @@
 
         <%= form.label "Número de identificación del caso SISE" %>
         <%= form.text_field :case_id_sise, value: "PENDIENTE", class:"form-control" %>
+
+        <hr>
 
         <%= form.label "Fecha de creación" %>
         <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
@@ -354,15 +360,6 @@
         <%= form.label "Ramo comercial" %>
         <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
 
-        <%= form.label "Tipo moneda" %>
-        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
-
-        <%= form.label "Valor del dólar" %>
-        <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
-
-        <%= form.label "Número del siniestro (completo)" %>
-        <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
-
         <%= form.label "Tiene más pólizas?" %>
         <select id="more_policies" class="form-control">
           <option value="No">No</option>
@@ -375,10 +372,24 @@
         <%= form.label "Número de siniestros" %>
         <%= form.text_area :sinisters, value: "PENDIENTE", id:"sinisters", class:"form-control" %>
 
-        <%= form.label "Reserva o provisión de indemnización" %>
+        <%= form.label "Número del siniestro (completo)" %>
+        <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
+
+        <hr>
+
+        <%= form.label "Tipo moneda" %>
+        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
+
+        <%= form.label "Valor del dólar" %>
+        <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
+
+        <%= form.label "Valor reserva" %>
         <%= form.number_field :reserve_cents, class:"form-control" %>
 
-        <%= form.label "Reserva honorarios" %>
+        <%= form.label "Valor provisión de indemnización" %>
+        <%= form.number_field :provision_cents, class:"form-control" %>
+
+        <%= form.label "Valor reserva honorarios" %>
         <%= form.number_field :reserved_fees_cents, class:"form-control" %>
 
         <%= form.label "Valor pretensión / detrimento / estimación" %>
