@@ -103,7 +103,16 @@ $(document).ready ->
         litigationSourceRule()
         return
     
-    #
+    #regla -> Valor pretensión / detrimento / estimación
+    contingencyValueCentsRule = ->
+        detValCents = document.getElementById('detrimetValueCents').value
+        ensValCents = document.getElementById('ensuranceValueCents').value
+        if detValCents != 0 and ensValCents != 0
+            if detValCents < ensValCents
+                $('#contingencyValueCents').val detValCents
+            else
+                $('#contingencyValueCents').val ensValCents
+        return
     $('#detrimetValueCents').ready ->
         contingencyValueCentsRule()
         return
