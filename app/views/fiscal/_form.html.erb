@@ -221,7 +221,6 @@
 
 </script>
 
-
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -254,13 +253,13 @@
         </select>
 
         <%= form.label "Número de radicado correspondencia" %>
-        <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, value: "PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
 
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
-        <%= form.text_field :case_id_bap, class:"form-control" %>
+        <%= form.text_field :case_id_bap, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Número de identificación del caso SISE" %>
-        <%= form.text_field :case_id_sise, class:"form-control" %>
+        <%= form.text_field :case_id_sise, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Fecha de creación" %>
         <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
@@ -344,10 +343,10 @@
         <%= form.date_field :notification_date, class:"form-control" %>
 
         <%= form.label "Número de radicación del proceso" %>
-        <%= form.text_field :process_radicate, class:"form-control" %>
+        <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Apoderado Previsora" %>
-        <%= form.text_field :attorny, class:"form-control" %>
+        <%= form.text_field :attorny, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Fecha de asignación apoderado Previsora" %>
         <%= form.date_field :attorny_date, class:"form-control" %>
@@ -356,22 +355,22 @@
         <%= form.collection_select(:office_name_id, OfficeName.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Parte activa" %>
-        <%= form.text_field :active_part, class:"form-control" %>
+        <%= form.text_field :active_part, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Parte pasiva" %>
-        <%= form.text_field :passive_part, class:"form-control" %>
+        <%= form.text_field :passive_part, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Calificación contingencia" %>
         <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Razón contingencia" %>
-        <%= form.text_field :contingency_reason, class:"form-control" %>
+        <%= form.text_field :contingency_reason, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Resumen de la contingencia" %>
         <%= form.text_field :contingency_resume, :readonly => "readonly", :value=>"PRESUNTO DETRIMENTO PATRIMONIAL POR INDEBIDA GESTION FISCAL", class:"form-control" %>
 
         <%= form.label "Hechos" %>
-        <%= form.text_area :facts, class:"form-control" %>
+        <%= form.text_area :facts, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Etapa actual", id:"currentStage" %>
         <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:id=>"currentStageVer", :class=>"form-control", :disabled=>"true"}) %>
@@ -408,7 +407,7 @@
         </select>
 
         <%= form.label "Número de radicación de coactivo" %>
-        <%= form.text_field :coactive_radicate, id:"coactive_radicate", class:"form-control" %>
+        <%= form.text_field :coactive_radicate, value: "PENDIENTE", id:"coactive_radicate", class:"form-control" %>
 
         <%= form.label "Valor coactivo" %>
         <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", class:"form-control" %>

@@ -39,6 +39,10 @@ gem 'money-rails', '~>1'
 
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'rails-i18n', '~> 5.0.0'
+
+gem 'devise-i18n'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
