@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :type_processes
-  resources :prejudicial
-  resources :judicial
-  resources :fiscal
-  resources :administrative
-  resources :tutelage
-
   devise_for :users
+
+  resources :type_processes
+
+  get 'prejudicial/new'
+  get 'judicial/new'
+  get 'fiscal/new'
+  get 'administrative/new'
+  get 'tutelage/new'
 
   get 'index/home'
   get 'index/lawyer'

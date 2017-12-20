@@ -87,56 +87,6 @@
       }
     });
 
-    $('#join_committee').ready(function(){
-        var x = document.getElementById("join_committee").value;
-        if(x === "2"){
-          document.getElementById("committee_date").readOnly = false;
-          $('#committee').prop( "disabled", false );
-        }
-        else{
-          document.getElementById("committee_date").readOnly = true;
-          $('#committee').prop( "disabled", true );
-        }
-    });
-    $('#join_committee').change(function(){
-      var x = document.getElementById("join_committee").value;
-      if(x === "2"){
-        document.getElementById("committee_date").readOnly = false;
-        $('#committee').prop( "disabled", false );
-      }
-      else{
-        document.getElementById("committee_date").readOnly = true;
-        $('#committee').prop( "disabled", true );
-      }
-    });
-
-    $('#committee').ready(function(){
-        var x = document.getElementById("committee").value;
-        if(x === "2"){
-          document.getElementById("reconcilie_value").readOnly = false;
-          document.getElementById("reason_conc").readOnly = true;
-        }else if(x === "3"){
-          document.getElementById("reconcilie_value").readOnly = true;
-          document.getElementById("reason_conc").readOnly = false;
-        }else{
-          document.getElementById("reconcilie_value").readOnly = true;
-          document.getElementById("reason_conc").readOnly = true;
-        }
-    });
-    $('#committee').change(function(){
-        var x = document.getElementById("committee").value;
-        if(x === "2"){
-          document.getElementById("reconcilie_value").readOnly = false;
-          document.getElementById("reason_conc").readOnly = true;
-        }else if(x === "3"){
-          document.getElementById("reconcilie_value").readOnly = true;
-          document.getElementById("reason_conc").readOnly = false;
-        }else{
-          document.getElementById("reconcilie_value").readOnly = true;
-          document.getElementById("reason_conc").readOnly = true;
-        }
-    });
-
     var num=0, exer=0, poly=0, comm=0, numSiniestro = "";
     $('#number').change(function(){
       num = numSiniestro.concat(document.getElementById("number").value);
@@ -271,15 +221,15 @@
 
 </script>
 
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-
       <ul>
-        <% type_process.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% type_process.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
@@ -288,14 +238,14 @@
     <div class="row">
       <div class="col-sm-offset-2 col-sm-7 ">
 
-        <%= form.hidden_field :p_type, :value => 2 %>
+        <%= form.hidden_field :p_type, :value => 3 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
         <%= form.label "Clase de proceso" %>
-        <%= form.collection_select(:process_class_id, ProcessClass.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id , :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control", :id=>"subprocessClass"}) %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <select id="state" class="form-control">
@@ -304,43 +254,43 @@
         </select>
 
         <%= form.label "Número de radicado correspondencia" %>
-        <%= form.text_field :correspondency_radicate, value: "PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
 
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
-        <%= form.text_field :case_id_bap, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :case_id_bap, class:"form-control" %>
 
         <%= form.label "Número de identificación del caso SISE" %>
-        <%= form.text_field :case_id_sise, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :case_id_sise, class:"form-control" %>
 
         <%= form.label "Fecha de creación" %>
         <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
 
         <%= form.label "Tipo de vinculación" %>
-        <%= form.collection_select(:link_type_id, LinkType.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Departamento" %>
-        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Ciudad donde cursa el caso" %>
-        <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Fuente de litigio" %>
-        <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {:prompt => 'SELECCIONE'}, {:id=>"litigationSource", :class=>"form-control"}) %>
+        <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
 
         <%= form.label "Tipo de reaseguro" %>
-        <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Reaseguro reportado" %><br>
         <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]], {:class=>"form-control"}) %>
         <br>
         <%= form.label "Tipo de coaseguro" %>
-        <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+        <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Póliza" %>
         <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
 
         <%= form.label "Amparo" %>
-        <%= form.collection_select(:protection_id, Protection.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control", :id=>"protection", :disabled=>"true"}) %>
+        <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control", :id=>"protection", :disabled=>"true"}) %>
 
         <%= form.label "Número (siniestro)" %>
         <%= form.number_field :number, id:"number", class:"form-control" %>
@@ -370,10 +320,10 @@
         </select>
 
         <%= form.label "Número de pólizas" %>
-        <%= form.text_area :policies, value: "PENDIENTE", id:"policies", class:"form-control" %>
+        <%= form.text_area :policies, id:"policies", class:"form-control" %>
 
         <%= form.label "Número de siniestros" %>
-        <%= form.text_area :sinisters, value: "PENDIENTE", id:"sinisters", class:"form-control" %>
+        <%= form.text_area :sinisters, id:"sinisters", class:"form-control" %>
 
         <%= form.label "Reserva o provisión de indemnización" %>
         <%= form.number_field :reserve_cents, class:"form-control" %>
@@ -394,10 +344,10 @@
         <%= form.date_field :notification_date, class:"form-control" %>
 
         <%= form.label "Número de radicación del proceso" %>
-        <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :process_radicate, class:"form-control" %>
 
         <%= form.label "Apoderado Previsora" %>
-        <%= form.text_field :attorny, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :attorny, class:"form-control" %>
 
         <%= form.label "Fecha de asignación apoderado Previsora" %>
         <%= form.date_field :attorny_date, class:"form-control" %>
@@ -406,22 +356,22 @@
         <%= form.collection_select(:office_name_id, OfficeName.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Parte activa" %>
-        <%= form.text_field :active_part, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :active_part, class:"form-control" %>
 
         <%= form.label "Parte pasiva" %>
-        <%= form.text_field :passive_part, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :passive_part, class:"form-control" %>
 
         <%= form.label "Calificación contingencia" %>
         <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
 
         <%= form.label "Razón contingencia" %>
-        <%= form.text_field :contingency_reason, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :contingency_reason, class:"form-control" %>
 
         <%= form.label "Resumen de la contingencia" %>
-        <%= form.text_field :contingency_resume, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_field :contingency_resume, :readonly => "readonly", :value=>"PRESUNTO DETRIMENTO PATRIMONIAL POR INDEBIDA GESTION FISCAL", class:"form-control" %>
 
         <%= form.label "Hechos" %>
-        <%= form.text_area :facts, value: "PENDIENTE", class:"form-control" %>
+        <%= form.text_area :facts, class:"form-control" %>
 
         <%= form.label "Etapa actual", id:"currentStage" %>
         <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:id=>"currentStageVer", :class=>"form-control", :disabled=>"true"}) %>
@@ -472,29 +422,16 @@
         <%= form.label "Fecha última actuación" %>
         <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate" %>
 
-        <%= form.label "Ingresa al comité?" %>
-        <%= form.collection_select(:join_committee_id, JoinCommittee.all, :id, :name, {}, {:class=>"form-control", :id=>"join_committee"}) %>
-
-        <%= form.label "Fecha ingreso al comité" %>
-        <%= form.date_field :committee_date, class:"form-control",  id:"committee_date" %>
-
-        <%= form.label "Desición del comité" %>
-        <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {:class=>"form-control", :id=>"committee"}) %>
-
-        <%= form.label "Valor a conciliar" %>
-        <%= form.number_field :reconcilie_value_cents, class:"form-control", :id=>"reconcilie_value" %>
-
-        <%= form.label "Razón de no conciliar" %>
-        <%= form.text_area :reason_conc, value: "PENDIENTE", id:"reason_conc", class:"form-control" %>
-
         <%= form.label "Reserva depurada" %>
         <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control", :id=>"reservedReleased"}) %>
 
       </div>
     </div>
   </div>
+
   <div class="">
     <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
+
 <% end %>

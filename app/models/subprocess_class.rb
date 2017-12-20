@@ -11,7 +11,15 @@
 class SubprocessClass < ApplicationRecord
 
   def self.fiscal
-    SubprocessClass.find([1,4,5])
+    SubprocessClass.find([3,4])
+  end
+
+  def self.judicial
+    SubprocessClass.find([])
+  end
+
+  def self.get_name(id)
+    SubprocessClass.find(id).name
   end
 
 end
