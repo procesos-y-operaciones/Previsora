@@ -136,16 +136,6 @@
     $('#ensuranceValueCents').change(function(){
       contingencyValueCentsRule();
     });
-    function contingencyValueCentsRule(){
-      detValCents = document.getElementById("detrimetValueCents").value;
-      ensValCents = document.getElementById("ensuranceValueCents").value;
-      if(detValCents!=0 && ensValCents!=0){
-        if(detValCents < ensValCents)
-          $("#contingencyValueCents").val(detValCents);
-        else
-          $("#contingencyValueCents").val(ensValCents);
-      }
-    }
 
     $('#subprocessClass').ready(function(){
       subprocessClassRule();

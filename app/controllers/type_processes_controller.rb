@@ -19,7 +19,6 @@ class TypeProcessesController < ApplicationController
 
   # GET /type_processes/new
   def new
-    @p_type = params[:p_type]
     @type_process = TypeProcess.new
   end
 

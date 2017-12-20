@@ -7,6 +7,7 @@ class JudicialController < ApplicationController
 
   def new
     @judicial = TypeProcess.new
+    @judicial.creation_date = Date.today
   end
 
   def edit

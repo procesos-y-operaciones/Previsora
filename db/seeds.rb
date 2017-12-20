@@ -38,6 +38,7 @@ ProcessClass.create([
 ])
 
 LinkType.create([
+  {name: 'PENDIENTE'},
   {name: 'CONVOCADO'},
   {name: 'DEMANDANTE'},
   {name: 'DEMANDADO'},
@@ -48,7 +49,6 @@ LinkType.create([
 ])
 
 Departament.create([
-  {name: 'PENDIENTE'},
   {name: 'AMAZONAS'},
   {name: 'ANTIOQUIA'},
   {name: 'ARAUCA'},
@@ -75,7 +75,6 @@ Departament.create([
 ])
 
 CityCase.create([
-  {name: 'PENDIENTE'},
   {name: 'ABEJORRAL'},
   {name: 'ABREGO'},
   {name: 'ABRIAQUI'},
@@ -1259,6 +1258,7 @@ LitigationSource.create([
   {name: 'PENDIENTE'},
   {name: 'SINIESTRO'},
   {name: 'PROVISION'},
+  {name: 'ESMITACION RECOBRO'},
   {name: 'NO APLICA'}
 ])
 
@@ -1311,7 +1311,6 @@ ReservedReleased.create([
 ])
 
 SubprocessClass.create([
-  {name: 'SELECCIONE UNA'},
   {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO'},
   {name: 'JURISDICCION CIVIL'},
   {name: 'VERBAL'},
