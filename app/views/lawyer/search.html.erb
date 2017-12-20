@@ -1,40 +1,42 @@
+<script>
+  $(document).ready(function($) {
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+  });
+</script>
 
 <% if @processes == [] %>
-
-  <h4>Aún no tienes procesos creados.</h4>
-
+  <div class="alert alert-danger m-30">
+    <h4>Aún no tienes procesos creados.</h4>
+  </div>
 <% else %>
 
-  <%= will_paginate @processes %>
-  <table style="width:500px">
-  <thead>
-  <tr>
-    <th>Tipo</th>
-    <th>#Radicación</th>
-    <th>#Identificación (B,A,PA)</th>
-    <th>#Identificación (SISE)</th>
-    <th>Pasiva</th>
-    <th>Activa</th>
-    <th>Abogado</th>
-    <th>Ciudad</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @processes.each do |p| %>
-      <tr>
-        <td><%= p.p_type %></td>
-        <td><%= p.correspondency_radicate %></td>
-        <td><%= p.case_id_bap %></td>
-        <td><%= p.case_id_sise %></td>
-        <td><%= p.passive_part %></td>
-        <td><%= p.active_part %></td>
-        <td>Abogado</td>
-        <td>Ciudad</td>
-      </tr>
-  <% end %>
-  </tbody>
+<%= will_paginate @processes %>
+  <div class="container-fluid p-30">	
+    <table class="table table-responsive-sm table-hover">
+      <thead class="darkgreen">
+        <tr>
+          <th>TIPO DE PROCESO</th>
+          <th># Radicado correspondencia</th>
+          <th># Identificación (Bizagi, access y PA)</th>
+          <th>#Identificación (SISE)</th>
+          <th>Abogado interno</th>
+          <th>Ciudad donde cursa</th>
+        </tr>
+      </thead>
+    
+    <tbody>
+      <% @processes.each do |p| %>
+        <tr class='clickable-row' data-href='#'>
+          <td><%= p.p_type %></td>
+          <td><%= p.correspondency_radicate %></td>
+          <td><%= p.case_id_bap %></td>
+          <td><%= p.case_id_sise %></td>
+          <td>Abogado</td>
+          <td>Ciudad</td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
-  <%= will_paginate @processes %>
-
-
 <% end %>

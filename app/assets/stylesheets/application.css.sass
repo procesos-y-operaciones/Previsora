@@ -33,6 +33,7 @@ $black: #000
  flex-box
  navbar
  grid
+ table
  unique
  ================================================== */
 
@@ -121,9 +122,12 @@ hr
     font-size: 15px
     font-weight: 200px
     color: darken($darkgreen, 2.5%)
-.form-control
+.input-group, .form-control
     margin-bottom: 25px
-
+.input-group-addon
+    border: 0px !important
+    background-color:  darken($white, 2.5%) !important
+    
 /* ==================================================
   buttons
   ================================================== */
@@ -136,6 +140,12 @@ hr
     margin: 5px
     border-radius: 5px
     padding: 10px 30px
+    font-size: 15px !important
+.minibtn
+    margin: 0px
+    border-radius: 5px
+    background-color: darken($white, 2.5%)
+    padding: 5px
     font-size: 15px !important
     
 .btn-default, .btn-default:link, .btn-default:visited
@@ -244,6 +254,11 @@ hr
   grid
   ================================================== */
 
+/* ==================================================
+  table
+  ================================================== */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th 
+    background-color: rgba(98, 189, 24, 0.4)
 
 /* ==================================================
   unique

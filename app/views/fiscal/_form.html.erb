@@ -1,6 +1,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    
+    /*========================== reglas ==========================*/
     $('#state').ready(function(){
       var x = document.getElementById("state").value;
       if(x === 'Si'){
@@ -217,7 +224,9 @@
     }
 
     /*caseState caseTermination lastPerformance lastPerformanceDate reservedReleased*/
-  });
+    
+    
+});
 
 </script>
 
@@ -244,190 +253,480 @@
 
         <hr>
 
+        
+      
+        
         <%= form.label "Clase de proceso" %>
-        <%= form.collection_select(:process_class, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:process_class, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:subprocess_class, SubprocessClass.fiscal, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tiene número de radicado correspondencia?" %>
-        <select id="state" class="form-control">
-          <option value="No">No</option>
-          <option value="Si">Si</option>
-        </select>
-        <!--
+        <div class="input-group">
+          <select id="state" class="form-control">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Número de radicado correspondencia" %>
-        <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
-        <%= form.text_field :case_id_bap, class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.text_field :case_id_bap, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Número de identificación del caso SISE" %>
-        <%= form.text_field :case_id_sise, class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.text_field :case_id_sise, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Fecha de creación" %>
-        <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tipo de vinculación" %>
-        <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Departamento" %>
-        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Ciudad donde cursa el caso" %>
-        <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Fuente de litigio" %>
-        <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tipo de reaseguro" %>
-        <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Reaseguro reportado" %><br>
-        <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]], {:class=>"form-control"}) %>
-        <br>
+        <div class="input-group">
+          <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]], {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tipo de coaseguro" %>
-        <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Póliza" %>
-        <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
-
+        <div class="input-group">
+          <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Amparo" %>
-        <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control", :id=>"protection", :disabled=>"true"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control", :id=>"protection", :disabled=>"true"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Número (siniestro)" %>
-        <%= form.number_field :number, id:"number", class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.number_field :number, id:"number", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Ejercicio" %>
-        <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Sucursal de la póliza" %>
-        <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_policy" }) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_policy" }) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Ramo comercial" %>
-        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tipo moneda" %>
-        <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
-
+        <div class="input-group">
+          <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Valor del dólar" %>
-        <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
-
+        <div class="input-group">
+          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Número del siniestro (completo)" %>
-        <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tiene más pólizas?" %>
-        <select id="more_policies" class="form-control">
-          <option value="No">No</option>
-          <option value="Si">Si</option>
-        </select>
+        <div class="input-group">
+          <select id="more_policies" class="form-control">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Número de pólizas" %>
-        <%= form.text_area :policies, id:"policies", class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_area :policies, id:"policies", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Número de siniestros" %>
-        <%= form.text_area :sinisters, id:"sinisters", class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_area :sinisters, id:"sinisters", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Reserva o provisión de indemnización" %>
-        <%= form.number_field :reserve_cents, class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :reserve_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Reserva honorarios" %>
-        <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor pretensión / detrimento / estimación" %>
-        <%= form.number_field :detritment_cents, id:"detrimetValueCents", class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :detritment_cents, id:"detrimetValueCents", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor asegurado" %>
-        <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor contingencia" %>
-        <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha de notificación / vinculación" %>
-        <%= form.date_field :notification_date, class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :notification_date, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Número de radicación del proceso" %>
-        <%= form.text_field :process_radicate, class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :process_radicate, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Apoderado Previsora" %>
-        <%= form.text_field :attorny, class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :attorny, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha de asignación apoderado Previsora" %>
-        <%= form.date_field :attorny_date, class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :attorny_date, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Nombre despacho / tipo contraloría" %>
-        <%= form.collection_select(:office_name_id, OfficeName.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:office_name_id, OfficeName.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Parte activa" %>
-        <%= form.text_field :active_part, class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :active_part, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Parte pasiva" %>
-        <%= form.text_field :passive_part, class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :passive_part, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Calificación contingencia" %>
-        <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Razón contingencia" %>
-        <%= form.text_field :contingency_reason, class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :contingency_reason, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Resumen de la contingencia" %>
-        <%= form.text_field :contingency_resume, :readonly => "readonly", :value=>"PRESUNTO DETRIMENTO PATRIMONIAL POR INDEBIDA GESTION FISCAL", class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :contingency_resume, :readonly => "readonly", :value=>"PRESUNTO DETRIMENTO PATRIMONIAL POR INDEBIDA GESTION FISCAL", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Hechos" %>
-        <%= form.text_area :facts, class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_area :facts, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Etapa actual", id:"currentStage" %>
-        <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:id=>"currentStageVer", :class=>"form-control", :disabled=>"true"}) %>
-        <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ord, :id, :name, {}, {:id=>"currentStageOrd", :class=>"form-control", :disabled=>"true"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {:id=>"currentStageVer", :class=>"form-control", :disabled=>"true"}) %>
+          <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ord, :id, :name, {}, {:id=>"currentStageOrd", :class=>"form-control", :disabled=>"true"}) %>
+        </div>
 
         <%= form.label "Instancias" %>
-        <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Estado del caso" %>
-        <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control", :id=>"caseState"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control", :id=>"caseState"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha de decisión" %>
-        <%= form.date_field :desition_date, class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :desition_date, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Terminación del caso" %>
-        <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control", :id=>"caseTermination"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control", :id=>"caseTermination"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor fallo decisión" %>
-        <%= form.number_field :fail_value_cents, class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :fail_value_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor fallo a cargo de Previsora" %>
-        <%= form.number_field :fail_previ_cents, class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :fail_previ_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor pagado Previsora" %>
-        <%= form.number_field :payed_value_cents, class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :payed_value_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha de consignación" %>
-        <%= form.date_field :payment_date, class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :payment_date, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Tiene número de radicado de coactivo?" %>
-        <select id="coactive" class="form-control">
-          <option value="No">No</option>
-          <option value="Si">Si</option>
-        </select>
+        <div class="input-group">
+          <select id="coactive" class="form-control">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Número de radicación de coactivo" %>
-        <%= form.text_field :coactive_radicate, id:"coactive_radicate", class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :coactive_radicate, id:"coactive_radicate", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor coactivo" %>
-        <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor embargo" %>
-        <%= form.number_field :garnish_value_cents, class:"form-control" %>
+        <div class="input-group">
+          <%= form.number_field :garnish_value_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Última actuación" %>
-        <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control", :id=>"lastPerformance"}) %>
+        <div class="input-group">
+          <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control", :id=>"lastPerformance"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha última actuación" %>
-        <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate" %>
+        <div class="input-group">
+          <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Reserva depurada" %>
-        <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control", :id=>"reservedReleased"}) %>
-        -->
+        <div class="input-group">
+          <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control", :id=>"reservedReleased"}) %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
       </div>
     </div>
   </div>
