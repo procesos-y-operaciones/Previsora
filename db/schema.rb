@@ -239,11 +239,16 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.string "auth_value_currency", default: "USD", null: false
     t.integer "reinsurance_value_cents", default: 0, null: false
     t.string "reinsurance_value_currency", default: "USD", null: false
+    t.integer "coensurance_value_cents", default: 0, null: false
+    t.string "coensurance_value_currency", default: "USD", null: false
     t.integer "reconcilie_value_cents", default: 0, null: false
     t.string "reconcilie_value_currency", default: "USD", null: false
+    t.integer "conensurance_value_cents", default: 0, null: false
+    t.string "conensurance_value_currency", default: "USD", null: false
     t.string "reason_conc"
     t.string "reason_inv"
     t.boolean "reinsurance_report", default: false
+    t.boolean "recovery", default: false
     t.integer "process_class_id"
     t.integer "subprocess_class_id"
     t.integer "link_type_id"

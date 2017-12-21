@@ -48,10 +48,13 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.date      :date_notification_desition_desacate
       t.monetize  :auth_value
       t.monetize  :reinsurance_value
+      t.monetize  :coensurance_value
       t.monetize  :reconcilie_value
+      t.monetize  :conensurance_value
       t.string    :reason_conc
       t.string    :reason_inv
       t.boolean   :reinsurance_report, default: false
+      t.boolean   :recovery, default: false
 
       t.belongs_to  :process_class,                 optional: true
       t.belongs_to  :subprocess_class,              optional: true

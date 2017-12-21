@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-    
-    #regla -> número de radicado de correspondencia? 
+
+    #regla -> número de radicado de correspondencia?
     stateRule = ->
         x = document.getElementById('state').value
         if x == 'Si'
@@ -20,7 +20,7 @@ $(document).ready ->
     $('#state').change ->
         stateRule()
         return
-        
+
     #regla -> tiene número de radicado de coactivo?
     coactiveRule = ->
         x = document.getElementById('coactive').value
@@ -33,7 +33,7 @@ $(document).ready ->
             document.getElementById('coactive_radicate').readOnly = true
             document.getElementById('coactive_value_cents').readOnly = true
             $('#coactive_radicate').val='Pendiente'
-            $('#coactive_value_cents').val=-1
+            $('#coactive_value_cents').val=0
         return
     $('#coactive').ready ->
         coactiveRule()
@@ -41,7 +41,7 @@ $(document).ready ->
     $('#coactive').change ->
         coactiveRule()
         return
-        
+
     #regla -> fuente de litigio
     morePoliciesRule = ->
         x = document.getElementById('more_policies').value
@@ -62,7 +62,7 @@ $(document).ready ->
     $('#more_policies').change ->
         morePoliciesRule()
         return
-    
+
     #regla -> numero de siniestro
     num = 0
     exer = 0
@@ -85,7 +85,7 @@ $(document).ready ->
         comm = numSiniestro.concat(document.getElementById('branch_commercial').value)
         $('#sinister').val num + '-' + exer + '-' + poly + '-' + comm
         return
-        
+
     #regla -> fuente de litigio
     litigationSourceRule = ->
         if litsrc == '2'
@@ -102,7 +102,7 @@ $(document).ready ->
     $('#litigationSource').change ->
         litigationSourceRule()
         return
-    
+
     #regla -> Valor pretensión / detrimento / estimación
     contingencyValueCentsRule = ->
         detValCents = document.getElementById('detrimetValueCents').value
@@ -125,7 +125,7 @@ $(document).ready ->
     $('#ensuranceValueCents').change ->
         contingencyValueCentsRule()
         return
-    
+
     #regla -> Subclase de proceso
     subprocessClassRule = ->
         subClass = document.getElementById('subprocessClass').value
@@ -147,7 +147,7 @@ $(document).ready ->
     $('#subprocessClass').change ->
         subprocessClassRule()
         return
-    
+
     #regla -> Tipo moneda
     moneyTypeRule = ->
         money_type = document.getElementById('moneyType').value
@@ -156,7 +156,7 @@ $(document).ready ->
             $('#dolarValueCents').val=0
         else
             document.getElementById('dolarValueCents').readOnly = false
-            $('#dolarValueCents').val=' ' 
+            $('#dolarValueCents').val=' '
         return
         $('#moneyType').ready ->
             moneyTypeRule()
