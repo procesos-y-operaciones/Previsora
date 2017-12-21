@@ -87,18 +87,13 @@
         </div>
         
         <%= form.label "Departamento" %>
-<<<<<<< HEAD
         <div class="input-group">
-          <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
+          <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
         
-=======
-        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
-
->>>>>>> 27ffa6bafbedaa6af29217cd0ac236188c4f216f
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
