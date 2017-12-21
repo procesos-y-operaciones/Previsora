@@ -4,6 +4,28 @@
 
 $(document).ready ->
     
+    #regla -> Subclase de proceso
+    subprocessClassRule = ->
+        subClass = document.getElementById('subprocessClass').value
+        if subClass == '3'
+            $('#currentStageVer').prop 'disabled', false
+            $('#currentStageOrd').prop 'disabled', true
+            $('#currentStageVerDiv').show()
+            $('#currentStageOrdDiv').hide()
+        if subClass == '4'
+            $('#currentStageVer').prop 'disabled', true
+            $('#currentStageOrd').prop 'disabled', false
+            $('#currentStageVerDiv').hide()
+            $('#currentStageOrdDiv').show()
+            return
+    $('#subprocessClass').ready ->
+        subprocessClassRule()
+        return
+    $('#subprocessClass').change ->
+        subprocessClassRule()
+        return
+    
+    
     #regla -> tiene número de radicado de correspondencia? 
     stateRule = ->
         x = document.getElementById('state').value
@@ -74,7 +96,23 @@ $(document).ready ->
         comm = numSiniestro.concat(document.getElementById('branch_commercial').value)
         $('#sinister').val num + '-' + exer + '-' + poly + '-' + comm
         return
-    
+        
+    #regla -> Tipo moneda
+    moneyTypeRule = ->
+        money_type = document.getElementById('moneyType').value
+        if money_type == '1'
+            document.getElementById('dolarValueCents').readOnly = true
+            $('#dolarValueCents').val=0
+        else
+            document.getElementById('dolarValueCents').readOnly = false
+        return
+    $('#moneyType').ready ->
+        moneyTypeRule()
+        return
+    $('#moneyType').change ->
+        moneyTypeRule()
+        return 
+            
     #regla -> Tiene más pólizas?
     morePoliciesRule = ->
         x = document.getElementById('more_policies').value
@@ -93,8 +131,58 @@ $(document).ready ->
     $('#more_policies').change ->
         morePoliciesRule()
         return
-    
         
+    #regla -> Valor pretensión / detrimento / estimación
+    contingencyValueCentsRule = ->
+        detValCents = document.getElementById('detrimetValueCents').value
+        ensValCents = document.getElementById('ensuranceValueCents').value
+        if detValCents != 0 && ensValCents != 0
+            if detValCents < ensValCents
+                $('#contingencyValueCents').val detValCents
+            else
+                $('#contingencyValueCents').val ensValCents
+        else
+            $('#contingencyValueCents').val 0
+        return
+    $('#detrimetValueCents').ready ->
+        contingencyValueCentsRule()
+        return
+    $('#ensuranceValueCents').ready ->
+        contingencyValueCentsRule()
+        return
+    $('#detrimetValueCents').change ->
+        contingencyValueCentsRule()
+        return
+    $('#ensuranceValueCents').change ->
+        contingencyValueCentsRule()
+        return
+    
+    #regla -> estado del caso
+    caseStateRule = ->
+        case_state = document.getElementById('caseState').value
+        if case_state == '3'
+            $('#caseTermination').prop('disabled', false)
+            $('#lastPerformance').prop('disabled', false)
+            document.getElementById('lastPerformanceDate').readOnly = false
+            $('#reservedReleased').prop('disabled', false)
+        else
+            $('#caseTermination').prop('disabled', true)
+            $('#lastPerformance').prop('disabled', true)
+            document.getElementById('lastPerformanceDate').readOnly = true
+            $('#reservedReleased').prop('disabled', true)
+            $('#caseTermination').val '1'
+            $('#lastPerformance').val '1'
+            $('#lastPerformanceDate').val '1990-01-01'
+            $('#reservedReleased').val 'NO APLICA'
+        return
+    $('#caseState').ready ->
+        caseStateRule()
+        return
+    $('#caseState').change ->
+        caseStateRule()
+        return
+    return
+    
     #regla -> tiene número de radicado de coactivo?
     coactiveRule = ->
         x = document.getElementById('coactive').value
@@ -114,87 +202,4 @@ $(document).ready ->
         coactiveRule()
         return
     
-    #regla -> Valor pretensión / detrimento / estimación
-    contingencyValueCentsRule = ->
-        detValCents = document.getElementById('detrimetValueCents').value
-        ensValCents = document.getElementById('ensuranceValueCents').value
-        if detValCents != 0 and ensValCents != 0
-            if detValCents < ensValCents
-                $('#contingencyValueCents').val detValCents
-            else
-                $('#contingencyValueCents').val ensValCents
-        return
-    $('#detrimetValueCents').ready ->
-        contingencyValueCentsRule()
-        return
-    $('#ensuranceValueCents').ready ->
-        contingencyValueCentsRule()
-        return
-    $('#detrimetValueCents').change ->
-        contingencyValueCentsRule()
-        return
-    $('#ensuranceValueCents').change ->
-        contingencyValueCentsRule()
-        return
     
-    #regla -> Subclase de proceso
-    subprocessClassRule = ->
-        subClass = document.getElementById('subprocessClass').value
-        if subClass == '3'
-            $('#currentStageVer').prop 'disabled', false
-            $('#currentStageOrd').prop 'disabled', true
-            $('#currentStageVer').show()
-            $('#currentStageOrd').hide()
-        if subClass == '4'
-            $('#currentStageVer').prop 'disabled', true
-            $('#currentStageOrd').prop 'disabled', false
-            $('#currentStage').show()
-            $('#currentStageVer').hide()
-            $('#currentStageOrd').show()
-            return
-    $('#subprocessClass').ready ->
-        subprocessClassRule()
-        return
-    $('#subprocessClass').change ->
-        subprocessClassRule()
-        return
-    
-    #regla -> Tipo moneda
-    moneyTypeRule = ->
-        money_type = document.getElementById('moneyType').value
-        if money_type == '1'
-            document.getElementById('dolarValueCents').readOnly = true
-            $('#dolarValueCents').val=0
-        else
-            document.getElementById('dolarValueCents').readOnly = false
-            $('#dolarValueCents').val=' ' 
-        return
-        $('#moneyType').ready ->
-            moneyTypeRule()
-            return
-        $('#moneyType').change ->
-            moneyTypeRule()
-            return
-
-
-    #regla -> estado del caso
-    caseStateRule = ->
-        case_state = document.getElementById('caseState').value
-        if case_state == '3'
-            $('#caseTermination').prop('disabled', false)
-            $('#lastPerformance').prop('disabled', false)
-            document.getElementById('lastPerformanceDate').readOnly = false
-            $('#reservedReleased').prop('disabled', false)
-        else
-            $('#caseTermination').prop('disabled', true)
-            $('#lastPerformance').prop('disabled', true)
-            document.getElementById('lastPerformanceDate').readOnly = true
-            $('#reservedReleased').prop('disabled', true)
-        return
-    $('#caseState').ready ->
-        caseStateRule()
-        return
-    $('#caseState').change ->
-        caseStateRule()
-        return
-    return
