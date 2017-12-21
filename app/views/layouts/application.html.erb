@@ -13,19 +13,6 @@
     <div class="row p-30 ">
       <div class="col-sm-offset-1 col-sm-10 shadow p-0">
 
-        <% if notice %>
-          <script>
-            alert("<%= notice %>");
-          </script>
-        <% end %>
-
-        <% if alert %>
-          <script>
-            alert("<%= alert %>");
-          </script>
-        <% end %>
-
-        
         <div class="my-header fw">
           <ul class="right p-15">
             <% if user_signed_in? %>
@@ -39,6 +26,20 @@
           </ul>
         </div>
         
+        <% if notice %>
+          <div class="alert alert-success alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong><%= notice %></strong>
+          </div>
+        <% end %>
+        
+        <% if alert %>
+          <div class="alert alert-danger alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong><%= alert %></strong>
+          </div>
+        <% end %>
+
         <%= yield %>
 
       </div>

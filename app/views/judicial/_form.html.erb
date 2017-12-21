@@ -226,7 +226,7 @@
     });
     function litigationSourceRule(){
       litsrc = document.getElementById("litigationSource").value;
-      if(litsrc == 2){
+      if(litsrc === "2"){
         document.getElementById("policyCents").readOnly = false;
         $('#protection').prop( "disabled", false );
         document.getElementById("number").readOnly = false;

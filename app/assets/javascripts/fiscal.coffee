@@ -4,15 +4,14 @@
 
 $(document).ready ->
 
-    #regla -> número de radicado de correspondencia?
+    #regla -> tiene número de radicado de correspondencia?
     stateRule = ->
         x = document.getElementById('state').value
         if x == 'Si'
             document.getElementById('correspondency_radicate').readOnly = false
-            $('#correspondency_radicate').val=''
         else
             document.getElementById('correspondency_radicate').readOnly = true
-            $('#correspondency_radicate').val='Pendiente'
+            $('#correspondency_radicate').val 'PENDIENTE'
         return
     $('#state').ready ->
         stateRule()
@@ -21,49 +20,39 @@ $(document).ready ->
         stateRule()
         return
 
-    #regla -> tiene número de radicado de coactivo?
-    coactiveRule = ->
-        x = document.getElementById('coactive').value
-        if x == 'Si'
-            document.getElementById('coactive_radicate').readOnly = false
-            document.getElementById('coactive_value_cents').readOnly = false
-            $('#coactive_radicate').val=''
-            $('#coactive_value_cents').val=0
-        else
-            document.getElementById('coactive_radicate').readOnly = true
-            document.getElementById('coactive_value_cents').readOnly = true
-            $('#coactive_radicate').val='Pendiente'
-            $('#coactive_value_cents').val=0
-        return
-    $('#coactive').ready ->
-        coactiveRule()
-        return
-    $('#coactive').change ->
-        coactiveRule()
-        return
-
     #regla -> fuente de litigio
-    morePoliciesRule = ->
-        x = document.getElementById('more_policies').value
-        if x == 'Si'
-            document.getElementById('policies').readOnly = false
-            document.getElementById('sinisters').readOnly = false
-            $('#policies').val=''
-            $('#sinisters').val=''
+    litigationSourceRule = ->
+        litsrc = document.getElementById('litigationSource').value
+        if litsrc == '2'
+            document.getElementById('policyCents').readOnly = false
+            $('#protection').prop('disabled', false)
+            document.getElementById('number').readOnly = false
+            document.getElementById('exercise').readOnly = false
+            $('#branch_policy').prop('disabled', false)
+            $('#branch_commercial').prop('disabled', false)
         else
-            document.getElementById('policies').readOnly = true
-            document.getElementById('sinisters').readOnly = true
-            $('#policies').val='NO APLICA'
-            $('#sinisters').val='NO APLICA'
+            document.getElementById('policyCents').readOnly = true
+            $('#protection').prop('disabled', true)
+            document.getElementById('number').readOnly = true
+            document.getElementById('exercise').readOnly = true
+            $('#branch_policy').prop('disabled', true)
+            $('#branch_commercial').prop('disabled', true)
+            $('#policyCents').val 0
+            $('#protection').val '0'
+            $('#number').val 0
+            $('#exercise').val 0
+            $('#branch_policy').val '0'
+            $('#branch_commercial').val '0'
+            $('#sinister').val 'NO APLICA'
         return
-    $('#more_policies').ready ->
-        morePoliciesRule()
+    $('#litigationSource').ready ->
+        litigationSourceRule()
         return
-    $('#more_policies').change ->
-        morePoliciesRule()
+    $('#litigationSource').change ->
+        litigationSourceRule()
         return
 
-    #regla -> numero de siniestro
+    #regla -> número de siniestro
     num = 0
     exer = 0
     poly = 0
@@ -86,21 +75,43 @@ $(document).ready ->
         $('#sinister').val num + '-' + exer + '-' + poly + '-' + comm
         return
 
-    #regla -> fuente de litigio
-    litigationSourceRule = ->
-        if litsrc == '2'
-            alert litsrc
-            document.getElementById('policyCents').readOnly = false
-            $('#protection').prop('disabled', false)
+    #regla -> Tiene más pólizas?
+    morePoliciesRule = ->
+        x = document.getElementById('more_policies').value
+        if x == 'Si'
+            document.getElementById('policies').readOnly = false
+            document.getElementById('sinisters').readOnly = false
         else
-            document.getElementById('policyCents').readOnly = true
-            $('#protection').prop('disabled', true)
+            document.getElementById('policies').readOnly = true
+            document.getElementById('sinisters').readOnly = true
+            $('#policies').val 'NO APLICA'
+            $('#sinisters').val 'NO APLICA'
         return
-    $('#litigationSource').ready ->
-        litigationSourceRule()
+    $('#more_policies').ready ->
+        morePoliciesRule()
         return
-    $('#litigationSource').change ->
-        litigationSourceRule()
+    $('#more_policies').change ->
+        morePoliciesRule()
+        return
+
+
+    #regla -> tiene número de radicado de coactivo?
+    coactiveRule = ->
+        x = document.getElementById('coactive').value
+        if x == 'Si'
+            document.getElementById('coactive_radicate').readOnly = false
+            document.getElementById('coactive_value_cents').readOnly = false
+        else
+            document.getElementById('coactive_radicate').readOnly = true
+            document.getElementById('coactive_value_cents').readOnly = true
+            $('#coactive_radicate').val 'Pendiente'
+            $('#coactive_value_cents').val 0
+        return
+    $('#coactive').ready ->
+        coactiveRule()
+        return
+    $('#coactive').change ->
+        coactiveRule()
         return
 
     #regla -> Valor pretensión / detrimento / estimación
