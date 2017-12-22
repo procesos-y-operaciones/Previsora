@@ -5,22 +5,37 @@
 </script>
 
 
-<p class="m-30 justify">
+<h4 class="justify m-30 lh-150 ls-1">
     A través de esta aplicación la Gerencia podrá:  registrar, actualizar, identificar, estandarizar, controlar y unificar la información relacionada 
     con los casos vigentes y terminados.
     <br><br>
     Así mismo, la herramienta permitirá realizar búsquedas de casos, generar reportes y mantener un repositorio único para todo los procesos judiciales 
     y administrativos que gestiona y controla el área.
-</p>
+</h4>
 
-<div class="container-fluid center">
-    <%= link_to lawyer_new_path, :class=>"link" do %>
-        <span class="glyphicon glyphicon-plus btn-circle btn-inverse" data-toggle="tooltip" title="Caso Nuevo" data-placement="auto top"></span>
+<div class="container-fluid row">
+    <div class="col-sm-offset-3 col-sm-2 center">
+        <%= link_to lawyer_new_path, :class=>"link" do %>
+            <span class="glyphicon glyphicon-plus btn-circle btn-inverse"></span>
+        <% end %>
+        <div class="fw center ligthgreen">
+            Caso Nuevo
+        </div>
+    </div>
+    <div class="col-sm-2 center">
+        <%= link_to lawyer_search_path, :class=>"link" do %>
+            <span class="glyphicon glyphicon-search btn-circle btn-inverse"></span>
+        <% end %>
+        <div class="fw center ligthgreen">
+            Buscar Caso
+        </div>
+    </div>
+    <div class="col-sm-2 center ligthgreen">
+        <%= link_to type_processes_path(format: "xls"), class:"link" do %>
+        <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse"></span>
     <% end %>
-    <%= link_to lawyer_search_path, :class=>"link" do %>
-        <span class="glyphicon glyphicon-search btn-circle btn-inverse" data-toggle="tooltip" title="Buscar Caso" data-placement="auto top"></span>
-    <% end %>
-    <%= link_to type_processes_path(format: "xls"), class:"link" do %>
-        <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse" data-toggle="tooltip" title="Descargar Base de Datos" data-placement="auto top"></span>
-    <% end %>
+        <div class="fwge center">
+            Descargar Base De Datos
+        </div>
+    </div>
 </div>
