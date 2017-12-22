@@ -317,7 +317,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
@@ -360,7 +360,7 @@
 
         <%= form.label "Póliza" %>
         <div class="input-group">
-          <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
+          <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -467,7 +467,7 @@
 
         <%= form.label "Reserva honorarios" %>
         <div class="input-group">
-          <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+          <%= form.number_field :reserve_cents, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -591,14 +591,14 @@
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
-        </div>      
+        </div>
         <div id="currentStageOrdDiv" class="input-group">
           <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ord, :id, :name, {}, {:id=>"currentStageOrd", :class=>"form-control", :disabled=>"true"}) %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Instancias" %>
         <div class="input-group">
           <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>

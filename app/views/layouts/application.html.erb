@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Previsora</title>
+    <title>Registro Único GPJ</title>
     <%= csrf_meta_tags %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    
+
     <div class="row p-30 ">
       <div class="col-sm-offset-1 col-sm-10 shadow p-0">
 
@@ -22,7 +22,7 @@
           <ul class="right p-15">
             <% if user_signed_in? %>
               <%= link_to "Inicio", index_lawyer_path, class:"link-inverse" %>
-              <%= link_to current_user.name, edit_user_registration_path, class:"link-inverse" %> 
+              <%= link_to current_user.name, edit_user_registration_path, class:"link-inverse" %>
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
             <% else %>
               <!--%= link_to "Registrarse", new_user_registration_path, class:"link-inverse"  %-->
@@ -30,14 +30,14 @@
             <% end %>
           </ul>
         </div>
-        
+
         <% if notice %>
           <div class="alert alert-success alert-dismissable">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
             <strong><%= notice %></strong>
           </div>
         <% end %>
-        
+
         <% if alert %>
           <div class="alert alert-danger alert-dismissable">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -49,6 +49,6 @@
 
       </div>
     </div>
-    
+
   </body>
 </html>

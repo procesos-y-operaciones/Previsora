@@ -6,6 +6,11 @@
   });
 </script>
 
+<%= search_form_for @search, url: lawyer_search_url do |f| %>
+  <%= f.number_field :p_type %>
+  <%= f.submit "Buscar" %>
+<% end %>
+
 <% if @processes == [] %>
   <div class="alert alert-danger m-30">
     <h4>Aún no tienes procesos creados.</h4>
@@ -13,7 +18,7 @@
 <% else %>
 
 <%= will_paginate @processes %>
-  <div class="container-fluid p-30">	
+  <div class="container-fluid p-30">
     <table class="table table-responsive-sm table-hover">
       <thead class="darkgreen">
         <tr>
@@ -25,7 +30,7 @@
           <th>Ciudad donde cursa</th>
         </tr>
       </thead>
-    
+
     <tbody>
       <% @processes.each do |p| %>
         <tr class='clickable-row' data-href='#'>
