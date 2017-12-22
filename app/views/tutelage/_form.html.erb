@@ -10,109 +10,80 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="p-30">
     <div class="row">
       <div class="col-sm-offset-2 col-sm-7 ">
 
-  <%= form.hidden_field :p_type, :value => 5 %>
-  <%= form.hidden_field :user_id, :value => current_user.id %>
+        <%= form.hidden_field :p_type, :value => 5 %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        <hr>
+        <%= form.label "Clase de proceso" %>
+        <%= form.collection_select(:process_class_id, ProcessClass.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id: "processClass", required: true}) %>
 
-  <%= form.label "Clase de proceso" %>
-  <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Subclase de proceso" %>
+        <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
 
-  <%= form.label "Número de radicado correspondencia" %>
-  <%= form.text_field :correspondency_radicate, class:"form-control" %>
+        <%= form.label "Número de identificación del caso SISE" %>
+        <%= form.text_field :case_id_sise, value: "PENDIENTE", class:"form-control" %>
+        <hr>
+        <%= form.label "Fecha de creación" %>
+        <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
 
-  <%= form.label "Número de identificación del caso Bizagi, Acces y PA)" %>
-  <%= form.text_field :case_id_bap, class:"form-control" %>
+        <%= form.label "Departamento" %>
+        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
 
-  <%= form.label "Fecha de creación" %>
-  <%= form.date_field :creation_date, class:"form-control" %>
+        <%= form.label "Sucursal de la póliza" %>
+        <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
 
-  <%= form.label "Departamento" %>
-  <%= form.collection_select(:departament_id, Departament.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Ramo comercial" %>
+        <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
 
-  <%= form.label "Ciudad donde cursa el caso" %>
-  <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Apoderado Previsora" %>
+        <%= form.text_field :attorny, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
 
-  <%= form.label "Fecha de notificación / vinculación" %>
-  <%= form.date_field :notification_date, class:"form-control" %>
+        <%= form.label "Fecha de asignación apoderado Previsora" %>
+        <%= form.date_field :attorny_date, class:"form-control" %>
 
-  <%= form.label "Número de radicación del proceso" %>
-  <%= form.text_field :process_radicate, class:"form-control" %>
+        <%= form.label "Parte activa" %>
+        <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
 
-  <%= form.label "Parte activa" %>
-  <%= form.text_field :active_part, class:"form-control" %>
+        <%= form.label "Parte pasiva" %>
+        <%= form.text_field :passive_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
 
-  <%= form.label "Parte pasiva" %>
-  <%= form.text_field :passive_part, class:"form-control" %>
+        <%= form.label "Nombre despacho / tipo contraloría" %>
+        <%= form.collection_select(:office_name_id, OfficeName.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
 
-  <%= form.label "Nombre despacho / tipo contraloría" %>
-  <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Valor reserva honorarios" %>
+        <%= form.number_field :reserved_fees_cents, value: 0, class:"form-control" %>
 
-  <%= form.label "Tipo moneda (RADIO)" %>
-  <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Fecha de notificación fallo" %>
+        <%= form.date_field :failed_notification_date, class:"form-control" %>
 
-  <%= form.label "Valor del dólar" %>
-  <%= form.number_field :dolar_value_cents, class:"form-control" %>
+        <%= form.label "Fecha de notificación impugnación" %>
+        <%= form.date_field :objection_notification_date, class:"form-control" %>
 
-  <%= form.label "Resumen de la contingencia" %>
-  <%= form.text_field :contingency_resume, class:"form-control" %>
+        <%= form.label "Impugnante" %>
+        <%= form.text_field :tutelage_imp, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
 
-  <%= form.label "Abogado interno" %>
-  <%= form.collection_select(:internal_lawyer_id, InternalLawyer.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Tipo sentencia de segunda instancia - a compañía" %>
+        <%= form.collection_select(:setence_type_second_company_id, SetenceTypeSecondCompany.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
 
-  <%= form.label "Estado del caso" %>
-  <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Tipo de notificación segunda instancia" %>
+        <p>Falta tipo de notificacion segunda instancia, ¿seleccion?</p>
 
-  <%= form.label "Fecha de decisión" %>
-  <%= form.date_field :desition_date, class:"form-control" %>
+        <%= form.label "Fecha notificación incidente de desacato" %>
+        <%= form.date_field :date_notification_desacate, class:"form-control" %>
 
-  <%= form.label "Terminación del caso" %>
-  <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control"}) %>
+        <%= form.label "Fecha de contestación incidente de desacato" %>
+        <%= form.date_field :date_answer_desacate, class:"form-control" %>
 
-  <%= form.label "Valor fallo decisión" %>
-  <%= form.number_field :fail_value_cents, class:"form-control" %>
+        <%= form.label "Tipo sentencia incidente de desacato - a compañía" %>
+        <%= form.collection_select(:sentence_type_desacate_id, SentenceTypeDesacate.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
 
-  <%= form.label "Valor pagado Previsora" %>
-  <%= form.number_field :payed_value_cents, class:"form-control" %>
+        <%= form.label "Fecha notificación decisión incidente desacato" %>
+        <%= form.date_field :date_notification_desition_desacate, class:"form-control" %>
 
-  <%= form.label "Fecha de pago" %>
-  <%= form.date_field :payment_date, class:"form-control" %>
-
-  <%= form.label "Reserva honorarios" %>
-  <%= form.number_field :reserved_fees_cents, class:"form-control" %>
-
-  <%= form.label "Reaseguro cedido" %>
-  <%= form.number_field :reensurance_gived_cents, class:"form-control" %>
-
-  <%= form.label "Última actuación" %>
-  <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Vía gubernativa (Coljuegos) Tipoligía" %>
-  <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Fecha notificación fallo" %>
-  <%= form.date_field :failed_notification_date, class:"form-control" %>
-
-  <%= form.label "Fecha notificación impugnación" %>
-  <%= form.date_field :objection_notification_date, class:"form-control" %>
-
-  <%= form.label "Tipo notificación segunda instancia" %>
-  <%= form.collection_select(:notification_type_second_id, NotificationTypeSecond.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Tipo sentencia de segunda instancia" %>
-  <%= form.collection_select(:setence_type_second_company_id, SetenceTypeSecondCompany.all, :id, :name, {}, {:class=>"form-control"}) %>
-
-  <%= form.label "Fecha notificación incidente de desacato" %>
-  <%= form.date_field :date_notification_desacate, class:"form-control" %>
-
-  <%= form.label "Fecha de contestación incidente desacato" %>
-  <%= form.date_field :date_answer_desacate, class:"form-control" %>
-
-  <%= form.label "Fecha notificación decisión incidente desacato" %>
-  <%= form.date_field :date_notification_desition_desacate, class:"form-control" %>
       </div>
     </div>
   </div>

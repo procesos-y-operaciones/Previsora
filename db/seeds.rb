@@ -1333,9 +1333,9 @@ MoneyType.create([
 ])
 
 ReservedReleased.create([
-  {name: 'SI'},
+  {name: 'PENDIENTE'},
   {name: 'NO'},
-  {name: 'PENDIENTE'}
+  {name: 'SI'}
 ])
 
 SubprocessClass.create([
@@ -1382,4 +1382,9 @@ CaseState.create([
 
 LastPerformance.create([
   {name: "PENDIENTE"}
+])
+
+SetenceTypeSecondCompany.create([
+  {name: "TERMINADO CON PAGO: EN CONTRA"},
+  {name: "TERMINADO SIN PAGO: A FAVOR"}
 ])
