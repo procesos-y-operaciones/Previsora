@@ -240,10 +240,12 @@
 
         <%= form.hidden_field :p_type, :value => 3 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
-
-          <%= form.label "Clase de proceso" %>
+        
+        <%= form.label "Clase de proceso" %>
         <div class="input-group">
-          <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"form-control"}) %>
+          <div class="styled-select blue semi-square">
+          <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {:class=>"myform-control"}) %>
+          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
