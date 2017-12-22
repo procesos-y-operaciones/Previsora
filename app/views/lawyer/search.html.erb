@@ -22,24 +22,24 @@
     <table class="table table-responsive-sm table-hover">
       <thead class="darkgreen">
         <tr>
-          <th>TIPO DE PROCESO</th>
-          <th># Radicado correspondencia</th>
-          <th># Identificación (Bizagi, access y PA)</th>
-          <th>#Identificación (SISE)</th>
-          <th>Abogado interno</th>
-          <th>Ciudad donde cursa</th>
+          <th class="center">TIPO DE PROCESO</th>
+          <th class="center"># Radicado correspondencia</th>
+          <th class="center"># Identificación (Bizagi, access y PA)</th>
+          <th class="center">#Identificación (SISE)</th>
+          <th class="center">Abogado interno</th>
+          <th class="center">Ciudad donde cursa</th>
         </tr>
       </thead>
 
     <tbody>
       <% @processes.each do |p| %>
         <tr class='clickable-row' data-href='#'>
-          <td><%= p.p_type %></td>
-          <td><%= p.correspondency_radicate %></td>
-          <td><%= p.case_id_bap %></td>
-          <td><%= p.case_id_sise %></td>
-          <td>Abogado</td>
-          <td>Ciudad</td>
+          <td class="center"><%= p.p_type %></td>
+          <td class="center"><%= p.correspondency_radicate %></td>
+          <td class="center"><%= p.case_id_bap %></td>
+          <td class="center"><%= p.case_id_sise %></td>
+          <td class="center">Abogado</td>
+          <td class="center">Ciudad</td>
         </tr>
       <% end %>
     </tbody>
