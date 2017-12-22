@@ -4,11 +4,12 @@ class TypeProcessesController < ApplicationController
   # GET /type_processes
   # GET /type_processes.json
   def index
-    @type_processes = TypeProcess.all
+    @search = TypeProcess.ransack(params[:q])
+    @processes = @search.result
     respond_to do |format|
       format.html
-      format.csv { send_data @type_processes.to_csv }
-      format.xls { send_data @type_processes.to_csv }
+      format.csv { send_data @processes.to_csv }
+      format.xls { send_data @processes.to_csv }
     end
   end
 

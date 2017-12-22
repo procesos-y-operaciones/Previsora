@@ -4,8 +4,8 @@ class LawyerController < ApplicationController
   end
 
   def search
-    @search = TypeProcess.search(params[:q])
-    @processes = @search.result.paginate(page: params[:page], per_page: 15)
+    @search = TypeProcess.ransack(params[:q])
+    @processes = @search.result.paginate(page: params[:page], per_page: 5)
   end
 
   def report

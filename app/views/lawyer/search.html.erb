@@ -7,38 +7,46 @@
 </script>
 
 <%= search_form_for @search, url: lawyer_search_url do |f| %>
-  <%= f.number_field :p_type %>
+  <%= f.select :p_type_eq, options_for_select([["Prejudicial", 1], ["Judicial", 2], ["Fiscal", 3], ["Administrativo", 4], ["Tutela", 5]]), {prompt: "SELECCIONE"}, {} %>
+  <%= f.text_field :correspondency_radicate_cont, placeholder: "Radicado" %>
+  <%= f.text_field :case_id_bap_cont, placeholder: "BAP" %>
+  <%= f.text_field :case_id_sise_cont, placeholder: "SISE" %>
+  <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {}) %>
   <%= f.submit "Buscar" %>
 <% end %>
-
-<% if @processes == [] %>
-  <div class="alert alert-danger m-30">
-    <h4>Aún no tienes procesos creados.</h4>
-  </div>
-<% else %>
 
 <%= will_paginate @processes %>
   <div class="container-fluid p-30">
     <table class="table table-responsive-sm table-hover">
       <thead class="darkgreen">
         <tr>
-          <th>TIPO DE PROCESO</th>
-          <th># Radicado correspondencia</th>
-          <th># Identificación (Bizagi, access y PA)</th>
-          <th>#Identificación (SISE)</th>
-          <th>Abogado interno</th>
-          <th>Ciudad donde cursa</th>
+          <th><%= sort_link @search, :p_type, "Proceso" %></th>
+          <th><%= sort_link @search, :correspondency_radicate, "N° Correspondencia" %></th>
+          <th><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA" %></th>
+          <th><%= sort_link @search, :case_id_sise, "N° SISE" %></th>
+          <th><%= sort_link @search, :user_id, "Abogado" %></th>
+          <th><%= sort_link @search, :city_case_id, "Ciudad" %></th>
         </tr>
       </thead>
 
     <tbody>
+      <% if @processes == [] %>
+        <tr class='clickable-row' data-href='#'>
+          <td>0</td>
+          <td>No</td>
+          <td>hay</td>
+          <td>resultados</td>
+          <td>disponibles</td>
+          <td></td>
+        </tr>
+      <% else %>
       <% @processes.each do |p| %>
         <tr class='clickable-row' data-href='#'>
-          <td><%= p.p_type %></td>
+          <td><%= p.get_type_process %></td>
           <td><%= p.correspondency_radicate %></td>
           <td><%= p.case_id_bap %></td>
           <td><%= p.case_id_sise %></td>
-          <td>Abogado</td>
+          <td><%= User.find(p.user_id).name %></td>
           <td>Ciudad</td>
         </tr>
       <% end %>
