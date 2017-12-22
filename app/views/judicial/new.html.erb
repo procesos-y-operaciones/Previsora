@@ -1,8 +1,4 @@
-<p class="alert alert-danger"><%= flash[:error] %></p>
-
 <h2 class="center mt-50">Nuevo caso de Proceso Judicial</h2>
 <h4 class="center mt-50"><b class="darkgreen">Abogado Interno:</b> <%= current_user.name %></h4>
-
-<p id="notice"><%= notice %></p>
 
 <%= render 'form', type_process: @judicial %>

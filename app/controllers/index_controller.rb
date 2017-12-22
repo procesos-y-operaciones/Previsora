@@ -12,12 +12,15 @@ class IndexController < ApplicationController
   end
 
   def lawyer
+    @user = current_user
   end
 
   def coordinator
+    @user = current_user
   end
 
   def administrator
+    @user = current_user
   end
 
 end

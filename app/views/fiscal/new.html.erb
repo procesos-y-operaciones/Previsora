@@ -1,9 +1,4 @@
-<!--%= flash.inspect %-->
-<!--% if flash == {} %-->
-  <%= flash[:error] %>
-<!--% end %-->
-
-<h2 class="center mt-50">Nueva Responsabilidad Fiscal</h2>
+<h2 class="center mt-50">Nuevo Caso de Responsabilidad Fiscal</h2>
 <h4 class="center mt-50"><b class="darkgreen">Abogado Interno:</b> <%= current_user.name %></h4>
 
 <%= render 'form', type_process: @fiscal %>
