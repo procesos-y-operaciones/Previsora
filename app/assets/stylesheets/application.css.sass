@@ -19,11 +19,12 @@
 /* ==================================================
  Colors
  ================================================== */
-$ligthgreen: #006400
+$ligthgreen: #008c00
 $darkgreen: #1b492c
-$green: #008c00
+$green: #006400
 $ligthblue: #42dcf4
 $white: #fff
+$darkgrey: #555555
 $grey: #c3c3c3
 $black: #000
 
@@ -54,8 +55,12 @@ html, body
 .edge
     border: 1px solid darken($black, 2.5%)
 /* =============margin & padding ==================*/
+.m-5
+    margin: 5px
 .m-30
     margin: 30px
+.m-30-60
+    margin: 30px 60px
 .m-50
     margin-top: 50px
     margin-right: 100px
@@ -144,26 +149,27 @@ hr
     background-color:  darken($white, 2.5%) !important
 
 .styled-select 
-    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0
-    height: 29px
-    overflow: hidden
     width: 100%
-.styled-select select 
-    background: transparent
-    border: none
-    font-size: 14px
-    height: 29px
-    padding: 5px
-    width: 268px
-.semi-square 
+    height: 30px
+    border: 1px solid darken($grey, 2.5%)
     -webkit-border-radius: 5px
     -moz-border-radius: 5px
-    border-radius: 5px
-.blue    
-    background-color: #3b8ec2
-.blue select    
-    color: #fff
-    
+    border-radius: 4px
+    background: url("caret.png") no-repeat 98% 0
+    overflow: hidden
+.styled-select select 
+    border: none
+    width: 100%   
+    height: inherit
+    background: transparent
+    padding: 5px
+    font-size: 14px
+    color: darken($darkgrey, 2.5%)
+    -webkit-appearance: none
+    -moz-appearance: none
+    text-indent: 1px
+    text-overflow: ''
+
 /* ==================================================
   buttons
   ================================================== */
