@@ -97,12 +97,14 @@ class TypeProcessesController < ApplicationController
        :policy_cents, :number, :exercise, :branch_policy_id, :branch_commercial_id, :money_type_id,
        :dolar_value_cents, :sinister, :policies, :sinisters, :reserve_cents, :detritment_cents,
        :ensurance_value_cents, :contingency_value_cents, :notification_date, :process_radicate,
-       :attorny, :attorny_date, :office_name_id, :active_part, :passive_part, :score_contingency_id,
+       :attorny, :attorny_date, :office_name, :active_part, :passive_part, :score_contingency_id,
        :contingency_reason, :contingency_resume, :facts, :instance_id, :case_state_id,
        :desition_date, :case_termination_id, :fail_value_cents, :fail_previ_cents,
        :payed_value_cents, :payment_date, :coactive_radicate, :coactive_value_cents,
        :garnish_value_cents, :last_performance_id, :last_performance_date, :reserved_released_id,
        :p_type_eq, :correspondency_radicate_cont, :case_id_bap_cont, :case_id_sise_cont,
-       :city_case_id_eq)
+       :city_case_id_eq, :objection_notification_date, :tutelage_imp, :setence_type_second_company_id,
+       :date_notification_desacate, :date_answer_desacate, :sentence_type_desacate_id,
+       :date_notification_desition_desacate)
     end
 end

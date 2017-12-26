@@ -53,6 +53,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.monetize  :conensurance_value
       t.string    :reason_conc
       t.string    :reason_inv
+      t.string    :office_name
       t.boolean   :reinsurance_report, default: false
       t.boolean   :recovery, default: false
 
@@ -63,7 +64,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.belongs_to  :city_case,                     optional: true
       t.belongs_to  :branch_policy,                 optional: true
       t.belongs_to  :branch_commercial,             optional: true
-      t.belongs_to  :office_name,                   optional: true
+      #t.belongs_to  :office_name,                   optional: true
       t.belongs_to  :score_contingency,             optional: true
       t.belongs_to  :protection,                    optional: true
       t.belongs_to  :current_stage,                 optional: true

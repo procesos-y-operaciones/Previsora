@@ -104,37 +104,6 @@ class TypeProcess < ApplicationRecord
 
   validates     :p_type, :process_class_id, presence: true
 
-  before_validation   :veritycations
-
-  def veritycations
-    if self.p_type == 2 || self.p_type == 3 || self.p_type == 4
-      if self.subprocess_class_id == 1
-        errors.add("Subproceso ", "debe ser seleccionado")
-      end
-      if self.case_id_bap == "" || self.case_id_bap == "PENDIENTE"
-        errors.add("Número de indentificación (Bizagi, Acces, PA) ", "debe ser diligenciado")
-      end
-      if self.departament_id == 1
-        errors.add("Departamento ", "debe ser diligenciado")
-      end
-      if self.city_case_id == 1
-        errors.add("Departamento ", "debe ser diligenciado")
-      end
-      if self.office_name_id == 1
-        errors.add("Nombre del despacho ", "debe ser diligenciado")
-      end
-      if self.office_name_id == 1
-        errors.add("Nombre del despacho ", "debe ser diligenciado")
-      end
-      if self.attorny == "" || self.attorny == "PENDIENTE"
-        errors.add("Apoderado Previsora ", "debe ser diligenciado")
-      end
-      if self.case_state_id == 1
-        errors.add("Estado del caso ", "debe ser diligenciado")
-      end
-    end
-  end
-
   def self.column_names_all
     ["Id", "Tipo de proceso", "Clase de proceso", "Subclase de proceso",
     "Radicado correspodencia", "Identificación del caso (Bizagi, Acces, PA)",

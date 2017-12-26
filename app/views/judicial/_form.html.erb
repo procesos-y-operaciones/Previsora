@@ -145,7 +145,7 @@
         <%= form.date_field :attorny_date, class:"form-control" %>
 
         <%= form.label "Nombre despacho / tipo contraloría" %>
-        <%= form.collection_select(:office_name_id, OfficeName.judicial, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+        <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
 
         <%= form.label "Parte activa" %>
         <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>

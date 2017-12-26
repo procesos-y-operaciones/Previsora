@@ -34,6 +34,7 @@ ProcessClass.create([
   {name: 'ART. 86 -1437'},
   {name: 'LEY 1437'},
   {name: 'RESPONSABILIDAD FISCAL'},
+  {name: 'TUTELA'},
   {name: 'NO APLICA'}
 ])
 
@@ -1367,7 +1368,20 @@ SubprocessClass.create([
   {name: 'DIRECTOS'},
   {name: 'ART. 86 -1437'},
   {name: 'LEY 1437'},
-  {name: 'RESPONSABILIDAD FISCAL'}
+  {name: 'RESPONSABILIDAD FISCAL'},
+  {name: 'JUNTA DE CALIFICACION'},
+  {name: 'CONTRA PROVIDENCIA JUDICIAL'},
+  {name: 'CONTRA PROVIDENCIA (PROCESO FISCAL)'},
+  {name: 'CONTRATO DE SEGUROS'},
+  {name: 'DERECHO DE PETICION'},
+  {name: 'EXPEDICIÓN POLIZAS (PRESUNCION DE RIESGOS)  '},
+  {name: 'FALTA DE LEGITIMACION'},
+  {name: 'INCAPACIDAD TEMPORAL'},
+  {name: 'POLIZA VIDA GRUPO  '},
+  {name: 'ACCIDENTES PERSONALES'},
+  {name: 'SOAT-AUTORIZACIONES EPS'},
+  {name: 'EXPEDICION DE POLIZAS DE SERIDAD CANDIDATURA NO ASEGURABLE'},
+  {name: 'OTRO'}
 ])
 
 CoensuranceType.create([

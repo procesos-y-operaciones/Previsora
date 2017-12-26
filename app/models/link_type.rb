@@ -18,4 +18,8 @@ class LinkType < ApplicationRecord
     LinkType.find([3,4])
   end
 
+  def self.tutelage
+    [LinkType.find(4)]
+  end
+
 end

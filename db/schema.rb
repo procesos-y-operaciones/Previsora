@@ -247,6 +247,7 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.string "conensurance_value_currency", default: "USD", null: false
     t.string "reason_conc"
     t.string "reason_inv"
+    t.string "office_name"
     t.boolean "reinsurance_report", default: false
     t.boolean "recovery", default: false
     t.integer "process_class_id"
@@ -256,7 +257,6 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.integer "city_case_id"
     t.integer "branch_policy_id"
     t.integer "branch_commercial_id"
-    t.integer "office_name_id"
     t.integer "score_contingency_id"
     t.integer "protection_id"
     t.integer "current_stage_id"
@@ -295,7 +295,6 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.index ["litigation_source_id"], name: "index_type_processes_on_litigation_source_id"
     t.index ["money_type_id"], name: "index_type_processes_on_money_type_id"
     t.index ["notification_type_second_id"], name: "index_type_processes_on_notification_type_second_id"
-    t.index ["office_name_id"], name: "index_type_processes_on_office_name_id"
     t.index ["process_class_id"], name: "index_type_processes_on_process_class_id"
     t.index ["protection_id"], name: "index_type_processes_on_protection_id"
     t.index ["reinsurance_type_id"], name: "index_type_processes_on_reinsurance_type_id"
