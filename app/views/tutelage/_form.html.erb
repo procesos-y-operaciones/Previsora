@@ -1,7 +1,3 @@
-<% if flash[:error] == nil  %>
-  <%= flash[:error] %>
-<% end %>
-
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -38,7 +34,7 @@
         <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
 
         <%= form.label "Tipo de vinculación" %>
-        <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {value: 1, readonly: true,class:"form-control"}) %>
+        <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {value: 1, class:"form-control"}) %>
 
         <%= form.label "Departamento" %>
         <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
@@ -50,7 +46,7 @@
         <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Nombre despacho" %>
-        <%= form.collection_select(:office_name_id, OfficeName.judicial, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+        <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
 
         <%= form.label "Parte activa" %>
         <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>

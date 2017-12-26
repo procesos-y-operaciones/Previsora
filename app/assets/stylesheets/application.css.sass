@@ -37,6 +37,7 @@ $black: #000
  navbar
  grid
  table
+ pagination
  unique
  ================================================== */
 
@@ -66,10 +67,12 @@ html, body
     margin-left: 100px
 .m-30-60
     margin: 30px 60px
-.mt-50
-    margin-top: 50px
+.mt-30
+    margin-top: 30px
 .mb-30
     margin-bottom: 30px
+.mt-50
+    margin-top: 50px
 .p-0
     padding: 0
 .p-15
@@ -145,7 +148,7 @@ hr
     -webkit-border-radius: 5px
     -moz-border-radius: 5px
     border-radius: 4px
-    background: url("caret.png") no-repeat 98% 0
+    background: url("caret.png") no-repeat right 0
     overflow: hidden
 .styled-select select 
     border: none
@@ -184,6 +187,7 @@ input::-webkit-inner-spin-button
     font-size: 15px !important
 .minibtn
     margin: 0px
+    border: 0px
     border-radius: 5px
     background-color: darken($white, 2.5%)
     padding: 5px
@@ -314,6 +318,16 @@ input::-webkit-inner-spin-button
   ================================================== */
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th
     background-color: rgba(98, 189, 24, 0.4)
+    
+/* ==================================================
+  pagination
+  ================================================== */
+.pagination li>span, .pagination li>a, .pagination li>a:hover 
+    color: darken($ligthgreen, 2.5%) 
+.pagination .active>span, .pagination .active>span:hover
+    border: darken($ligthgreen, 2.5%)
+    background: darken($ligthgreen, 2.5%) 
+    color: darken($white, 2.5%) 
 
 /* ==================================================
   unique

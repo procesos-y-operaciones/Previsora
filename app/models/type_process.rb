@@ -102,8 +102,6 @@
 
 class TypeProcess < ApplicationRecord
 
-  validates     :p_type, :process_class_id, presence: true
-
   def self.column_names_all
     ["Id", "Tipo de proceso", "Clase de proceso", "Subclase de proceso",
     "Radicado correspodencia", "Identificación del caso (Bizagi, Acces, PA)",

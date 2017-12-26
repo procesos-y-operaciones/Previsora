@@ -2,78 +2,99 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$(document).on 'turbolinks:load', ->
+  try
+    #subprocess Class Rule
+    subprocess_class_rule = ->
+      v_option = document.getElementById('subprocessClass').value
+      if subClass == '3'
+          $('#currentStageVer').prop 'disabled', false
+          $('#currentStageOrd').prop 'disabled', true
+          $('#currentStageVerDiv').show()
+          $('#currentStageOrdDiv').hide()
+      if subClass == '4'
+          $('#currentStageVer').prop 'disabled', true
+          $('#currentStageOrd').prop 'disabled', false
+          $('#currentStageVerDiv').hide()
+          $('#currentStageOrdDiv').show()
+
+    $('#subprocessClass').change ->
+      subprocess_class_rule()
+
+    subprocess_class_rule()
+
+    #State Rule
+    state_rule = ->
+      v_option = document.getElementById('state').value
+      if v_option == 'Si'
+        document.getElementById('correspondency_radicate').readOnly = false
+      else
+        document.getElementById('correspondency_radicate').readOnly = true
+        $('#correspondency_radicate').val 'PENDIENTE'
+
+    $('#state').ready ->
+      state_rule()
+
+    state_rule()
+
+    #Litigation Source Rule
+    litigation_source_rule = ->
+      v_option = document.getElementById('litigationSource').value
+      if v_option == '2'
+        document.getElementById('policyCents').readOnly = false
+        $('#protection').prop('disabled', false)
+        document.getElementById('number').readOnly = false
+        document.getElementById('exercise').readOnly = false
+        $('#branch_policy').prop('disabled', false)
+        $('#branch_commercial').prop('disabled', false)
+      else
+        document.getElementById('policyCents').readOnly = true
+        $('#protection').prop('disabled', true)
+        document.getElementById('number').readOnly = true
+        document.getElementById('exercise').readOnly = true
+        $('#branch_policy').prop('disabled', true)
+        $('#branch_commercial').prop('disabled', true)
+        $('#policyCents').val 0
+        $('#protection').val '0'
+        $('#number').val 0
+        $('#exercise').val 0
+        $('#branch_policy').val '0'
+        $('#branch_commercial').val '0'
+        $('#sinister').val 'NO APLICA'
+
+    $('#litigationSource').ready ->
+        litigation_source_rule()
+
+    litigation_source_rule()
+
+    num=0
+    exer=0
+    poly=0
+    comm=0
+    numSiniestro = ""
+    $("#number").change ->
+      num = numSiniestro.concat(document.getElementById("number").value)
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+    $('#exercise').change ->
+      exer = numSiniestro.concat(document.getElementById("exercise").value)
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+    $('#branch_policy').change ->
+      poly = numSiniestro.concat(document.getElementById("branch_policy").value)
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+    $('#branch_commercial').change ->
+      comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+
+
+  catch
+    console.log "Fiscal error"
+
 ###
 $(document).ready ->
-
-    #regla -> Subclase de proceso
-    subprocessClassRule = ->
-        subClass = document.getElementById('subprocessClass').value
-        if subClass == '3'
-            $('#currentStageVer').prop 'disabled', false
-            $('#currentStageOrd').prop 'disabled', true
-            $('#currentStageVerDiv').show()
-            $('#currentStageOrdDiv').hide()
-        if subClass == '4'
-            $('#currentStageVer').prop 'disabled', true
-            $('#currentStageOrd').prop 'disabled', false
-            $('#currentStageVerDiv').hide()
-            $('#currentStageOrdDiv').show()
-            return
-    $('#subprocessClass').ready ->
-        subprocessClassRule()
-        return
-    $('#subprocessClass').change ->
-        subprocessClassRule()
-        return
-
-
-    #regla -> tiene número de radicado de correspondencia?
-    stateRule = ->
-        x = document.getElementById('state').value
-        if x == 'Si'
-            document.getElementById('correspondency_radicate').readOnly = false
-        else
-            document.getElementById('correspondency_radicate').readOnly = true
-            $('#correspondency_radicate').val 'PENDIENTE'
-        return
-    $('#state').ready ->
-        stateRule()
-        return
-    $('#state').change ->
-        stateRule()
-        return
-
-    #regla -> fuente de litigio
-    litigationSourceRule = ->
-        litsrc = document.getElementById('litigationSource').value
-        if litsrc == '2'
-            document.getElementById('policyCents').readOnly = false
-            $('#protection').prop('disabled', false)
-            document.getElementById('number').readOnly = false
-            document.getElementById('exercise').readOnly = false
-            $('#branch_policy').prop('disabled', false)
-            $('#branch_commercial').prop('disabled', false)
-        else
-            document.getElementById('policyCents').readOnly = true
-            $('#protection').prop('disabled', true)
-            document.getElementById('number').readOnly = true
-            document.getElementById('exercise').readOnly = true
-            $('#branch_policy').prop('disabled', true)
-            $('#branch_commercial').prop('disabled', true)
-            $('#policyCents').val 0
-            $('#protection').val '0'
-            $('#number').val 0
-            $('#exercise').val 0
-            $('#branch_policy').val '0'
-            $('#branch_commercial').val '0'
-            $('#sinister').val 'NO APLICA'
-        return
-    $('#litigationSource').ready ->
-        litigationSourceRule()
-        return
-    $('#litigationSource').change ->
-        litigationSourceRule()
-        return
 
     #regla -> número de siniestro
     num = 0
