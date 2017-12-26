@@ -19,6 +19,7 @@
 /* ==================================================
  Colors
  ================================================== */
+$ligthgreen0: #00b800
 $ligthgreen: #008c00
 $darkgreen: #1b492c
 $green: #006400
@@ -59,12 +60,12 @@ html, body
     margin: 5px
 .m-30
     margin: 30px
-.m-30-60
-    margin: 30px 60px
 .m-50
     margin-top: 50px
     margin-right: 100px
     margin-left: 100px
+.m-30-60
+    margin: 30px 60px
 .mt-50
     margin-top: 50px
 .mb-30
@@ -88,17 +89,17 @@ html, body
     text-align: justify
 .floatRight
     float: right
-.centerVertical
-    position: absolute
-    top: 50%
-    left: 50%
-    margin: -200px 0 0 -200px
 /* ================== text ========================*/
 h1, h2
     margin-bottom: 25px
     text-align: center
     font-weight: 200px
     color: darken($darkgreen, 2.5%)
+.lh-150
+    line-height: 150%
+.ls-1
+    letter-spacing: 1px
+/* ================= color ========================*/
 .grey
     color: darken($white, 2.5%)
 .white
@@ -113,22 +114,11 @@ h1, h2
     color: darken($darkgreen, 2.5%)
 .ligthblue
     color: darken($ligthblue, 2.5%)
-.lh-150
-    line-height: 150%
-.ls-1
-    letter-spacing: 1px
 /* ================== others ======================*/
 .fw
     width: 100%
 .shadow
     box-shadow: 0 0 20px darken($grey, 2.5%)
-.grad-lg-w
-    background: darken($ligthgreen, 2.5%)
-    background: -moz-linear-gradient(left, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
-    background: -webkit-linear-gradient(left, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
-    background: -o-linear-gradient(right, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
-    background: -ms-linear-gradient(right, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
-    background: linear-gradient(to right, darken($ligthgreen, 2.5%), darken($white, 2.5%)) fixed
 hr
     border-top: 1px solid darken($darkgreen, 2.5%)
 
@@ -172,6 +162,7 @@ hr
     
 input[type='number'] 
     -moz-appearance: textfield
+    appearance: textfield
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button 
     /* display: none; <- Crashes Chrome on hover */
@@ -182,7 +173,7 @@ input::-webkit-inner-spin-button
   buttons
   ================================================== */
 .btn-circle
-    margin: 20px
+    margin: 5px
     border-radius: 100%
     padding: 30px
     font-size: 30px
@@ -204,7 +195,7 @@ input::-webkit-inner-spin-button
     color: darken($white, 2.5%)
 .btn-default:hover
     border: 1px solid darken($ligthgreen, 2.5%)
-    background-color: darken($white, 2.5%)
+    background-color: darken($white, 2.5%) !important
     color: darken($ligthgreen, 2.5%)
 .btn-default:active
     border: 1px solid darken($ligthgreen, 2.5%)
@@ -224,6 +215,20 @@ input::-webkit-inner-spin-button
     border: 1px solid darken($ligthgreen, 2.5%)
     background: darken($ligthgreen, 2.5%)
     color: darken($white, 2.5%)
+    
+.btn-grad, .btn-grad:link, .btn-grad:visited
+    background: darken($ligthgreen, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+    font-weight: bold
+    color: darken($white, 2.5%)
+.btn-grad:hover
+    border: 1px solid darken($ligthgreen, 2.5%)
+    background: darken($white, 2.5%) !important
+    color: darken($ligthgreen, 2.5%)
+.btn-grad:active
+    border: 1px solid darken($ligthgreen, 2.5%)
+    background: darken($white, 2.5%)
+    color: darken($ligthgreen, 2.5%)
 
 .link, .link:link, .link:visited
     margin: 0px 10px

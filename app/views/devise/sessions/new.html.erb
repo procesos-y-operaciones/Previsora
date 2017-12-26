@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row flexBox">
     <div class="col-xs-6 p-30 flexBox verticalCenter">
-      <h4 class="justify m-30  ls-1"> 
+      <h4 class="justify m-30"> 
         Apreciado usuario,
         <br><br>
         Bienvenido al <b class="ligthgreen">Registro Único de Casos</b> de la Gerencia de Procesos Judiciales.
@@ -24,9 +24,9 @@
         </div>
 
         <% if devise_mapping.rememberable? -%>
-          <div class="field">
+          <div>
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, class:"" %>
+            <%= f.label :remember_me %>
           </div>
         <% end -%>
 
