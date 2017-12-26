@@ -6,14 +6,34 @@
   });
 </script>
 
-<%= search_form_for @search, url: lawyer_search_url do |f| %>
-  <%= f.select :p_type_eq, options_for_select([["Prejudicial", 1], ["Judicial", 2], ["Fiscal", 3], ["Administrativo", 4], ["Tutela", 5]]), {prompt: "SELECCIONE"}, {} %>
-  <%= f.text_field :correspondency_radicate_cont, placeholder: "Radicado" %>
-  <%= f.text_field :case_id_bap_cont, placeholder: "BAP" %>
-  <%= f.text_field :case_id_sise_cont, placeholder: "SISE" %>
-  <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {}) %>
-  <%= f.submit "Buscar" %>
-<% end %>
+<div class="row container-fluid mt-30 mb-30">
+  <%= search_form_for @search, url: lawyer_search_url, class:"" do |f| %>
+    <div class="col-sm-2">
+      <div class="styled-select">
+        <%= f.select :p_type_eq, options_for_select([["Prejudicial", 1], ["Judicial", 2], ["Fiscal", 3], ["Administrativo", 4], ["Tutela", 5]]), {prompt: "SELECCIONE"}, {} %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <%= f.text_field :correspondency_radicate_cont, placeholder: "Radicado", class:"form-control" %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.text_field :case_id_bap_cont, placeholder: "BAP", class:"form-control" %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.text_field :case_id_sise_cont, placeholder: "SISE", class:"form-control" %>
+    </div>
+    <div class="col-sm-2">
+      <div class="styled-select">
+        <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"fw"}) %>
+      </div>
+    </div>
+    <div class="col-sm-2" style:"border-left: 1px">
+    <%= f.submit do %>
+      wea
+    <% end %>
+    </div>
+  <% end %>
+</div>
 
 <div class="container-fluid p-30">
   <table class="table table-responsive-sm table-hover">
