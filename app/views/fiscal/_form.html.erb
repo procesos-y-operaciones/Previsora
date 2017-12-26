@@ -1,7 +1,6 @@
 <script>
   $(document).ready(function() {
   
-  var caseStateRule, coactiveRule, comm, contingencyValueCentsRule, exer, litigationSourceRule, moneyTypeRule, morePoliciesRule, num, numSiniestro, poly, stateRule, subprocessClassRule;
   
   //regla -> Subclase de proceso
   subprocessClassRule = function() {
@@ -29,9 +28,9 @@
   
   //regla -> tiene número de radicado de correspondencia? 
   stateRule = function() {
-    var x;
-    x = document.getElementById('state').value;
-    if (x === 'Si') {
+    var numradicate;
+    numradicate = document.getElementById('state').value;
+    if (numradicate === 'Si') {
       document.getElementById('correspondency_radicate').readOnly = false;
     } else {
       document.getElementById('correspondency_radicate').readOnly = true;
@@ -46,6 +45,11 @@
   });
   
   //regla -> fuente de litigio
+  num = 0;
+  exer = 0;
+  poly = 0;
+  comm = 0;
+  numSiniestro = '';
   litigationSourceRule = function() {
     var litsrc;
     litsrc = document.getElementById('litigationSource').value;
@@ -56,6 +60,7 @@
       document.getElementById('exercise').readOnly = false;
       $('#branch_policy').prop('disabled', false);
       $('#branch_commercial').prop('disabled', false);
+      $('#sinister').val(num + '-' + exer + '-' + poly + '-' + comm);
     } else {
       document.getElementById('policyCents').readOnly = true;
       $('#protection').prop('disabled', true);
@@ -80,11 +85,6 @@
   });
   
   //regla -> número de siniestro
-  num = 0;
-  exer = 0;
-  poly = 0;
-  comm = 0;
-  numSiniestro = '';
   $('#number').change(function() {
     num = numSiniestro.concat(document.getElementById('number').value);
     $('#sinister').val(num + '-' + exer + '-' + poly + '-' + comm);
