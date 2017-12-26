@@ -1,3 +1,7 @@
+<% if flash[:error] == nil  %>
+  <%= flash[:error] %>
+<% end %>
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -89,6 +93,9 @@
         <%= form.label "Ramo comercial" %>
         <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
 
+        <%= form.label "Número del siniestro (completo)" %>
+        <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
+
         <%= form.label "Tiene más pólizas?" %>
         <select id="more_policies" class="form-control">
           <option value="No">NO</option>
@@ -100,15 +107,12 @@
 
         <%= form.label "Número de siniestros" %>
         <%= form.text_area :sinisters, value: "PENDIENTE", id:"sinisters", class:"form-control" %>
-
-        <%= form.label "Número del siniestro (completo)" %>
-        <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
         <hr>
         <%= form.label "Tipo moneda" %>
         <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {class:"form-control", id:"moneyType"}) %>
 
         <%= form.label "Valor del dólar" %>
-        <%= form.number_field :dolar_value_cents, class:"form-control", value: 0, id:"dolarValueCents" %>
+        <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
 
         <%= form.label "Valor reserva" %>
         <%= form.number_field :reserve_cents, value: 0, class:"form-control" %>

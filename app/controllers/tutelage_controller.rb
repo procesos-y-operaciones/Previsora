@@ -7,6 +7,7 @@ class TutelageController < ApplicationController
 
   def new
     @tutelage = TypeProcess.new
+    @tutelage.creation_date = Date.today
   end
 
   def edit
