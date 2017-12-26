@@ -55,8 +55,8 @@
 </div>
 
 
-<div class="container-fluid center">
-  <ul class="pagination pagination-lg"> <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
+<div class="container-fluid mb-30 center">
+  <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> 
 </div>
 
 <!--%= link_to "Descargar", type_processes_path(params.merge(format: "xls")) %-->
