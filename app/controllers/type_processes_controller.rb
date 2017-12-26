@@ -91,6 +91,18 @@ class TypeProcessesController < ApplicationController
 
     def type_process_params
       params.require(:type_process).permit(:user_id, :p_type, :process_class_id,
-       :subprocess_class_id, :internal_lawyer_id)
+       :subprocess_class_id, :internal_lawyer_id, :correspondency_radicate, :case_id_bap,
+       :case_id_sise, :creation_date, :link_type_id, :departament_id, :city_case_id,
+       :litigation_source_id, :reinsurance_type_id, :reinsurance_report, :coensurance_type_id,
+       :policy_cents, :number, :exercise, :branch_policy_id, :branch_commercial_id, :money_type_id,
+       :dolar_value_cents, :sinister, :policies, :sinisters, :reserve_cents, :detritment_cents,
+       :ensurance_value_cents, :contingency_value_cents, :notification_date, :process_radicate,
+       :attorny, :attorny_date, :office_name_id, :active_part, :passive_part, :score_contingency_id,
+       :contingency_reason, :contingency_resume, :facts, :instance_id, :case_state_id,
+       :desition_date, :case_termination_id, :fail_value_cents, :fail_previ_cents,
+       :payed_value_cents, :payment_date, :coactive_radicate, :coactive_value_cents,
+       :garnish_value_cents, :last_performance_id, :last_performance_date, :reserved_released_id,
+       :p_type_eq, :correspondency_radicate_cont, :case_id_bap_cont, :case_id_sise_cont,
+       :city_case_id_eq)
     end
 end

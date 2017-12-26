@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-
+    
     #regla -> Subclase de proceso
     subprocessClassRule = ->
         subClass = document.getElementById('subprocessClass').value

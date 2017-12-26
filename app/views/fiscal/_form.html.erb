@@ -1,8 +1,13 @@
+<% if flash[:error] == nil  %>
+  <%= flash[:error] %>
+<% end %>
+
 <script>
+
   $(document).ready(function() {
-  
+
   var caseStateRule, coactiveRule, comm, contingencyValueCentsRule, exer, litigationSourceRule, moneyTypeRule, morePoliciesRule, num, numSiniestro, poly, stateRule, subprocessClassRule;
-  
+
   //regla -> Subclase de proceso
   subprocessClassRule = function() {
     var subClass;
@@ -26,8 +31,8 @@
   $('#subprocessClass').change(function() {
     subprocessClassRule();
   });
-  
-  //regla -> tiene número de radicado de correspondencia? 
+
+  //regla -> tiene número de radicado de correspondencia?
   stateRule = function() {
     var x;
     x = document.getElementById('state').value;
@@ -44,7 +49,7 @@
   $('#state').change(function() {
     stateRule();
   });
-  
+
   //regla -> fuente de litigio
   litigationSourceRule = function() {
     var litsrc;
@@ -78,7 +83,7 @@
   $('#litigationSource').change(function() {
     litigationSourceRule();
   });
-  
+
   //regla -> número de siniestro
   num = 0;
   exer = 0;
@@ -101,7 +106,7 @@
     comm = numSiniestro.concat(document.getElementById('branch_commercial').value);
     $('#sinister').val(num + '-' + exer + '-' + poly + '-' + comm);
   });
-  
+
   //regla -> Tipo moneda
   moneyTypeRule = function() {
     var money_type;
@@ -119,7 +124,7 @@
   $('#moneyType').change(function() {
     moneyTypeRule();
   });
-  
+
   //regla -> Tiene más pólizas?
   morePoliciesRule = function() {
     var x;
@@ -140,7 +145,7 @@
   $('#more_policies').change(function() {
     morePoliciesRule();
   });
-  
+
   //regla -> Valor pretensión / detrimento / estimación
   contingencyValueCentsRule = function() {
     var detValCents, ensValCents;
@@ -168,7 +173,7 @@
   $('#ensuranceValueCents').change(function() {
     contingencyValueCentsRule();
   });
-  
+
   //regla -> estado del caso
   caseStateRule = function() {
     var case_state;
@@ -196,7 +201,7 @@
     caseStateRule();
   });
   return;
-  
+
   //regla -> tiene número de radicado de coactivo?
   coactiveRule = function() {
     var x;
@@ -217,7 +222,7 @@
   return $('#coactive').change(function() {
     coactiveRule();
   });
-  
+
 });
 
 </script>
@@ -240,7 +245,7 @@
 
         <%= form.hidden_field :p_type, :value => 3 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
-        
+
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select blue semi-square">
