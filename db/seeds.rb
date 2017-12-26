@@ -1291,6 +1291,7 @@ LitigationSource.create([
 ])
 
 Instance.create([
+  {name: 'PENDIENTE'},
   {name: 'PRIMERA'},
   {name: 'SEGUNDA'},
   {name: 'ÚNICA'},
@@ -1302,6 +1303,7 @@ Instance.create([
 ])
 
 CaseTermination.create([
+  {name: 'PENDIENTE'},
   {name: 'TERMINADO CON PAGO: EN CONTRA'},
   {name: 'TERMINADO SIN PAGO: A FAVOR'}
 ])
