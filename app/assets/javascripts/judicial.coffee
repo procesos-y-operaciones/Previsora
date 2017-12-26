@@ -3,12 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $("select").wrap('<div class="styled-select"> </div>')
-  $("/input").append('<span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">' +
-                    '<i class="glyphicon glyphicon-question-sign"></i> </span>')
-  $("input").wrap('<div class="input-group"> </div>')
-  document.reload()
-    
   #Radicate Rule
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
