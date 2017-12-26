@@ -27,10 +27,10 @@
         <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"fw"}) %>
       </div>
     </div>
-    <div class="col-sm-2" style:"border-left: 1px">
-    <%= f.submit do %>
-      wea
-    <% end %>
+    <div class="col-sm-2 center">
+      <button type="submit" class="minibtn btn-default" style="margin: 0; padding: 0px 12px; height:35px">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
     </div>
   <% end %>
 </div>
