@@ -17,35 +17,105 @@
 
         <%= form.hidden_field :p_type, :value => 5 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
+        
         <hr>
+<<<<<<< HEAD
         <%= form.label "Clase de proceso  *" %>
         <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {selected: 29}, {class:"form-control", id: "processClass", required: true}) %>
 
+=======
+        
+        <%= form.label "Clase de proceso" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id: "processClass", required: true}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
+>>>>>>> de550e2f155a6d4dc15fe8be4c8b88c7c7bcaa3e
         <%= form.label "Subclase de proceso" %>
-        <%= form.collection_select(:subprocess_class_id, SubprocessClass.tutelage, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.tutelage, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Fecha de notificación / vinculación" %>
-        <%= form.date_field :notification_date, class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :notification_date, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Número de radicado correspondencia o vicepresidencia" %>
+<<<<<<< HEAD
         <%= form.text_field :correspondency_radicate, required: true, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
+=======
+        <div class="input-group">
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
+>>>>>>> de550e2f155a6d4dc15fe8be4c8b88c7c7bcaa3e
         <hr>
+        
         <%= form.label "Fecha de creación" %>
-        <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
-
+        <div class="input-group">
+          <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tipo de vinculación" %>
-        <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {value: 1, class:"form-control"}) %>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {value: 1, class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Departamento" %>
-        <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Ciudad donde cursa el caso" %>
-        <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Número de radicación del proceso" %>
-        <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Nombre despacho" %>
+<<<<<<< HEAD
         <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {id: "office", class:"form-control"}) %>
         <%= form.text_field :office_name, placeholder: 'NOMBRE DEL DESPACHO', required: true, id: "office_text",class: "form-control" %>
 
@@ -54,51 +124,152 @@
 
         <%= form.label "Parte pasiva" %>
         <%= form.text_field :passive_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+=======
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
+        <%= form.label "Parte activa" %>
+        <div class="input-group">
+          <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Parte pasiva" %>
+        <div class="input-group">
+          <%= form.text_field :passive_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+>>>>>>> de550e2f155a6d4dc15fe8be4c8b88c7c7bcaa3e
 
         <%= form.label "Instancias" %>
-        <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {class:"form-control"}) %>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Terminación del caso" %>
-        <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <hr>
+        
         <%= form.label "Hay impugnación?" %>
-        <select id="objection" class="form-control">
-          <option value="No">NO</option>
-          <option value="Si">SI</option>
-        </select>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <select id="objection" class="form-control">
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
+            </select>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Fecha de notificación impugnación" %>
-        <%= form.date_field :objection_notification_date, id: "objection_date", class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :objection_notification_date, id: "objection_date", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Impugnante" %>
-        <%= form.text_field :tutelage_imp, placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
+        <div class="input-group">
+          <%= form.text_field :tutelage_imp, placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <hr>
+        
         <%= form.label "Hay desacato?" %>
-        <select id="desacate" class="form-control">
-          <option value="No">NO</option>
-          <option value="Si">SI</option>
-        </select>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <select id="desacate" class="form-control">
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
+            </select>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Tipo sentencia de segunda instancia - a compañía" %>
-        <%= form.collection_select(:setence_type_second_company_id, SetenceTypeSecondCompany.all, :id, :name, {:prompt => 'SELECCIONE'}, {id: "setence_type_second_company", class:"form-control"}) %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:setence_type_second_company_id, SetenceTypeSecondCompany.all, :id, :name, {:prompt => 'SELECCIONE'}, {id: "setence_type_second_company", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha notificación incidente de desacato" %>
-        <%= form.date_field :date_notification_desacate, id: "date_notification_desacate", class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :date_notification_desacate, id: "date_notification_desacate", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Fecha de contestación incidente de desacato" %>
-        <%= form.date_field :date_answer_desacate, id: "date_answer_desacate", class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :date_answer_desacate, id: "date_answer_desacate", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Tipo sentencia incidente de desacato - a compañía" %>
-        <%= form.collection_select(:sentence_type_desacate_id, SentenceTypeDesacate.all, :id, :name, {:prompt => 'SELECCIONE'}, {id: "sentence_type_desacate", class:"form-control"}) %>
-
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:sentence_type_desacate_id, SentenceTypeDesacate.all, :id, :name, {:prompt => 'SELECCIONE'}, {id: "sentence_type_desacate", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <%= form.label "Fecha notificación decisión incidente desacato" %>
-        <%= form.date_field :date_notification_desition_desacate, id: "date_notification_desition_desacate", class:"form-control" %>
+        <div class="input-group">
+          <%= form.date_field :date_notification_desition_desacate, id: "date_notification_desition_desacate", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        
         <hr>
+        
       </div>
     </div>
   </div>
-  <div class="">
+  
+  <div class="p-30">
     <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
+  
 <% end %>

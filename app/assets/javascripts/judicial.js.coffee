@@ -272,6 +272,7 @@ $(document).on 'turbolinks:load', ->
     $('#processClass').change ->
       process_class_rule()
 
+
     process_class_rule()
 
     #Subprocess Admin Rule
