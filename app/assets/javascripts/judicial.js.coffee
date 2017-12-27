@@ -4,7 +4,6 @@
 
 $(document).on 'turbolinks:load', ->
   try
-    
     #Radicate Rule
     radicate_rule = ->
       v_option = document.getElementById("radicate").value
@@ -149,6 +148,7 @@ $(document).on 'turbolinks:load', ->
         document.getElementById("exercise").readOnly = false
         $('#branch_policy').prop( "disabled", false )
         $('#branch_commercial').prop( "disabled", false )
+        $('#more_policies').prop( "disabled", false )
       else
         document.getElementById("policyCents").readOnly = true
         $('#protection').prop( "disabled", true )
@@ -156,6 +156,7 @@ $(document).on 'turbolinks:load', ->
         document.getElementById("exercise").readOnly = true
         $('#branch_policy').prop( "disabled", true )
         $('#branch_commercial').prop( "disabled", true )
+        $('#more_policies').prop( "disabled", true )
 
     $('#litigationSource').ready ->
       litigation_source_rule()
@@ -302,6 +303,6 @@ $(document).on 'turbolinks:load', ->
       office_rule()
 
     office_rule()
-    
+
   catch
     console.log "Judicial error"
