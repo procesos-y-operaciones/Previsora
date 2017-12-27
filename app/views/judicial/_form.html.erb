@@ -36,7 +36,7 @@
 
 
         <%= form.label "Subclase de proceso" %>
-        <div class="input-group">
+        <div id="subprocessAdminDiv" class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.admin, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessAdmin", required: true}) %>
           </div>
@@ -44,8 +44,15 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-
-        <div class="input-group">
+        <div id="subprocessCivilDiv" class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.civil, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessCivil", required: true}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div id="subprocessPenalDiv" class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.penal, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessPenal", required: true}) %>
           </div>
@@ -53,7 +60,22 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-
+        <div id="subprocessLaboralDiv" class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.laboral, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessLaboral", required: true}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div id="subprocessArbitralDiv" class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.arbitral, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessArbitral", required: true}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <hr>
 
@@ -134,16 +156,6 @@
           </span>
         </div>
 
-        <%= form.label "Fuente de litigio" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {:prompt => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
         <hr>
 
         <%= form.label "Tipo de reaseguro" %>
@@ -159,16 +171,6 @@
         <%= form.label "Valor reaseguro" %>
         <div class="input-group">
           <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Reaseguro reportado" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.select :reinsurance_report, options_for_select([["NO", false], ["SI", true]]), {}, {class:"form-control"} %>
-          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -193,6 +195,16 @@
         </div>
 
         <hr>
+
+        <%= form.label "Fuente de litigio" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {:prompt => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Póliza" %>
         <div class="input-group">

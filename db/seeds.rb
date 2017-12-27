@@ -2,7 +2,7 @@ User.create([
   {document: "1032459412", name: "Jonathan Granados", password: "123456", password_confirmation: "123456", role: 1},
   {document: "1033773336", name: "Gabrela Suárez", password: "123456", password_confirmation: "123456", role: 1},
   {document: "1234", name: "Jonathan Prieto", password: "123456", password_confirmation: "123456", role: 2},
-  {document: "5678", name: "Paula Torres", password: "123456", password_confirmation: "123456", role: 3}
+  {document: "5678", name: "Paula Torres", password: "123456", password_confirmation: "123456", role: 1}
 ])
 
 ProcessClass.create([
@@ -35,6 +35,7 @@ ProcessClass.create([
   {name: 'LEY 1437'},
   {name: 'RESPONSABILIDAD FISCAL'},
   {name: 'TUTELA'},
+  {name: "PROCESO ARBITRAL"},
   {name: 'NO APLICA'}
 ])
 
@@ -1321,7 +1322,7 @@ GubernatorialWay.create([
 ])
 
 ReinsuranceType.create([
-  {name: 'PENDIENTE'},
+  {name: 'NO SE PRESENTO'},
   {name: 'FACULTATIVO'},
   {name: 'CUOTA APARTE'}
 ])
@@ -1381,7 +1382,37 @@ SubprocessClass.create([
   {name: 'POLIZA VIDA GRUPO  '},
   {name: 'ACCIDENTES PERSONALES'},
   {name: 'SOAT-AUTORIZACIONES EPS'},
-  {name: 'EXPEDICION DE POLIZAS DE SERIDAD CANDIDATURA NO ASEGURABLE'}
+  {name: 'EXPEDICION DE POLIZAS DE SERIDAD CANDIDATURA NO ASEGURABLE'},
+  {name: "PROCESO ARBITRAL"},
+  {name: 'NULIDAD POR INCONSTITUCIONALIDAD'},
+  {name: 'CONTROL INMEDIATO DE LEGALIDAD'},
+  {name: 'NULIDAD'},
+  {name: 'NULIDAD Y RESTABLECIMIENTO DEL DERECHO'},
+  {name: 'NULIDAD ELECTORAL'},
+  {name: 'REPARACION DIRECTA'},
+  {name: 'CONTROVERSIAS CONTRACTUALES'},
+  {name: 'REPETICION'},
+  {name: 'PERDIDA DE INVESTIDURA'},
+  {name: 'ACCION POPULAR'},
+  {name: 'ACCIÓN DE GRUPO'},
+  {name: 'CUMPLIMIENTO DE NORMAS CON FUERZA MATERIAL DE LEY O DE ACTOS ADMINISTRATIVOS'},
+  {name: 'NULIDAD DE LAS CARTAS DE NATURALEZA Y DE LAS RESOLUCIONES DE AUTORIZACION DE INSCRIPCION'},
+  {name: 'CONTROL POR VÍA DE EXCEPCION'},
+  {name: 'PROCESO VERBAL'},
+  {name: 'PROCESO VERBAL SUMARIO'},
+  {name: 'PROCESOS DECLARATIVOS ESPECIALES'},
+  {name: 'PROCESO EJECUTIVO'},
+  {name: 'PROCESO DE SUCESIÓN'},
+  {name: 'PROCESO DE LIQUIDACIÓN DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CÓNYUGES O COMPAÑEROS PERMANENTES'},
+  {name: 'DISOLUCIÓN, NULIDAD Y LIQUIDACIÓN DE SOCIEDADES'},
+  {name: 'INSOLVENCIA DE LA PERSONA NATURAL NO COMERCIANTE'},
+  {name: 'PROCESOS DE JURISDICCIÓN VOLUNTARIA'},
+  {name: 'PROCESO ORDINARIO'},
+  {name: 'PROCESO DIVISORIO'},
+  {name: 'PROCESO DE JURISDICCIÓN VOLUNTARIA'},
+  {name: 'PROCESO ARBITRAL'},
+  {name: 'ORDINARIO'},
+  {name: 'ESPECIAL'}
 ])
 
 CoensuranceType.create([
