@@ -18,8 +18,8 @@
         <%= form.hidden_field :p_type, :value => 5 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <hr>
-        <%= form.label "Clase de proceso" %>
-        <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id: "processClass", required: true}) %>
+        <%= form.label "Clase de proceso  *" %>
+        <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {selected: 29}, {class:"form-control", id: "processClass", required: true}) %>
 
         <%= form.label "Subclase de proceso" %>
         <%= form.collection_select(:subprocess_class_id, SubprocessClass.tutelage, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
@@ -28,7 +28,7 @@
         <%= form.date_field :notification_date, class:"form-control" %>
 
         <%= form.label "Número de radicado correspondencia o vicepresidencia" %>
-        <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, required: true, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
         <hr>
         <%= form.label "Fecha de creación" %>
         <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
@@ -46,13 +46,14 @@
         <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
 
         <%= form.label "Nombre despacho" %>
-        <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+        <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {id: "office", class:"form-control"}) %>
+        <%= form.text_field :office_name, placeholder: 'NOMBRE DEL DESPACHO', required: true, id: "office_text",class: "form-control" %>
 
         <%= form.label "Parte activa" %>
-        <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <%= form.text_field :active_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
 
         <%= form.label "Parte pasiva" %>
-        <%= form.text_field :passive_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <%= form.text_field :passive_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
 
         <%= form.label "Instancias" %>
         <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {class:"form-control"}) %>

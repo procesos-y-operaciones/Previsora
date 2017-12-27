@@ -210,24 +210,6 @@
           </span>
         </div>
 
-        <%= form.label "Tipo moneda" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Valor del dólar" %>
-        <div class="input-group">
-          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
         <%= form.label "Número del siniestro (completo)" %>
         <div class="input-group">
           <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
@@ -260,6 +242,24 @@
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
           <%= form.text_area :sinisters, id:"sinisters", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Tipo moneda" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Valor del dólar" %>
+        <div class="input-group">
+          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
