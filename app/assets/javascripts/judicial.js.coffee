@@ -167,28 +167,34 @@ $(document).on 'turbolinks:load', ->
       v_option = document.getElementById("processClass").value
       switch v_option
         when "1"
+          $('#subprocess').show()
+          $('#subprocessAdminDiv').show()
           $('#subprocessAdmin').prop( "disabled", false )
           $('#subprocessAdmin').show()
-          $('#subprocessPenal').prop( "disabled", true )
-          $('#subprocessPenal').hide()
-        when "2"
-          $('#subprocessAdmin').prop( "disabled", true )
-          $('#subprocessAdmin').hide()
+          $('#subprocessPenalDiv').hide()
           $('#subprocessPenal').prop( "disabled", true )
           $('#subprocessPenal').hide()
         when "11"
+          $('#subprocess').show()
+          $('#subprocessPenalDiv').show()
           $('#subprocessPenal').prop( "disabled", false )
           $('#subprocessPenal').show()
+          $('#subprocessAdminDiv').hide()
           $('#subprocessAdmin').prop( "disabled", true )
           $('#subprocessAdmin').hide()
         else
+          $('#subprocess').hide()
+          $('#subprocessAdminDiv').hide()
           $('#subprocessAdmin').prop( "disabled", true )
           $('#subprocessAdmin').hide()
+          $('#subprocessPenalDiv').hide()
           $('#subprocessPenal').prop( "disabled", true )
           $('#subprocessPenal').hide()
-
+    $('#processClass').ready ->
+      process_class_rule()
     $('#processClass').change ->
       process_class_rule()
+    
 
     process_class_rule()
 

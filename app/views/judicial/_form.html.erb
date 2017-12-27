@@ -35,8 +35,8 @@
         </div>
         
         
-        <%= form.label "Subclase de proceso" %>
-        <div class="input-group">
+        <%= form.label "Subclase de proceso", id:"subprocess" %>
+        <div id="subprocessAdminDiv" class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.admin, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessAdmin", required: true}) %>
           </div>
@@ -45,7 +45,7 @@
           </span>
         </div>
         
-        <div class="input-group">
+        <div id="subprocessPenalDiv" class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.penal, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"subprocessPenal", required: true}) %>
           </div>
@@ -53,7 +53,6 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-
 
         <hr>
         
@@ -669,7 +668,7 @@
       </div>
     </div>
   </div>
-  <div class="">
+  <div class="p-30">
     <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
