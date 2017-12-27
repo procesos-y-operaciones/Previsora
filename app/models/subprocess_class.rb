@@ -27,15 +27,15 @@ class SubprocessClass < ApplicationRecord
   end
 
   def self.civil
-    SubprocessClass.find((55..66).step(1).to_a)
+    SubprocessClass.find((55..65).step(1).to_a)
   end
 
   def self.arbitral
-    SubprocessClass.find([67])
+    SubprocessClass.find([66])
   end
 
   def self.laboral
-    SubprocessClass.find([68, 69])
+    SubprocessClass.find([67, 68])
   end
 
   def self.get_name(id)

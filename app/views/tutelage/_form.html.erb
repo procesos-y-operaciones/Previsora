@@ -17,14 +17,8 @@
 
         <%= form.hidden_field :p_type, :value => 5 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
-        
-        <hr>
-<<<<<<< HEAD
-        <%= form.label "Clase de proceso  *" %>
-        <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {selected: 29}, {class:"form-control", id: "processClass", required: true}) %>
 
-=======
-        
+        <hr>
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
@@ -34,8 +28,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
->>>>>>> de550e2f155a6d4dc15fe8be4c8b88c7c7bcaa3e
+
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
@@ -45,7 +38,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Fecha de notificación / vinculación" %>
         <div class="input-group">
           <%= form.date_field :notification_date, class:"form-control" %>
@@ -55,19 +48,15 @@
         </div>
 
         <%= form.label "Número de radicado correspondencia o vicepresidencia" %>
-<<<<<<< HEAD
-        <%= form.text_field :correspondency_radicate, required: true, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
-=======
         <div class="input-group">
           <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
->>>>>>> de550e2f155a6d4dc15fe8be4c8b88c7c7bcaa3e
+
         <hr>
-        
+
         <%= form.label "Fecha de creación" %>
         <div class="input-group">
           <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
@@ -75,7 +64,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
@@ -85,7 +74,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Departamento" %>
         <div class="input-group">
           <div class="styled-select">
@@ -95,7 +84,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
@@ -105,7 +94,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
           <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
@@ -115,25 +104,9 @@
         </div>
 
         <%= form.label "Nombre despacho" %>
-<<<<<<< HEAD
         <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {id: "office", class:"form-control"}) %>
         <%= form.text_field :office_name, placeholder: 'NOMBRE DEL DESPACHO', required: true, id: "office_text",class: "form-control" %>
 
-        <%= form.label "Parte activa" %>
-        <%= form.text_field :active_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
-
-        <%= form.label "Parte pasiva" %>
-        <%= form.text_field :passive_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
-=======
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-        
         <%= form.label "Parte activa" %>
         <div class="input-group">
           <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
@@ -149,7 +122,6 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
->>>>>>> de550e2f155a6d4dc15fe8be4c8b88c7c7bcaa3e
 
         <%= form.label "Instancias" %>
         <div class="input-group">
@@ -160,7 +132,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Terminación del caso" %>
         <div class="input-group">
           <div class="styled-select">
@@ -170,9 +142,9 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <hr>
-        
+
         <%= form.label "Hay impugnación?" %>
         <div class="input-group">
           <div class="styled-select">
@@ -185,7 +157,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Fecha de notificación impugnación" %>
         <div class="input-group">
           <%= form.date_field :objection_notification_date, id: "objection_date", class:"form-control" %>
@@ -201,9 +173,9 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <hr>
-        
+
         <%= form.label "Hay desacato?" %>
         <div class="input-group">
           <div class="styled-select">
@@ -216,7 +188,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Tipo sentencia de segunda instancia - a compañía" %>
         <div class="input-group">
           <div class="styled-select">
@@ -252,7 +224,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Fecha notificación decisión incidente desacato" %>
         <div class="input-group">
           <%= form.date_field :date_notification_desition_desacate, id: "date_notification_desition_desacate", class:"form-control" %>
@@ -260,16 +232,16 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <hr>
-        
+
       </div>
     </div>
   </div>
-  
+
   <div class="p-30">
     <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
-  
+
 <% end %>
