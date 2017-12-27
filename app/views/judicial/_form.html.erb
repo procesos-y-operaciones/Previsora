@@ -465,13 +465,12 @@
         <%= form.label "Etapa actual", id:"currentStage" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_admin, :id, :name, {}, {id:"currentStageAdmin", class:"form-control"}) %>
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_admin, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:current_stage_id, CurrentStage.judicial_penal, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
@@ -480,6 +479,111 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_laboral, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_arbitral, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_verbal, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_verbal_sum, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_monitorio, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_ejecutivo, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_declarativos, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_sucesion, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_liquidacion, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_insolvencia, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_voluntaria, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_ordinario, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:current_stage_id, CurrentStage.judicial_divisorio, :id, :name, {}, {id:"currentStagePenal", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
 
         <%= form.label "Instancias" %>
         <div class="input-group">
@@ -514,6 +618,28 @@
           <div class="styled-select">
             <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
           </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Tiene costas a favor?" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <select id="coactive" class="form-control">
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
+            </select>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Valor costas" %>
+        <!--TODO: NUEVO CAMPO COSTAS-->
+        <div class="input-group">
+          <%= form.number_field :coactive_value_cents, class: "form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

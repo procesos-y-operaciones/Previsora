@@ -18,6 +18,10 @@ class ProcessClass < ApplicationRecord
     ProcessClass.find([1,2,11,12,30])
   end
 
+  def self.prejudicial
+    ProcessClass.find([29])
+  end
+
   def self.tutelage
     [ProcessClass.find(29)]
   end
