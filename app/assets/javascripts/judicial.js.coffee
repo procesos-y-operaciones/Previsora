@@ -4,7 +4,6 @@
 
 $(document).on 'turbolinks:load', ->
   try
-    
     #Radicate Rule
     radicate_rule = ->
       v_option = document.getElementById("radicate").value
