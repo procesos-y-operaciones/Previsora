@@ -26,7 +26,7 @@ $green: #006400
 $ligthblue: #42dcf4
 $white: #fff
 $darkgrey: #555555
-$grey: #c3c3c3
+$grey: #cccccc
 $black: #000
 
 /* ==================================================
@@ -59,6 +59,8 @@ html, body
 /* =============margin & padding ==================*/
 .m-5
     margin: 5px
+.mb-5
+    margin-bottom: 5px !important
 .m-30
     margin: 30px
 .m-50
@@ -118,6 +120,8 @@ h1, h2
 .ligthblue
     color: darken($ligthblue, 2.5%)
 /* ================== others ======================*/
+.hw
+    width: 50%
 .fw
     width: 100%
 .shadow
@@ -143,7 +147,7 @@ hr
 
 .styled-select 
     width: 100%
-    height: 30px
+    height: 34px
     border: 1px solid darken($grey, 2.5%)
     -webkit-border-radius: 5px
     -moz-border-radius: 5px
@@ -156,8 +160,6 @@ hr
     height: inherit
     background: transparent
     padding: 5px
-    font-size: 14px
-    color: darken($darkgrey, 2.5%)
     -webkit-appearance: none
     -moz-appearance: none
     text-indent: 1px
@@ -185,17 +187,16 @@ input::-webkit-inner-spin-button
     border-radius: 5px
     padding: 10px 30px
     font-size: 15px !important
+    font-weight: bold
 .minibtn
-    margin: 0px
-    border: 0px
+    margin: 5px
     border-radius: 5px
-    background-color: darken($white, 2.5%)
     padding: 5px
     font-size: 15px !important
 
 .btn-default, .btn-default:link, .btn-default:visited
+    border: 1px solid darken($ligthgreen, 2.5%)
     background-color: darken($ligthgreen, 2.5%)
-    font-weight: bold
     color: darken($white, 2.5%)
 .btn-default:hover
     border: 1px solid darken($ligthgreen, 2.5%)

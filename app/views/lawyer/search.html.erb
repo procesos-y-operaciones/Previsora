@@ -6,34 +6,42 @@
   });
 </script>
 
-<div class="row container-fluid mt-30">
+<div class="container-fluid p-15">
   <%= search_form_for @search, url: lawyer_search_url, class:"" do |f| %>
-    <div class="col-sm-2">
-      <div class="styled-select">
-        <%= f.select :p_type_eq, options_for_select([["Prejudicial", 1], ["Judicial", 2], ["Fiscal", 3], ["Administrativo", 4], ["Tutela", 5]]), {prompt: "SELECCIONE"}, {} %>
+    <div class="row flexBox">
+      <div class="col-sm-4">
+        <div class="styled-select m-5">
+          <%= f.select :p_type_eq, options_for_select([["Prejudicial", 1], ["Judicial", 2], ["Fiscal", 3], ["Administrativo", 4], ["Tutela", 5]]), {prompt: "SELECCIONE"}, {} %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :correspondency_radicate_cont, placeholder: "Radicado", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :case_id_bap_cont, placeholder: "BAP", class:"form-control m-5 mb-5" %>
       </div>
     </div>
-    <div class="col-sm-2">
-      <%= f.text_field :correspondency_radicate_cont, placeholder: "Radicado", class:"form-control" %>
-    </div>
-    <div class="col-sm-2">
-      <%= f.text_field :case_id_bap_cont, placeholder: "BAP", class:"form-control" %>
-    </div>
-    <div class="col-sm-2">
-      <%= f.text_field :case_id_sise_cont, placeholder: "SISE", class:"form-control" %>
-    </div>
-    <div class="col-sm-2">
-      <div class="styled-select">
-        <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"fw"}) %>
+    
+    <div class="row flexBox">
+      <div class="col-sm-4">
+        <%= f.text_field :case_id_sise_cont, placeholder: "SISE", class:"form-control m-5 mb-5" %>
       </div>
-    </div>
-    <div class="col-sm-2 center">
-      <button type="submit" class="minibtn btn-default" style="margin: 0; padding: 5px 15px; height:30px">
-        <span class="glyphicon glyphicon-search"></span>
-      </button>
+      <div class="col-sm-4">
+        <div class="styled-select m-5">
+          <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"fw"}) %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-default floatRight" style="padding:5px 30px; height:34px">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </div>
     </div>
   <% end %>
 </div>
+
+
+<hr style="margin: 0">
 
 <div class="container-fluid p-30">
   <table class="table table-responsive-sm table-hover">
