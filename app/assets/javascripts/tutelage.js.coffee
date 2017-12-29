@@ -38,3 +38,19 @@ $(document).on 'turbolinks:load', ->
     desacate_rule()
 
   desacate_rule()
+  
+  #Regla de Oficio
+  office_rule = ->
+    v_option = document.getElementById('office').value
+    if v_option == "OTRO"
+      $('#office_text').show()
+      $('#office_text').prop( "disabled", false )
+    else
+      $('#office_text').hide()
+      $('#office_text').prop( "disabled", true )
+
+  $('#office').change ->
+    office_rule()
+
+  office_rule()
+

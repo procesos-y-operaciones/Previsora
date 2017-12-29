@@ -6,6 +6,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :correspondency_radicate
       t.string    :case_id_bap
       t.string    :case_id_sise
+      t.string    :case_id_ekogui
       t.date      :creation_date
       t.date      :notification_date
       t.string    :process_radicate
@@ -51,6 +52,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.monetize  :coensurance_value
       t.monetize  :reconcilie_value
       t.monetize  :conensurance_value
+      t.monetize  :cost_value
       t.string    :reason_conc
       t.string    :reason_inv
       t.string    :office_name

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220152745) do
+ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "branch_commercials", force: :cascade do |t|
     t.string "name"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.string "correspondency_radicate"
     t.string "case_id_bap"
     t.string "case_id_sise"
+    t.string "case_id_ekogui"
     t.date "creation_date"
     t.date "notification_date"
     t.string "process_radicate"
@@ -245,6 +246,8 @@ ActiveRecord::Schema.define(version: 20171220152745) do
     t.string "reconcilie_value_currency", default: "USD", null: false
     t.integer "conensurance_value_cents", default: 0, null: false
     t.string "conensurance_value_currency", default: "USD", null: false
+    t.integer "cost_value_cents", default: 0, null: false
+    t.string "cost_value_currency", default: "USD", null: false
     t.string "reason_conc"
     t.string "reason_inv"
     t.string "office_name"
