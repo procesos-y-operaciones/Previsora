@@ -1464,6 +1464,7 @@ ReinsuranceType.create([
 ])
 
 SentenceTypeDesacate.create([
+  {name: 'PENDIENTE'},
   {name: 'TERMINADO CON PAGO: EN CONTRA'},
   {name: 'TERMINADO SIN PAGO: A FAVOR'}
 ])
@@ -1551,13 +1552,12 @@ SubprocessClass.create([
 ])
 
 CoensuranceType.create([
-  {name: "NO TIENE"},
+  {name: "NO SE PRESENTO"},
   {name: "CEDIDO"},
   {name: "ACEPTADO"}
 ])
 
 CaseState.create([
-  {name: "PENDIENTE"},
   {name: "EN CURSO"},
   {name: "TERMINADO"}
 ])

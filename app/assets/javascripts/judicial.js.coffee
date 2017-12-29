@@ -275,29 +275,127 @@ $(document).on 'turbolinks:load', ->
 
     process_class_rule()
 
+    hide_all_selectors = ->
+      $('#judicial_admin').prop( 'disabled', true )
+      $('#judicial_admin').hide()
+      $('#judicial_penal').prop( 'disabled', true )
+      $('#judicial_penal').hide()
+      $('#judicial_laboral').prop( 'disabled', true )
+      $('#judicial_laboral').hide()
+      $('#judicial_arbitral').prop( 'disabled', true )
+      $('#judicial_arbitral').hide()
+      $('#judicial_verbal').prop( 'disabled', true )
+      $('#judicial_verbal').hide()
+      $('#judicial_verbal_sum').prop( 'disabled', true )
+      $('#judicial_verbal_sum').hide()
+      $('#judicial_monitorio').prop( 'disabled', true )
+      $('#judicial_monitorio').hide()
+      $('#judicial_ejecutivo').prop( 'disabled', true )
+      $('#judicial_ejecutivo').hide()
+      $('#judicial_declarativos').prop( 'disabled', true )
+      $('#judicial_declarativos').hide()
+      $('#judicial_sucesion').prop( 'disabled', true )
+      $('#judicial_sucesion').hide()
+      $('#judicial_liquidacion').prop( 'disabled', true )
+      $('#judicial_liquidacion').hide()
+      $('#judicial_insolvencia').prop( 'disabled', true )
+      $('#judicial_insolvencia').hide()
+      $('#judicial_voluntaria').prop( 'disabled', true )
+      $('#judicial_voluntaria').hide()
+      $('#judicial_ordinario').prop( 'disabled', true )
+      $('#judicial_ordinario').hide()
+      $('#judicial_divisorio').prop( 'disabled', true )
+      $('#judicial_divisorio').hide()
+
     #Subprocess Admin Rule
     subprocess_admin_rule = ->
-      $('#currentStageAdmin').prop( "disabled", false )
-      $('#currentStageAdmin').show()
-      $('#currentStagePenal').prop( "disabled", true )
-      $('#currentStagePenal').hide()
+      hide_all_selectors()
+      $('#judicial_admin').prop( "disabled", false )
+      $('#judicial_admin').show()
 
-    $('#subprocessAdmin').change ->
+    $('#judicial_admin').change ->
       subprocess_admin_rule()
 
     subprocess_admin_rule()
 
+    #Subprocess Civil Verbal
+    subprocess_civil_rule = ->
+      hide_all_selectors()
+      v_option = document.getElementById("subprocessCivil").value
+      switch v_option
+        when "55"
+          $('#judicial_verbal').prop( "disabled", false )
+          $('#judicial_verbal').show()
+        when "56"
+          $('#judicial_verbal_sum').prop( "disabled", false )
+          $('#judicial_verbal_sum').show()
+        when "57"
+          $('#judicial_declarativos').prop( "disabled", false )
+          $('#judicial_declarativos').show()
+        when "58"
+          $('#judicial_ejecutivo').prop( "disabled", false )
+          $('#judicial_ejecutivo').show()
+        when "59"
+          $('#judicial_sucesion').prop( "disabled", false )
+          $('#judicial_sucesion').show()
+        when "60"
+          $('#judicial_liquidacion').prop( "disabled", false )
+          $('#judicial_liquidacion').show()
+        when "61"
+          $('#judicial_liquidacion').prop( "disabled", false )
+          $('#judicial_liquidacion').show()
+        when "62"
+          $('#judicial_insolvencia').prop( "disabled", false )
+          $('#judicial_insolvencia').show()
+        when "63"
+          $('#judicial_ordinario').prop( "disabled", false )
+          $('#judicial_ordinario').show()
+        when "64"
+          $('#judicial_divisorio').prop( "disabled", false )
+          $('#judicial_divisorio').show()
+        when "65"
+          $('#judicial_voluntaria').prop( "disabled", false )
+          $('#judicial_voluntaria').show()
+        else
+          hide_all_selectors()
+
+    $('#subprocessCivil').change ->
+      subprocess_civil_rule()
+
+    subprocess_civil_rule()
+
     #Subprocess Penal Rule
     subprocess_penal_rule = ->
-      $('#currentStageAdmin').prop( "disabled", true )
-      $('#currentStageAdmin').hide()
-      $('#currentStagePenal').prop( "disabled", false )
-      $('#currentStagePenal').show()
+      hide_all_selectors()
+      $('#judicial_penal').prop( "disabled", false )
+      $('#judicial_penal').show()
 
-    $('#subprocessPenal').change ->
+    $('#judicial_penal').change ->
       subprocess_penal_rule()
 
     subprocess_penal_rule()
+
+    #Subprocess Laboral Rule
+    subprocess_laboral_rule = ->
+      hide_all_selectors()
+      $('#judicial_laboral').prop( "disabled", false )
+      $('#judicial_laboral').show()
+
+    $('#judicial_laboral').change ->
+      subprocess_laboral_rule()
+
+    subprocess_laboral_rule()
+
+    #Subprocess Arbitral Rule
+    subprocess_arbitral_rule = ->
+      hide_all_selectors()
+      $('#judicial_arbitral').prop( "disabled", false )
+      $('#judicial_arbitral').show()
+
+    $('#judicial_arbitral').change ->
+      subprocess_laboral_rule()
+
+    subprocess_laboral_rule()
 
     #Money Type Rule
     money_type_rule = ->
