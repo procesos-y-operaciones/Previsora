@@ -8,8 +8,11 @@ $(document).on 'turbolinks:load', ->
     v_option = document.getElementById("radicate").value
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
+      document.getElementById("correspondency_radicate").required = true
+      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
+      document.getElementById("correspondency_radicate").required = false
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
@@ -156,7 +159,7 @@ $(document).on 'turbolinks:load', ->
       $('#branch_policy').prop( "disabled", true )
       $('#branch_commercial').prop( "disabled", true )
       $('#more_policies').prop( "disabled", true )
-      
+
   $('#litigationSource').change ->
     litigation_source_rule()
 
@@ -167,112 +170,77 @@ $(document).on 'turbolinks:load', ->
     v_option = document.getElementById("processClass").value
     switch v_option
       when "1"
-        $('#subprocess').show()
-        $('#subprocessAdminDiv').show()
         $('#subprocessAdmin').prop( "disabled", false )
         $('#subprocessAdmin').show()
-        $('#subprocessPenalDiv').hide()
         $('#subprocessPenal').prop( "disabled", true )
         $('#subprocessPenal').hide()
-        $('#subprocessCivilDiv').hide()
         $('#subprocessCivil').prop( "disabled", true )
         $('#subprocessCivil').hide()
-        $('#subprocessLaboralDiv').hide()
         $('#subprocessLaboral').prop( "disabled", true )
         $('#subprocessLaboral').hide()
-        $('#subprocessArbitralDiv').hide()
         $('#subprocessArbitral').prop( "disabled", true )
         $('#subprocessArbitral').hide()
       when "2"
-        $('#subprocess').show()
-        $('#subprocessAdminDiv').hide()
         $('#subprocessAdmin').prop( "disabled", true )
         $('#subprocessAdmin').hide()
-        $('#subprocessPenalDiv').hide()
         $('#subprocessPenal').prop( "disabled", true )
         $('#subprocessPenal').hide()
-        $('#subprocessCivilDiv').show()
         $('#subprocessCivil').prop( "disabled", false )
         $('#subprocessCivil').show()
-        $('#subprocessLaboralDiv').hide()
         $('#subprocessLaboral').prop( "disabled", true )
         $('#subprocessLaboral').hide()
-        $('#subprocessArbitralDiv').hide()
         $('#subprocessArbitral').prop( "disabled", true )
         $('#subprocessArbitral').hide()
       when "11"
-        $('#subprocess').show()
-        $('#subprocessPenalDiv').show()
         $('#subprocessPenal').prop( "disabled", false )
         $('#subprocessPenal').show()
-        $('#subprocessAdminDiv').hide()
         $('#subprocessAdmin').prop( "disabled", true )
         $('#subprocessAdmin').hide()
-        $('#subprocessCivilDiv').hide()
         $('#subprocessCivil').prop( "disabled", true )
         $('#subprocessCivil').hide()
-        $('#subprocessLaboralDiv').hide()
         $('#subprocessLaboral').prop( "disabled", true )
         $('#subprocessLaboral').hide()
-        $('#subprocessArbitralDiv').hide()
         $('#subprocessArbitral').prop( "disabled", true )
         $('#subprocessArbitral').hide()
       when "12"
-        $('#subprocess').show()
-        $('#subprocessPenalDiv').hide()
         $('#subprocessPenal').prop( "disabled", true )
         $('#subprocessPenal').hide()
-        $('#subprocessAdminDiv').hide()
         $('#subprocessAdmin').prop( "disabled", true )
         $('#subprocessAdmin').hide()
-        $('#subprocessCivilDiv').hide()
         $('#subprocessCivil').prop( "disabled", true )
         $('#subprocessCivil').hide()
-        $('#subprocessLaboralDiv').show()
         $('#subprocessLaboral').prop( "disabled", false )
         $('#subprocessLaboral').show()
-        $('#subprocessArbitralDiv').hide()
         $('#subprocessArbitral').prop( "disabled", true )
         $('#subprocessArbitral').hide()
       when "30"
-        $('#subprocess').show()
-        $('#subprocessPenalDiv').hide()
         $('#subprocessPenal').prop( "disabled", true )
         $('#subprocessPenal').hide()
-        $('#subprocessAdminDiv').hide()
         $('#subprocessAdmin').prop( "disabled", true )
         $('#subprocessAdmin').hide()
-        $('#subprocessCivilDiv').hide()
         $('#subprocessCivil').prop( "disabled", true )
         $('#subprocessCivil').hide()
-        $('#subprocessLaboralDiv').hide()
         $('#subprocessLaboral').prop( "disabled", true )
         $('#subprocessLaboral').hide()
-        $('#subprocessArbitralDiv').show()
         $('#subprocessArbitral').prop( "disabled", false )
         $('#subprocessArbitral').show()
       else
-        $('#subprocess').hide()
-        $('#subprocessAdminDiv').hide()
         $('#subprocessAdmin').prop( "disabled", true )
         $('#subprocessAdmin').hide()
-        $('#subprocessPenalDiv').hide()
         $('#subprocessPenal').prop( "disabled", true )
         $('#subprocessPenal').hide()
-        $('#subprocessCivilDiv').hide()
         $('#subprocessCivil').prop( "disabled", true )
         $('#subprocessCivil').hide()
-        $('#subprocessLaboralDiv').hide()
         $('#subprocessLaboral').prop( "disabled", true )
         $('#subprocessLaboral').hide()
-        $('#subprocessArbitralDiv').hide()
         $('#subprocessArbitral').prop( "disabled", true )
         $('#subprocessArbitral').hide()
+
   $('#processClass').change ->
     process_class_rule()
-    
+
   process_class_rule()
-    
+
   hide_all_selectors = ->
     $('#judicial_admin').prop( 'disabled', true )
     $('#judicial_admin').hide()
@@ -313,9 +281,9 @@ $(document).on 'turbolinks:load', ->
 
   $('#judicial_admin').change ->
     subprocess_admin_rule()
-  
+
   subprocess_admin_rule()
-  
+
   #Subprocess Civil Verbal
   subprocess_civil_rule = ->
     hide_all_selectors()
@@ -372,7 +340,7 @@ $(document).on 'turbolinks:load', ->
     subprocess_penal_rule()
 
   subprocess_penal_rule()
-  
+
   #Subprocess Laboral Rule
   subprocess_laboral_rule = ->
     hide_all_selectors()
@@ -476,7 +444,7 @@ $(document).on 'turbolinks:load', ->
     coensurance_type_rule()
 
   coensurance_type_rule()
-  
+
   office_rule = ->
     v_option = document.getElementById('office').value
     if v_option == "OTRO"
@@ -491,3 +459,15 @@ $(document).on 'turbolinks:load', ->
 
   office_rule()
 
+  #Cost Rule
+  cost_rule = ->
+    v_option = document.getElementById('cost').value
+    if v_option == "Si"
+      document.getElementById("cost_value").readOnly = false
+    else
+      document.getElementById("cost_value").readOnly = true
+
+  $('#cost').change ->
+    cost_rule()
+
+  cost_rule()
