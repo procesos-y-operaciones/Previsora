@@ -3,56 +3,54 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-  try
-    #Objection Rule
-    objection_rule = ->
-      v_option = document.getElementById('objection').value
-      if v_option == "No"
-        document.getElementById('objection_date').readOnly = true
-        document.getElementById('objecter').readOnly = true
-      if v_option == "Si"
-        document.getElementById('objection_date').readOnly = false
-        document.getElementById('objecter').readOnly = false
+  #Objection Rule
+  objection_rule = ->
+    v_option = document.getElementById('objection').value
+    if v_option == "No"
+      document.getElementById('objection_date').readOnly = true
+      document.getElementById('objecter').readOnly = true
+    if v_option == "Si"
+      document.getElementById('objection_date').readOnly = false
+      document.getElementById('objecter').readOnly = false
 
-    $('#objection').change ->
-      objection_rule()
-
+  $('#objection').change ->
     objection_rule()
 
-    #Desacate Rule
-    desacate_rule = ->
-      v_option = document.getElementById('desacate').value
-      if v_option == "No"
-        document.getElementById('date_notification_desacate').readOnly = true
-        document.getElementById('date_answer_desacate').readOnly = true
-        document.getElementById('date_notification_desition_desacate').readOnly = true
-        $('#setence_type_second_company').prop( "disabled", true );
-        $('#sentence_type_desacate').prop( "disabled", true );
-      if v_option == "Si"
-        document.getElementById('date_notification_desacate').readOnly = false
-        document.getElementById('date_answer_desacate').readOnly = false
-        document.getElementById('date_notification_desition_desacate').readOnly = false
-        $('#setence_type_second_company').prop( "disabled", false );
-        $('#sentence_type_desacate').prop( "disabled", false );
+  objection_rule()
 
-    $('#desacate').change ->
-      desacate_rule()
+  #Desacate Rule
+  desacate_rule = ->
+    v_option = document.getElementById('desacate').value
+    if v_option == "No"
+      document.getElementById('date_notification_desacate').readOnly = true
+      document.getElementById('date_answer_desacate').readOnly = true
+      document.getElementById('date_notification_desition_desacate').readOnly = true
+      $('#setence_type_second_company').prop( "disabled", true );
+      $('#sentence_type_desacate').prop( "disabled", true );
+    if v_option == "Si"
+      document.getElementById('date_notification_desacate').readOnly = false
+      document.getElementById('date_answer_desacate').readOnly = false
+      document.getElementById('date_notification_desition_desacate').readOnly = false
+      $('#setence_type_second_company').prop( "disabled", false );
+      $('#sentence_type_desacate').prop( "disabled", false );
 
+  $('#desacate').change ->
     desacate_rule()
 
-    office_rule = ->
-      v_option = document.getElementById('office').value
-      if v_option == "OTRO"
-        $('#office_text').show()
-        $('#office_text').prop( "disabled", false )
-      else
-        $('#office_text').hide()
-        $('#office_text').prop( "disabled", true )
+  desacate_rule()
+  
+  #Regla de Oficio
+  office_rule = ->
+    v_option = document.getElementById('office').value
+    if v_option == "OTRO"
+      $('#office_text').show()
+      $('#office_text').prop( "disabled", false )
+    else
+      $('#office_text').hide()
+      $('#office_text').prop( "disabled", true )
 
-    $('#office').change ->
-      office_rule()
-
+  $('#office').change ->
     office_rule()
 
-  catch
-    console.log "Tutela error"
+  office_rule()
+
