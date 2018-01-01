@@ -126,7 +126,23 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_content_all
-    [self.id, self.get_type_process]
+    [self.id, self.get_type_process, self.get_process_class, self.get_subprocess_class,
+    self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.creation_date,
+    self.get_link_type, self.get_departament, self.get_city_case, self.office_name,
+    self.notification_date, self.process_radicate, self.number, self.exercise,
+    self.get_branch_commercial, self.sinister, self.attorny, self.attorny_date,
+    self.active_part, self.passive_part, self.office_name, self.get_money_type, self.dolar_value_cents,
+    self.detritment_cents, self.ensurance_value_cents, self.get_score_contingency,
+    self.contingency_value_cents, self.contingency_reason, self.contingency_resume,
+    self.policy_cents, self.get_protection, self.get_current_stage, self.get_litigation_source,
+    self.reserve_cents, self.provision_cents, self.get_instance, self.get_user,
+    self.get_case_state, self.desition_date, self.get_case_termination, self.fail_value_cents,
+    self.payed_value_cents, self.coactive_value_cents, self.garnish_value_cents,
+    self.reinsurance_report, self.get_reinsurance_type, "SI", "NO APLICA", "NO APLICA",
+    "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA",
+    "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA",
+    "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA", "NO APLICA",
+    "NO APLICA"]
   end
 
   def self.to_csv(options = {})
@@ -151,6 +167,134 @@ class TypeProcess < ApplicationRecord
       "TUTELA"
     else
       "NO APLICA"
+    end
+  end
+
+  def get_process_class
+    if self.process_class_id == nil
+      "PENDIENTE"
+    else
+      ProcessClass.find(self.process_class_id).name
+    end
+  end
+
+  def get_subprocess_class
+    if self.subprocess_class_id == nil
+      "PENDIENTE"
+    else
+      SubprocessClass.find(self.subprocess_class_id).name
+    end
+  end
+
+  def get_link_type
+    if self.link_type_id == nil
+      "PENDIENTE"
+    else
+      LinkType.find(self.link_type_id).name
+    end
+  end
+
+  def get_departament
+    if self.departament_id == nil
+      "PENDIENTE"
+    else
+      Departament.find(self.departament_id).name
+    end
+  end
+
+  def get_city_case
+    if self.city_case_id == nil
+      "PENDIENTE"
+    else
+      CityCase.find(self.city_case_id).name
+    end
+  end
+
+  def get_branch_commercial
+    if self.branch_commercial_id == nil
+      "PENDIENTE"
+    else
+      BranchCommercial.find(self.branch_commercial_id).name
+    end
+  end
+
+  def get_money_type
+    if self.money_type_id == nil
+      "PENDIENTE"
+    else
+      MoneyType.find(self.money_type_id).name
+    end
+  end
+
+  def get_score_contingency
+    if self.score_contingency_id == nil
+      "PENDIENTE"
+    else
+      ScoreContingency.find(self.score_contingency_id).name
+    end
+  end
+
+  def get_protection
+    if self.protection_id == nil
+      "PENDIENTE"
+    else
+      Protection.find(self.protection_id).name
+    end
+  end
+
+  def get_current_stage
+    if self.current_stage_id == nil
+      "PENDIENTE"
+    else
+      CurrentStage.find(self.current_stage_id).name
+    end
+  end
+
+  def get_litigation_source
+    if self.litigation_source_id == nil
+      "PENDIENTE"
+    else
+      LitigationSource.find(self.litigation_source_id).name
+    end
+  end
+
+  def get_instance
+    if self.instance_id == nil
+      "PENDIENTE"
+    else
+      Instance.find(self.instance_id).name
+    end
+  end
+
+  def get_case_state
+    if self.case_state_id == nil
+      "PENDIENTE"
+    else
+      CaseState.find(self.case_state_id).name
+    end
+  end
+
+  def get_case_termination
+    if self.case_termination_id == nil
+      "PENDIENTE"
+    else
+      CaseTermination.find(self.case_termination_id).name
+    end
+  end
+
+  def get_user
+    if self.user_id == nil
+      "PENDIENTE"
+    else
+      User.find(user_id).name
+    end
+  end
+
+  def get_reinsurance_type
+    if self.reinsurance_type_id == nil
+      "PENDIENTE"
+    else
+      ReinsuranceType.find(self.reinsurance_type_id).name
     end
   end
 

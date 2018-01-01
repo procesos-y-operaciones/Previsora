@@ -7,6 +7,7 @@
 #  correspondency_radicate             :string
 #  case_id_bap                         :string
 #  case_id_sise                        :string
+#  case_id_ekogui                      :string
 #  creation_date                       :date
 #  notification_date                   :date
 #  process_radicate                    :string
@@ -64,11 +65,19 @@
 #  auth_value_currency                 :string           default("USD"), not null
 #  reinsurance_value_cents             :integer          default(0), not null
 #  reinsurance_value_currency          :string           default("USD"), not null
+#  coensurance_value_cents             :integer          default(0), not null
+#  coensurance_value_currency          :string           default("USD"), not null
 #  reconcilie_value_cents              :integer          default(0), not null
 #  reconcilie_value_currency           :string           default("USD"), not null
+#  conensurance_value_cents            :integer          default(0), not null
+#  conensurance_value_currency         :string           default("USD"), not null
+#  cost_value_cents                    :integer          default(0), not null
+#  cost_value_currency                 :string           default("USD"), not null
 #  reason_conc                         :string
 #  reason_inv                          :string
+#  office_name                         :string
 #  reinsurance_report                  :boolean          default(FALSE)
+#  recovery                            :boolean          default(FALSE)
 #  process_class_id                    :integer
 #  subprocess_class_id                 :integer
 #  link_type_id                        :integer
@@ -76,7 +85,6 @@
 #  city_case_id                        :integer
 #  branch_policy_id                    :integer
 #  branch_commercial_id                :integer
-#  office_name_id                      :integer
 #  score_contingency_id                :integer
 #  protection_id                       :integer
 #  current_stage_id                    :integer
