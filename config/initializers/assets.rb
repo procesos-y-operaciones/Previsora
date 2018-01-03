@@ -12,6 +12,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( prejudicial.js.coffee )
 Rails.application.config.assets.precompile += %w( administrative.js.coffee )
 Rails.application.config.assets.precompile += %w( fiscal.js.coffee )
 Rails.application.config.assets.precompile += %w( judicial.js.coffee )

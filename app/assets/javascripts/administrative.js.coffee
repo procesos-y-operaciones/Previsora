@@ -21,36 +21,36 @@ $(document).on 'turbolinks:load', ->
   subprocessClass_rule = ->
     subClass = document.getElementById('subprocessClass').value
     if subClass == '70'
-      $('#departament_cund').prop 'disabled', false
-      $('#departament_cund').show()
-      $('#departament').prop 'disabled', true
-      $('#departament').hide()
-      $('#city_case_bog').prop 'disabled', false
-      $('#city_case_bog').show()
-      $('#city_case').prop 'disabled', true
-      $('#city_case').hide()
+      $('#departament_coljuegos').prop 'disabled', false
+      $('#departament_coljuegos').show()
+      $('#departament_ordinarie').prop 'disabled', true
+      $('#departament_ordinarie').hide()
       document.getElementById('dolarValueCents').readOnly = true
       $('#office_name_col').prop 'disabled', false
       $('#office_name_col').show()
-      $('#office_name').prop 'disabled', true
-      $('#office_name').hide()
+      $('#office_name_ord').prop 'disabled', true
+      $('#office_name_ord').hide()
       $('#moneyType').prop 'disabled', true
       $('#moneyType').val(1)
+      $('#gubernatorial_coljuegos').prop 'disabled', false
+      $('#gubernatorial_coljuegos').show()
+      $('#gubernatorial_ordinarie').prop 'disabled', true
+      $('#gubernatorial_ordinarie').hide()
     else
-      $('#departament_cund').prop 'disabled', true
-      $('#departament_cund').hide()
-      $('#departament').prop 'disabled', false
-      $('#departament').show()
-      $('#city_case_bog').prop 'disabled', true
-      $('#city_case_bog').hide()
-      $('#city_case').prop 'disabled', false
-      $('#city_case').show()
+      $('#departament_coljuegos').prop 'disabled', true
+      $('#departament_coljuegos').hide()
+      $('#departament_ordinarie').prop 'disabled', false
+      $('#departament_ordinarie').show()
       document.getElementById('dolarValueCents').readOnly = false
       $('#office_name_col').prop 'disabled', true
       $('#office_name_col').hide()
-      $('#office_name').prop 'disabled', false
-      $('#office_name').show()
+      $('#office_name_ord').prop 'disabled', false
+      $('#office_name_ord').show()
       $('#moneyType').prop 'disabled', false
+      $('#gubernatorial_coljuegos').prop 'disabled', true
+      $('#gubernatorial_coljuegos').hide()
+      $('#gubernatorial_ordinarie').prop 'disabled', false
+      $('#gubernatorial_ordinarie').hide()
 
   $('#subprocessClass').change ->
     subprocessClass_rule()
@@ -61,7 +61,7 @@ $(document).on 'turbolinks:load', ->
   ensurance_value_rule = ->
     ensuranceValue = document.getElementById('ensuranceValue').value
     subClass = document.getElementById('subprocessClass').value
-    if ensuranceValue >= '1000000000' and subClass == '70'
+    if ensuranceValue >= '1000000000' and subClass == '69'
       $('#reinsuranceTypeSF').prop 'disabled', false
       $('#reinsuranceTypeSF').show()
       $('#reinsuranceType').prop 'disabled', true
@@ -153,14 +153,48 @@ $(document).on 'turbolinks:load', ->
 
   money_type_rule()
 
+  #Case Termination Rule
   case_termination_rule = ->
     v_option = document.getElementById("caseTermination").value
-    if v_option == "1"
-      document.getElementById("fail_value").readOnly = true
-    else
+    if v_option == "2"
       document.getElementById("fail_value").readOnly = false
+    else
+      document.getElementById("fail_value").readOnly = true
 
   $('#caseTermination').change ->
     case_termination_rule()
 
   case_termination_rule()
+
+  #Coactive Rule
+  coactive_rule = ->
+    v_option = document.getElementById("coactive").value
+    if v_option == "Si"
+      document.getElementById("coactive_radicate").readOnly = false
+      document.getElementById("coactive_value_cents").readOnly = false
+    if v_option == "No"
+      document.getElementById("coactive_radicate").readOnly = true
+      document.getElementById("coactive_value_cents").readOnly = true
+
+  $('#coactive').change ->
+    coactive_rule()
+
+  coactive_rule()
+
+  $('#departament_ordinarie').change ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt
+
+  $('#departament_coljuegos').change ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt

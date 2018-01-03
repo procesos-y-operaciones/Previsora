@@ -1,6 +1,7 @@
 <%= javascript_include_tag "administrative" %>
 
 <%= form_with(model: type_process, local: true) do |form| %>
+
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
@@ -12,12 +13,11 @@
     </div>
   <% end %>
 
-
   <div class="p-30">
     <div class="row">
       <div class="col-sm-offset-2 col-sm-7 ">
 
-        <%= form.hidden_field :p_type, :value => 5 %>
+        <%= form.hidden_field :p_type, :value => 4 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
         <%= form.label "Clase de proceso" %>
@@ -43,7 +43,8 @@
         <%= form.label "Tipología" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.all, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", required: true}) %>
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.coljuegos, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"gubernatorial_coljuegos", required: true}) %>
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.ordinarie, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"gubernatorial_ordinarie", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -108,8 +109,8 @@
         <%= form.label "Departamento" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {prompt: "SELECCIONE"}, {id:"departament", class:"form-control"}) %>
-            <%= form.collection_select(:departament_id, Departament.cund, :id, :name, {prompt: "SELECCIONE"}, {id:"departament_cund", class:"form-control"}) %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_coljuegos", class:"form-control"} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -119,8 +120,8 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {prompt: "SELECCIONE"}, {:id => "city_case", class:"form-control"}) %>
-            <%= form.collection_select(:city_case_id, CityCase.bog, :id, :name, {prompt: "SELECCIONE"}, {:id => "city_case_bog", class:"form-control"}) %>
+            <select name="type_process[city_case]" id="cities">
+            </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -344,9 +345,8 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {id:"office_name", class:"form-control"}) %>
             <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
-            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {id:"office_name_ord", class:"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {}, {id:"office_name_ord", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -402,7 +402,7 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {class:"form-control", id:"caseState"}) %>
+            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {prompt:"SELECCIONE"}, {class:"form-control", id:"caseState"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -463,8 +463,8 @@
         <div class="input-group">
           <div class="styled-select">
             <select id="coactive" class="form-control">
-              <option value="No">No</option>
-              <option value="Si">Si</option>
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">

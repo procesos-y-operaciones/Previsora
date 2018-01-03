@@ -21,14 +21,13 @@
         <%= f.text_field :case_id_bap_cont, placeholder: "BAP", class:"form-control m-5 mb-5" %>
       </div>
     </div>
-
     <div class="row flexBox">
       <div class="col-sm-4">
         <%= f.text_field :case_id_sise_cont, placeholder: "SISE", class:"form-control m-5 mb-5" %>
       </div>
       <div class="col-sm-4">
         <div class="styled-select m-5">
-          <%= f.collection_select(:city_case_id_eq, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"fw"}) %>
+          <!---->
         </div>
       </div>
       <div class="col-sm-4">
@@ -74,7 +73,7 @@
             <td class="center"><%= p.case_id_bap %></td>
             <td class="center"><%= p.case_id_sise %></td>
             <td class="center"><%= User.find(p.user_id).name %></td>
-            <td class="center">Ciudad</td>
+            <td class="center"><%= p.city_case %></td>
           </tr>
         <% end %>
       <% end %>

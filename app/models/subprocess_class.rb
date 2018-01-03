@@ -19,7 +19,7 @@ class SubprocessClass < ApplicationRecord
   end
 
   def self.administrative
-    SubprocessClass.find([69, 70])
+    SubprocessClass.order(:name).find([69, 70])
   end
 
   def self.admin

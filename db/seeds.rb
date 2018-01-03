@@ -83,55 +83,6 @@ LinkType.create([
   {name: 'ACCIONADO'}
 ])
 
-Departament.create([
-  {name: 'AMAZONAS'},
-  {name: 'ANTIOQUIA'},
-  {name: 'ARAUCA'},
-  {name: 'ATLANTICO'},
-  {name: 'BOLIVAR'},
-  {name: 'BOYACA'},
-  {name: 'CALDAS'},
-  {name: 'CAQUETA'},
-  {name: 'CASANARE'},
-  {name: 'CAUCA'},
-  {name: 'CESAR'},
-  {name: 'CHOCO'},
-  {name: 'CORDOBA'},
-  {name: 'CUNDINAMARCA'},
-  {name: 'GUAVIARE'},
-  {name: 'HUILA'},
-  {name: 'LA GUAJIRA'},
-  {name: 'MAGDALENA'},
-  {name: 'MANAGUA'},
-  {name: 'META'},
-  {name: 'NARIÑO'},
-  {name: 'NORTE DE SANTANDER'},
-  {name: 'PUTUMAYO'}
-])
-
-CityCase.create([
-  {name: 'ABEJORRAL'},
-  {name: 'ABREGO'},
-  {name: 'ABRIAQUI'},
-  {name: 'ACACIAS'},
-  {name: 'ACANDI'},
-  {name: 'ACEVEDO'},
-  {name: 'ACHI'},
-  {name: 'AGRADO'},
-  {name: 'AGUA DE DIOS'},
-  {name: 'AGUACHICA'},
-  {name: 'AGUADA'},
-  {name: 'AGUADAS'},
-  {name: 'AGUAZUL'},
-  {name: 'AGUSTIN CODAZZI'},
-  {name: 'AIPE'},
-  {name: 'ALBAN'},
-  {name: 'ALBAN'},
-  {name: 'ALBAN'},
-  {name: 'ALBANIA'},
-  {name: 'ALBANIA'}
-])
-
 BranchPolicy.create([
   {name: 'PENDIENTE', num: 0},
   {name: 'ARMENIA', num: 1},
@@ -1487,13 +1438,13 @@ CaseTermination.create([
 ])
 
 GubernatorialWay.create([
-  {name: 'CONEXION'},
-  {name: 'SIPLAFT'},
-  {name: 'ESTADOS FINANCIEROS'},
-  {name: 'MORA'},
-  {name: 'POLIZA'},
-  {name: 'VISITA FISCALIZACION'},
-  {name: 'INEXACTITUD'}
+  {name: 'CONEXION', n_type: 1},
+  {name: 'SIPLAFT', n_type: 1},
+  {name: 'ESTADOS FINANCIEROS', n_type: 1},
+  {name: 'MORA', n_type: 1},
+  {name: 'POLIZA', n_type: 1},
+  {name: 'VISITA FISCALIZACION', n_type: 1},
+  {name: 'INEXACTITUD', n_type: 1},
 ])
 
 ReinsuranceType.create([
@@ -1604,7 +1555,10 @@ CaseState.create([
 ])
 
 LastPerformance.create([
-  {name: "PENDIENTE"}
+  {name: "PENDIENTE"},
+  {name: "DESCARGOS"},
+  {name: "ALEGATOS"},
+  {name: "RECURSO DE REPOSICION"}
 ])
 
 SetenceTypeSecondCompany.create([

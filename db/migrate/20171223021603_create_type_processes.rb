@@ -58,12 +58,14 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :office_name, default: "NO APLICA"
       t.boolean   :reinsurance_report, default: false
       t.boolean   :recovery, default: false
+      t.string    :departament
+      t.string    :city_case
 
       t.belongs_to  :process_class,                 optional: true
       t.belongs_to  :subprocess_class,              optional: true
       t.belongs_to  :link_type,                     optional: true
-      t.belongs_to  :departament,                   optional: true
-      t.belongs_to  :city_case,                     optional: true
+      #t.belongs_to  :departament,                   optional: true
+      #t.belongs_to  :city_case,                     optional: true
       t.belongs_to  :branch_policy,                 optional: true
       t.belongs_to  :branch_commercial,             optional: true
       #t.belongs_to  :office_name,                   optional: true

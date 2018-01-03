@@ -136,7 +136,7 @@ class TypeProcess < ApplicationRecord
   def get_content_all
     [self.id, self.get_user, self.get_type_process, self.get_process_class, self.get_subprocess_class,
      self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui,
-     self.creation_date, self.get_link_type, self.get_departament, self.get_city_case,
+     self.creation_date, self.get_link_type, self.departament, self.city_case,
      self.get_reinsurance_type, self.reinsurance_report, self.reinsurance_value_cents,
      self.get_coensurance_type, self.reinsurance_value_cents, self.get_litigation_source,
      self.policy_cents, self.get_protection, self.number, self.exercise, self.get_branch_policy,
@@ -379,6 +379,17 @@ class TypeProcess < ApplicationRecord
     else
       Committee.fin(self.committee_id).name
     end
+  end
+
+  def self.get_all_departament
+    CS.states(:co).each_pair do |k,v|
+      CS.states(:co)[k] = v.upcase
+    end
+    CS.states(:co)
+  end
+
+  def self.get_bog_departament
+    {(CS.states(:co).assoc :DC).first => (CS.states(:co).assoc :DC).second.upcase}
   end
 
 end

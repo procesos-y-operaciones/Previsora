@@ -106,7 +106,7 @@ class TypeProcessesController < ApplicationController
     def type_process_params
       params.require(:type_process).permit(:user_id, :p_type, :process_class_id,
        :subprocess_class_id, :internal_lawyer_id, :correspondency_radicate, :case_id_bap,
-       :case_id_sise, :creation_date, :link_type_id, :departament_id, :city_case_id,
+       :case_id_sise, :creation_date, :link_type_id, :departament, :city_case,
        :litigation_source_id, :reinsurance_type_id, :reinsurance_report, :coensurance_type_id,
        :policy_cents, :number, :exercise, :branch_policy_id, :branch_commercial_id, :money_type_id,
        :dolar_value_cents, :sinister, :policies, :sinisters, :reserve_cents, :detritment_cents,
@@ -119,6 +119,6 @@ class TypeProcessesController < ApplicationController
        :p_type_eq, :correspondency_radicate_cont, :case_id_bap_cont, :case_id_sise_cont,
        :city_case_id_eq, :objection_notification_date, :tutelage_imp, :setence_type_second_company_id,
        :date_notification_desacate, :date_answer_desacate, :sentence_type_desacate_id,
-       :date_notification_desition_desacate)
+       :date_notification_desition_desacate, :gubernatorial_way_id, :current_stage_id)
     end
 end

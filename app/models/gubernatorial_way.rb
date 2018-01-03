@@ -9,4 +9,13 @@
 #
 
 class GubernatorialWay < ApplicationRecord
+
+  def self.coljuegos
+    GubernatorialWay.order(:name).where(n_type: 1)
+  end
+
+  def self.ordinarie
+    GubernatorialWay.order(:name).where(n_type: 2)
+  end
+
 end

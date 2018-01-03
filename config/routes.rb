@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'lawyer/search'
   get 'lawyer/report'
 
+  get 'cities/:state', to: 'application#cities'
+
   root :to => 'index#home'
 
 end

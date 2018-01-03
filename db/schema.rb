@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "gubernatorial_ways", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -253,11 +254,11 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "office_name", default: "NO APLICA"
     t.boolean "reinsurance_report", default: false
     t.boolean "recovery", default: false
+    t.string "departament"
+    t.string "city_case"
     t.integer "process_class_id"
     t.integer "subprocess_class_id"
     t.integer "link_type_id"
-    t.integer "departament_id"
-    t.integer "city_case_id"
     t.integer "branch_policy_id"
     t.integer "branch_commercial_id"
     t.integer "score_contingency_id"
@@ -285,11 +286,9 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.index ["branch_policy_id"], name: "index_type_processes_on_branch_policy_id"
     t.index ["case_state_id"], name: "index_type_processes_on_case_state_id"
     t.index ["case_termination_id"], name: "index_type_processes_on_case_termination_id"
-    t.index ["city_case_id"], name: "index_type_processes_on_city_case_id"
     t.index ["coensurance_type_id"], name: "index_type_processes_on_coensurance_type_id"
     t.index ["committee_id"], name: "index_type_processes_on_committee_id"
     t.index ["current_stage_id"], name: "index_type_processes_on_current_stage_id"
-    t.index ["departament_id"], name: "index_type_processes_on_departament_id"
     t.index ["gubernatorial_way_id"], name: "index_type_processes_on_gubernatorial_way_id"
     t.index ["instance_id"], name: "index_type_processes_on_instance_id"
     t.index ["join_committee_id"], name: "index_type_processes_on_join_committee_id"

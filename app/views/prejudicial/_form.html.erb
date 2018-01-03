@@ -1,3 +1,5 @@
+<%= javascript_include_tag "prejudicial" %>
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -46,7 +48,7 @@
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :correspondency_radicate, class:"form-control" %>
+            <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -73,6 +75,8 @@
           </span>
         </div>
 
+        <hr>
+
         <%= form.label "Fecha de creación" %>
         <div class="input-group">
           <div class="styled-select">
@@ -82,8 +86,6 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-
-        <hr>
 
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
@@ -139,7 +141,7 @@
 
         <%= form.label "Póliza" %>
         <div class="input-group">
-          <%= form.number_field :policy_cents, id:"policyCents", class:"form-control", readOnly:'readOnly' %>
+          <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -148,7 +150,7 @@
         <%= form.label "Amparo" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:protection_id, Protection.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"protection", :disabled=>"true"}) %>
+            <%= form.collection_select(:protection_id, Protection.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"protection"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -193,7 +195,7 @@
 
         <%= form.label "Número del siniestro (completo)" %>
         <div class="input-group">
-          <%= form.text_field :sinister, id:"sinister", :readOnly=>"readOnly", class:"form-control" %>
+          <%= form.text_field :sinister, id:"sinister", readOnly:true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -368,8 +370,16 @@
         <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {id: "reinsurance_type", :class=>"form-control"}) %>
           </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Valor reaseguro" %>
+        <div class="input-group">
+          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
