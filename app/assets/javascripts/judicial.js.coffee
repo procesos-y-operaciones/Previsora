@@ -109,6 +109,7 @@ $(document).on 'turbolinks:load', ->
   #Reinsurance Type Rule
   reinsurance_type_rule = ->
     v_option = document.getElementById("reinsurance_type").value
+    alert v_option
     if v_option == "2" || v_option == "3"
       document.getElementById("reinsurance_value").readOnly = false
     else
