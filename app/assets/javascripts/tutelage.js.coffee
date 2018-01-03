@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
+
   #Objection Rule
   objection_rule = ->
     v_option = document.getElementById('objection').value
@@ -38,7 +39,7 @@ $(document).on 'turbolinks:load', ->
     desacate_rule()
 
   desacate_rule()
-  
+
   #Regla de Oficio
   office_rule = ->
     v_option = document.getElementById('office').value
@@ -53,4 +54,3 @@ $(document).on 'turbolinks:load', ->
     office_rule()
 
   office_rule()
-
