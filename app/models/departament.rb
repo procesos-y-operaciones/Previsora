@@ -9,4 +9,9 @@
 #
 
 class Departament < ApplicationRecord
+
+  def self.cund
+    Departament.where(name: "CUNDINAMARCA")
+  end
+
 end

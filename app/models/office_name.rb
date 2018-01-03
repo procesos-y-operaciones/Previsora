@@ -22,4 +22,8 @@ class OfficeName < ApplicationRecord
     OfficeName.where("name like '%JUZGADO%' OR name like '%OTRO%'").order(:name)
   end
 
+  def self.coljuegos
+    ReinsuranceType.where(name: "COLJUEGOS")
+  end
+
 end

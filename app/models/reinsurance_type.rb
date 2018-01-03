@@ -9,4 +9,9 @@
 #
 
 class ReinsuranceType < ApplicationRecord
+
+  def self.separateFree
+    ReinsuranceType.where(name: "CUOTA APARTE")
+  end
+
 end

@@ -175,7 +175,7 @@ $(document).on 'turbolinks:load', ->
     coactive_rule()
 
   coactive_rule()
-  
+
 
 ###
 $(document).ready ->

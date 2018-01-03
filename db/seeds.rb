@@ -1460,7 +1460,7 @@ GubernatorialWay.create([
 ReinsuranceType.create([
   {name: 'NO SE PRESENTO'},
   {name: 'FACULTATIVO'},
-  {name: 'CUOTA APARTE'}
+  {name: 'CUOTA PARTE'}
 ])
 
 SentenceTypeDesacate.create([

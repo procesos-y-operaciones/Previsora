@@ -1,3 +1,5 @@
+<%= javascript_include_tag "administrative" %>
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -43,7 +45,7 @@
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <div class="input-group">
           <div class="styled-select">
-            <select id="state" class="form-control">
+            <select id="has_num_radicade" class="form-control">
               <option value="No">No</option>
               <option value="Si">Si</option>
             </select>
@@ -63,7 +65,7 @@
 
         <%= form.label "Número de identificación del caso (Bizagi y PA)" %>
         <div class="input-group">
-          <%= form.text_field :case_id_bap, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :case_id_bap, value: "PENDIENTE", required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -98,7 +100,8 @@
         <%= form.label "Departamento" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:id=>"departament", :class=>"form-control"}) %>
+            <%= form.collection_select(:departament_id, Departament.cund, :id, :name, {}, {:id=>"departament_cund", :class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -108,7 +111,8 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:id => "city_case", :class=>"form-control"}) %>
+            <%= form.collection_select(:city_case_id, CityCase.bog, :id, :name, {}, {:id => "city_case_bog", :class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -127,7 +131,7 @@
 
         <%= form.label "Valor asegurado" %>
         <div class="input-group">
-          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", class:"form-control" %>
+          <%= form.number_field :ensurance_value_cents, id:"ensuranceValue", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -136,7 +140,8 @@
         <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:id=>"reinsuranceType", :class=>"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.separateFree, :id, :name, {}, {:id=>"reinsuranceTypeSF", :class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -266,7 +271,7 @@
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
+          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValue" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -331,7 +336,9 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {:id=>"office_name", :class=>"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {:id=>"office_name_col", :class=>"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {:id=>"office_name_ord", :class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
