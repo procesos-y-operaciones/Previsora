@@ -109,7 +109,6 @@ $(document).on 'turbolinks:load', ->
   #Reinsurance Type Rule
   reinsurance_type_rule = ->
     v_option = document.getElementById("reinsurance_type").value
-    alert v_option
     if v_option == "2" || v_option == "3"
       document.getElementById("reinsurance_value").readOnly = false
     else
@@ -373,15 +372,6 @@ $(document).on 'turbolinks:load', ->
     else
       document.getElementById("dolarValueCents").readOnly = false
 
-  #Money Type Rule
-  money_type_rule = ->
-    v_option = document.getElementById("moneyType").value
-    if v_option == "1"
-      document.getElementById("dolarValueCents").readOnly = true
-      $("#dolarValueCents").val(0)
-    else
-      document.getElementById("dolarValueCents").readOnly = false
-
   $('#moneyType').change ->
     money_type_rule()
 
@@ -390,7 +380,7 @@ $(document).on 'turbolinks:load', ->
   #Case State Rule
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
-    if v_option == "3"
+    if v_option == "2"
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
