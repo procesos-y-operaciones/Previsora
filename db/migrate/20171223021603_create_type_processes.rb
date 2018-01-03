@@ -26,12 +26,14 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :facts, default: "NO APLICA"
       t.monetize  :policy
       t.monetize  :reserve
+      t.monetize  :reserved_fees
       t.monetize  :provision
       t.date      :desition_date
       t.monetize  :fail_value
       t.monetize  :fail_previ
       t.monetize  :payed_value
       t.date      :payment_date
+      t.date      :imp_date
       t.string    :coactive_radicate, default: "NO APLICA"
       t.string    :policies, default: "NO APLICA"
       t.string    :sinisters, default: "NO APLICA"
@@ -42,7 +44,6 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.date      :failed_notification_date
       t.date      :objection_notification_date
       t.date      :committee_date
-      t.string    :committee_desition, default: "NO APLICA"
       t.string    :tutelage_imp, default: "NO APLICA"
       t.date      :date_notification_desacate
       t.date      :date_answer_desacate
@@ -51,7 +52,6 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.monetize  :reinsurance_value
       t.monetize  :coensurance_value
       t.monetize  :reconcilie_value
-      t.monetize  :conensurance_value
       t.monetize  :cost_value
       t.string    :reason_conc, default: "NO APLICA"
       t.string    :reason_inv, default: "NO APLICA"

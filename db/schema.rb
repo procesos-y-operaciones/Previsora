@@ -208,6 +208,8 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "policy_currency", default: "USD", null: false
     t.integer "reserve_cents", default: 0, null: false
     t.string "reserve_currency", default: "USD", null: false
+    t.integer "reserved_fees_cents", default: 0, null: false
+    t.string "reserved_fees_currency", default: "USD", null: false
     t.integer "provision_cents", default: 0, null: false
     t.string "provision_currency", default: "USD", null: false
     t.date "desition_date"
@@ -218,6 +220,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.integer "payed_value_cents", default: 0, null: false
     t.string "payed_value_currency", default: "USD", null: false
     t.date "payment_date"
+    t.date "imp_date"
     t.string "coactive_radicate", default: "NO APLICA"
     t.string "policies", default: "NO APLICA"
     t.string "sinisters", default: "NO APLICA"
@@ -231,7 +234,6 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.date "failed_notification_date"
     t.date "objection_notification_date"
     t.date "committee_date"
-    t.string "committee_desition", default: "NO APLICA"
     t.string "tutelage_imp", default: "NO APLICA"
     t.date "date_notification_desacate"
     t.date "date_answer_desacate"
@@ -244,8 +246,6 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "coensurance_value_currency", default: "USD", null: false
     t.integer "reconcilie_value_cents", default: 0, null: false
     t.string "reconcilie_value_currency", default: "USD", null: false
-    t.integer "conensurance_value_cents", default: 0, null: false
-    t.string "conensurance_value_currency", default: "USD", null: false
     t.integer "cost_value_cents", default: 0, null: false
     t.string "cost_value_currency", default: "USD", null: false
     t.string "reason_conc", default: "NO APLICA"
