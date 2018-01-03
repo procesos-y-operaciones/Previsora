@@ -6,6 +6,7 @@ $(document).on 'turbolinks:load', ->
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
       document.getElementById("correspondency_radicate").required = true
+      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
       document.getElementById("correspondency_radicate").required = false
@@ -91,3 +92,60 @@ $(document).on 'turbolinks:load', ->
   $('#branch_commercial').change ->
     comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
     $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+  #Join Committee Rule
+  join_committee_rule = ->
+    v_option = document.getElementById("join_committee").value
+    if v_option == "2"
+      $('#committee').prop( "disabled", false )
+    else
+      $('#committee').prop( "disabled", true )
+
+  $('#join_committee').change ->
+    join_committee_rule()
+
+  join_committee_rule()
+
+  #Committee Rule
+  committee_rule = ->
+    v_option = document.getElementById("committee").value
+    if v_option == "2"
+      document.getElementById("auth_value").readOnly = false
+      document.getElementById("payed_value").readOnly = false
+      document.getElementById("payment_date").readOnly = false
+      document.getElementById("reason_conc").readOnly = true
+      document.getElementById("reason_inv").readOnly = true
+    else if v_option == "3"
+      document.getElementById("auth_value").readOnly = true
+      document.getElementById("payed_value").readOnly = true
+      document.getElementById("payment_date").readOnly = true
+      document.getElementById("reason_conc").readOnly = false
+      document.getElementById("reason_inv").readOnly = true
+
+    else if v_option == "4"
+      document.getElementById("auth_value").readOnly = true
+      document.getElementById("payed_value").readOnly = true
+      document.getElementById("payment_date").readOnly = true
+      document.getElementById("reason_conc").readOnly = true
+      document.getElementById("reason_inv").readOnly = false
+      e
+    else
+      document.getElementById("auth_value").readOnly = true
+      document.getElementById("payed_value").readOnly = true
+      document.getElementById("payment_date").readOnly = true
+      document.getElementById("reason_conc").readOnly = true
+      document.getElementById("reason_inv").readOnly = true
+
+  $('#committee').change ->
+    committee_rule()
+
+  committee_rule()
+
+  $('#departament').change ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt

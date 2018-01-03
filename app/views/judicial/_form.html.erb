@@ -532,7 +532,9 @@
 
         <%= form.label "Valor fallo a cargo de Previsora" %>
         <div class="input-group">
-          <%= form.number_field :fail_previ_cents, value: 0, class:"form-control", id: "fail_previ" %>
+          <div class="styled-select">
+            <%= form.number_field :fail_previ_cents, value: 0, class:"form-control", id: "fail_previ" %>
+          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -540,7 +542,9 @@
 
         <%= form.label "Valor pagado Previsora" %>
         <div class="input-group">
-          <%= form.number_field :payed_value_cents, value: 0, class:"form-control", id: "payed_value" %>
+          <div class="styled-select">
+            <%= form.number_field :payed_value_cents, value: 0, class:"form-control", id: "payed_value" %>
+          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

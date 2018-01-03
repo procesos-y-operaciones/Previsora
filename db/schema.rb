@@ -225,6 +225,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "coactive_radicate", default: "NO APLICA"
     t.string "policies", default: "NO APLICA"
     t.string "sinisters", default: "NO APLICA"
+    t.string "case_onbase", default: "NO APLICA"
     t.integer "coactive_value_cents", default: 0, null: false
     t.string "coactive_value_currency", default: "USD", null: false
     t.integer "garnish_value_cents", default: 0, null: false

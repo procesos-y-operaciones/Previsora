@@ -37,6 +37,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :coactive_radicate, default: "NO APLICA"
       t.string    :policies, default: "NO APLICA"
       t.string    :sinisters, default: "NO APLICA"
+      t.string    :case_onbase, default: "NO APLICA"
       t.monetize  :coactive_value
       t.monetize  :garnish_value
       t.monetize  :reensurance_gived

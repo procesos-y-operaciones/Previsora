@@ -119,6 +119,8 @@ class TypeProcessesController < ApplicationController
        :p_type_eq, :correspondency_radicate_cont, :case_id_bap_cont, :case_id_sise_cont,
        :city_case_id_eq, :objection_notification_date, :tutelage_imp, :setence_type_second_company_id,
        :date_notification_desacate, :date_answer_desacate, :sentence_type_desacate_id,
-       :date_notification_desition_desacate, :gubernatorial_way_id, :current_stage_id)
+       :date_notification_desition_desacate, :gubernatorial_way_id, :current_stage_id,
+       :reinsurance_value_cents, :reensurance_gived_cents, :join_committee_id, :committee_id,
+       :auth_value_cents, :reason_conc, :reason_inv, :reserved_fees_cents)
     end
 end
