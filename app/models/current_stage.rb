@@ -79,4 +79,8 @@ class CurrentStage < ApplicationRecord
     CurrentStage.where(n_type: [0, 17])
   end
 
+  def self.administrative
+    CurrentStage.where(n_type: [0, 18])
+  end
+
 end

@@ -11,7 +11,7 @@
 class OfficeName < ApplicationRecord
 
   def self.fiscal
-    OfficeName.where("name like '%AUDITORIA%' OR name like '%CONTRALORIA%'")
+    OfficeName.where("name like '%AUDITORIA%' OR name like '%CONTRALORIA%'").order(:name)
   end
 
   def self.judicial
@@ -23,7 +23,11 @@ class OfficeName < ApplicationRecord
   end
 
   def self.coljuegos
-    ReinsuranceType.where(name: "COLJUEGOS")
+    OfficeName.where("name like '%COLJUEGOS%'").order(:name)
+  end
+
+  def self.ordinare
+    OfficeName.where("name like '%MINISTERIO%' OR name like '%ALCALDIA%' OR name like '%REGISTRADURIA%'").order(:name)
   end
 
 end

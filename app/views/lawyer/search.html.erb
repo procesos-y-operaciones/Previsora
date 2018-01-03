@@ -21,7 +21,7 @@
         <%= f.text_field :case_id_bap_cont, placeholder: "BAP", class:"form-control m-5 mb-5" %>
       </div>
     </div>
-    
+
     <div class="row flexBox">
       <div class="col-sm-4">
         <%= f.text_field :case_id_sise_cont, placeholder: "SISE", class:"form-control m-5 mb-5" %>
@@ -68,7 +68,7 @@
         </tr>
       <% else %>
         <% @processes.each do |p| %>
-          <tr class='clickable-row' data-href='#'>
+          <tr class='clickable-row' data-href='<%= type_process_path(p) %>'>
             <td class="center"><%= p.get_type_process %></td>
             <td class="center"><%= p.correspondency_radicate %></td>
             <td class="center"><%= p.case_id_bap %></td>
@@ -84,7 +84,7 @@
 
 
 <div class="container-fluid mb-30 center">
-  <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> 
+  <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
 </div>
 
 <!--%= link_to "Descargar", type_processes_path(params.merge(format: "xls")) %-->

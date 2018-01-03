@@ -9,4 +9,9 @@
 #
 
 class LitigationSource < ApplicationRecord
+
+  def self.administrative
+    LitigationSource.find([2, 5])
+  end
+
 end

@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :type_processes
-
-  get 'prejudicial/new'
-  get 'judicial/new'
-  get 'fiscal/new'
-  get 'administrative/new'
-  get 'tutelage/new'
+  resources :prejudicial
+  resources :judicial
+  resources :fiscal
+  resources :tutelage
+  resources :administrative
 
   get 'index/home'
   get 'index/lawyer'

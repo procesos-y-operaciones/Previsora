@@ -44,6 +44,8 @@ gem 'devise-i18n'
 
 gem 'ransack'
 
+gem 'city-state'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

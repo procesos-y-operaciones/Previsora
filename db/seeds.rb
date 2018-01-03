@@ -1,8 +1,39 @@
 User.create([
-  {document: "1032459412", name: "Jonathan Granados", password: "123456", password_confirmation: "123456", role: 1},
-  {document: "1033773336", name: "Gabrela Suárez", password: "123456", password_confirmation: "123456", role: 1},
-  {document: "1234", name: "Jonathan Prieto", password: "123456", password_confirmation: "123456", role: 2},
-  {document: "5678", name: "Paula Torres", password: "123456", password_confirmation: "123456", role: 1}
+  {document: "1032459412", name: "JONATHAN GRANADOS", password: "123456", password_confirmation: "123456", role: 1},
+  {document: "1033773336", name: "GABRIELA SUAREZ", password: "123456", password_confirmation: "123456", role: 1},
+  {document: "1234", name: "JONATHAN PRIETO", password: "123456", password_confirmation: "123456", role: 2},
+  {document: "5678", name: "PAULA TORRES", password: "123456", password_confirmation: "123456", role: 1},
+  {document: '1020729468,' name: 'NATALIA ALEJANDRA  MONCAYO RODRIGUEZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '49797396,' name: 'BETSABE  MANTILLA DIAZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1010169121,' name: 'ANGELA LILIANA LOPEZ ALVAREZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1031138340,' name: 'LUIS EDUARDO LOPEZ  MORA', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1026252607,' name: 'LUZ ANDREA JIMENEZ MUÑOZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '52780795,' name: 'CRYSTHEL EMANUELLA GUTIERREZ RAMIREZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '39567180,' name: 'LIDA MORELIA CALDERON RODRIGUEZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1026570699,' name: 'CHRISTIAN CAMILO  HERNANDEZ VEGA', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '7181859,' name: 'DANNY FABIAN GUIO MUÑOZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '80525785,' name: 'FREDDY LEONEL ROJAS RIOS', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '40216726,' name: 'FLOR ANGELA TORRES HUERTAS', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1015441384,' name: 'DANIEL ALEJANDRO PALACIOS BALLEN', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '79828072,' name: 'LEONARDO FABIO CALDERON GALLEGO', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '51779870,' name: 'ANA PATRICIA MOLANO GACHANCIPA', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1018469232,' name: 'AURA JESSICA MEDINA FANDIÑO', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '79993930,' name: 'EMIRO ANTONIO VAGAS ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '71683546,' name: 'FABIAN DE JESUS PASADA VELEZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1118532099,' name: 'MAYRA  MORENO ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1016039726,' name: 'MARIA ALEJANDRA  GUTIERREZ BECERRA', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '52976920,' name: 'EDITHE JOHANNA VELASQUEZ GONZALES', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '63358777,' name: 'DALILA CRISTINA TAPIAS ACEVEDO', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '37901644,' name: 'LUISA FERNANDA ORTEGA SOLANO', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '72272660,' name: 'AORORI JOSE ORTIZ ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1018442399,' name: 'YURANY HASLEYDI NORE ORTEGA', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1018407179,' name: 'IVAN  ORDOÑEZ ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '80212112,' name: 'JUAN MANUEL PEÑA TORRES', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1022372499,' name: 'DAYANE ACOSTA AVILA ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '20370708,' name: 'SANDRA MILENA SANCHEZ RUIZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '28554902,' name: 'CLAUDIA  RODRIGUEZ PATRON', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1047404034,' name: 'CRISTIAN D POMARES ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1012329910,' name: 'INDIRA ALEXANDRA BEJARANO RAMIREZ', password: '123456', password_confirmation: '123456', role: 1}
 ])
 
 ProcessClass.create([
@@ -37,6 +68,7 @@ ProcessClass.create([
   {name: 'TUTELA'},
   {name: "PROCESO ARBITRAL"},
   {name: "JUDICIAL PREREQUISITO"},
+  {name: "PROCEDIMIENTO ADMINISTRATIVO"},
   {name: 'NO APLICA'}
 ])
 
@@ -414,7 +446,9 @@ CurrentStage.create([
   {name: 'SENTENCIA CASACIÓN', n_type: 16},
   {name: 'RECURSO SÚPLICA', n_type: 16},
   {name: 'RECURSO QUEJA', n_type: 16},
-  {name: 'RECURSO REVISIÓN', n_type: 16}
+  {name: 'RECURSO REVISIÓN', n_type: 16},
+  {name: 'EN TERMINOS PARA RESOLVER RECURSOS DE REPOSICION', n_type: 18},
+  {name: 'AUDIENCIA SUSPENDIDA', n_type: 18}
 ])
 
 JoinCommittee.create([
@@ -431,6 +465,10 @@ Committee.create([
 ])
 
 OfficeName.create([
+  {name: 'COLJUEGOS'},
+  {name: 'MINISTERIO INTERIOR'},
+  {name: 'ALCALDIA BOGOTA'},
+  {name: 'MINISTERIO'},
   {name: 'CONTRALORIA GENERAL DE LA REPÚBLICA GERENCIA DEPARTAMENTAL RISARALDA'},
   {name: 'CONTRALORIA MUNICIPAL DE DOSQUEBRADAS'},
   {name: 'CONTRALORIA GENERAL DEL RISARALDA'},
@@ -1426,6 +1464,7 @@ LitigationSource.create([
   {name: 'SINIESTRO'},
   {name: 'PROVISION'},
   {name: 'ESMITACION RECOBRO'},
+  {name: 'OTRO'},
   {name: 'NO APLICA'}
 ])
 
@@ -1448,13 +1487,14 @@ CaseTermination.create([
 ])
 
 GubernatorialWay.create([
-  {name: 'MORA'},
-  {name: 'INEXACTITUD'},
-  {name: 'POLIZA'},
-  {name: 'ESTADOS FINANCIEROS'},
-  {name: 'SIPLAFT'},
+  {name: 'TIPOLOGIA'},
   {name: 'CONEXION'},
-  {name: 'NO APLICA'}
+  {name: 'SIPLAFT'},
+  {name: 'ESTADOS FINANCIEROS'},
+  {name: 'MORA'},
+  {name: 'POLIZA'},
+  {name: 'VISITA FISCALIZACION'},
+  {name: 'INEXACTITUD'}
 ])
 
 ReinsuranceType.create([
@@ -1548,7 +1588,9 @@ SubprocessClass.create([
   {name: 'PROCESO DE JURISDICCION VOLUNTARIA'},
   {name: 'PROCESO ARBITRAL'},
   {name: 'ORDINARIO'},
-  {name: 'ESPECIAL'}
+  {name: 'ESPECIAL'},
+  {name: 'ORDINARIO'},
+  {name: 'COLJUEGOS'}
 ])
 
 CoensuranceType.create([

@@ -11,7 +11,7 @@
 class LinkType < ApplicationRecord
 
   def self.fiscal
-    [LinkType.find(5)]
+    LinkType.find([5])
   end
 
   def self.judicial
@@ -19,7 +19,11 @@ class LinkType < ApplicationRecord
   end
 
   def self.tutelage
-    [LinkType.find(4)]
+    LinkType.find([4])
+  end
+
+  def self.administrative
+    LinkType.find([2])
   end
 
 end

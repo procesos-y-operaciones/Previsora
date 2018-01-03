@@ -9,4 +9,9 @@
 #
 
 class Instance < ApplicationRecord
+
+  def self.administrative
+    Instance.find([3])
+  end
+
 end
