@@ -11,7 +11,7 @@
 class ProcessClass < ApplicationRecord
 
   def self.fiscal
-    [ProcessClass.find(28)]
+    ProcessClass.find([28])
   end
 
   def self.judicial
@@ -23,7 +23,11 @@ class ProcessClass < ApplicationRecord
   end
 
   def self.tutelage
-    [ProcessClass.find(29)]
+    ProcessClass.find([29])
+  end
+
+  def self.administrative
+    ProcessClass.find([32])
   end
 
   def self.get_name(id)

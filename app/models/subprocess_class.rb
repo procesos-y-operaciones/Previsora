@@ -18,6 +18,10 @@ class SubprocessClass < ApplicationRecord
     SubprocessClass.find([11])
   end
 
+  def self.administrative
+    SubprocessClass.find([69, 70])
+  end
+
   def self.admin
     SubprocessClass.find((42..54).step(1).to_a)
   end

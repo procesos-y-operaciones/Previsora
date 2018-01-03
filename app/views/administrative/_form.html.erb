@@ -23,7 +23,7 @@
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.all, :id, :name, {}, {:class=>""}) %>
+            <%= form.collection_select(:process_class_id, ProcessClass.administrative, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -33,7 +33,7 @@
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:subprocess_class_id, SubprocessClass.all, :id , :name, {}, {:class=>"form-control", :id=>"subprocessClass"}) %>
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.administrative, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"subprocessClass", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -41,13 +41,21 @@
         </div>
 
         <%= form.label "Tipología" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.all, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", required: true}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="has_num_radicade" class="form-control">
-              <option value="No">No</option>
-              <option value="Si">Si</option>
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -90,7 +98,7 @@
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type_id, LinkType.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:link_type_id, LinkType.administrative, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -100,8 +108,8 @@
         <%= form.label "Departamento" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {:id=>"departament", :class=>"form-control"}) %>
-            <%= form.collection_select(:departament_id, Departament.cund, :id, :name, {}, {:id=>"departament_cund", :class=>"form-control"}) %>
+            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {prompt: "SELECCIONE"}, {id:"departament", class:"form-control"}) %>
+            <%= form.collection_select(:departament_id, Departament.cund, :id, :name, {prompt: "SELECCIONE"}, {id:"departament_cund", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -111,8 +119,8 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {}, {:id => "city_case", :class=>"form-control"}) %>
-            <%= form.collection_select(:city_case_id, CityCase.bog, :id, :name, {}, {:id => "city_case_bog", :class=>"form-control"}) %>
+            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {prompt: "SELECCIONE"}, {:id => "city_case", class:"form-control"}) %>
+            <%= form.collection_select(:city_case_id, CityCase.bog, :id, :name, {prompt: "SELECCIONE"}, {:id => "city_case_bog", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -122,7 +130,7 @@
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {:id=>"litigationSource", :class=>"form-control"}) %>
+            <%= form.collection_select(:litigation_source_id, LitigationSource.administrative, :id, :name, {prompt: "SELECCIONE"}, {id:"litigationSource", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -140,8 +148,8 @@
         <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {:id=>"reinsuranceType", :class=>"form-control"}) %>
-            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.separateFree, :id, :name, {}, {:id=>"reinsuranceTypeSF", :class=>"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {prompt: "SELECCIONE"}, {id:"reinsuranceType", class:"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.separateFree, :id, :name, {}, {id:"reinsuranceTypeSF", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -161,7 +169,7 @@
         <%= form.label "Tipo de coaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -179,7 +187,7 @@
         <%= form.label "Amparo" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {:class=>"form-control", :id=>"protection", :disabled=>"true"}) %>
+            <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {class:"form-control", id:"protection", :disabled=>"true"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -205,7 +213,7 @@
         <%= form.label "Sucursal de la póliza" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_policy" }) %>
+            <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -215,7 +223,7 @@
         <%= form.label "Ramo comercial" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:class=>"form-control", :id => "branch_commercial" }) %>
+            <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -234,8 +242,8 @@
         <div class="input-group">
           <div class="styled-select">
             <select id="more_policies" class="form-control">
-              <option value="No">No</option>
-              <option value="Si">Si</option>
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -262,7 +270,7 @@
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {:class=>"form-control", :id=>"moneyType"}) %>
+            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"moneyType"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -271,7 +279,7 @@
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValue" %>
+          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -336,9 +344,9 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {:id=>"office_name", :class=>"form-control"}) %>
-            <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {:id=>"office_name_col", :class=>"form-control"}) %>
-            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {:id=>"office_name_ord", :class=>"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {id:"office_name", class:"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.all, :name, :name, {}, {id:"office_name_ord", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -348,7 +356,7 @@
         <%= form.label "Calificación contingencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -374,7 +382,7 @@
         <%= form.label "Etapa actual", id:"currentStage" %>
         <div id="currentStageVerDiv" class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:current_stage_id, CurrentStage.all, :id, :name, {}, {:id=>"currentStageVer", :class=>"form-control"}) %>
+            <%= form.collection_select(:current_stage_id, CurrentStage.administrative, :id, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -384,7 +392,7 @@
         <%= form.label "Instancias" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:instance_id, Instance.administrative, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -394,7 +402,7 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {:class=>"form-control", :id=>"caseState"}) %>
+            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {class:"form-control", id:"caseState"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -412,7 +420,7 @@
         <%= form.label "Terminación del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {:class=>"form-control", :id=>"caseTermination"}) %>
+            <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {class:"form-control", id:"caseTermination"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -421,7 +429,7 @@
 
         <%= form.label "Valor sanción" %>
         <div class="input-group">
-          <%= form.number_field :fail_value_cents, class:"form-control" %>
+          <%= form.number_field :fail_value_cents, class:"form-control", id:"fail_value" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -491,7 +499,7 @@
         <%= form.label "Última actuación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {:class=>"form-control", :id=>"lastPerformance"}) %>
+            <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -509,7 +517,7 @@
         <%= form.label "Reserva depurada" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {:class=>"form-control", :id=>"reservedReleased"}) %>
+            <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
