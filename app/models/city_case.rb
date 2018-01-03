@@ -9,4 +9,9 @@
 #
 
 class CityCase < ApplicationRecord
+
+  def self.bog
+    CityCase.where(name: "ACANDI")
+  end
+
 end
