@@ -380,7 +380,7 @@ $(document).on 'turbolinks:load', ->
   #Case State Rule
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
-    if v_option == "3"
+    if v_option == "2"
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
