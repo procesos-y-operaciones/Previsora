@@ -19,7 +19,7 @@ class ProcessClass < ApplicationRecord
   end
 
   def self.prejudicial
-    ProcessClass.find([29])
+    ProcessClass.find([31])
   end
 
   def self.tutelage

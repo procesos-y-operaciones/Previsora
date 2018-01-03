@@ -3,20 +3,21 @@
 # Table name: type_processes
 #
 #  id                                  :integer          not null, primary key
-#  p_type                              :integer
-#  correspondency_radicate             :string
-#  case_id_bap                         :string
-#  case_id_sise                        :string
+#  p_type                              :integer          default(0)
+#  correspondency_radicate             :string           default("NO APLICA")
+#  case_id_bap                         :string           default("NO APLICA")
+#  case_id_sise                        :string           default("NO APLICA")
+#  case_id_ekogui                      :string           default("NO APLICA")
 #  creation_date                       :date
 #  notification_date                   :date
-#  process_radicate                    :string
-#  number                              :integer
-#  exercise                            :integer
-#  sinister                            :string
-#  attorny                             :string
+#  process_radicate                    :string           default("NO APLICA")
+#  number                              :integer          default(0)
+#  exercise                            :integer          default(0)
+#  sinister                            :string           default("NO APLICA")
+#  attorny                             :string           default("NO APLICA")
 #  attorny_date                        :date
-#  active_part                         :string
-#  passive_part                        :string
+#  active_part                         :string           default("NO APLICA")
+#  passive_part                        :string           default("NO APLICA")
 #  dolar_value_cents                   :integer          default(0), not null
 #  dolar_value_currency                :string           default("USD"), not null
 #  detritment_cents                    :integer          default(0), not null
@@ -25,9 +26,9 @@
 #  ensurance_value_currency            :string           default("USD"), not null
 #  contingency_value_cents             :integer          default(0), not null
 #  contingency_value_currency          :string           default("USD"), not null
-#  contingency_reason                  :string
-#  contingency_resume                  :string
-#  facts                               :string
+#  contingency_reason                  :string           default("NO APLICA")
+#  contingency_resume                  :string           default("NO APLICA")
+#  facts                               :string           default("NO APLICA")
 #  policy_cents                        :integer          default(0), not null
 #  policy_currency                     :string           default("USD"), not null
 #  reserve_cents                       :integer          default(0), not null
@@ -42,9 +43,9 @@
 #  payed_value_cents                   :integer          default(0), not null
 #  payed_value_currency                :string           default("USD"), not null
 #  payment_date                        :date
-#  coactive_radicate                   :string
-#  policies                            :string
-#  sinisters                           :string
+#  coactive_radicate                   :string           default("NO APLICA")
+#  policies                            :string           default("NO APLICA")
+#  sinisters                           :string           default("NO APLICA")
 #  coactive_value_cents                :integer          default(0), not null
 #  coactive_value_currency             :string           default("USD"), not null
 #  garnish_value_cents                 :integer          default(0), not null
@@ -55,8 +56,8 @@
 #  failed_notification_date            :date
 #  objection_notification_date         :date
 #  committee_date                      :date
-#  committee_desition                  :string
-#  tutelage_imp                        :string
+#  committee_desition                  :string           default("NO APLICA")
+#  tutelage_imp                        :string           default("NO APLICA")
 #  date_notification_desacate          :date
 #  date_answer_desacate                :date
 #  date_notification_desition_desacate :date
@@ -64,11 +65,19 @@
 #  auth_value_currency                 :string           default("USD"), not null
 #  reinsurance_value_cents             :integer          default(0), not null
 #  reinsurance_value_currency          :string           default("USD"), not null
+#  coensurance_value_cents             :integer          default(0), not null
+#  coensurance_value_currency          :string           default("USD"), not null
 #  reconcilie_value_cents              :integer          default(0), not null
 #  reconcilie_value_currency           :string           default("USD"), not null
-#  reason_conc                         :string
-#  reason_inv                          :string
+#  conensurance_value_cents            :integer          default(0), not null
+#  conensurance_value_currency         :string           default("USD"), not null
+#  cost_value_cents                    :integer          default(0), not null
+#  cost_value_currency                 :string           default("USD"), not null
+#  reason_conc                         :string           default("NO APLICA")
+#  reason_inv                          :string           default("NO APLICA")
+#  office_name                         :string           default("NO APLICA")
 #  reinsurance_report                  :boolean          default(FALSE)
+#  recovery                            :boolean          default(FALSE)
 #  process_class_id                    :integer
 #  subprocess_class_id                 :integer
 #  link_type_id                        :integer
@@ -76,7 +85,6 @@
 #  city_case_id                        :integer
 #  branch_policy_id                    :integer
 #  branch_commercial_id                :integer
-#  office_name_id                      :integer
 #  score_contingency_id                :integer
 #  protection_id                       :integer
 #  current_stage_id                    :integer

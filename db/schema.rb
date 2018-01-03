@@ -178,21 +178,21 @@ ActiveRecord::Schema.define(version: 20171223021603) do
   end
 
   create_table "type_processes", force: :cascade do |t|
-    t.integer "p_type"
-    t.string "correspondency_radicate"
-    t.string "case_id_bap"
-    t.string "case_id_sise"
-    t.string "case_id_ekogui"
+    t.integer "p_type", default: 0
+    t.string "correspondency_radicate", default: "NO APLICA"
+    t.string "case_id_bap", default: "NO APLICA"
+    t.string "case_id_sise", default: "NO APLICA"
+    t.string "case_id_ekogui", default: "NO APLICA"
     t.date "creation_date"
     t.date "notification_date"
-    t.string "process_radicate"
-    t.integer "number"
-    t.integer "exercise"
-    t.string "sinister"
-    t.string "attorny"
+    t.string "process_radicate", default: "NO APLICA"
+    t.integer "number", default: 0
+    t.integer "exercise", default: 0
+    t.string "sinister", default: "NO APLICA"
+    t.string "attorny", default: "NO APLICA"
     t.date "attorny_date"
-    t.string "active_part"
-    t.string "passive_part"
+    t.string "active_part", default: "NO APLICA"
+    t.string "passive_part", default: "NO APLICA"
     t.integer "dolar_value_cents", default: 0, null: false
     t.string "dolar_value_currency", default: "USD", null: false
     t.integer "detritment_cents", default: 0, null: false
@@ -201,13 +201,15 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "ensurance_value_currency", default: "USD", null: false
     t.integer "contingency_value_cents", default: 0, null: false
     t.string "contingency_value_currency", default: "USD", null: false
-    t.string "contingency_reason"
-    t.string "contingency_resume"
-    t.string "facts"
+    t.string "contingency_reason", default: "NO APLICA"
+    t.string "contingency_resume", default: "NO APLICA"
+    t.string "facts", default: "NO APLICA"
     t.integer "policy_cents", default: 0, null: false
     t.string "policy_currency", default: "USD", null: false
     t.integer "reserve_cents", default: 0, null: false
     t.string "reserve_currency", default: "USD", null: false
+    t.integer "reserved_fees_cents", default: 0, null: false
+    t.string "reserved_fees_currency", default: "USD", null: false
     t.integer "provision_cents", default: 0, null: false
     t.string "provision_currency", default: "USD", null: false
     t.date "desition_date"
@@ -218,9 +220,10 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.integer "payed_value_cents", default: 0, null: false
     t.string "payed_value_currency", default: "USD", null: false
     t.date "payment_date"
-    t.string "coactive_radicate"
-    t.string "policies"
-    t.string "sinisters"
+    t.date "imp_date"
+    t.string "coactive_radicate", default: "NO APLICA"
+    t.string "policies", default: "NO APLICA"
+    t.string "sinisters", default: "NO APLICA"
     t.integer "coactive_value_cents", default: 0, null: false
     t.string "coactive_value_currency", default: "USD", null: false
     t.integer "garnish_value_cents", default: 0, null: false
@@ -231,8 +234,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.date "failed_notification_date"
     t.date "objection_notification_date"
     t.date "committee_date"
-    t.string "committee_desition"
-    t.string "tutelage_imp"
+    t.string "tutelage_imp", default: "NO APLICA"
     t.date "date_notification_desacate"
     t.date "date_answer_desacate"
     t.date "date_notification_desition_desacate"
@@ -244,13 +246,11 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "coensurance_value_currency", default: "USD", null: false
     t.integer "reconcilie_value_cents", default: 0, null: false
     t.string "reconcilie_value_currency", default: "USD", null: false
-    t.integer "conensurance_value_cents", default: 0, null: false
-    t.string "conensurance_value_currency", default: "USD", null: false
     t.integer "cost_value_cents", default: 0, null: false
     t.string "cost_value_currency", default: "USD", null: false
-    t.string "reason_conc"
-    t.string "reason_inv"
-    t.string "office_name"
+    t.string "reason_conc", default: "NO APLICA"
+    t.string "reason_inv", default: "NO APLICA"
+    t.string "office_name", default: "NO APLICA"
     t.boolean "reinsurance_report", default: false
     t.boolean "recovery", default: false
     t.integer "process_class_id"

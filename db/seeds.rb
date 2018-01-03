@@ -36,7 +36,7 @@ ProcessClass.create([
   {name: 'RESPONSABILIDAD FISCAL'},
   {name: 'TUTELA'},
   {name: "PROCESO ARBITRAL"},
-  {name: "AUDIENCIA PREJUDICIAL"},
+  {name: "JUDICIAL PREREQUISITO"},
   {name: 'NO APLICA'}
 ])
 
