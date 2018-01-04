@@ -4,7 +4,6 @@
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-
       <ul>
         <% type_process.errors.full_messages.each do |message| %>
           <li><%= message %></li>

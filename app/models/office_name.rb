@@ -27,7 +27,7 @@ class OfficeName < ApplicationRecord
   end
 
   def self.ordinare
-    OfficeName.where("name like '%MINISTERIO%' OR name like '%ALCALDIA%' OR name like '%REGISTRADURIA%'").order(:name)
+    OfficeName.where("name like '%MINISTERIO%' OR name like '%ALCALDIA%' OR name like '%REGISTRADURIA%' or name like '%OTRO%'").order(:name)
   end
 
 end

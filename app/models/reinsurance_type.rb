@@ -11,7 +11,11 @@
 class ReinsuranceType < ApplicationRecord
 
   def self.separateFree
-    ReinsuranceType.where(name: "CUOTA PARTE")
+    ReinsuranceType.where(name: "NO SE PRESENTO")
+  end
+
+  def self.separate
+    ReinsuranceType.find([2, 3])
   end
 
 end

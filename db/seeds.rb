@@ -201,7 +201,12 @@ Protection.create([
   {name: 'COBERTURA OBRAS CIVILES ( CONSTRUCCION)'},
   {name: 'COBERTURA R.C EXTRACONTRACTUAL'},
   {name: 'PERDIDA SEVERA POR HURTO'},
-  {name: 'TERAPEUTICOS'}
+  {name: 'TERAPEUTICOS'},
+  {name: 'CUMPLIMIENTO'},
+  {name: 'INCUMPLIMIENTO'},
+  {name: 'ESTABILIDAD LABORAL'},
+  {name: 'SALARIOS Y PRESTACIONES E INDEMNIZACIONES'},
+  {name: 'BUEN MANEJO DEL ANTICIPO'}
 ])
 
 ScoreContingency.create([
@@ -399,7 +404,8 @@ CurrentStage.create([
   {name: 'RECURSO QUEJA', n_type: 16},
   {name: 'RECURSO REVISIÓN', n_type: 16},
   {name: 'EN TERMINOS PARA RESOLVER RECURSOS DE REPOSICION', n_type: 18},
-  {name: 'AUDIENCIA SUSPENDIDA', n_type: 18}
+  {name: 'AUDIENCIA SUSPENDIDA', n_type: 18},
+  {name: 'AUDIENCIA QUE RESUELVE', n_type: 18}
 ])
 
 JoinCommittee.create([
@@ -1415,7 +1421,7 @@ LitigationSource.create([
   {name: 'SINIESTRO'},
   {name: 'PROVISION'},
   {name: 'ESMITACION RECOBRO'},
-  {name: 'OTRO'},
+  {name: 'VINCULACION ERRADA'},
   {name: 'NO APLICA'}
 ])
 
@@ -1445,6 +1451,7 @@ GubernatorialWay.create([
   {name: 'POLIZA', n_type: 1},
   {name: 'VISITA FISCALIZACION', n_type: 1},
   {name: 'INEXACTITUD', n_type: 1},
+  {name: 'NO APLICA', n_type: 2}
 ])
 
 ReinsuranceType.create([

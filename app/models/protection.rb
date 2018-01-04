@@ -9,4 +9,13 @@
 #
 
 class Protection < ApplicationRecord
+
+  def self.coljuegos
+    Protection.find([36])
+  end
+
+  def self.ordinarie
+    Protection.find([37, 38, 39, 40])
+  end
+
 end

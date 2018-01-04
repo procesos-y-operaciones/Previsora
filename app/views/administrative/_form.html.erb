@@ -43,8 +43,8 @@
         <%= form.label "Tipología" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.coljuegos, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"gubernatorial_coljuegos", required: true}) %>
-            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.ordinarie, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"gubernatorial_ordinarie", required: true}) %>
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.coljuegos, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"gubernatorial_coljuegos"}) %>
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.ordinarie, :id , :name, {}, {class:"form-control", id:"gubernatorial_ordinarie"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -150,7 +150,7 @@
         <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {prompt: "SELECCIONE"}, {id:"reinsuranceType", class:"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.separate, :id, :name, {prompt: "SELECCIONE"}, {id:"reinsuranceType", class:"form-control"}) %>
             <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.separateFree, :id, :name, {}, {id:"reinsuranceTypeSF", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -189,7 +189,8 @@
         <%= form.label "Amparo" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {class:"form-control", id:"protection", :disabled=>"true"}) %>
+            <%= form.collection_select(:protection_id, Protection.coljuegos, :id, :name, {}, {class:"form-control", id:"protection_coljuegos"}) %>
+            <%= form.collection_select(:protection_id, Protection.ordinarie, :id, :name, {}, {class:"form-control", id:"protection_ordinarie"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -349,6 +350,9 @@
             <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
             <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {}, {id:"office_name_ord", class:"form-control"}) %>
           </div>
+          <div>
+            <%= form.text_field :office_name, placeholder: 'NOMBRE DEL DESPACHO', value: "", required: true, id: "office_text", class: "form-control" %>
+          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -380,16 +384,6 @@
           </span>
         </div>
 
-        <%= form.label "Etapa actual", id:"currentStage" %>
-        <div id="currentStageVerDiv" class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:current_stage_id, CurrentStage.administrative, :id, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
         <%= form.label "Instancias" %>
         <div class="input-group">
           <div class="styled-select">
@@ -410,18 +404,10 @@
           </span>
         </div>
 
-        <%= form.label "Fecha del acto administrativo" %>
-        <div class="input-group">
-          <%= form.date_field :desition_date, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Terminación del caso" %>
-        <div class="input-group">
+        <%= form.label "Etapa actual", id:"currentStage" %>
+        <div id="currentStageVerDiv" class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {class:"form-control", id:"caseTermination"}) %>
+            <%= form.collection_select(:current_stage_id, CurrentStage.administrative, :id, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -436,9 +422,27 @@
           </span>
         </div>
 
+        <%= form.label "Fecha del acto administrativo" %>
+        <div class="input-group">
+          <%= form.date_field :desition_date, class:"form-control", id:"desition_date" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
         <%= form.label "Valor sanción a cargo de Previsora" %>
         <div class="input-group">
-          <%= form.number_field :fail_previ_cents, class:"form-control" %>
+          <%= form.number_field :fail_previ_cents, class:"form-control", id:"fail_previ" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Terminación del caso" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseTermination"}) %>
+          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -491,7 +495,7 @@
 
         <%= form.label "Valor embargo" %>
         <div class="input-group">
-          <%= form.number_field :garnish_value_cents, class:"form-control" %>
+          <%= form.number_field :garnish_value_cents, class:"form-control", id:"garnish_value" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

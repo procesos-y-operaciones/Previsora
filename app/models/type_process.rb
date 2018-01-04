@@ -33,6 +33,8 @@
 #  policy_currency                     :string           default("USD"), not null
 #  reserve_cents                       :integer          default(0), not null
 #  reserve_currency                    :string           default("USD"), not null
+#  reserved_fees_cents                 :integer          default(0), not null
+#  reserved_fees_currency              :string           default("USD"), not null
 #  provision_cents                     :integer          default(0), not null
 #  provision_currency                  :string           default("USD"), not null
 #  desition_date                       :date
@@ -43,9 +45,11 @@
 #  payed_value_cents                   :integer          default(0), not null
 #  payed_value_currency                :string           default("USD"), not null
 #  payment_date                        :date
+#  imp_date                            :date
 #  coactive_radicate                   :string           default("NO APLICA")
 #  policies                            :string           default("NO APLICA")
 #  sinisters                           :string           default("NO APLICA")
+#  case_onbase                         :string           default("NO APLICA")
 #  coactive_value_cents                :integer          default(0), not null
 #  coactive_value_currency             :string           default("USD"), not null
 #  garnish_value_cents                 :integer          default(0), not null
@@ -56,7 +60,6 @@
 #  failed_notification_date            :date
 #  objection_notification_date         :date
 #  committee_date                      :date
-#  committee_desition                  :string           default("NO APLICA")
 #  tutelage_imp                        :string           default("NO APLICA")
 #  date_notification_desacate          :date
 #  date_answer_desacate                :date
@@ -69,8 +72,6 @@
 #  coensurance_value_currency          :string           default("USD"), not null
 #  reconcilie_value_cents              :integer          default(0), not null
 #  reconcilie_value_currency           :string           default("USD"), not null
-#  conensurance_value_cents            :integer          default(0), not null
-#  conensurance_value_currency         :string           default("USD"), not null
 #  cost_value_cents                    :integer          default(0), not null
 #  cost_value_currency                 :string           default("USD"), not null
 #  reason_conc                         :string           default("NO APLICA")
@@ -78,11 +79,11 @@
 #  office_name                         :string           default("NO APLICA")
 #  reinsurance_report                  :boolean          default(FALSE)
 #  recovery                            :boolean          default(FALSE)
+#  departament                         :string
+#  city_case                           :string
 #  process_class_id                    :integer
 #  subprocess_class_id                 :integer
 #  link_type_id                        :integer
-#  departament_id                      :integer
-#  city_case_id                        :integer
 #  branch_policy_id                    :integer
 #  branch_commercial_id                :integer
 #  score_contingency_id                :integer
