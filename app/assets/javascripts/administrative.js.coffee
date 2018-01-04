@@ -1,9 +1,5 @@
 $(document).on 'turbolinks:load', ->
 
-  #regla Clase de proceso
-
-  #regla Subclase de proceso
-
   #Tipologia Tiene numero de radicado correspondencia?
   has_num_radicade_rule = ->
     hasNum = document.getElementById('has_num_radicade').value
@@ -36,6 +32,10 @@ $(document).on 'turbolinks:load', ->
       $('#gubernatorial_coljuegos').show()
       $('#gubernatorial_ordinarie').prop 'disabled', true
       $('#gubernatorial_ordinarie').hide()
+      $('#protection_coljuegos').prop 'disabled', false
+      $('#protection_coljuegos').show()
+      $('#protection_ordinarie').prop 'disabled', true
+      $('#protection_ordinarie').hide()
     else
       $('#departament_coljuegos').prop 'disabled', true
       $('#departament_coljuegos').hide()
@@ -49,8 +49,12 @@ $(document).on 'turbolinks:load', ->
       $('#moneyType').prop 'disabled', false
       $('#gubernatorial_coljuegos').prop 'disabled', true
       $('#gubernatorial_coljuegos').hide()
-      $('#gubernatorial_ordinarie').prop 'disabled', false
-      $('#gubernatorial_ordinarie').hide()
+      $('#gubernatorial_ordinarie').prop 'disabled', true
+      $('#gubernatorial_ordinarie').show()
+      $('#protection_coljuegos').prop 'disabled', true
+      $('#protection_coljuegos').hide()
+      $('#protection_ordinarie').prop 'disabled', false
+      $('#protection_ordinarie').show()
 
   $('#subprocessClass').change ->
     subprocessClass_rule()
@@ -62,15 +66,15 @@ $(document).on 'turbolinks:load', ->
     ensuranceValue = document.getElementById('ensuranceValue').value
     subClass = document.getElementById('subprocessClass').value
     if ensuranceValue >= '1000000000' and subClass == '69'
-      $('#reinsuranceTypeSF').prop 'disabled', false
-      $('#reinsuranceTypeSF').show()
-      $('#reinsuranceType').prop 'disabled', true
-      $('#reinsuranceType').hide()
-    else
       $('#reinsuranceTypeSF').prop 'disabled', true
       $('#reinsuranceTypeSF').hide()
       $('#reinsuranceType').prop 'disabled', false
       $('#reinsuranceType').show()
+    else
+      $('#reinsuranceTypeSF').prop 'disabled', false
+      $('#reinsuranceTypeSF').show()
+      $('#reinsuranceType').prop 'disabled', true
+      $('#reinsuranceType').hide()
 
   $('#ensuranceValue').change ->
     ensurance_value_rule()
@@ -153,18 +157,25 @@ $(document).on 'turbolinks:load', ->
 
   money_type_rule()
 
-  #Case Termination Rule
-  case_termination_rule = ->
-    v_option = document.getElementById("caseTermination").value
-    if v_option == "2"
-      document.getElementById("fail_value").readOnly = false
+  case_state_rule = ->
+    v_option = document.getElementById("caseState").value
+    if v_option == "1"
+      $('#currentStageVer').prop( "disabled", false )
+      $('#fail_value').prop( "disabled", true )
+      $('#fail_previ').prop( "disabled", true )
+      $('#desition_date').prop( "disabled", true )
+      $('#caseTermination').prop( "disabled", true )
     else
-      document.getElementById("fail_value").readOnly = true
+      $('#currentStageVer').prop( "disabled", true )
+      $('#fail_value').prop( "disabled", false )
+      $('#fail_previ').prop( "disabled", false )
+      $('#desition_date').prop( "disabled", false )
+      $('#caseTermination').prop( "disabled", false )
 
-  $('#caseTermination').change ->
-    case_termination_rule()
+  $('#caseState').change ->
+    case_state_rule()
 
-  case_termination_rule()
+  case_state_rule()
 
   #Coactive Rule
   coactive_rule = ->
@@ -172,16 +183,28 @@ $(document).on 'turbolinks:load', ->
     if v_option == "Si"
       document.getElementById("coactive_radicate").readOnly = false
       document.getElementById("coactive_value_cents").readOnly = false
+      document.getElementById("garnish_value").readOnly = false
     if v_option == "No"
       document.getElementById("coactive_radicate").readOnly = true
       document.getElementById("coactive_value_cents").readOnly = true
+      document.getElementById("garnish_value").readOnly = true
 
   $('#coactive').change ->
     coactive_rule()
 
   coactive_rule()
 
+
   $('#departament_ordinarie').change ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt
+
+  $('#departament_ordinarie').ready ->
     input_state = $(this)
     output_state = $('#cities')
     $.getJSON '/cities/' + $(this).val(), (data) ->
@@ -198,3 +221,26 @@ $(document).on 'turbolinks:load', ->
       $.each data, (i) ->
         opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
         output_state.append opt
+
+  $('#departament_coljuegos').ready ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt
+
+  office_rule = ->
+    v_option = document.getElementById('office_name_ord').value
+    if v_option == "OTRO"
+      $('#office_text').show()
+      $('#office_text').prop( "disabled", false )
+    else
+      $('#office_text').hide()
+      $('#office_text').prop( "disabled", true )
+
+  $('#office_name_ord').change ->
+    office_rule()
+
+  office_rule()
