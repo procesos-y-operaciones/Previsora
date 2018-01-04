@@ -14,28 +14,14 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-$(document).ready(function(){
-  $('input').click(function() {
-    var value;
-    value = $(this).val();
-    if (value === "NO APLICA") {
-      return $(this).val("");
-    }
-  });
 
-  $('input').blur(function() {
-    var value;
-    value = $(this).val();
-    if (value === "") {
-      return $(this).val("NO APLICA");
-    }
-  });
 
-  $('input').ready(function() {
-    var value;
-    value = $(this).val();
-    if (value === "") {
-      return $(this).val("NO APLICA");
-    }
-  });
-});
+function input_pendiente_rule(input) {
+  var value = input.value;
+  if (value === "PENDIENTE" && input.readOnly == false) {
+    input.value = "";
+  }
+  if (value === "" && input.readOnly == false) {
+    input.value = "PENDIENTE";
+  }
+}
