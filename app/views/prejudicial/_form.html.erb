@@ -48,7 +48,7 @@
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :correspondency_radicate, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value:"PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
+            <%= form.text_field :correspondency_radicate, onclick:"input_nopresenta_rule(this)", onblur:"input_nopresenta_rule(this)", value:"PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -226,7 +226,7 @@
 
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
-          <%= form.text_area :sinisters, value: "PENDIENTE", id:"sinisters", class:"form-control" %>
+          <%= form.text_area :sinisters, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", id:"sinisters", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -297,7 +297,7 @@
         <%= form.label "Nombre despacho" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :office_name, class:"form-control" %>
+            <%= form.text_field :office_name, onclick:"input_noaplica_rule(this)", onblur:"input_noaplica_rule(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>

@@ -25,3 +25,21 @@ function input_pendiente_rule(input) {
     input.value = "PENDIENTE";
   }
 }
+function input_nopresenta_rule(input) {
+  var value = input.value;
+  if (value === "NO PRESENTA" && input.readOnly == false) {
+    input.value = "";
+  }
+  if (value === "" && input.readOnly == false) {
+    input.value = "NO PRESENTA";
+  }
+}
+function input_noaplica_rule(input) {
+  var value = input.value;
+  if (value === "NO APLICA" && input.readOnly == false) {
+    input.value = "";
+  }
+  if (value === "" && input.readOnly == false) {
+    input.value = "NO APLICA";
+  }
+}

@@ -6,7 +6,6 @@ $(document).on 'turbolinks:load', ->
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
       document.getElementById("correspondency_radicate").required = true
-      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
       document.getElementById("correspondency_radicate").required = false
