@@ -51,7 +51,7 @@
 
         <%= form.label "Número de radicado correspondencia o vicepresidencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", onclick:"input_noaplica_rule(this)", onblur:"input_noaplica_rule(this)", id:"correspondency_radicate", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -80,7 +80,7 @@
         <%= form.label "Departamento" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:departament_id, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+            <%= form.collection_select(:departament, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -90,16 +90,18 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:city_case_id, CityCase.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+            <select name="type_process[city_case]" id="cities" prompt="SELECCIONE">
+              <option value="default" selected="selected">SELECCIONE</option>
+            </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-
+        
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :process_radicate, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -111,7 +113,7 @@
 
         <%= form.label "Parte activa" %>
         <div class="input-group">
-          <%= form.text_field :active_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :active_part, onclick:"input_noaplica_rule(this)", onblur:"input_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -119,7 +121,7 @@
 
         <%= form.label "Parte pasiva" %>
         <div class="input-group">
-          <%= form.text_field :passive_part, :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :passive_part, onclick:"input_noaplica_rule(this)", onblur:"input_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -170,7 +172,7 @@
 
         <%= form.label "Impugnante" %>
         <div class="input-group">
-          <%= form.text_field :tutelage_imp, placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
+          <%= form.text_field :tutelage_imp, onclick:"input_noaplica_rule(this)", onblur:"input_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
