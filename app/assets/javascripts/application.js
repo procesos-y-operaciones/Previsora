@@ -21,6 +21,9 @@ function input_pendiente_rule(input) {
   if (value === "PENDIENTE" && input.readOnly == false) {
     input.value = "";
   }
+}
+function input_empty_pendiente_rule(input) {
+  var value = input.value;
   if (value === "" && input.readOnly == false) {
     input.value = "PENDIENTE";
   }
@@ -42,6 +45,9 @@ function input_noaplica_rule(input) {
   if (value === "NO APLICA" && input.readOnly == false) {
     input.value = "";
   }
+}
+function input_empty_noaplica_rule(input) {
+  var value = input.value;
   if (value === "" && input.readOnly == false) {
     input.value = "NO APLICA";
   }
