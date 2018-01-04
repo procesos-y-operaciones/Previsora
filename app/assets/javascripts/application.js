@@ -30,6 +30,9 @@ function input_nopresenta_rule(input) {
   if (value === "NO PRESENTA" && input.readOnly == false) {
     input.value = "";
   }
+}
+function input_empty_nopresenta_rule(input) {
+  var value = input.value;
   if (value === "" && input.readOnly == false) {
     input.value = "NO PRESENTA";
   }

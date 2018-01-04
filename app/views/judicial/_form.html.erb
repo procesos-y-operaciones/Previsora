@@ -62,7 +62,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -70,7 +70,7 @@
 
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <div class="input-group">
-          <%= form.text_field :case_id_bap, required: true, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :case_id_bap, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", required: true, value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -78,7 +78,7 @@
 
         <%= form.label "Número de identificación del caso SISE" %>
         <div class="input-group">
-          <%= form.text_field :case_id_sise, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :case_id_sise, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -86,7 +86,7 @@
 
         <%= form.label "Número de identificación del caso E-KOGUI" %>
         <div class="input-group">
-          <%= form.text_field :case_id_ekogui, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :case_id_ekogui, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -261,7 +261,7 @@
 
         <%= form.label "Número de pólizas" %>
         <div class="input-group">
-          <%= form.text_area :policies, value: "PENDIENTE", id:"policies", class:"form-control" %>
+          <%= form.text_area :policies, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", id:"policies", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -269,7 +269,7 @@
 
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
-          <%= form.text_area :sinisters, value: "PENDIENTE", id:"sinisters", class:"form-control" %>
+          <%= form.text_area :sinisters, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", id:"sinisters", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -355,7 +355,7 @@
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, placeholder: 'INGRESE EL NUMERO', required: true, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :process_radicate, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", placeholder: 'INGRESE EL NUMERO', required: true, value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -363,7 +363,7 @@
 
         <%= form.label "Apoderado Previsora" %>
         <div class="input-group">
-          <%= form.text_field :attorny, placeholder: 'NOMBRE COMPLETO', required: true, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :attorny, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", placeholder: 'NOMBRE COMPLETO', required: true, value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -418,7 +418,7 @@
 
         <%= form.label "Razón contingencia" %>
         <div class="input-group">
-          <%= form.text_area :contingency_reason, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_area :contingency_reason, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -426,7 +426,7 @@
 
         <%= form.label "Resumen de la contingencia" %>
         <div class="input-group">
-          <%= form.text_area :contingency_resume, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_area :contingency_resume, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -434,7 +434,7 @@
 
         <%= form.label "Hechos" %>
         <div class="input-group">
-          <%= form.text_area :facts, value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_area :facts, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -584,7 +584,7 @@
 
         <%= form.label "Número de radicación de coactivo" %>
         <div class="input-group">
-          <%= form.text_field :coactive_radicate, id:"coactive_radicate", class:"form-control" %>
+          <%= form.text_field :coactive_radicate, id:"coactive_radicate", onclick:"input_noaplica_rule(this)", onblur:"input_noaplica_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -670,7 +670,7 @@
 
         <%= form.label "Razón de no conciliar" %>
         <div class="input-group">
-          <%= form.text_area :reason_conc, value: "PENDIENTE", id:"reason_conc", class:"form-control" %>
+          <%= form.text_area :reason_conc, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", id:"reason_conc", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -678,7 +678,7 @@
 
         <%= form.label "Razón de invialibilidad" %>
         <div class="input-group">
-          <%= form.text_area :reason_inv, value: "PENDIENTE", id:"reason_inv", class:"form-control" %>
+          <%= form.text_area :reason_inv, onclick:"input_pendiente_rule(this)", onblur:"input_pendiente_rule(this)", value: "PENDIENTE", id:"reason_inv", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
