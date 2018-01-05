@@ -143,7 +143,7 @@ $(document).on 'turbolinks:load', ->
   #Case State Rule
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
-    if v_option == "3"
+    if v_option == "2"
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
@@ -175,6 +175,24 @@ $(document).on 'turbolinks:load', ->
     coactive_rule()
 
   coactive_rule()
+
+  $('#departament').change ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt
+
+  $('#departament').ready ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt
 
 
 ###

@@ -47,8 +47,8 @@
         <div class="input-group">
           <div class="styled-select">
             <select id="state" class="form-control">
-              <option value="No">No</option>
-              <option value="Si">Si</option>
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -101,7 +101,7 @@
         <%= form.label "Departamento" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:departament, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -111,7 +111,7 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <select name="type_process[city_case]" id="cities" prompt="SELECCIONE">
+            <select name="type_process[city_case]" id="cities">
               <option value="default" selected="selected">SELECCIONE</option>
             </select>
           </div>
@@ -119,7 +119,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
@@ -432,7 +432,7 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {class:"form-control", id:"caseState"}) %>
+            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
