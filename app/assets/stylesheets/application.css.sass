@@ -239,15 +239,15 @@ input::-webkit-inner-spin-button
 .link, .link:link, .link:visited
     margin: 0px 10px
     background-color: transparent !important
-    color: darken($ligthgreen, 2.5%)
+    color: darken($darkgreen, 2.5%)
 .link:hover
     background-color: transparent !important
     text-decoration: none !important
-    color: darken($darkgreen, 2.5%)
+    color: darken($ligthgreen, 2.5%)
 .link:active
     background-color: transparent !important
     text-decoration: none !important
-    color: darken($darkgreen, 2.5%)
+    color: darken($ligthgreen, 2.5%)
 
 .link-inverse, .link-inverse:link, .link-inverse:visited
     margin: 0 10px
@@ -321,11 +321,17 @@ input::-webkit-inner-spin-button
 #search .table-hover tbody tr:hover td, .table-hover tbody tr:hover th
     background: rgba(0, 184, 0, 0.5) !important
 #show thead tr th
-    border: 0px
     font-size: 25px
     font-weight: normal
-#show .bor th, #show .bor td
+thead tr th
+    color: darken($darkgreen, 2.5%)
+
+.bor th, .bor td
     border-bottom: 1px solid darken($darkgreen, 2.5%)
+
+/* ==================================================
+  pagination
+  ================================================== */
 
 .pagination li>span, .pagination li>a, .pagination li>a:hover
     color: darken($ligthgreen, 2.5%)

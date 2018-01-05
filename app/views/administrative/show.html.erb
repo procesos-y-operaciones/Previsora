@@ -1,1 +1,221 @@
-<%= @administrative.inspect %>
+<div class="container-fluid p-30">
+  <table id="show" class="table table-responsive">
+    <thead>
+      <tr class="bor">
+        <th colspan="2" class="center"> <%= @administrative.get_type_process %> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row" width="50%"> Subclase de proceso </th>
+        <td width="50%"> <%= @administrative.get_subprocess_class %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Tipología </th>
+        <td width="50%"> <%= @administrative.gubernatorial_way_id %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número de radicado correspondencia </th>
+        <td width="50%"> <%= @administrative.correspondency_radicate %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número de identificación del caso (Bizagi y PA) </th>
+        <td width="50%"> <%= @administrative.case_id_bap %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número de identificación del caso SISE </th>
+        <td width="50%"> <%= @administrative.case_id_sise %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fecha de creación </th>
+        <td width="50%"> <%= @administrative.creation_date %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Tipo de vinculación </th>
+        <td width="50%"> <%= @administrative.get_link_type %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Departamento </th>
+        <td width="50%"> <%= @administrative.departament %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Ciudad donde cursa el caso </th>
+        <td width="50%"> <%= @administrative.city_case %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fuente de litigio </th>
+        <td width="50%"> <%= @administrative.get_litigation_source %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor asegurado </th>
+        <td width="50%"> <%= @administrative.ensurance_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Tipo de reaseguro </th>
+        <td width="50%"> <%= @administrative.get_reinsurance_type %> </td>
+      </tr>
+
+
+      <tr>
+        <th scope="row" width="50%"> Reaseguro reportado </th>
+        <td width="50%"> <%= @administrative.reinsurance_report %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Tipo de coaseguro </th>
+        <td width="50%"> <%= @administrative.get_coensurance_type %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Póliza </th>
+        <td width="50%"> <%= @administrative.policy_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Amparo </th>
+        <td width="50%"> <%= @administrative.get_protection %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número (siniestro) </th>
+        <td width="50%"> <%= @administrative.number %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Ejercicio </th>
+        <td width="50%"> <%= @administrative.exercise %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Sucursal de la póliza </th>
+        <td width="50%"> <%= @administrative.get_branch_policy %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Ramo comercial </th>
+        <td width="50%"> <%= @administrative.get_branch_commercial %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número del siniestro (completo) </th>
+        <td width="50%"> <%= @administrative.sinister %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número de pólizas </th>
+        <td width="50%"> <%= @administrative.policies %> </td>
+      </tr>
+
+      <tr>
+        <th scope="row" width="50%"> Número de siniestros </th>
+        <td width="50%"> <%= @administrative.sinisters %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Tipo moneda </th>
+        <td width="50%"> <%= @administrative.get_money_type %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor del dólar </th>
+        <td width="50%"> <%= @administrative.dolar_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Reserva o provisión de indemnización </th>
+        <td width="50%"> <%= @administrative.reserve_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Reserva honorarios </th>
+        <td width="50%"> <%= @administrative.reserve_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor pretensión / detrimento / estimación </th>
+        <td width="50%"> <%= @administrative.detritment_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor contingencia </th>
+        <td width="50%"> <%= @administrative.contingency_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fecha de notificación / vinculación </th>
+        <td width="50%"> <%= @administrative.notification_date %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Apoderado Previsora </th>
+        <td width="50%"> <%= @administrative.attorny %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fecha de asignación apoderado Previsora </th>
+        <td width="50%"> <%= @administrative.attorny_date %> </td>
+      </tr>
+
+      <tr>
+        <th scope="row" width="50%"> Nombre despacho / tipo contraloría </th>
+        <td width="50%"> <%= @administrative.office_name %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Calificación contingencia </th>
+        <td width="50%"> <%= @administrative.get_score_contingency %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Razón contingencia </th>
+        <td width="50%"> <%= @administrative.contingency_reason %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Resumen de la contingencia </th>
+        <td width="50%"> <%= @administrative.contingency_resume %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Instancias </th>
+        <td width="50%"> <%= @administrative.get_instance %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Estado del caso </th>
+        <td width="50%"> <%= @administrative.get_case_state %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Etapa actual </th>
+        <td width="50%"> <%= @administrative.get_current_stage %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor sanción </th>
+        <td width="50%"> <%= @administrative.fail_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fecha del acto administrativo </th>
+        <td width="50%"> <%= @administrative.desition_date %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor sanción a cargo de Previsora </th>
+        <td width="50%"> <%= @administrative.fail_previ_cents %> </td>
+      </tr>
+
+      <tr>
+        <th scope="row" width="50%"> Terminación del caso </th>
+        <td width="50%"> <%= @administrative.get_case_termination  %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor pagado Previsora </th>
+        <td width="50%"> <%= @administrative.payed_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fecha de pago realizado </th>
+        <td width="50%"> <%= @administrative.payment_date %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Número de radicación de coactivo </th>
+        <td width="50%"> <%= @administrative.coactive_radicate %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor coactivo </th>
+        <td width="50%"> <%= @administrative.coactive_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Valor embargo </th>
+        <td width="50%"> <%= @administrative.garnish_value_cents %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Última actuación </th>
+        <td width="50%"> <%= @administrative.last_performance_id %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Fecha última actuación </th>
+        <td width="50%"> <%= @administrative.last_performance_date %> </td>
+      </tr>
+      <tr>
+        <th scope="row" width="50%"> Reserva depurada </th>
+        <td width="50%"> <%= @administrative.reserved_released_id %> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
