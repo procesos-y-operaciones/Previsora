@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_type_process_path(@type_process) %> |
-<%= link_to 'Back', type_processes_path %>
+<div class="container-fluid p-30">
+  <table id="show" class="table table-responsive fw">
+    <thead>
+      <tr class="darkgreen bor">
+        <th colspan="2" class="center"><%= @type_process.get_type_process %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row" width="50%"> Subclase de proceso </th>
+        <td width="50%"> <%= @type_process.get_subprocess_class %> </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

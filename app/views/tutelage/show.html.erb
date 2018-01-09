@@ -30,11 +30,11 @@
     </tr>
     <tr>
       <th scope="row"> Departamento </th>
-      <td> <%= @tutelage.get_departament %> </td>
+      <td> <%= @tutelage.departament %> </td>
     </tr>
     <tr>
       <th scope="row"> Ciudad donde cursa el caso </th>
-      <td> <%= @tutelage.get_city_case %> </td>
+      <td> <%= @tutelage.city_case %> </td>
     </tr>
     <tr>
       <th scope="row"> Número de radicación del proceso </th>
@@ -92,4 +92,10 @@
     </tr>
   </tbody>
 </table>
+</div>
+
+<div>
+  <% if current_user.type_processes.exists?(id: @tutelage.id) %>
+    <%= link_to "Editar", edit_tutelage_path(@tutelage), class:"btn btn-default floatRight" %>
+  <% end %>
 </div>
