@@ -52,3 +52,11 @@ function input_empty_noaplica_rule(input) {
     input.value = "NO APLICA";
   }
 }
+function formatting(input) {
+  var value = input.value;
+  var num = value.replace(/,|'/g, "");
+  num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");
+  num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  //console.log(num+"\n\n");
+  input.value = num;
+}

@@ -24,7 +24,7 @@
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id: "processClass", required: true}) %>
+            <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {}, { id: "processClass", class:"form-control", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -98,7 +98,7 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
           <%= form.text_field :process_radicate, onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
