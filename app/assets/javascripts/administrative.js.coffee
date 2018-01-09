@@ -1,17 +1,19 @@
-$(document).on 'turbolinks:load', ->
+$ ->
 
-  #Tipologia Tiene numero de radicado correspondencia?
-  has_num_radicade_rule = ->
-    hasNum = document.getElementById('has_num_radicade').value
-    if hasNum == 'Si'
-      document.getElementById('correspondency_radicate').readOnly = false
-    else
-      document.getElementById('correspondency_radicate').readOnly = true
+  #Radicate Rule
+  radicate_rule = ->
+    v_option = document.getElementById("radicate").value
+    if v_option == "Si"
+      document.getElementById("correspondency_radicate").readOnly = false
+      $("#correspondency_radicate").val("")
+    if v_option == "No"
+      document.getElementById("correspondency_radicate").readOnly = true
+      $("#correspondency_radicate").val("NO PRESENTA")
 
-  $('#has_num_radicade').change ->
-    has_num_radicade_rule()
+  $('#radicate').change ->
+    radicate_rule()
 
-  has_num_radicade_rule()
+  radicate_rule()
 
   #regla Subclase de proceso
   subprocessClass_rule = ->

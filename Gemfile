@@ -46,6 +46,8 @@ gem 'ransack'
 
 gem 'city-state'
 
+gem 'jquery-turbolinks'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,14 +1,13 @@
-$(document).on 'turbolinks:load', ->
+$ ->
 
-  #Tiene número de radicado correspondencia?
+  #Radicate Rule
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
-      document.getElementById("correspondency_radicate").required = true
+      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
-      document.getElementById("correspondency_radicate").required = false
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
@@ -104,6 +103,30 @@ $(document).on 'turbolinks:load', ->
     join_committee_rule()
 
   join_committee_rule()
+
+  #BAP Rule
+  id_bap_rule = ->
+    v_option = document.getElementById("case_id_bap").value
+    $('#process_radicate').val(v_option)
+
+  $('#case_id_bap').change ->
+    id_bap_rule()
+
+  id_bap_rule()
+
+  #Money Type Rule
+  money_type_rule = ->
+    v_option = document.getElementById("moneyType").value
+    if v_option == "1"
+      document.getElementById("dolarValueCents").readOnly = true
+      $("#dolarValueCents").val(0)
+    else
+      document.getElementById("dolarValueCents").readOnly = false
+
+  $('#moneyType').change ->
+    money_type_rule()
+
+  money_type_rule()
 
   #Committee Rule
   committee_rule = ->

@@ -83,4 +83,8 @@ class CurrentStage < ApplicationRecord
     CurrentStage.where(n_type: [0, 18])
   end
 
+  def self.prejudicial
+    CurrentStage.where(n_type: 19)
+  end
+
 end

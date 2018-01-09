@@ -226,7 +226,7 @@ class TypeProcess < ApplicationRecord
     if self.branch_commercial_id == nil
       "PENDIENTE"
     else
-      BranchCommercial.find(self.branch_commercial_id).large_name
+      BranchCommercial.get_name(self.branch_commercial_id)
     end
   end
 
@@ -322,7 +322,7 @@ class TypeProcess < ApplicationRecord
     if self.branch_policy_id == nil
       "PENDIENTE"
     else
-      BranchPolicy.find(branch_policy_id).large_name
+      BranchPolicy.get_name(self.branch_policy_id)
     end
   end
 
@@ -386,7 +386,7 @@ class TypeProcess < ApplicationRecord
     CS.states(:co).each_pair do |k,v|
       CS.states(:co)[k] = v.upcase
     end
-    CS.states(:co)
+    CS.states(:co).sort_by {|_key, value| value}.to_h
   end
 
   def self.get_bog_departament
