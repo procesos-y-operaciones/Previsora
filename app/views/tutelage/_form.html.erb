@@ -21,10 +21,11 @@
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
         <hr>
+
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {}, { id: "processClass", class:"form-control", required: true}) %>
+            <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -49,9 +50,22 @@
           </span>
         </div>
 
+        <%= form.label "Tiene número de radicado correspondencia o vicepresidencia?" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <select id="radicate" class="form-control">
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
+            </select>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
         <%= form.label "Número de radicado correspondencia o vicepresidencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", id:"correspondency_radicate", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -77,7 +91,7 @@
           </span>
         </div>
 
-        <%= form.label "Departamento" %>
+        <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:departament, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
@@ -90,8 +104,8 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <select name="type_process[city_case]" id="cities" prompt="SELECCIONE">
-              <option value="default" selected="selected">SELECCIONE</option>
+            <select name="type_process[city_case]" id="cities">
+              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">

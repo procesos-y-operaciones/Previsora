@@ -1,18 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
 
-$(document).on 'turbolinks:load', ->
   #Radicate Rule
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
-      document.getElementById("correspondency_radicate").required = true
       $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
-      document.getElementById("correspondency_radicate").required = false
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->

@@ -25,7 +25,7 @@
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.prejudicial, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:process_class_id, ProcessClass.prejudicial, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -47,9 +47,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.text_field :correspondency_radicate, onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", value:"PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
-          </div>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", value:"PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -58,7 +56,7 @@
         <%= form.label "Número de identificación del caso (Bizagi, Access y PA)" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :case_id_bap,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control" %>
+            <%= form.text_field :case_id_bap,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control", id:"case_id_bap" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -67,9 +65,7 @@
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.text_field :process_radicate,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control" %>
-          </div>
+          <%= form.text_field :process_radicate, readOnly: true, class:"form-control", id:"process_radicate" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -79,9 +75,7 @@
 
         <%= form.label "Fecha de creación" %>
         <div class="input-group">
-          <div class="styled-select">
             <%= form.date_field :creation_date, readOnly: "readOnly", class:"form-control" %>
-          </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -90,14 +84,14 @@
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type_id, LinkType.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:link_type_id, LinkType.prejuducial, :id, :name, {prompt: "SELECCIONE"}, {:class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
-        <%= form.label "Departamento" %>
+        <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
             <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control"} %>
@@ -110,8 +104,8 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <select name="type_process[city_case]" id="cities" prompt="SELECCIONE">
-              <option value="default" selected="selected">SELECCIONE</option>
+            <select name="type_process[city_case]" id="cities">
+              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -169,7 +163,7 @@
 
         <%= form.label "Ejercicio" %>
         <div class="input-group">
-          <%= form.number_field :exercise, id:"exercise", value: 0, class:"form-control" %>
+          <%= form.number_field :exercise, id:"exercise", max:"99", value: 0, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -247,7 +241,7 @@
         <%= form.label "Apoderado Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :attorny,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control" %>
+            <%= form.text_field :attorny,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -266,9 +260,7 @@
 
         <%= form.label "Parte activa" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.text_field :active_part,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control" %>
-          </div>
+            <%= form.text_field :active_part,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -276,9 +268,7 @@
 
         <%= form.label "Parte pasiva" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.text_field :passive_part,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control" %>
-          </div>
+          <%= form.text_field :passive_part,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -286,9 +276,7 @@
 
         <%= form.label "Hechos" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.text_area :facts,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control" %>
-          </div>
+            <%= form.text_area :facts,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -315,6 +303,24 @@
         </div>
 
         <hr>
+
+        <%= form.label "Tipo moneda" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {class:"form-control", id:"moneyType"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Valor del dólar" %>
+        <div class="input-group">
+          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
 
         <%= form.label "Valor pretensión" %>
         <div class="input-group">
@@ -355,7 +361,7 @@
         <%= form.label "Etapa actual" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:current_stage_id, CurrentStage.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:current_stage_id, CurrentStage.prejudicial, :id, :name, {}, {:class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -444,7 +450,7 @@
 
         <%= form.label "Razón de no conciliar" %>
         <div class="input-group">
-            <%= form.text_area :reason_conc,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"reason_conc", class:"form-control" %>
+            <%= form.text_area :reason_conc,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", id:"reason_conc", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -452,7 +458,7 @@
 
         <%= form.label "Razón de invialibilidad" %>
         <div class="input-group">
-            <%= form.text_area :reason_inv,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"reason_inv", class:"form-control" %>
+            <%= form.text_area :reason_inv,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", id:"reason_inv", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

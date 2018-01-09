@@ -54,7 +54,7 @@
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <div class="input-group">
           <div class="styled-select">
-            <select id="has_num_radicade" class="form-control">
+            <select id="radicate" class="form-control">
               <option value="No">NO</option>
               <option value="Si">SI</option>
             </select>
@@ -66,7 +66,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -106,10 +106,10 @@
           </span>
         </div>
 
-        <%= form.label "Departamento" %>
+        <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_coljuegos", class:"form-control"} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, '2'), {}, {id:"departament_coljuegos", class:"form-control"} %>
             <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -121,7 +121,7 @@
         <div class="input-group">
           <div class="styled-select">
             <select name="type_process[city_case]" id="cities">
-              <option value="default" selected="selected">SELECCIONE</option>
+              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">

@@ -11,19 +11,23 @@
 class LinkType < ApplicationRecord
 
   def self.fiscal
-    LinkType.find([5])
+    LinkType.order(:name).find([5])
   end
 
   def self.judicial
-    LinkType.find([3,4])
+    LinkType.order(:name).find([3,4])
   end
 
   def self.tutelage
-    LinkType.find([4])
+    LinkType.order(:name).find([4])
   end
 
   def self.administrative
-    LinkType.find([2])
+    LinkType.order(:name).find([2])
+  end
+
+  def self.prejuducial
+    LinkType.all.order(:name)
   end
 
 end

@@ -9,4 +9,9 @@
 #
 
 class ScoreContingency < ApplicationRecord
+
+  def self.ordered
+    ScoreContingency.all.order(:name)
+  end
+
 end

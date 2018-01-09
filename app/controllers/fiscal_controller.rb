@@ -33,7 +33,7 @@ class FiscalController < ApplicationController
   end
 
   private
-    def set_judicial
+    def set_fiscal
       @fiscal = TypeProcess.find(params[:id])
     end
 

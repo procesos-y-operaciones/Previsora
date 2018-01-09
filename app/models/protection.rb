@@ -11,11 +11,15 @@
 class Protection < ApplicationRecord
 
   def self.coljuegos
-    Protection.find([36])
+    Protection.order(:name).find([36])
   end
 
   def self.ordinarie
-    Protection.find([37, 38, 39, 40])
+    Protection.order(:name).find([37, 38, 39, 40])
+  end
+
+  def self.ordered
+    Protection.oder(:name)
   end
 
 end

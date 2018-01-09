@@ -26,7 +26,7 @@
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {class:""}) %>
+            <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -36,7 +36,7 @@
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {class:"form-control", id:"subprocessClass"}) %>
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {class:"form-control", id:"subprocess_class"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -46,9 +46,9 @@
         <%= form.label "Tiene número de radicado correspondencia?" %>
         <div class="input-group">
           <div class="styled-select">
-            <select id="state" class="form-control">
-              <option value="No">No</option>
-              <option value="Si">Si</option>
+            <select id="radicate" class="form-control">
+              <option value="No">NO</option>
+              <option value="Si">SI</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -58,7 +58,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"correspondency_radicate", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -98,10 +98,10 @@
           </span>
         </div>
 
-        <%= form.label "Departamento" %>
+        <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:departament, Departament.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control"}) %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -111,15 +111,15 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <select name="type_process[city_case]" id="cities" prompt="SELECCIONE">
-              <option value="default" selected="selected">SELECCIONE</option>
+            <select name="type_process[city_case]" id="cities">
+              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
-        
+
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
@@ -344,7 +344,7 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:office_name, OfficeName.fiscal, :name, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.fiscal, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"office_name"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -353,7 +353,7 @@
 
         <%= form.label "Parte activa" %>
         <div class="input-group">
-          <%= form.text_field :active_part,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :active_part,  readOnly: true, class:"form-control", id:"active_part" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -432,14 +432,14 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {}, {class:"form-control", id:"caseState"}) %>
+            <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
-        <%= form.label "Fecha de decisión" %>
+        <%= form.label "Fecha de actuación" %>
         <div class="input-group">
           <%= form.date_field :desition_date, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
