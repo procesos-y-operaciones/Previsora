@@ -130,30 +130,29 @@ class TypeProcess < ApplicationRecord
      'Razon inviabilidad','Reserva liberada','Fecha notificacion impugnacion','Impugnante',
      'Tipo de sentencia segunda instancia – compañia','Fecha notificacion incident de desacato',
      'Fecha contestacion desacato','Tipo de sentencia incidente desacato','Fecha notificacion desacato',
-     'Fecha contestacion indicente desacato','Tipo de sentencia incidente desacato','Fecha notificacion decision incidente desacato',
      'Via gubertaniva']
   end
 
   def get_content_all
     [self.id, self.get_user, self.get_type_process, self.get_process_class, self.get_subprocess_class,
      self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui,
-     self.creation_date, self.get_link_type, self.departament, self.city_case,
-     self.get_reinsurance_type, self.reinsurance_report, self.reinsurance_value_cents,
+     self.creation_date, self.get_link_type, self.get_departament, self.city_case,
+     self.get_reinsurance_type, self.get_reinsurance_report, self.reinsurance_value_cents,
      self.get_coensurance_type, self.reinsurance_value_cents, self.get_litigation_source,
      self.policy_cents, self.get_protection, self.number, self.exercise, self.get_branch_policy,
      self.get_branch_commercial, self.sinister, self.get_money_type, self.dolar_value_cents,
      self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents, self.contingency_value_cents,
-     self.contingency_value_cents, self.notification_date, self.process_radicate, self.attorny,
+     self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
      self.attorny_date, self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
-     self.contingency_reason, self.contingency_resume, self.facts, self.get_current_stage, self.get_instance, self.get_case_state, self.desition_date,
+     self.contingency_reason, self.contingency_resume, self.facts, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
      self.get_case_termination, self.cost_value_cents, self.fail_value_cents, self.fail_previ_cents,
-     self.payed_value_cents, self.payment_date, self.recovery, self.coactive_radicate, self.coactive_value_cents,
-     self.garnish_value_cents, self.get_last_performance, self.last_performance_date,
+     self.payed_value_cents, format_date(self.payment_date), self.get_recovery, self.coactive_radicate, self.coactive_value_cents,
+     self.garnish_value_cents, self.get_last_performance, format_date(self.last_performance_date),
      self.get_join_committee, self.committee_date, self.get_committee, self.auth_value_cents,
-     self.reconcilie_value_cents, self.reason_conc, self.reason_inv, self.get_reserved_released, self.imp_date,
-     self.tutelage_imp, self.get_setence_type_second_company, self.date_notification_desacate,
-     self.date_answer_desacate, self.get_sentence_type_desacate, self.date_notification_desition_desacate,
-     self.gubernatorial_way_id
+     self.reconcilie_value_cents, self.reason_conc, self.reason_inv, self.get_reserved_released, format_date(self.imp_date),
+     self.tutelage_imp, self.get_setence_type_second_company, format_date(self.date_notification_desacate),
+     format_date(self.date_answer_desacate), self.get_sentence_type_desacate, format_date(self.date_notification_desition_desacate),
+     self.get_gubernatorial_way
     ]
   end
 
@@ -184,7 +183,7 @@ class TypeProcess < ApplicationRecord
 
   def get_process_class
     if self.process_class_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       ProcessClass.find(self.process_class_id).name
     end
@@ -192,7 +191,7 @@ class TypeProcess < ApplicationRecord
 
   def get_subprocess_class
     if self.subprocess_class_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       SubprocessClass.find(self.subprocess_class_id).name
     end
@@ -200,7 +199,7 @@ class TypeProcess < ApplicationRecord
 
   def get_link_type
     if self.link_type_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       LinkType.find(self.link_type_id).name
     end
@@ -208,7 +207,7 @@ class TypeProcess < ApplicationRecord
 
   def get_departament
     if self.departament_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       Departament.find(self.departament_id).name
     end
@@ -216,7 +215,7 @@ class TypeProcess < ApplicationRecord
 
   def get_city_case
     if self.city_case_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       CityCase.find(self.city_case_id).name
     end
@@ -224,7 +223,7 @@ class TypeProcess < ApplicationRecord
 
   def get_branch_commercial
     if self.branch_commercial_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       BranchCommercial.get_name(self.branch_commercial_id)
     end
@@ -232,7 +231,7 @@ class TypeProcess < ApplicationRecord
 
   def get_money_type
     if self.money_type_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       MoneyType.find(self.money_type_id).name
     end
@@ -240,7 +239,7 @@ class TypeProcess < ApplicationRecord
 
   def get_score_contingency
     if self.score_contingency_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       ScoreContingency.find(self.score_contingency_id).name
     end
@@ -248,7 +247,7 @@ class TypeProcess < ApplicationRecord
 
   def get_protection
     if self.protection_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       Protection.find(self.protection_id).name
     end
@@ -256,7 +255,7 @@ class TypeProcess < ApplicationRecord
 
   def get_current_stage
     if self.current_stage_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       CurrentStage.find(self.current_stage_id).name
     end
@@ -264,7 +263,7 @@ class TypeProcess < ApplicationRecord
 
   def get_litigation_source
     if self.litigation_source_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       LitigationSource.find(self.litigation_source_id).name
     end
@@ -272,7 +271,7 @@ class TypeProcess < ApplicationRecord
 
   def get_instance
     if self.instance_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       Instance.find(self.instance_id).name
     end
@@ -280,7 +279,7 @@ class TypeProcess < ApplicationRecord
 
   def get_case_state
     if self.case_state_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       CaseState.find(self.case_state_id).name
     end
@@ -288,7 +287,7 @@ class TypeProcess < ApplicationRecord
 
   def get_case_termination
     if self.case_termination_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       CaseTermination.find(self.case_termination_id).name
     end
@@ -296,7 +295,7 @@ class TypeProcess < ApplicationRecord
 
   def get_user
     if self.user_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       User.find(user_id).name
     end
@@ -304,7 +303,7 @@ class TypeProcess < ApplicationRecord
 
   def get_reinsurance_type
     if self.reinsurance_type_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       ReinsuranceType.find(self.reinsurance_type_id).name
     end
@@ -312,7 +311,7 @@ class TypeProcess < ApplicationRecord
 
   def get_coensurance_type
     if self.coensurance_type_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       CoensuranceType.find(self.coensurance_type_id).name
     end
@@ -320,7 +319,7 @@ class TypeProcess < ApplicationRecord
 
   def get_branch_policy
     if self.branch_policy_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       BranchPolicy.get_name(self.branch_policy_id)
     end
@@ -328,7 +327,7 @@ class TypeProcess < ApplicationRecord
 
   def get_last_performance
     if self.last_performance_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       LastPerformance.find(last_performance_id).name
     end
@@ -336,7 +335,7 @@ class TypeProcess < ApplicationRecord
 
   def get_join_committee
     if self.join_committee_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       JoinCommittee.find(self.join_committee_id).name
     end
@@ -344,7 +343,7 @@ class TypeProcess < ApplicationRecord
 
   def get_reserved_released
     if self.reserved_released_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       ReservedReleased.find(self.reserved_released_id).name
     end
@@ -352,23 +351,23 @@ class TypeProcess < ApplicationRecord
 
   def get_setence_type_second_company
     if self.setence_type_second_company_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
-      SetenceTypeSecondCompany.find(self.setence_type_second_company_id).name
+      CaseState.find(self.setence_type_second_company_id).name
     end
   end
 
   def get_sentence_type_desacate
     if self.sentence_type_desacate_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
-      SentenceTypeDesacate.find(self.sentence_type_desacate_id).name
+      CaseState.find(self.sentence_type_desacate_id).name
     end
   end
 
   def get_gubernatorial_way
     if self.gubernatorial_way_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       GubernatorialWay.find(self.gubernatorial_way_id).name
     end
@@ -376,9 +375,41 @@ class TypeProcess < ApplicationRecord
 
   def get_committee
     if self.committee_id == nil
-      "PENDIENTE"
+      "NO SE PRESENTA"
     else
       Committee.fin(self.committee_id).name
+    end
+  end
+
+  def get_departament
+    if CS.states(:co)[self.departament.to_sym] == nil
+      "PENDIENTE"
+    else
+      CS.states(:co)[self.departament.to_sym]
+    end
+  end
+
+  def get_reinsurance_report
+    if self.reinsurance_report == true
+      "SI"
+    else
+      "NO"
+    end
+  end
+
+  def get_recovery
+    if self.recovery == true
+      "SI"
+    else
+      "NO"
+    end
+  end
+
+  def format_date(date)
+    if date == nil
+      "0000-00-00"
+    else
+      date
     end
   end
 
