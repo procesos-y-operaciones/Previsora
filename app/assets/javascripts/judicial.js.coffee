@@ -458,6 +458,37 @@ $ ->
 
   cost_rule()
 
+  #ID BAP RULE
+  $('#case_id_bap').change ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_sise").required = true
+    else
+      document.getElementById("case_id_sise").required = false
+
+  $('#case_id_bap').ready ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_sise").required = true
+    else
+      document.getElementById("case_id_sise").required = false
+
+  #ID SISE RULE
+  $('#case_id_sise').change ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_bap").required = true
+    else
+      document.getElementById("case_id_bap").required = false
+
+  $('#case_id_sise').ready ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_bap").required = true
+    else
+      document.getElementById("case_id_bap").required = false
+
+
   #Departament Rule
   $('#departament').change ->
     input_state = $(this)
