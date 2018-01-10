@@ -29,6 +29,19 @@ class TypeProcessesController < ApplicationController
 
   # GET /type_processes/1/edit
   def edit
+    case @type_process.p_type
+    when 1
+      redirect_to edit_prejudicial_path(@type_process.id)
+    when 2
+      redirect_to edit_judicial_path(@type_process.id)
+    when 3
+      redirect_to edit_fiscal_path(@type_process.id)
+    when 4
+      redirect_to edit_administrative_path(@type_process.id)
+    when 5
+      redirect_to edit_tutelage_path(@type_process.id)
+    else
+    end
   end
 
   # POST /type_processes

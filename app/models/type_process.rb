@@ -167,11 +167,11 @@ class TypeProcess < ApplicationRecord
 
   def get_type_process
     if self.p_type == 1
-      "PREJUDICIAL"
+      "PROCESO PREJUDICIAL"
     elsif self.p_type == 2
-      "JUDICIAL"
+      "PROCESO JUDICIAL"
     elsif self.p_type == 3
-      "FISCAL"
+      "RESPONSABILIDAD FISCAL"
     elsif self.p_type == 4
       "PROCEDIMIENTO ADMINISTRATIVO"
     elsif self.p_type == 5
