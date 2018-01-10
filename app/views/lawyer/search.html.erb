@@ -3,22 +3,35 @@
 <div class="container-fluid p-15">
   <%= search_form_for @search, url: lawyer_search_url, class:"" do |f| %>
     <div class="row flexBox">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <div class="styled-select m-5">
           <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <%= f.text_field :correspondency_radicate_cont, placeholder: "N° RADICADO CORRESPONDENCIA", class:"form-control m-5 mb-5" %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <%= f.text_field :case_id_bap_cont, placeholder: "N° IDENTIFICACION BIZAGI ACCESS PA", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control m-5 mb-5" %>
       </div>
     </div>
     <div class="row flexBox">
       <div class="col-sm-3">
-        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control m-5 mb-5" %>
+        <div class="styled-select m-5">
+          <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament"} %>
+        </div>
       </div>
+      <div class="col-sm-3">
+        <div class="styled-select m-5">
+          <select name="type_process[city_case_eq]" id="cities">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row flexBox">
       <div class="col-sm-3">
         <%= f.text_field :active_part_cont, placeholder: "PARTE ACTIVA", class:"form-control m-5 mb-5" %>
       </div>

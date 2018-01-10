@@ -385,7 +385,7 @@ class TypeProcess < ApplicationRecord
     if CS.states(:co)[self.departament.to_sym] == nil
       "PENDIENTE"
     else
-      CS.states(:co)[self.departament.to_sym]
+      CS.states(:co)[self.departament.to_sym].upcase
     end
   end
 
@@ -414,9 +414,6 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.get_all_departament
-    CS.states(:co).each_pair do |k,v|
-      CS.states(:co)[k] = v.upcase
-    end
     CS.states(:co).sort_by {|_key, value| value}.to_h
   end
 
