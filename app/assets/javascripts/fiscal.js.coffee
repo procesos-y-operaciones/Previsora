@@ -5,13 +5,13 @@ $ ->
     v_option = document.getElementById('subprocess_class').value
     if v_option == '3'
       $('#currentStageVer').prop 'disabled', false
-      $('#currentStageOrd').prop 'disabled', true
       $('#currentStageVerDiv').show()
+      $('#currentStageOrd').prop 'disabled', true
       $('#currentStageOrdDiv').hide()
     if v_option == '4'
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageOrd').prop 'disabled', false
       $('#currentStageVerDiv').hide()
+      $('#currentStageOrd').prop 'disabled', false
       $('#currentStageOrdDiv').show()
 
   $('#subprocess_class').change ->
@@ -142,14 +142,12 @@ $ ->
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
-      $('#recovery').prop( "disabled", false )
     else
       $('#caseTermination').prop( "disabled", true )
       $('#lastPerformance').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#reservedReleased').prop( "disabled", true )
-      $('#recovery').prop( "disabled", true )
-
+  
   $('#caseState').change ->
     case_state_rule()
 
@@ -189,11 +187,32 @@ $ ->
         opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
         output_state.append opt
 
-  $('#departament').ready ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
-      $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
+  #ID BAP RULE
+  $('#case_id_bap').change ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_sise").required = true
+    else
+      document.getElementById("case_id_sise").required = false
+
+  $('#case_id_bap').ready ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_sise").required = true
+    else
+      document.getElementById("case_id_sise").required = false
+
+  #ID SISE RULE
+  $('#case_id_sise').change ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_bap").required = true
+    else
+      document.getElementById("case_id_bap").required = false
+
+  $('#case_id_sise').ready ->
+    value = $(this).val()
+    if value == ""
+      document.getElementById("case_id_bap").required = true
+    else
+      document.getElementById("case_id_bap").required = false

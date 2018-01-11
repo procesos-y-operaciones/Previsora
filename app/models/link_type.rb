@@ -15,11 +15,11 @@ class LinkType < ApplicationRecord
   end
 
   def self.judicial
-    LinkType.order(:name).find([3,4])
+    LinkType.order(:name).find([4,5])
   end
 
   def self.tutelage
-    LinkType.order(:name).find([4])
+    LinkType.order(:name).find([9, 10])
   end
 
   def self.administrative

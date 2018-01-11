@@ -9,4 +9,13 @@
 #
 
 class CaseTermination < ApplicationRecord
+
+  def self.tutelage
+    CaseTermination.find([1, 4, 5])
+  end
+
+  def self.other
+    CaseTermination.find([1, 2, 3])
+  end
+
 end

@@ -1,11 +1,19 @@
 $ ->
 
-  #Radicate Rule
+  #¿Tiene número de radicado correspondencia?
+  correspondency_radicate_rule = ->
+    if $('#correspondency_radicate').value == "NO PRESENTA"
+      $('#radicate').val('No')
+    else
+      $('#radicate').val('Si')
+  
+  correspondency_radicate_rule()
+  
+  
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
-      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
@@ -13,7 +21,7 @@ $ ->
   $('#radicate').change ->
     radicate_rule()
 
-  radicate_rule()
+
 
   #Tiene más pólizas?
   more_policies_rule = ->
