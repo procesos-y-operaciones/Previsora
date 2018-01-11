@@ -15,7 +15,7 @@ class LinkType < ApplicationRecord
   end
 
   def self.judicial
-    LinkType.order(:name).find([3,4])
+    LinkType.order(:name).find([4,5])
   end
 
   def self.tutelage
