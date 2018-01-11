@@ -143,14 +143,12 @@ $ ->
       document.getElementById("payment_date").readOnly = true
       document.getElementById("reason_conc").readOnly = false
       document.getElementById("reason_inv").readOnly = true
-
     else if v_option == "4"
       document.getElementById("auth_value").readOnly = true
       document.getElementById("payed_value").readOnly = true
       document.getElementById("payment_date").readOnly = true
       document.getElementById("reason_conc").readOnly = true
       document.getElementById("reason_inv").readOnly = false
-      e
     else
       document.getElementById("auth_value").readOnly = true
       document.getElementById("payed_value").readOnly = true
