@@ -26,7 +26,7 @@ class LawyerController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @report.to_csv }
-      format.xls { send_data @report.to_csv(col_sep: "\t") }
+      format.xls { send_data @report.to_csv(params[:q]["creation_date_gteq"], params[:q]["creation_date_lteq"], col_sep: "\t") }
     end
   end
 

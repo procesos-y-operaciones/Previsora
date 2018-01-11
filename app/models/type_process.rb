@@ -159,8 +159,14 @@ class TypeProcess < ApplicationRecord
     ]
   end
 
-  def self.to_csv(options = {})
+  def self.to_csv(date_from, date_until, options = {})
     CSV.generate(options) do |csv|
+      csv << ["LA PREVIORA S.A COMPAÑIA DE SEGUROS"]
+      csv << ["VICEPRESIDENCIA JURÍDICA"]
+      csv << ["REPORTE DE PROCESOS REGISTRADOS"]
+      csv << ["FECHA DE GENERACION: #{Date.today}"]
+      csv << ["DESDE: #{date_from} HASTA: #{date_until}"]
+      csv << []
       csv << column_names_all
       all.each do |p|
         csv << p.get_content_all
