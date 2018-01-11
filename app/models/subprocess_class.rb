@@ -27,7 +27,7 @@ class SubprocessClass < ApplicationRecord
   end
 
   def self.tutelage
-    SubprocessClass.find((28..39).step(1).to_a)
+    SubprocessClass.find((28..40).step(1).to_a)
   end
 
   def self.civil

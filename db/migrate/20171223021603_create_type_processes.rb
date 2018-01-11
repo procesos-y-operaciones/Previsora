@@ -29,6 +29,9 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.monetize  :reserved_fees
       t.monetize  :provision
       t.date      :desition_date
+      t.date      :answer_date
+      t.date      :objection_date_desition
+      t.date      :objection_date_desition_notification
       t.monetize  :fail_value
       t.monetize  :fail_previ
       t.monetize  :payed_value

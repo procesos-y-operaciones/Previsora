@@ -19,7 +19,7 @@ class LinkType < ApplicationRecord
   end
 
   def self.tutelage
-    LinkType.order(:name).find([4])
+    LinkType.order(:name).find([9, 10])
   end
 
   def self.administrative

@@ -335,23 +335,17 @@ $ ->
   #Case Termination Rule
   case_termination_rule = ->
     v_option = document.getElementById("caseTermination").value
-    switch v_option
-      when "2"
-        document.getElementById("fail_value").readOnly = false
-        document.getElementById("fail_previ").readOnly = false
-        document.getElementById("payed_value").readOnly = false
-        document.getElementById("payment_date").readOnly = false
-      when "3"
-        document.getElementById("fail_value").readOnly = true
-        document.getElementById("fail_previ").readOnly = true
-        document.getElementById("payed_value").readOnly = true
-        document.getElementById("payment_date").readOnly = true
-      else
-        document.getElementById("fail_value").readOnly = true
-        document.getElementById("fail_previ").readOnly = true
-        document.getElementById("payed_value").readOnly = true
-        document.getElementById("payment_date").readOnly = true
-
+    if v_option == "2"
+      document.getElementById("fail_value").readOnly = false
+      document.getElementById("fail_previ").readOnly = false
+      document.getElementById("payed_value").readOnly = false
+      document.getElementById("payment_date").readOnly = false
+    else
+      document.getElementById("fail_value").readOnly = true
+      document.getElementById("fail_previ").readOnly = true
+      document.getElementById("payed_value").readOnly = true
+      document.getElementById("payment_date").readOnly = true
+    
   $('#caseTermination').change ->
     case_termination_rule()
 

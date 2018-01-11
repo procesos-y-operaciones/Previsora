@@ -81,7 +81,8 @@ LinkType.create([
   {name: 'TERCERO CIVILMENTE RESPONSABLE'},
   {name: 'LLAMADO EN GARANTIA'},
   {name: 'ACCIONANTE'},
-  {name: 'ACCIONADO'}
+  {name: 'ACCIONADO'},
+  {name: 'VINCULADO'}
 ])
 
 BranchPolicy.create([
@@ -1442,7 +1443,9 @@ Instance.create([
 CaseTermination.create([
   {name: 'PENDIENTE'},
   {name: 'TERMINADO CON PAGO: EN CONTRA'},
-  {name: 'TERMINADO SIN PAGO: A FAVOR'}
+  {name: 'TERMINADO SIN PAGO: A FAVOR'},
+  {name: 'FAVORABLE'},
+  {name: 'DESFAVORABLE'}
 ])
 
 GubernatorialWay.create([
@@ -1460,12 +1463,6 @@ ReinsuranceType.create([
   {name: 'NO SE PRESENTO'},
   {name: 'FACULTATIVO'},
   {name: 'CUOTA PARTE'}
-])
-
-SentenceTypeDesacate.create([
-  {name: 'PENDIENTE'},
-  {name: 'TERMINADO CON PAGO: EN CONTRA'},
-  {name: 'TERMINADO SIN PAGO: A FAVOR'}
 ])
 
 MoneyType.create([
@@ -1517,7 +1514,8 @@ SubprocessClass.create([
   {name: 'INCAPACIDAD TEMPORAL'},
   {name: 'POLIZA VIDA GRUPO  '},
   {name: 'ACCIDENTES PERSONALES'},
-  {name: 'SOAT-AUTORIZACIONES EPS'},
+  {name: 'SOAT - AUTORIZACIONES EPS'},
+  {name: 'SOAT - PAGO INDEMNIZACIONES'},
   {name: 'EXPEDICION DE POLIZAS DE SERIDAD CANDIDATURA NO ASEGURABLE'},
   {name: "PROCESO ARBITRAL"},
   {name: 'NULIDAD POR INCONSTITUCIONALIDAD'},
@@ -1568,9 +1566,4 @@ LastPerformance.create([
   {name: "DESCARGOS"},
   {name: "ALEGATOS"},
   {name: "RECURSO DE REPOSICION"}
-])
-
-SetenceTypeSecondCompany.create([
-  {name: "TERMINADO CON PAGO: EN CONTRA"},
-  {name: "TERMINADO SIN PAGO: A FAVOR"}
 ])

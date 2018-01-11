@@ -214,6 +214,9 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.integer "provision_cents", default: 0, null: false
     t.string "provision_currency", default: "USD", null: false
     t.date "desition_date"
+    t.date "answer_date"
+    t.date "objection_date_desition"
+    t.date "objection_date_desition_notification"
     t.integer "fail_value_cents", default: 0, null: false
     t.string "fail_value_currency", default: "USD", null: false
     t.integer "fail_previ_cents", default: 0, null: false

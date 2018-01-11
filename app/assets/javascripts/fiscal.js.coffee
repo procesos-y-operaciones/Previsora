@@ -5,13 +5,13 @@ $ ->
     v_option = document.getElementById('subprocess_class').value
     if v_option == '3'
       $('#currentStageVer').prop 'disabled', false
-      $('#currentStageOrd').prop 'disabled', true
       $('#currentStageVerDiv').show()
+      $('#currentStageOrd').prop 'disabled', true
       $('#currentStageOrdDiv').hide()
     if v_option == '4'
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageOrd').prop 'disabled', false
       $('#currentStageVerDiv').hide()
+      $('#currentStageOrd').prop 'disabled', false
       $('#currentStageOrdDiv').show()
 
   $('#subprocess_class').change ->
@@ -142,14 +142,12 @@ $ ->
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
-      $('#recovery').prop( "disabled", false )
     else
       $('#caseTermination').prop( "disabled", true )
       $('#lastPerformance').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#reservedReleased').prop( "disabled", true )
-      $('#recovery').prop( "disabled", true )
-
+  
   $('#caseState').change ->
     case_state_rule()
 
