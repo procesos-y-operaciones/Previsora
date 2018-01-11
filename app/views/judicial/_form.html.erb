@@ -36,9 +36,9 @@
           <div class="styled-select">
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.admin, :id , :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessAdmin", required: true}) %>
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.civil, :id , :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessCivil", required: true}) %>
-            <%= form.collection_select(:subprocess_class_id, SubprocessClass.penal, :id , :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessPenal", required: true}) %>
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.penal, :id , :name, {}, {class:"form-control", id:"subprocessPenal", required: true}) %>
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.laboral, :id , :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessLaboral", required: true}) %>
-            <%= form.collection_select(:subprocess_class_id, SubprocessClass.arbitral, :id , :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessArbitral", required: true}) %>
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.arbitral, :id , :name, {}, {class:"form-control", id:"subprocessArbitral", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -62,7 +62,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -624,7 +624,7 @@
           </span>
         </div>
 
-        <%= form.label "Ingresa al comité?" %>
+        <%= form.label "¿Ingresa al comité?" %>
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:join_committee_id, JoinCommittee.all, :id, :name, {}, {class:"form-control", id:"join_committee"}) %>
@@ -642,7 +642,7 @@
           </span>
         </div>
 
-        <%= form.label "Desición del comité" %>
+        <%= form.label "Decisión del comité" %>
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {class:"form-control", id:"committee"}) %>
@@ -676,7 +676,7 @@
           </span>
         </div>
 
-        <%= form.label "Razón de invialibilidad" %>
+        <%= form.label "Razón de inviabilidad" %>
         <div class="input-group">
           <%= form.text_area :reason_inv,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"reason_inv", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">

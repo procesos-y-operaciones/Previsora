@@ -5,13 +5,17 @@ $ ->
     v_option = document.getElementById("radicate").value
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
-      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
+      $("#correspondency_radicate").val("NO PRESENTA")
+  radicate_val_rule = ->
+    v_option = document.getElementById("radicate").value
+    if v_option == "Si"
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
     radicate_rule()
+    radicate_val_rule()
 
   radicate_rule()
 
@@ -161,82 +165,19 @@ $ ->
   litigation_source_rule()
 
   #Process Class Rule
-  process_class_rule = ->
-    v_option = document.getElementById("processClass").value
-    switch v_option
-      when "1"
-        $('#subprocessAdmin').prop( "disabled", false )
-        $('#subprocessAdmin').show()
-        $('#subprocessPenal').prop( "disabled", true )
-        $('#subprocessPenal').hide()
-        $('#subprocessCivil').prop( "disabled", true )
-        $('#subprocessCivil').hide()
-        $('#subprocessLaboral').prop( "disabled", true )
-        $('#subprocessLaboral').hide()
-        $('#subprocessArbitral').prop( "disabled", true )
-        $('#subprocessArbitral').hide()
-      when "2"
-        $('#subprocessAdmin').prop( "disabled", true )
-        $('#subprocessAdmin').hide()
-        $('#subprocessPenal').prop( "disabled", true )
-        $('#subprocessPenal').hide()
-        $('#subprocessCivil').prop( "disabled", false )
-        $('#subprocessCivil').show()
-        $('#subprocessLaboral').prop( "disabled", true )
-        $('#subprocessLaboral').hide()
-        $('#subprocessArbitral').prop( "disabled", true )
-        $('#subprocessArbitral').hide()
-      when "11"
-        $('#subprocessPenal').prop( "disabled", false )
-        $('#subprocessPenal').show()
-        $('#subprocessAdmin').prop( "disabled", true )
-        $('#subprocessAdmin').hide()
-        $('#subprocessCivil').prop( "disabled", true )
-        $('#subprocessCivil').hide()
-        $('#subprocessLaboral').prop( "disabled", true )
-        $('#subprocessLaboral').hide()
-        $('#subprocessArbitral').prop( "disabled", true )
-        $('#subprocessArbitral').hide()
-      when "12"
-        $('#subprocessPenal').prop( "disabled", true )
-        $('#subprocessPenal').hide()
-        $('#subprocessAdmin').prop( "disabled", true )
-        $('#subprocessAdmin').hide()
-        $('#subprocessCivil').prop( "disabled", true )
-        $('#subprocessCivil').hide()
-        $('#subprocessLaboral').prop( "disabled", false )
-        $('#subprocessLaboral').show()
-        $('#subprocessArbitral').prop( "disabled", true )
-        $('#subprocessArbitral').hide()
-      when "30"
-        $('#subprocessPenal').prop( "disabled", true )
-        $('#subprocessPenal').hide()
-        $('#subprocessAdmin').prop( "disabled", true )
-        $('#subprocessAdmin').hide()
-        $('#subprocessCivil').prop( "disabled", true )
-        $('#subprocessCivil').hide()
-        $('#subprocessLaboral').prop( "disabled", true )
-        $('#subprocessLaboral').hide()
-        $('#subprocessArbitral').prop( "disabled", false )
-        $('#subprocessArbitral').show()
-      else
-        $('#subprocessAdmin').prop( "disabled", true )
-        $('#subprocessAdmin').hide()
-        $('#subprocessPenal').prop( "disabled", true )
-        $('#subprocessPenal').hide()
-        $('#subprocessCivil').prop( "disabled", true )
-        $('#subprocessCivil').hide()
-        $('#subprocessLaboral').prop( "disabled", true )
-        $('#subprocessLaboral').hide()
-        $('#subprocessArbitral').prop( "disabled", true )
-        $('#subprocessArbitral').hide()
-
-  $('#processClass').change ->
-    process_class_rule()
-
-  process_class_rule()
-
-  hide_all_selectors = ->
+  hide_all_subprocess = ->
+    $('#subprocessAdmin').prop( "disabled", true )
+    $('#subprocessAdmin').hide()
+    $('#subprocessCivil').prop( "disabled", true )
+    $('#subprocessCivil').hide()
+    $('#subprocessPenal').prop( "disabled", true )
+    $('#subprocessPenal').hide()
+    $('#subprocessLaboral').prop( "disabled", true )
+    $('#subprocessLaboral').hide()
+    $('#subprocessArbitral').prop( "disabled", true )
+    $('#subprocessArbitral').hide()
+  
+  hide_all_stages = ->
     $('#judicial_admin').prop( 'disabled', true )
     $('#judicial_admin').hide()
     $('#judicial_penal').prop( 'disabled', true )
@@ -267,24 +208,58 @@ $ ->
     $('#judicial_ordinario').hide()
     $('#judicial_divisorio').prop( 'disabled', true )
     $('#judicial_divisorio').hide()
-
-  #Subprocess Admin Rule
-  subprocess_admin_rule = ->
-    hide_all_selectors()
-    $('#judicial_admin').prop( "disabled", false )
-    $('#judicial_admin').show()
-
-  $('#judicial_admin').change ->
-    subprocess_admin_rule()
-
-  subprocess_admin_rule()
+    
+  process_class_rule = ->
+    hide_all_subprocess()
+    v_option = document.getElementById("processClass").value
+    switch v_option
+      when "1"
+        $('#subprocessAdmin').prop( "disabled", false )
+        $('#subprocessAdmin').show()
+      when "2"
+        $('#subprocessCivil').prop( "disabled", false )
+        $('#subprocessCivil').show()
+      when "11"
+        $('#subprocessPenal').prop( "disabled", false )
+        $('#subprocessPenal').show()
+      when "12"
+        $('#subprocessLaboral').prop( "disabled", false )
+        $('#subprocessLaboral').show()
+      when "30"
+        $('#subprocessArbitral').prop( "disabled", false )
+        $('#subprocessArbitral').show()
+        
+  current_stage_rule = ->
+    hide_all_stages()
+    v_option = document.getElementById("processClass").value
+    switch v_option
+      when "1"
+        $('#judicial_admin').prop( 'disabled', false )
+        $('#judicial_admin').show()
+      when "11"
+        $('#judicial_penal').prop( "disabled", false )
+        $('#judicial_penal').show()
+      when "12"
+        $('#judicial_laboral').prop( "disabled", false )
+        $('#judicial_laboral').show()
+      when "30"
+        $('#judicial_arbitral').prop( "disabled", false )
+        $('#judicial_arbitral').show()
+    
+  $('#processClass').change ->
+    process_class_rule()
+    current_stage_rule()
+  
+  process_class_rule()
+  current_stage_rule()
 
   #Subprocess Civil Verbal
   subprocess_civil_rule = ->
-    hide_all_selectors()
+    hide_all_stages()
     v_option = document.getElementById("subprocessCivil").value
     switch v_option
       when "55"
+        alert "wea"
         $('#judicial_verbal').prop( "disabled", false )
         $('#judicial_verbal').show()
       when "56"
@@ -317,46 +292,10 @@ $ ->
       when "65"
         $('#judicial_voluntaria').prop( "disabled", false )
         $('#judicial_voluntaria').show()
-      else
-        hide_all_selectors()
-
+      
   $('#subprocessCivil').change ->
     subprocess_civil_rule()
-
   subprocess_civil_rule()
-
-  #Subprocess Penal Rule
-  subprocess_penal_rule = ->
-    hide_all_selectors()
-    $('#judicial_penal').prop( "disabled", false )
-    $('#judicial_penal').show()
-
-  $('#judicial_penal').change ->
-    subprocess_penal_rule()
-
-  subprocess_penal_rule()
-
-  #Subprocess Laboral Rule
-  subprocess_laboral_rule = ->
-    hide_all_selectors()
-    $('#judicial_laboral').prop( "disabled", false )
-    $('#judicial_laboral').show()
-
-  $('#judicial_laboral').change ->
-    subprocess_laboral_rule()
-
-  subprocess_laboral_rule()
-
-  #Subprocess Arbitral Rule
-  subprocess_arbitral_rule = ->
-    hide_all_selectors()
-    $('#judicial_arbitral').prop( "disabled", false )
-    $('#judicial_arbitral').show()
-
-  $('#judicial_arbitral').change ->
-    subprocess_laboral_rule()
-
-  subprocess_laboral_rule()
 
   #Money Type Rule
   money_type_rule = ->
@@ -396,23 +335,17 @@ $ ->
   #Case Termination Rule
   case_termination_rule = ->
     v_option = document.getElementById("caseTermination").value
-    switch v_option
-      when "2"
-        document.getElementById("fail_value").readOnly = false
-        document.getElementById("fail_previ").readOnly = false
-        document.getElementById("payed_value").readOnly = false
-        document.getElementById("payment_date").readOnly = false
-      when "3"
-        document.getElementById("fail_value").readOnly = true
-        document.getElementById("fail_previ").readOnly = true
-        document.getElementById("payed_value").readOnly = true
-        document.getElementById("payment_date").readOnly = true
-      else
-        document.getElementById("fail_value").readOnly = true
-        document.getElementById("fail_previ").readOnly = true
-        document.getElementById("payed_value").readOnly = true
-        document.getElementById("payment_date").readOnly = true
-
+    if v_option == "2"
+      document.getElementById("fail_value").readOnly = false
+      document.getElementById("fail_previ").readOnly = false
+      document.getElementById("payed_value").readOnly = false
+      document.getElementById("payment_date").readOnly = false
+    else
+      document.getElementById("fail_value").readOnly = true
+      document.getElementById("fail_previ").readOnly = true
+      document.getElementById("payed_value").readOnly = true
+      document.getElementById("payment_date").readOnly = true
+    
   $('#caseTermination').change ->
     case_termination_rule()
 
