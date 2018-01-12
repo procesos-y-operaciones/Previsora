@@ -1,0 +1,24 @@
+<h4 class="justify m-30-60">
+    Bienvenido apreciado(a) <%= @user.name.titleize %>.
+    <br><br>
+    Aquí podrá administrar los usuarios de la Base de datos única.
+</h4>
+
+<div class="container-fluid row mb-30">
+    <div class="col-sm-offset-4 col-sm-2 center">
+        <%= link_to new_user_registration_path, :class=>"link" do %>
+            <span class="glyphicon glyphicon-plus btn-circle btn-inverse"></span>
+        <% end %>
+        <div class="fw center ligthgreen">
+            Agregar usuario
+        </div>
+    </div>
+    <div class="col-sm-2 center">
+        <%= link_to coordinator_search_path, :class=>"link" do %>
+            <span class="glyphicon glyphicon-user btn-circle btn-inverse"></span>
+        <% end %>
+        <div class="fw center ligthgreen">
+            Editar o borrar
+        </div>
+    </div>
+</div>

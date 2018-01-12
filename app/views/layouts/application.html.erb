@@ -16,7 +16,7 @@
           <%= image_tag("bannerprevisora.jpg", width:"100%", height:"150px", style:"position:absolute; z-index:-1") %>
           <ul class="right p-15">
             <% if user_signed_in? %>
-              <%= link_to "INICIO", index_lawyer_path, class:"link-inverse" %>
+              <%= link_to "INICIO", index_home_path, class:"link-inverse" %>
               <%= link_to current_user.name, edit_user_registration_path, class:"link-inverse" %>
               <%= link_to "CERRAR SESIÓN", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
             <% else %>
