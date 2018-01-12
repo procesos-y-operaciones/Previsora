@@ -56,7 +56,7 @@
         <%= form.label "Número de identificación del caso (Bizagi, Access y PA)" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :case_id_bap,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control", id:"case_id_bap" %>
+            <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>

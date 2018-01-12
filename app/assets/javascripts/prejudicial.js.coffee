@@ -1,12 +1,4 @@
 $ ->
-  #Número de identificación del caso (bizagi, access y pa)
-  id_bap_rule = ->
-    v_option = document.getElementById("case_id_bap").value
-    $('#process_radicate').val(v_option)
-
-  $('#case_id_bap').change ->
-    id_bap_rule()
-
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
     if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
@@ -29,6 +21,19 @@ $ ->
   $('#radicate').change ->
     radicate_rule()
 
+
+  #Número de identificación del caso (bizagi, access y pa)
+  id_bap_rule = ->
+    v_option = document.getElementById("case_id_bap").value
+    if v_option == "NO APLICA"
+      $('#case_id_bap').val("PENDIENTE")
+      v_option = document.getElementById("case_id_bap").value
+    $('#process_radicate').val(v_option)
+
+  $('#case_id_bap').change ->
+    id_bap_rule()
+
+  id_bap_rule()
 
   #Fuente de litigio
   num = 0
@@ -107,15 +112,12 @@ $ ->
       document.getElementById("sinisters").readOnly = false
     if v_option == "No"
       document.getElementById("policies").readOnly = true
-      $("#correspondency_radicate").val("PENDIENTE")
+      $("#policies").val("PENDIENTE")
       document.getElementById("sinisters").readOnly = true
-      $("#correspondency_radicate").val("PENDIENTE")
+      $("#sinisters").val("PENDIENTE")
 
   $('#more_policies').change ->
     more_policies_rule()
-
-  more_policies_rule()
-
 
   #Tipo moneda
   money_type_rule = ->
@@ -160,7 +162,7 @@ $ ->
   join_committee_rule()
 
 
-  #Committee Rule
+  #Decisión del comité
   committee_rule = ->
     v_option = document.getElementById("committee").value
     switch v_option
@@ -209,6 +211,7 @@ $ ->
 
   committee_rule()
 
+  #Departamento donde cursa el caso
   $('#departament').change ->
     input_state = $(this)
     output_state = $('#cities')
