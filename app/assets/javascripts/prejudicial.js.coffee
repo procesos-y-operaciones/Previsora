@@ -35,6 +35,7 @@ $ ->
 
   id_bap_rule()
 
+
   #Fuente de litigio
   num = 0
   exer = 0
@@ -141,6 +142,7 @@ $ ->
       document.getElementById("reinsurance_value").readOnly = false
     else
       document.getElementById("reinsurance_value").readOnly = true
+      $("#reinsurance_value").val(0)
 
   $("#reinsurance_type").change ->
     reinsurance_type_rule()
