@@ -250,8 +250,6 @@ $ ->
   $('#litigationSource').change ->
     litigation_source_rule()
 
-  litigation_source_rule()
-
   $("#number").change ->
     num = numSiniestro.concat(document.getElementById("number").value)
     $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
