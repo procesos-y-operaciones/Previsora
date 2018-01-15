@@ -1,11 +1,33 @@
 class CoordinatorController < ApplicationController
 
+  before_action :set_user, only: [:edit, :update, :destroy]
+
   def new
     @user = User.new
   end
 
+  def edit
+    @current = current_user
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to root_path, notice: 'Usuario actualizado correctamente.'
+    else
+      render :edit
+    end
+  end
+
   def management
     @user = current_user
+    @search = User.ransack(params[:q])
+    @report = @search.result
+    @users = @search.result.paginate(page: params[:page], per_page: 10)
+    if params[:page] == nil
+      @page = 0
+    else
+      @page = 10 * (params[:page].to_i - 1)
+    end
   end
 
   def search
@@ -19,20 +41,24 @@ class CoordinatorController < ApplicationController
     end
   end
 
-  def report
-    @search = TypeProcess.ransack(params[:q])
-    @report = @search.result
-    @processes = @search.result.paginate(page: params[:page], per_page: 10)
-    if params[:page] == nil
-      @page = 0
+  def destroy
+    if @user.type_processes == []
+      @user.destroy
+      redirect_to root_path, notice: 'Usuario borrado correctamente.'
     else
-      @page = 10 * (params[:page].to_i - 1)
-    end
-    respond_to do |format|
-      format.html
-      format.csv { send_data @report.to_csv }
-      format.xls { send_data @report.to_csv(params[:q]["creation_date_gteq"], params[:q]["creation_date_lteq"], col_sep: "\t") }
+      redirect_to coordinator_management_path, notice: 'Debes eliminar todos los procesos de este usuario para poder borrarlo.'
     end
   end
+
+  protected
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :document, :password, :password_confirmation, :role)
+    end
+
 
 end
