@@ -44,20 +44,20 @@
         <%= form.label "Tipología" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.coljuegos, :id , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"gubernatorial_coljuegos"}) %>
-            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.ordinarie, :id , :name, {}, {class:"form-control", id:"gubernatorial_ordinarie"}) %>
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.coljuegos, :id , :name, {prompt: "SELECCIONE"}, {id:"gubernatorial_coljuegos", class:"form-control"}) %>
+            <%= form.collection_select(:gubernatorial_way_id, GubernatorialWay.ordinarie, :id , :name, {}, {id:"gubernatorial_ordinarie", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
-        <%= form.label "Tiene número de radicado correspondencia?" %>
+        <%= form.label "¿Tiene número de radicado correspondencia?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="radicate" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -75,7 +75,7 @@
 
         <%= form.label "Número de identificación del caso (Bizagi y PA)" %>
         <div class="input-group">
-          <%= form.text_field :case_id_bap, pattern:"[A-Z0-9\- ]*", title: t(:pattern), value: "", id:"case_id_bap", placeholder: "INGRESE EL NUMERO", class:"form-control" %>
+          <%= form.text_field :case_id_bap, id:"case_id_bap", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -83,7 +83,7 @@
 
         <%= form.label "Número de identificación del caso SISE" %>
         <div class="input-group">
-          <%= form.text_field :case_id_sise, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_sise", value: "", placeholder: "INGRESE EL NUMERO", class:"form-control" %>
+          <%= form.text_field :case_id_sise, id:"case_id_sise", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -110,8 +110,8 @@
         <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"  ", class:"form-control"} %>
             <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, '2'), {}, {id:"departament_coljuegos", class:"form-control"} %>
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -190,8 +190,8 @@
         <%= form.label "Amparo" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:protection_id, Protection.coljuegos, :id, :name, {}, {class:"form-control", id:"protection_coljuegos"}) %>
-            <%= form.collection_select(:protection_id, Protection.ordinarie, :id, :name, {}, {class:"form-control", id:"protection_ordinarie"}) %>
+            <%= form.collection_select(:protection_id, Protection.coljuegos, :id, :name, {}, {id:"protection_coljuegos", class:"form-control"}) %>
+            <%= form.collection_select(:protection_id, Protection.ordinarie, :id, :name, {prompt:"SELECCIONE"}, {id:"protection_ordinarie", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -242,12 +242,12 @@
           </span>
         </div>
 
-        <%= form.label "Tiene más pólizas?" %>
+        <%= form.label "¿Tiene más pólizas?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="more_policies" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -274,7 +274,8 @@
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"moneyType"}) %>
+            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {prompt: "SELECCIONE"}, {id:"moneyType", class:"form-control"}) %>
+            <%= form.collection_select(:money_type_id, MoneyType.cents, :id, :name, {}, {id:"moneyCents", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -283,7 +284,7 @@
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, class:"form-control", id:"dolarValueCents" %>
+          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -331,7 +332,7 @@
 
         <%= form.label "Apoderado Previsora" %>
         <div class="input-group">
-          <%= form.text_field :attorny, pattern:"[A-Z0-9\- ]*", title: t(:pattern), value:"", placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :attorny, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -349,10 +350,10 @@
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
-            <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {}, {id:"office_name_ord", class:"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {prompt:"SELECCIONE"}, {id:"office_name_ord", class:"form-control"}) %>
           </div>
           <div>
-            <%= form.text_field :office_name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:'NOMBRE DEL DESPACHO', value: "", required: true, id: "office_text", class: "form-control" %>
+            <%= form.text_field :office_name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:'NOMBRE DEL DESPACHO', required: true, id: "office_text", class: "form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -371,7 +372,7 @@
 
         <%= form.label "Razón contingencia" %>
         <div class="input-group">
-          <%= form.text_field :contingency_reason, pattern:"[A-Z0-9\- ]*", title: t(:pattern), value: "PENDIENTE",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_field :contingency_reason, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -417,7 +418,7 @@
 
         <%= form.label "Valor sanción" %>
         <div class="input-group">
-          <%= form.number_field :fail_value_cents, class:"form-control", id:"fail_value" %>
+          <%= form.number_field :fail_value_cents, id:"fail_value", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -433,7 +434,7 @@
 
         <%= form.label "Valor sanción a cargo de Previsora" %>
         <div class="input-group">
-          <%= form.number_field :fail_previ_cents, class:"form-control", id:"fail_previ" %>
+          <%= form.number_field :fail_previ_cents, id:"fail_previ", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -465,12 +466,12 @@
           </span>
         </div>
 
-        <%= form.label "Tiene número de radicado de coactivo?" %>
+        <%= form.label "¿Tiene número de radicado de coactivo?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="coactive" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -480,7 +481,7 @@
 
         <%= form.label "Número de radicación de coactivo" %>
         <div class="input-group">
-          <%= form.text_field :coactive_radicate,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"coactive_radicate", class:"form-control" %>
+          <%= form.text_field :coactive_radicate, id:"coactive_radicate",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -496,7 +497,7 @@
 
         <%= form.label "Valor embargo" %>
         <div class="input-group">
-          <%= form.number_field :garnish_value_cents, class:"form-control", id:"garnish_value" %>
+          <%= form.number_field :garnish_value_cents, id:"garnish_value", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

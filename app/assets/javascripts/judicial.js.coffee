@@ -419,7 +419,6 @@ $ ->
     coactive_rule()
 
 
-
   #¿Ingresa al comité?
   join_committee_rule = ->
     v_option = document.getElementById("join_committee").value

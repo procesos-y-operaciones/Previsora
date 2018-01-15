@@ -73,7 +73,6 @@ $ ->
   $('#case_id_sise').change ->
     case_id_bap_and_sise_rule()
 
-
   #Fuente de litigio
   num=0
   exer=0
@@ -254,7 +253,7 @@ $ ->
   $('#coactive').change ->
     coactive_rule()
 
-  
+
   #Departamento donde cursa el caso
   $('#departament').change ->
     input_state = $(this)
