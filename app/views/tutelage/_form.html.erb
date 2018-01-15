@@ -4,10 +4,11 @@
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
+
       <ul>
-        <% type_process.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% type_process.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
@@ -64,7 +65,7 @@
 
         <%= form.label "Número de radicado correspondencia o vicepresidencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -114,7 +115,7 @@
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :process_radicate, onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -123,7 +124,7 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :office_name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', value: "", required: true, id: "office_text", required: true, class: "form-control" %>
+            <%= form.text_field :office_name, placeholder: 'NOMBRE DEL DESPACHO', value: "", id: "office_text", required: true, class: "form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -132,7 +133,7 @@
 
         <%= form.label "Parte activa" %>
         <div class="input-group">
-          <%= form.text_field :active_part, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :active_part, onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -140,7 +141,7 @@
 
         <%= form.label "Parte pasiva" %>
         <div class="input-group">
-          <%= form.text_field :passive_part, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", value:"PREVISORA S.A", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :passive_part, onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", value:"PREVISORA S.A", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -199,7 +200,7 @@
 
         <%= form.label "Impugnante" %>
         <div class="input-group">
-          <%= form.text_field :tutelage_imp, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
+          <%= form.text_field :tutelage_imp, onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

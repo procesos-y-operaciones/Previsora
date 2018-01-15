@@ -1,11 +1,27 @@
 $ ->
+  #Número de identificación del caso (bizagi, access y pa)
+  id_bap_rule = ->
+    v_option = document.getElementById("case_id_bap").value
+    $('#process_radicate').val(v_option)
 
-  #Radicate Rule
+  $('#case_id_bap').change ->
+    id_bap_rule()
+
+  #¿Tiene número de radicado correspondencia?
+  correspondency_radicate_rule = ->
+    if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
+      $('#radicate').val('No')
+      document.getElementById("correspondency_radicate").readOnly = true
+      $("#correspondency_radicate").val("NO PRESENTA")
+    else
+      $('#radicate').val('Si')
+
+  correspondency_radicate_rule()
+
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
     if v_option == "Si"
       document.getElementById("correspondency_radicate").readOnly = false
-      $("#correspondency_radicate").val("")
     if v_option == "No"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
@@ -13,41 +29,12 @@ $ ->
   $('#radicate').change ->
     radicate_rule()
 
-  radicate_rule()
 
-  #Tiene más pólizas?
-  more_policies_rule = ->
-    v_option = document.getElementById("more_policies").value
-    if v_option == "Si"
-      document.getElementById("policies").readOnly = false
-      document.getElementById("sinisters").readOnly = false
-    if v_option == "No"
-      document.getElementById("policies").readOnly = true
-      document.getElementById("sinisters").readOnly = true
-
-  $('#more_policies').change ->
-    more_policies_rule()
-
-  more_policies_rule()
-
-  #Tipo de reaseguro
-  reinsurance_type_rule = ->
-    v_option = document.getElementById("reinsurance_type").value
-    if v_option == "2" || v_option == "3"
-      document.getElementById("reinsurance_value").readOnly = false
-    else
-      document.getElementById("reinsurance_value").readOnly = true
-
-  $("#reinsurance_type").change ->
-    reinsurance_type_rule()
-
-  reinsurance_type_rule()
-
-  #Litigation Source Rule
-  num=0
-  exer=0
-  poly=0
-  comm=0
+  #Fuente de litigio
+  num = 0
+  exer = 0
+  poly = 0
+  comm = 0
   numSiniestro = ""
   litigation_source_rule = ->
     v_option = document.getElementById("litigationSource").value
@@ -62,11 +49,17 @@ $ ->
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
       document.getElementById("policyCents").readOnly = true
+      $('#policyCents').val("0")
       $('#protection').prop( "disabled", true )
+      $('#protection').val("")
       document.getElementById("number").readOnly = true
+      $('#number').val("0")
       document.getElementById("exercise").readOnly = true
+      $('#exercise').val("0")
       $('#branch_policy').prop( "disabled", true )
+      $('#branch_policy').val("0")
       $('#branch_commercial').prop( "disabled", true )
+      $('#branch_commercial').val("0")
       $('#more_policies').prop( "disabled", true )
       $("#sinister").val("NO APLICA")
 
@@ -91,30 +84,40 @@ $ ->
     comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
     $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
 
-  #Join Committee Rule
-  join_committee_rule = ->
-    v_option = document.getElementById("join_committee").value
-    if v_option == "2"
-      $('#committee').prop( "disabled", false )
+
+  #¿Tiene más pólizas?
+  policies_and_sinisters_rule = ->
+    polici = $('#policies').val()
+    sinister = $('#sinisters').val()
+    if (polici == "NO APLICA" && sinister == "NO APLICA") || (polici == "PENDIENTE" && sinister == "PENDIENTE")
+      $('#more_policies').val('No')
+      document.getElementById("policies").readOnly = true
+      document.getElementById("sinisters").readOnly = true
+      $("#policies").val("PENDIENTE")
+      $("#sinisters").val("PENDIENTE")
     else
-      $('#committee').prop( "disabled", true )
+      $('#more_policies').val('Si')
 
-  $('#join_committee').change ->
-    join_committee_rule()
+  policies_and_sinisters_rule()
 
-  join_committee_rule()
+  more_policies_rule = ->
+    v_option = document.getElementById("more_policies").value
+    if v_option == "Si"
+      document.getElementById("policies").readOnly = false
+      document.getElementById("sinisters").readOnly = false
+    if v_option == "No"
+      document.getElementById("policies").readOnly = true
+      $("#correspondency_radicate").val("PENDIENTE")
+      document.getElementById("sinisters").readOnly = true
+      $("#correspondency_radicate").val("PENDIENTE")
 
-  #BAP Rule
-  id_bap_rule = ->
-    v_option = document.getElementById("case_id_bap").value
-    $('#process_radicate').val(v_option)
+  $('#more_policies').change ->
+    more_policies_rule()
 
-  $('#case_id_bap').change ->
-    id_bap_rule()
+  more_policies_rule()
 
-  id_bap_rule()
 
-  #Money Type Rule
+  #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
     if v_option == "1"
@@ -128,35 +131,78 @@ $ ->
 
   money_type_rule()
 
+
+  #Tipo de reaseguro
+  reinsurance_type_rule = ->
+    v_option = document.getElementById("reinsurance_type").value
+    if v_option == "2" || v_option == "3"
+      document.getElementById("reinsurance_value").readOnly = false
+    else
+      document.getElementById("reinsurance_value").readOnly = true
+
+  $("#reinsurance_type").change ->
+    reinsurance_type_rule()
+
+  reinsurance_type_rule()
+
+
+  #Ingresa al comité
+  join_committee_rule = ->
+    v_option = document.getElementById("join_committee").value
+    if v_option == "2"
+      $('#committee').prop( "disabled", false )
+    else
+      $('#committee').prop( "disabled", true )
+
+  $('#join_committee').change ->
+    join_committee_rule()
+
+  join_committee_rule()
+
+
   #Committee Rule
   committee_rule = ->
     v_option = document.getElementById("committee").value
-    if v_option == "2"
-      document.getElementById("auth_value").readOnly = false
-      document.getElementById("payed_value").readOnly = false
-      document.getElementById("payment_date").readOnly = false
-      document.getElementById("reason_conc").readOnly = true
-      document.getElementById("reason_inv").readOnly = true
-    else if v_option == "3"
-      document.getElementById("auth_value").readOnly = true
-      document.getElementById("payed_value").readOnly = true
-      document.getElementById("payment_date").readOnly = true
-      document.getElementById("reason_conc").readOnly = false
-      document.getElementById("reason_inv").readOnly = true
-
-    else if v_option == "4"
-      document.getElementById("auth_value").readOnly = true
-      document.getElementById("payed_value").readOnly = true
-      document.getElementById("payment_date").readOnly = true
-      document.getElementById("reason_conc").readOnly = true
-      document.getElementById("reason_inv").readOnly = false
-      e
-    else
-      document.getElementById("auth_value").readOnly = true
-      document.getElementById("payed_value").readOnly = true
-      document.getElementById("payment_date").readOnly = true
-      document.getElementById("reason_conc").readOnly = true
-      document.getElementById("reason_inv").readOnly = true
+    switch v_option
+      when "2"
+        document.getElementById("auth_value").readOnly = false
+        document.getElementById("payed_value").readOnly = false
+        document.getElementById("payment_date").readOnly = false
+        document.getElementById("reason_conc").readOnly = true
+        $('#reason_conc').val("PENDIENTE")
+        document.getElementById("reason_inv").readOnly = true
+        $('#reason_inv').val("PENDIENTE")
+      when "3"
+        document.getElementById("auth_value").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("payed_value").readOnly = true
+        $('#payed_value').val("0")
+        document.getElementById("payment_date").readOnly = true
+        $('#payment_date').val("0")
+        document.getElementById("reason_conc").readOnly = false
+        document.getElementById("reason_inv").readOnly = true
+        $('#reason_inv').val("PENDIENTE")
+      when "4"
+        document.getElementById("auth_value").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("payed_value").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("payment_date").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("reason_conc").readOnly = true
+        $('#reason_conc').val("PENDIENTE")
+        document.getElementById("reason_inv").readOnly = false
+      else
+        document.getElementById("auth_value").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("payed_value").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("payment_date").readOnly = true
+        $('#auth_value').val("0")
+        document.getElementById("reason_conc").readOnly = true
+        $('#reason_conc').val("PENDIENTE")
+        document.getElementById("reason_inv").readOnly = true
+        $('#reason_inv').val("PENDIENTE")
 
   $('#committee').change ->
     committee_rule()

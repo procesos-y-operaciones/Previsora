@@ -1,13 +1,17 @@
 <%= javascript_include_tag "fiscal" %>
 
+<% if flash[:error] == nil  %>
+  <%= flash[:error] %>
+<% end %>
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
       <ul>
-        <% type_process.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% type_process.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
@@ -19,12 +23,10 @@
         <%= form.hidden_field :p_type, :value => 3 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
 
-        <hr>
-
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {class:"form-control", required: true}) %>
+            <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -34,7 +36,7 @@
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {class:"form-control", id:"subprocess_class", required: true}) %>
+            <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {class:"form-control", id:"subprocess_class"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -56,7 +58,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:"INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -64,7 +66,7 @@
 
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <div class="input-group">
-          <%= form.text_field :case_id_bap, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_bap", value: "",  placeholder: "INGRESE EL NUMERO", class:"form-control" %>
+          <%= form.text_field :case_id_bap,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -72,7 +74,7 @@
 
         <%= form.label "Número de identificación del caso SISE" %>
         <div class="input-group">
-          <%= form.text_field :case_id_sise, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_sise", value: "", placeholder: "INGRESE EL NUMERO", class:"form-control" %>
+          <%= form.text_field :case_id_sise,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -89,7 +91,7 @@
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {class:"form-control", required: true}) %>
+            <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -97,6 +99,8 @@
         </div>
 
         <%= form.label "Departamento donde cursa el caso" %>
+        <div class="input-group">
+          <div class="styled-select">
         <div class="input-group">
           <div class="styled-select">
             <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control", required: true} %>
@@ -109,7 +113,7 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <select name="type_process[city_case]" id="cities" required="true">
+            <select name="type_process[city_case]" id="cities">
               <option value="PENDIENTE" selected="selected">SELECCIONE</option>
             </select>
           </div>
@@ -233,6 +237,8 @@
           </span>
         </div>
 
+        <%= form.label "Número de pólizas" %>
+        <div class="input-group">
         <%= form.label "Número de pólizas" %>
         <div class="input-group">
           <%= form.text_area :policies, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", id:"policies", class:"form-control" %>

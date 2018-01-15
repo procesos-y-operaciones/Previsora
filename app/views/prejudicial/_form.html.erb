@@ -4,6 +4,7 @@
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
+
       <ul>
         <% type_process.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -31,12 +32,12 @@
           </span>
         </div>
 
-        <%= form.label "Tiene número de radicado correspondencia?" %>
+        <%= form.label "¿Tiene número de radicado correspondencia?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="radicate" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -46,7 +47,7 @@
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", value:"PENDIENTE", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -55,7 +56,7 @@
         <%= form.label "Número de identificación del caso (Bizagi, Access y PA)" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :case_id_bap, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control", id:"case_id_bap" %>
+            <%= form.text_field :case_id_bap,  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value:"PENDIENTE", class:"form-control", id:"case_id_bap" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -64,7 +65,7 @@
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), readOnly: true, class:"form-control", id:"process_radicate" %>
+          <%= form.text_field :process_radicate, id:"process_radicate", class:"form-control", readOnly: true %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -196,12 +197,12 @@
           </span>
         </div>
 
-        <%= form.label "Tiene más pólizas?" %>
+        <%= form.label "¿Tiene más pólizas?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="more_policies" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -211,7 +212,7 @@
 
         <%= form.label "Número de pólizas" %>
         <div class="input-group">
-          <%= form.text_area :policies, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"policies", class:"form-control" %>
+          <%= form.text_area :policies, id:"policies", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -219,7 +220,7 @@
 
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
-          <%= form.text_area :sinisters, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"sinisters", class:"form-control" %>
+          <%= form.text_area :sinisters, id:"sinisters", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -449,7 +450,7 @@
 
         <%= form.label "Razón de no conciliar" %>
         <div class="input-group">
-            <%= form.text_area :reason_conc, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"reason_conc", class:"form-control" %>
+            <%= form.text_area :reason_conc, id:"reason_conc", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -457,7 +458,7 @@
 
         <%= form.label "Razón de invialibilidad" %>
         <div class="input-group">
-            <%= form.text_area :reason_inv, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", id:"reason_inv", class:"form-control" %>
+            <%= form.text_area :reason_inv, id:"reason_inv",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
