@@ -146,12 +146,12 @@ class TypeProcess < ApplicationRecord
      self.get_branch_commercial, self.sinister, self.get_money_type, self.dolar_value_cents,
      self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents, self.contingency_value_cents,
      self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
-     self.attorny_date, self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
+     format_date(self.attorny_date), self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
      self.contingency_reason, self.contingency_resume, self.facts, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
      self.get_case_termination, self.cost_value_cents, self.fail_value_cents, self.fail_previ_cents,
      self.payed_value_cents, format_date(self.payment_date), self.get_recovery, self.coactive_radicate, self.coactive_value_cents,
      self.garnish_value_cents, self.get_last_performance, format_date(self.last_performance_date),
-     self.get_join_committee, self.committee_date, self.get_committee, self.auth_value_cents,
+     self.get_join_committee, format_date(self.committee_date), self.get_committee, self.auth_value_cents,
      self.reconcilie_value_cents, self.reason_conc, self.reason_inv, self.get_reserved_released, format_date(self.imp_date),
      self.tutelage_imp, self.get_setence_type_second_company, format_date(self.date_notification_desacate),
      format_date(self.date_answer_desacate), self.get_sentence_type_desacate, format_date(self.date_notification_desition_desacate),
@@ -161,8 +161,8 @@ class TypeProcess < ApplicationRecord
 
   def self.to_csv(date_from, date_until, options = {})
     CSV.generate(options) do |csv|
-      csv << ["LA PREVIORA S.A COMPAÑIA DE SEGUROS"]
-      csv << ["VICEPRESIDENCIA JURÍDICA"]
+      csv << ["LA PREVIORA S.A COMPANIA DE SEGUROS"]
+      csv << ["VICEPRESIDENCIA JURIDICA"]
       csv << ["REPORTE DE PROCESOS REGISTRADOS"]
       csv << ["FECHA DE GENERACION: #{Date.today}"]
       csv << ["DESDE: #{date_from} HASTA: #{date_until}"]
@@ -416,7 +416,8 @@ class TypeProcess < ApplicationRecord
 
   def format_date(date)
     if date == nil
-      "0000-00-00"
+      #Time.new(0000,0,0).to_date
+      "DD/MM/AAAA"
     else
       date
     end

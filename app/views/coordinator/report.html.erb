@@ -3,28 +3,43 @@
 <hr>
 
 <div class="container-fluid p-15">
-  <%= search_form_for @search, url: coordinator_search_url, class:"" do |f| %>
+  <%= search_form_for @search, url: coordinator_report_url, class:"" do |f| %>
     <div class="row flexBox">
-      <div class="col-sm-3">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-4">
         <div class="styled-select m-5">
-          <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
+          <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
         </div>
       </div>
-      <div class="col-sm-3">
-        <%= f.text_field :correspondency_radicate_cont, placeholder: "N° RADICADO CORRESPONDENCIA", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-2">
       </div>
-      <div class="col-sm-3">
-        <%= f.text_field :case_id_bap_cont, placeholder: "N° IDENTIFICACION BIZAGI ACCESS PA", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-4">
+        <%= f.text_field :office_name_cont, placeholder: "NOMBRE DESPACHO", class:"form-control m-5 mb-5" %>
       </div>
-      <div class="col-sm-3">
-        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-1">
       </div>
     </div>
+
     <div class="row flexBox">
+      <div class="col-sm-1">
+      </div>
       <div class="col-sm-4">
         <div class="styled-select m-5">
           <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament"} %>
         </div>
+      </div>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :passive_part_cont, placeholder: "ESTADO DEL CASO", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-1">
+      </div>
+    </div>
+
+    <div class="row flexBox">
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-4">
         <div class="styled-select m-5">
@@ -33,32 +48,61 @@
           </select>
         </div>
       </div>
-      <div class="col-sm-4">
-        <%= f.text_field :office_name_cont, placeholder: "NOMBRE DESPACHO", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4 ">
+        <%= f.text_field :passive_part_cont, placeholder: "TERMINACION DEL CASO", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-1">
       </div>
     </div>
     <div class="row flexBox">
-      <div class="col-sm-4">
-        <%= f.text_field :active_part_cont, placeholder: "PARTE ACTIVA", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-3 center">
       </div>
-      <div class="col-sm-4">
-        <%= f.text_field :passive_part_cont, placeholder: "PARTE PASIVA", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-6 m-5 mb-5 center">
+        <h5><b>Fecha de creación</b></h5>
       </div>
-      <div class="col-sm-4">
-        <%= f.text_field :passive_part_cont, placeholder: "ESTADO DEL CASO", class:"form-control m-5 mb-5" %>
+      <div class="col-sm-3 center">
       </div>
     </div>
     <div class="row flexBox">
-      <div class="col-sm-8"></div>
-      <div class="col-sm-2 center">
-        <%= link_to lawyer_search_path, class:"link" do %>
-            <span class="glyphicon glyphicon-refresh btn btn-default"></span>
-        <% end %>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-1">
+        <%= f.label "Desde", class:"m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.date_field :creation_date_gteq, value: "1980-01-01", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-1">
+        <%= f.label "Hasta", class:"m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.date_field :creation_date_lteq, value: Date.today, class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+    <br><br>
+    <div class="row flexBox">
+      <div class="col-sm-3 ">
       </div>
       <div class="col-sm-2 center">
         <button type="submit" class="btn btn-default">
           <span class="glyphicon glyphicon-search"></span>
         </button>
+      </div>
+      <div class="col-sm-2 center">
+        <%= link_to lawyer_report_path, class:"link" do %>
+            <span class="glyphicon glyphicon-refresh btn btn-default"></span>
+        <% end %>
+      </div>
+      <div class="col-sm-2 center">
+        <%= link_to coordinator_report_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"link" do %>
+            <span class="glyphicon glyphicon-download btn btn-default"></span>
+        <% end %>
+      </div>
+      <div class="col-sm-3 ">
       </div>
     </div>
   <% end %>
