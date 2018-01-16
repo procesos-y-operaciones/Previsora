@@ -32,4 +32,15 @@ class User < ApplicationRecord
     false
   end
 
+  def get_role_name
+    case role
+    when 1
+      "ABOGADO INTERNO"
+    when 2
+      "COORDINADOR"
+    when 3
+      "ADMINISTRADOR"
+    end
+  end
+
 end

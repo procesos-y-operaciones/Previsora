@@ -1,9 +1,9 @@
-<%= javascript_include_tag "lawyer" %>
+<%= javascript_include_tag "coordinator" %>
 
 <hr>
 
 <div class="container-fluid p-15">
-  <%= search_form_for @search, url: lawyer_report_url, class:"" do |f| %>
+  <%= search_form_for @search, url: coordinator_report_url, class:"" do |f| %>
     <div class="row flexBox">
       <div class="col-sm-1">
       </div>
@@ -98,7 +98,7 @@
         <% end %>
       </div>
       <div class="col-sm-2 center">
-        <%= link_to lawyer_report_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"link" do %>
+        <%= link_to coordinator_report_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"link" do %>
             <span class="glyphicon glyphicon-download btn btn-default"></span>
         <% end %>
       </div>
@@ -150,5 +150,3 @@
 <div>
   <h4><%= @processes.length + @page %> / <%= @search.result.length %></h4>
 </div>
-
-<!--%= link_to "Descargar", type_processes_path(params.merge(format: "xls")) %-->

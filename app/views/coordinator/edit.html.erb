@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <div style="margin-top: 90px">
+
+      <h2 class="white center">Nuevo usuario</h2>
+
+        <%= form_for(@user, as: @user_name, url: coordinator_update_path(@user)) do |f| %>
+
+          <% if @current.role == 2 %>
+            <div class="">
+            <%= f.label "Documento", class:"form-label" %><br />
+            <%= f.text_field :document, autofocus: true, class:"form-control" %>
+            </div>
+            <br>
+            <div class="">
+              <%= f.label "Rol", class:"form-label" %>
+              <div class="styled-select m-5">
+                <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]], @user.role), {}, {} %>
+              </div>
+            </div>
+            <br>
+            <div class="">
+              <%= f.label "Nombre", class:"form-label" %><br />
+              <%= f.text_field :name, autofocus: true, class:"form-control" %>
+            </div>
+            <br>
+          <% else %>
+            <div class="">
+            <%= f.label "Documento", class:"form-label" %><br />
+            <%= f.text_field :document, autofocus: true, readOnly: true, class:"form-control" %>
+            </div>
+            <br>
+            <div class="">
+              <%= f.label "Rol", class:"form-label" %>
+              <div class="styled-select m-5">
+                <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]], @user.role), {}, {disabled: true} %>
+              </div>
+            </div>
+            <br>
+            <div class="">
+              <%= f.label "Nombre", class:"form-label" %><br />
+              <%= f.text_field :name, autofocus: true, readOnly: true, class:"form-control" %>
+            </div>
+            <br>
+          <% end %>
+          <div class="">
+            <%= f.label "Contraseña", class:"form-label" %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", required: true, class:"form-control" %>
+          </div>
+          <br>
+          <div class="field">
+            <%= f.label "Confirmación", class:"form-label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", required: true, class:"form-control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Editar", class:"btn btn-default floatRight" %>
+          </div>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>
