@@ -1,4 +1,18 @@
 $ ->
+  #Valores iniciales
+  initial_values = ->
+    if $('#case_id_ekogui').val() == "NO APLICA"
+      $('#case_id_ekogui').val("PENDIENTE")
+    if $('#contingency_reason').val() == "NO APLICA"
+      $('#contingency_reason').val("PENDIENTE")
+    if $('#contingency_resume').val() == "NO APLICA"
+      $('#contingency_resume').val("PENDIENTE")
+    if $('#facts').val() == "NO APLICA"
+      $('#facts').val("PENDIENTE")
+
+  initial_values()
+
+
   #Clase de proceso
   hide_all_subprocess = ->
     $('#subprocessAdmin').prop( "disabled", true )
@@ -157,10 +171,11 @@ $ ->
   #Número de identificación del caso (Bizagi, Acces y PA)
   #Número de identificación del caso SISE
   case_id_bap_and_sise_rule = ->
-    bapId = $("case_id_bap").val()
-    sizeId = $("case_id_sise").val()
-    if bapId == "NO APLICA"
-      $("case_id_bap").val("PENDIENTE")
+    bapId = $('#case_id_bap').val()
+    sizeId = $('#case_id_sise').val()
+    if bapId == "NO APLICA" and sizeId == "NO APLICA"
+      $('#case_id_bap').val("PENDIENTE")
+      $('#case_id_sise').val("PENDIENTE")
       document.getElementById("case_id_bap").required = true
       document.getElementById("case_id_sise").required = false
     if bapId != "" and bapId != "PENDIENTE"
