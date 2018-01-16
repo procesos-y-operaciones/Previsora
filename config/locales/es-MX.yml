@@ -371,8 +371,8 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Más pólizas.
-      sinisters_d: Más siniestros.
+      policies_d: Escriba aquí las demás pólizas.
+      sinisters_d: Escriba aquí los demás siniestros.
       base_d: Caso ON_BASE
       attorny_d: Abogado externo que representa a Previsora.
       attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo.
@@ -477,3 +477,61 @@ es-MX:
       office_name_d: Juzgado o entidad donde cursa el caso.
       payment_date_d: Momento en que tuvo lugar la diligencia convocada.
       other: Otro.
+    fiscal:
+      process_class_id_d: Clase de juicio o actuación que es aplicable según la naturaleza de las partes, del asunto y funcionario competente.
+      subprocess_class_id_d: Clase de juicio o actuación teniendo en cuenta la naturaleza de la controversia y la jurisdicción en la cual se tramita el asunto.
+      radicate_d: Sí tiene el número de radicado de correspondencia seleccione SI, de lo contrario seleccione NO.
+      correspondency_radicate_d: Consecutivo con el cual se registró el ingreso del primer documento asociado al caso.
+      case_id_bap_d: Consecutivo con el cual se registró el ingreso del caso a la herramienta tecnológica y/o base de datos.
+      case_id_sise_d: Consecutivo con el cual se registró el ingreso del caso al Módulo de Procesos Judiciales de SISE.
+      creation_date_d: Fecha en la cual se crea el caso en la herramienta tecnológica y/o base de datos.
+      link_type_id_d:  Hace referencia a si Previsora tiene la calidad de demandante, demandado, llamada en garantía, tercero civilmente responsable o garante (procedimientos administrativos).
+      departament_d: Jurisdicción del despacho judicial o entidad.
+      city_case_d: Lugar donde cursa el caso.
+      litigation_source_id_d: Hace refencia a la causa que originó la vinculación de la compañía al caso; si su fuente inmediata fue un siniestro o una controversia ajena a un contrato de seguro.
+      reinsurance_type_id_d: Tipo de reaseguro.
+      reinsurance_report: Reaseguro reportado	Por la naturaleza del contrato de reaseguro, o la cuantía reclamada, el caso fue reportado a la Gerencia de Reaseguros.
+      coensurance_type_id_d: Contrato de seguros suscrito de una parte por el asegurado y de otra parte, por varios aseguradores que asumen con entera independencia, los unos de otros, la obligación de responder separadamente de la parte del riesgo que les corresponda. Puede ser coaseguro cedido (se cede parte del seguro a una u otras compañías) o coaseguro aceptado (se acepta parte del riesgo asegurado en otra compañía).
+      policy_cents_d: Documento con que se formalizan ciertos contratos de seguros y es el que sirve de fundamento para la vinculación de la compañía al caso concreto
+      protection_id_d: Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
+      number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE.
+      exercise: Año de creación del siniestro en la herramienta tecnológica SISE.
+      branch_policy_id: Lugar donde fue emitida la póliza.
+      branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
+      sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
+      more_policies_d: Sí tiene más pólizas seleccione SI, de lo contrario seleccione NO.
+      policies_d: Escriba aquí las demás pólizas.
+      sinisters_d: Escriba aquí los demás siniestros.
+      money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
+      dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos
+      reserve_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de indemnización
+      reserved_fees_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de honorarios profesionales a abogado
+      detritment_cents_d: Valor reclamado por quien ejerce la acción
+      ensurance_value_cents_d: Límite máximo de indemnización que va a pagar la aseguradora en caso de siniestro, de acuerdo con el amparo afectado
+      contingency_value_cents_d: Máxima exposición económica de la aseguradora, constituyéndose en el menor valor entre las pretensiones y el valor asegurado, descontando el deducible pactado y el porcentaje de participación en el coaseguro.
+Fecha de notificación / vinculación	Fecha en la cual se surtió, con arreglo a la ley, la vinculación de la compañía
+Número de radicación del proceso	Consecutivo de 23 digitos asignado por el despacho judicial, o conjunto de números asignados por la entidad
+Apoderado Previsora	Abogado externo que representa a Previsora
+Fecha de asignación apoderado Previsora	Fecha en la cual se encarga el caso al abogado externo
+Nombre despacho / Tipo contraloría	Juzgado o entidad donde cursa el caso
+Parte Activa	Nombre de los demandantes
+Parte Pasiva	Nombre de los demandados
+Calificación contigencia	Categoría en la que con fundamento en los motivos relacionados en la "razón de la contingencia" se calificó la contingencia como: 1 -Probable, 2 -Eventual o 3 -Remota.
+Razón contingencia	Si no ha habido pronunciamiento en una instancia previa, se relacionan las razones de índole fáctico, probatorio, jurisprudencial, etc., por las cuales la compañía clasifica la contingencia como probable, eventual o remota. En el evento en el que se haya producido fallo en una instancia anterior, bastará con indicar en letras mayúsculas si fue favorable o no a la compañía y la fecha de la providencia, v.gr. FALLO FAVORABLE EN PRIMERA INSTANCIA 30/03/2000.
+Resumen de la contingencia	Se hace una síntesis de los argumentos de derecho y de hecho  más importantes que dieron origen a la contingencia; los factores que iniciden a favor y en contra de la entidad,  y la sustentación del concepto del abogado.
+Hechos	Relación de las causas que originan la acción judicial
+Etapa actual	Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica)
+Instancias	Hace referencia a si el caso se encuentra en primera instancia, segunda instancia, en casación, revisión, etc.
+Estado del caso	Hace referencia a si proceso se encuentra "en curso" o "terminado"
+Fecha de actuación	Momento en que tuvo lugar la actuación judicial
+Terminación del caso	Hace referencia a si proceso terminó "a favor" o "en contra"
+Valor fallo decisión	Si el fallo fue desfavorable, indicar el valor total de la condena impuesta. Si la condena se expresa en SMLM deben ser los vigentes a la fecha de notificación del fallo
+Valor fallo a cargo de Previsora	Condena impuesta a Previsora teniendo en cuenta el contrato de seguro
+Valor pagado Previsora	?
+Fecha de consignación	Fecha en la cual la compañía pagó la condena impuesta
+Número de radicación de coactivo	Consecutivo asignado por la autoridad competente que libra mandamiento de pago en contra de la compañía
+Valor coactivo	Valor indicado en el mandamiento de pago proferido en contra de la compañía
+Valor embargo	Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar
+Última actuación	Estado actualizado del caso a la fecha
+Fecha última actuación	Día en que se surtió la actuación registrada
+Reserva depurada	?

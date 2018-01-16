@@ -3,7 +3,7 @@ $ ->
   initial_values = ->
     if $('#contingency_reason').val() == "NO APLICA"
       $('#contingency_reason').val("PENDIENTE")
-  
+
   initial_values()
 
 
