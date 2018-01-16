@@ -611,7 +611,7 @@
           <div class="styled-select">
             <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.last_performance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -619,7 +619,7 @@
         <%= form.label "Fecha última actuación" %>
         <div class="input-group">
           <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate", min:"1980-1-1", max:"2025-1-1" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.last_performance_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -629,7 +629,7 @@
           <div class="styled-select">
             <%= form.collection_select(:join_committee_id, JoinCommittee.all, :id, :name, {}, { id:"join_committee", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.join_committee_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -637,7 +637,7 @@
         <%= form.label "Fecha ingreso al comité" %>
         <div class="input-group">
           <%= form.date_field :committee_date,  id:"committee_date", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.committee_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -647,7 +647,7 @@
           <div class="styled-select">
             <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {id:"committee", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.committee_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -655,7 +655,7 @@
         <%= form.label "Valor autorizado por el comité" %>
         <div class="input-group">
           <%= form.number_field :auth_value_cents, id:"auth_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.auth_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -663,7 +663,7 @@
         <%= form.label "Valor conciliado" %>
         <div class="input-group">
           <%= form.number_field :reconcilie_value_cents, id:"reconcilie_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reconcilie_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -671,7 +671,7 @@
         <%= form.label "Razón de no conciliar" %>
         <div class="input-group">
           <%= form.text_area :reason_conc, id:"reason_conc",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reason_conc_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -679,7 +679,7 @@
         <%= form.label "Razón de inviabilidad" %>
         <div class="input-group">
           <%= form.text_area :reason_inv, id:"reason_inv",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reason_inv_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -689,7 +689,7 @@
           <div class="styled-select">
             <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial. ') %>" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reserved_released_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>

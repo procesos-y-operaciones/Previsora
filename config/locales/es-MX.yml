@@ -464,6 +464,8 @@ es-MX:
       garnish_value_cents_d: Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar.
       last_performance_id_d: Estado actualizado del caso a la fecha.
       last_performance_date_d: Día en que se surtió la actuación registrada.
+      reserved_released_id_d: Reserva depurada
+      reconcilie_value_cents_d: En el caso que la decisión del Comité haya sido "CONCILIAR", debe especificarse el monto autorizado a título de ofrecimiento
       reason_conc_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "NO CONCILIAR".
       reason_inv_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "INVIABLE".
       base_d: Caso ON_BASE
