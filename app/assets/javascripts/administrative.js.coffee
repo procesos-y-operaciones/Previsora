@@ -1,4 +1,11 @@
 $ ->
+  #Valores iniciales
+  initial_values = ->
+    if $('#contingency_reason').val() == "NO APLICA"
+      $('#contingency_reason').val("PENDIENTE")
+  
+  initial_values()
+
 
   #Subclase de proceso
   subprocessClass_rule = ->
@@ -268,6 +275,7 @@ $ ->
       document.getElementById("coactive_radicate").readOnly = true
       document.getElementById("coactive_value_cents").readOnly = true
       document.getElementById("garnish_value").readOnly = true
+      $('#coactive_radicate').val("PENDIENTE")
     else
       $('#coactive').val('Si')
 

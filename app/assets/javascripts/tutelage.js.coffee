@@ -1,4 +1,11 @@
 $ ->
+  #Valores iniciales
+  initial_values = ->
+    if $('#process_radicate').val() == "NO APLICA"
+      $('#process_radicate').val("PENDIENTE")
+
+  initial_values()
+
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
