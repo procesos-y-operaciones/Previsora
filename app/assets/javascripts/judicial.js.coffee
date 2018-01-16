@@ -156,7 +156,7 @@ $ ->
 
   #Número de identificación del caso (Bizagi, Acces y PA)
   #Número de identificación del caso SISE
-  case_id_bap_and_sise_rule ->
+  case_id_bap_and_sise_rule = ->
     bapId = $("case_id_bap").val()
     sizeId = $("case_id_sise").val()
     if bapId == "NO APLICA"
@@ -314,16 +314,18 @@ $ ->
 
   #Nombre despacho / tipo contraloría
   office_rule = ->
-    v_option = document.getElementById('office').value
+    v_option = document.getElementById('office').val()
     if v_option == "OTRO"
-      $('#office_text').show()
       $('#office_text').prop( "disabled", false )
+      $('#office_text').show()
     else
-      $('#office_text').hide()
       $('#office_text').prop( "disabled", true )
+      $('#office_text').hide()
 
   $('#office').change ->
-    office_rule()
+    office_rule
+
+  office_rule()
 
 
   #Estado del caso
