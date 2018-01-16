@@ -1,8 +1,44 @@
-<h4 class="justify m-30-60">
+<div class="m-30-60">
+  <h4 class="justify">
     Bienvenido apreciado(a) <%= @user.name.titleize %>.
     <br><br>
     Aquí podrá administrar los usuarios de la Base de datos única.
-</h4>
+  </h4>
+  <br>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @users == [] %>
+      <% else %>
+        <% @users.each do |u| %>
+          <tr>
+            <td><%= u.name %></td>
+            <td><%= u.get_role_name %></td>
+            <td><%= link_to "Editar", coordinator_edit_path(u) %></td>
+            <td><%= button_to "delete", {:controller => :coordinator, :action => 'destroy', :id => u.id }, :method => :delete %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <div class="container-fluid p-15">
   <%= search_form_for @search, url: coordinator_management_url, class:"" do |f| %>
