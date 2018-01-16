@@ -314,8 +314,8 @@ $ ->
 
   #Nombre despacho / tipo contraloría
   office_rule = ->
-    v_option = document.getElementById('office').val()
-    if v_option == "OTRO"
+    v_option = document.getElementById('office').value
+    if v_option == 'OTRO'
       $('#office_text').prop( "disabled", false )
       $('#office_text').show()
     else
@@ -323,7 +323,7 @@ $ ->
       $('#office_text').hide()
 
   $('#office').change ->
-    office_rule
+    office_rule()
 
   office_rule()
 
