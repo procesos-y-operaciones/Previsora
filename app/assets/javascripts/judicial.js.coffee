@@ -176,7 +176,7 @@ $ ->
     $('#subprocessLaboral').hide()
     $('#subprocessArbitral').prop( "disabled", true )
     $('#subprocessArbitral').hide()
-  
+
   hide_all_stages = ->
     $('#judicial_admin').prop( 'disabled', true )
     $('#judicial_admin').hide()
@@ -208,7 +208,7 @@ $ ->
     $('#judicial_ordinario').hide()
     $('#judicial_divisorio').prop( 'disabled', true )
     $('#judicial_divisorio').hide()
-    
+
   process_class_rule = ->
     hide_all_subprocess()
     v_option = document.getElementById("processClass").value
@@ -228,7 +228,7 @@ $ ->
       when "30"
         $('#subprocessArbitral').prop( "disabled", false )
         $('#subprocessArbitral').show()
-        
+
   current_stage_rule = ->
     hide_all_stages()
     v_option = document.getElementById("processClass").value
@@ -245,11 +245,11 @@ $ ->
       when "30"
         $('#judicial_arbitral').prop( "disabled", false )
         $('#judicial_arbitral').show()
-    
+
   $('#processClass').change ->
     process_class_rule()
     current_stage_rule()
-  
+
   process_class_rule()
   current_stage_rule()
 
@@ -259,7 +259,6 @@ $ ->
     v_option = document.getElementById("subprocessCivil").value
     switch v_option
       when "55"
-        alert "wea"
         $('#judicial_verbal').prop( "disabled", false )
         $('#judicial_verbal').show()
       when "56"
@@ -292,7 +291,7 @@ $ ->
       when "65"
         $('#judicial_voluntaria').prop( "disabled", false )
         $('#judicial_voluntaria').show()
-      
+
   $('#subprocessCivil').change ->
     subprocess_civil_rule()
   subprocess_civil_rule()
@@ -345,7 +344,7 @@ $ ->
       document.getElementById("fail_previ").readOnly = true
       document.getElementById("payed_value").readOnly = true
       document.getElementById("payment_date").readOnly = true
-    
+
   $('#caseTermination').change ->
     case_termination_rule()
 
