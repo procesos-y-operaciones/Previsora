@@ -509,29 +509,30 @@ es-MX:
       detritment_cents_d: Valor reclamado por quien ejerce la acción
       ensurance_value_cents_d: Límite máximo de indemnización que va a pagar la aseguradora en caso de siniestro, de acuerdo con el amparo afectado
       contingency_value_cents_d: Máxima exposición económica de la aseguradora, constituyéndose en el menor valor entre las pretensiones y el valor asegurado, descontando el deducible pactado y el porcentaje de participación en el coaseguro.
-Fecha de notificación / vinculación	Fecha en la cual se surtió, con arreglo a la ley, la vinculación de la compañía
-Número de radicación del proceso	Consecutivo de 23 digitos asignado por el despacho judicial, o conjunto de números asignados por la entidad
-Apoderado Previsora	Abogado externo que representa a Previsora
-Fecha de asignación apoderado Previsora	Fecha en la cual se encarga el caso al abogado externo
-Nombre despacho / Tipo contraloría	Juzgado o entidad donde cursa el caso
-Parte Activa	Nombre de los demandantes
-Parte Pasiva	Nombre de los demandados
-Calificación contigencia	Categoría en la que con fundamento en los motivos relacionados en la "razón de la contingencia" se calificó la contingencia como: 1 -Probable, 2 -Eventual o 3 -Remota.
-Razón contingencia	Si no ha habido pronunciamiento en una instancia previa, se relacionan las razones de índole fáctico, probatorio, jurisprudencial, etc., por las cuales la compañía clasifica la contingencia como probable, eventual o remota. En el evento en el que se haya producido fallo en una instancia anterior, bastará con indicar en letras mayúsculas si fue favorable o no a la compañía y la fecha de la providencia, v.gr. FALLO FAVORABLE EN PRIMERA INSTANCIA 30/03/2000.
-Resumen de la contingencia	Se hace una síntesis de los argumentos de derecho y de hecho  más importantes que dieron origen a la contingencia; los factores que iniciden a favor y en contra de la entidad,  y la sustentación del concepto del abogado.
-Hechos	Relación de las causas que originan la acción judicial
-Etapa actual	Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica)
-Instancias	Hace referencia a si el caso se encuentra en primera instancia, segunda instancia, en casación, revisión, etc.
-Estado del caso	Hace referencia a si proceso se encuentra "en curso" o "terminado"
-Fecha de actuación	Momento en que tuvo lugar la actuación judicial
-Terminación del caso	Hace referencia a si proceso terminó "a favor" o "en contra"
-Valor fallo decisión	Si el fallo fue desfavorable, indicar el valor total de la condena impuesta. Si la condena se expresa en SMLM deben ser los vigentes a la fecha de notificación del fallo
-Valor fallo a cargo de Previsora	Condena impuesta a Previsora teniendo en cuenta el contrato de seguro
-Valor pagado Previsora	?
-Fecha de consignación	Fecha en la cual la compañía pagó la condena impuesta
-Número de radicación de coactivo	Consecutivo asignado por la autoridad competente que libra mandamiento de pago en contra de la compañía
-Valor coactivo	Valor indicado en el mandamiento de pago proferido en contra de la compañía
-Valor embargo	Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar
-Última actuación	Estado actualizado del caso a la fecha
-Fecha última actuación	Día en que se surtió la actuación registrada
-Reserva depurada	?
+      notification_date_d: Fecha en la cual se surtió, con arreglo a la ley, la vinculación de la compañía
+      process_radicate_d:  Consecutivo de 23 digitos asignado por el despacho judicial, o conjunto de números asignados por la entidad
+      attorny_d: Abogado externo que representa a Previsora
+      attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo
+      office_name_d: Juzgado o entidad donde cursa el caso
+      active_part_d: Nombre de los demandantes
+      passive_part_d: Nombre de los demandados
+      score_contingency_id_d: Categoría en la que con fundamento en los motivos relacionados en la "razón de la contingencia" se calificó la contingencia como 1 -Probable, 2 -Eventual o 3 -Remota.
+      contingency_reason_d: Si no ha habido pronunciamiento en una instancia previa, se relacionan las razones de índole fáctico, probatorio, jurisprudencial, etc., por las cuales la compañía clasifica la contingencia como probable, eventual o remota. En el evento en el que se haya producido fallo en una instancia anterior, bastará con indicar en letras mayúsculas si fue favorable o no a la compañía y la fecha de la providencia, v.gr. FALLO FAVORABLE EN PRIMERA INSTANCIA 30/03/2000.
+      contingency_resume_d: Se hace una síntesis de los argumentos de derecho y de hecho  más importantes que dieron origen a la contingencia; los factores que iniciden a favor y en contra de la entidad,  y la sustentación del concepto del abogado.
+      facts_d: Relación de las causas que originan la acción judicial
+      current_stage_id_d: Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica)
+      instance_id_d: Hace referencia a si el caso se encuentra en primera instancia, segunda instancia, en casación, revisión, etc.
+      case_state_id_d: Hace referencia a si proceso se encuentra "en curso" o "terminado"
+      desition_date_d: Momento en que tuvo lugar la actuación judicial
+      case_termination_id_d: Hace referencia a si proceso terminó "a favor" o "en contra"
+      fail_value_cents_d: Si el fallo fue desfavorable, indicar el valor total de la condena impuesta. Si la condena se expresa en SMLM deben ser los vigentes a la fecha de notificación del fallo
+      fail_previ_cents: Condena impuesta a Previsora teniendo en cuenta el contrato de seguro
+      payed_value_cents_d: Valor pagado por Previsora.
+      payment_date_d: Fecha en la cual la compañía pagó la condena impuesta
+      coactive_d: Si tiene radicado del coactivo seleccione SI, de lo contrario seleccione NO.
+      coactive_radicate_d: Consecutivo asignado por la autoridad competente que libra mandamiento de pago en contra de la compañía
+      coactive_value_cents_d: Valor indicado en el mandamiento de pago proferido en contra de la compañía
+      garnish_value_cents_d: Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar
+      last_performance_id_d: Estado actualizado del caso a la fecha
+      last_performance_date_d: Día en que se surtió la actuación registrada
+      reserved_released_id_d: ...
