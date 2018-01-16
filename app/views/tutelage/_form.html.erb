@@ -124,7 +124,8 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :office_name, placeholder: 'NOMBRE DEL DESPACHO', value: "", id: "office_text", required: true, class: "form-control" %>
+            <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {prompt: 'SELECCIONE'}, {id:"office", class:"form-control", required: true}) %>
+            <%= form.text_field :office_name, id:"office_text", placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -177,12 +178,12 @@
 
         <hr>
 
-        <%= form.label "Hay impugnación?" %>
+        <%= form.label "¿Hay impugnación?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="objection" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -200,7 +201,7 @@
 
         <%= form.label "Impugnante" %>
         <div class="input-group">
-          <%= form.text_field :tutelage_imp, onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, id: "objecter", class:"form-control" %>
+          <%= form.text_field :tutelage_imp, id: "objecter", onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -225,7 +226,7 @@
         <%= form.label "Tipo decisión impugnación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:setence_type_second_company_id, CaseTermination.tutelage, :id, :name, {}, {class:"form-control", id: "setence_type_second_company_id"}) %>
+            <%= form.collection_select(:setence_type_second_company_id, CaseTermination.tutelage, :id, :name, {}, {id: "setence_type_second_company_id", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -234,12 +235,12 @@
 
         <hr>
 
-        <%= form.label "Hay desacato?" %>
+        <%= form.label "¿Hay desacato?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="desacate" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -258,33 +259,7 @@
         <%= form.label "Tipo sentencia incidente de desacato - a compañía" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:sentence_type_desacate_id, CaseTermination.tutelage, :id, :name, {}, {class:"form-control", id: "sentence_type_desacate"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Fecha notificación decisión incidente desacato" %>
-        <div class="input-group">
-          <%= form.date_field :date_notification_desition_desacate, id: "date_notification_desition_desacate", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Fecha notificación incidente de desacato" %>
-        <div class="input-group">
-          <%= form.date_field :date_notification_desacate, id: "date_notification_desacate", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Tipo sentencia incidente de desacato - a compañía" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:sentence_type_desacate_id, CaseTermination.tutelage, :id, :name, {}, {class:"form-control", id: "sentence_type_desacate"}) %>
+            <%= form.collection_select(:sentence_type_desacate_id, CaseTermination.tutelage, :id, :name, {}, {id: "sentence_type_desacate", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -301,11 +276,11 @@
 
         <%= form.label "Fecha de contestación incidente de desacato" %>
         <div class="input-group">
-          <%= form.date_field :date_answer_desacate, id: "date_answer_desacate",class:"form-control" %>
+          <%= form.date_field :date_answer_desacate, id:"date_answer_desacate", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
-        </div>
+        </div
 
         <hr>
 

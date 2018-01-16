@@ -401,3 +401,53 @@ es-MX:
       reason_inv_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "INVIABLE".
       reserved_fees_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de honorarios profesionales a abogado.
       other: Otro.
+    judicial:
+      process_class_id_d: Clase de juicio o actuación que es aplicable según la naturaleza de las partes, del asunto y funcionario competente.
+      radicate_d: Sí tiene el número de radicado de correspondencia seleccione SI, de lo contrario seleccione NO.
+      correspondency_radicate_d: Consecutivo con el cual se registró el ingreso del primer documento asociado al caso.
+      case_id_bap_d: Consecutivo con el cual se registró el ingreso del caso a la herramienta tecnológica y/o base de datos.
+      process_radicate_d: Consecutivo de 23 digitos asignado por el despacho judicial, o conjunto de números asignados por la entidad.
+      creation_date_d: Fecha en la cual se crea el caso en la herramienta tecnológica y/o base de datos.
+      link_type_id_d: Hace referencia a si Previsora tiene la calidad de demandante, demandado, llamada en garantía, tercero civilmente responsable o garante (procedimientos administrativos).
+      departament_d: Jurisdicción del despacho judicial o entidad.
+      city_case_d: Lugar donde cursa el caso.
+      notification_date_d: Fecha en la cual se surtió, con arreglo a la ley, la vinculación de la compañía.
+      litigation_source_id_d: Hace refencia a la causa que originó la vinculación de la compañía al caso; si su fuente inmediata fue un siniestro o una controversia ajena a un contrato de seguro.
+      policy_cents_d: Documento con que se formalizan ciertos contratos de seguros y es el que sirve de fundamento para la vinculación de la compañía al caso concreto.
+      protection_id_d: Amparo	Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
+      number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE.
+      exercise_d: Año de creación del siniestro en la herramienta tecnológica SISE.
+      branch_policy_id_d: Sucursal de la póliza	Lugar donde fue emitida la póliza.
+      branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
+      sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
+      more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
+      policies_d: Más pólizas.
+      sinisters_d: Más siniestros.
+      base_d: Caso ON_BASE
+      attorny_d: Abogado externo que representa a Previsora.
+      attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo.
+      active_part_d: Nombre de los demandantes.
+      passive_part_d: Nombre de los demandados.
+      facts_d: Relación de las causas que originan la acción judicial.
+      office_name_d: Juzgado o entidad donde cursa el caso.
+      payment_date_d: Momento en que tuvo lugar la diligencia convocada.
+      money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
+      dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos.
+      detritment_cents_d: Valor reclamado por quien ejerce la acción.
+      ensurance_value_cents_d: Límite máximo de indemnización que va a pagar la aseguradora en caso de siniestro, de acuerdo con el amparo afectado.
+      score_contingency_id_d: Categoría en la que con fundamento en los motivos relacionados en la razón de la contingencia se calificó la contingencia como (1-Probable, 2-Eventual o 3-Remota).
+      contingency_value_cents_d: Máxima exposición económica de la aseguradora, constituyéndose en el menor valor entre las pretensiones y el valor asegurado, descontando el deducible pactado y el porcentaje de participación en el coaseguro.
+      current_stage_id_d: Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica).
+      reinsurance_type_id_d: Protección que contrata una aseguradora con otra (que recibe el nombre de reaseguradora), para cubrir el riesgo que previamente ha asegurado con la venta de una póliza determinada. Puede ser proporcional o no proporcional, facultativo, etc.
+      reinsurance_value_cents_d: Valor reaseguro.
+      reinsurance_report_d: Por la naturaleza del contrato de reaseguro, o la cuantía reclamada, el caso fue reportado a la Gerencia de Reaseguros.
+      reensurance_gived_cents_d: Reaseguro cedido.
+      join_committee_id_d: Indicar si este asunto fue sometido al Comité de Defensa Judicial y de Conciliación de Previsora.
+      committee_id_d: Si con ocasión al estudio efectuado por el Comité, decidió "CONCILIAR" o "NO CONCILIAR".
+      auth_value_cents_d: En el caso que la decisión del Comité haya sido "CONCILIAR", debe especificarse el monto autorizado a título de ofrecimiento.
+      payed_value_cents_d: Monto asumido por la compañía a título de indemnización en el evento de haberse llegado a un acuerdo conciliatorio.
+      payment_date_d: Momento en que tuvo lugar el pago de la suma acordada por parte de Previsora.
+      reason_conc_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "NO CONCILIAR".
+      reason_inv_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "INVIABLE".
+      reserved_fees_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de honorarios profesionales a abogado.
+      other: Otro.

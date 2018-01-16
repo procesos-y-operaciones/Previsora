@@ -9,4 +9,9 @@
 #
 
 class MoneyType < ApplicationRecord
+
+  def self.cents
+    MoneyType.where(name: "PESO")
+  end
+
 end

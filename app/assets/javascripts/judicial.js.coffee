@@ -1,170 +1,5 @@
 $ ->
-
-  #Radicate Rule
-  radicate_rule = ->
-    v_option = document.getElementById("radicate").value
-    if v_option == "Si"
-      document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "No"
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-  radicate_val_rule = ->
-    v_option = document.getElementById("radicate").value
-    if v_option == "Si"
-      $("#correspondency_radicate").val("NO PRESENTA")
-
-  $('#radicate').change ->
-    radicate_rule()
-    radicate_val_rule()
-
-  radicate_rule()
-
-  #Coactive Rule
-  coactive_rule = ->
-    v_option = document.getElementById("coactive").value
-    if v_option == "Si"
-      document.getElementById("coactive_radicate").readOnly = false
-      document.getElementById("coactive_value_cents").readOnly = false
-    if v_option == "No"
-      document.getElementById("coactive_radicate").readOnly = true
-      document.getElementById("coactive_value_cents").readOnly = true
-
-  $('#coactive').change ->
-    coactive_rule()
-
-  coactive_rule()
-
-  #More policies Rule
-  more_policies_rule = ->
-    v_option = document.getElementById("more_policies").value
-    if v_option == "Si"
-      document.getElementById("policies").readOnly = false
-      document.getElementById("sinisters").readOnly = false
-    if v_option == "No"
-      document.getElementById("policies").readOnly = true
-      document.getElementById("sinisters").readOnly = true
-
-  $('#more_policies').change ->
-    more_policies_rule()
-
-  more_policies_rule()
-
-  #Join Committee Rule
-  join_committee_rule = ->
-    v_option = document.getElementById("join_committee").value
-    if v_option == "2"
-      document.getElementById("committee_date").readOnly = false
-      $('#committee').prop( "disabled", false )
-    else
-      document.getElementById("committee_date").readOnly = true
-      $('#committee').prop( "disabled", true )
-
-  $('#join_committee').change ->
-    join_committee_rule()
-
-  join_committee_rule()
-
-  #Committee Rule
-  committee_rule = ->
-    v_option = document.getElementById("committee").value
-    if v_option == "2"
-      document.getElementById("reconcilie_value").readOnly = false
-      document.getElementById("auth_value").readOnly = false
-      document.getElementById("reason_conc").readOnly = true
-      document.getElementById("reason_inv").readOnly = true
-      document.getElementById("fail_value").readOnly = true
-      document.getElementById("fail_previ").readOnly = true
-      document.getElementById("payed_value").readOnly = true
-    else if v_option == "3"
-      document.getElementById("reconcilie_value").readOnly = true
-      document.getElementById("auth_value").readOnly = true
-      document.getElementById("reason_conc").readOnly = false
-      document.getElementById("reason_inv").readOnly = true
-      document.getElementById("fail_value").readOnly = false
-      document.getElementById("fail_previ").readOnly = false
-      document.getElementById("payed_value").readOnly = false
-    else if v_option == "4"
-      document.getElementById("reconcilie_value").readOnly = true
-      document.getElementById("auth_value").readOnly = true
-      document.getElementById("reason_conc").readOnly = true
-      document.getElementById("reason_inv").readOnly = false
-      document.getElementById("fail_value").readOnly = false
-      document.getElementById("fail_previ").readOnly = false
-      document.getElementById("payed_value").readOnly = false
-    else
-      document.getElementById("reconcilie_value").readOnly = true
-      document.getElementById("auth_value").readOnly = true
-      document.getElementById("reason_conc").readOnly = true
-      document.getElementById("reason_inv").readOnly = true
-      document.getElementById("fail_value").readOnly = false
-      document.getElementById("fail_previ").readOnly = false
-      document.getElementById("payed_value").readOnly = false
-
-  $('#committee').change ->
-    committee_rule()
-
-  committee_rule()
-
-  #Reinsurance Type Rule
-  reinsurance_type_rule = ->
-    v_option = document.getElementById("reinsurance_type").value
-    if v_option == "2" || v_option == "3"
-      document.getElementById("reinsurance_value").readOnly = false
-    else
-      document.getElementById("reinsurance_value").readOnly = true
-
-  $("#reinsurance_type").change ->
-    reinsurance_type_rule()
-
-  reinsurance_type_rule()
-
-  num=0
-  exer=0
-  poly=0
-  comm=0
-  numSiniestro = ""
-  $("#number").change ->
-    num = numSiniestro.concat(document.getElementById("number").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#exercise').change ->
-    exer = numSiniestro.concat(document.getElementById("exercise").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_policy').change ->
-    poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_commercial').change ->
-    comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  #Litigation Source Rule
-  litigation_source_rule = ->
-    v_option = document.getElementById("litigationSource").value
-    if v_option == "2"
-      document.getElementById("policyCents").readOnly = false
-      $('#protection').prop( "disabled", false )
-      document.getElementById("number").readOnly = false
-      document.getElementById("exercise").readOnly = false
-      $('#branch_policy').prop( "disabled", false )
-      $('#branch_commercial').prop( "disabled", false )
-      $('#more_policies').prop( "disabled", false )
-    else
-      document.getElementById("policyCents").readOnly = true
-      $('#protection').prop( "disabled", true )
-      document.getElementById("number").readOnly = true
-      document.getElementById("exercise").readOnly = true
-      $('#branch_policy').prop( "disabled", true )
-      $('#branch_commercial').prop( "disabled", true )
-      $('#more_policies').prop( "disabled", true )
-
-  $('#litigationSource').change ->
-    litigation_source_rule()
-
-  litigation_source_rule()
-
-  #Process Class Rule
+  #Clase de proceso
   hide_all_subprocess = ->
     $('#subprocessAdmin').prop( "disabled", true )
     $('#subprocessAdmin').hide()
@@ -253,7 +88,7 @@ $ ->
   process_class_rule()
   current_stage_rule()
 
-  #Subprocess Civil Verbal
+  #Subclase de proceso -> jurisdicción civil
   subprocess_civil_rule = ->
     hide_all_stages()
     v_option = document.getElementById("subprocessCivil").value
@@ -294,9 +129,175 @@ $ ->
 
   $('#subprocessCivil').change ->
     subprocess_civil_rule()
-  subprocess_civil_rule()
 
-  #Money Type Rule
+
+  #¿Tiene número de radicado correspondencia?
+  correspondency_radicate_rule = ->
+    if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
+      $('#radicate').val('No')
+      document.getElementById("correspondency_radicate").readOnly = true
+      $("#correspondency_radicate").val("NO PRESENTA")
+    else
+      $('#radicate').val('Si')
+
+  correspondency_radicate_rule()
+
+  radicate_rule = ->
+    v_option = document.getElementById("radicate").value
+    if v_option == "Si"
+      document.getElementById("correspondency_radicate").readOnly = false
+    if v_option == "No"
+      document.getElementById("correspondency_radicate").readOnly = true
+      $("#correspondency_radicate").val("NO PRESENTA")
+
+  $('#radicate').change ->
+    radicate_rule()
+
+
+  #Número de identificación del caso (Bizagi, Acces y PA)
+  #Número de identificación del caso SISE
+  case_id_bap_and_sise_rule = ->
+    bapId = $("case_id_bap").val()
+    sizeId = $("case_id_sise").val()
+    if bapId == "NO APLICA"
+      $("case_id_bap").val("PENDIENTE")
+      document.getElementById("case_id_bap").required = true
+      document.getElementById("case_id_sise").required = false
+    if bapId != "" and bapId != "PENDIENTE"
+      document.getElementById("case_id_bap").required = true
+      document.getElementById("case_id_sise").required = false
+    else
+      if sizeId != "" and sizeId != "PENDIENTE"
+        document.getElementById("case_id_sise").required = true
+        document.getElementById("case_id_bap").required = false
+      else
+        document.getElementById("case_id_bap").required = true
+        document.getElementById("case_id_sise").required = false
+
+  case_id_bap_and_sise_rule()
+
+  $('#case_id_bap').change ->
+    case_id_bap_and_sise_rule()
+
+  $('#case_id_sise').change ->
+    case_id_bap_and_sise_rule()
+
+
+  #Tipo de reaseguro
+  reinsurance_type_rule = ->
+    v_option = document.getElementById("reinsurance_type").value
+    if v_option == "2" || v_option == "3"
+      document.getElementById("reinsurance_value").readOnly = false
+    else
+      document.getElementById("reinsurance_value").readOnly = true
+      $("#reinsurance_value").val(0)
+
+  $("#reinsurance_type").change ->
+    reinsurance_type_rule()
+
+  reinsurance_type_rule()
+
+
+  #Tipo de coaseguro
+  coensurance_type_rule = ->
+    v_option = document.getElementById("coensurance_type").value
+    if v_option == "2" || v_option == "3"
+      document.getElementById("coensurance_value").readOnly = false
+    else
+      document.getElementById("coensurance_value").readOnly = true
+      $("#coensurance_value").val(0)
+
+  $('#coensurance_type').change ->
+    coensurance_type_rule()
+
+  coensurance_type_rule()
+
+
+  #Fuente de litigio
+  num=0
+  exer=0
+  poly=0
+  comm=0
+  numSiniestro = ""
+  litigation_source_rule = ->
+    v_option = document.getElementById("litigationSource").value
+    if v_option == "2"
+      document.getElementById("policyCents").readOnly = false
+      $('#protection').prop( "disabled", false )
+      document.getElementById("number").readOnly = false
+      document.getElementById("exercise").readOnly = false
+      $('#branch_policy').prop( "disabled", false )
+      $('#branch_commercial').prop( "disabled", false )
+      $('#more_policies').prop( "disabled", false )
+      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+    else
+      document.getElementById("policyCents").readOnly = true
+      $('#policyCents').val("0")
+      $('#protection').prop( "disabled", true )
+      $('#protection').val("")
+      document.getElementById("number").readOnly = true
+      $('#number').val("0")
+      document.getElementById("exercise").readOnly = true
+      $('#exercise').val("0")
+      $('#branch_policy').prop( "disabled", true )
+      $('#branch_policy').val("0")
+      $('#branch_commercial').prop( "disabled", true )
+      $('#branch_commercial').val("0")
+      $('#more_policies').prop( "disabled", true )
+      $('#more_policies').prop( "disabled", true )
+      $("#sinister").val("NO APLICA")
+
+  $('#litigationSource').change ->
+    litigation_source_rule()
+
+  $("#number").change ->
+    num = numSiniestro.concat(document.getElementById("number").value)
+    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+  $('#exercise').change ->
+    exer = numSiniestro.concat(document.getElementById("exercise").value)
+    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+  $('#branch_policy').change ->
+    poly = numSiniestro.concat(document.getElementById("branch_policy").value)
+    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+  $('#branch_commercial').change ->
+    comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
+    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+
+
+  #¿Tiene más pólizas?
+  policies_and_sinisters_rule = ->
+    polici = $('#policies').val()
+    sinister = $('#sinisters').val()
+    if (polici == "NO APLICA" && sinister == "NO APLICA") || (polici == "PENDIENTE" && sinister == "PENDIENTE")
+      $('#more_policies').val('No')
+      document.getElementById("policies").readOnly = true
+      document.getElementById("sinisters").readOnly = true
+      $("#policies").val("PENDIENTE")
+      $("#sinisters").val("PENDIENTE")
+    else
+      $('#more_policies').val('Si')
+
+  policies_and_sinisters_rule()
+
+  more_policies_rule = ->
+    v_option = document.getElementById("more_policies").value
+    if v_option == "Si"
+      document.getElementById("policies").readOnly = false
+      document.getElementById("sinisters").readOnly = false
+    if v_option == "No"
+      document.getElementById("policies").readOnly = true
+      $("#policies").val("PENDIENTE")
+      document.getElementById("sinisters").readOnly = true
+      $("#sinisters").val("PENDIENTE")
+
+  $('#more_policies').change ->
+    more_policies_rule()
+
+
+  #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
     if v_option == "1"
@@ -310,7 +311,24 @@ $ ->
 
   money_type_rule()
 
-  #Case State Rule
+
+  #Nombre despacho / tipo contraloría
+  office_rule = ->
+    v_option = document.getElementById('office').val()
+    if v_option == "OTRO"
+      $('#office_text').prop( "disabled", false )
+      $('#office_text').show()
+    else
+      $('#office_text').prop( "disabled", true )
+      $('#office_text').hide()
+
+  $('#office').change ->
+    office_rule
+
+  office_rule()
+
+
+  #Estado del caso
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
     if v_option == "2"
@@ -321,17 +339,23 @@ $ ->
       $('#recovery').prop( "disabled", false )
     else
       $('#caseTermination').prop( "disabled", true )
+      $('#caseTermination').val("")
       $('#lastPerformance').prop( "disabled", true )
+      $('#lastPerformance').val("1")
       document.getElementById("lastPerformanceDate").readOnly = true
+      $('#lastPerformanceDate').val("0-0-0")
       $('#reservedReleased').prop( "disabled", true )
+      $('#reservedReleased').val("1")
       $('#recovery').prop( "disabled", true )
+      $('#recovery').val("")
 
   $('#caseState').change ->
     case_state_rule()
 
   case_state_rule()
 
-  #Case Termination Rule
+
+  #Terminación del caso
   case_termination_rule = ->
     v_option = document.getElementById("caseTermination").value
     if v_option == "2"
@@ -341,43 +365,21 @@ $ ->
       document.getElementById("payment_date").readOnly = false
     else
       document.getElementById("fail_value").readOnly = true
+      $('#fail_value').val("0")
       document.getElementById("fail_previ").readOnly = true
+      $('#fail_previ').val("0")
       document.getElementById("payed_value").readOnly = true
+      $('#payed_value').val("0")
       document.getElementById("payment_date").readOnly = true
+      $('#payment_date').val("0-0-0")
 
   $('#caseTermination').change ->
     case_termination_rule()
 
   case_termination_rule()
 
-  #Coensurance Type Rule
-  coensurance_type_rule = ->
-    v_option = document.getElementById("coensurance_type").value
-    if v_option == "2" || v_option == "3"
-      document.getElementById("coensurance_value").readOnly = false
-    else
-      document.getElementById("coensurance_value").readOnly = true
 
-  $('#coensurance_type').change ->
-    coensurance_type_rule()
-
-  coensurance_type_rule()
-
-  office_rule = ->
-    v_option = document.getElementById('office').value
-    if v_option == "OTRO"
-      $('#office_text').show()
-      $('#office_text').prop( "disabled", false )
-    else
-      $('#office_text').hide()
-      $('#office_text').prop( "disabled", true )
-
-  $('#office').change ->
-    office_rule()
-
-  office_rule()
-
-  #Cost Rule
+  #¿Tiene costas a favor?
   cost_rule = ->
     v_option = document.getElementById('cost').value
     if v_option == "Si"
@@ -390,38 +392,110 @@ $ ->
 
   cost_rule()
 
-  #ID BAP RULE
-  $('#case_id_bap').change ->
-    value = $(this).val()
-    if value == ""
-      document.getElementById("case_id_sise").required = true
+
+  #¿Tiene número de radicado de coactivo?
+  coactive_radicate_and_coactive_value_cents_rule = ->
+    coactiveRadicate = $('#coactive_radicate').val()
+    coactiveValueCents = $('#coactive_value_cents').val()
+    if (coactiveRadicate == "NO APLICA" && coactiveValueCents == "0")
+      $('#coactive').val('No')
+      document.getElementById("coactive_radicate").readOnly = true
+      document.getElementById("coactive_value_cents").readOnly = true
     else
-      document.getElementById("case_id_sise").required = false
+      $('#coactive').val('Si')
 
-  $('#case_id_bap').ready ->
-    value = $(this).val()
-    if value == ""
-      document.getElementById("case_id_sise").required = true
+  coactive_radicate_and_coactive_value_cents_rule()
+
+  coactive_rule = ->
+    v_option = document.getElementById("coactive").value
+    if v_option == "Si"
+      document.getElementById("coactive_radicate").readOnly = false
+      document.getElementById("coactive_value_cents").readOnly = false
+    if v_option == "No"
+      document.getElementById("coactive_radicate").readOnly = true
+      $("#coactive_radicate").val("NO APLICA")
+      document.getElementById("coactive_value_cents").readOnly = true
+      $("#coactive_value_cents").val("0")
+
+  $('#coactive').change ->
+    coactive_rule()
+
+
+  #¿Ingresa al comité?
+  join_committee_rule = ->
+    v_option = document.getElementById("join_committee").value
+    if v_option == "2"
+      document.getElementById("committee_date").readOnly = false
+      $('#committee').prop( "disabled", false )
     else
-      document.getElementById("case_id_sise").required = false
+      document.getElementById("committee_date").readOnly = true
+      $('#committee_date').val("0-0-0")
+      $('#committee').prop( "disabled", true )
+      $('#committee').val("1")
 
-  #ID SISE RULE
-  $('#case_id_sise').change ->
-    value = $(this).val()
-    if value == ""
-      document.getElementById("case_id_bap").required = true
+  $('#join_committee').change ->
+    join_committee_rule()
+
+  join_committee_rule()
+
+
+  #Decisión del comité
+  committee_rule = ->
+    v_option = document.getElementById("committee").value
+    if v_option == "2"
+      document.getElementById("reconcilie_value").readOnly = false
+      document.getElementById("auth_value").readOnly = false
+      document.getElementById("reason_conc").readOnly = true
+      $('#reason_conc').val("PENDIENTE")
+      document.getElementById("reason_inv").readOnly = true
+      $('#reason_inv').val("PENDIENTE")
+      document.getElementById("fail_value").readOnly = true
+      $('#fail_value').val("0")
+      document.getElementById("fail_previ").readOnly = true
+      $('#fail_previ').val("0")
+      document.getElementById("payed_value").readOnly = true
+      $('#payed_value').val("0")
+    else if v_option == "3"
+      document.getElementById("reconcilie_value").readOnly = true
+      $('#reconcilie_value').val("0")
+      document.getElementById("auth_value").readOnly = true
+      $('#auth_value').val("0")
+      document.getElementById("reason_conc").readOnly = false
+      document.getElementById("reason_inv").readOnly = true
+      $('#reason_inv').val("PENDIENTE")
+      document.getElementById("fail_value").readOnly = false
+      document.getElementById("fail_previ").readOnly = false
+      document.getElementById("payed_value").readOnly = false
+    else if v_option == "4"
+      document.getElementById("reconcilie_value").readOnly = true
+      $('#reconcilie_value').val("0")
+      document.getElementById("auth_value").readOnly = true
+      $('#auth_value').val("0")
+      document.getElementById("reason_conc").readOnly = true
+      $('#reason_conc').val("PENDIENTE")
+      document.getElementById("reason_inv").readOnly = false
+      document.getElementById("fail_value").readOnly = false
+      document.getElementById("fail_previ").readOnly = false
+      document.getElementById("payed_value").readOnly = false
     else
-      document.getElementById("case_id_bap").required = false
+      document.getElementById("reconcilie_value").readOnly = true
+      $('#reconcilie_value').val("0")
+      document.getElementById("auth_value").readOnly = true
+      $('#auth_value').val("0")
+      document.getElementById("reason_conc").readOnly = true
+      $('#reason_conc').val("PENDIENTE")
+      document.getElementById("reason_inv").readOnly = true
+      $('#reason_inv').val("PENDIENTE")
+      document.getElementById("fail_value").readOnly = false
+      document.getElementById("fail_previ").readOnly = false
+      document.getElementById("payed_value").readOnly = false
 
-  $('#case_id_sise').ready ->
-    value = $(this).val()
-    if value == ""
-      document.getElementById("case_id_bap").required = true
-    else
-      document.getElementById("case_id_bap").required = false
+  $('#committee').change ->
+    committee_rule()
+  committee_rule()
 
 
-  #Departament Rule
+  #Departamento donde cursa el caso
   $('#departament').change ->
     input_state = $(this)
     output_state = $('#cities')
@@ -430,3 +504,6 @@ $ ->
       $.each data, (i) ->
         opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
         output_state.append opt
+
+  #$('#committee').change ->
+  #  alert $('#committee').val()
