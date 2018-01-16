@@ -50,12 +50,12 @@
           </span>
         </div>
 
-        <%= form.label "Tiene número de radicado correspondencia o vicepresidencia?" %>
+        <%= form.label "¿Tiene número de radicado correspondencia o vicepresidencia?" %>
         <div class="input-group">
           <div class="styled-select">
             <select id="radicate" class="form-control">
-              <option value="No">NO</option>
               <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -84,7 +84,7 @@
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {value: 1, class:"form-control"}) %>
+            <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -115,7 +115,7 @@
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", value: "PENDIENTE", class:"form-control" %>
+          <%= form.text_field :process_radicate, id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -142,7 +142,7 @@
 
         <%= form.label "Parte pasiva" %>
         <div class="input-group">
-          <%= form.text_field :passive_part, onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", value:"PREVISORA S.A", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :passive_part, onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

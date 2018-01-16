@@ -1,4 +1,11 @@
 $ ->
+  #Valores iniciales
+  initial_values = ->
+    if $('#process_radicate').val() == "NO APLICA"
+      $('#process_radicate').val("PENDIENTE")
+
+  initial_values()
+
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
@@ -21,6 +28,22 @@ $ ->
 
   $('#radicate').change ->
     radicate_rule()
+
+
+  #Nombre despacho / tipo contraloría
+  office_rule = ->
+    v_option = document.getElementById('office').value
+    if v_option == 'OTRO'
+      $('#office_text').prop( "disabled", false )
+      $('#office_text').show()
+    else
+      $('#office_text').prop( "disabled", true )
+      $('#office_text').hide()
+
+  $('#office').change ->
+    office_rule()
+
+  office_rule()
 
 
   #¿Hay impugnación?
@@ -102,18 +125,3 @@ $ ->
     desacate_rule()
 
   desacate_rule()
-
-  #Nombre despacho / tipo contraloría
-  office_rule = ->
-    v_option = document.getElementById('office').value
-    if v_option == "OTRO"
-      $('#office_text').prop( "disabled", false )
-      $('#office_text').show()
-    else
-      $('#office_text').prop( "disabled", true )
-      $('#office_text').hide()
-
-  $('#office').change ->
-    office_rule()
-
-  office_rule()

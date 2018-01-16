@@ -1,4 +1,20 @@
 $ ->
+  #Valores iniciales
+  initial_values = ->
+    if $('#case_onbase').val() == "NO APLICA"
+      $('#case_onbase').val("PENDIENTE")
+    if $('#attorny').val() == "NO APLICA"
+      $('#attorny').val("PENDIENTE")
+    if $('#active_part').val() == "NO APLICA"
+      $('#active_part').val("PENDIENTE")
+    if $('#passive_part').val() == "NO APLICA"
+      $('#passive_part').val("PENDIENTE")
+    if $('#facts').val() == "NO APLICA"
+      $('#facts').val("PENDIENTE")
+
+  initial_values()
+
+
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
     if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
