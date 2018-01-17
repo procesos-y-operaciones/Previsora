@@ -163,7 +163,7 @@ function formatting(input) {
         <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"  ", class:"form-control"} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"} %>
             <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, '2'), {}, {id:"departament_coljuegos", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.departament_d') %>" data-placement="auto top">

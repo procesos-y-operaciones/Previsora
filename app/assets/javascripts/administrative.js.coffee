@@ -10,7 +10,7 @@ $ ->
   #Subclase de proceso
   subprocessClass_rule = ->
     v_option = document.getElementById('subprocessClass').value
-    if v_option == '70'
+    if v_option == '72'
       $('#gubernatorial_coljuegos').prop 'disabled', false
       $('#gubernatorial_coljuegos').show()
       $('#gubernatorial_coljuegos').val("")
@@ -18,6 +18,7 @@ $ ->
       $('#gubernatorial_ordinarie').hide()
       $('#departament_coljuegos').prop 'disabled', false
       $('#departament_coljuegos').show()
+      $('#departament_coljuegos').trigger("change")
       $('#departament_ordinarie').prop 'disabled', true
       $('#departament_ordinarie').hide()
       $('#departament_ordinarie').val("")

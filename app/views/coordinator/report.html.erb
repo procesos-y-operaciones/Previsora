@@ -83,7 +83,61 @@
       <div class="col-sm-2">
       </div>
     </div>
-    <br><br>
+    <div class="row flexBox">
+      <div class="col-sm-3 center">
+      </div>
+      <div class="col-sm-6 m-5 mb-5 center">
+        <h5><b>Fecha de decisión</b></h5>
+      </div>
+      <div class="col-sm-3 center">
+      </div>
+    </div>
+    <div class="row flexBox">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-1">
+        <%= f.label "Desde", class:"m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.date_field :desition_date_gteq, value: "1980-01-01", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-1">
+        <%= f.label "Hasta", class:"m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.date_field :desition_date_lteq, value: Date.today, class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+    <div class="row flexBox">
+      <div class="col-sm-3 center">
+      </div>
+      <div class="col-sm-6 m-5 mb-5 center">
+        <h5><b>Fecha última actuación</b></h5>
+      </div>
+      <div class="col-sm-3 center">
+      </div>
+    </div>
+    <div class="row flexBox">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-1">
+        <%= f.label "Desde", class:"m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.date_field :last_performance_date_gteq, value: "1980-01-01", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-1">
+        <%= f.label "Hasta", class:"m-5 mb-5" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.date_field :last_performance_date_lteq, value: Date.today, class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+    <br><br><br>
     <div class="row flexBox">
       <div class="col-sm-3 ">
       </div>
