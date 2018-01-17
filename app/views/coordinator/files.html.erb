@@ -1,0 +1,5 @@
+<% @files.sort.each do |f| %>
+  <div>
+    <%= link_to "#{File.basename f}", coordinator_download_file_url(:file => (File.basename f)), download: (File.basename f) %>
+  </duv>
+<% end %>

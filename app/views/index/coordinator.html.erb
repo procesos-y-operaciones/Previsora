@@ -12,7 +12,7 @@
 </h4>
 
 <div class="container-fluid row mb-30">
-    <div class="col-sm-offset-3 col-sm-2 center">
+    <div class="col-sm-offset-2 col-sm-2 center">
         <%= link_to coordinator_management_path, :class=>"link" do %>
             <span class="glyphicon glyphicon-user btn-circle btn-inverse"></span>
         <% end %>
@@ -34,6 +34,14 @@
         <% end %>
         <div class="fwge center">
             Descargar Base De Datos
+        </div>
+    </div>
+    <div class="col-sm-2 center ligthgreen">
+        <%= link_to coordinator_files_path, class:"link" do %>
+        <span class="glyphicon glyphicon-download btn-circle btn-inverse"></span>
+        <% end %>
+        <div class="fwge center">
+            Historial de reportes
         </div>
     </div>
 </div>

@@ -25,7 +25,7 @@ User.create([
   {document: '52976920', name: 'EDITHE JOHANNA VELASQUEZ GONZALES', password: '123456', password_confirmation: '123456', role: 1},
   {document: '63358777', name: 'DALILA CRISTINA TAPIAS ACEVEDO', password: '123456', password_confirmation: '123456', role: 1},
   {document: '37901644', name: 'LUISA FERNANDA ORTEGA SOLANO', password: '123456', password_confirmation: '123456', role: 1},
-  {document: '72272660', name: 'AORORI JOSE ORTIZ ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '72272660', name: 'ARON JOSE ORTIZ ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1018442399', name: 'YURANY HASLEYDI NORE ORTEGA', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1018407179', name: 'IVAN  ORDOÑEZ ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '80212112', name: 'JUAN MANUEL PEÑA TORRES', password: '123456', password_confirmation: '123456', role: 1},
