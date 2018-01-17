@@ -130,11 +130,11 @@ class TypeProcess < ApplicationRecord
      'Fecha de pago','Procede recobro','Radicacion coactivo','Valor coactivo','Valor embargo',
      'Ultima actuacion','Fecha ultima actuacion','Ingresa al comite','Fecha ingreso al comite',
      'Decision comite','Valor autorizado comite','Valor conciliado','Razon de no conciliar',
-     'Razon inviabilidad','Reserva liberada','Via gubertaniva', 'Fecha de contestación tutela',
-     'Fecha notificación decisión o fallo', 'Fecha de notificación impugnación', 'Impugnante',
-     'Fecha decisión impugnación', 'Fecha de notificación decisión impugnación', 'Tipo decisión impugnación',
-     'Fecha notificación incidente de desacato', 'Fecha de contestación incidente de desacato',
-     'Fecha notificación decisión incidente desacato', 'Tipo sentencia incidente de desacato - a compañía']
+     'Razon inviabilidad','Reserva liberada','Via gubertaniva', 'Fecha de contestacion tutela',
+     'Fecha notificacion decision o fallo', 'Fecha de notificacion impugnacion', 'Impugnante',
+     'Fecha decision impugnacion', 'Fecha de notificacion decision impugnacion', 'Tipo decision impugnacion',
+     'Fecha notificacion incidente de desacato', 'Fecha de contestacion incidente de desacato',
+     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato']
   end
 
   def get_content_all
@@ -162,7 +162,7 @@ class TypeProcess < ApplicationRecord
 
   def self.to_csv(date_from, date_until, options = {})
     CSV.generate(options) do |csv|
-      csv << ["LA PREVIORA S.A COMPANIA DE SEGUROS"]
+      csv << ["LA PREVISORA S.A. COMPANIA DE SEGUROS"]
       csv << ["VICEPRESIDENCIA JURIDICA"]
       csv << ["REPORTE DE PROCESOS REGISTRADOS"]
       csv << ["FECHA DE GENERACION: #{Date.today}"]

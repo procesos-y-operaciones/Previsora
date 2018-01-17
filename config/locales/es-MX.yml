@@ -490,13 +490,13 @@ es-MX:
       city_case_d: Lugar donde cursa el caso.
       litigation_source_id_d: Hace refencia a la causa que originó la vinculación de la compañía al caso; si su fuente inmediata fue un siniestro o una controversia ajena a un contrato de seguro.
       reinsurance_type_id_d: Tipo de reaseguro.
-      reinsurance_report: Reaseguro reportado	Por la naturaleza del contrato de reaseguro, o la cuantía reclamada, el caso fue reportado a la Gerencia de Reaseguros.
+      reinsurance_report_d: Reaseguro reportado	Por la naturaleza del contrato de reaseguro, o la cuantía reclamada, el caso fue reportado a la Gerencia de Reaseguros.
       coensurance_type_id_d: Contrato de seguros suscrito de una parte por el asegurado y de otra parte, por varios aseguradores que asumen con entera independencia, los unos de otros, la obligación de responder separadamente de la parte del riesgo que les corresponda. Puede ser coaseguro cedido (se cede parte del seguro a una u otras compañías) o coaseguro aceptado (se acepta parte del riesgo asegurado en otra compañía).
       policy_cents_d: Documento con que se formalizan ciertos contratos de seguros y es el que sirve de fundamento para la vinculación de la compañía al caso concreto
       protection_id_d: Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
       number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE.
-      exercise: Año de creación del siniestro en la herramienta tecnológica SISE.
-      branch_policy_id: Lugar donde fue emitida la póliza.
+      exercise_d: Año de creación del siniestro en la herramienta tecnológica SISE.
+      branch_policy_id_d: Lugar donde fue emitida la póliza.
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Sí tiene más pólizas seleccione SI, de lo contrario seleccione NO.
@@ -526,7 +526,7 @@ es-MX:
       desition_date_d: Momento en que tuvo lugar la actuación judicial
       case_termination_id_d: Hace referencia a si proceso terminó "a favor" o "en contra"
       fail_value_cents_d: Si el fallo fue desfavorable, indicar el valor total de la condena impuesta. Si la condena se expresa en SMLM deben ser los vigentes a la fecha de notificación del fallo
-      fail_previ_cents: Condena impuesta a Previsora teniendo en cuenta el contrato de seguro
+      fail_previ_cents_d: Condena impuesta a Previsora teniendo en cuenta el contrato de seguro
       payed_value_cents_d: Valor pagado por Previsora.
       payment_date_d: Fecha en la cual la compañía pagó la condena impuesta
       coactive_d: Si tiene radicado del coactivo seleccione SI, de lo contrario seleccione NO.
