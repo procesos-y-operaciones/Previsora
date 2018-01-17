@@ -157,7 +157,7 @@ $ ->
   ensurance_value_rule = ->
     ensuranceValue = document.getElementById('ensuranceValue').value
     subClass = document.getElementById('subprocessClass').value
-    if ensuranceValue >= 1000000000 and subClass == '69'
+    if ensuranceValue >= 1000000000 and subClass == '71'
       $('#reinsuranceTypeSF').prop 'disabled', true
       $('#reinsuranceTypeSF').hide()
       $('#reinsuranceType').prop 'disabled', false
