@@ -7,11 +7,11 @@
   <br>
   <table class="table table-hover table-responsive">
     <thead>
-      <tr>
+      <tr class="to-uc">
         <th scope="col"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
         <th scope="col"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col" width="5%"></th>
+        <th scope="col" width="5%"></th>
       </tr>
     </thead>
     <tbody>
@@ -19,23 +19,13 @@
       <% else %>
         <% @users.each do |u| %>
           <tr>
-            <td><%= u.name %></td>
-            <td><%= u.get_role_name %></td>
-            <td><%= link_to "Editar", coordinator_edit_path(u) %></td>
-            <td><%= button_to "delete", {:controller => :coordinator, :action => 'destroy', :id => u.id }, :method => :delete %></td>
+            <td><%= u.name.titleize %></td>
+            <td><%= u.get_role_name.titleize %></td>
+            <td><%= link_to coordinator_edit_path(u), class:"link" do %><span class="glyphicon glyphicon-edit"></span><% end %></td>
+            <td><%= link_to coordinator_delete_path(u), method: :delete, data: { confirm: '¿Esta seguro de eliminar al usuario?'}, class:"link" do %><span class="glyphicon glyphicon-trash"><% end %></td>
           </tr>
         <% end %>
       <% end %>
-      <tr>
-        <td>Eve</td>
-        <td>Jackson</td>
-        <td>94</td>
-      </tr>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>80</td>
-      </tr>
     </tbody>
   </table>
 </div>

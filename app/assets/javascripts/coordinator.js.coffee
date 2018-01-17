@@ -1,4 +1,6 @@
 $ ->
+  $('table').click ->
+    console.log("jdjdj")
 
   $('.clickable-row').click ->
     window.location = $(this).data('href')
