@@ -536,3 +536,89 @@ es-MX:
       last_performance_id_d: Estado actualizado del caso a la fecha
       last_performance_date_d: Día en que se surtió la actuación registrada
       reserved_released_id_d: ...
+    administrative:
+      process_class_id_d: Clase de juicio o actuación que es aplicable según la naturaleza de las partes, del asunto y funcionario competente.
+      subprocess_class_id_d: Clase de juicio o actuación teniendo en cuenta la naturaleza de la controversia y la jurisdicción en la cual se tramita el asunto
+      gubernatorial_way_id_d: Motivo por el cual se vincula al asegurado al trámite respectivo
+      radicate_d: Sí tiene el número de radicado de correspondencia seleccione SI, de lo contrario seleccione NO.
+      correspondency_radicate_d: Consecutivo con el cual se registró el ingreso del primer documento asociado al caso
+      case_id_bap_d: Número de identificación del caso (Bizagi, Access y PA)	Consecutivo con el cual se registró el ingreso del caso a la herramienta tecnológica y/o base de datos
+      case_id_sise_d: Consecutivo con el cual se registró el ingreso del caso al Módulo de Procesos Judiciales de SISE
+      creation_date_d: Fecha en la cual se crea el caso en la herramienta tecnológica y/o base de datos
+      link_type_id_d:  Hace referencia a si Previsora tiene la calidad de demandante, demandado, llamada en garantía, tercero civilmente responsable o garante (procedimientos administrativos).
+      departament_d: Jurisdicción del despacho judicial o entidad.
+      city_case_d: Lugar donde cursa el caso.
+      litigation_source_id_d: Fuente de litigio	Hace refencia a la causa que originó la vinculación de la compañía al caso; si su fuente inmediata fue un siniestro o una controversia ajena a un contrato de seguro
+      ensurance_value_cents_d: Límite máximo de indemnización que va a pagar la aseguradora en caso de siniestro, de acuerdo con el amparo afectado
+      reinsurance_type_id_d: Protección que contrata una aseguradora con otra (que recibe el nombre de reaseguradora), para cubrir el riesgo que previamente ha asegurado con la venta de una póliza determinada. Puede ser proporcional o no proporcional, facultativo, etc.
+      reinsurance_report_d: ...
+      coensurance_type_id_d: Contrato de seguros suscrito de una parte por el asegurado y de otra parte, por varios aseguradores que asumen con entera independencia, los unos de otros, la obligación de responder separadamente de la parte del riesgo que les corresponda. Puede ser coaseguro cedido (se cede parte del seguro a una u otras compañías) o coaseguro aceptado (se acepta parte del riesgo asegurado en otra compañía).
+      policy_cents_d: Documento con que se formalizan ciertos contratos de seguros y es el que sirve de fundamento para la vinculación de la compañía al caso concreto
+      protection_id_d: Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
+      number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE
+      exercise_d: Año de creación del siniestro en la herramienta tecnológica SISE
+      branch_policy_id_d: Lugar donde fue emitida la póliza
+      branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
+      sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
+      more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
+      policies_d: Escriba aquí las demás pólizas.
+      sinisters_d: Escriba aquí los demás siniestros.
+      money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
+      dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos
+      reserve_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de indemnización
+      reserved_fees_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de honorarios profesionales a abogado
+      detritment_cents_d: Valor reclamado por quien ejerce la acción
+      contingency_value_cents_d: Máxima exposición económica de la aseguradora, constituyéndose en el menor valor entre las pretensiones y el valor asegurado, descontando el deducible pactado y el porcentaje de participación en el coaseguro.
+      notification_date_d: Fecha en la cual se surtió, con arreglo a la ley, la vinculación de la compañía
+      attorny_d: Abogado externo que representa a Previsora
+      attorny_date_d: Fecha en la cual se encarga el caso al abogado externo
+      office_name_d: Entidad que asumió la competencia para la realización de la actividad de administrar justicia
+      score_contingency_id_d: Categoría en la que con fundamento en los motivos relacionados en la "razón de la contingencia" se calificó la contingencia como 1 -Probable, 2 -Eventual o 3 -Remota.
+      contingency_reason_d: Si no ha habido pronunciamiento en una instancia previa, se relacionan las razones de índole fáctico, probatorio, jurisprudencial, etc., por las cuales la compañía clasifica la contingencia como probable, eventual o remota. En el evento en el que se haya producido fallo en una instancia anterior, bastará con indicar en letras mayúsculas si fue favorable o no a la compañía y la fecha de la providencia, v.gr. FALLO FAVORABLE EN PRIMERA INSTANCIA 30/03/2000.
+      contingency_resume_d: Se hace una síntesis de los argumentos de derecho y de hecho  más importantes que dieron origen a la contingencia; los factores que iniciden a favor y en contra de la entidad,  y la sustentación del concepto del abogado.
+      instance_id_d: Hace referencia a si el caso se encuentra en primera instancia, segunda instancia, en casación, revisión, etc.
+      case_state_id_d: Hace referencia a si proceso se encuentra "en curso" o "terminado"
+      current_stage_id_d: Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica)
+      fail_value_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo del asegurado
+      desition_date_d: Día en que se profiere la decisión de la administración, a favor en contra de la compañía
+      fail_previ_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo de la compañía, constituyendo el monto a indemnizar
+      case_termination_id_d: Hace referencia a si proceso terminó "a favor" o "en contra"
+      payed_value_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo de la compañía, pagada a título de indemnización
+      payment_date_d: Fecha en que la compañía dio cumplimiento a la orden de pagar la indemnización
+      coactive_d: Sí tiene el número de radicado del coactivo seleccione SI, de lo contrario seleccione NO.
+      coactive_radicate_d: Consecutivo asignado por la autoridad competente que libra mandamiento de pago en contra de la compañía
+      coactive_value_cents_d: Valor indicado en el mandamiento de pago proferido en contra de la compañía
+      garnish_value_cents_d: Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar
+      last_performance_id_d: Estado actualizado del caso a la fecha
+      last_performance_date_d: Día en que se surtió la actuación registrada
+      reserved_released_id_d: ...
+    tutelage:
+      process_class_id_d: Tutela
+      subprocess_class_id_d: Se selecciona de la lista desplegable, la que tenga mas concordancia con los hechos y las pretenciones.
+      notification_date_d: Esta fecha, es el día en que radican en la Compañía por cualquier medio (correspondencia, correo electronico, buzones de notificación etc.) la tutela y es importante, porque a partir de ese momento corren los terminos (tiempo), para resolverla
+      radicate_d: Indicar si el documento fue radicado en Correspondencia o, si por algún canal, fue remitido directamente a ala Vicepresidencia Jurídica
+      correspondency_radicate_d: Indicar número de radicado de Correspondencia o Vicepresidencia Jurídica
+      creation_date_d: Fecha en la cual se crea el caso en la herramienta tecnológica y/o base de datos
+      link_type_id_d: Se selecciona de la lista desplegable, la opcion Accionado o Vinculado, según relacione el Juzgado a la Compañía.
+      active_part_d: Es la persona que ejercita la acción, se la llama “actor” (el que “actúa”), “parte actora”, o bien “demandante”.
+      passive_part_d: Es la persona sobre la que recae la acción, es decir el "demandado" o "parte demandada".
+      office_name_d: Se coloca el nombre de la entidad admistradora de justicia, que conoce del proceso.
+      departament_d: Departamento donde cursa el caso.
+      city_case_d: Lugar donde cursa el caso.
+      process_radicate_d: Se coloca el número de radicado que asignó el despacho para ese proceso.
+      answer_date_d: Fecha de contestación tutela.
+      desition_date_d: Fecha en que el despacho Judicial tomo la decisión
+      failed_notification_date_d: Fecha en que notifican la decisión o fallo a la Compañía
+      instance_id_d: Hace referencia a si el caso se encuentra en primera instancia, segunda instancia, en casación, revisión, etc.
+      case_termination_id_d: Se selecciona de la lista de desplegable, la opcion "Favorable" o "Desfavorable", según el setido de la Decisión o Fallo.
+      objection_d: ...
+      imp_date_d: ...
+      tutelage_imp_d: La persona que esta en desacuerdo con el fallo por que no le es favorable.
+      objection_date_desition_d: Fecha del fallo de segunda instancia
+      objection_date_desition_notification_d: Fecha de notificación del fallo de segunda instancia
+      setence_type_second_company_id_d: Se selecciona de la lista de desplegable, la opcion "Favorable" o "Desfavorable", según el setido de la Decisión o Fallo.
+      desacate_d: Cuando no se ha dado estricto cumplimiento al fallo por parte de Previsora o alguna de las partes- "Incumplimiento del fallo"
+      date_notification_desacate_d: Fecha en la cual se notifica la apertura del incidente de desacato
+      date_answer_desacate_d: Fecha en la cual Previsora presenta sus argumentos de defensa frente al incidente de desacato
+      date_notification_desition_desacate_d: Fecha en la cual se notifica la decisión del incidente de desacato
+      sentence_type_desacate_id_d: Se selecciona de la lista de desplegable, la opcion "Favorable" o "Desfavorable", según el setido de la Decisión o Fallo.
