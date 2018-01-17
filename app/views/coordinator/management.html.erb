@@ -1,3 +1,5 @@
+<%= javascript_include_tag "coordinator/management" %>
+
 <div class="m-30-60">
   <h4 class="justify">
     Bienvenido apreciado(a) <%= @user.name.titleize %>.
@@ -5,36 +7,9 @@
     Aquí podrá administrar los usuarios de la Base de datos única.
   </h4>
   <br>
-  <table class="table table-hover table-responsive">
-    <thead>
-      <tr class="to-uc">
-        <th scope="col"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
-        <th scope="col"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
-        <th scope="col" width="5%"></th>
-        <th scope="col" width="5%"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @users == [] %>
-      <% else %>
-        <% @users.each do |u| %>
-          <tr>
-            <td><%= u.name.titleize %></td>
-            <td><%= u.get_role_name.titleize %></td>
-            <td><%= link_to coordinator_edit_path(u), class:"link" do %><span class="glyphicon glyphicon-edit"></span><% end %></td>
-            <td><%= link_to coordinator_delete_path(u), method: :delete, data: { confirm: '¿Esta seguro de eliminar al usuario?'}, class:"link" do %><span class="glyphicon glyphicon-trash"><% end %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
 
-<div class="container-fluid p-15">
   <%= search_form_for @search, url: coordinator_management_url, class:"" do |f| %>
     <div class="row flexBox">
-      <div class="col-sm-2">
-      </div>
       <div class="col-sm-4">
         <%= f.text_field :name_cont, placeholder: "NOMBRE", class:"form-control m-5 mb-5" %>
       </div>
@@ -53,44 +28,41 @@
             <span class="glyphicon glyphicon-plus btn btn-default"></span>
         <% end %>
       </div>
-      <div class="col-sm-2">
-      </div>
     </div>
   <% end %>
-</div>
+  <br>
 
-<hr style="margin: 0">
+  <div class="floatRight">
+    <h4><%= @page+1 %>-<%= @users.length + @page %> de <%= @search.result.length %></h4>
+  </div>
+  <br>
 
-<div class="container-fluid p-30">
-  <table id="search" class="table table-responsive-sm table-hover">
+  <table class="table table-hover table-responsive">
     <thead>
-      <tr>
-        <th class="center"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
-        <th class="center"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
-        <th class="center">Editar</th>
-        <th class="center">Borrar</th>
+      <tr class="to-uc">
+        <th scope="col"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
+        <th scope="col" width="5%"></th>
+        <th scope="col" width="5%"></th>
       </tr>
     </thead>
-
     <tbody>
       <% if @users == [] %>
       <% else %>
         <% @users.each do |u| %>
-          <tr>
-            <td class="center"><%= u.name %></td>
-            <td class="center"><%= u.get_role_name %></td>
-            <td class="center"><%= link_to "Editar", coordinator_edit_path(u) %></td>
-            <td class="center"><%= button_to "delete", {:controller => :coordinator, :action => 'destroy', :id => u.id }, :method => :delete %></td>
+          <tr id=<%= u.id %>>
+            <td><%= u.name.titleize %></td>
+            <td><%= u.get_role_name.titleize %></td>
+            <td><%= link_to coordinator_edit_path(u), id:"e#{u.id}", class:"link", hidden:"true" do %><span class="glyphicon glyphicon-edit"></span><% end %></td>
+            <td><%= link_to coordinator_delete_path(u), id:"t#{u.id}", method: :delete, data: { confirm: '¿Esta seguro de eliminar al usuario?'}, class:"link", hidden:"true" do %><span class="glyphicon glyphicon-trash"><% end %></td>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
-  <hr>
-  <div class="container-fluid mb-30 center">
+
+  <div class="container-fluid center">
     <%= will_paginate @users, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
   </div>
-</div>
-<div>
-  <h4><%= @users.length + @page %> / <%= @search.result.length %></h4>
+
 </div>
