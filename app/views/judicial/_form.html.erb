@@ -115,7 +115,7 @@ function formatting(input) {
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.correspondency_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -123,7 +123,7 @@ function formatting(input) {
 
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <div class="input-group">
-          <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_field :case_id_bap, id:"case_id_bap", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.case_id_bap_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -131,7 +131,7 @@ function formatting(input) {
 
         <%= form.label "Número de identificación del caso SISE" %>
         <div class="input-group">
-          <%= form.text_field :case_id_sise, id:"case_id_sise",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_field :case_id_sise, id:"case_id_sise", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.case_id_sise_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -139,7 +139,7 @@ function formatting(input) {
 
         <%= form.label "Número de identificación del caso E-KOGUI" %>
         <div class="input-group">
-          <%= form.text_field :case_id_ekogui, id:"case_id_ekogui", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_field :case_id_ekogui, id:"case_id_ekogui", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.case_id_ekogui_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -314,7 +314,7 @@ function formatting(input) {
 
         <%= form.label "Número de pólizas" %>
         <div class="input-group">
-          <%= form.text_area :policies, id:"policies", pattern:"[0-9\- ]*", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :policies, id:"policies", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.policies_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -322,7 +322,7 @@ function formatting(input) {
 
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
-          <%= form.text_area :sinisters, id:"sinisters", pattern:"[0-9\- ]*", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :sinisters, id:"sinisters", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.sinisters_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -408,7 +408,7 @@ function formatting(input) {
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, placeholder: 'INGRESE EL NUMERO', required: true, class:"form-control" %>
+          <%= form.text_field :process_radicate, pattern:"[0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.process_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -416,7 +416,7 @@ function formatting(input) {
 
         <%= form.label "Apoderado Previsora" %>
         <div class="input-group">
-          <%= form.text_field :attorny, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :attorny, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.attorny_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -436,7 +436,7 @@ function formatting(input) {
             <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {prompt: 'SELECCIONE'}, {id: "office", required: true, class:"form-control"}) %>
           </div>
           <div>
-            <%= form.text_field :office_name, id: "office_text", placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
+            <%= form.text_field :office_name, id: "office_text", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.office_name_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -445,7 +445,7 @@ function formatting(input) {
 
         <%= form.label "Parte activa" %>
         <div class="input-group">
-          <%= form.text_field :active_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :active_part, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.active_part_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -453,7 +453,7 @@ function formatting(input) {
 
         <%= form.label "Parte pasiva" %>
         <div class="input-group">
-          <%= form.text_field :passive_part, placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+          <%= form.text_field :passive_part, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.passive_part_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -471,7 +471,7 @@ function formatting(input) {
 
         <%= form.label "Razón contingencia" %>
         <div class="input-group">
-          <%= form.text_area :contingency_reason, id:"contingency_reason", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :contingency_reason, id:"contingency_reason", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.contingency_reason_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -479,7 +479,7 @@ function formatting(input) {
 
         <%= form.label "Resumen de la contingencia" %>
         <div class="input-group">
-          <%= form.text_area :contingency_resume, id:"contingency_resume", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :contingency_resume, id:"contingency_resume", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.contingency_resume_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -487,7 +487,7 @@ function formatting(input) {
 
         <%= form.label "Hechos" %>
         <div class="input-group">
-          <%= form.text_area :facts, id:"facts", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :facts, id:"facts", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.facts_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -637,7 +637,7 @@ function formatting(input) {
 
         <%= form.label "Número de radicación de coactivo" %>
         <div class="input-group">
-          <%= form.text_field :coactive_radicate, id:"coactive_radicate", onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+          <%= form.text_field :coactive_radicate, id:"coactive_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.coactive_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -723,7 +723,7 @@ function formatting(input) {
 
         <%= form.label "Razón de no conciliar" %>
         <div class="input-group">
-          <%= form.text_area :reason_conc, id:"reason_conc",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :reason_conc, id:"reason_conc", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reason_conc_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -731,7 +731,7 @@ function formatting(input) {
 
         <%= form.label "Razón de inviabilidad" %>
         <div class="input-group">
-          <%= form.text_area :reason_inv, id:"reason_inv",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_area :reason_inv, id:"reason_inv", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reason_inv_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

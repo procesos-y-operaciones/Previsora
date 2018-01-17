@@ -107,7 +107,7 @@ function formatting(input) {
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.correspondency_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -115,7 +115,7 @@ function formatting(input) {
 
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <div class="input-group">
-          <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_field :case_id_bap, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_id_bap_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -123,7 +123,7 @@ function formatting(input) {
 
         <%= form.label "Número de identificación del caso SISE" %>
         <div class="input-group">
-          <%= form.text_field :case_id_sise, id:"case_id_sise",onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+          <%= form.text_field :case_id_sise, pattern:"[A-Z0-9\- ]*", title: t(:pattern),  id:"case_id_sise",onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_id_sise_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -286,7 +286,7 @@ function formatting(input) {
 
         <%= form.label "Número de pólizas" %>
         <div class="input-group">
-          <%= form.text_area :policies, id:"policies", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+          <%= form.text_area :policies, id:"policies", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.policies_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -294,7 +294,7 @@ function formatting(input) {
 
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
-          <%= form.text_area :sinisters, id:"sinisters", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+          <%= form.text_area :sinisters, id:"sinisters", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.sinisters_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
