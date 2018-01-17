@@ -1,7 +1,7 @@
 User.create([
-  {document: "1032459412", name: "JONATHAN GRANADOS", password: "123456", password_confirmation: "123456", role: 1},
+  {document: "1032459412", name: "JONATHAN GRANADOS", password: "123456", password_confirmation: "123456", role: 2},
   {document: "1033773336", name: "GABRIELA SUAREZ", password: "123456", password_confirmation: "123456", role: 1},
-  {document: "1234", name: "JONATHAN PRIETO", password: "123456", password_confirmation: "123456", role: 2},
+  {document: "1234", name: "JONATHAN PRIETO", password: "123456", password_confirmation: "123456", role: 1},
   {document: "5678", name: "PAULA TORRES", password: "123456", password_confirmation: "123456", role: 1},
   {document: '1020729468', name: 'NATALIA ALEJANDRA  MONCAYO RODRIGUEZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '49797396', name: 'BETSABE  MANTILLA DIAZ', password: '123456', password_confirmation: '123456', role: 1},

@@ -130,7 +130,11 @@ class TypeProcess < ApplicationRecord
      'Fecha de pago','Procede recobro','Radicacion coactivo','Valor coactivo','Valor embargo',
      'Ultima actuacion','Fecha ultima actuacion','Ingresa al comite','Fecha ingreso al comite',
      'Decision comite','Valor autorizado comite','Valor conciliado','Razon de no conciliar',
-     'Razon inviabilidad','Reserva liberada','Via gubertaniva']
+     'Razon inviabilidad','Reserva liberada','Via gubertaniva', 'Fecha de contestación tutela',
+     'Fecha notificación decisión o fallo', 'Fecha de notificación impugnación', 'Impugnante',
+     'Fecha decisión impugnación', 'Fecha de notificación decisión impugnación', 'Tipo decisión impugnación',
+     'Fecha notificación incidente de desacato', 'Fecha de contestación incidente de desacato',
+     'Fecha notificación decisión incidente desacato', 'Tipo sentencia incidente de desacato - a compañía']
   end
 
   def get_content_all
@@ -149,7 +153,11 @@ class TypeProcess < ApplicationRecord
      self.payed_value_cents, format_date(self.payment_date), self.get_recovery, self.coactive_radicate, self.coactive_value_cents,
      self.garnish_value_cents, self.get_last_performance, format_date(self.last_performance_date),
      self.get_join_committee, format_date(self.committee_date), self.get_committee, self.auth_value_cents,
-     self.reconcilie_value_cents, self.reason_conc, self.reason_inv, self.get_reserved_released, self.get_gubernatorial_way]
+     self.reconcilie_value_cents, self.reason_conc, self.reason_inv, self.get_reserved_released, self.get_gubernatorial_way,
+     format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
+     self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification),
+     self.get_setence_type_second_company, format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),
+     format_date(self.date_notification_desition_desacate), self.get_sentence_type_desacate]
   end
 
   def self.to_csv(date_from, date_until, options = {})
@@ -353,7 +361,7 @@ class TypeProcess < ApplicationRecord
 
   def get_setence_type_second_company
     if self.setence_type_second_company_id == nil
-      "NO SE PRESENTA"
+      "NO APLICA"
     else
       CaseState.find(self.setence_type_second_company_id).name
     end
@@ -361,7 +369,7 @@ class TypeProcess < ApplicationRecord
 
   def get_sentence_type_desacate
     if self.sentence_type_desacate_id == nil
-      "NO SE PRESENTA"
+      "NO APLICA"
     else
       CaseState.find(self.sentence_type_desacate_id).name
     end
@@ -369,7 +377,7 @@ class TypeProcess < ApplicationRecord
 
   def get_gubernatorial_way
     if self.gubernatorial_way_id == nil
-      "NO SE PRESENTA"
+      "NO APLICA"
     else
       GubernatorialWay.find(self.gubernatorial_way_id).name
     end
