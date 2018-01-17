@@ -3,10 +3,11 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
     create_table :type_processes do |t|
 
       t.integer   :p_type, default: 0
-      t.string    :correspondency_radicate, default: "NO APLICA"
-      t.string    :case_id_bap, default: "NO APLICA"
-      t.string    :case_id_sise, default: "NO APLICA"
-      t.string    :case_id_ekogui, default: "NO APLICA"
+      t.string    :internal_lawyer
+      t.string    :correspondency_radicate, uniqueness: true
+      t.string    :case_id_bap, uniqueness: true
+      t.string    :case_id_sise, uniqueness: true
+      t.string    :case_id_ekogui, uniqueness: true
       t.date      :creation_date
       t.date      :notification_date
       t.string    :process_radicate, default: "NO APLICA"

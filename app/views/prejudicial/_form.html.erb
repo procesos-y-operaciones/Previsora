@@ -71,6 +71,7 @@ function formatting(input) {
 
         <%= form.hidden_field :p_type, :value => 1 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
+        <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
 
         <hr>
 
