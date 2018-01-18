@@ -185,12 +185,12 @@
       <% else %>
         <% @processes.each do |p| %>
           <tr class='clickable-row' data-href='<%= type_process_path(p) %>'>
-            <td class="center"><%= p.get_type_process %></td>
-            <td class="center"><%= p.correspondency_radicate %></td>
-            <td class="center"><%= p.case_id_bap %></td>
-            <td class="center"><%= p.case_id_sise %></td>
-            <td class="center"><%= User.find(p.user_id).name %></td>
-            <td class="center"><%= p.city_case %></td>
+            <td class="center fs-l"><%= p.get_type_process %></td>
+            <td class="center fs-l"><%= p.correspondency_radicate %></td>
+            <td class="center fs-l"><%= p.case_id_bap %></td>
+            <td class="center fs-l"><%= p.case_id_sise %></td>
+            <td class="center fs-l"><%= User.find(p.user_id).name %></td>
+            <td class="center fs-l"><%= p.city_case %></td>
           </tr>
         <% end %>
       <% end %>
