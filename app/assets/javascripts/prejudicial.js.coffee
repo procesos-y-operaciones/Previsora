@@ -17,7 +17,7 @@ $ ->
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
-    if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
+    if $('#correspondency_radicate').val() == "NO APLICA" or $('#correspondency_radicate').val() == "NO PRESENTA"
       $('#radicate').val('No')
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
