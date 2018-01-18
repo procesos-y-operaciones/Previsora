@@ -58,7 +58,7 @@ function input_empty_noaplica_rule(input) {
   }
   $(input).trigger("change")
 }
-function formatting(input) {
+function formatting_number(input) {
   var value = input.value;
   var num = value.replace(/,|'/g, "");
   num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");

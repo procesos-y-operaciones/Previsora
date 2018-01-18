@@ -148,7 +148,7 @@
 
         <%= form.label "Valor reaseguro" %>
         <div class="input-group">
-          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", class:"form-control" %>
+          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -166,7 +166,7 @@
 
         <%= form.label "Valor coaseguro" %>
         <div class="input-group">
-          <%= form.number_field :coensurance_value_cents, id:"coensurance_value", class:"form-control"%>
+          <%= form.number_field :coensurance_value_cents, id:"coensurance_value", onkeyup:"formatting_number(this)", class:"form-control"%>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -289,7 +289,7 @@
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", class:"form-control" %>
+          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -297,7 +297,7 @@
 
         <%= form.label "Valor reserva" %>
         <div class="input-group">
-          <%= form.number_field :reserve_cents, class:"form-control" %>
+          <%= form.number_field :reserve_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -305,7 +305,7 @@
 
         <%= form.label "Valor provisión de indemnización" %>
         <div class="input-group">
-          <%= form.number_field :provision_cents, class:"form-control" %>
+          <%= form.number_field :provision_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -313,7 +313,7 @@
 
         <%= form.label "Valor reserva honorarios" %>
         <div class="input-group">
-          <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+          <%= form.number_field :reserved_fees_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -321,7 +321,7 @@
 
         <%= form.label "Valor pretensión / detrimento / estimación" %>
         <div class="input-group">
-          <%= form.number_field :detritment_cents, id:"detrimetValueCents", class:"form-control" %>
+          <%= form.number_field :detritment_cents, id:"detrimetValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -329,7 +329,7 @@
 
         <%= form.label "Valor asegurado" %>
         <div class="input-group">
-          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", class:"form-control" %>
+          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -337,7 +337,7 @@
 
         <%= form.label "Valor contingencia" %>
         <div class="input-group">
-          <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", class:"form-control" %>
+          <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -519,7 +519,7 @@
 
         <%= form.label "Valor costas" %>
         <div class="input-group">
-          <%= form.number_field :cost_value_cents,  id:"cost_value", class: "form-control" %>
+          <%= form.number_field :cost_value_cents,  id:"cost_value", onkeyup:"formatting_number(this)", class: "form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -527,7 +527,7 @@
 
         <%= form.label "Valor fallo decisión" %>
         <div class="input-group">
-          <%= form.number_field :fail_value_cents, id: "fail_value", class:"form-control" %>
+          <%= form.number_field :fail_value_cents, id: "fail_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -536,7 +536,7 @@
         <%= form.label "Valor fallo a cargo de Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.number_field :fail_previ_cents, id: "fail_previ", class:"form-control" %>
+            <%= form.number_field :fail_previ_cents, id: "fail_previ", onkeyup:"formatting_number(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -546,7 +546,7 @@
         <%= form.label "Valor pagado Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.number_field :payed_value_cents, id: "payed_value", class:"form-control" %>
+            <%= form.number_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -594,7 +594,7 @@
 
         <%= form.label "Valor coactivo" %>
         <div class="input-group">
-          <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", class:"form-control" %>
+          <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -602,7 +602,7 @@
 
         <%= form.label "Valor embargo" %>
         <div class="input-group">
-          <%= form.number_field :garnish_value_cents, class:"form-control" %>
+          <%= form.number_field :garnish_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -656,7 +656,7 @@
 
         <%= form.label "Valor autorizado por el comité" %>
         <div class="input-group">
-          <%= form.number_field :auth_value_cents, id:"auth_value", class:"form-control" %>
+          <%= form.number_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -664,7 +664,7 @@
 
         <%= form.label "Valor conciliado" %>
         <div class="input-group">
-          <%= form.number_field :reconcilie_value_cents, id:"reconcilie_value", class:"form-control" %>
+          <%= form.number_field :reconcilie_value_cents, id:"reconcilie_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
