@@ -18,10 +18,12 @@
 
   <div class="p-30">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-7 ">
+      <div class="col-sm-offset-2 col-sm-8 ">
 
         <%= form.hidden_field :p_type, :value => 3 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
+
+        <hr>
 
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
@@ -42,6 +44,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "¿Tiene número de radicado correspondencia?" %>
         <div class="input-group">
@@ -79,6 +83,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Fecha de creación" %>
         <div class="input-group">
@@ -119,6 +125,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
@@ -251,6 +259,8 @@
           </span>
         </div>
 
+        <hr>
+
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
@@ -307,6 +317,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Fecha de notificación / vinculación" %>
         <div class="input-group">
@@ -400,17 +412,12 @@
           </span>
         </div>
 
+        <hr>
+
         <%= form.label "Etapa actual", id:"currentStage" %>
-        <div id="currentStageVerDiv" class="input-group">
+        <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-        <div id="currentStageOrdDiv" class="input-group">
-          <div class="styled-select">
             <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ord, :id, :name, {}, {id:"currentStageOrd", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
@@ -552,6 +559,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
       </div>
     </div>

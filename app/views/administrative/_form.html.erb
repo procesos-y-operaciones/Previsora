@@ -14,7 +14,7 @@
 
   <div class="p-30">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-7 ">
+      <div class="col-sm-offset-2 col-sm-8 ">
 
         <%= form.hidden_field :p_type, :value => 4 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
@@ -40,6 +40,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Tipología" %>
         <div class="input-group">
@@ -89,6 +91,8 @@
           </span>
         </div>
 
+        <hr>
+
         <%= form.label "Fecha de creación" %>
         <div class="input-group">
           <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
@@ -129,6 +133,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
@@ -271,6 +277,8 @@
           </span>
         </div>
 
+        <hr>
+
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
@@ -321,6 +329,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Fecha de notificación / vinculación" %>
         <div class="input-group">
@@ -405,6 +415,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "Etapa actual", id:"currentStage" %>
         <div id="currentStageVerDiv" class="input-group">
@@ -530,6 +542,8 @@
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
       </div>
     </div>

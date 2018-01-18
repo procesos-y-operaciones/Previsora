@@ -16,23 +16,24 @@ $ ->
     v_option = document.getElementById('subprocess_class').value
     if v_option == '3'
       $('#currentStageVer').prop 'disabled', false
-      $('#currentStageVerDiv').show()
+      $('#currentStageVer').show()
       $('#currentStageOrd').prop 'disabled', true
-      $('#currentStageOrdDiv').hide()
+      $('#currentStageOrd').hide()
     else if v_option == '4'
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageVerDiv').hide()
+      $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', false
-      $('#currentStageOrdDiv').show()
+      $('#currentStageOrd').show()
     else
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageVerDiv').hide()
+      $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', true
-      $('#currentStageOrdDiv').hide()
+      $('#currentStageOrd').hide()
 
   $('#subprocess_class').change ->
     subprocess_class_rule()
 
+  subprocess_class_rule()
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
