@@ -192,202 +192,186 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_process_class
-    if self.process_class_id == nil
-      "NO SE PRESENTA"
+    if self.process_class == nil
+      "NO APLICA"
     else
-      ProcessClass.find(self.process_class_id).name
+      self.process_class
     end
   end
 
   def get_subprocess_class
-    if self.subprocess_class_id == nil
-      "NO SE PRESENTA"
+    if self.subprocess_class == nil
+      "NO APLICA"
     else
-      SubprocessClass.find(self.subprocess_class_id).name
+      self.subprocess_class
     end
   end
 
   def get_link_type
-    if self.link_type_id == nil
-      "NO SE PRESENTA"
+    if self.link_type == nil
+      "NO APLICA"
     else
-      LinkType.find(self.link_type_id).name
-    end
-  end
-
-  def get_departament
-    if self.departament_id == nil
-      "NO SE PRESENTA"
-    else
-      Departament.find(self.departament_id).name
-    end
-  end
-
-  def get_city_case
-    if self.city_case_id == nil
-      "NO SE PRESENTA"
-    else
-      CityCase.find(self.city_case_id).name
+      self.link_type
     end
   end
 
   def get_branch_commercial
-    if self.branch_commercial_id == nil
-      "NO SE PRESENTA"
+    if self.branch_commercial == nil
+      "NO APLICA"
     else
-      BranchCommercial.get_name(self.branch_commercial_id)
+      self.branch_commercial
     end
   end
 
   def get_money_type
-    if self.money_type_id == nil
-      "NO SE PRESENTA"
+    if self.money_type == nil
+      "NO APLICA"
     else
-      MoneyType.find(self.money_type_id).name
+      self.money_type
     end
   end
 
   def get_score_contingency
-    if self.score_contingency_id == nil
-      "NO SE PRESENTA"
+    if self.score_contingency == nil
+      "NO APLICA"
     else
-      ScoreContingency.find(self.score_contingency_id).name
+      self.score_contingency
     end
   end
 
   def get_protection
-    if self.protection_id == nil
-      "NO SE PRESENTA"
+    if self.protection == nil
+      "NO APLICA"
     else
-      Protection.find(self.protection_id).name
+      self.protection
     end
   end
 
   def get_current_stage
-    if self.current_stage_id == nil
-      "NO SE PRESENTA"
+    if self.current_stage == nil
+      "NO APLICA"
     else
-      CurrentStage.find(self.current_stage_id).name
+      self.current_stage
     end
   end
 
   def get_litigation_source
-    if self.litigation_source_id == nil
-      "NO SE PRESENTA"
+    if self.litigation_source == nil
+      "NO APLICA"
     else
-      LitigationSource.find(self.litigation_source_id).name
+      self.litigation_source
     end
   end
 
   def get_instance
-    if self.instance_id == nil
-      "NO SE PRESENTA"
+    if self.instance == nil
+      "NO APLICA"
     else
-      Instance.find(self.instance_id).name
+      self.instance
     end
   end
 
   def get_case_state
-    if self.case_state_id == nil
-      "NO SE PRESENTA"
+    if self.case_state == nil
+      "NO APLICA"
     else
-      CaseState.find(self.case_state_id).name
+      self.case_state
     end
   end
 
   def get_case_termination
-    if self.case_termination_id == nil
-      "NO SE PRESENTA"
+    if self.case_termination == nil
+      "NO APLICA"
     else
-      CaseTermination.find(self.case_termination_id).name
+      self.case_termination
     end
   end
 
   def get_user
     if self.user_id == nil
-      "NO SE PRESENTA"
+      "USUARIO NO EXISTE"
     else
       User.find(user_id).name
     end
   end
 
   def get_reinsurance_type
-    if self.reinsurance_type_id == nil
-      "NO SE PRESENTA"
+    if self.reinsurance_type == nil
+      "NO APLICA"
     else
-      ReinsuranceType.find(self.reinsurance_type_id).name
+      self.reinsurance_type
     end
   end
 
   def get_coensurance_type
-    if self.coensurance_type_id == nil
-      "NO SE PRESENTA"
+    if self.coensurance_type == nil
+      "NO APLICA"
     else
-      CoensuranceType.find(self.coensurance_type_id).name
+      self.coensurance_type
     end
   end
 
   def get_branch_policy
-    if self.branch_policy_id == nil
-      "NO SE PRESENTA"
+    if self.branch_policy == nil
+      "NO APLICA"
     else
-      BranchPolicy.get_name(self.branch_policy_id)
+      self.branch_policy
     end
   end
 
   def get_last_performance
-    if self.last_performance_id == nil
-      "NO SE PRESENTA"
+    if self.last_performance == nil
+      "NO APLICA"
     else
-      LastPerformance.find(last_performance_id).name
+      self.last_performance
     end
   end
 
   def get_join_committee
-    if self.join_committee_id == nil
-      "NO SE PRESENTA"
+    if self.join_committee == nil
+      "NO APLICA"
     else
-      JoinCommittee.find(self.join_committee_id).name
+      self.join_committee
     end
   end
 
   def get_reserved_released
-    if self.reserved_released_id == nil
-      "NO SE PRESENTA"
+    if self.reserved_released == nil
+      "NO APLICA"
     else
-      ReservedReleased.find(self.reserved_released_id).name
+      self.reserved_released
     end
   end
 
   def get_setence_type_second_company
-    if self.setence_type_second_company_id == nil
+    if self.setence_type_second_company == nil
       "NO APLICA"
     else
-      CaseState.find(self.setence_type_second_company_id).name
+      self.setence_type_second_company
     end
   end
 
   def get_sentence_type_desacate
-    if self.sentence_type_desacate_id == nil
+    if self.sentence_type_desacate == nil
       "NO APLICA"
     else
-      CaseState.find(self.sentence_type_desacate_id).name
+      self.sentence_type_desacate
     end
   end
 
   def get_gubernatorial_way
-    if self.gubernatorial_way_id == nil
+    if self.gubernatorial_way == nil
       "NO APLICA"
     else
-      GubernatorialWay.find(self.gubernatorial_way_id).name
+      self.gubernatorial_way
     end
   end
 
   def get_committee
-    if self.committee_id == nil
-      "NO SE PRESENTA"
+    if self.committee == nil
+      "NO APLICA"
     else
-      Committee.find(self.committee_id).name
+      self.committee
     end
   end
 

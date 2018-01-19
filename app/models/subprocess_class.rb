@@ -10,36 +10,36 @@
 
 class SubprocessClass < ApplicationRecord
 
-  def self.fiscal
-    SubprocessClass.find([3,4])
-  end
-
   def self.penal
-    SubprocessClass.find([11])
-  end
-
-  def self.administrative
-    SubprocessClass.order(:name).find([71, 72])
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==21")
   end
 
   def self.admin
-    SubprocessClass.find((42..54).step(1).to_a)
-  end
-
-  def self.tutelage
-    SubprocessClass.find((28..41).step(1).to_a)
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==22")
   end
 
   def self.civil
-    SubprocessClass.find((55..65).step(1).to_a)
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==23")
   end
 
   def self.arbitral
-    SubprocessClass.find([66])
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==24")
   end
 
   def self.laboral
-    SubprocessClass.find([67, 68])
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==25")
+  end
+
+  def self.fiscal
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==3")
+  end
+
+  def self.administrative
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==4")
+  end
+
+  def self.tutelage
+    SubprocessClass.order(n_type: :desc, name: :asc).where("n_type==5")
   end
 
   def self.get_name(id)

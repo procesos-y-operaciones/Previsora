@@ -102,12 +102,14 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "link_types", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "litigation_sources", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -132,12 +134,14 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "process_classes", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "protections", force: :cascade do |t|
     t.string "name"
+    t.string "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -174,6 +178,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "subprocess_classes", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -181,13 +186,13 @@ ActiveRecord::Schema.define(version: 20171223021603) do
   create_table "type_processes", force: :cascade do |t|
     t.integer "p_type", default: 0
     t.string "internal_lawyer"
-    t.string "correspondency_radicate"
-    t.string "case_id_bap"
-    t.string "case_id_sise"
-    t.string "case_id_ekogui"
+    t.string "correspondency_radicate", default: "NO APLICA"
+    t.string "case_id_bap", default: "NO APLICA"
+    t.string "case_id_sise", default: "NO APLICA"
+    t.string "case_id_ekogui", default: "NO APLICA"
+    t.string "process_radicate", default: "NO APLICA"
     t.date "creation_date"
     t.date "notification_date"
-    t.string "process_radicate", default: "NO APLICA"
     t.integer "number", default: 0
     t.integer "exercise", default: 0
     t.string "sinister", default: "NO APLICA"
@@ -261,55 +266,32 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.boolean "recovery", default: false
     t.string "departament"
     t.string "city_case"
-    t.integer "process_class_id"
-    t.integer "subprocess_class_id"
-    t.integer "link_type_id"
-    t.integer "branch_policy_id"
-    t.integer "branch_commercial_id"
-    t.integer "score_contingency_id"
-    t.integer "protection_id"
-    t.integer "current_stage_id"
-    t.integer "litigation_source_id"
-    t.integer "instance_id"
-    t.integer "case_state_id"
-    t.integer "case_termination_id"
-    t.integer "reinsurance_type_id"
-    t.integer "last_performance_id"
-    t.integer "gubernatorial_way_id"
-    t.integer "notification_type_second_id"
-    t.integer "setence_type_second_company_id"
-    t.integer "sentence_type_desacate_id"
-    t.integer "reserved_released_id"
-    t.integer "money_type_id"
-    t.integer "join_committee_id"
-    t.integer "committee_id"
-    t.integer "coensurance_type_id"
+    t.string "process_class"
+    t.string "subprocess_class"
+    t.string "link_type"
+    t.string "branch_policy"
+    t.string "branch_commercial"
+    t.string "score_contingency"
+    t.string "protection"
+    t.string "current_stage"
+    t.string "litigation_source"
+    t.string "instance"
+    t.string "case_state"
+    t.string "case_termination"
+    t.string "reinsurance_type"
+    t.string "last_performance"
+    t.string "gubernatorial_way"
+    t.string "notification_type_second"
+    t.string "setence_type_second_company"
+    t.string "sentence_type_desacate"
+    t.string "reserved_released"
+    t.string "money_type"
+    t.string "join_committee"
+    t.string "committee"
+    t.string "coensurance_type"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_commercial_id"], name: "index_type_processes_on_branch_commercial_id"
-    t.index ["branch_policy_id"], name: "index_type_processes_on_branch_policy_id"
-    t.index ["case_state_id"], name: "index_type_processes_on_case_state_id"
-    t.index ["case_termination_id"], name: "index_type_processes_on_case_termination_id"
-    t.index ["coensurance_type_id"], name: "index_type_processes_on_coensurance_type_id"
-    t.index ["committee_id"], name: "index_type_processes_on_committee_id"
-    t.index ["current_stage_id"], name: "index_type_processes_on_current_stage_id"
-    t.index ["gubernatorial_way_id"], name: "index_type_processes_on_gubernatorial_way_id"
-    t.index ["instance_id"], name: "index_type_processes_on_instance_id"
-    t.index ["join_committee_id"], name: "index_type_processes_on_join_committee_id"
-    t.index ["last_performance_id"], name: "index_type_processes_on_last_performance_id"
-    t.index ["link_type_id"], name: "index_type_processes_on_link_type_id"
-    t.index ["litigation_source_id"], name: "index_type_processes_on_litigation_source_id"
-    t.index ["money_type_id"], name: "index_type_processes_on_money_type_id"
-    t.index ["notification_type_second_id"], name: "index_type_processes_on_notification_type_second_id"
-    t.index ["process_class_id"], name: "index_type_processes_on_process_class_id"
-    t.index ["protection_id"], name: "index_type_processes_on_protection_id"
-    t.index ["reinsurance_type_id"], name: "index_type_processes_on_reinsurance_type_id"
-    t.index ["reserved_released_id"], name: "index_type_processes_on_reserved_released_id"
-    t.index ["score_contingency_id"], name: "index_type_processes_on_score_contingency_id"
-    t.index ["sentence_type_desacate_id"], name: "index_type_processes_on_sentence_type_desacate_id"
-    t.index ["setence_type_second_company_id"], name: "index_type_processes_on_setence_type_second_company_id"
-    t.index ["subprocess_class_id"], name: "index_type_processes_on_subprocess_class_id"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 
