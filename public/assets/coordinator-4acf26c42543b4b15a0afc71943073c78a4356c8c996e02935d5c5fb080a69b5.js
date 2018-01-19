@@ -1,5 +1,8 @@
 (function() {
   $(function() {
+    $('table').click(function() {
+      return console.log("jdjdj");
+    });
     $('.clickable-row').click(function() {
       return window.location = $(this).data('href');
     });

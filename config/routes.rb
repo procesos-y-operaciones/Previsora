@@ -22,9 +22,12 @@ Rails.application.routes.draw do
   get 'coordinator/management'
   get 'coordinator/search'
   get 'coordinator/report'
+  get 'coordinator/files'
+  get 'coordinator/download_file'
   get "/edit/:id" => "coordinator#edit", as:'coordinator_edit'
   patch "/coordinator/:id(.:format)", :to => 'coordinator#update', :as => 'coordinator_update'
   delete "/coordinator/:id(.:format)", :to => 'coordinator#destroy', :as => 'coordinator_delete'
+
 
   get 'cities/:state', to: 'application#cities'
 

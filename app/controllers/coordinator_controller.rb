@@ -50,6 +50,19 @@ class CoordinatorController < ApplicationController
     end
   end
 
+  def files
+    @files = Dir.glob("#{Rails.root}/public/files/*")
+  end
+
+  def download_file
+    @file = params[:file]
+    send_file(
+      "#{Rails.root}/public/files/#{@file}",
+      filename: @file,
+      type: "application/txt"
+    )
+  end
+
   def report
     @search = TypeProcess.ransack(params[:q])
     @report = @search.result

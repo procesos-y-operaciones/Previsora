@@ -1,0 +1,16 @@
+<div class="p-30">
+
+  <h2 class="center mt-50">Historial de reportes</h2>
+
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-7 ">
+
+      <% @files.sort.each do |f| %>
+        <div>
+          <%= link_to "#{File.basename f}", coordinator_download_file_url(:file => (File.basename f)), download: (File.basename f) %>
+        </duv>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -120,6 +120,8 @@ class TypeProcessesController < ApplicationController
        :date_notification_desacate, :date_answer_desacate, :sentence_type_desacate_id,
        :date_notification_desition_desacate, :gubernatorial_way_id, :current_stage_id,
        :reinsurance_value_cents, :reensurance_gived_cents, :join_committee_id, :committee_id,
-       :auth_value_cents, :reason_conc, :reason_inv, :reserved_fees_cents, :case_onbase)
+       :auth_value_cents, :reason_conc, :reason_inv, :reserved_fees_cents, :case_onbase,
+       :internal_lawyer, :case_id_ekogui, :coensurance_value_cents, :protection_id,
+       :provision_cents, :cost_value_cents, :committee_date, :reconcilie_value_cents)
     end
 end

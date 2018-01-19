@@ -9,4 +9,9 @@
 #
 
 class SetenceTypeSecondCompany < ApplicationRecord
+
+  def self.get_name(id)
+    SetenceTypeSecondCompany.find(id).name
+  end
+
 end

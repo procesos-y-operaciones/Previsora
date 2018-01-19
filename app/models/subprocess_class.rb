@@ -19,7 +19,7 @@ class SubprocessClass < ApplicationRecord
   end
 
   def self.administrative
-    SubprocessClass.order(:name).find([70, 71])
+    SubprocessClass.order(:name).find([71, 72])
   end
 
   def self.admin
@@ -27,7 +27,7 @@ class SubprocessClass < ApplicationRecord
   end
 
   def self.tutelage
-    SubprocessClass.find((28..40).step(1).to_a)
+    SubprocessClass.find((28..41).step(1).to_a)
   end
 
   def self.civil
