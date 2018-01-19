@@ -23,7 +23,7 @@
         <div class="styled-select mb-25">
           <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]], @user.role), {}, {disabled: true} %>
         </div>
-        
+
         <%= f.label "Nombre", class:"form-label" %><br />
         <%= f.text_field :name, autofocus: true, readOnly: true, class:"form-control" %>
       <% end %>
