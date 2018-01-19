@@ -16,23 +16,24 @@ $ ->
     v_option = document.getElementById('subprocess_class').value
     if v_option == '3'
       $('#currentStageVer').prop 'disabled', false
-      $('#currentStageVerDiv').show()
+      $('#currentStageVer').show()
       $('#currentStageOrd').prop 'disabled', true
-      $('#currentStageOrdDiv').hide()
+      $('#currentStageOrd').hide()
     else if v_option == '4'
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageVerDiv').hide()
+      $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', false
-      $('#currentStageOrdDiv').show()
+      $('#currentStageOrd').show()
     else
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageVerDiv').hide()
+      $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', true
-      $('#currentStageOrdDiv').hide()
+      $('#currentStageOrd').hide()
 
   $('#subprocess_class').change ->
     subprocess_class_rule()
 
+  subprocess_class_rule()
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
@@ -86,11 +87,11 @@ $ ->
     case_id_bap_and_sise_rule()
 
   #Fuente de litigio
-  num=0
-  exer=0
-  poly=0
-  comm=0
   numSiniestro = ""
+  num = numSiniestro.concat(document.getElementById("number").value)
+  exer = numSiniestro.concat(document.getElementById("exercise").value)
+  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
+  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
     if v_option == '2'

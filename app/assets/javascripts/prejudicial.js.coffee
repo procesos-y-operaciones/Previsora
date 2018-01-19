@@ -41,11 +41,11 @@ $ ->
     radicate_rule()
 
   #Fuente de litigio
-  num = 0
-  exer = 0
-  poly = 0
-  comm = 0
   numSiniestro = ""
+  num = numSiniestro.concat(document.getElementById("number").value)
+  exer = numSiniestro.concat(document.getElementById("exercise").value)
+  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
+  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById("litigationSource").value
     if v_option == "SINIESTRO"

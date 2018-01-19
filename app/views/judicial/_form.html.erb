@@ -66,7 +66,7 @@ function formatting(input) {
 
   <div class="p-30">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-7 ">
+      <div class="col-sm-offset-2 col-sm-8 ">
 
         <%= form.hidden_field :p_type, :value => 2 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
@@ -201,8 +201,8 @@ function formatting(input) {
 
         <%= form.label "Valor reaseguro" %>
         <div class="input-group">
-          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reinsurance_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -219,8 +219,8 @@ function formatting(input) {
 
         <%= form.label "Valor coaseguro" %>
         <div class="input-group">
-          <%= form.number_field :coensurance_value_cents, id:"coensurance_value", class:"form-control"%>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.coensurance_type_id_d') %>" data-placement="auto top">
+          <%= form.number_field :coensurance_value_cents, id:"coensurance_value", onkeyup:"formatting_number(this)", class:"form-control"%>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -342,56 +342,56 @@ function formatting(input) {
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.dolar_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor reserva" %>
         <div class="input-group">
-          <%= form.number_field :reserve_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reserve_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :reserve_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor provisión de indemnización" %>
         <div class="input-group">
-          <%= form.number_field :provision_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.provision_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :provision_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor reserva honorarios" %>
         <div class="input-group">
-          <%= form.number_field :reserved_fees_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reserve_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :reserved_fees_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor pretensión / detrimento / estimación" %>
         <div class="input-group">
-          <%= form.number_field :detritment_cents, id:"detrimetValueCents", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.detritment_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :detritment_cents, id:"detrimetValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor asegurado" %>
         <div class="input-group">
-          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.ensurance_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor contingencia" %>
         <div class="input-group">
-          <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.contingency_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -493,6 +493,8 @@ function formatting(input) {
           </span>
         </div>
 
+        <hr>
+
         <%= form.label "Etapa actual", id:"currentStage" %>
         <div class="input-group">
           <div class="styled-select">
@@ -570,16 +572,16 @@ function formatting(input) {
 
         <%= form.label "Valor costas" %>
         <div class="input-group">
-          <%= form.number_field :cost_value_cents,  id:"cost_value", class: "form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.cost_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :cost_value_cents,  id:"cost_value", onkeyup:"formatting_number(this)", class: "form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor fallo decisión" %>
         <div class="input-group">
-          <%= form.number_field :fail_value_cents, id: "fail_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.fail_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :fail_value_cents, id: "fail_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -587,7 +589,7 @@ function formatting(input) {
         <%= form.label "Valor fallo a cargo de Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.number_field :fail_previ_cents, id: "fail_previ", class:"form-control" %>
+            <%= form.number_field :fail_previ_cents, id: "fail_previ", onkeyup:"formatting_number(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.fail_previ_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -597,7 +599,7 @@ function formatting(input) {
         <%= form.label "Valor pagado Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.number_field :payed_value_cents, id: "payed_value", class:"form-control" %>
+            <%= form.number_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.payed_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -645,16 +647,16 @@ function formatting(input) {
 
         <%= form.label "Valor coactivo" %>
         <div class="input-group">
-          <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.coactive_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor embargo" %>
         <div class="input-group">
-          <%= form.number_field :garnish_value_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.garnish_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :garnish_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -707,16 +709,16 @@ function formatting(input) {
 
         <%= form.label "Valor autorizado por el comité" %>
         <div class="input-group">
-          <%= form.number_field :auth_value_cents, id:"auth_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.auth_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Valor conciliado" %>
         <div class="input-group">
-          <%= form.number_field :reconcilie_value_cents, id:"reconcilie_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reconcilie_value_cents_d') %>" data-placement="auto top">
+          <%= form.number_field :reconcilie_value_cents, id:"reconcilie_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -746,6 +748,8 @@ function formatting(input) {
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
       </div>
     </div>
