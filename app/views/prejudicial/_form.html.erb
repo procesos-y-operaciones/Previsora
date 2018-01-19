@@ -159,7 +159,7 @@ function formatting(input) {
         <div class="input-group">
           <div class="styled-select">
             <select name="type_process[city_case]" id="cities">
-              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
+              <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.city_case_d') %>" data-placement="auto top">
@@ -369,7 +369,7 @@ function formatting(input) {
         <%= form.label "Fecha de primera audiencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.date_field :payment_date, class:"form-control" %>
+            <%= form.date_field :desition_date, class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.payment_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>

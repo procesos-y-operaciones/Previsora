@@ -52,7 +52,7 @@
       </div>
       <div class="col-sm-3">
         <div class="styled-select m-5">
-          <%= f.collection_select(:case_state_id_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
+          <%= f.collection_select(:case_state_eq, CaseState.all, :name, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
         </div>
       </div>
     </div>

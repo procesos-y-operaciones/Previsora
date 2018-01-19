@@ -144,7 +144,6 @@ $ ->
   $('#subprocessCivil').change ->
     subprocess_civil_rule()
 
-
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
     if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
@@ -201,7 +200,7 @@ $ ->
   #Tipo de reaseguro
   reinsurance_type_rule = ->
     v_option = document.getElementById("reinsurance_type").value
-    if v_option == "2" || v_option == "3"
+    if v_option == "FACULTATIVO" || v_option == "CUOTA PARTE"
       document.getElementById("reinsurance_value").readOnly = false
     else
       document.getElementById("reinsurance_value").readOnly = true
@@ -216,7 +215,7 @@ $ ->
   #Tipo de coaseguro
   coensurance_type_rule = ->
     v_option = document.getElementById("coensurance_type").value
-    if v_option == "2" || v_option == "3"
+    if v_option == "CEDIDO" || v_option == "ACEPTADO"
       document.getElementById("coensurance_value").readOnly = false
     else
       document.getElementById("coensurance_value").readOnly = true
@@ -236,7 +235,7 @@ $ ->
   comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById("litigationSource").value
-    if v_option == "2"
+    if v_option == "SINIESTRO"
       document.getElementById("policyCents").readOnly = false
       $('#protection').prop( "disabled", false )
       document.getElementById("number").readOnly = false
@@ -315,7 +314,7 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "1"
+    if v_option == "PESO"
       document.getElementById("dolarValueCents").readOnly = true
       $("#dolarValueCents").val(0)
     else
@@ -346,7 +345,7 @@ $ ->
   #Estado del caso
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
-    if v_option == "2"
+    if v_option == "TERMINADO"
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
@@ -362,7 +361,7 @@ $ ->
       $('#reservedReleased').prop( "disabled", true )
       $('#reservedReleased').val("1")
       $('#recovery').prop( "disabled", true )
-      $('#recovery').val("")
+      $('#recovery').val("PENDIENTE")
 
   $('#caseState').change ->
     case_state_rule()
@@ -373,7 +372,7 @@ $ ->
   #Terminación del caso
   case_termination_rule = ->
     v_option = document.getElementById("caseTermination").value
-    if v_option == "2"
+    if v_option == "TERMINADO CON PAGO: EN CONTRA"
       document.getElementById("fail_value").readOnly = false
       document.getElementById("fail_previ").readOnly = false
       document.getElementById("payed_value").readOnly = false
@@ -439,7 +438,7 @@ $ ->
   #¿Ingresa al comité?
   join_committee_rule = ->
     v_option = document.getElementById("join_committee").value
-    if v_option == "2"
+    if v_option == "SI"
       document.getElementById("committee_date").readOnly = false
       $('#committee').prop( "disabled", false )
     else
@@ -457,7 +456,7 @@ $ ->
   #Decisión del comité
   committee_rule = ->
     v_option = document.getElementById("committee").value
-    if v_option == "2"
+    if v_option == "CONCILIA"
       document.getElementById("reconcilie_value").readOnly = false
       document.getElementById("auth_value").readOnly = false
       document.getElementById("reason_conc").readOnly = true
@@ -470,7 +469,7 @@ $ ->
       $('#fail_previ').val("0")
       document.getElementById("payed_value").readOnly = true
       $('#payed_value').val("0")
-    else if v_option == "3"
+    else if v_option == "NO CONCILIA"
       document.getElementById("reconcilie_value").readOnly = true
       $('#reconcilie_value').val("0")
       document.getElementById("auth_value").readOnly = true
@@ -481,7 +480,7 @@ $ ->
       document.getElementById("fail_value").readOnly = false
       document.getElementById("fail_previ").readOnly = false
       document.getElementById("payed_value").readOnly = false
-    else if v_option == "4"
+    else if v_option == "INVIABLE"
       document.getElementById("reconcilie_value").readOnly = true
       $('#reconcilie_value').val("0")
       document.getElementById("auth_value").readOnly = true
