@@ -1,6 +1,10 @@
 $ ->
   #Valores iniciales
   initial_values = ->
+    if $('#case_id_bap').val() == "NO APLICA"
+      $('#case_id_bap').val("PENDIENTE")
+    if $('#process_radicate').val() == "NO APLICA"
+      $('#process_radicate').val("PENDIENTE")
     if $('#case_onbase').val() == "NO APLICA"
       $('#case_onbase').val("PENDIENTE")
     if $('#attorny').val() == "NO APLICA"
@@ -13,7 +17,6 @@ $ ->
       $('#facts').val("PENDIENTE")
 
   initial_values()
-
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
@@ -37,21 +40,6 @@ $ ->
   $('#radicate').change ->
     radicate_rule()
 
-
-  #Número de identificación del caso (bizagi, access y pa)
-  id_bap_rule = ->
-    v_option = document.getElementById("case_id_bap").value
-    if v_option == "NO APLICA"
-      $('#case_id_bap').val("PENDIENTE")
-      v_option = document.getElementById("case_id_bap").value
-    $('#process_radicate').val(v_option)
-
-  $('#case_id_bap').change ->
-    id_bap_rule()
-
-  id_bap_rule()
-
-
   #Fuente de litigio
   num = 0
   exer = 0
@@ -60,7 +48,7 @@ $ ->
   numSiniestro = ""
   litigation_source_rule = ->
     v_option = document.getElementById("litigationSource").value
-    if v_option == "2"
+    if v_option == "SINIESTRO"
       document.getElementById("policyCents").readOnly = false
       $('#protection').prop( "disabled", false )
       document.getElementById("number").readOnly = false
@@ -69,6 +57,8 @@ $ ->
       $('#branch_commercial').prop( "disabled", false )
       $('#more_policies').prop( "disabled", false )
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
+      $('#coensurance_type').prop( "disabled", false )
+      $('#reinsurance_type').prop( "disabled", false )
     else
       document.getElementById("policyCents").readOnly = true
       $('#policyCents').val("0")
@@ -84,6 +74,8 @@ $ ->
       $('#branch_commercial').val("0")
       $('#more_policies').prop( "disabled", true )
       $("#sinister").val("NO APLICA")
+      $('#coensurance_type').prop( "disabled", true )
+      $('#reinsurance_type').prop( "disabled", true )
 
   $('#litigationSource').change ->
     litigation_source_rule()
@@ -139,7 +131,7 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "1"
+    if v_option == "PESO"
       document.getElementById("dolarValueCents").readOnly = true
       $("#dolarValueCents").val(0)
     else
@@ -151,25 +143,10 @@ $ ->
   money_type_rule()
 
 
-  #Tipo de reaseguro
-  reinsurance_type_rule = ->
-    v_option = document.getElementById("reinsurance_type").value
-    if v_option == "2" || v_option == "3"
-      document.getElementById("reinsurance_value").readOnly = false
-    else
-      document.getElementById("reinsurance_value").readOnly = true
-      $("#reinsurance_value").val(0)
-
-  $("#reinsurance_type").change ->
-    reinsurance_type_rule()
-
-  reinsurance_type_rule()
-
-
   #Ingresa al comité
   join_committee_rule = ->
     v_option = document.getElementById("join_committee").value
-    if v_option == "2"
+    if v_option == "SI"
       $('#committee').prop( "disabled", false )
     else
       $('#committee').prop( "disabled", true )
@@ -184,7 +161,7 @@ $ ->
   committee_rule = ->
     v_option = document.getElementById("committee").value
     switch v_option
-      when "2"
+      when "CONCILIA"
         document.getElementById("auth_value").readOnly = false
         document.getElementById("payed_value").readOnly = false
         document.getElementById("payment_date").readOnly = false
@@ -192,7 +169,7 @@ $ ->
         $('#reason_conc').val("PENDIENTE")
         document.getElementById("reason_inv").readOnly = true
         $('#reason_inv').val("PENDIENTE")
-      when "3"
+      when "NO CONCILIA"
         document.getElementById("auth_value").readOnly = true
         $('#auth_value').val("0")
         document.getElementById("payed_value").readOnly = true
@@ -202,7 +179,7 @@ $ ->
         document.getElementById("reason_conc").readOnly = false
         document.getElementById("reason_inv").readOnly = true
         $('#reason_inv').val("PENDIENTE")
-      when "4"
+      when "INVIABLE"
         document.getElementById("auth_value").readOnly = true
         $('#auth_value').val("0")
         document.getElementById("payed_value").readOnly = true
@@ -235,6 +212,7 @@ $ ->
     output_state = $('#cities')
     $.getJSON '/cities/' + $(this).val(), (data) ->
       output_state.empty()
+      output_state.append '<option value="PENDIENTE">SELECCIONE</option>'
       $.each data, (i) ->
         opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
         output_state.append opt

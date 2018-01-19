@@ -7,17 +7,17 @@ User.create([
   {document: '49797396', name: 'BETSABE  MANTILLA DIAZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1010169121', name: 'ANGELA LILIANA LOPEZ ALVAREZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1031138340', name: 'LUIS EDUARDO LOPEZ  MORA', password: '123456', password_confirmation: '123456', role: 1},
-  {document: '1026252607', name: 'LUZ ANDREA JIMENEZ MUÑOZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1026252607', name: 'LUZ ANDREA JIMENEZ MUNOZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '52780795', name: 'CRYSTHEL EMANUELLA GUTIERREZ RAMIREZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '39567180', name: 'LIDA MORELIA CALDERON RODRIGUEZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1026570699', name: 'CHRISTIAN CAMILO  HERNANDEZ VEGA', password: '123456', password_confirmation: '123456', role: 1},
-  {document: '7181859', name: 'DANNY FABIAN GUIO MUÑOZ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '7181859', name: 'DANNY FABIAN GUIO MUNOZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '80525785', name: 'FREDDY LEONEL ROJAS RIOS', password: '123456', password_confirmation: '123456', role: 1},
   {document: '40216726', name: 'FLOR ANGELA TORRES HUERTAS', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1015441384', name: 'DANIEL ALEJANDRO PALACIOS BALLEN', password: '123456', password_confirmation: '123456', role: 1},
   {document: '79828072', name: 'LEONARDO FABIO CALDERON GALLEGO', password: '123456', password_confirmation: '123456', role: 1},
   {document: '51779870', name: 'ANA PATRICIA MOLANO GACHANCIPA', password: '123456', password_confirmation: '123456', role: 1},
-  {document: '1018469232', name: 'AURA JESSICA MEDINA FANDIÑO', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1018469232', name: 'AURA JESSICA MEDINA FANDINO', password: '123456', password_confirmation: '123456', role: 1},
   {document: '79993930', name: 'EMIRO ANTONIO VAGAS ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '71683546', name: 'FABIAN DE JESUS PASADA VELEZ', password: '123456', password_confirmation: '123456', role: 2},
   {document: '1118532099', name: 'MAYRA  MORENO ', password: '123456', password_confirmation: '123456', role: 1},
@@ -27,8 +27,8 @@ User.create([
   {document: '37901644', name: 'LUISA FERNANDA ORTEGA SOLANO', password: '123456', password_confirmation: '123456', role: 1},
   {document: '72272660', name: 'ARON JOSE ORTIZ ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1018442399', name: 'YURANY HASLEYDI NORE ORTEGA', password: '123456', password_confirmation: '123456', role: 1},
-  {document: '1018407179', name: 'IVAN  ORDOÑEZ ', password: '123456', password_confirmation: '123456', role: 1},
-  {document: '80212112', name: 'JUAN MANUEL PEÑA TORRES', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '1018407179', name: 'IVAN  ORDONEZ ', password: '123456', password_confirmation: '123456', role: 1},
+  {document: '80212112', name: 'JUAN MANUEL PENA TORRES', password: '123456', password_confirmation: '123456', role: 1},
   {document: '1022372499', name: 'DAYANE ACOSTA AVILA ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '20370708', name: 'SANDRA MILENA SANCHEZ RUIZ', password: '123456', password_confirmation: '123456', role: 1},
   {document: '28554902', name: 'CLAUDIA  RODRIGUEZ PATRON', password: '123456', password_confirmation: '123456', role: 1},
@@ -115,7 +115,7 @@ SubprocessClass.create([
   {name: 'PROCESOS DECLARATIVOS ESPECIALES', n_type: 23},
   {name: 'PROCESO EJECUTIVO', n_type: 23},
   {name: 'PROCESO DE SUCESION', n_type: 23},
-  {name: 'PROCESO DE LIQUIDACION DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CONYUGES O COMPAÑEROS PERMANENTES', n_type: 23},
+  {name: 'PROCESO DE LIQUIDACION DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CONYUGES O COMPANEROS PERMANENTES', n_type: 23},
   {name: 'DISOLUCION, NULIDAD Y LIQUIDACION DE SOCIEDADES', n_type: 23},
   {name: 'INSOLVENCIA DE LA PERSONA NATURAL NO COMERCIANTE', n_type: 23},
   {name: 'PROCESO ORDINARIO', n_type: 23},
@@ -217,54 +217,61 @@ BranchCommercial.create([
   {name: 'PREVIEDUCATIVO', num: 93},
   {name: 'TODO RIESGO EMPRESARIAL', num: 94},
   {name: 'PREVICAMPO', num: 95},
-  {name: 'DAÑOS MATERIALES', num: 98}
+  {name: 'DANOS MATERIALES', num: 98}
+])
+
+LitigationSource.create([
+  {name: 'PENDIENTE', n_type: 0},
+  {name: 'SINIESTRO', n_type: 1},
+  {name: 'PROVISION', n_type: 1},
+  {name: 'ESMITACION RECOBRO', n_type: 1},
+  {name: 'VINCULACION ERRADA', n_type: 1}
 ])
 
 Protection.create([
-  {name: 'PENDIENTE'},
-  {name: 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL'},
-  {name: 'DELITOS CONTRA LA ADMINISTRACION PUBLICA'},
-  {name: 'DAÑOS EXTRAPRATIMONIALES'},
-  {name: 'ERRORES U OMISIONES PROFESIONALES'},
-  {name: 'COBERTURA R.C CLINICAS Y HOSPITALES'},
-  {name: 'FALLOS CON RESPONSABILIDAD FISCAL'},
-  {name: 'RENDICION Y RECONSTRUCCION DE CUENTAS'},
-  {name: 'PREDIOS LABORES Y OPERACIONES'},
-  {name: 'EMPLEADOS NO IDENTIFICADOS ( CLAUSULA)'},
-  {name: 'ACTOS INCORRESCTOS'},
-  {name: 'INCAPACIDAD PERMANENTE'},
-  {name: 'RC. PATRONAL'},
-  {name: 'ABUSO DE CONFIANZA'},
-  {name: 'ASISTENCIA JURIDICA PENAL '},
-  {name: 'ASISTENCIA JURIDICA CIVIL'},
-  {name: 'HONORARIOS PROFESIONALES'},
-  {name: 'PAGO DE SALARIOS PRESTACIONES SOCIALES E INDEMNIZACIONES'},
-  {name: 'HURTO CALIFICADO'},
-  {name: 'BUEN MANEJO DEL ANTICIPO'},
-  {name: 'ACTOS QUE GENEREN JUICIOS DE RESPONSABILIDAD FISCAL'},
-  {name: 'PREJUICIOS MODALIDAD DAÑO EMERGENTE'},
-  {name: 'RESPONSABILIDAD CIVIL CRUZADA'},
-  {name: 'CONVERSION'},
-  {name: 'CUMPLIMIENTO DE CONTRATO'},
-  {name: 'INFIDELIDAD DE EMPLEADOS'},
-  {name: 'AVERIAS'},
-  {name: 'EXTENDED COVERAGE (OTROS AMPAROS ADICIONALES)'},
-  {name: 'PERDIDA PARCIAL DAÑOS'},
-  {name: 'FALTA DE ENTREGA'},
-  {name: 'ENFERMEDADES DE ALTO COSTO SUBSIDIADO'},
-  {name: 'COBERTURA OBRAS CIVILES ( CONSTRUCCION)'},
-  {name: 'COBERTURA R.C EXTRACONTRACTUAL'},
-  {name: 'PERDIDA SEVERA POR HURTO'},
-  {name: 'TERAPEUTICOS'},
-  {name: 'CUMPLIMIENTO'},
-  {name: 'INCUMPLIMIENTO'},
-  {name: 'ESTABILIDAD LABORAL'},
-  {name: 'SALARIOS Y PRESTACIONES E INDEMNIZACIONES'},
-  {name: 'BUEN MANEJO DEL ANTICIPO'},
-  {name: 'COBERTURA GLOBAL DEL MANEJO'}
+  {name: 'PENDIENTE', n_type: 0},
+  {name: 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL', n_type: 1},
+  {name: 'DELITOS CONTRA LA ADMINISTRACION PUBLICA', n_type: 1},
+  {name: 'DANOS EXTRAPATRIMONIALES', n_type: 1},
+  {name: 'ERRORES U OMISIONES PROFESIONALES', n_type: 1},
+  {name: 'COBERTURA R.C CLINICAS Y HOSPITALES', n_type: 1},
+  {name: 'FALLOS CON RESPONSABILIDAD FISCAL', n_type: 1},
+  {name: 'RENDICION Y RECONSTRUCCION DE CUENTAS', n_type: 1},
+  {name: 'PREDIOS LABORES Y OPERACIONES', n_type: 1},
+  {name: 'EMPLEADOS NO IDENTIFICADOS ( CLAUSULA)', n_type: 1},
+  {name: 'ACTOS INCORRECTOS', n_type: 1},
+  {name: 'INCAPACIDAD PERMANENTE', n_type: 1},
+  {name: 'RC. PATRONAL', n_type: 1},
+  {name: 'ABUSO DE CONFIANZA', n_type: 1},
+  {name: 'ASISTENCIA JURIDICA PENAL', n_type: 1},
+  {name: 'ASISTENCIA JURIDICA CIVIL', n_type: 1},
+  {name: 'HONORARIOS PROFESIONALES', n_type: 1},
+  {name: 'PAGO DE SALARIOS PRESTACIONES SOCIALES E INDEMNIZACIONES', n_type: 1},
+  {name: 'HURTO CALIFICADO', n_type: 1},
+  {name: 'BUEN MANEJO DEL ANTICIPO', n_type: 1},
+  {name: 'ACTOS QUE GENEREN JUICIOS DE RESPONSABILIDAD FISCAL', n_type: 1},
+  {name: 'PERJUICIOS MODALIDAD DANO EMERGENTE', n_type: 1},
+  {name: 'RESPONSABILIDAD CIVIL CRUZADA', n_type: 1},
+  {name: 'CONVERSION', n_type: 1},
+  {name: 'CUMPLIMIENTO DE CONTRATO', n_type: 1},
+  {name: 'INFIDELIDAD DE EMPLEADOS', n_type: 1},
+  {name: 'AVERIAS', n_type: 1},
+  {name: 'EXTENDED COVERAGE (OTROS AMPAROS ADICIONALES)', n_type: 1},
+  {name: 'PERDIDA PARCIAL DANOS', n_type: 1},
+  {name: 'FALTA DE ENTREGA', n_type: 1},
+  {name: 'ENFERMEDADES DE ALTO COSTO SUBSIDIADO', n_type: 1},
+  {name: 'COBERTURA OBRAS CIVILES ( CONSTRUCCION)', n_type: 1},
+  {name: 'COBERTURA R.C EXTRACONTRACTUAL', n_type: 1},
+  {name: 'PERDIDA SEVERA POR HURTO', n_type: 1},
+  {name: 'TERAPEUTICOS', n_type: 1},
+  {name: 'CUMPLIMIENTO', n_type: 41},
+  {name: 'INCUMPLIMIENTO', n_type: 42},
+  {name: 'ESTABILIDAD LABORAL', n_type: 42},
+  {name: 'SALARIOS Y PRESTACIONES E INDEMNIZACIONES', n_type: 42},
+  {name: 'BUEN MANEJO DEL ANTICIPO', n_type: 42},
+  {name: 'COBERTURA GLOBAL DEL MANEJO', n_type: 1}
 ])
 
-"""
 ScoreContingency.create([
   {name: 'PENDIENTE'},
   {name: 'EVENTUAL'},
@@ -477,6 +484,74 @@ Committee.create([
   {name: 'INVIABLE'}
 ])
 
+Instance.create([
+  {name: 'PENDIENTE'},
+  {name: 'PRIMERA'},
+  {name: 'SEGUNDA'},
+  {name: 'UNICA'},
+  {name: 'GRADO DE CONSULTA'},
+  {name: 'RECURSO EXTRAORDINARIO'},
+  {name: 'PREJUDICIAL'},
+  {name: 'RECOBRO'},
+  {name: 'NO APLICA'}
+])
+
+CaseTermination.create([
+  {name: 'PENDIENTE'},
+  {name: 'TERMINADO CON PAGO: EN CONTRA'},
+  {name: 'TERMINADO SIN PAGO: A FAVOR'},
+  {name: 'FAVORABLE'},
+  {name: 'DESFAVORABLE'}
+])
+
+GubernatorialWay.create([
+  {name: 'PENDIENTE', n_type: 1},
+  {name: 'CONEXION', n_type: 1},
+  {name: 'SIPLAFT', n_type: 1},
+  {name: 'ESTADOS FINANCIEROS', n_type: 1},
+  {name: 'MORA', n_type: 1},
+  {name: 'POLIZA', n_type: 1},
+  {name: 'VISITA FISCALIZACION', n_type: 1},
+  {name: 'INEXACTITUD', n_type: 1},
+  {name: 'NO APLICA', n_type: 2}
+])
+
+ReinsuranceType.create([
+  {name: 'NO SE PRESENTO'},
+  {name: 'FACULTATIVO'},
+  {name: 'CUOTA PARTE'}
+])
+
+MoneyType.create([
+  {name: 'PESO'},
+  {name: 'DOLAR'}
+])
+
+ReservedReleased.create([
+  {name: 'PENDIENTE'},
+  {name: 'NO'},
+  {name: 'SI'}
+])
+
+CoensuranceType.create([
+  {name: 'NO SE PRESENTO'},
+  {name: 'CEDIDO'},
+  {name: 'ACEPTADO'}
+])
+
+CaseState.create([
+  {name: 'EN CURSO'},
+  {name: 'TERMINADO'}
+])
+
+LastPerformance.create([
+  {name: 'PENDIENTE'},
+  {name: 'DESCARGOS'},
+  {name: 'ALEGATOS'},
+  {name: 'RECURSO DE REPOSICION'}
+])
+
+"""
 OfficeName.create([
   {name: 'COLJUEGOS'},
   {name: 'MINISTERIO INTERIOR'},
@@ -590,7 +665,7 @@ OfficeName.create([
   {name: 'CONTRALORIA GENERAL DE LA REPUBLICA GERENCIA DEPARTAMENTAL META'},
   {name: 'JUZGADO 4 ADMINISTRATIVO ORALES DE NEIVA'},
   {name: 'CONTRALORIA GENERAL DE LA REPUBLICA GERENCIA DEPARTAMENTAL BOYACA'},
-  {name: 'CONTRALORIA GENERAL DE LA REPUBLICA GERENCIA DEPARTAMENTAL NARIÑO'},
+  {name: 'CONTRALORIA GENERAL DE LA REPUBLICA GERENCIA DEPARTAMENTAL NARINO'},
   {name: 'CONTRALORIA GENERAL DE LA REPUBLICA GERENCIA DEPARTAMENTAL CHOCO'},
   {name: 'JUZGADO 8 ADMINISTRATIVO CIRCUITO DE CALI'},
   {name: 'JUZGADO 2 LABORAL CIRCUITO DE BUCARAMANGA'},
@@ -765,7 +840,7 @@ OfficeName.create([
   {name: 'JUZGADO 30 ADMINISTRATIVO CIRCUITO DE MEDELLIN'},
   {name: 'JUZGADO 2 ADMINISTRATIVO CIRCUITO DE ARAUCA'},
   {name: 'JUZGADO 1 ADMINISTRATIVO CIRCUITO DE CARTAGO'},
-  {name: 'CONTRALORIA DEPARTAMENTAL DE NARIÑO'},
+  {name: 'CONTRALORIA DEPARTAMENTAL DE NARINO'},
   {name: 'JUZGADO 7 CIVIL CIRCUITO DE CUCUTA'},
   {name: 'JUZGADO 5 ADMINISTRATIVO CIRCUITO DE MANIZALES'},
   {name: 'CONTRALORIA GENERAL DE LA REPUBLICA GERENCIA DEPARTAMENTAL NORTE DE SANTANDER'},
@@ -1242,7 +1317,7 @@ OfficeName.create([
   {name: 'JUZGADO 14 ADMINISTRATIVO CIRCUITO DE TUNJA'},
   {name: 'JUZGADO 30 CIVIL CIRCUITO DE BARRANQUILLA'},
   {name: 'JUZGADO 2 ADMINISTRATIVO MUNICIPAL DE MEDELLIN'},
-  {name: 'JUZGADO 1 CIVIL PEQUEÑAS CAUSAS DE VILLAVICENCIO'},
+  {name: 'JUZGADO 1 CIVIL PEQUENAS CAUSAS DE VILLAVICENCIO'},
   {name: 'JUZGADO 1 CIVIL PROMISCUO DE ORTEGA'},
   {name: 'JUZGADO 101 CIVIL CIRCUITO DE BOGOTA'},
   {name: 'JUZGADO 35 CIVIL CIRCUITO DE BOGOTA'},
@@ -1334,7 +1409,7 @@ OfficeName.create([
   {name: 'JUZGADO 0 CIVIL CIRCUITO DE MONTELIBANO'},
   {name: 'JUZGADO 9 ADMINISTRATIVO CIRCUITO DE TUNJA'},
   {name: 'JUZGADO 1 PENAL CIRCUITO DE DUITAMA'},
-  {name: 'JUZGADO 2 CIVIL PEQUEÑAS CAUSAS DE SANTA MARTA'},
+  {name: 'JUZGADO 2 CIVIL PEQUENAS CAUSAS DE SANTA MARTA'},
   {name: 'ENTES JURISDICCION COACTIVA'},
   {name: 'JUZGADO 4 LABORAL CIRCUITO DE CUCUTA'},
   {name: 'JUZGADO 6 CIVIL CIRCUITO DE MEDELLIN'},
@@ -1367,7 +1442,7 @@ OfficeName.create([
   {name: 'JUZGADO 1 ADMINISTRATIVO CIRCUITO DE DESCONGESTION DE PEREIRA'},
   {name: 'JUZGADO 2 CIVIL CIRCUITO DE PITALITO'},
   {name: 'JUZGADO 20 CIVIL MUNICIPAL DE MEDELLIN'},
-  {name: 'JUZGADO 1 LABORAL PEQUEÑAS CAUSAS DE BOGOTA'},
+  {name: 'JUZGADO 1 LABORAL PEQUENAS CAUSAS DE BOGOTA'},
   {name: 'JUZGADO 3 ADMINISTRATIVO CIRCUITO DE FACATATIVA'},
   {name: 'JUZGADO 0 LABORAL CIRCUITO DE MONTELIBANO'},
   {name: 'JUZGADO 5 CIVIL CIRCUITO DE MEDELLIN'},
@@ -1386,7 +1461,7 @@ OfficeName.create([
   {name: 'JUZGADO 1 ADMINISTRATIVO ORALES DE PROVIDENCIA'},
   {name: 'JUZGADO 27 ADMINISTRATIVO CIRCUITO DE CALI'},
   {name: 'JUZGADO 2 ADMINISTRATIVO CIRCUITO DE DUITAMA'},
-  {name: 'JUZGADO 10 LABORAL PEQUEÑAS CAUSAS DE BOGOTA'},
+  {name: 'JUZGADO 10 LABORAL PEQUENAS CAUSAS DE BOGOTA'},
   {name: 'JUZGADO 17 ADMINISTRATIVO CIRCUITO DE MEDELLIN'},
   {name: 'JUZGADO 26 ADMINISTRATIVO CIRCUITO DE BOGOTA'},
   {name: 'JUZGADO 12 ADMINISTRATIVO CIRCUITO DE SAN GIL'},
@@ -1418,7 +1493,7 @@ OfficeName.create([
   {name: 'JUZGADO 61 CIVIL MUNICIPAL DE BOGOTA'},
   {name: 'JUZGADO 14 CIVIL MUNICIPAL DE BOGOTA'},
   {name: 'JUZGADO 4 CIVIL MUNICIPAL DE FLORIDABLANCA'},
-  {name: 'JUZGADO 2 LABORAL PEQUEÑAS CAUSAS DE CUCUTA'},
+  {name: 'JUZGADO 2 LABORAL PEQUENAS CAUSAS DE CUCUTA'},
   {name: 'JUZGADO 4 ADMINISTRATIVO CIRCUITO DE SANTA MARTA'},
   {name: 'JUZGADO 0 LABORAL CIRCUITO DE ROLDANILLO'},
   {name: 'JUZGADO 2 CIVIL MUNICIPAL DE IBAGUE'},
@@ -1457,13 +1532,13 @@ OfficeName.create([
   {name: 'JUZGADO 1 CIVIL CIRCUITO DE ITSMINA'},
   {name: 'JUZGADO 28 CIVIL MUNICIPAL DE BOGOTA'},
   {name: 'JUZGADO 4 LABORAL CIRCUITO DE BOGOTA'},
-  {name: 'JUZGADO 2 CIVIL PEQUEÑAS CAUSAS DE SOLEDAD'},
+  {name: 'JUZGADO 2 CIVIL PEQUENAS CAUSAS DE SOLEDAD'},
   {name: 'JUZGADO 17 CIVIL ORALES DE MEDELLIN'},
   {name: 'JUZGADO 1 CIVIL CIRCUITO DE SANTA BARBARA'},
   {name: 'JUZGADO 9 CIVIL CIRCUITO DE MEDELLIN'},
   {name: 'JUZGADO 2 CIVIL CIRCUITO DE CUCUTA'},
   {name: 'JUZGADO 1 CIVIL CIRCUITO DE PALMIRA'},
-  {name: 'JUZGADO 1 CIVIL PEQUEÑAS CAUSAS DE MONTERIA'},
+  {name: 'JUZGADO 1 CIVIL PEQUENAS CAUSAS DE MONTERIA'},
   {name: 'JUZGADO 11 CIVIL CIRCUITO DE BUCARAMANGA'},
   {name: 'JUZGADO 3 ADMINISTRATIVO ORALES DE CARTAGENA'},
   {name: 'JUZGADO 0 ADMINISTRATIVO CIRCUITO DE SAN ANDRES'},
@@ -1472,81 +1547,4 @@ OfficeName.create([
   {name: 'OTRO'}
 ])
 
-LitigationSource.create([
-  {name: 'PENDIENTE'},
-  {name: 'SINIESTRO'},
-  {name: 'PROVISION'},
-  {name: 'ESMITACION RECOBRO'},
-  {name: 'VINCULACION ERRADA'},
-  {name: 'NO APLICA'}
-])
-
-Instance.create([
-  {name: 'PENDIENTE'},
-  {name: 'PRIMERA'},
-  {name: 'SEGUNDA'},
-  {name: 'UNICA'},
-  {name: 'GRADO DE CONSULTA'},
-  {name: 'RECURSO EXTRAORDINARIO'},
-  {name: 'PREJUDICIAL'},
-  {name: 'RECOBRO'},
-  {name: 'NO APLICA'}
-])
-
-CaseTermination.create([
-  {name: 'PENDIENTE'},
-  {name: 'TERMINADO CON PAGO: EN CONTRA'},
-  {name: 'TERMINADO SIN PAGO: A FAVOR'},
-  {name: 'FAVORABLE'},
-  {name: 'DESFAVORABLE'}
-])
-
-GubernatorialWay.create([
-  {name: 'PENDIENTE', n_type: 1},
-  {name: 'CONEXION', n_type: 1},
-  {name: 'SIPLAFT', n_type: 1},
-  {name: 'ESTADOS FINANCIEROS', n_type: 1},
-  {name: 'MORA', n_type: 1},
-  {name: 'POLIZA', n_type: 1},
-  {name: 'VISITA FISCALIZACION', n_type: 1},
-  {name: 'INEXACTITUD', n_type: 1},
-  {name: 'NO APLICA', n_type: 2}
-])
-
-ReinsuranceType.create([
-  {name: 'NO SE PRESENTO'},
-  {name: 'FACULTATIVO'},
-  {name: 'CUOTA PARTE'}
-])
-
-MoneyType.create([
-  {name: 'PESO'},
-  {name: 'DOLAR'}
-])
-
-ReservedReleased.create([
-  {name: 'PENDIENTE'},
-  {name: 'NO'},
-  {name: 'SI'}
-])
-
-
-
-CoensuranceType.create([
-  {name: 'NO SE PRESENTO'},
-  {name: 'CEDIDO'},
-  {name: 'ACEPTADO'}
-])
-
-CaseState.create([
-  {name: 'EN CURSO'},
-  {name: 'TERMINADO'}
-])
-
-LastPerformance.create([
-  {name: 'PENDIENTE'},
-  {name: 'DESCARGOS'},
-  {name: 'ALEGATOS'},
-  {name: 'RECURSO DE REPOSICION'}
-])
 """

@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "litigation_sources", force: :cascade do |t|
     t.string "name"
+    t.integer "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -140,6 +141,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "protections", force: :cascade do |t|
     t.string "name"
+    t.string "n_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -184,13 +186,13 @@ ActiveRecord::Schema.define(version: 20171223021603) do
   create_table "type_processes", force: :cascade do |t|
     t.integer "p_type", default: 0
     t.string "internal_lawyer"
-    t.string "correspondency_radicate"
-    t.string "case_id_bap"
-    t.string "case_id_sise"
-    t.string "case_id_ekogui"
+    t.string "correspondency_radicate", default: "NO APLICA"
+    t.string "case_id_bap", default: "NO APLICA"
+    t.string "case_id_sise", default: "NO APLICA"
+    t.string "case_id_ekogui", default: "NO APLICA"
+    t.string "process_radicate", default: "NO APLICA"
     t.date "creation_date"
     t.date "notification_date"
-    t.string "process_radicate", default: "NO APLICA"
     t.integer "number", default: 0
     t.integer "exercise", default: 0
     t.string "sinister", default: "NO APLICA"
@@ -287,9 +289,10 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "join_committee"
     t.string "committee"
     t.string "coensurance_type"
-    t.string "user"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

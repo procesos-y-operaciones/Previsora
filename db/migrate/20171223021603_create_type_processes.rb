@@ -1,16 +1,18 @@
 class CreateTypeProcesses < ActiveRecord::Migration[5.1]
   def change
     create_table :type_processes do |t|
-
+      #GENERAL
       t.integer   :p_type, default: 0
       t.string    :internal_lawyer
-      t.string    :correspondency_radicate, uniqueness: true
-      t.string    :case_id_bap, uniqueness: true
-      t.string    :case_id_sise, uniqueness: true
-      t.string    :case_id_ekogui, uniqueness: true
+      #IDENTIFIERS
+      t.string    :correspondency_radicate, default: "NO APLICA"
+      t.string    :case_id_bap, default: "NO APLICA"
+      t.string    :case_id_sise, default: "NO APLICA"
+      t.string    :case_id_ekogui, default: "NO APLICA"
+      t.string    :process_radicate, default: "NO APLICA"
+
       t.date      :creation_date
       t.date      :notification_date
-      t.string    :process_radicate, default: "NO APLICA"
       t.integer   :number, default: 0
       t.integer   :exercise, default: 0
       t.string    :sinister, default: "NO APLICA"
@@ -89,7 +91,8 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :join_committee
       t.string    :committee
       t.string    :coensurance_type
-      t.string    :user,                          optional: true
+
+      t.belongs_to :user, optional: true
 
       t.timestamps
     end
