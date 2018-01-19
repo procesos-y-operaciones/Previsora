@@ -1,7 +1,13 @@
 (function() {
   $(function() {
-    var comm, committee_rule, correspondency_radicate_rule, exer, id_bap_rule, initial_values, join_committee_rule, litigation_source_rule, money_type_rule, more_policies_rule, num, numSiniestro, policies_and_sinisters_rule, poly, radicate_rule, reinsurance_type_rule;
+    var comm, committee_rule, correspondency_radicate_rule, exer, initial_values, join_committee_rule, litigation_source_rule, money_type_rule, more_policies_rule, num, numSiniestro, policies_and_sinisters_rule, poly, radicate_rule;
     initial_values = function() {
+      if ($('#case_id_bap').val() === "NO APLICA") {
+        $('#case_id_bap').val("PENDIENTE");
+      }
+      if ($('#process_radicate').val() === "NO APLICA") {
+        $('#process_radicate').val("PENDIENTE");
+      }
       if ($('#case_onbase').val() === "NO APLICA") {
         $('#case_onbase').val("PENDIENTE");
       }
@@ -43,28 +49,15 @@
     $('#radicate').change(function() {
       return radicate_rule();
     });
-    id_bap_rule = function() {
-      var v_option;
-      v_option = document.getElementById("case_id_bap").value;
-      if (v_option === "NO APLICA") {
-        $('#case_id_bap').val("PENDIENTE");
-        v_option = document.getElementById("case_id_bap").value;
-      }
-      return $('#process_radicate').val(v_option);
-    };
-    $('#case_id_bap').change(function() {
-      return id_bap_rule();
-    });
-    id_bap_rule();
-    num = 0;
-    exer = 0;
-    poly = 0;
-    comm = 0;
     numSiniestro = "";
+    num = numSiniestro.concat(document.getElementById("number").value);
+    exer = numSiniestro.concat(document.getElementById("exercise").value);
+    poly = numSiniestro.concat(document.getElementById("branch_policy").value);
+    comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
     litigation_source_rule = function() {
       var v_option;
       v_option = document.getElementById("litigationSource").value;
-      if (v_option === "2") {
+      if (v_option === "SINIESTRO") {
         document.getElementById("policyCents").readOnly = false;
         $('#protection').prop("disabled", false);
         document.getElementById("number").readOnly = false;
@@ -72,7 +65,9 @@
         $('#branch_policy').prop("disabled", false);
         $('#branch_commercial').prop("disabled", false);
         $('#more_policies').prop("disabled", false);
-        return $("#sinister").val(num + "-" + exer + "-" + poly + "-" + comm);
+        $("#sinister").val(num + "-" + exer + "-" + poly + "-" + comm);
+        $('#coensurance_type').prop("disabled", false);
+        return $('#reinsurance_type').prop("disabled", false);
       } else {
         document.getElementById("policyCents").readOnly = true;
         $('#policyCents').val("0");
@@ -87,7 +82,9 @@
         $('#branch_commercial').prop("disabled", true);
         $('#branch_commercial').val("0");
         $('#more_policies').prop("disabled", true);
-        return $("#sinister").val("NO APLICA");
+        $("#sinister").val("NO APLICA");
+        $('#coensurance_type').prop("disabled", true);
+        return $('#reinsurance_type').prop("disabled", true);
       }
     };
     $('#litigationSource').change(function() {
@@ -145,7 +142,7 @@
     money_type_rule = function() {
       var v_option;
       v_option = document.getElementById("moneyType").value;
-      if (v_option === "1") {
+      if (v_option === "PESO") {
         document.getElementById("dolarValueCents").readOnly = true;
         return $("#dolarValueCents").val(0);
       } else {
@@ -156,24 +153,10 @@
       return money_type_rule();
     });
     money_type_rule();
-    reinsurance_type_rule = function() {
-      var v_option;
-      v_option = document.getElementById("reinsurance_type").value;
-      if (v_option === "2" || v_option === "3") {
-        return document.getElementById("reinsurance_value").readOnly = false;
-      } else {
-        document.getElementById("reinsurance_value").readOnly = true;
-        return $("#reinsurance_value").val(0);
-      }
-    };
-    $("#reinsurance_type").change(function() {
-      return reinsurance_type_rule();
-    });
-    reinsurance_type_rule();
     join_committee_rule = function() {
       var v_option;
       v_option = document.getElementById("join_committee").value;
-      if (v_option === "2") {
+      if (v_option === "SI") {
         return $('#committee').prop("disabled", false);
       } else {
         return $('#committee').prop("disabled", true);
@@ -187,7 +170,7 @@
       var v_option;
       v_option = document.getElementById("committee").value;
       switch (v_option) {
-        case "2":
+        case "CONCILIA":
           document.getElementById("auth_value").readOnly = false;
           document.getElementById("payed_value").readOnly = false;
           document.getElementById("payment_date").readOnly = false;
@@ -195,7 +178,7 @@
           $('#reason_conc').val("PENDIENTE");
           document.getElementById("reason_inv").readOnly = true;
           return $('#reason_inv').val("PENDIENTE");
-        case "3":
+        case "NO CONCILIA":
           document.getElementById("auth_value").readOnly = true;
           $('#auth_value').val("0");
           document.getElementById("payed_value").readOnly = true;
@@ -205,7 +188,7 @@
           document.getElementById("reason_conc").readOnly = false;
           document.getElementById("reason_inv").readOnly = true;
           return $('#reason_inv').val("PENDIENTE");
-        case "4":
+        case "INVIABLE":
           document.getElementById("auth_value").readOnly = true;
           $('#auth_value').val("0");
           document.getElementById("payed_value").readOnly = true;
@@ -238,6 +221,7 @@
       output_state = $('#cities');
       return $.getJSON('/cities/' + $(this).val(), function(data) {
         output_state.empty();
+        output_state.append('<option value="PENDIENTE">SELECCIONE</option>');
         return $.each(data, function(i) {
           var opt;
           opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>';

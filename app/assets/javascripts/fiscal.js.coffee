@@ -14,12 +14,12 @@ $ ->
   #Subclase de proceso
   subprocess_class_rule = ->
     v_option = document.getElementById('subprocess_class').value
-    if v_option == '3'
+    if v_option == 'VERBAL'
       $('#currentStageVer').prop 'disabled', false
       $('#currentStageVer').show()
       $('#currentStageOrd').prop 'disabled', true
       $('#currentStageOrd').hide()
-    else if v_option == '4'
+    else if v_option == 'ORDINARIO'
       $('#currentStageVer').prop 'disabled', true
       $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', false
@@ -94,7 +94,7 @@ $ ->
   comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
-    if v_option == '2'
+    if v_option == 'SINIESTRO'
       document.getElementById('policyCents').readOnly = false
       $('#protection').prop('disabled', false)
       document.getElementById('number').readOnly = false
@@ -172,7 +172,7 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "1"
+    if v_option == "PESO"
       document.getElementById("dolarValueCents").readOnly = true
       $("#dolarValueCents").val(0)
     else

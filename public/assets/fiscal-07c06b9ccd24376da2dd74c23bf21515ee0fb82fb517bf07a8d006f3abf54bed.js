@@ -18,24 +18,25 @@
       v_option = document.getElementById('subprocess_class').value;
       if (v_option === '3') {
         $('#currentStageVer').prop('disabled', false);
-        $('#currentStageVerDiv').show();
+        $('#currentStageVer').show();
         $('#currentStageOrd').prop('disabled', true);
-        return $('#currentStageOrdDiv').hide();
+        return $('#currentStageOrd').hide();
       } else if (v_option === '4') {
         $('#currentStageVer').prop('disabled', true);
-        $('#currentStageVerDiv').hide();
+        $('#currentStageVer').hide();
         $('#currentStageOrd').prop('disabled', false);
-        return $('#currentStageOrdDiv').show();
+        return $('#currentStageOrd').show();
       } else {
         $('#currentStageVer').prop('disabled', true);
-        $('#currentStageVerDiv').hide();
+        $('#currentStageVer').hide();
         $('#currentStageOrd').prop('disabled', true);
-        return $('#currentStageOrdDiv').hide();
+        return $('#currentStageOrd').hide();
       }
     };
     $('#subprocess_class').change(function() {
       return subprocess_class_rule();
     });
+    subprocess_class_rule();
     correspondency_radicate_rule = function() {
       if ($('#correspondency_radicate').val() === "NO APLICA" || $('#correspondency_radicate').val() === "NO PRESENTA") {
         $('#radicate').val('No');
@@ -90,11 +91,11 @@
     $('#case_id_sise').change(function() {
       return case_id_bap_and_sise_rule();
     });
-    num = 0;
-    exer = 0;
-    poly = 0;
-    comm = 0;
     numSiniestro = "";
+    num = numSiniestro.concat(document.getElementById("number").value);
+    exer = numSiniestro.concat(document.getElementById("exercise").value);
+    poly = numSiniestro.concat(document.getElementById("branch_policy").value);
+    comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
     litigation_source_rule = function() {
       var v_option;
       v_option = document.getElementById('litigationSource').value;
@@ -219,7 +220,7 @@
     case_state_rule = function() {
       var v_option;
       v_option = document.getElementById("caseState").value;
-      if (v_option === "2") {
+      if (v_option === "TERMINADO") {
         $('#caseTermination').prop("disabled", false);
         $('#lastPerformance').prop("disabled", false);
         document.getElementById("lastPerformanceDate").readOnly = false;

@@ -10,7 +10,7 @@
     subprocessClass_rule = function() {
       var v_option;
       v_option = document.getElementById('subprocessClass').value;
-      if (v_option === '72') {
+      if (v_option === 'COLJUEGOS') {
         $('#gubernatorial_coljuegos').prop('disabled', false);
         $('#gubernatorial_coljuegos').show();
         $('#gubernatorial_coljuegos').val("");
@@ -96,11 +96,11 @@
     $('#radicate').change(function() {
       return radicate_rule();
     });
-    num = 0;
-    exer = 0;
-    poly = 0;
-    comm = 0;
     numSiniestro = "";
+    num = numSiniestro.concat(document.getElementById("number").value);
+    exer = numSiniestro.concat(document.getElementById("exercise").value);
+    poly = numSiniestro.concat(document.getElementById("branch_policy").value);
+    comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
     litigation_source_rule = function() {
       var v_option;
       v_option = document.getElementById('litigationSource').value;
