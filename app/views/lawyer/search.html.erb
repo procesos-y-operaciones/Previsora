@@ -1,13 +1,11 @@
 <%= javascript_include_tag "lawyer" %>
 
-<hr>
-
-<div class="container-fluid p-15">
+<div class="m-30-60">
   <%= search_form_for @search, url: lawyer_search_url, class:"" do |f| %>
-    <div class="row flexBox">
+    <div class="row">
       <div class="col-sm-3">
-        <div class="styled-select m-5">
-          <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
+        <div class="styled-select">
+          <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
         </div>
       </div>
       <div class="col-sm-3">
@@ -40,7 +38,7 @@
         <%= f.text_field :process_radicate_cont, placeholder: "N° RADICADO DEL PROCESO", class:"form-control m-5 mb-5" %>
       </div>
     </div>
-    <div class="row flexBox">
+    <div class="row">
       <div class="col-sm-3">
         <%= f.text_field :internal_lawyer_cont, placeholder: "NOMBRE ABOGADO INTERNO", class:"form-control m-5 mb-5" %>
       </div>
