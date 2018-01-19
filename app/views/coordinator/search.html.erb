@@ -1,37 +1,44 @@
 <%= javascript_include_tag "coordinator" %>
 
-<hr>
-
-<div class="container-fluid p-15">
+<div class="m-30-60">
   <%= search_form_for @search, url: coordinator_search_url, class:"" do |f| %>
-    <div class="row flexBox">
-      <div class="col-sm-3">
+    <div class="row">
+      <div class="col-sm-6">
+        Proceso:
+        <br>
         <div class="styled-select m-5">
           <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
         </div>
       </div>
-      <div class="col-sm-3">
-        <%= f.text_field :correspondency_radicate_cont, placeholder: "N° RADICADO CORRESPONDENCIA", class:"form-control m-5 mb-5" %>
-      </div>
-      <div class="col-sm-3">
-        <%= f.text_field :case_id_bap_cont, placeholder: "N° IDENTIFICACION BIZAGI ACCESS PA", class:"form-control m-5 mb-5" %>
-      </div>
-      <div class="col-sm-3">
-        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control m-5 mb-5" %>
-      </div>
     </div>
-    <div class="row flexBox">
+    <button type="button" class="btn btn-default fw" data-toggle="collapse" data-target="#demo">Filtros <span class="glyphicon glyphicon-chevron-down"></span></button>
+    <div id="demo" class="collapse">
+    <div class="row">
+
+    </div>
+    <div class="row">
       <div class="col-sm-4">
         <div class="styled-select m-5">
           <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament"} %>
         </div>
       </div>
       <div class="col-sm-4">
+        <%= f.text_field :case_id_bap_cont, placeholder: "N° IDENTIFICACION BIZAGI ACCESS PA", class:"form-control m-5 mb-5" %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control m-5 mb-5" %>
+      </div>
+    </div>
+    <div class="row flexBox">
+      <div class="col-sm-4">
         <div class="styled-select m-5">
           <select name="type_process[city_case_eq]" id="cities">
             <option value="" selected="selected">CIUDAD</option>
           </select>
         </div>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :correspondency_radicate_cont, placeholder: "N° RADICADO CORRESPONDENCIA", class:"form-control m-5 mb-5" %>
       </div>
       <div class="col-sm-4">
         <%= f.text_field :office_name_cont, placeholder: "NOMBRE DESPACHO", class:"form-control m-5 mb-5" %>
@@ -61,22 +68,24 @@
         </button>
       </div>
     </div>
+    </div>
   <% end %>
-</div>
+  <br>
 
+  <div class="floatRight">
+    Paginas <%= @page+1 %>-<%= @processes.length + @page %> de <%= @search.result.length %>
+  </div>
+  <br>
 
-<hr style="margin: 0">
-
-<div class="container-fluid p-30">
-  <table id="search" class="table table-responsive-sm table-hover">
+  <table class="table table-hover table-responsive">
     <thead>
-      <tr>
-        <th class="center"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>
-        <th class="center"><%= sort_link @search, :correspondency_radicate, "N° Correspondencia", {}, :class => 'link' %></th>
-        <th class="center"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
-        <th class="center"><%= sort_link @search, :case_id_sise, "N° SISE", {}, :class => 'link' %></th>
-        <th class="center"><%= sort_link @search, :user_id, "Abogado", {}, :class => 'link' %></th>
-        <th class="center"><%= sort_link @search, :city_case_id, "Ciudad", {}, :class => 'link' %></th>
+      <tr class="to-uc">
+        <th scope="col"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :correspondency_radicate, "N° Correspondencia", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :case_id_sise, "N° SISE", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :user_id, "Abogado", {}, :class => 'link' %></th>
+        <th scope="col"><%= sort_link @search, :city_case_id, "Ciudad", {}, :class => 'link' %></th>
       </tr>
     </thead>
 
@@ -87,22 +96,21 @@
       <% else %>
         <% @processes.each do |p| %>
           <tr class='clickable-row' data-href='<%= type_process_path(p) %>'>
-            <td class="center"><%= p.get_type_process %></td>
-            <td class="center"><%= p.correspondency_radicate %></td>
-            <td class="center"><%= p.case_id_bap %></td>
-            <td class="center"><%= p.case_id_sise %></td>
-            <td class="center"><%= User.find(p.user_id).name %></td>
-            <td class="center"><%= p.city_case %></td>
+            <td><%= p.get_type_process %></td>
+            <td><%= p.correspondency_radicate %></td>
+            <td><%= p.case_id_bap %></td>
+            <td><%= p.case_id_sise %></td>
+            <td><%= User.find(p.user_id).name %></td>
+            <td><%= p.city_case %></td>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
-  <hr>
-  <div class="container-fluid mb-30 center">
+  <br>
+
+  <div class="container-fluid center">
     <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
   </div>
-</div>
-<div>
-  <h4><%= @processes.length + @page %> / <%= @search.result.length %></h4>
+
 </div>
