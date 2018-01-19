@@ -1,8 +1,56 @@
-<%= javascript_include_tag "fiscal" %>
+<script>
+function input_pendiente_rule(input) {
+  var value = input.value;
+  if (value === "PENDIENTE" && input.readOnly === false) {
+    input.value = "";
+  }
+  return $(input).trigger("change")
+}
+function input_empty_pendiente_rule(input) {
+  var value = input.value;
+  if (value === "" && input.readOnly === false) {
+    input.value = "PENDIENTE";
+  }
+  return $(input).trigger("change")
+}
+function input_nopresenta_rule(input) {
+  var value = input.value;
+  if (value === "NO PRESENTA" && input.readOnly === false) {
+    input.value = "";
+  }
+  return $(input).trigger("change")
+}
+function input_empty_nopresenta_rule(input) {
+  var value = input.value;
+  if (value === "" && input.readOnly === false) {
+    input.value = "NO PRESENTA";
+  }
+  return $(input).trigger("change")
+}
+function input_noaplica_rule(input) {
+  var value = input.value;
+  if (value === "NO APLICA" && input.readOnly === false) {
+    input.value = "";
+  }
+  return $(input).trigger("change")
+}
+function input_empty_noaplica_rule(input) {
+  var value = input.value;
+  if (value === "" && input.readOnly === false) {
+    input.value = "NO APLICA";
+  }
+  return $(input).trigger("change")
+}
+function formatting(input) {
+  var value = input.value;
+  var num = value.replace(/,|'/g, "");
+  num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");
+  num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  input.value = num;
+}
+</script>
 
-<% if flash[:error] == nil  %>
-  <%= flash[:error] %>
-<% end %>
+<%= javascript_include_tag "fiscal" %>
 
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
@@ -30,7 +78,7 @@
           <div class="styled-select">
             <%= form.collection_select(:process_class_id, ProcessClass.fiscal, :id, :name, {}, {class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.process_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -40,7 +88,7 @@
           <div class="styled-select">
             <%= form.collection_select(:subprocess_class_id, SubprocessClass.fiscal, :id , :name, {}, {class:"form-control", id:"subprocess_class"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.subprocess_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -55,7 +103,7 @@
               <option value="No">NO</option>
             </select>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -63,7 +111,7 @@
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
           <%= form.text_field :correspondency_radicate, placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.correspondency_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -71,7 +119,7 @@
         <%= form.label "Número de identificación del caso (Bizagi, Acces y PA)" %>
         <div class="input-group">
           <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_id_bap_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -79,7 +127,7 @@
         <%= form.label "Número de identificación del caso SISE" %>
         <div class="input-group">
           <%= form.text_field :case_id_sise, id:"case_id_sise",onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_id_sise_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -89,7 +137,7 @@
         <%= form.label "Fecha de creación" %>
         <div class="input-group">
           <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.creation_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -99,7 +147,7 @@
           <div class="styled-select">
             <%= form.collection_select(:link_type_id, LinkType.fiscal, :id, :name, {}, {class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.link_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -109,7 +157,7 @@
           <div class="styled-select">
             <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control", required: true} %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.departament_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -121,7 +169,7 @@
               <option value="PENDIENTE" selected="selected">SELECCIONE</option>
             </select>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.city_case_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -133,7 +181,7 @@
           <div class="styled-select">
             <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {}, {id:"litigationSource", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.litigation_source_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -143,7 +191,7 @@
           <div class="styled-select">
             <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reinsurance_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -153,7 +201,7 @@
           <div class="styled-select">
             <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]]), {}, { class:'form-control' } %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reinsurance_report_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -163,7 +211,7 @@
           <div class="styled-select">
             <%= form.collection_select(:coensurance_type_id, CoensuranceType.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.coensurance_type_id_s') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -171,7 +219,7 @@
         <%= form.label "Póliza" %>
         <div class="input-group">
           <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.policy_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -181,7 +229,7 @@
           <div class="styled-select">
             <%= form.collection_select(:protection_id, Protection.all, :id, :name, {}, {id:"protection", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.protection_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -189,7 +237,7 @@
         <%= form.label "Número (siniestro)" %>
         <div class="input-group">
           <%= form.number_field :number, id:"number", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.number_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -197,7 +245,7 @@
         <%= form.label "Ejercicio" %>
         <div class="input-group">
           <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.exercise_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -207,7 +255,7 @@
           <div class="styled-select">
             <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {:id => "branch_policy", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.branch_policy_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -217,7 +265,7 @@
           <div class="styled-select">
             <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {:id => "branch_commercial", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.branch_commercial_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -225,7 +273,7 @@
         <%= form.label "Número del siniestro (completo)" %>
         <div class="input-group">
           <%= form.text_field :sinister, id:"sinister", pattern:"[A-Z0-9\- ]*", title: t(:pattern), class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.sinister_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -238,7 +286,7 @@
               <option value="No">No</option>
             </select>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.more_policies_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -246,7 +294,7 @@
         <%= form.label "Número de pólizas" %>
         <div class="input-group">
           <%= form.text_area :policies, id:"policies", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.policies_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -254,7 +302,7 @@
         <%= form.label "Número de siniestros" %>
         <div class="input-group">
           <%= form.text_area :sinisters, id:"sinisters", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.sinisters_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -266,7 +314,7 @@
           <div class="styled-select">
             <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {class:"form-control", id:"moneyType"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.money_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -281,15 +329,15 @@
         <%= form.label "Reserva o provisión de indemnización" %>
         <div class="input-group">
           <%= form.number_field :reserve_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reserve_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
         <%= form.label "Reserva honorarios" %>
         <div class="input-group">
-          <%= form.number_field :reserve_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reserved_fees_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -323,7 +371,7 @@
         <%= form.label "Fecha de notificación / vinculación" %>
         <div class="input-group">
           <%= form.date_field :notification_date, class:"form-control", required: true %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.notification_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -331,7 +379,7 @@
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
           <%= form.text_field :process_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), value:"", placeholder: 'INGRESE EL NUMERO', required: true, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.process_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -339,7 +387,7 @@
         <%= form.label "Apoderado Previsora" %>
         <div class="input-group">
           <%= form.text_field :attorny, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.attorny_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -347,7 +395,7 @@
         <%= form.label "Fecha de asignación apoderado Previsora" %>
         <div class="input-group">
           <%= form.date_field :attorny_date, class:"form-control", required: true %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.attorny_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -357,7 +405,7 @@
           <div class="styled-select">
             <%= form.collection_select(:office_name, OfficeName.fiscal, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"office_name", required: true}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.office_name_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -365,7 +413,7 @@
         <%= form.label "Parte activa" %>
         <div class="input-group">
           <%= form.text_field :active_part, id:"active_part", pattern:"[A-Z0-9\- ]*", title: t(:pattern), class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.active_part_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -373,7 +421,7 @@
         <%= form.label "Parte pasiva" %>
         <div class="input-group">
           <%= form.text_field :passive_part, id:"passive_part", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.passive_part_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -383,7 +431,7 @@
           <div class="styled-select">
             <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.score_contingency_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -391,7 +439,7 @@
         <%= form.label "Razón contingencia" %>
         <div class="input-group">
           <%= form.text_field :contingency_reason, id:"contingency_reason", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.contingency_reason_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -399,7 +447,7 @@
         <%= form.label "Resumen de la contingencia" %>
         <div class="input-group">
           <%= form.text_field :contingency_resume, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.contingency_resume_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -407,7 +455,7 @@
         <%= form.label "Hechos" %>
         <div class="input-group">
           <%= form.text_area :facts, id:"facts", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.facts_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -420,17 +468,16 @@
             <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ver, :id, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
             <%= form.collection_select(:current_stage_id, CurrentStage.fiscal_ord, :id, :name, {}, {id:"currentStageOrd", class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.current_stage_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
-        </div>
 
         <%= form.label "Instancias" %>
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.instance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -440,7 +487,7 @@
           <div class="styled-select">
             <%= form.collection_select(:case_state_id, CaseState.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_state_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -448,7 +495,7 @@
         <%= form.label "Fecha de actuación" %>
         <div class="input-group">
           <%= form.date_field :desition_date, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.desition_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -458,7 +505,7 @@
           <div class="styled-select">
             <%= form.collection_select(:case_termination_id, CaseTermination.all, :id, :name, {}, {class:"form-control", id:"caseTermination"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_termination_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -490,7 +537,7 @@
         <%= form.label "Fecha de consignación" %>
         <div class="input-group">
           <%= form.date_field :payment_date, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.payment_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -503,7 +550,7 @@
               <option value="No">No</option>
             </select>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.coactive_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -511,7 +558,7 @@
         <%= form.label "Número de radicación de coactivo" %>
         <div class="input-group">
           <%= form.text_field :coactive_radicate, id:"coactive_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.coactive_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -537,7 +584,7 @@
           <div class="styled-select">
             <%= form.collection_select(:last_performance_id, LastPerformance.all, :id, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.last_performance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -545,7 +592,7 @@
         <%= form.label "Fecha última actuación" %>
         <div class="input-group">
           <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.last_performance_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -555,7 +602,7 @@
           <div class="styled-select">
             <%= form.collection_select(:reserved_released_id, ReservedReleased.all, :id, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
           </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reserved_released_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
@@ -567,7 +614,7 @@
   </div>
 
   <div class="p-30">
-    <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
+    <%= link_to 'Volver', lawyer_new_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
 

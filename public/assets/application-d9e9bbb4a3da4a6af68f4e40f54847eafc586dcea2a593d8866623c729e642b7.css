@@ -8897,19 +8897,20 @@ button.close {
  * navbar
  * grid
  * table
+ * pagination
  * unique
  * ================================================== */
 /* ==================================================
  * General
  * ================================================== */
-/* line 45, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 49, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 html, body {
   overflow-x: hidden;
   font-family: sans-serif, "Open Sans", Helvetica, Arial;
   min-width: 800px;
 }
 
-/* line 49, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 53, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -8918,90 +8919,102 @@ html, body {
   box-sizing: border-box;
 }
 
-/* line 55, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 59, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .edge {
   border: 1px solid black;
 }
 
 /* =============margin & padding ================== */
-/* line 58, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 62, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.m-5 {
+  margin: 5px;
+}
+
+/* line 64, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.mb-5 {
+  margin-bottom: 5px !important;
+}
+
+/* line 66, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .m-30 {
   margin: 30px;
 }
 
-/* line 60, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 68, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .m-50 {
   margin-top: 50px;
   margin-right: 100px;
   margin-left: 100px;
 }
 
-/* line 64, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.mt-50 {
-  margin-top: 50px;
+/* line 72, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.m-30-60 {
+  margin: 30px 60px;
 }
 
-/* line 66, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 74, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.mt-30 {
+  margin-top: 30px;
+}
+
+/* line 76, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .mb-30 {
   margin-bottom: 30px;
 }
 
-/* line 68, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 78, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.mt-50 {
+  margin-top: 50px;
+}
+
+/* line 80, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .p-0 {
   padding: 0;
 }
 
-/* line 70, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 82, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .p-15 {
   padding: 15px;
 }
 
-/* line 72, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 84, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .p-30 {
   padding: 30px;
 }
 
-/* line 74, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 86, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .p-0-30 {
   padding: 0 30px;
 }
 
 /* ================ aligment ====================== */
-/* line 77, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 89, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .left {
   text-align: left;
 }
 
-/* line 79, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 91, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .center {
   text-align: center;
 }
 
-/* line 81, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 93, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .right {
   text-align: right;
 }
 
-/* line 83, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 95, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .justify {
   text-align: justify;
 }
 
-/* line 85, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 97, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .floatRight {
   float: right;
 }
 
-/* line 87, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.centerVertical {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -200px 0 0 -200px;
-}
-
 /* ================== text ======================== */
-/* line 93, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 100, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 h1, h2 {
   margin-bottom: 25px;
   text-align: center;
@@ -9009,73 +9022,69 @@ h1, h2 {
   color: #184026;
 }
 
-/* line 98, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.grey {
-  color: #f9f9f9;
-}
-
-/* line 100, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.white {
-  color: #bdbdbd;
-}
-
-/* line 102, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.black {
-  color: black;
-}
-
-/* line 104, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.ligthgreen {
-  color: #005700;
-}
-
-/* line 106, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.green {
-  color: #007f00;
-}
-
-/* line 108, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.darkgreen {
-  color: #184026;
-}
-
-/* line 110, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.ligthblue {
-  color: #36daf3;
-}
-
-/* line 112, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 105, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .lh-150 {
   line-height: 150%;
 }
 
-/* line 114, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 107, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .ls-1 {
   letter-spacing: 1px;
 }
 
+/* ================= color ======================== */
+/* line 110, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.grey {
+  color: #f9f9f9;
+}
+
+/* line 112, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.white {
+  color: #c6c6c6;
+}
+
+/* line 114, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.black {
+  color: black;
+}
+
+/* line 116, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.ligthgreen {
+  color: #007f00;
+}
+
+/* line 118, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.green {
+  color: #005700;
+}
+
+/* line 120, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.darkgreen {
+  color: #184026;
+}
+
+/* line 122, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.ligthblue {
+  color: #36daf3;
+}
+
 /* ================== others ====================== */
-/* line 117, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 125, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.hw {
+  width: 50%;
+}
+
+/* line 127, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .fw {
   width: 100%;
 }
 
-/* line 119, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 129, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .shadow {
-  box-shadow: 0 0 20px #bdbdbd;
+  box-shadow: 0 0 20px #c6c6c6;
 }
 
-/* line 121, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.grad-lg-w {
-  background: #005700;
-  background: -moz-linear-gradient(left, #005700, #f9f9f9) fixed;
-  background: -webkit-linear-gradient(left, #005700, #f9f9f9) fixed;
-  background: -o-linear-gradient(right, #005700, #f9f9f9) fixed;
-  background: -ms-linear-gradient(right, #005700, #f9f9f9) fixed;
-  background: linear-gradient(to right, #005700, #f9f9f9) fixed;
-}
-
-/* line 128, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 131, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 hr {
   border-top: 1px solid #184026;
 }
@@ -9083,7 +9092,7 @@ hr {
 /* ==================================================
  * form
  * ================================================== */
-/* line 134, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 137, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .form-label {
   text-align: left;
   font-size: 15px;
@@ -9091,150 +9100,176 @@ hr {
   color: #184026;
 }
 
-/* line 139, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 142, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .myform-control {
   width: 100%;
 }
 
-/* line 141, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 144, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .input-group, .form-control {
   margin-bottom: 25px;
 }
 
-/* line 143, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 146, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .input-group-addon {
   border: 0px !important;
   background-color: #f9f9f9 !important;
 }
 
-/* line 147, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 150, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .styled-select {
-  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-  height: 29px;
-  overflow: hidden;
   width: 100%;
-}
-
-/* line 152, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.styled-select select {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  height: 29px;
-  padding: 5px;
-  width: 268px;
+  height: 34px;
+  border: 1px solid #c6c6c6;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 4px;
+  background: url("caret.png") no-repeat right 0;
+  overflow: hidden;
 }
 
 /* line 159, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.semi-square {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+.styled-select select {
+  border: none;
+  width: 100%;
+  height: inherit;
+  background: transparent;
+  padding: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 
-/* line 163, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.blue {
-  background-color: #3b8ec2;
+/* line 170, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
-/* line 165, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.blue select {
-  color: #fff;
+/* line 173, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* ==================================================
  * buttons
  * ================================================== */
-/* line 171, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 182, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-circle {
-  margin: 20px;
+  margin: 5px;
   border-radius: 100%;
   padding: 30px;
   font-size: 30px;
 }
 
-/* line 176, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 187, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn {
   margin: 5px;
   border-radius: 5px;
   padding: 10px 30px;
   font-size: 15px !important;
+  font-weight: bold;
 }
 
-/* line 181, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 193, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .minibtn {
-  margin: 0px;
+  margin: 5px;
   border-radius: 5px;
-  background-color: #f9f9f9;
   padding: 5px;
   font-size: 15px !important;
 }
 
-/* line 188, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 199, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-default, .btn-default:link, .btn-default:visited {
-  background-color: #005700;
-  font-weight: bold;
+  border: 1px solid #007f00;
+  background-color: #007f00;
   color: #f9f9f9;
 }
 
-/* line 192, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 203, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-default:hover {
-  border: 1px solid #005700;
-  background-color: #f9f9f9;
-  color: #005700;
+  border: 1px solid #007f00;
+  background-color: #f9f9f9 !important;
+  color: #007f00;
 }
 
-/* line 196, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 207, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-default:active {
-  border: 1px solid #005700;
+  border: 1px solid #007f00;
   background-color: #f9f9f9;
-  color: #005700;
+  color: #007f00;
 }
 
-/* line 201, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 212, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-inverse, .btn-inverse:link, .btn-inverse:visited {
-  border: 2px solid #005700;
+  border: 2px solid #007f00;
   background-color: #f9f9f9;
-  color: #005700;
+  color: #007f00;
   font-weight: bold;
 }
 
-/* line 206, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 217, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-inverse:hover {
-  border: 1px solid #005700;
-  background: #005700;
+  border: 1px solid #007f00;
+  background: #007f00;
   color: #f9f9f9;
 }
 
-/* line 210, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 221, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .btn-inverse:active {
-  border: 1px solid #005700;
-  background: #005700;
+  border: 1px solid #007f00;
+  background: #007f00;
   color: #f9f9f9;
 }
 
-/* line 215, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 226, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.btn-grad, .btn-grad:link, .btn-grad:visited {
+  background: #007f00;
+  background: linear-gradient(to right, #184026, #00ab00);
+  font-weight: bold;
+  color: #f9f9f9;
+}
+
+/* line 231, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.btn-grad:hover {
+  border: 1px solid #007f00;
+  background: #f9f9f9 !important;
+  color: #007f00;
+}
+
+/* line 235, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.btn-grad:active {
+  border: 1px solid #007f00;
+  background: #f9f9f9;
+  color: #007f00;
+}
+
+/* line 240, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .link, .link:link, .link:visited {
   margin: 0px 10px;
   background-color: transparent !important;
-  color: #005700;
+  color: #184026;
 }
 
-/* line 219, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 244, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .link:hover {
   background-color: transparent !important;
   text-decoration: none !important;
-  color: #184026;
+  color: #007f00;
 }
 
-/* line 223, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 248, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .link:active {
   background-color: transparent !important;
   text-decoration: none !important;
-  color: #184026;
+  color: #007f00;
 }
 
-/* line 228, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 253, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .link-inverse, .link-inverse:link, .link-inverse:visited {
   margin: 0 10px;
   background-color: transparent !important;
@@ -9243,14 +9278,14 @@ hr {
   font-weight: bold;
 }
 
-/* line 234, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 259, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .link-inverse:hover {
   background-color: transparent !important;
   text-decoration: none !important;
   color: #184026;
 }
 
-/* line 238, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 263, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .link-inverse:active {
   background-color: transparent !important;
   text-decoration: none !important;
@@ -9260,7 +9295,7 @@ hr {
 /* ==================================================
  * flex-boxes
  * ================================================== */
-/* line 246, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 271, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .flexBox {
   display: -moz-flex;
   display: -webkit-flex;
@@ -9268,7 +9303,7 @@ hr {
   display: flex;
 }
 
-/* line 251, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 276, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .flexWrap {
   -moz-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
@@ -9276,7 +9311,7 @@ hr {
   flex-wrap: wrap;
 }
 
-/* line 256, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 281, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .verticalCenter {
   -moz-align-items: center;
   -webkit-align-items: center;
@@ -9284,7 +9319,7 @@ hr {
   align-items: center;
 }
 
-/* line 261, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 286, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .horizintalCenter {
   -moz-justify-content: center;
   -webkit-justify-content: center;
@@ -9296,35 +9331,35 @@ hr {
  * navbar
  * ================================================== */
 /* navbar */
-/* line 271, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 296, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .navbar-default {
   height: 100px;
-  background: #005700 url("bannerprevisora.jpg") no-repeat;
+  background: #007f00 url("bannerprevisora.jpg") no-repeat;
   background-size: cover;
   border: 0px;
   padding: 0px 10px 0 0;
 }
 
-/* line 277, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 302, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .my-header {
   height: 125px;
-  background: #007f00 url("bannerprevisora.jpg") no-repeat;
+  background: #005700 url("bannerprevisora.jpg") no-repeat;
   background-size: cover;
 }
 
-/* line 281, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 306, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .navbar-brand {
   padding: 0px;
 }
 
-/* line 283, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 308, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .navbar-default .image {
   padding: 0;
   width: 100%;
   height: 100px;
 }
 
-/* line 287, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 312, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .navbar-default ul {
   margin: 10px 10px 0 0;
 }
@@ -9335,22 +9370,53 @@ hr {
 /* ==================================================
  * table
  * ================================================== */
-/* line 297, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: rgba(98, 189, 24, 0.4);
+/* line 322, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+#search .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background: rgba(0, 184, 0, 0.5) !important;
+}
+
+/* line 324, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+#show thead tr th {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+/* line 327, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+thead tr th {
+  color: #184026;
+}
+
+/* line 330, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.bor th, .bor td {
+  border-bottom: 1px solid #184026;
+}
+
+/* ==================================================
+ * pagination
+ * ================================================== */
+/* line 337, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.pagination li > span, .pagination li > a, .pagination li > a:hover {
+  color: #007f00;
+}
+
+/* line 339, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+.pagination .active > span, .pagination .active > span:hover {
+  border: #007f00;
+  background: #007f00;
+  color: #f9f9f9;
 }
 
 /* ==================================================
  * unique
  * ================================================== */
-/* line 303, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 347, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .firtsHeader {
   width: 100%;
   height: 80px;
   background-color: #184026;
 }
 
-/* line 307, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
+/* line 351, /home/jonathan/Documents/ProcesosOperaciones/Previsora/app/assets/stylesheets/application.css.sass */
 .secondHeader {
   height: 300px;
   background: #184026 url("header.jpeg") no-repeat;
