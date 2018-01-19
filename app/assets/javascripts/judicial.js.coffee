@@ -62,19 +62,19 @@ $ ->
     hide_all_subprocess()
     v_option = document.getElementById("processClass").value
     switch v_option
-      when "1"
+      when "JURISDICCION CONTENCIOSO ADMINISTRATIVO"
         $('#subprocessAdmin').prop( "disabled", false )
         $('#subprocessAdmin').show()
-      when "2"
+      when "JURISDICCION CIVIL"
         $('#subprocessCivil').prop( "disabled", false )
         $('#subprocessCivil').show()
-      when "11"
+      when "JURISDICCION PENAL"
         $('#subprocessPenal').prop( "disabled", false )
         $('#subprocessPenal').show()
-      when "12"
+      when "JURISDICCION LABORAL"
         $('#subprocessLaboral').prop( "disabled", false )
         $('#subprocessLaboral').show()
-      when "30"
+      when "PROCESO ARBITRAL"
         $('#subprocessArbitral').prop( "disabled", false )
         $('#subprocessArbitral').show()
 
@@ -82,16 +82,16 @@ $ ->
     hide_all_stages()
     v_option = document.getElementById("processClass").value
     switch v_option
-      when "1"
+      when "JURISDICCION CONTENCIOSO ADMINISTRATIVO"
         $('#judicial_admin').prop( 'disabled', false )
         $('#judicial_admin').show()
-      when "11"
+      when "JURISDICCION PENAL"
         $('#judicial_penal').prop( "disabled", false )
         $('#judicial_penal').show()
-      when "12"
+      when "JURISDICCION LABORAL"
         $('#judicial_laboral').prop( "disabled", false )
         $('#judicial_laboral').show()
-      when "30"
+      when "PROCESO ARBITRAL"
         $('#judicial_arbitral').prop( "disabled", false )
         $('#judicial_arbitral').show()
 
@@ -107,37 +107,37 @@ $ ->
     hide_all_stages()
     v_option = document.getElementById("subprocessCivil").value
     switch v_option
-      when "55"
+      when "NULIDAD DE LAS CARTAS DE NATURALEZA Y DE LAS RESOLUCIONES DE AUTORIZACION DE INSCRIPCION"
         $('#judicial_verbal').prop( "disabled", false )
         $('#judicial_verbal').show()
-      when "56"
+      when "CONTROL POR VIA DE EXCEPCION"
         $('#judicial_verbal_sum').prop( "disabled", false )
         $('#judicial_verbal_sum').show()
-      when "57"
+      when "PROCESO VERBAL"
         $('#judicial_declarativos').prop( "disabled", false )
         $('#judicial_declarativos').show()
-      when "58"
+      when "PROCESO VERBAL SUMARIO"
         $('#judicial_ejecutivo').prop( "disabled", false )
         $('#judicial_ejecutivo').show()
-      when "59"
+      when "PROCESOS DECLARATIVOS ESPECIALES"
         $('#judicial_sucesion').prop( "disabled", false )
         $('#judicial_sucesion').show()
-      when "60"
+      when "PROCESO EJECUTIVO"
         $('#judicial_liquidacion').prop( "disabled", false )
         $('#judicial_liquidacion').show()
-      when "61"
+      when "PROCESO DE SUCESION"
         $('#judicial_liquidacion').prop( "disabled", false )
         $('#judicial_liquidacion').show()
-      when "62"
+      when "PROCESO DE LIQUIDACION DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CONYUGES O COMPAÑEROS PERMANENTES"
         $('#judicial_insolvencia').prop( "disabled", false )
         $('#judicial_insolvencia').show()
-      when "63"
+      when "DISOLUCION, NULIDAD Y LIQUIDACION DE SOCIEDADES"
         $('#judicial_ordinario').prop( "disabled", false )
         $('#judicial_ordinario').show()
-      when "64"
+      when "INSOLVENCIA DE LA PERSONA NATURAL NO COMERCIANTE"
         $('#judicial_divisorio').prop( "disabled", false )
         $('#judicial_divisorio').show()
-      when "65"
+      when "PROCESO ORDINARIO"
         $('#judicial_voluntaria').prop( "disabled", false )
         $('#judicial_voluntaria').show()
 

@@ -10,7 +10,7 @@ $ ->
   #Subclase de proceso
   subprocessClass_rule = ->
     v_option = document.getElementById('subprocessClass').value
-    if v_option == '72'
+    if v_option == 'COLJUEGOS'
       $('#gubernatorial_coljuegos').prop 'disabled', false
       $('#gubernatorial_coljuegos').show()
       $('#gubernatorial_coljuegos').val("")

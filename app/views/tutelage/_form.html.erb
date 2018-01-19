@@ -78,7 +78,7 @@ function formatting(input) {
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.tutelage, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:process_class, ProcessClass.tutelage, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.process_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -88,7 +88,7 @@ function formatting(input) {
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:subprocess_class_id, SubprocessClass.tutelage, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
+            <%= form.collection_select(:subprocess_class, SubprocessClass.tutelage, :id , :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.subprocess_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -137,7 +137,7 @@ function formatting(input) {
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type_id, LinkType.tutelage, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:link_type, LinkType.tutelage, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.link_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -228,7 +228,7 @@ function formatting(input) {
         <%= form.label "Instancias" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:instance_id, Instance.all, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:instance, Instance.all, :id, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.instance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -238,7 +238,7 @@ function formatting(input) {
         <%= form.label "Terminación del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_termination_id, CaseTermination.tutelage, :id, :name, {}, {class:"form-control", id: "caseTermination"}) %>
+            <%= form.collection_select(:case_termination, CaseTermination.tutelage, :id, :name, {}, {class:"form-control", id: "caseTermination"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.case_termination_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -295,7 +295,7 @@ function formatting(input) {
         <%= form.label "Tipo decisión impugnación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:setence_type_second_company_id, CaseTermination.tutelage, :id, :name, {}, {id: "setence_type_second_company_id", class:"form-control"}) %>
+            <%= form.collection_select(:setence_type_second_company, CaseTermination.tutelage, :id, :name, {}, {id: "setence_type_second_company_id", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.setence_type_second_company_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -344,7 +344,7 @@ function formatting(input) {
         <%= form.label "Tipo sentencia incidente de desacato - a compañía" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:sentence_type_desacate_id, CaseTermination.tutelage, :id, :name, {}, {id: "sentence_type_desacate", class:"form-control"}) %>
+            <%= form.collection_select(:sentence_type_desacate, CaseTermination.tutelage, :id, :name, {}, {id: "sentence_type_desacate", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.tutelage.sentence_type_desacate_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
