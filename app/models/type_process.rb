@@ -193,11 +193,7 @@ class TypeProcess < ApplicationRecord
 
   def get_process_class
     if self.process_class == nil
-<<<<<<< HEAD
-      "NO SE PRESENTA"
-=======
       "NO APLICA"
->>>>>>> DatabaseReformed
     else
       self.process_class
     end
