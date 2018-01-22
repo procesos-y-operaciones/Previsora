@@ -11,7 +11,7 @@
 class LitigationSource < ApplicationRecord
 
   def self.administrative
-    LitigationSource.order(name: :asc).where("n_type==0 OR n_type==1")
+    LitigationSource.order(name: :asc).where(n_type: [0, 1])
   end
 
   def self.ordered

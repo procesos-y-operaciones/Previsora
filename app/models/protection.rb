@@ -11,11 +11,11 @@
 class Protection < ApplicationRecord
 
   def self.coljuegos
-    Protection.order(n_type: :desc, name: :asc).where("n_type==41")
+    Protection.order(n_type: :desc, name: :asc).where(n_type: [41])
   end
 
   def self.ordinarie
-    Protection.order(n_type: :desc, name: :asc).where("n_type==0 OR n_type==42")
+    Protection.order(n_type: :desc, name: :asc).where(n_type: [0, 42])
   end
 
   def self.ordered
