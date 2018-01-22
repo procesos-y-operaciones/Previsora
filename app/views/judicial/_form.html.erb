@@ -662,7 +662,7 @@ function formatting(input) {
         <%= form.label "Última actuación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:last_performance, LastPerformance.all, :name, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
+            <%= form.collection_select(:last_performance, LastPerformance.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"lastPerformance"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.last_performance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -698,7 +698,7 @@ function formatting(input) {
         <%= form.label "Decisión del comité" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:committee, Committee.all, :name, :name, {}, {id:"committee", class:"form-control"}) %>
+            <%= form.collection_select(:committee, Committee.all, :name, :name, {prompt: "SELECCIONE"}, {id:"committee", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.committee_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -740,7 +740,7 @@ function formatting(input) {
         <%= form.label "Reserva depurada" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
+            <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"reservedReleased"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.reserved_released_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
