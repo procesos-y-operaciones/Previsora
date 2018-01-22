@@ -192,7 +192,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_process_class
-    if self.process_class_id == nil
+    if self.process_class == nil
       "NO SE PRESENTA"
     else
       ProcessClass.find(self.process_class_id).name
