@@ -1,55 +1,3 @@
-<script>
-function input_pendiente_rule(input) {
-  var value = input.value;
-  if (value === "PENDIENTE" && input.readOnly === false) {
-    input.value = "";
-  }
-  return $(input).trigger("change")
-}
-function input_empty_pendiente_rule(input) {
-  var value = input.value;
-  if (value === "" && input.readOnly === false) {
-    input.value = "PENDIENTE";
-  }
-  return $(input).trigger("change")
-}
-function input_nopresenta_rule(input) {
-  var value = input.value;
-  if (value === "NO PRESENTA" && input.readOnly === false) {
-    input.value = "";
-  }
-  return $(input).trigger("change")
-}
-function input_empty_nopresenta_rule(input) {
-  var value = input.value;
-  if (value === "" && input.readOnly === false) {
-    input.value = "NO PRESENTA";
-  }
-  return $(input).trigger("change")
-}
-function input_noaplica_rule(input) {
-  var value = input.value;
-  if (value === "NO APLICA" && input.readOnly === false) {
-    input.value = "";
-  }
-  return $(input).trigger("change")
-}
-function input_empty_noaplica_rule(input) {
-  var value = input.value;
-  if (value === "" && input.readOnly === false) {
-    input.value = "NO APLICA";
-  }
-  return $(input).trigger("change")
-}
-function formatting(input) {
-  var value = input.value;
-  var num = value.replace(/,|'/g, "");
-  num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");
-  num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  input.value = num;
-}
-</script>
-
 <%= javascript_include_tag "prejudicial" %>
 
 <%= form_with(model: type_process, local: true) do |form| %>
@@ -109,9 +57,7 @@ function formatting(input) {
 
         <%= form.label "Número de identificación del caso (Bizagi, Access y PA)" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
-          </div>
+          <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.case_id_bap_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -388,7 +334,7 @@ function formatting(input) {
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -404,7 +350,7 @@ function formatting(input) {
 
         <%= form.label "Valor asegurado" %>
         <div class="input-group">
-            <%= form.number_field :ensurance_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+            <%= form.text_field :ensurance_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.ensurance_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -422,7 +368,7 @@ function formatting(input) {
 
         <%= form.label "Valor contingencia" %>
         <div class="input-group">
-            <%= form.number_field :contingency_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+            <%= form.text_field :contingency_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.contingency_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -452,7 +398,7 @@ function formatting(input) {
 
         <%= form.label "Valor autorizado por el comité" %>
         <div class="input-group">
-            <%= form.number_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+            <%= form.text_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -460,7 +406,7 @@ function formatting(input) {
 
         <%= form.label "Valor pagado Previsora" %>
         <div class="input-group">
-            <%= form.number_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+            <%= form.text_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>

@@ -62,5 +62,6 @@ function formatting_number(input) {
   var num = value.replace(/,|'/g, "");
   num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");
   num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  input.value = "";
   input.value = num;
 }

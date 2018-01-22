@@ -1,55 +1,3 @@
-<script>
-function input_pendiente_rule(input) {
-  var value = input.value;
-  if (value === "PENDIENTE" && input.readOnly === false) {
-    input.value = "";
-  }
-  return $(input).trigger("change")
-}
-function input_empty_pendiente_rule(input) {
-  var value = input.value;
-  if (value === "" && input.readOnly === false) {
-    input.value = "PENDIENTE";
-  }
-  return $(input).trigger("change")
-}
-function input_nopresenta_rule(input) {
-  var value = input.value;
-  if (value === "NO PRESENTA" && input.readOnly === false) {
-    input.value = "";
-  }
-  return $(input).trigger("change")
-}
-function input_empty_nopresenta_rule(input) {
-  var value = input.value;
-  if (value === "" && input.readOnly === false) {
-    input.value = "NO PRESENTA";
-  }
-  return $(input).trigger("change")
-}
-function input_noaplica_rule(input) {
-  var value = input.value;
-  if (value === "NO APLICA" && input.readOnly === false) {
-    input.value = "";
-  }
-  return $(input).trigger("change")
-}
-function input_empty_noaplica_rule(input) {
-  var value = input.value;
-  if (value === "" && input.readOnly === false) {
-    input.value = "NO APLICA";
-  }
-  return $(input).trigger("change")
-}
-function formatting(input) {
-  var value = input.value;
-  var num = value.replace(/,|'/g, "");
-  num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");
-  num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  input.value = num;
-}
-</script>
-
 <%= javascript_include_tag "judicial" %>
 
 <%= form_with(model: type_process, local: true) do |form| %>
@@ -201,7 +149,7 @@ function formatting(input) {
 
         <%= form.label "Valor reaseguro" %>
         <div class="input-group">
-          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :reinsurance_value_cents, id:"reinsurance_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -219,7 +167,7 @@ function formatting(input) {
 
         <%= form.label "Valor coaseguro" %>
         <div class="input-group">
-          <%= form.number_field :coensurance_value_cents, id:"coensurance_value", onkeyup:"formatting_number(this)", class:"form-control"%>
+          <%= form.text_field :coensurance_value_cents, id:"coensurance_value", onkeyup:"formatting_number(this)", class:"form-control"%>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -340,7 +288,7 @@ function formatting(input) {
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -348,7 +296,7 @@ function formatting(input) {
 
         <%= form.label "Valor reserva" %>
         <div class="input-group">
-          <%= form.number_field :reserve_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :reserve_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -356,7 +304,7 @@ function formatting(input) {
 
         <%= form.label "Valor provisión de indemnización" %>
         <div class="input-group">
-          <%= form.number_field :provision_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :provision_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -364,7 +312,7 @@ function formatting(input) {
 
         <%= form.label "Valor reserva honorarios" %>
         <div class="input-group">
-          <%= form.number_field :reserved_fees_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :reserved_fees_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -372,7 +320,7 @@ function formatting(input) {
 
         <%= form.label "Valor pretensión / detrimento / estimación" %>
         <div class="input-group">
-          <%= form.number_field :detritment_cents, id:"detrimetValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :detritment_cents, id:"detrimetValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -380,7 +328,7 @@ function formatting(input) {
 
         <%= form.label "Valor asegurado" %>
         <div class="input-group">
-          <%= form.number_field :ensurance_value_cents, id:"ensuranceValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :ensurance_value_cents, id:"ensuranceValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -388,7 +336,7 @@ function formatting(input) {
 
         <%= form.label "Valor contingencia" %>
         <div class="input-group">
-          <%= form.number_field :contingency_value_cents, id:"contingencyValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -570,7 +518,7 @@ function formatting(input) {
 
         <%= form.label "Valor costas" %>
         <div class="input-group">
-          <%= form.number_field :cost_value_cents,  id:"cost_value", onkeyup:"formatting_number(this)", class: "form-control" %>
+          <%= form.text_field :cost_value_cents,  id:"cost_value", onkeyup:"formatting_number(this)", class: "form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -578,7 +526,7 @@ function formatting(input) {
 
         <%= form.label "Valor fallo decisión" %>
         <div class="input-group">
-          <%= form.number_field :fail_value_cents, id: "fail_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :fail_value_cents, id: "fail_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -587,7 +535,7 @@ function formatting(input) {
         <%= form.label "Valor fallo a cargo de Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.number_field :fail_previ_cents, id: "fail_previ", onkeyup:"formatting_number(this)", class:"form-control" %>
+            <%= form.text_field :fail_previ_cents, id: "fail_previ", onkeyup:"formatting_number(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.fail_previ_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -597,7 +545,7 @@ function formatting(input) {
         <%= form.label "Valor pagado Previsora" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.number_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+            <%= form.text_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.judicial.payed_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -645,7 +593,7 @@ function formatting(input) {
 
         <%= form.label "Valor coactivo" %>
         <div class="input-group">
-          <%= form.number_field :coactive_value_cents, id:"coactive_value_cents", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -653,7 +601,7 @@ function formatting(input) {
 
         <%= form.label "Valor embargo" %>
         <div class="input-group">
-          <%= form.number_field :garnish_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :garnish_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -707,7 +655,7 @@ function formatting(input) {
 
         <%= form.label "Valor autorizado por el comité" %>
         <div class="input-group">
-          <%= form.number_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -715,7 +663,7 @@ function formatting(input) {
 
         <%= form.label "Valor conciliado" %>
         <div class="input-group">
-          <%= form.number_field :reconcilie_value_cents, id:"reconcilie_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+          <%= form.text_field :reconcilie_value_cents, id:"reconcilie_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
