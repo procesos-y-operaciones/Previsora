@@ -10,24 +10,24 @@
 
 class LinkType < ApplicationRecord
 
-  def self.fiscal
-    LinkType.order(:name).find([5])
+  def self.prejudicial
+    LinkType.order(name: :asc).where(n_type: [0, 1, 2, 3, 4, 5])
   end
 
   def self.judicial
-    LinkType.order(:name).find([4,5])
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [2, 3])
   end
 
-  def self.tutelage
-    LinkType.order(:name).find([9, 10])
+  def self.fiscal
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [3])
   end
 
   def self.administrative
-    LinkType.order(:name).find([2])
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [4])
   end
 
-  def self.prejuducial
-    LinkType.all.order(:name)
+  def self.tutelage
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [0, 4])
   end
 
 end

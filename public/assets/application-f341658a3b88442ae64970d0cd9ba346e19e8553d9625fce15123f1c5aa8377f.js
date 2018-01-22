@@ -13957,4 +13957,54 @@ return t.dispatch("turbolinks:before-render",{data:{newBody:e}})},r.prototype.no
 
 
 
+
+function input_pendiente_rule(input) {
+  var value = input.value;
+  if (value === "PENDIENTE" && input.readOnly == false) {
+    input.value = "";
+  }
+  $(input).trigger("change")
+}
+function input_empty_pendiente_rule(input) {
+  var value = input.value;
+  if (value === "" && input.readOnly == false) {
+    input.value = "PENDIENTE";
+  }
+  $(input).trigger("change")
+}
+function input_nopresenta_rule(input) {
+  var value = input.value;
+  if (value === "NO PRESENTA" && input.readOnly == false) {
+    input.value = "";
+  }
+  $(input).trigger("change")
+}
+function input_empty_nopresenta_rule(input) {
+  var value = input.value;
+  if (value === "" && input.readOnly == false) {
+    input.value = "NO PRESENTA";
+  }
+  $(input).trigger("change")
+}
+function input_noaplica_rule(input) {
+  var value = input.value;
+  if (value === "NO APLICA" && input.readOnly == false) {
+    input.value = "";
+  }
+  $(input).trigger("change")
+}
+function input_empty_noaplica_rule(input) {
+  var value = input.value;
+  if (value === "" && input.readOnly == false) {
+    input.value = "NO APLICA";
+  }
+  $(input).trigger("change")
+}
+function formatting_number(input) {
+  var value = input.value;
+  var num = value.replace(/,|'/g, "");
+  num = num.toString().replace(/\B(?=(\d{6})+(?!\d))/g, "'");
+  num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  input.value = num;
+}
 ;

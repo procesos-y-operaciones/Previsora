@@ -47,8 +47,23 @@ $black: #000
  ================================================== */
 html, body
     overflow-x: hidden
-    font-family: sans-serif, "Open Sans", Helvetica, Arial
+    font-family: 'Open Sans', 'Josefin Slab', 'Arvo', 'Lato'
+    font-size: 16px
+    font-style: normal
+    font-variant: normal
+    font-weight: 400
+    line-height: 20px
     min-width: 800px
+h1, h2, h3, h4, h5, h6
+    font-family: 'Open Sans', 'Josefin Slab', 'Arvo', 'Lato'
+    font-style: normal
+    font-variant: normal
+    font-weight: 400
+    line-height: 20px
+p, th
+    font-size: 16px
+td
+    font-size: 12px
 *, *:before, *:after
     -moz-box-sizing: border-box
     -webkit-box-sizing: border-box
@@ -70,6 +85,8 @@ html, body
     margin-left: 100px
 .m-30-60
     margin: 30px 60px
+.m-0-10
+    margin: 0 10px
 .mt-30
     margin-top: 30px
 .mb-30
@@ -89,22 +106,30 @@ html, body
     text-align: left
 .center
     text-align: center
-.right
+.txt-right
     text-align: right
 .justify
     text-align: justify
 .floatRight
     float: right
+.right
+    position: absolute
+    right: 0
+.bottom
+    position: absolute
+    bottom: 0
 /* ================== text ========================*/
 h1, h2
-    margin-bottom: 25px
     text-align: center
     font-weight: 200px
     color: darken($darkgreen, 2.5%)
+.to-uc
+    text-transform: uppercase
 .lh-150
     line-height: 150%
 .ls-1
     letter-spacing: 1px
+
 /* ================= color ========================*/
 .grey
     color: darken($white, 2.5%)
@@ -192,8 +217,14 @@ input::-webkit-inner-spin-button
 .minibtn
     margin: 5px
     border-radius: 5px
-    padding: 5px
-    font-size: 15px !important
+    padding: 5px 10px
+    font-size: 16px !important
+.btn-erease
+    background: transparent
+    border: 0px
+    padding: 0px
+    margin: 0px
+
 
 .btn-default, .btn-default:link, .btn-default:visited
     border: 1px solid darken($ligthgreen, 2.5%)
@@ -237,7 +268,7 @@ input::-webkit-inner-spin-button
     color: darken($ligthgreen, 2.5%)
 
 .link, .link:link, .link:visited
-    margin: 0px 10px
+    margin: 5px
     background-color: transparent !important
     color: darken($darkgreen, 2.5%)
 .link:hover
@@ -325,9 +356,13 @@ input::-webkit-inner-spin-button
     font-weight: normal
 thead tr th
     color: darken($darkgreen, 2.5%)
-
 .bor th, .bor td
     border-bottom: 1px solid darken($darkgreen, 2.5%)
+/* CUIDADO!!!
+/*table
+    border-style: double
+    border-color: darken($darkgreen, 2.5%)
+
 
 /* ==================================================
   pagination

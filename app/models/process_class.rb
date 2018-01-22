@@ -10,28 +10,25 @@
 
 class ProcessClass < ApplicationRecord
 
-  def self.fiscal
-    ProcessClass.find([28])
+  def self.prejudicial
+    ProcessClass.order(n_type: :desc, name: :asc).where(n_type: [1])
   end
 
   def self.judicial
-    ProcessClass.find([1,2,11,12,30])
+    ProcessClass.order(n_type: :desc, name: :asc).where(n_type: [2])
   end
 
-  def self.prejudicial
-    ProcessClass.find([31])
-  end
-
-  def self.tutelage
-    ProcessClass.find([29])
+  def self.fiscal
+    ProcessClass.order(n_type: :desc, name: :asc).where(n_type: [3])
   end
 
   def self.administrative
-    ProcessClass.find([32])
+    ProcessClass.order(n_type: :desc, name: :asc).where(n_type: [4])
   end
 
-  def self.get_name(id)
-    ProcessClass.find(id).name
+  def self.tutelage
+    ProcessClass.order(n_type: :desc, name: :asc).where(n_type: [5])
   end
+
 
 end

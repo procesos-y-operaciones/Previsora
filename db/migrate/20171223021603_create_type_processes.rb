@@ -1,16 +1,18 @@
 class CreateTypeProcesses < ActiveRecord::Migration[5.1]
   def change
     create_table :type_processes do |t|
-
+      #GENERAL
       t.integer   :p_type, default: 0
       t.string    :internal_lawyer
-      t.string    :correspondency_radicate, uniqueness: true
-      t.string    :case_id_bap, uniqueness: true
-      t.string    :case_id_sise, uniqueness: true
-      t.string    :case_id_ekogui, uniqueness: true
+      #IDENTIFIERS
+      t.string    :correspondency_radicate, default: "NO APLICA"
+      t.string    :case_id_bap, default: "NO APLICA"
+      t.string    :case_id_sise, default: "NO APLICA"
+      t.string    :case_id_ekogui, default: "NO APLICA"
+      t.string    :process_radicate, default: "NO APLICA"
+
       t.date      :creation_date
       t.date      :notification_date
-      t.string    :process_radicate, default: "NO APLICA"
       t.integer   :number, default: 0
       t.integer   :exercise, default: 0
       t.string    :sinister, default: "NO APLICA"
@@ -63,36 +65,34 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :office_name, default: "NO APLICA"
       t.boolean   :reinsurance_report, default: false
       t.boolean   :recovery, default: false
-      t.string    :departament
-      t.string    :city_case
 
-      t.belongs_to  :process_class,                 optional: true
-      t.belongs_to  :subprocess_class,              optional: true
-      t.belongs_to  :link_type,                     optional: true
-      #t.belongs_to  :departament,                   optional: true
-      #t.belongs_to  :city_case,                     optional: true
-      t.belongs_to  :branch_policy,                 optional: true
-      t.belongs_to  :branch_commercial,             optional: true
-      #t.belongs_to  :office_name,                   optional: true
-      t.belongs_to  :score_contingency,             optional: true
-      t.belongs_to  :protection,                    optional: true
-      t.belongs_to  :current_stage,                 optional: true
-      t.belongs_to  :litigation_source,             optional: true
-      t.belongs_to  :instance,                      optional: true
-      t.belongs_to  :case_state,                    optional: true
-      t.belongs_to  :case_termination,              optional: true
-      t.belongs_to  :reinsurance_type,              optional: true
-      t.belongs_to  :last_performance,              optional: true
-      t.belongs_to  :gubernatorial_way,             optional: true
-      t.belongs_to  :notification_type_second,      optional: true
-      t.belongs_to  :setence_type_second_company,   optional: true
-      t.belongs_to  :sentence_type_desacate,        optional: true
-      t.belongs_to  :reserved_released,             optional: true
-      t.belongs_to  :money_type,                    optional: true
-      t.belongs_to  :join_committee,                optional: true
-      t.belongs_to  :committee,                     optional: true
-      t.belongs_to  :coensurance_type,              optional: true
-      t.belongs_to  :user,                          optional: true
+      t.string    :departament, default: "PENDIENTE"
+      t.string    :city_case, default: "PENDIENTE"
+      t.string    :process_class
+      t.string    :subprocess_class
+      t.string    :link_type
+      t.string    :branch_policy
+      t.string    :branch_commercial
+      t.string    :score_contingency
+      t.string    :protection
+      t.string    :current_stage
+      t.string    :litigation_source
+      t.string    :instance
+      t.string    :case_state
+      t.string    :case_termination
+      t.string    :reinsurance_type
+      t.string    :last_performance
+      t.string    :gubernatorial_way
+      t.string    :notification_type_second
+      t.string    :setence_type_second_company
+      t.string    :sentence_type_desacate
+      t.string    :reserved_released
+      t.string    :money_type
+      t.string    :join_committee
+      t.string    :committee
+      t.string    :coensurance_type
+
+      t.belongs_to :user, optional: true
 
       t.timestamps
     end

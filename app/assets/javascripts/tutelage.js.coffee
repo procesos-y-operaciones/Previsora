@@ -47,6 +47,7 @@ $ ->
 
 
   #¿Hay impugnación?
+  ###
   objection_date_and_objecter = ->
     objectionDate = $("#objection_date").val()
     objecter = $("#objecter").val()
@@ -60,23 +61,30 @@ $ ->
       $('#objection').val('Si')
 
   objection_date_and_objecter()
+  ###
 
   objection_rule = ->
     v_option = document.getElementById('objection').value
     if v_option == "No"
       document.getElementById('objection_date').readOnly = true
       document.getElementById('objecter').readOnly = true
+      document.getElementById('date_imp').readOnly = true
+      document.getElementById('date_notification_imp').readOnly = true
+      $('#setence_type_second_company_id').prop 'disabled', true
     if v_option == "Si"
       document.getElementById('objection_date').readOnly = false
-      $("#objection_date").val('0-0-0')
       document.getElementById('objecter').readOnly = false
-      $("#objecter").val('NO APLICA')
-
+      document.getElementById('date_imp').readOnly = false
+      document.getElementById('date_notification_imp').readOnly = false
+      $('#setence_type_second_company_id').prop 'disabled', false
 
   $('#objection').change ->
     objection_rule()
 
+  $('#objection').ready ->
+    objection_rule()
 
+  ###
   #¿Hay desacato?
   desacate_prerule = ->
     val_one = $('#setence_type_second_company_id').val()
@@ -100,6 +108,7 @@ $ ->
       $('#desacate').val('Si')
 
   desacate_prerule()
+  ###
 
   desacate_rule = ->
     v_option = document.getElementById('desacate').value
@@ -109,6 +118,7 @@ $ ->
       $('#sentence_type_desacate').prop( "disabled", false )
       document.getElementById('date_notification_desition_desacate').readOnly = false
       document.getElementById('date_answer_desacate').readOnly = false
+      $('#sentence_type_desacate').prop( "disabled", false )
     else
       $('#setence_type_second_company_id').prop( "disabled", true )
       $('#setence_type_second_company_id').val('PENDIENTE')
@@ -120,8 +130,21 @@ $ ->
       $('#date_notification_desition_desacate').val('')
       $('#date_answer_desacate').prop( "disabled", true )
       $('#date_answer_desacate').val('')
+      $('#sentence_type_desacate').prop( "disabled", true )
+
 
   $('#desacate').change ->
     desacate_rule()
 
-  desacate_rule()
+  $('#desacate').ready ->
+    desacate_rule()
+
+  #Departamento donde cursa el caso
+  $('#departament').change ->
+    input_state = $(this)
+    output_state = $('#cities')
+    $.getJSON '/cities/' + $(this).val(), (data) ->
+      output_state.empty()
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
+        output_state.append opt

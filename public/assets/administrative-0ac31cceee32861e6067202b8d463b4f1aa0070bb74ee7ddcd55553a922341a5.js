@@ -3,14 +3,23 @@
     var case_state_rule, coactive_radicate_and_coactive_value_cents_rule, coactive_rule, comm, correspondency_radicate_rule, ensurance_value_rule, exer, initial_values, litigation_source_rule, money_type_rule, more_policies_rule, num, numSiniestro, office_rule, policies_and_sinisters_rule, poly, radicate_rule, subprocessClass_rule;
     initial_values = function() {
       if ($('#contingency_reason').val() === "NO APLICA") {
-        return $('#contingency_reason').val("PENDIENTE");
+        $('#contingency_reason').val("PENDIENTE");
+      }
+      if ($('#case_id_bap').val() === "NO APLICA") {
+        $('#case_id_bap').val("PENDIENTE");
+      }
+      if ($('#case_id_sise').val() === "NO APLICA") {
+        $('#case_id_sise').val("PENDIENTE");
+      }
+      if ($('#attorny').val() === "NO APLICA") {
+        return $('#attorny').val("PENDIENTE");
       }
     };
     initial_values();
     subprocessClass_rule = function() {
       var v_option;
       v_option = document.getElementById('subprocessClass').value;
-      if (v_option === '70') {
+      if (v_option === 'COLJUEGOS') {
         $('#gubernatorial_coljuegos').prop('disabled', false);
         $('#gubernatorial_coljuegos').show();
         $('#gubernatorial_coljuegos').val("");
@@ -18,6 +27,7 @@
         $('#gubernatorial_ordinarie').hide();
         $('#departament_coljuegos').prop('disabled', false);
         $('#departament_coljuegos').show();
+        $('#departament_coljuegos').trigger("change");
         $('#departament_ordinarie').prop('disabled', true);
         $('#departament_ordinarie').hide();
         $('#departament_ordinarie').val("");
@@ -95,15 +105,17 @@
     $('#radicate').change(function() {
       return radicate_rule();
     });
-    num = 0;
-    exer = 0;
-    poly = 0;
-    comm = 0;
     numSiniestro = "";
+    num = numSiniestro.concat(document.getElementById("number").value);
+    exer = numSiniestro.concat(document.getElementById("exercise").value);
+    poly = numSiniestro.concat(document.getElementById("branch_policy").value);
+    comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
     litigation_source_rule = function() {
       var v_option;
       v_option = document.getElementById('litigationSource').value;
-      if (v_option === '2') {
+      if (v_option === 'SINIESTRO') {
+        document.getElementById('protection_coljuegos').readOnly = false;
+        document.getElementById('protection_ordinarie').readOnly = false;
         document.getElementById('policyCents').readOnly = false;
         $('#protection').prop('disabled', false);
         document.getElementById('number').readOnly = false;
@@ -112,6 +124,8 @@
         $('#branch_commercial').prop('disabled', false);
         return $("#sinister").val(num + "-" + exer + "-" + poly + "-" + comm);
       } else {
+        document.getElementById('protection_coljuegos').readOnly = true;
+        document.getElementById('protection_ordinarie').readOnly = true;
         document.getElementById('policyCents').readOnly = true;
         $('#policyCents').val("0");
         $('#protection').prop('disabled', true);
@@ -151,7 +165,7 @@
       var ensuranceValue, subClass;
       ensuranceValue = document.getElementById('ensuranceValue').value;
       subClass = document.getElementById('subprocessClass').value;
-      if (ensuranceValue >= 1000000000 && subClass === '69') {
+      if (ensuranceValue >= 1000000000 && subClass === '71') {
         $('#reinsuranceTypeSF').prop('disabled', true);
         $('#reinsuranceTypeSF').hide();
         $('#reinsuranceType').prop('disabled', false);
@@ -236,7 +250,7 @@
     case_state_rule = function() {
       var v_option;
       v_option = document.getElementById("caseState").value;
-      if (v_option === "1") {
+      if (v_option === "EN CURSO") {
         $('#currentStageVer').prop("disabled", false);
         $('#fail_value').prop("disabled", true);
         $('#fail_value').val("0");
@@ -248,7 +262,7 @@
         return $('#caseTermination').val("");
       } else {
         $('#currentStageVer').prop("disabled", true);
-        $('#currentStageVer').val("1");
+        $('#currentStageVer').val("PENDIENTE");
         $('#fail_value').prop("disabled", false);
         $('#desition_date').prop("disabled", false);
         $('#fail_previ').prop("disabled", true);

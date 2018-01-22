@@ -14,25 +14,26 @@ $ ->
   #Subclase de proceso
   subprocess_class_rule = ->
     v_option = document.getElementById('subprocess_class').value
-    if v_option == '3'
+    if v_option == 'VERBAL'
       $('#currentStageVer').prop 'disabled', false
-      $('#currentStageVerDiv').show()
+      $('#currentStageVer').show()
       $('#currentStageOrd').prop 'disabled', true
-      $('#currentStageOrdDiv').hide()
-    else if v_option == '4'
+      $('#currentStageOrd').hide()
+    else if v_option == 'ORDINARIO'
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageVerDiv').hide()
+      $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', false
-      $('#currentStageOrdDiv').show()
+      $('#currentStageOrd').show()
     else
       $('#currentStageVer').prop 'disabled', true
-      $('#currentStageVerDiv').hide()
+      $('#currentStageVer').hide()
       $('#currentStageOrd').prop 'disabled', true
-      $('#currentStageOrdDiv').hide()
+      $('#currentStageOrd').hide()
 
   $('#subprocess_class').change ->
     subprocess_class_rule()
 
+  subprocess_class_rule()
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->
@@ -86,14 +87,14 @@ $ ->
     case_id_bap_and_sise_rule()
 
   #Fuente de litigio
-  num=0
-  exer=0
-  poly=0
-  comm=0
   numSiniestro = ""
+  num = numSiniestro.concat(document.getElementById("number").value)
+  exer = numSiniestro.concat(document.getElementById("exercise").value)
+  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
+  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
-    if v_option == '2'
+    if v_option == 'SINIESTRO'
       document.getElementById('policyCents').readOnly = false
       $('#protection').prop('disabled', false)
       document.getElementById('number').readOnly = false
@@ -171,7 +172,7 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "1"
+    if v_option == "PESO"
       document.getElementById("dolarValueCents").readOnly = true
       $("#dolarValueCents").val(0)
     else
@@ -214,7 +215,7 @@ $ ->
   #Estado del caso
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
-    if v_option == "2"
+    if v_option == "TERMINADO"
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false

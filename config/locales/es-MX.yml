@@ -389,6 +389,7 @@ es-MX:
       contingency_value_cents_d: Máxima exposición económica de la aseguradora, constituyéndose en el menor valor entre las pretensiones y el valor asegurado, descontando el deducible pactado y el porcentaje de participación en el coaseguro.
       current_stage_id_d: Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica).
       reinsurance_type_id_d: Protección que contrata una aseguradora con otra (que recibe el nombre de reaseguradora), para cubrir el riesgo que previamente ha asegurado con la venta de una póliza determinada. Puede ser proporcional o no proporcional, facultativo, etc.
+      coensurance_type_id_d: Contrato de seguros suscrito de una parte por el asegurado y de otra parte, por varios aseguradores que asumen con entera independencia, los unos de otros, la obligación de responder separadamente de la parte del riesgo que les corresponda. Puede ser coaseguro cedido (se cede parte del seguro a una u otras compañías) o coaseguro aceptado (se acepta parte del riesgo asegurado en otra compañía).
       reinsurance_value_cents_d: Valor reaseguro.
       reinsurance_report_d: Por la naturaleza del contrato de reaseguro, o la cuantía reclamada, el caso fue reportado a la Gerencia de Reaseguros.
       reensurance_gived_cents_d: Reaseguro cedido.

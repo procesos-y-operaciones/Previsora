@@ -56,7 +56,6 @@ function formatting(input) {
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-
       <ul>
         <% type_process.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -67,7 +66,7 @@ function formatting(input) {
 
   <div class="p-30">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-7 ">
+      <div class="col-sm-offset-2 col-sm-8 ">
 
         <%= form.hidden_field :p_type, :value => 1 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
@@ -78,12 +77,14 @@ function formatting(input) {
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class_id, ProcessClass.prejudicial, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:process_class, ProcessClass.prejudicial, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.process_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
+
+        <hr>
 
         <%= form.label "¿Tiene número de radicado correspondencia?" %>
         <div class="input-group">
@@ -100,7 +101,7 @@ function formatting(input) {
 
         <%= form.label "Número de radicado correspondencia" %>
         <div class="input-group">
-          <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+          <%= form.text_field :correspondency_radicate, onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", id:"correspondency_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.correspondency_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -109,16 +110,16 @@ function formatting(input) {
         <%= form.label "Número de identificación del caso (Bizagi, Access y PA)" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.text_field :case_id_bap, id:"case_id_bap", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+            <%= form.text_field :case_id_bap, id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.case_id_bap_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
         </div>
 
-        <%= form.label "Número de radicación del proceso" %>
+        <%= form.label "Número de radicación del despacho" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, id:"process_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), class:"form-control", readOnly: true %>
+          <%= form.text_field :process_radicate, id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.process_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -137,7 +138,7 @@ function formatting(input) {
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type_id, LinkType.prejuducial, :id, :name, {prompt: "SELECCIONE"}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:link_type, LinkType.prejudicial, :name, :name, {prompt: "SELECCIONE"}, {:class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.link_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -158,7 +159,7 @@ function formatting(input) {
         <div class="input-group">
           <div class="styled-select">
             <select name="type_process[city_case]" id="cities">
-              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
+              <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.city_case_d') %>" data-placement="auto top">
@@ -181,7 +182,7 @@ function formatting(input) {
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:litigation_source_id, LitigationSource.all, :id, :name, {:prompt => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
+            <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {:prompt => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.litigation_source_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -196,11 +197,29 @@ function formatting(input) {
           </span>
         </div>
 
-        <%= form.label "Amparo" %>
+        <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:protection_id, Protection.all, :id, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"protection"}) %>
+            <%= form.collection_select(:reinsurance_type, ReinsuranceType.all, :name, :name, {}, {id:"reinsurance_type", class:"form-control"}) %>
           </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.reinsurance_type_id_d') %>" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Tipo de coaseguro" %>
+        <div class="input-group">
+          <div class="styled-select">
+            <%= form.collection_select(:coensurance_type, CoensuranceType.all, :name, :name, {}, {id:"coensurance_type", class:"form-control"}) %>
+          </div>
+          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.coensurance_type_id_d') %>" data-placement="auto top">
+            <i class="glyphicon glyphicon-question-sign"></i>
+          </span>
+        </div>
+
+        <%= form.label "Amparo" %>
+        <div class="input-group">
+          <%= form.text_field :protection, id:"protection", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", placeholder: "INGRESE EL AMPARO", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.protection_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -225,7 +244,7 @@ function formatting(input) {
         <%= form.label "Sucursal de la póliza" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:branch_policy_id, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
+            <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.branch_policy_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -235,7 +254,7 @@ function formatting(input) {
         <%= form.label "Ramo comercial" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:branch_commercial_id, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
+            <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.branch_commercial_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -348,7 +367,7 @@ function formatting(input) {
         <%= form.label "Fecha de primera audiencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.date_field :payment_date, class:"form-control" %>
+            <%= form.date_field :desition_date, class:"form-control" %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.payment_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -360,7 +379,7 @@ function formatting(input) {
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:money_type_id, MoneyType.all, :id, :name, {}, {class:"form-control", id:"moneyType"}) %>
+            <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {}, {class:"form-control", id:"moneyType"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.money_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -369,7 +388,7 @@ function formatting(input) {
 
         <%= form.label "Valor del dólar" %>
         <div class="input-group">
-          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", class:"form-control" %>
+          <%= form.number_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -377,7 +396,7 @@ function formatting(input) {
 
         <%= form.label "Valor pretensión" %>
         <div class="input-group">
-            <%= form.text_field :detritment_cents, onkeyup:"formatting(this)", class:"form-control" %>
+            <%= form.text_field :detritment_cents, onkeyup:"formatting_number(this)",class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.detritment_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -385,7 +404,7 @@ function formatting(input) {
 
         <%= form.label "Valor asegurado" %>
         <div class="input-group">
-            <%= form.number_field :ensurance_value_cents, class:"form-control" %>
+            <%= form.number_field :ensurance_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.ensurance_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -394,7 +413,7 @@ function formatting(input) {
         <%= form.label "Calificación contingencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:score_contingency_id, ScoreContingency.all, :id, :name, {}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:score_contingency, ScoreContingency.all, :name, :name, {}, {:class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.score_contingency_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -403,7 +422,7 @@ function formatting(input) {
 
         <%= form.label "Valor contingencia" %>
         <div class="input-group">
-            <%= form.number_field :contingency_value_cents, class:"form-control" %>
+            <%= form.number_field :contingency_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.contingency_value_cents_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -411,56 +430,10 @@ function formatting(input) {
 
         <hr>
 
-        <%= form.label "Etapa actual" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:current_stage_id, CurrentStage.prejudicial, :id, :name, {}, {:class=>"form-control"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.current_stage_id_d') %>" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Tipo de reaseguro" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type_id, ReinsuranceType.all, :id, :name, {}, {id: "reinsurance_type", :class=>"form-control"}) %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.reinsurance_type_id_d') %>" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Valor reaseguro" %>
-        <div class="input-group">
-          <%= form.number_field :reinsurance_value_cents, id:"reinsurance_value", class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.reinsurance_value_cents_d') %>" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Reaseguro reportado" %>
-        <div class="input-group">
-          <div class="styled-select">
-            <%= form.select :reinsurance_report, options_for_select([["NO", false], ["SI", true]]), {}, {class:"form-control"} %>
-          </div>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.reinsurance_report_d') %>" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
-        <%= form.label "Reaseguro cedido" %>
-        <div class="input-group">
-            <%= form.number_field :reensurance_gived_cents, class:"form-control" %>
-          <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.reensurance_gived_cents_d') %>" data-placement="auto top">
-            <i class="glyphicon glyphicon-question-sign"></i>
-          </span>
-        </div>
-
         <%= form.label "Ingresa al comité" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:join_committee_id, JoinCommittee.all, :id, :name, {}, {class:"form-control", id:"join_committee"}) %>
+            <%= form.collection_select(:join_committee, JoinCommittee.all, :name, :name, {}, {class:"form-control", id:"join_committee"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.join_committee_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -470,7 +443,7 @@ function formatting(input) {
         <%= form.label "Decisión del comité" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:committee_id, Committee.all, :id, :name, {}, {class:"form-control", id:"committee"}) %>
+            <%= form.collection_select(:committee, Committee.all, :name, :name, {}, {class:"form-control", id:"committee"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.committee_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -479,7 +452,7 @@ function formatting(input) {
 
         <%= form.label "Valor autorizado por el comité" %>
         <div class="input-group">
-            <%= form.number_field :auth_value_cents, id:"auth_value", class:"form-control" %>
+            <%= form.number_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -487,7 +460,7 @@ function formatting(input) {
 
         <%= form.label "Valor pagado Previsora" %>
         <div class="input-group">
-            <%= form.number_field :payed_value_cents, id: "payed_value", class:"form-control" %>
+            <%= form.number_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="breve descripción" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -531,8 +504,8 @@ function formatting(input) {
     </div>
   </div>
 
-  <div class="">
-    <%= link_to 'Volver', lawyer_new_path, class:"btn btn-default" %>
+  <div class="p-30">
+    <%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
     <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
   </div>
 <% end %>
