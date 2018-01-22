@@ -5,6 +5,9 @@
       if ($('#case_id_ekogui').val() === "NO APLICA") {
         $('#case_id_ekogui').val("PENDIENTE");
       }
+      if ($('#process_radicate').val() === "NO APLICA") {
+        $('#process_radicate').val("PENDIENTE");
+      }
       if ($('#contingency_reason').val() === "NO APLICA") {
         $('#contingency_reason').val("PENDIENTE");
       }
@@ -12,7 +15,13 @@
         $('#contingency_resume').val("PENDIENTE");
       }
       if ($('#facts').val() === "NO APLICA") {
-        return $('#facts').val("PENDIENTE");
+        $('#facts').val("PENDIENTE");
+      }
+      if ($('#active_part').val() === "NO APLICA") {
+        $('#active_part').val("PENDIENTE");
+      }
+      if ($('#passive_part').val() === "NO APLICA") {
+        return $('#passive_part').val("PENDIENTE");
       }
     };
     initial_values();
@@ -65,19 +74,19 @@
       hide_all_subprocess();
       v_option = document.getElementById("processClass").value;
       switch (v_option) {
-        case "1":
+        case "JURISDICCION CONTENCIOSO ADMINISTRATIVO":
           $('#subprocessAdmin').prop("disabled", false);
           return $('#subprocessAdmin').show();
-        case "2":
+        case "JURISDICCION CIVIL":
           $('#subprocessCivil').prop("disabled", false);
           return $('#subprocessCivil').show();
-        case "11":
+        case "JURISDICCION PENAL":
           $('#subprocessPenal').prop("disabled", false);
           return $('#subprocessPenal').show();
-        case "12":
+        case "JURISDICCION LABORAL":
           $('#subprocessLaboral').prop("disabled", false);
           return $('#subprocessLaboral').show();
-        case "30":
+        case "PROCESO ARBITRAL":
           $('#subprocessArbitral').prop("disabled", false);
           return $('#subprocessArbitral').show();
       }
@@ -87,16 +96,16 @@
       hide_all_stages();
       v_option = document.getElementById("processClass").value;
       switch (v_option) {
-        case "1":
+        case "JURISDICCION CONTENCIOSO ADMINISTRATIVO":
           $('#judicial_admin').prop('disabled', false);
           return $('#judicial_admin').show();
-        case "11":
+        case "JURISDICCION PENAL":
           $('#judicial_penal').prop("disabled", false);
           return $('#judicial_penal').show();
-        case "12":
+        case "JURISDICCION LABORAL":
           $('#judicial_laboral').prop("disabled", false);
           return $('#judicial_laboral').show();
-        case "30":
+        case "PROCESO ARBITRAL":
           $('#judicial_arbitral').prop("disabled", false);
           return $('#judicial_arbitral').show();
       }
@@ -112,37 +121,37 @@
       hide_all_stages();
       v_option = document.getElementById("subprocessCivil").value;
       switch (v_option) {
-        case "55":
+        case "NULIDAD DE LAS CARTAS DE NATURALEZA Y DE LAS RESOLUCIONES DE AUTORIZACION DE INSCRIPCION":
           $('#judicial_verbal').prop("disabled", false);
           return $('#judicial_verbal').show();
-        case "56":
+        case "CONTROL POR VIA DE EXCEPCION":
           $('#judicial_verbal_sum').prop("disabled", false);
           return $('#judicial_verbal_sum').show();
-        case "57":
+        case "PROCESO VERBAL":
           $('#judicial_declarativos').prop("disabled", false);
           return $('#judicial_declarativos').show();
-        case "58":
+        case "PROCESO VERBAL SUMARIO":
           $('#judicial_ejecutivo').prop("disabled", false);
           return $('#judicial_ejecutivo').show();
-        case "59":
+        case "PROCESOS DECLARATIVOS ESPECIALES":
           $('#judicial_sucesion').prop("disabled", false);
           return $('#judicial_sucesion').show();
-        case "60":
+        case "PROCESO EJECUTIVO":
           $('#judicial_liquidacion').prop("disabled", false);
           return $('#judicial_liquidacion').show();
-        case "61":
+        case "PROCESO DE SUCESION":
           $('#judicial_liquidacion').prop("disabled", false);
           return $('#judicial_liquidacion').show();
-        case "62":
+        case "PROCESO DE LIQUIDACION DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CONYUGES O COMPAÑEROS PERMANENTES":
           $('#judicial_insolvencia').prop("disabled", false);
           return $('#judicial_insolvencia').show();
-        case "63":
+        case "DISOLUCION, NULIDAD Y LIQUIDACION DE SOCIEDADES":
           $('#judicial_ordinario').prop("disabled", false);
           return $('#judicial_ordinario').show();
-        case "64":
+        case "INSOLVENCIA DE LA PERSONA NATURAL NO COMERCIANTE":
           $('#judicial_divisorio').prop("disabled", false);
           return $('#judicial_divisorio').show();
-        case "65":
+        case "PROCESO ORDINARIO":
           $('#judicial_voluntaria').prop("disabled", false);
           return $('#judicial_voluntaria').show();
       }
@@ -207,7 +216,7 @@
     reinsurance_type_rule = function() {
       var v_option;
       v_option = document.getElementById("reinsurance_type").value;
-      if (v_option === "2" || v_option === "3") {
+      if (v_option === "FACULTATIVO" || v_option === "CUOTA PARTE") {
         return document.getElementById("reinsurance_value").readOnly = false;
       } else {
         document.getElementById("reinsurance_value").readOnly = true;
@@ -221,7 +230,7 @@
     coensurance_type_rule = function() {
       var v_option;
       v_option = document.getElementById("coensurance_type").value;
-      if (v_option === "2" || v_option === "3") {
+      if (v_option === "CEDIDO" || v_option === "ACEPTADO") {
         return document.getElementById("coensurance_value").readOnly = false;
       } else {
         document.getElementById("coensurance_value").readOnly = true;
@@ -232,15 +241,15 @@
       return coensurance_type_rule();
     });
     coensurance_type_rule();
-    num = 0;
-    exer = 0;
-    poly = 0;
-    comm = 0;
     numSiniestro = "";
+    num = numSiniestro.concat(document.getElementById("number").value);
+    exer = numSiniestro.concat(document.getElementById("exercise").value);
+    poly = numSiniestro.concat(document.getElementById("branch_policy").value);
+    comm = numSiniestro.concat(document.getElementById("branch_commercial").value);
     litigation_source_rule = function() {
       var v_option;
       v_option = document.getElementById("litigationSource").value;
-      if (v_option === "2") {
+      if (v_option === "SINIESTRO") {
         document.getElementById("policyCents").readOnly = false;
         $('#protection').prop("disabled", false);
         document.getElementById("number").readOnly = false;
@@ -270,6 +279,7 @@
     $('#litigationSource').change(function() {
       return litigation_source_rule();
     });
+    litigation_source_rule();
     $("#number").change(function() {
       num = numSiniestro.concat(document.getElementById("number").value);
       return $("#sinister").val(num + "-" + exer + "-" + poly + "-" + comm);
@@ -321,7 +331,7 @@
     money_type_rule = function() {
       var v_option;
       v_option = document.getElementById("moneyType").value;
-      if (v_option === "1") {
+      if (v_option === "PESO") {
         document.getElementById("dolarValueCents").readOnly = true;
         return $("#dolarValueCents").val(0);
       } else {
@@ -350,7 +360,7 @@
     case_state_rule = function() {
       var v_option;
       v_option = document.getElementById("caseState").value;
-      if (v_option === "2") {
+      if (v_option === "TERMINADO") {
         $('#caseTermination').prop("disabled", false);
         $('#lastPerformance').prop("disabled", false);
         document.getElementById("lastPerformanceDate").readOnly = false;
@@ -366,7 +376,7 @@
         $('#reservedReleased').prop("disabled", true);
         $('#reservedReleased').val("1");
         $('#recovery').prop("disabled", true);
-        return $('#recovery').val("");
+        return $('#recovery').val("PENDIENTE");
       }
     };
     $('#caseState').change(function() {
@@ -376,7 +386,7 @@
     case_termination_rule = function() {
       var v_option;
       v_option = document.getElementById("caseTermination").value;
-      if (v_option === "2") {
+      if (v_option === "TERMINADO CON PAGO: EN CONTRA") {
         document.getElementById("fail_value").readOnly = false;
         document.getElementById("fail_previ").readOnly = false;
         document.getElementById("payed_value").readOnly = false;
@@ -442,7 +452,7 @@
     join_committee_rule = function() {
       var v_option;
       v_option = document.getElementById("join_committee").value;
-      if (v_option === "2") {
+      if (v_option === "SI") {
         document.getElementById("committee_date").readOnly = false;
         return $('#committee').prop("disabled", false);
       } else {
@@ -459,7 +469,7 @@
     committee_rule = function() {
       var v_option;
       v_option = document.getElementById("committee").value;
-      if (v_option === "2") {
+      if (v_option === "CONCILIA") {
         document.getElementById("reconcilie_value").readOnly = false;
         document.getElementById("auth_value").readOnly = false;
         document.getElementById("reason_conc").readOnly = true;
@@ -472,7 +482,7 @@
         $('#fail_previ').val("0");
         document.getElementById("payed_value").readOnly = true;
         return $('#payed_value').val("0");
-      } else if (v_option === "3") {
+      } else if (v_option === "NO CONCILIA") {
         document.getElementById("reconcilie_value").readOnly = true;
         $('#reconcilie_value').val("0");
         document.getElementById("auth_value").readOnly = true;
@@ -483,7 +493,7 @@
         document.getElementById("fail_value").readOnly = false;
         document.getElementById("fail_previ").readOnly = false;
         return document.getElementById("payed_value").readOnly = false;
-      } else if (v_option === "4") {
+      } else if (v_option === "INVIABLE") {
         document.getElementById("reconcilie_value").readOnly = true;
         $('#reconcilie_value').val("0");
         document.getElementById("auth_value").readOnly = true;

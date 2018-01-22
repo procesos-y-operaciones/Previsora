@@ -25,7 +25,7 @@
         <%= form.label "Clase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:process_class, ProcessClass.fiscal, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:process_class, ProcessClass.fiscal, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.process_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -35,7 +35,7 @@
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:subprocess_class, SubprocessClass.fiscal, :id , :name, {}, {class:"form-control", id:"subprocess_class"}) %>
+            <%= form.collection_select(:subprocess_class, SubprocessClass.fiscal, :name, :name, {}, {class:"form-control", id:"subprocess_class"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.subprocess_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -94,7 +94,7 @@
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type, LinkType.fiscal, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:link_type, LinkType.fiscal, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.link_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -115,7 +115,7 @@
         <div class="input-group">
           <div class="styled-select">
             <select name="type_process[city_case]" id="cities">
-              <option value="PENDIENTE" selected="selected">SELECCIONE</option>
+              <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.city_case_d') %>" data-placement="auto top">
@@ -128,7 +128,7 @@
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:litigation_source, LitigationSource.all, :id, :name, {}, {id:"litigationSource", class:"form-control"}) %>
+            <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {}, {id:"litigationSource", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.litigation_source_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -138,7 +138,7 @@
         <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type, ReinsuranceType.all, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type, ReinsuranceType.all, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reinsurance_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -158,7 +158,7 @@
         <%= form.label "Tipo de coaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:coensurance_type, CoensuranceType.all, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:coensurance_type, CoensuranceType.all, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.coensurance_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -176,7 +176,7 @@
         <%= form.label "Amparo" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:protection, Protection.all, :id, :name, {}, {id:"protection", class:"form-control"}) %>
+            <%= form.collection_select(:protection, Protection.all, :name, :name, {}, {id:"protection", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.protection_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -221,7 +221,7 @@
 
         <%= form.label "Número del siniestro (completo)" %>
         <div class="input-group">
-          <%= form.text_field :sinister, id:"sinister", pattern:"[A-Z0-9\- ]*", title: t(:pattern), class:"form-control" %>
+          <%= form.text_field :sinister, id:"sinister", pattern:"[A-Z0-9\- ]*", title: t(:pattern), readonly: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.sinister_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -231,8 +231,8 @@
         <div class="input-group">
           <div class="styled-select">
             <select id="more_policies" class="form-control">
-              <option value="Si">Si</option>
-              <option value="No">No</option>
+              <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.more_policies_d') %>" data-placement="auto top">
@@ -261,7 +261,7 @@
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:money_type, MoneyType.all, :id, :name, {}, {class:"form-control", id:"moneyType"}) %>
+            <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {}, {class:"form-control", id:"moneyType"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.money_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -327,7 +327,7 @@
 
         <%= form.label "Número de radicación del proceso" %>
         <div class="input-group">
-          <%= form.text_field :process_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), value:"", placeholder: 'INGRESE EL NUMERO', required: true, class:"form-control" %>
+          <%= form.text_field :process_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', required: true, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.process_radicate_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -378,7 +378,7 @@
         <%= form.label "Calificación contingencia" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:score_contingency, ScoreContingency.all, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:score_contingency, ScoreContingency.all, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.score_contingency_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -414,8 +414,8 @@
         <%= form.label "Etapa actual", id:"currentStage" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:current_stage, CurrentStage.fiscal_ver, :id, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
-            <%= form.collection_select(:current_stage, CurrentStage.fiscal_ord, :id, :name, {}, {id:"currentStageOrd", class:"form-control"}) %>
+            <%= form.collection_select(:current_stage, CurrentStage.fiscal_ver, :name, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
+            <%= form.collection_select(:current_stage, CurrentStage.fiscal_ord, :name, :name, {}, {id:"currentStageOrd", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.current_stage_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -425,7 +425,7 @@
         <%= form.label "Instancias" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:instance, Instance.all, :id, :name, {}, {class:"form-control"}) %>
+            <%= form.collection_select(:instance, Instance.all, :name, :name, {}, {class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.instance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -435,7 +435,7 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state, CaseState.all, :id, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
+            <%= form.collection_select(:case_state, CaseState.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_state_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -453,7 +453,7 @@
         <%= form.label "Terminación del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_termination, CaseTermination.all, :id, :name, {}, {class:"form-control", id:"caseTermination"}) %>
+            <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {}, {class:"form-control", id:"caseTermination"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_termination_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -496,8 +496,8 @@
         <div class="input-group">
           <div class="styled-select">
             <select id="coactive" class="form-control">
-              <option value="Si">Si</option>
-              <option value="No">No</option>
+              <option value="Si">SI</option>
+              <option value="No">NO</option>
             </select>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.coactive_d') %>" data-placement="auto top">
@@ -532,7 +532,7 @@
         <%= form.label "Última actuación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:last_performance, LastPerformance.all, :id, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
+            <%= form.collection_select(:last_performance, LastPerformance.all, :name, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.last_performance_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -550,7 +550,7 @@
         <%= form.label "Reserva depurada" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reserved_released, ReservedReleased.all, :id, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
+            <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.reserved_released_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>

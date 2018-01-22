@@ -3,12 +3,19 @@ $ ->
   initial_values = ->
     if $('#case_id_ekogui').val() == "NO APLICA"
       $('#case_id_ekogui').val("PENDIENTE")
+    if $('#process_radicate').val() == "NO APLICA"
+      $('#process_radicate').val("PENDIENTE")
     if $('#contingency_reason').val() == "NO APLICA"
       $('#contingency_reason').val("PENDIENTE")
     if $('#contingency_resume').val() == "NO APLICA"
       $('#contingency_resume').val("PENDIENTE")
     if $('#facts').val() == "NO APLICA"
       $('#facts').val("PENDIENTE")
+    if $('#active_part').val() == "NO APLICA"
+      $('#active_part').val("PENDIENTE")
+    if $('#passive_part').val() == "NO APLICA"
+      $('#passive_part').val("PENDIENTE")
+
 
   initial_values()
 
@@ -263,6 +270,8 @@ $ ->
 
   $('#litigationSource').change ->
     litigation_source_rule()
+
+  litigation_source_rule()
 
   $("#number").change ->
     num = numSiniestro.concat(document.getElementById("number").value)

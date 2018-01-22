@@ -66,8 +66,8 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.boolean   :reinsurance_report, default: false
       t.boolean   :recovery, default: false
 
-      t.string    :departament
-      t.string    :city_case
+      t.string    :departament, default: "PENDIENTE"
+      t.string    :city_case, default: "PENDIENTE"
       t.string    :process_class
       t.string    :subprocess_class
       t.string    :link_type

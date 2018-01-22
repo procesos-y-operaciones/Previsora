@@ -551,7 +551,6 @@ LastPerformance.create([
   {name: 'RECURSO DE REPOSICION'}
 ])
 
-"""
 OfficeName.create([
   {name: 'COLJUEGOS'},
   {name: 'MINISTERIO INTERIOR'},
@@ -1546,5 +1545,3 @@ OfficeName.create([
   {name: 'JUZGADO 2 ADMINISTRATIVO CIRCUITO DE RIOSUCIO'},
   {name: 'OTRO'}
 ])
-
-"""
