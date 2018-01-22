@@ -123,6 +123,7 @@ class TypeProcessesController < ApplicationController
        :auth_value_cents, :reason_conc, :reason_inv, :reserved_fees_cents, :case_onbase,
        :internal_lawyer, :case_id_ekogui, :coensurance_value_cents, :protection,
        :provision_cents, :cost_value_cents, :committee_date, :reconcilie_value_cents,
-       :recovery)
+       :recovery, :answer_date, :failed_notification_date, :imp_date, :objection_date_desition,
+       :objection_date_desition_notification, :setence_type_second_company)
     end
 end

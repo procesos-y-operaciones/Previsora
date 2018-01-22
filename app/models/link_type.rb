@@ -23,7 +23,7 @@ class LinkType < ApplicationRecord
   end
 
   def self.administrative
-    LinkType.order(n_type: :desc, name: :asc).where("n_type==0 OR n_type==4")
+    LinkType.order(n_type: :desc, name: :asc).where("n_type==4")
   end
 
   def self.tutelage

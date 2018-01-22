@@ -3,6 +3,12 @@ $ ->
   initial_values = ->
     if $('#contingency_reason').val() == "NO APLICA"
       $('#contingency_reason').val("PENDIENTE")
+    if $('#case_id_bap').val() == "NO APLICA"
+      $('#case_id_bap').val("PENDIENTE")
+    if $('#case_id_sise').val() == "NO APLICA"
+      $('#case_id_sise').val("PENDIENTE")
+    if $('#attorny').val() == "NO APLICA"
+      $('#attorny').val("PENDIENTE")
 
   initial_values()
 
@@ -13,7 +19,6 @@ $ ->
     if v_option == 'COLJUEGOS'
       $('#gubernatorial_coljuegos').prop 'disabled', false
       $('#gubernatorial_coljuegos').show()
-      $('#gubernatorial_coljuegos').val("")
       $('#gubernatorial_ordinarie').prop 'disabled', true
       $('#gubernatorial_ordinarie').hide()
       $('#departament_coljuegos').prop 'disabled', false
@@ -70,6 +75,9 @@ $ ->
   $('#subprocessClass').change ->
     subprocessClass_rule()
 
+  #$('#subprocessClass').ready ->
+  #  subprocessClass_rule()
+
   subprocessClass_rule()
 
 
@@ -104,19 +112,22 @@ $ ->
   comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
-    if v_option == '2'
+    if v_option == 'SINIESTRO'
       document.getElementById('policyCents').readOnly = false
-      $('#protection').prop('disabled', false)
+      $('#protection_coljuegos').prop('disabled', false)
+      $('#protection_ordinarie').prop('disabled', false)
       document.getElementById('number').readOnly = false
       document.getElementById('exercise').readOnly = false
       $('#branch_policy').prop('disabled', false)
       $('#branch_commercial').prop('disabled', false)
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
+      document.getElementById('protection_coljuegos').readOnly = true
+      document.getElementById('protection_ordinarie').readOnly = true
       document.getElementById('policyCents').readOnly = true
       $('#policyCents').val("0")
-      $('#protection').prop('disabled', true)
-      $('#protection').val("")
+      $('#protection_coljuegos').prop('disabled', true)
+      $('#protection_ordinarie').prop('disabled', true)
       document.getElementById('number').readOnly = true
       $('#number').val("0")
       document.getElementById('exercise').readOnly = true
@@ -238,7 +249,7 @@ $ ->
 #Estado del caso
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
-    if v_option == "1"
+    if v_option == "EN CURSO"
       $('#currentStageVer').prop( "disabled", false )
       $('#fail_value').prop( "disabled", true )
       $('#fail_value').val("0")
@@ -250,7 +261,7 @@ $ ->
       $('#caseTermination').val("")
     else
       $('#currentStageVer').prop( "disabled", true )
-      $('#currentStageVer').val("1")
+      $('#currentStageVer').val("PENDIENTE")
       $('#fail_value').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
       $('#fail_previ').prop( "disabled", true )
