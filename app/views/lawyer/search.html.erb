@@ -70,7 +70,7 @@
         </div>
         <div class="col-sm-4">
           <div class="styled-select m-5">
-            <%= f.collection_select(:case_state_id_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
+            <%= f.collection_select(:case_state_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@
         <th scope="col" class="center"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :case_id_sise, "N° SISE", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :internal_lawyer, "Abogado", {}, :class => 'link' %></th>
-        <th scope="col" class="center"><%= sort_link @search, :city_case_id, "Ciudad", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :city_case, "Ciudad", {}, :class => 'link' %></th>
       </tr>
     </thead>
 
