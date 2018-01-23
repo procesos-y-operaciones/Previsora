@@ -1,39 +1,39 @@
 <h4 class="justify m-30-60">
-    Bienvenido apreciado(a) <%= @user.name.titleize %>.
-    <br><br>
-    A través de esta aplicación la Gerencia podrá:  registrar, actualizar, identificar, estandarizar, controlar y unificar la información relacionada
-    con los casos vigentes y terminados.
-    <br><br>
-    Así mismo, la herramienta permitirá realizar búsquedas de casos, generar reportes y mantener un repositorio único para todo los procesos judiciales
-    y administrativos que gestiona y controla el área.
-    <br><br>
-    Contamos con su compromiso y gran apoyo en la verificación y validación de la información que deba registrar o actualizar en el desarrollo
-    de su gestión. De su colaboración depende el éxito de la gestión de la Gerencia de Procesos Judiciales.
+  Bienvenido apreciado(a) <%= @user.name.titleize %>.
+  <br><br>
+  A través de esta aplicación la Gerencia podrá:  registrar, actualizar, identificar, estandarizar, controlar y unificar la información relacionada
+  con los casos vigentes y terminados.
+  <br><br>
+  Así mismo, la herramienta permitirá realizar búsquedas de casos, generar reportes y mantener un repositorio único para todo los procesos judiciales
+  y administrativos que gestiona y controla el área.
+  <br><br>
+  Contamos con su compromiso y gran apoyo en la verificación y validación de la información que deba registrar o actualizar en el desarrollo
+  de su gestión. De su colaboración depende el éxito de la gestión de la Gerencia de Procesos Judiciales.
 </h4>
 
 <div class="container-fluid row mb-30">
-    <div class="col-sm-offset-3 col-sm-2 center">
-        <%= link_to lawyer_new_path, :class=>"link" do %>
-            <span class="glyphicon glyphicon-plus btn-circle btn-inverse"></span>
-        <% end %>
-        <div class="fw center ligthgreen">
-            Caso Nuevo
-        </div>
+  <div class="col-sm-offset-3 col-sm-2 center">
+      <%= link_to lawyer_new_path, :class=>"link" do %>
+        <span class="glyphicon glyphicon-plus btn-circle btn-inverse"></span>
+      <% end %>
+      <div class="fw center ligthgreen">
+          Caso Nuevo
+      </div>
+  </div>
+  <div class="col-sm-2 center">
+    <%= link_to lawyer_search_path, :class=>"link" do %>
+      <span class="glyphicon glyphicon-search btn-circle btn-inverse"></span>
+    <% end %>
+    <div class="fw center ligthgreen"S>
+      Buscar Caso
     </div>
-    <div class="col-sm-2 center">
-        <%= link_to lawyer_search_path, :class=>"link" do %>
-            <span class="glyphicon glyphicon-search btn-circle btn-inverse"></span>
-        <% end %>
-        <div class="fw center ligthgreen">
-            Buscar Caso
-        </div>
-    </div>
-    <div class="col-sm-2 center ligthgreen">
-        <%= link_to lawyer_report_path, class:"link" do %>
-        <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse"></span>
-        <% end %>
-        <div class="fwge center">
-            Descargar Base De Datos
-        </div>
-    </div>
+  </div>
+  <div class="col-sm-2 center ligthgreen">
+      <%= link_to lawyer_report_path, class:"link" do %>
+      <span class="glyphicon glyphicon-duplicate btn-circle btn-inverse"></span>
+      <% end %>
+      <div class="fwge center">
+          Descargar Base De Datos
+      </div>
+  </div>
 </div>

@@ -264,8 +264,8 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "office_name", default: "NO APLICA"
     t.boolean "reinsurance_report", default: false
     t.boolean "recovery", default: false
-    t.string "departament"
-    t.string "city_case"
+    t.string "departament", default: "PENDIENTE"
+    t.string "city_case", default: "PENDIENTE"
     t.string "process_class"
     t.string "subprocess_class"
     t.string "link_type"
