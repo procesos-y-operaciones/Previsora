@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "encrypted_password", default: "", null: false
     t.string "document", default: "", null: false
     t.string "name", default: "", null: false
+    t.string "charge", default: "", null: false
     t.integer "role", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
