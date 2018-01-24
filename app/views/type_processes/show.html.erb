@@ -1,91 +1,91 @@
-<div class="container-fluid p-30">
-  <table id="show" class="table table-responsive fw">
-    <thead>
-      <tr class="darkgreen bor">
-        <th colspan="2" class="center">RESUMEN DEL CASO: <%= @type_process.get_type_process %></th>
-      </tr>
-    </thead>
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+<table class="table table-responsive">
+  <thead>
+    <tr class="darkgreen">
+      <th colspan="2" class="center">RESUMEN DEL CASO: <%= @type_process.get_type_process %></th>
+    </tr>
+  </thead>
 
-    <tbody>
-      <tr>
-        <th scope="row" width="50%">Abogado interno</th>
-        <td width="50%"> <%= @type_process.get_user %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Fecha de creación</th>
-        <td width="50%"> <%= @type_process.creation_date %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Clase de proceso</th>
-        <td width="50%"> <%= @type_process.get_process_class %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Subclase de proceso</th>
-        <td width="50%"> <%= @type_process.get_subprocess_class %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Radicado correspondencia</th>
-        <td width="50%"> <%= @type_process.correspondency_radicate %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Identificacion Bizagi Access y PA</th>
-        <td width="50%"> <%= @type_process.case_id_bap %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Identificacion SISE</th>
-        <td width="50%"> <%= @type_process.case_id_sise %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Departamento donde cursa el caso</th>
-        <td width="50%"> <%= @type_process.get_departament %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Ciudad donde cursa el caso</th>
-        <td width="50%"> <%= @type_process.city_case %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Nombre de despacho</th>
-        <td width="50%"> <%= @type_process.office_name %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Parte activa</th>
-        <td width="50%"> <%= @type_process.active_part %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Parte pasiva</th>
-        <td width="50%"> <%= @type_process.passive_part %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Terminación del caso</th>
-        <td width="50%"> <%= @type_process.get_case_termination %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Hechos</th>
-        <td width="50%"> <%= @type_process.facts %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Número del siniestro (completo)</th>
-        <td width="50%"> <%= @type_process.sinister %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Apoderado Previsora</th>
-        <td width="50%"> <%= @type_process.attorny %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Fecha de decisión</th>
-        <td width="50%"> <%= @type_process.desition_date %> </td>
-      </tr>
-      <tr>
-        <th scope="row" width="50%">Etapa actual</th>
-        <td width="50%"> <%= @type_process.get_current_stage %> </td>
-      </tr>
-    </tbody>
-
-  </table>
+  <tbody>
+    <tr>
+      <th scope="row"  width="50%">Abogado interno</th>
+      <td  width="50%"> <%= @type_process.get_user %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Fecha de creación</th>
+      <td> <%= @type_process.creation_date %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Clase de proceso</th>
+      <td> <%= @type_process.get_process_class %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Subclase de proceso</th>
+      <td> <%= @type_process.get_subprocess_class %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Radicado correspondencia</th>
+      <td> <%= @type_process.correspondency_radicate %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Identificacion Bizagi Access y PA</th>
+      <td> <%= @type_process.case_id_bap %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Identificacion SISE</th>
+      <td> <%= @type_process.case_id_sise %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Departamento donde cursa el caso</th>
+      <td> <%= @type_process.get_departament %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Ciudad donde cursa el caso</th>
+      <td> <%= @type_process.city_case %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Nombre de despacho</th>
+      <td> <%= @type_process.office_name %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Parte activa</th>
+      <td> <%= @type_process.active_part %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Parte pasiva</th>
+      <td> <%= @type_process.passive_part %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Terminación del caso</th>
+      <td> <%= @type_process.get_case_termination %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Hechos</th>
+      <td> <%= @type_process.facts %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Número del siniestro (completo)</th>
+      <td> <%= @type_process.sinister %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Apoderado Previsora</th>
+      <td> <%= @type_process.attorny %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Fecha de decisión</th>
+      <td> <%= @type_process.desition_date %> </td>
+    </tr>
+    <tr>
+      <th scope="row">Etapa actual</th>
+      <td> <%= @type_process.get_current_stage %> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
-<div>
-  <% if current_user.type_processes.exists?(id: @type_process.id) %>
-    <%= link_to "Editar", edit_type_process_path(@type_process), class:"btn btn-default floatRight" %>
-  <% end %>
-</div>
+<%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
+<% if current_user.type_processes.exists?(id: @type_process.id) %>
+  <%= link_to "Editar", edit_type_process_path(@type_process), class:"btn btn-default floatRight" %>
+<% end %>

@@ -1,10 +1,10 @@
 $ ->
   $('#filter_btn').click ->
     if $(this).attr('aria-expanded') == "true"
-      this.innerHTML = '<span class="glyphicon glyphicon-chevron-down"></span>'
+      this.innerHTML = '<span class="fa fa-angle-double-down"></span>'
     else
-      this.innerHTML = '<span class="glyphicon glyphicon-chevron-up"></span>'
-      
+      this.innerHTML = '<span class="fa fa-angle-double-up"></span>'
+
   $('.clickable-row').click ->
     window.location = $(this).data('href')
 

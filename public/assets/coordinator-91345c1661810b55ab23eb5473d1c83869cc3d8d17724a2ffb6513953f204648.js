@@ -1,8 +1,5 @@
 (function() {
   $(function() {
-    $('.clickable-row').click(function() {
-      return window.location = $(this).data('href');
-    });
     return $('#departament').change(function() {
       var input_state, output_state;
       input_state = $(this);
