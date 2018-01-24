@@ -37,10 +37,16 @@ class User < ApplicationRecord
     when 1
       "ABOGADO INTERNO"
     when 2
-      "COORDINADOR"
+      "COORDINADOR OPERATIVO"
     when 3
-      "ADMINISTRADOR"
+      "COORDINADOR LEGAL"
+    when 4
+      "ADMINSITRADOR"
     end
   end
 
+  def self.get_lawyers
+    User.where(role: 1)
+  end
+  
 end

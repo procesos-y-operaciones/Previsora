@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get 'asignator/asignate'
   post 'asignator/translate', :to => 'asignator#translate', :as => 'asignator_translate'
 
+  get 'administrator/search'
+
   get 'cities/:state', to: 'application#cities'
 
   root :to => 'index#home'
