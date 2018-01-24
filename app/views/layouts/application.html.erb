@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Slab" />
     <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Arvo'>
@@ -15,29 +16,26 @@
 
     <div class="row p-30 ">
       <div class="offset-lg-1 col-lg-10 shadow p-0">
-        <div class="container">
-          <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
-            <a class="navbar-brand" href="#">
-              <%= image_tag("logo_example.png", height:"60px",  alt:"previsora") %>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="collapsibleNavbar" class="collapse navbar-collapse">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
+        <nav class="navbar navbar-expand-sm bg-grad-dgtolg navbar-dark sticky-top">
+          <%= link_to index_home_path, class:"navbar-brand"  do%>
+            <h3>PREVISORA</h3>
+            <!--%= image_tag("logo_example.png", height:"60px",  alt:"previsora") %-->
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="collapsibleNavbar" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item"><%= link_to current_user.name, coordinator_edit_path(current_user), class:"nav-link" %></li>
+                <li class="nav-item"><%= link_to "CERRAR SESIÓN", destroy_user_session_path, method: :delete, class:"nav-link"  %></li>
+              <% else %>
+                <li class="nav-item"><!--%= link_to "Registrarse", new_user_registration_path, class:"link-inverse"  %--></li>
+                <li class="nav-item"><!--%= link_to "Iniciar Sesión", new_user_session_path, class:"link-inverse"  %--></li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
 
         <!--div class="fw" style="height:150px; overflow:hidden">
           <%= image_tag("bannerprevisora.jpg", width:"100%", height:"150px", style:"position:absolute; z-index:-1") %>
@@ -48,7 +46,7 @@
               <%= link_to "CERRAR SESIÓN", destroy_user_session_path, method: :delete, class:"link-inverse"  %>
             <% else %>
               <!%= link_to "Registrarse", new_user_registration_path, class:"link-inverse"  %-->
-              <!--%= link_to "Iniciar Sesión", new_user_session_path, class:"link-inverse"  %>
+              <!--%= link_to "Iniciar Sesión", new_user_session_path, class:"link-inverse"  % >
             <% end %>
           </ul>
         </div-->
@@ -66,9 +64,9 @@
             <strong><%= alert %></strong>
           </div>
         <% end %>
-
-        <%= yield %>
-
+        <div class="m-30-60">
+          <%= yield %>
+        </div>
       </div>
     </div>
 
