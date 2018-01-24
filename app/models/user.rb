@@ -46,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def self.get_lawyers
-    User.where(role: 1)
+    User.order(:name).where(role: 1)
   end
-  
+
 end
