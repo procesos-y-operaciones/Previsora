@@ -96,7 +96,7 @@
     <% if current_user.role == 4 %>
       <%= link_to "Atrás", administrator_search_path, class:"btn btn-default" %>
     <%end %>
-    <% if current_user.type_processes.exists?(id: @type_process.id) || current_user.role == 2 %>
+    <% if current_user.type_processes.exists?(id: @type_process.id) || current_user.role == 3 %>
       <%= link_to "Editar", edit_type_process_path(@type_process), class:"btn btn-default floatRight" %>
     <% end %>
   </div>

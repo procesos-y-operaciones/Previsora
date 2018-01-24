@@ -17,9 +17,6 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore reports.
-/public/files/*
-
 /node_modules
 /yarn-error.log
 
