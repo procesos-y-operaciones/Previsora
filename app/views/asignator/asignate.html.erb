@@ -101,12 +101,21 @@
         </tr>
       <% end %>
     </table>
-    <div class="styled-select m-5">
-      <%= select_tag "user_id", options_from_collection_for_select(User.get_lawyers, "id", "name") %>
+    <br>
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4 ">
+        <div class="styled-select m-5">
+          <%= select_tag "user_id", options_from_collection_for_select(User.get_lawyers, "id", "name") %>
+        </div>
+      </div>
+      <div class="col-sm-4 ">
+        <%= submit_tag "Trasladar", class:" btn btn-default" %>
+      </div>
     </div>
-    <%= submit_tag "Trasladar" %>
+
   <% end %>
   <div class="container-fluid center">
     <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
   </div>
+  <br>
 </div>
