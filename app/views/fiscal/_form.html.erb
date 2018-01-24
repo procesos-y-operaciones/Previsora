@@ -106,7 +106,7 @@
         <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control", required: true} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, type_process.departament.to_sym), {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control", required: true} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.departament_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -354,7 +354,7 @@
         <%= form.label "Nombre despacho / tipo contraloría" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:office_name, OfficeName.fiscal, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"office_name", required: true}) %>
+            <%= form.collection_select(:office_name, OfficeName.fiscal, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"office_name", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.office_name_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -437,7 +437,7 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state, CaseState.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
+            <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.fiscal.case_state_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>

@@ -37,7 +37,7 @@
         <%= form.label "Subclase de proceso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:subprocess_class , SubprocessClass.administrative, :name , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"subprocessClass", required: true}) %>
+            <%= form.collection_select(:subprocess_class , SubprocessClass.administrative, :name , :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"subprocessClass", required: true}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.subprocess_class_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -49,7 +49,7 @@
         <%= form.label "Tipología" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:gubernatorial_way , GubernatorialWay.coljuegos, :name, :name, {prompt: "SELECCIONE"}, {id:"gubernatorial_coljuegos", class:"form-control"}) %>
+            <%= form.collection_select(:gubernatorial_way , GubernatorialWay.coljuegos, :name, :name, {include_blank: "SELECCIONE"}, {id:"gubernatorial_coljuegos", class:"form-control"}) %>
             <%= form.collection_select(:gubernatorial_way, GubernatorialWay.ordinarie, :name, :name, {}, {id:"gubernatorial_ordinarie", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.gubernatorial_way_id_d') %>" data-placement="auto top">
@@ -117,8 +117,8 @@
         <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"} %>
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, '2'), {}, {id:"departament_coljuegos", class:"form-control"} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, type_process.departament.to_sym), {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_bog_departament, :first, :last, type_process.departament.to_sym), {}, {id:"departament_coljuegos", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.departament_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -142,7 +142,7 @@
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:litigation_source, LitigationSource.administrative, :name, :name, {prompt: "SELECCIONE"}, {id:"litigationSource", class:"form-control"}) %>
+            <%= form.collection_select(:litigation_source, LitigationSource.administrative, :name, :name, {include_blank: "SELECCIONE"}, {id:"litigationSource", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.litigation_source_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -160,7 +160,7 @@
         <%= form.label "Tipo de reaseguro" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:reinsurance_type, ReinsuranceType.separate, :name, :name, {prompt: "SELECCIONE"}, {id:"reinsuranceType", class:"form-control"}) %>
+            <%= form.collection_select(:reinsurance_type, ReinsuranceType.separate, :name, :name, {include_blank: "SELECCIONE"}, {id:"reinsuranceType", class:"form-control"}) %>
             <%= form.collection_select(:reinsurance_type, ReinsuranceType.separateFree, :name, :name, {}, {id:"reinsuranceTypeSF", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.reinsurance_type_id_d') %>" data-placement="auto top">
@@ -200,7 +200,7 @@
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:protection, Protection.coljuegos, :name, :name, {}, {id:"protection_coljuegos", class:"form-control"}) %>
-            <%= form.collection_select(:protection, Protection.ordinarie, :name, :name, {prompt:"SELECCIONE"}, {id:"protection_ordinarie", class:"form-control"}) %>
+            <%= form.collection_select(:protection, Protection.ordinarie, :name, :name, {include_blank:"SELECCIONE"}, {id:"protection_ordinarie", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.protection_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -285,7 +285,7 @@
         <%= form.label "Tipo moneda" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {prompt: "SELECCIONE"}, {id:"moneyType", class:"form-control"}) %>
+            <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {include_blank: "SELECCIONE"}, {id:"moneyType", class:"form-control"}) %>
             <%= form.collection_select(:money_type, MoneyType.cents, :name, :name, {}, {id:"moneyCents", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.money_type_id_d') %>" data-placement="auto top">
@@ -363,7 +363,7 @@
         <div class="input-group">
           <div class="styled-select">
             <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
-            <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {prompt:"SELECCIONE"}, {id:"office_name_ord", class:"form-control"}) %>
+            <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {include_blank:"SELECCIONE"}, {id:"office_name_ord", class:"form-control"}) %>
           </div>
           <div>
             <%= form.text_field :office_name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:'NOMBRE DEL DESPACHO', required: true, id: "office_text", class: "form-control" %>
@@ -412,7 +412,7 @@
         <%= form.label "Estado del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_state, CaseState.all, :name, :name, {prompt:"SELECCIONE"}, {class:"form-control", id:"caseState"}) %>
+            <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"caseState"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.case_state_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -458,7 +458,7 @@
         <%= form.label "Terminación del caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseTermination"}) %>
+            <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"caseTermination"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.administrative.case_termination_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>

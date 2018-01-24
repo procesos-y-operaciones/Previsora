@@ -86,7 +86,7 @@
         <%= form.label "Tipo de vinculación" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:link_type, LinkType.prejudicial, :name, :name, {prompt: "SELECCIONE"}, {:class=>"form-control"}) %>
+            <%= form.collection_select(:link_type, LinkType.prejudicial, :name, :name, {include_blank: "SELECCIONE"}, {:class=>"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.link_type_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -96,7 +96,7 @@
         <%= form.label "Departamento donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "SELECCIONE"}, {id:"departament", class:"form-control"} %>
+            <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, type_process.departament.to_sym), {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control"} %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.departament_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
@@ -106,7 +106,7 @@
         <%= form.label "Ciudad donde cursa el caso" %>
         <div class="input-group">
           <div class="styled-select">
-            <select name="type_process[city_case]" id="cities">
+            <select name="type_process[city_case]" id="cities" class="form-control">
               <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
             </select>
           </div>
@@ -117,9 +117,7 @@
 
         <%= form.label "Fecha de notificación / vinculación" %>
         <div class="input-group">
-          <div class="styled-select">
-            <%= form.date_field :notification_date, class:"form-control" %>
-          </div>
+          <%= form.date_field :notification_date, class:"form-control" %>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.notification_date_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
           </span>
@@ -130,7 +128,7 @@
         <%= form.label "Fuente de litigio" %>
         <div class="input-group">
           <div class="styled-select">
-            <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {:prompt => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
+            <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {:include_blank => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
           </div>
           <span class="input-group-addon" data-toggle="tooltip" title="<%= t('processes.prejudicial.litigation_source_id_d') %>" data-placement="auto top">
             <i class="glyphicon glyphicon-question-sign"></i>
