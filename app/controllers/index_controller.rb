@@ -7,6 +7,8 @@ class IndexController < ApplicationController
     elsif @user.role == 2
       redirect_to index_coordinator_path
     elsif @user.role == 3
+      redirect_to index_asignator_path
+    elsif @user.role == 4
       redirect_to index_administrator_path
     end
   end
@@ -16,6 +18,10 @@ class IndexController < ApplicationController
   end
 
   def coordinator
+    @user = current_user
+  end
+
+  def asignator
     @user = current_user
   end
 

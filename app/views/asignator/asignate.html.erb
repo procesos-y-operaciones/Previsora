@@ -1,0 +1,22 @@
+<div class="m-30-60">
+  <%= form_tag asignator_translate_path do %>
+    <table>
+      <tr>
+        <th></th>
+        <th>Tipo</th>
+        <th>Abogado Interno</th>
+        <th>Ciudad</th>
+      </tr>
+    <% @processes.each do |p| %>
+      <tr>
+        <td><%= check_box_tag "processes_ids[]", p.id %></td>
+        <td><%= p.get_type_process %></td>
+        <td><%= p.internal_lawyer %></td>
+        <td><%= p.city_case %></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= select_tag "user_id", options_from_collection_for_select(User.all, "id", "name") %>
+    <%= submit_tag "Trasladar" %>
+  <% end %>
+</div>

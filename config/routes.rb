@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'index/home'
   get 'index/lawyer'
   get 'index/coordinator'
+  get 'index/asignator'
   get 'index/administrator'
 
   get 'lawyer/new'
@@ -28,6 +29,9 @@ Rails.application.routes.draw do
   patch "/coordinator/:id(.:format)", :to => 'coordinator#update', :as => 'coordinator_update'
   delete "/coordinator/:id(.:format)", :to => 'coordinator#destroy', :as => 'coordinator_delete'
 
+  get 'asignator/search'
+  get 'asignator/asignate'
+  post 'asignator/translate', :to => 'asignator#translate', :as => 'asignator_translate'
 
   get 'cities/:state', to: 'application#cities'
 
