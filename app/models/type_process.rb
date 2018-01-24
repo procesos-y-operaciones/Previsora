@@ -115,6 +115,23 @@
 
 class TypeProcess < ApplicationRecord
 
+  validate :validate_ids
+
+  def validate_ids
+    if case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
+      errors.add("Número de identificación del caso (bizagi, access y pa)", " ya existe.")
+    end
+    if case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_bap).present?
+      errors.add("Número de identificación del caso sise", " ya existe.")
+    end
+    if case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui).present?
+      errors.add("Número de identificación del caso e-kogui", " ya existe.")
+    end
+    if process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate).present?
+      errors.add("Número de radicación del proceso", " ya existe.")
+    end
+  end
+
   def self.column_names_all
     ['Id','Abogado interno','Tipo de proceso','Clase proceso','Subclase proceso',
      'Radicado correspondencia','Identificacion Bizagi Access PA','Identificacion SISE',

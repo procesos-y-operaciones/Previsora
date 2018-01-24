@@ -1,5 +1,5 @@
 class TypeProcessesController < ApplicationController
-  
+
   before_action :set_type_process, only: [:show, :edit, :update, :destroy]
 
 
@@ -57,15 +57,15 @@ class TypeProcessesController < ApplicationController
       else
         format.html {
           if @type_process.p_type == 1
-            redirect_to prejudicial_new_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_prejudicial_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 2
-            redirect_to judicial_new_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_judicial_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 3
-            redirect_to fiscal_new_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_fiscal_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 4
-            redirect_to administrative_new_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_administrative_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 5
-            redirect_to tutelage_new_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_tutelage_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
           else
             render :new
           end
