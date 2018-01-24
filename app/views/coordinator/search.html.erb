@@ -74,7 +74,7 @@
 <br>
 <br>
 
-<table class="table table-hover table-responsive">
+<table class="table table-responsive">
   <thead>
     <tr class="to-uc">
       <th scope="col"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>
@@ -106,6 +106,7 @@
 </table>
 <br>
 
+<%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
 <div class="floatRight">
   <%= will_paginate @processes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, class:"pagination-lg" %>
 </div>

@@ -230,7 +230,7 @@
       <%= form.label "Fecha de notificación / vinculación" %>
       <div class="input-group">
         <%= form.date_field :notification_date, class:"form-control", required: true %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span>span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Número de radicación del proceso" %>
@@ -248,7 +248,7 @@
       <%= form.label "Fecha de asignación apoderado Previsora" %>
       <div class="input-group">
         <%= form.date_field :attorny_date, class:"form-control", required: true %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Nombre despacho / tipo contraloría" %>
@@ -311,7 +311,7 @@
       <%= form.label "Estado del caso" %>
       <div class="input-group">
         <%= form.collection_select(:case_state, CaseState.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Fecha de actuación" %>

@@ -26,7 +26,7 @@
       <%= form.label "Clase de proceso" %>
       <div class="input-group">
         <%= form.collection_select(:process_class, ProcessClass.judicial, :name, :name, {prompt: 'SELECCIONE'}, {class:"form-control", id: "processClass", required: true}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Subclase de proceso" %>
@@ -36,7 +36,7 @@
         <%= form.collection_select(:subprocess_class, SubprocessClass.penal, :name, :name, {}, {class:"form-control", id:"subprocessPenal"}) %>
         <%= form.collection_select(:subprocess_class, SubprocessClass.laboral, :name, :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessLaboral", required: true}) %>
         <%= form.collection_select(:subprocess_class, SubprocessClass.arbitral, :name, :name, {}, {class:"form-control", id:"subprocessArbitral"}) %>
-        <span id="subprocessIcon" data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span id="subprocessIcon" data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
@@ -85,7 +85,7 @@
       <%= form.label "Tipo de vinculación" %>
       <div class="input-group">
         <%= form.collection_select(:link_type, LinkType.judicial, :name, :name, {prompt: 'SELECCIONE'}, {required: true, class:"form-control"}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.link_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.link_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Departamento donde cursa el caso" %>
@@ -260,7 +260,7 @@
       <%= form.label "Número de radicación del proceso" %>
       <div class="input-group">
         <%= form.text_field :process_radicate, id:"process_radicate", pattern:"[0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Apoderado Previsora" %>
@@ -272,7 +272,7 @@
       <%= form.label "Fecha de asignación apoderado Previsora" %>
       <div class="input-group">
         <%= form.date_field :attorny_date, required: true, class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Nombre despacho / tipo contraloría" %>
@@ -351,7 +351,7 @@
       <%= form.label "Estado del caso" %>
       <div class="input-group">
         <%= form.collection_select(:case_state, CaseState.all, :name, :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Fecha de decisión" %>
