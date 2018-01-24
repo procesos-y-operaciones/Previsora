@@ -22,7 +22,6 @@
       if (v_option === 'COLJUEGOS') {
         $('#gubernatorial_coljuegos').prop('disabled', false);
         $('#gubernatorial_coljuegos').show();
-        $('#gubernatorial_coljuegos').val("");
         $('#gubernatorial_ordinarie').prop('disabled', true);
         $('#gubernatorial_ordinarie').hide();
         $('#departament_coljuegos').prop('disabled', false);
@@ -114,10 +113,9 @@
       var v_option;
       v_option = document.getElementById('litigationSource').value;
       if (v_option === 'SINIESTRO') {
-        document.getElementById('protection_coljuegos').readOnly = false;
-        document.getElementById('protection_ordinarie').readOnly = false;
         document.getElementById('policyCents').readOnly = false;
-        $('#protection').prop('disabled', false);
+        $('#protection_coljuegos').prop('disabled', false);
+        $('#protection_ordinarie').prop('disabled', false);
         document.getElementById('number').readOnly = false;
         document.getElementById('exercise').readOnly = false;
         $('#branch_policy').prop('disabled', false);
@@ -128,8 +126,8 @@
         document.getElementById('protection_ordinarie').readOnly = true;
         document.getElementById('policyCents').readOnly = true;
         $('#policyCents').val("0");
-        $('#protection').prop('disabled', true);
-        $('#protection').val("");
+        $('#protection_coljuegos').prop('disabled', true);
+        $('#protection_ordinarie').prop('disabled', true);
         document.getElementById('number').readOnly = true;
         $('#number').val("0");
         document.getElementById('exercise').readOnly = true;

@@ -1,31 +1,35 @@
-<h2 class="mt-50">Nuevo usuario</h2>
+<h2 class="mt-50">Editar usuario</h2>
 <div class="row p-30">
   <div class="col-sm-offset-4 col-sm-4">
     <%= form_for(@user, as: @user_name, url: coordinator_update_path(@user)) do |f| %>
       <% if @current.role == 2 %>
 
         <%= f.label "Documento", class:"form-label" %><br />
-        <%= f.text_field :document, autofocus: true, class:"form-control" %>
+        <%= f.text_field :document, pattern:"[0-9]*", title: t(:pattern), autofocus: true, class:"form-control" %>
 
         <%= f.label "Rol" %>
-        <div class="styled-select mb-25">
-          <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]], @user.role), {}, {class:"form-control"} %>
-        </div>
+        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR LEGAL", 2], ["COORDINADOR OPERATIVO", 3], ["ADMINISTRADOR", 4]]), {}, {class:"form-control"} %>
 
         <%= f.label "Nombre", class:"form-label" %><br />
-        <%= f.text_field :name, autofocus: true, class:"form-control" %>
+        <%= f.text_field :name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), autofocus: true, class:"form-control" %>
+
+        <%= f.label "Cargo", class:"form-label" %><br />
+        <%= f.text_field :charge, pattern:"[A-Z0-9\- ]*", title: t(:pattern), autofocus: true, class: "form-control" %>
 
       <% else %>
+
         <%= f.label "Documento", class:"form-label" %><br />
         <%= f.text_field :document, autofocus: true, readOnly: true, class:"form-control" %>
 
         <%= f.label "Rol", class:"form-label" %>
-        <div class="styled-select mb-25">
-          <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]], @user.role), {}, {disabled: true} %>
-        </div>
-        
+        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR LEGAL", 2], ["COORDINADOR OPERATIVO", 3], ["ADMINISTRADOR", 4]]), {}, {disabled: true, class:"form-control"} %>
+
         <%= f.label "Nombre", class:"form-label" %><br />
         <%= f.text_field :name, autofocus: true, readOnly: true, class:"form-control" %>
+
+        <%= f.label "Cargo", class:"form-label" %><br />
+        <%= f.text_field :charge, autofocus: true, readOnly: true, class: "form-control" %>
+
       <% end %>
 
       <%= f.label "Contraseña", class:"form-label" %>
@@ -34,10 +38,17 @@
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off", required: true, class:"form-control" %>
 
-      <%= f.label "Confirmación", class:"form-label" %>
+      <%= f.label "Confirmación", class:"form-label" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off", required: true, class:"form-control" %>
 
-      <%= f.submit "Editar", class:"btn btn-default floatRight" %>
+      <div class="actions">
+        <% if current_user.role == 2 %>
+          <%= link_to "Atrás", coordinator_management_path, class: "btn btn-default" %>
+        <% else %>
+          <%= link_to "Atrás", root_path, class: "btn btn-default" %>
+        <% end %>
+        <%= f.submit "Editar", class:"btn btn-default floatRight" %>
+      </div>
     <% end %>
   </div>
 </div>

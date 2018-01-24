@@ -10,15 +10,15 @@
 
   <%= search_form_for @search, url: coordinator_management_url, class:"" do |f| %>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-5">
         <%= f.text_field :name_cont, placeholder: "NOMBRE", class:"form-control m-5 mb-5" %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-5">
         <div class="styled-select m-5">
           <%= f.select :role_eq, options_for_select([["ROL", nil], ["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]]), {}, {class:"form-control"} %>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-2">
         <button type="submit" class="minibtn btn-default">
           <span class="glyphicon glyphicon-search"></span>
         </button>
@@ -38,8 +38,9 @@
   <table class="table table-hover table-responsive">
     <thead>
       <tr class="to-uc">
-        <th scope="col" width="50%"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
-        <th scope="col" width="40%"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
+        <th scope="col" width="25%"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
+        <th scope="col" width="25%"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
+        <th scope="col" width="40%"><%= sort_link @search, :charge, "Cargo", {}, :class => 'link' %></th>
         <th scope="col" width="5%"></th>
         <th scope="col" width="5%"></th>
       </tr>
@@ -49,8 +50,9 @@
       <% else %>
         <% @users.each do |u| %>
           <tr id=<%= u.id %>>
-            <td width="50%"><%= u.name.titleize %></td>
-            <td width="40%"><%= u.get_role_name.titleize %></td>
+            <td width="25%"><%= u.name.titleize %></td>
+            <td width="25%"><%= u.get_role_name.titleize %></td>
+            <td width="40%"><%= u.charge.titleize %></td>
             <td width="5%"><%= link_to coordinator_edit_path(u), id:"e#{u.id}", class:"link", hidden:"true" do %><span class="glyphicon glyphicon-edit"></span><% end %></td>
             <td width="5%"><%= link_to coordinator_delete_path(u), id:"t#{u.id}", method: :delete, data: { confirm: '¿Esta seguro de eliminar al usuario?'}, class:"link", hidden:"true" do %><span class="glyphicon glyphicon-trash"><% end %></td>
           </tr>
