@@ -85,7 +85,18 @@
   </div>
 </div>
 
-<%= link_to 'Volver', lawyer_search_path, class:"btn btn-default" %>
-<% if current_user.type_processes.exists?(id: @type_process.id) %>
+<% if current_user.role == 1 %>
+  <%= link_to "Atrás", lawyer_search_path, class:"btn btn-default" %>
+<%end %>
+<% if current_user.role == 2 %>
+  <%= link_to "Atrás", coordinator_search_path, class:"btn btn-default" %>
+<%end %>
+<% if current_user.role == 3 %>
+  <%= link_to "Atrás", asignator_search_path, class:"btn btn-default" %>
+<%end %>
+<% if current_user.role == 4 %>
+  <%= link_to "Atrás", administrator_search_path, class:"btn btn-default" %>
+<%end %>
+<% if current_user.type_processes.exists?(id: @type_process.id) || current_user.role == 3 %>
   <%= link_to "Editar", edit_type_process_path(@type_process), class:"btn btn-default floatRight" %>
 <% end %>
