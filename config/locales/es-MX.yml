@@ -1,5 +1,5 @@
 es-MX:
-  pattern: Solamente mayusculas, números, espacios y .
+  pattern: Solamente mayusculas, números, espacios y guiones. No se permiten tíldes, 'Ñ', etc...
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.
