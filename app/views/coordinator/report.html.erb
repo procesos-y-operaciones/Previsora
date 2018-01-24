@@ -17,7 +17,7 @@
       <%= link_to coordinator_report_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"minibtn btn-default" do %>
         <span class="fa">&#xf019;</span>
       <% end %>
-      <button id="filter_btn" type="button" class="minibtn btn-default" data-toggle="collapse" data-target="#demo">
+      <button onclick="filter_btn(this)" type="button" class="minibtn btn-default" data-toggle="collapse" data-target="#demo">
         <span class="fa fa-angle-double-down"></span>
       </button>
     </div>

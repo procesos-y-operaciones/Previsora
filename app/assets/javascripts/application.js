@@ -67,3 +67,10 @@ function formatting_number(input) {
   input.value = "";
   input.value = num;
 }
+function filter_btn(input) {
+  if ($(input).attr('aria-expanded') === "true") {
+    return input.innerHTML = '<span class="fa fa-angle-double-down"></span>';
+  } else {
+    return input.innerHTML = '<span class="fa fa-angle-double-up"></span>';
+  }
+}
