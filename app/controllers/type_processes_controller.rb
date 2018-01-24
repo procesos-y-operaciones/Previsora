@@ -1,5 +1,7 @@
 class TypeProcessesController < ApplicationController
+  
   before_action :set_type_process, only: [:show, :edit, :update, :destroy]
+
 
   # GET /type_processes
   # GET /type_processes.json

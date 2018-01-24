@@ -4,13 +4,14 @@
 #
 #  id                                   :integer          not null, primary key
 #  p_type                               :integer          default(0)
+#  internal_lawyer                      :string
 #  correspondency_radicate              :string           default("NO APLICA")
 #  case_id_bap                          :string           default("NO APLICA")
 #  case_id_sise                         :string           default("NO APLICA")
 #  case_id_ekogui                       :string           default("NO APLICA")
+#  process_radicate                     :string           default("NO APLICA")
 #  creation_date                        :date
 #  notification_date                    :date
-#  process_radicate                     :string           default("NO APLICA")
 #  number                               :integer          default(0)
 #  exercise                             :integer          default(0)
 #  sinister                             :string           default("NO APLICA")
@@ -84,29 +85,29 @@
 #  recovery                             :boolean          default(FALSE)
 #  departament                          :string
 #  city_case                            :string
-#  process_class_id                     :integer
-#  subprocess_class_id                  :integer
-#  link_type_id                         :integer
-#  branch_policy_id                     :integer
-#  branch_commercial_id                 :integer
-#  score_contingency_id                 :integer
-#  protection_id                        :integer
-#  current_stage_id                     :integer
-#  litigation_source_id                 :integer
-#  instance_id                          :integer
-#  case_state_id                        :integer
-#  case_termination_id                  :integer
-#  reinsurance_type_id                  :integer
-#  last_performance_id                  :integer
-#  gubernatorial_way_id                 :integer
-#  notification_type_second_id          :integer
-#  setence_type_second_company_id       :integer
-#  sentence_type_desacate_id            :integer
-#  reserved_released_id                 :integer
-#  money_type_id                        :integer
-#  join_committee_id                    :integer
-#  committee_id                         :integer
-#  coensurance_type_id                  :integer
+#  process_class                        :string
+#  subprocess_class                     :string
+#  link_type                            :string
+#  branch_policy                        :string
+#  branch_commercial                    :string
+#  score_contingency                    :string
+#  protection                           :string
+#  current_stage                        :string
+#  litigation_source                    :string
+#  instance                             :string
+#  case_state                           :string
+#  case_termination                     :string
+#  reinsurance_type                     :string
+#  last_performance                     :string
+#  gubernatorial_way                    :string
+#  notification_type_second             :string
+#  setence_type_second_company          :string
+#  sentence_type_desacate               :string
+#  reserved_released                    :string
+#  money_type                           :string
+#  join_committee                       :string
+#  committee                            :string
+#  coensurance_type                     :string
 #  user_id                              :integer
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
