@@ -1,5 +1,5 @@
-<h1>Editar audiencia judicial</h1>
+<h2 class="title">Editar audiencia judicial</h2>
 
 <%= render 'form', type_process: @judicial %>
-
-<%= link_to 'Back', index_home_path %>
+<%= link_to 'cancelar', lawyer_search_path, class:"btn btn-default" %>
+<%= link_to "Volver", type_process_path(@judicial), class:"btn btn-default" %>

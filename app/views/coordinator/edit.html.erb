@@ -1,7 +1,7 @@
-<h2 class="mt-50">Nuevo usuario</h2>
-<div class="row p-30">
-  <div class="col-sm-offset-4 col-sm-4">
-    <%= form_for(@user, as: @user_name, url: coordinator_update_path(@user)) do |f| %>
+<h2 class="title">Nuevo usuario</h2>
+<%= form_for(@user, as: @user_name, url: coordinator_update_path(@user)) do |f| %>
+  <div class="row">
+    <div class="offset-sm-4 col-sm-4">
       <% if @current.role == 2 %>
 
         <%= f.label "Documento", class:"form-label" %><br />
@@ -23,7 +23,7 @@
         <div class="styled-select mb-25">
           <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR", 2], ["ADMINISTRADOR", 3]], @user.role), {}, {disabled: true} %>
         </div>
-        
+
         <%= f.label "Nombre", class:"form-label" %><br />
         <%= f.text_field :name, autofocus: true, readOnly: true, class:"form-control" %>
       <% end %>
@@ -36,8 +36,15 @@
 
       <%= f.label "Confirmación", class:"form-label" %>
       <%= f.password_field :password_confirmation, autocomplete: "off", required: true, class:"form-control" %>
-
-      <%= f.submit "Editar", class:"btn btn-default floatRight" %>
-    <% end %>
+      <div class="">
+        <%= link_to 'Cancelar', index_home_path, class:"btn btn-default" %>
+        <%= f.submit "Editar", class:"btn btn-default floatRight" %>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="offset-sm-1 col-sm-10">
+
+    </div>
+  </div>
+<% end %>
