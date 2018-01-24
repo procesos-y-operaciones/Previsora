@@ -22,7 +22,7 @@ es-MX:
         action: Confirmar mi cuenta
         greeting: "¡Bienvenido %{recipient}!"
         instruction: 'Usted puede confirmar el correo electrónico de su cuenta a través de este enlace:'
-        subject: Instrucciones de 
+        subject: Instrucciones de confirmación
       password_change:
         greeting: Hola %{recipient}!
         message: Le estamos contactando para notificarle que su contraseña ha sido cambiada.
