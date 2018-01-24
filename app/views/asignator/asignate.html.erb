@@ -81,7 +81,7 @@
   <%= form_tag asignator_translate_path do %>
     <table>
       <tr>
-        <th></th>
+        <th><input id="all" type="checkbox" /></th>
         <th scope="col" class="center"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :correspondency_radicate, "N° Correspondencia", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
@@ -106,4 +106,7 @@
     </div>
     <%= submit_tag "Trasladar" %>
   <% end %>
+  <div class="container-fluid center">
+    <%= will_paginate @processes, renderer: BootstrapPagination::Rails, class: "pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
+  </div>
 </div>
