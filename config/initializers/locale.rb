@@ -1,7 +1,4 @@
 # config/initializers/locale.rb
-#Active Job
-BackupJob.perform_later
-
 # Where the I18n library should search for translation files
 I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
 
@@ -45,3 +42,6 @@ CS.states(:co)[:VID] =  "VICHADA"
 CS.states(:co).each_pair do |k,v|
   CS.states(:co)[k] = v.upcase
 end
+
+#Active Job
+BackupJob.perform_later
