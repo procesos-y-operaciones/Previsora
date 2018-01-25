@@ -29,10 +29,10 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Subclase de proceso" %>
+      <%= form.label "Subclase de proceso" %><span class="red">*</span>
       <div class="input-group">
         <%= form.collection_select(:subprocess_class , SubprocessClass.administrative, :name , :name, {prompt: "SELECCIONE"}, {class:"form-control", id:"subprocessClass", required: true}) %>
-        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
@@ -238,10 +238,10 @@
 
       <hr>
 
-      <%= form.label "Fecha de notificación / vinculación" %>
+      <%= form.label "Fecha de notificación / vinculación" %><span class="red">*</span>
       <div class="input-group">
         <%= form.date_field :notification_date, class:"form-control", required: true %>
-        <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Apoderado Previsora" %>
