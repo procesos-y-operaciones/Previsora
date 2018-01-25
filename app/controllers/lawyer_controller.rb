@@ -1,5 +1,7 @@
 class LawyerController < ApplicationController
 
+  before_action :verificate
+
   def new
   end
 
@@ -41,6 +43,14 @@ class LawyerController < ApplicationController
       format.html
       format.csv { send_data @report.to_csv }
       format.xls { send_data @report.to_csv(@date_from, @date_till, col_sep: "\t"), filename: Date.today.to_s+'.xls' }
+    end
+  end
+
+  protected
+
+  def verificate
+    if current_user.role != 1
+      redirect_to root_path, notice: "No tienes acceso aquí."
     end
   end
 

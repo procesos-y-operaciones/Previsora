@@ -1,5 +1,6 @@
 class AsignatorController < ApplicationController
 
+  before_action :verificate
   before_action :set_type_process, only: [:translate]
 
   def search
@@ -31,7 +32,7 @@ class AsignatorController < ApplicationController
     redirect_to asignator_asignate_path, notice: "Procesos trasladados correctamente."
   end
 
-  private
+  protected
 
     def set_type_process
       @user = User.find(params[:user_id])
@@ -44,6 +45,12 @@ class AsignatorController < ApplicationController
 
     def type_process_params
       params.permit(:user_id, processes_ids: [])
+    end
+
+    def verificate
+      if current_user.role != 3
+        redirect_to root_path, notice: "No tienes acceso aquí."
+      end
     end
 
 end

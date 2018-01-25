@@ -1,5 +1,6 @@
 class CoordinatorController < ApplicationController
 
+  before_action :verificate
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def new
@@ -101,6 +102,12 @@ class CoordinatorController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :document, :password, :password_confirmation, :role)
+    end
+
+    def verificate
+      if current_user.role != 2
+        redirect_to root_path, notice: "No tienes acceso aquí."
+      end
     end
 
 

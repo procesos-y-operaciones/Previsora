@@ -2,7 +2,6 @@ class TypeProcessesController < ApplicationController
 
   before_action :set_type_process, only: [:show, :edit, :update, :destroy]
 
-
   # GET /type_processes
   # GET /type_processes.json
   def index
@@ -31,18 +30,21 @@ class TypeProcessesController < ApplicationController
 
   # GET /type_processes/1/edit
   def edit
-    case @type_process.p_type
-    when 1
-      redirect_to edit_prejudicial_path(@type_process.id)
-    when 2
-      redirect_to edit_judicial_path(@type_process.id)
-    when 3
-      redirect_to edit_fiscal_path(@type_process.id)
-    when 4
-      redirect_to edit_administrative_path(@type_process.id)
-    when 5
-      redirect_to edit_tutelage_path(@type_process.id)
+    if current_user.role == 3 || current_user.type_processes.exists?(id: @type_process.id)
+      case @type_process.p_type
+      when 1
+        redirect_to edit_prejudicial_path(@type_process.id)
+      when 2
+        redirect_to edit_judicial_path(@type_process.id)
+      when 3
+        redirect_to edit_fiscal_path(@type_process.id)
+      when 4
+        redirect_to edit_administrative_path(@type_process.id)
+      when 5
+        redirect_to edit_tutelage_path(@type_process.id)
+      end
     else
+      redirect_to root_path, notice: "No puedes acceder a esto."
     end
   end
 
