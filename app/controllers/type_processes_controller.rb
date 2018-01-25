@@ -59,15 +59,13 @@ class TypeProcessesController < ApplicationController
           if @type_process.p_type == 1
             redirect_to new_prejudicial_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 2
-            redirect_to new_judicial_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_judicial_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 3
-            redirect_to new_fiscal_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_fiscal_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 4
-            redirect_to new_administrative_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
+            redirect_to new_administrative_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 5
-            redirect_to new_tutelage_path, :flash => { :error => @type_process.errors.full_messages.join(', ') }
-          else
-            render :new
+            redirect_to new_tutelage_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           end
          }
         format.json { render json: @type_process.errors, status: :unprocessable_entity }
