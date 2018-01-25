@@ -149,9 +149,11 @@ td
 .red
     color: darken($red, 2.5%)
 /* =============== background color ===============*/
-.bg-grad-dgtolg
-    background: red
+.bg-dgtolg
+    background: darken($ligthgreen1, 2.5%)
     background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+
+
 /* ================== others ======================*/
 .hw
     width: 50%
@@ -330,8 +332,31 @@ input::-webkit-inner-spin-button
 /* ==================================================
   navbar
   ================================================== */
-.nav-item
+.nav-bg
+    background: darken($ligthgreen1, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+    background-image: url("bannerprevisora.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    height: 150px
+    padding-top: 0 !important
+/*#collapsibleNavbar
+    margin-top: 0 !important
+    top: 0 !important
+    height: 50px
+    line-height: 50px
+/*.navbar-nav
+    /*background: darken($darkgreen, 2.5%)
+.nav-link
     font-weight: bold
+    color: #fff !important
+@media (max-width: 768px)
+    .navbar-expand-md .navbar-collapse
+        border-radius: 3px
+        padding: 15px
+        background: darken($ligthgreen1, 2.5%)
+        background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+        /*color: darken($white, 2.5%) !important
 
 /* ==================================================
   grid
@@ -340,18 +365,8 @@ input::-webkit-inner-spin-button
 /* ==================================================
   table
   ================================================== */
-/*#search .table-hover tbody tr:hover td, .table-hover tbody tr:hover th
-    background: rgba(0, 184, 0, 0.5) !important
-/*#show thead tr th
-    font-size: 25px
-    font-weight: normal
 thead tr th
     color: darken($darkgreen, 2.5%)
-/* CUIDADO!!!
-/*table
-    border-style: double
-    border-color: darken($darkgreen, 2.5%)
-
 
 /* ==================================================
   pagination

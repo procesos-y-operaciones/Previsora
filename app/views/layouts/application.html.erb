@@ -16,15 +16,15 @@
 
     <div class="row p-30 ">
       <div class="offset-lg-1 col-lg-10 shadow p-0">
-        <nav class="navbar navbar-expand-sm bg-grad-dgtolg navbar-dark sticky-top">
+        <nav class="navbar navbar-expand-md nav-bg navbar-dark sticky-top">
           <%= link_to index_home_path, class:"navbar-brand"  do%>
-            <h3>PREVISORA</h3>
-            <!--%= image_tag("logo_example.png", height:"60px",  alt:"previsora") %-->
+            <!--h3>PREVISORA</h3-->
+            <%= image_tag("invisible.gif", width:"200px",  alt:"previsora", style:"margin-left: 10px") %>
           <% end %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"  style="align-self: flex-start; margin-top:10px">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div id="collapsibleNavbar" class="collapse navbar-collapse">
+          <div id="collapsibleNavbar" class="collapse navbar-collapse" style="align-self: flex-start; margin-top:10px">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item"><%= link_to current_user.name, coordinator_edit_path(current_user), class:"nav-link" %></li>

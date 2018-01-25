@@ -29,14 +29,14 @@
         <span class="red">*</span><span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Subclase de proceso" %>
+      <%= form.label "Subclase de proceso" %><span class="red">*</span>
       <div id="subprocessAdminDiv" class="input-group">
         <%= form.collection_select(:subprocess_class, SubprocessClass.admin, :name, :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessAdmin", required: true}) %>
         <%= form.collection_select(:subprocess_class, SubprocessClass.civil, :name, :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessCivil", required: true}) %>
         <%= form.collection_select(:subprocess_class, SubprocessClass.penal, :name, :name, {}, {class:"form-control", id:"subprocessPenal"}) %>
         <%= form.collection_select(:subprocess_class, SubprocessClass.laboral, :name, :name, {prompt: 'SELECCIONE'}, {class:"form-control", id:"subprocessLaboral", required: true}) %>
         <%= form.collection_select(:subprocess_class, SubprocessClass.arbitral, :name, :name, {}, {class:"form-control", id:"subprocessArbitral"}) %>
-        <span class="red">*</span><span id="subprocessIcon" data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span id="subprocessIcon" data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
