@@ -17,7 +17,7 @@ class AdministratorController < ApplicationController
 
     def verificate
       if current_user.role != 4
-        redirect_to root_path, notice: "No tienes acceso aquí."
+        redirect_to root_path, alert: "No tienes acceso aquí."
       end
     end
 

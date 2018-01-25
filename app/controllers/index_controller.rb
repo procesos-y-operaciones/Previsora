@@ -15,28 +15,28 @@ class IndexController < ApplicationController
 
   def lawyer
     if current_user.role != 1
-      redirect_to root_path, notice: "No tienes acceso aquí."
+      redirect_to root_path, alert: "No tienes acceso aquí."
     end
     @user = current_user
   end
 
   def coordinator
     if current_user.role != 2
-      redirect_to root_path, notice: "No tienes acceso aquí."
+      redirect_to root_path, alert: "No tienes acceso aquí."
     end
     @user = current_user
   end
 
   def asignator
     if current_user.role != 3
-      redirect_to root_path, notice: "No tienes acceso aquí."
+      redirect_to root_path, alert: "No tienes acceso aquí."
     end
     @user = current_user
   end
 
   def administrator
     if current_user.role != 4
-      redirect_to root_path, notice: "No tienes acceso aquí."
+      redirect_to root_path, alert: "No tienes acceso aquí."
     end
     @user = current_user
   end
