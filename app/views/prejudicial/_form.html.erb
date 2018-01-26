@@ -236,19 +236,19 @@
 
       <%= form.label "Valor del dólar" %>
       <div class="input-group">
-        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onclick:"formatting_number(this)", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor pretensión" %>
       <div class="input-group">
-        <%= form.text_field :detritment_cents, onkeyup:"formatting_number(this)",class:"form-control" %>
+        <%= form.text_field :detritment_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.detritment_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor asegurado" %>
       <div class="input-group">
-        <%= form.text_field :ensurance_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :ensurance_value_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.ensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -260,7 +260,7 @@
 
       <%= form.label "Valor contingencia" %>
       <div class="input-group">
-        <%= form.text_field :contingency_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :contingency_value_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.contingency_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -280,13 +280,13 @@
 
       <%= form.label "Valor autorizado por el comité" %>
       <div class="input-group">
-        <%= form.text_field :auth_value_cents, id:"auth_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :auth_value_cents, id:"auth_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor pagado Previsora" %>
       <div class="input-group">
-        <%= form.text_field :payed_value_cents, id: "payed_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :payed_value_cents, id: "payed_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -310,7 +310,7 @@
 
       <%= form.label "Reserva honorarios" %>
       <div class="input-group">
-        <%= form.number_field :reserved_fees_cents, class:"form-control" %>
+        <%= form.text_field :reserved_fees_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

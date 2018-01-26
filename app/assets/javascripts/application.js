@@ -67,6 +67,12 @@ function formatting_number(input) {
   input.value = "";
   input.value = num;
 }
+function formatting_empty_number(input) {
+  var value = input.value;
+  var num = value.replace(/,|'/g, "");
+  input.value = "";
+  input.value = num;
+}
 function filter_btn(input) {
   if ($(input).attr('aria-expanded') === "true") {
     return input.innerHTML = '<span class="fa fa-angle-double-down"></span>';

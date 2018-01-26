@@ -110,7 +110,7 @@
 
       <%= form.label "Valor asegurado" %>
       <div class="input-group">
-        <%= form.text_field :ensurance_value_cents, id:"ensuranceValue", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :ensurance_value_cents, id:"ensuranceValue", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -208,7 +208,7 @@
 
       <%= form.label "Valor del dólar" %>
       <div class="input-group">
-        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -226,13 +226,13 @@
 
       <%= form.label "Valor pretensión / detrimento / estimación" %>
       <div class="input-group">
-        <%= form.text_field :detritment_cents, id:"detrimetValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :detritment_cents, id:"detrimetValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor contingencia" %>
       <div class="input-group">
-        <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -306,7 +306,7 @@
 
       <%= form.label "Valor sanción" %>
       <div class="input-group">
-        <%= form.text_field :fail_value_cents, id:"fail_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :fail_value_cents, id:"fail_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -318,7 +318,7 @@
 
       <%= form.label "Valor sanción a cargo de Previsora" %>
       <div class="input-group">
-        <%= form.text_field :fail_previ_cents, id:"fail_previ", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :fail_previ_cents, id:"fail_previ", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -330,7 +330,7 @@
 
       <%= form.label "Valor pagado Previsora" %>
       <div class="input-group">
-        <%= form.text_field :payed_value_cents, onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :payed_value_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -357,13 +357,13 @@
 
       <%= form.label "Valor coactivo" %>
       <div class="input-group">
-        <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor embargo" %>
       <div class="input-group">
-        <%= form.text_field :garnish_value_cents, id:"garnish_value", onkeyup:"formatting_number(this)", class:"form-control" %>
+        <%= form.text_field :garnish_value_cents, id:"garnish_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
