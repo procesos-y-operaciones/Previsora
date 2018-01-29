@@ -8,20 +8,22 @@ class CoordinatorController < ApplicationController
   end
 
   def edit
-    if @user.id != current_user.id
+    if @user.id == current_user.id || current_user.role == 2
+      @current = current_user
+    else
       redirect_to root_path, alert: "No tienes acceso aquí."
     end
-    @current = current_user
   end
 
   def update
-    if @user.id != current_user.id
-      redirect_to root_path, alert: "No tienes acceso aquí."
-    end
-    if @user.update(user_params)
-      redirect_to root_path, notice: 'Usuario actualizado correctamente.'
+    if @user.id == current_user.id || current_user.role == 2
+      if @user.update(user_params)
+        redirect_to root_path, notice: 'Usuario actualizado correctamente.'
+      else
+        redirect_to coordinator_edit_path, alert: @user.errors.full_messages.join(', ')
+      end
     else
-      redirect_to coordinator_edit_path, alert: @user.errors.full_messages.join(', ')
+      redirect_to root_path, alert: "No tienes acceso aquí."
     end
   end
 

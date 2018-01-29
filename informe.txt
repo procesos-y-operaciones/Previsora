@@ -1,0 +1,5 @@
+/home/jonathan/Documents/ProcesosOperaciones/Previsora/app/controllers/coordinator_controller.rb	112	Mass Assignment	General	Potentially dangerous key allowed for mass assignment near line 112: params.require(:user).permit(:name, :document, :password, :password_confirmation, :role)	Medium
+/home/jonathan/Documents/ProcesosOperaciones/Previsora/app/controllers/users/registrations_controller.rb	62	Mass Assignment	General	Potentially dangerous key allowed for mass assignment near line 62: params.require(:user).permit(:name, :document, :password, :password_confirmation, :role)	Medium
+/home/jonathan/Documents/ProcesosOperaciones/Previsora/app/controllers/coordinator_controller.rb	69	File Access	General	Parameter value used in file name near line 69: send_file("#{Rails.root}/public/files/#{params[:file]}", :filename => params[:file], :type => "application/txt")	High
+
+
