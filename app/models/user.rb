@@ -50,6 +50,8 @@ class User < ApplicationRecord
       "COORDINADOR LEGAL"
     when 4
       "ADMINSITRADOR"
+    else
+      "DESCONOCIDO"
     end
   end
 

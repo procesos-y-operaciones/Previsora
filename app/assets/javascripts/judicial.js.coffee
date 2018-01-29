@@ -22,6 +22,7 @@ $ ->
 
   #Clase de proceso
   hide_all_subprocess = ->
+    $('#subprocessAdminDiv').hide()
     $('#subprocessAdmin').prop( "disabled", true )
     $('#subprocessAdmin').hide()
     $('#subprocessCivil').prop( "disabled", true )
@@ -34,9 +35,10 @@ $ ->
     $('#subprocessArbitral').hide()
 
   hide_all_stages = ->
-    $('#judicial_admin').prop( 'disabled', true )
+    $('#currentStageDiv').hide()
     $('#judicial_admin').hide()
     $('#judicial_penal').prop( 'disabled', true )
+    $('#judicial_admin').prop( 'disabled', true )
     $('#judicial_penal').hide()
     $('#judicial_laboral').prop( 'disabled', true )
     $('#judicial_laboral').hide()
@@ -70,18 +72,23 @@ $ ->
     v_option = document.getElementById("processClass").value
     switch v_option
       when "JURISDICCION CONTENCIOSO ADMINISTRATIVO"
+        $('#subprocessAdminDiv').show()
         $('#subprocessAdmin').prop( "disabled", false )
         $('#subprocessAdmin').show()
       when "JURISDICCION CIVIL"
+        $('#subprocessAdminDiv').show()
         $('#subprocessCivil').prop( "disabled", false )
         $('#subprocessCivil').show()
       when "JURISDICCION PENAL"
+        $('#subprocessAdminDiv').show()
         $('#subprocessPenal').prop( "disabled", false )
         $('#subprocessPenal').show()
       when "JURISDICCION LABORAL"
+        $('#subprocessAdminDiv').show()
         $('#subprocessLaboral').prop( "disabled", false )
         $('#subprocessLaboral').show()
       when "PROCESO ARBITRAL"
+        $('#subprocessAdminDiv').show()
         $('#subprocessArbitral').prop( "disabled", false )
         $('#subprocessArbitral').show()
 
@@ -90,15 +97,19 @@ $ ->
     v_option = document.getElementById("processClass").value
     switch v_option
       when "JURISDICCION CONTENCIOSO ADMINISTRATIVO"
+        $('#currentStageDiv').show()
         $('#judicial_admin').prop( 'disabled', false )
         $('#judicial_admin').show()
       when "JURISDICCION PENAL"
+        $('#currentStageDiv').show()
         $('#judicial_penal').prop( "disabled", false )
         $('#judicial_penal').show()
       when "JURISDICCION LABORAL"
-        $('#judicial_laboral').prop( "disabled", false )
+        $('#currentStageDiv').show()
         $('#judicial_laboral').show()
+        $('#judicial_laboral').prop( "disabled", false )
       when "PROCESO ARBITRAL"
+        $('#currentStageDiv').show()
         $('#judicial_arbitral').prop( "disabled", false )
         $('#judicial_arbitral').show()
 
@@ -115,36 +126,47 @@ $ ->
     v_option = document.getElementById("subprocessCivil").value
     switch v_option
       when "NULIDAD DE LAS CARTAS DE NATURALEZA Y DE LAS RESOLUCIONES DE AUTORIZACION DE INSCRIPCION"
+        $('#currentStageDiv').show()
         $('#judicial_verbal').prop( "disabled", false )
         $('#judicial_verbal').show()
       when "CONTROL POR VIA DE EXCEPCION"
+        $('#currentStageDiv').show()
         $('#judicial_verbal_sum').prop( "disabled", false )
         $('#judicial_verbal_sum').show()
       when "PROCESO VERBAL"
+        $('#currentStageDiv').show()
         $('#judicial_declarativos').prop( "disabled", false )
         $('#judicial_declarativos').show()
       when "PROCESO VERBAL SUMARIO"
+        $('#currentStageDiv').show()
         $('#judicial_ejecutivo').prop( "disabled", false )
         $('#judicial_ejecutivo').show()
       when "PROCESOS DECLARATIVOS ESPECIALES"
-        $('#judicial_sucesion').prop( "disabled", false )
+        $('#currentStageDiv').show()
         $('#judicial_sucesion').show()
+        $('#judicial_sucesion').prop( "disabled", false )
       when "PROCESO EJECUTIVO"
+        $('#currentStageDiv').show()
         $('#judicial_liquidacion').prop( "disabled", false )
         $('#judicial_liquidacion').show()
       when "PROCESO DE SUCESION"
+        $('#currentStageDiv').show()
         $('#judicial_liquidacion').prop( "disabled", false )
         $('#judicial_liquidacion').show()
       when "PROCESO DE LIQUIDACION DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CONYUGES O COMPAÑEROS PERMANENTES"
-        $('#judicial_insolvencia').prop( "disabled", false )
+        $('#currentStageDiv').show()
         $('#judicial_insolvencia').show()
+        $('#judicial_insolvencia').prop( "disabled", false )
       when "DISOLUCION, NULIDAD Y LIQUIDACION DE SOCIEDADES"
+        $('#currentStageDiv').show()
         $('#judicial_ordinario').prop( "disabled", false )
         $('#judicial_ordinario').show()
       when "INSOLVENCIA DE LA PERSONA NATURAL NO COMERCIANTE"
+        $('#currentStageDiv').show()
         $('#judicial_divisorio').prop( "disabled", false )
         $('#judicial_divisorio').show()
       when "PROCESO ORDINARIO"
+        $('#currentStageDiv').show()
         $('#judicial_voluntaria').prop( "disabled", false )
         $('#judicial_voluntaria').show()
 

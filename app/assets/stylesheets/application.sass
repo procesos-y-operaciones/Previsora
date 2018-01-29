@@ -10,10 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets"
 @import "bootstrap"
 
 
@@ -21,7 +19,7 @@
  Colors
  ================================================== */
 $ligthgreen0: #00b800
-$ligthgreen: #008c00
+$ligthgreen1: #008c00
 $darkgreen: #1b492c
 $green: #006400
 $ligthblue: #42dcf4
@@ -29,6 +27,7 @@ $white: #fff
 $darkgrey: #555555
 $grey: #cccccc
 $black: #000
+$red: #de443d
 
 /* ==================================================
  Elements
@@ -44,24 +43,39 @@ $black: #000
 
 /* ==================================================
  General
+
+ margin & padding
  ================================================== */
 html, body
     overflow-x: hidden
     font-family: 'Open Sans', 'Josefin Slab', 'Arvo', 'Lato'
-    font-size: 16px
     font-style: normal
     font-variant: normal
     font-weight: 400
     line-height: 20px
-    min-width: 800px
-h1, h2, h3, h4, h5, h6, p, th, ol, li
+
+/* ================== text ========================*/
+.title
+    text-align: center
+    font-weight: 200px
+    color: darken($darkgreen, 2.5%)
+    margin-bottom: 50px
+.to-uc
+    text-transform: uppercase
+.lh-150
+    line-height: 150%
+.ls-1
+    letter-spacing: 1px
+h1, h2, h3, h4, h5, h6, p, th, ol, li, label, select, input
     font-family: 'Open Sans', 'Josefin Slab', 'Arvo', 'Lato'
     font-style: normal
     font-variant: normal
     font-weight: 400
-    line-height: 20px
-p, th, ol, li
+    line-height: 25px
+p, th, ol, li, label
     font-size: 16px
+select, input
+    font-size: 14px !important
 td
     font-size: 12px
 *, *:before, *:after
@@ -73,6 +87,10 @@ td
 .edge
     border: 1px solid darken($black, 2.5%)
 /* =============margin & padding ==================*/
+.m-0
+    margin: 0px
+.m-1
+    margin: 1px
 .m-5
     margin: 5px
 .mb-5
@@ -83,8 +101,8 @@ td
     margin-top: 50px
     margin-right: 100px
     margin-left: 100px
-.m-30-60
-    margin: 30px 60px
+.m-50-60-30
+    margin: 50px 60px 30px
 .mt-30
     margin-top: 30px
 .mb-25
@@ -95,6 +113,8 @@ td
     margin-top: 50px
 .p-0
     padding: 0
+.p-5
+    padding: 5px
 .p-15
     padding: 15px
 .p-30
@@ -112,17 +132,6 @@ td
     text-align: justify
 .floatRight
     float: right
-/* ================== text ========================*/
-h1, h2
-    text-align: center
-    font-weight: 200px
-    color: darken($darkgreen, 2.5%)
-.to-uc
-    text-transform: uppercase
-.lh-150
-    line-height: 150%
-.ls-1
-    letter-spacing: 1px
 
 /* ================= color ========================*/
 .grey
@@ -131,14 +140,22 @@ h1, h2
     color: darken($grey, 2.5%)
 .black
     color: darken($black, 2.5%)
-.ligthgreen
-    color: darken($ligthgreen, 2.5%)
+.ligthgreen1
+    color: darken($ligthgreen1, 2.5%)
 .green
     color: darken($green, 2.5%)
 .darkgreen
     color: darken($darkgreen, 2.5%)
 .ligthblue
     color: darken($ligthblue, 2.5%)
+.red
+    color: darken($red, 2.5%)
+/* =============== background color ===============*/
+.bg-dgtolg
+    background: darken($ligthgreen1, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+
+
 /* ================== others ======================*/
 .hw
     width: 50%
@@ -197,17 +214,21 @@ input::-webkit-inner-spin-button
 /* ==================================================
   buttons
   ================================================== */
-.btn-circle
-    margin: 5px
-    border-radius: 100%
-    padding: 30px
-    font-size: 30px
 .btn
-    margin: 5px
     border-radius: 5px
     padding: 10px 30px
-    font-size: 15px !important
+    font-size: 16px !important
     font-weight: bold
+.btn-circle
+    border-radius: 100%
+    height: 60px
+    width: 60px
+    display: table-cell
+    padding: 30px
+    text-align: center
+    vertical-align: middle
+    font-size: 45px
+    transition: .5s
 .minibtn
     margin: 5px
     border-radius: 5px
@@ -221,45 +242,42 @@ input::-webkit-inner-spin-button
 
 
 .btn-default, .btn-default:link, .btn-default:visited
-    border: 1px solid darken($ligthgreen, 2.5%)
-    background-color: darken($ligthgreen, 2.5%)
+    border: 1px solid darken($ligthgreen1, 2.5%)
+    background-color: darken($ligthgreen1, 2.5%)
     color: darken($white, 2.5%)
 .btn-default:hover
-    border: 1px solid darken($ligthgreen, 2.5%)
+    border: 1px solid darken($ligthgreen1, 2.5%)
     background-color: darken($white, 2.5%) !important
-    color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
 .btn-default:active
-    border: 1px solid darken($ligthgreen, 2.5%)
+    border: 1px solid darken($ligthgreen1, 2.5%)
     background-color: darken($white, 2.5%)
-    color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
 
 .btn-inverse, .btn-inverse:link, .btn-inverse:visited
-    border: 2px solid darken($ligthgreen, 2.5%)
-    background-color: darken($white, 2.5%)
-    color: darken($ligthgreen, 2.5%)
-    font-weight: bold
+    background: darken($white, 2.5%)
+    border: 6px double darken($ligthgreen1, 2.5%)
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.46)
+    color: darken($ligthgreen1, 2.5%)
 .btn-inverse:hover
-    border: 1px solid darken($ligthgreen, 2.5%)
-    background: darken($ligthgreen, 2.5%)
-    color: darken($white, 2.5%)
+    border-color: darken($grey, 2.5%)
+    color: darken($grey, 2.5%)
 .btn-inverse:active
-    border: 1px solid darken($ligthgreen, 2.5%)
-    background: darken($ligthgreen, 2.5%)
-    color: darken($white, 2.5%)
+    border-color: darken($grey, 2.5%)
+    color: darken($grey, 2.5%)
 
 .btn-grad, .btn-grad:link, .btn-grad:visited
-    background: darken($ligthgreen, 2.5%)
+    background: darken($ligthgreen1, 2.5%)
     background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
-    font-weight: bold
     color: darken($white, 2.5%)
 .btn-grad:hover
-    border: 1px solid darken($ligthgreen, 2.5%)
+    border: 1px solid darken($ligthgreen1, 2.5%)
     background: darken($white, 2.5%) !important
-    color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
 .btn-grad:active
-    border: 1px solid darken($ligthgreen, 2.5%)
+    border: 1px solid darken($ligthgreen1, 2.5%)
     background: darken($white, 2.5%)
-    color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
 
 .link, .link:link, .link:visited
     margin: 5px
@@ -268,11 +286,11 @@ input::-webkit-inner-spin-button
 .link:hover
     background-color: transparent !important
     text-decoration: none !important
-    color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
 .link:active
     background-color: transparent !important
     text-decoration: none !important
-    color: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
 
 .link-inverse, .link-inverse:link, .link-inverse:visited
     margin: 0 10px
@@ -316,25 +334,31 @@ input::-webkit-inner-spin-button
 /* ==================================================
   navbar
   ================================================== */
-/* navbar */
-.navbar-default
-    height: 100px
-    background: darken($ligthgreen, 2.5%) url("bannerprevisora.jpg") no-repeat
+.nav-bg
+    background: darken($ligthgreen1, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+    background-image: url("bannerprevisora.jpg")
+    background-repeat: no-repeat
     background-size: cover
-    border: 0px
-    padding: 0px 10px 0 0
-.my-header
-    height: 125px
-    background: darken($green, 2.5%) url("bannerprevisora.jpg") no-repeat
-    background-size: cover
-.navbar-brand
-    padding: 0px
-.navbar-default .image
-    padding: 0
-    width: 100%
-    height: 100px
-.navbar-default ul
-    margin: 10px 10px 0 0
+    height: 150px
+    padding-top: 0 !important
+/*#collapsibleNavbar
+    margin-top: 0 !important
+    top: 0 !important
+    height: 50px
+    line-height: 50px
+/*.navbar-nav
+    /*background: darken($darkgreen, 2.5%)
+.nav-link
+    font-weight: bold
+    color: #fff !important
+@media (max-width: 768px)
+    .navbar-expand-md .navbar-collapse
+        border-radius: 3px
+        padding: 15px
+        background: darken($ligthgreen1, 2.5%)
+        background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+        /*color: darken($white, 2.5%) !important
 
 /* ==================================================
   grid
@@ -343,30 +367,18 @@ input::-webkit-inner-spin-button
 /* ==================================================
   table
   ================================================== */
-#search .table-hover tbody tr:hover td, .table-hover tbody tr:hover th
-    background: rgba(0, 184, 0, 0.5) !important
-#show thead tr th
-    font-size: 25px
-    font-weight: normal
 thead tr th
     color: darken($darkgreen, 2.5%)
-.bor th, .bor td
-    border-bottom: 1px solid darken($darkgreen, 2.5%)
-/* CUIDADO!!!
-/*table
-    border-style: double
-    border-color: darken($darkgreen, 2.5%)
-
 
 /* ==================================================
   pagination
   ================================================== */
 
 .pagination li>span, .pagination li>a, .pagination li>a:hover
-    color: darken($ligthgreen, 2.5%)
-.pagination .active>span, .pagination .active>span:hover
-    border: darken($ligthgreen, 2.5%)
-    background: darken($ligthgreen, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
+.pagination .active>span, .pagination .active>span:hover, .pagination .active .page-link
+    border: darken($ligthgreen1, 2.5%)
+    background: darken($ligthgreen1, 2.5%)
     color: darken($white, 2.5%)
 
 /* ==================================================

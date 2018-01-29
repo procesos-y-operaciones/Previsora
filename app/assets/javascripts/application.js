@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
+//= require popper
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
@@ -64,4 +66,17 @@ function formatting_number(input) {
   num = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   input.value = "";
   input.value = num;
+}
+function formatting_empty_number(input) {
+  var value = input.value;
+  var num = value.replace(/,|'/g, "");
+  input.value = "";
+  input.value = num;
+}
+function filter_btn(input) {
+  if ($(input).attr('aria-expanded') === "true") {
+    return input.innerHTML = '<span class="fa fa-angle-double-down"></span>';
+  } else {
+    return input.innerHTML = '<span class="fa fa-angle-double-up"></span>';
+  }
 }

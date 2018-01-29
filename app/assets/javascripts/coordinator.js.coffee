@@ -1,10 +1,4 @@
 $ ->
-  $('#filter_btn').click ->
-    if $(this).attr('aria-expanded') == "true"
-      this.innerHTML = '<span class="glyphicon glyphicon-chevron-down"></span>'
-    else
-      this.innerHTML = '<span class="glyphicon glyphicon-chevron-up"></span>'
-
   $('#departament').change ->
     input_state = $(this)
     output_state = $('#cities')

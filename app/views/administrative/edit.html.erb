@@ -1,3 +1,5 @@
 <h1>Editar procedimiento administrativo</h1>
 
 <%= render 'form', type_process: @administrative %>
+<%= link_to 'cancelar', lawyer_search_path, class:"btn btn-default" %>
+<%= link_to "Volver", type_process_path(@administrative), class:"btn btn-default" %>

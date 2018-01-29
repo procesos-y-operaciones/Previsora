@@ -1,18 +1,11 @@
-<div class="p-30">
-  <h2 class="center mt-50">Historial de reportes</h2>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-offset-2 col-sm-8">
-      <div class="row">
-        <ol>
-          <% @files.sort.each do |f| %>
-            <div class="col-sm-6" m-5>
-              <li><%= link_to "#{File.basename f}", coordinator_download_file_url(:file => (File.basename f)), download: (File.basename f), class:"link" %></li>
-            </div>
-          <% end %>
-        </ol>
-      </div>
-    </div>
+<h2 class="title">Historial de reportes</h2>
+<div class="row">
+  <div class="offset-sm-1 col-sm-10">
+    <ol>
+      <% @files.sort.each do |f| %>
+        <li><%= link_to "#{File.basename f}", coordinator_download_file_url(:file => (File.basename f)), download: (File.basename f), class:"link" %></li>
+      <% end %>
+    </ol>
   </div>
 </div>
+<%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
