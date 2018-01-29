@@ -28,6 +28,14 @@ class User < ApplicationRecord
 
   has_many :type_processes, dependent: :destroy
 
+  validate :password_complexity
+
+  def password_complexity
+    if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d). /)
+      errors.add :password, "debe incluir al menos una letra en minúscula, una en mayúscula y un número"
+    end
+  end
+
   def email_required?
     false
   end
