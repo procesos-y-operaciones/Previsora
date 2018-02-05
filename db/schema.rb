@@ -191,79 +191,21 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "case_id_sise", default: "NO APLICA"
     t.string "case_id_ekogui", default: "NO APLICA"
     t.string "process_radicate", default: "NO APLICA"
-    t.date "creation_date"
-    t.date "notification_date"
-    t.integer "number", default: 0
-    t.integer "exercise", default: 0
     t.string "sinister", default: "NO APLICA"
     t.string "attorny", default: "NO APLICA"
-    t.date "attorny_date"
     t.string "active_part", default: "NO APLICA"
     t.string "passive_part", default: "NO APLICA"
-    t.integer "dolar_value_cents", default: 0, null: false
-    t.string "dolar_value_currency", default: "USD", null: false
-    t.integer "detritment_cents", default: 0, null: false
-    t.string "detritment_currency", default: "USD", null: false
-    t.integer "ensurance_value_cents", default: 0, null: false
-    t.string "ensurance_value_currency", default: "USD", null: false
-    t.integer "contingency_value_cents", default: 0, null: false
-    t.string "contingency_value_currency", default: "USD", null: false
     t.string "contingency_reason", default: "NO APLICA"
     t.string "contingency_resume", default: "NO APLICA"
     t.string "facts", default: "NO APLICA"
-    t.integer "policy_cents", default: 0, null: false
-    t.string "policy_currency", default: "USD", null: false
-    t.integer "reserve_cents", default: 0, null: false
-    t.string "reserve_currency", default: "USD", null: false
-    t.integer "reserved_fees_cents", default: 0, null: false
-    t.string "reserved_fees_currency", default: "USD", null: false
-    t.integer "provision_cents", default: 0, null: false
-    t.string "provision_currency", default: "USD", null: false
-    t.date "desition_date"
-    t.date "answer_date"
-    t.date "objection_date_desition"
-    t.date "objection_date_desition_notification"
-    t.integer "fail_value_cents", default: 0, null: false
-    t.string "fail_value_currency", default: "USD", null: false
-    t.integer "fail_previ_cents", default: 0, null: false
-    t.string "fail_previ_currency", default: "USD", null: false
-    t.integer "payed_value_cents", default: 0, null: false
-    t.string "payed_value_currency", default: "USD", null: false
-    t.date "payment_date"
-    t.date "imp_date"
     t.string "coactive_radicate", default: "NO APLICA"
     t.string "policies", default: "NO APLICA"
     t.string "sinisters", default: "NO APLICA"
     t.string "case_onbase", default: "NO APLICA"
-    t.integer "coactive_value_cents", default: 0, null: false
-    t.string "coactive_value_currency", default: "USD", null: false
-    t.integer "garnish_value_cents", default: 0, null: false
-    t.string "garnish_value_currency", default: "USD", null: false
-    t.integer "reensurance_gived_cents", default: 0, null: false
-    t.string "reensurance_gived_currency", default: "USD", null: false
-    t.date "last_performance_date"
-    t.date "failed_notification_date"
-    t.date "objection_notification_date"
-    t.date "committee_date"
     t.string "tutelage_imp", default: "NO APLICA"
-    t.date "date_notification_desacate"
-    t.date "date_answer_desacate"
-    t.date "date_notification_desition_desacate"
-    t.integer "auth_value_cents", default: 0, null: false
-    t.string "auth_value_currency", default: "USD", null: false
-    t.integer "reinsurance_value_cents", default: 0, null: false
-    t.string "reinsurance_value_currency", default: "USD", null: false
-    t.integer "coensurance_value_cents", default: 0, null: false
-    t.string "coensurance_value_currency", default: "USD", null: false
-    t.integer "reconcilie_value_cents", default: 0, null: false
-    t.string "reconcilie_value_currency", default: "USD", null: false
-    t.integer "cost_value_cents", default: 0, null: false
-    t.string "cost_value_currency", default: "USD", null: false
     t.string "reason_conc", default: "NO APLICA"
     t.string "reason_inv", default: "NO APLICA"
     t.string "office_name", default: "NO APLICA"
-    t.boolean "reinsurance_report", default: false
-    t.boolean "recovery", default: false
     t.string "departament", default: "PENDIENTE"
     t.string "city_case", default: "PENDIENTE"
     t.string "process_class"
@@ -289,6 +231,45 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "join_committee"
     t.string "committee"
     t.string "coensurance_type"
+    t.bigint "dolar_value_cents"
+    t.bigint "detritment_cents"
+    t.bigint "ensurance_value_cents"
+    t.bigint "contingency_value_cents"
+    t.bigint "policy_cents"
+    t.bigint "reserve_cents"
+    t.bigint "reserved_fees_cents"
+    t.bigint "provision_cents"
+    t.bigint "fail_value_cents"
+    t.bigint "fail_previ_cents"
+    t.bigint "payed_value_cents"
+    t.bigint "coactive_value_cents"
+    t.bigint "garnish_value_cents"
+    t.bigint "reensurance_gived_cents"
+    t.bigint "auth_value_cents"
+    t.bigint "reinsurance_value_cents"
+    t.bigint "coensurance_value_cents"
+    t.bigint "reconcilie_value_cents"
+    t.bigint "cost_value_cents"
+    t.date "creation_date"
+    t.date "notification_date"
+    t.date "attorny_date"
+    t.date "desition_date"
+    t.date "answer_date"
+    t.date "objection_date_desition"
+    t.date "objection_date_desition_notification"
+    t.date "payment_date"
+    t.date "imp_date"
+    t.date "last_performance_date"
+    t.date "failed_notification_date"
+    t.date "objection_notification_date"
+    t.date "committee_date"
+    t.date "date_notification_desacate"
+    t.date "date_answer_desacate"
+    t.date "date_notification_desition_desacate"
+    t.integer "number", default: 0
+    t.integer "exercise", default: 0
+    t.boolean "reinsurance_report", default: false
+    t.boolean "recovery", default: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
