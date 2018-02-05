@@ -83,8 +83,8 @@
 #  office_name                          :string           default("NO APLICA")
 #  reinsurance_report                   :boolean          default(FALSE)
 #  recovery                             :boolean          default(FALSE)
-#  departament                          :string
-#  city_case                            :string
+#  departament                          :string           default("PENDIENTE")
+#  city_case                            :string           default("PENDIENTE")
 #  process_class                        :string
 #  subprocess_class                     :string
 #  link_type                            :string

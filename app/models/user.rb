@@ -7,6 +7,7 @@
 #  encrypted_password     :string           default(""), not null
 #  document               :string           default(""), not null
 #  name                   :string           default(""), not null
+#  charge                 :string           default(""), not null
 #  role                   :integer          default(0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime

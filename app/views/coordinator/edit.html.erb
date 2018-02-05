@@ -32,25 +32,26 @@
         <%= f.label "Cargo", class:"form-label" %><br />
         <%= f.text_field :charge, autofocus: true, readOnly: true, class: "form-control" %>
 
-        <%= f.label "Contraseña", class:"form-label" %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", required: true, class:"form-control" %>
-
-        <%= f.label "Confirmación", class:"form-label" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", required: true, class:"form-control" %>
-
-        <div class="actions">
-          <% if current_user.role == 2 %>
-            <%= link_to "Atrás", coordinator_management_path, class: "btn btn-default" %>
-          <% else %>
-            <%= link_to "Atrás", root_path, class: "btn btn-default" %>
-          <% end %>
-          <%= f.submit "Editar", class:"btn btn-default floatRight" %>
-        </div>
-
       <% end %>
+
+      <%= f.label "Contraseña", class:"form-label" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", required: true, class:"form-control" %>
+
+      <%= f.label "Confirmación", class:"form-label" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", required: true, class:"form-control" %>
+
+      <div class="actions">
+        <% if current_user.role == 2 %>
+          <%= link_to "Atrás", coordinator_management_path, class: "btn btn-default" %>
+        <% else %>
+          <%= link_to "Atrás", root_path, class: "btn btn-default" %>
+        <% end %>
+        <%= f.submit "Editar", class:"btn btn-default floatRight" %>
+      </div>
+
     </div>
   </div>
 <% end %>
