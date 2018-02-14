@@ -55,7 +55,7 @@ class CoordinatorController < ApplicationController
       @user.destroy
       redirect_to root_path, notice: 'Usuario borrado correctamente.'
     else
-      redirect_to coordinator_management_path, notice: 'Debes eliminar todos los procesos de este usuario para poder borrarlo.'
+      redirect_to coordinator_management_path, notice: 'Debes eliminar todos los registros de este usuario para poder borrarlo.'
     end
   end
 

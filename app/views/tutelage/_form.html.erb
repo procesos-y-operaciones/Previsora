@@ -86,14 +86,16 @@
 
       <%= form.label "Nombre despacho / tipo contraloría" %>
       <div class="input-group">
-        <%= form.collection_select(:office_name, OfficeName.tutelage, :name, :name, {include_blank: 'SELECCIONE'}, {id:"office", class:"form-control", required: true}) %>
-        <%= form.text_field :office_name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"office_text", placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {id: "office", required: true, class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+      <div class="input-group">
+        <%= form.text_field :other_office_name, id: "office_text", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
       </div>
 
       <%= form.label "Departamento donde cursa el caso" %>
       <div class="input-group">
-        <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control", required: true} %>
+        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control", required:true}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

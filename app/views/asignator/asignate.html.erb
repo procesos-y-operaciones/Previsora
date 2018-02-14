@@ -77,25 +77,27 @@
   </div>
 </div>
 <% end %>
+
 <br>
 
-<div class="row">
-  <div class="offset-md-2 col-md-4">
-    <div class="styled-select">
-      <%= collection_select("", "user_id", User.get_lawyers, "id", "name", {prompt: "ABOGADO INTERNO"}, {class: 'form-control'}) %>
+<%= form_tag asignator_translate_path do %>
+
+  <div class="row">
+    <div class="offset-md-2 col-md-4">
+      <div class="styled-select">
+        <%= collection_select("", "user_id", User.get_lawyers, "id", "name", {prompt: "ABOGADO INTERNO"}, {class: 'form-control'}) %>
+      </div>
+    </div>
+    <div class="col-md-4 center">
+      <%= submit_tag "Trasladar", class:"minibtn btn-default" %>
     </div>
   </div>
-  <div class="col-md-4 center">
-    <%= submit_tag "Trasladar", class:"minibtn btn-default" %>
+
+  <div class="floatRight">
+    Procesos <%= @page+1 %>-<%= @processes.length + @page %> de <%= @search.result.length %>
   </div>
-</div>
+  <br><br>
 
-<div class="floatRight">
-  Procesos <%= @page+1 %>-<%= @processes.length + @page %> de <%= @search.result.length %>
-</div>
-<br><br>
-
-<%= form_tag asignator_translate_path do %>
   <table class="table table-hover table-responsive">
     <thead>
       <tr>

@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "reason_conc", default: "NO APLICA"
     t.string "reason_inv", default: "NO APLICA"
     t.string "office_name", default: "NO APLICA"
+    t.string "other_office_name"
     t.string "departament", default: "PENDIENTE"
     t.string "city_case", default: "PENDIENTE"
     t.string "process_class"

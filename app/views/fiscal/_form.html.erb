@@ -80,7 +80,7 @@
 
       <%= form.label "Departamento donde cursa el caso" %>
       <div class="input-group">
-        <%= form.select :departament, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control", required: true} %>
+        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

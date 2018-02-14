@@ -115,7 +115,8 @@
 
 class TypeProcess < ApplicationRecord
 
-  validate :validate_ids
+  validate :validate_ids, on: :create
+  validate :update_ids, on: :edit
 
   def validate_ids
     if case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
@@ -128,6 +129,21 @@ class TypeProcess < ApplicationRecord
       errors.add("Número de identificación del caso e-kogui", " ya existe")
     end
     if process_radicate != "NO APLICA" && process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate).present?
+      errors.add("Número de radicación del proceso", " ya existe")
+    end
+  end
+
+  def update_ids
+    if case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
+      errors.add("Número de identificación del caso (bizagi, access y pa)", " ya existe")
+    end
+    if case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_bap)[0].id != id
+      errors.add("Número de identificación del caso sise", " ya existe")
+    end
+    if case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
+      errors.add("Número de identificación del caso e-kogui", " ya existe")
+    end
+    if process_radicate != "NO APLICA" && process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate)[0].id == id
       errors.add("Número de radicación del proceso", " ya existe")
     end
   end

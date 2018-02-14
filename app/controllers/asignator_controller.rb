@@ -29,7 +29,7 @@ class AsignatorController < ApplicationController
     @type_processes.each do |p|
       p.update(user_id: @user.id, internal_lawyer: @user.name)
     end
-    redirect_to asignator_asignate_path, notice: "Procesos trasladados correctamente."
+    redirect_to asignator_asignate_path, notice: "Registro(s) trasladado(s) correctamente."
   end
 
   protected
@@ -37,7 +37,7 @@ class AsignatorController < ApplicationController
     def set_type_process
       @user = User.find(params[:user_id])
       if params[:processes_ids] == nil
-        redirect_to asignator_asignate_path, alert: "Debes seleccionar casos poder para trasladarlos."
+        redirect_to asignator_asignate_path, alert: "Debes seleccionar al menos un registro poder para trasladarlo."
       else
         @type_processes = TypeProcess.find(params[:processes_ids])
       end
