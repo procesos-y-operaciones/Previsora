@@ -4,9 +4,7 @@
 <div class="shadow p-15">
   <div class="row">
     <div class="col-md-4">
-      <div class="styled-select">
-        <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
-      </div>
+      <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
     </div>
     <div class="offset-md-4 col-md-4 center">
       <button type="submit" class="minibtn btn-default">
@@ -84,9 +82,7 @@
 
   <div class="row">
     <div class="offset-md-2 col-md-4">
-      <div class="styled-select">
-        <%= collection_select("", "user_id", User.get_lawyers, "id", "name", {prompt: "ABOGADO INTERNO"}, {class: 'form-control'}) %>
-      </div>
+      <%= collection_select("", "user_id", User.get_lawyers, "id", "name", {prompt: "ABOGADO INTERNO"}, {class: 'form-control'}) %>
     </div>
     <div class="col-md-4 center">
       <%= submit_tag "Trasladar", class:"minibtn btn-default" %>
