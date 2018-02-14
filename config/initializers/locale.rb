@@ -10,6 +10,7 @@ I18n.default_locale = :'es-MX'
 
 #Cities and Departaments
 CS.states(:co)[:QUI] =  "QUINDIO"
+CS.states(:co)[:AMA] =  "AMAZONAS"
 CS.states(:co)[:ARA] =  "ARAUCA"
 CS.states(:co)[:ATL] =  "ATLANTICO"
 CS.states(:co)[:BOL] =  "BOLIVAR"
