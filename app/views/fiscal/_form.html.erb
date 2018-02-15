@@ -126,8 +126,14 @@
 
       <%= form.label "Amparo" %>
       <div class="input-group">
-        <%= form.collection_select(:protection, Protection.all, :name, :name, {}, {id:"protection", class:"form-control"}) %>
+        <%= form.collection_select(:protection, Protection.all, :name, :name, {:selected => type_process.send(:protection)}, {id:"protection", multiple:true, class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.protection_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label "Otros amparos" %>
+      <div class="input-group">
+        <%= form.text_area :more_protections, id:"more_protections", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Número (siniestro)" %>
@@ -192,7 +198,7 @@
       <%= form.label "Valor del dólar" %>
       <div class="input-group">
         <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Reserva o provisión de indemnización" %>

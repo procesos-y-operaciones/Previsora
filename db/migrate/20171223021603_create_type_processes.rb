@@ -17,7 +17,6 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :passive_part, default: "NO APLICA"
       t.string    :contingency_reason, default: "NO APLICA"
       t.string    :contingency_resume, default: "NO APLICA"
-      t.string    :facts, default: "NO APLICA"
       t.string    :coactive_radicate, default: "NO APLICA"
       t.string    :policies, default: "NO APLICA"
       t.string    :sinisters, default: "NO APLICA"
@@ -52,26 +51,28 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :join_committee
       t.string    :committee
       t.string    :coensurance_type
+      t.text      :more_protections
+      t.text      :facts, default: "NO APLICA"
       #VALUES
-      t.bigint  :dolar_value_cents
-      t.bigint  :detritment_cents
-      t.bigint  :ensurance_value_cents
-      t.bigint  :contingency_value_cents
-      t.bigint  :policy_cents
-      t.bigint  :reserve_cents
-      t.bigint  :reserved_fees_cents
-      t.bigint  :provision_cents
-      t.bigint  :fail_value_cents
-      t.bigint  :fail_previ_cents
-      t.bigint  :payed_value_cents
-      t.bigint  :coactive_value_cents
-      t.bigint  :garnish_value_cents
-      t.bigint  :reensurance_gived_cents
-      t.bigint  :auth_value_cents
-      t.bigint  :reinsurance_value_cents
-      t.bigint  :coensurance_value_cents
-      t.bigint  :reconcilie_value_cents
-      t.bigint  :cost_value_cents
+      t.bigint  :dolar_value_cents, default: 0
+      t.bigint  :detritment_cents, default: 0
+      t.bigint  :ensurance_value_cents, default: 0
+      t.bigint  :contingency_value_cents, default: 0
+      t.bigint  :policy_cents, default: 0
+      t.bigint  :reserve_cents, default: 0
+      t.bigint  :reserved_fees_cents, default: 0
+      t.bigint  :provision_cents, default: 0
+      t.bigint  :fail_value_cents, default: 0
+      t.bigint  :fail_previ_cents, default: 0
+      t.bigint  :payed_value_cents, default: 0
+      t.bigint  :coactive_value_cents, default: 0
+      t.bigint  :garnish_value_cents, default: 0
+      t.bigint  :reensurance_gived_cents, default: 0
+      t.bigint  :auth_value_cents, default: 0
+      t.bigint  :reinsurance_value_cents, default: 0
+      t.bigint  :coensurance_value_cents, default: 0
+      t.bigint  :reconcilie_value_cents, default: 0
+      t.bigint  :cost_value_cents, default: 0
       #DATES
       t.date      :creation_date
       t.date      :notification_date

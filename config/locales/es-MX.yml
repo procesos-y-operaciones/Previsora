@@ -495,6 +495,7 @@ es-MX:
       coensurance_type_id_d: Contrato de seguros suscrito de una parte por el asegurado y de otra parte, por varios aseguradores que asumen con entera independencia, los unos de otros, la obligación de responder separadamente de la parte del riesgo que les corresponda. Puede ser coaseguro cedido (se cede parte del seguro a una u otras compañías) o coaseguro aceptado (se acepta parte del riesgo asegurado en otra compañía).
       policy_cents_d: Documento con que se formalizan ciertos contratos de seguros y es el que sirve de fundamento para la vinculación de la compañía al caso concreto
       protection_id_d: Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
+      more_protections_d: Sí tiene más amparos, ingréselos separados por un guión.
       number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE.
       exercise_d: Año de creación del siniestro en la herramienta tecnológica SISE.
       branch_policy_id_d: Lugar donde fue emitida la póliza.

@@ -53,6 +53,7 @@ $ ->
       $('#protection').prop( "disabled", false )
       document.getElementById("number").readOnly = false
       document.getElementById("exercise").readOnly = false
+      document.getElementById("more_protections").readOnly = false
       $('#branch_policy').prop( "disabled", false )
       $('#branch_commercial').prop( "disabled", false )
       $('#more_policies').prop( "disabled", false )
@@ -67,6 +68,7 @@ $ ->
       document.getElementById("number").readOnly = true
       $('#number').val("0")
       document.getElementById("exercise").readOnly = true
+      document.getElementById("more_protections").readOnly = true
       $('#exercise').val("0")
       $('#branch_policy').prop( "disabled", true )
       $('#branch_policy').val("0")
@@ -81,6 +83,22 @@ $ ->
     litigation_source_rule()
 
   litigation_source_rule()
+
+  #Protection Rule
+  protection_rule = ->
+    v_option = $("#protection option:selected")
+    if v_option.size() > 0
+      if v_option[v_option.size() - 1].innerHTML == "OTRO"
+        document.getElementById("more_protections").readOnly = false
+      else
+        document.getElementById("more_protections").readOnly = true
+    else
+      document.getElementById("more_protections").readOnly = true
+
+  $('#protection').change ->
+    protection_rule()
+
+  protection_rule()
 
   $("#number").change ->
     num = numSiniestro.concat(document.getElementById("number").value)

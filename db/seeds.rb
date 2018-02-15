@@ -274,7 +274,8 @@ Protection.create([
   {name: 'ESTABILIDAD LABORAL', n_type: 42},
   {name: 'SALARIOS Y PRESTACIONES E INDEMNIZACIONES', n_type: 42},
   {name: 'BUEN MANEJO DEL ANTICIPO', n_type: 42},
-  {name: 'COBERTURA GLOBAL DEL MANEJO', n_type: 1}
+  {name: 'COBERTURA GLOBAL DEL MANEJO', n_type: 1},
+  {name: 'OTRO', n_type: 1}
 ])
 
 ScoreContingency.create([
