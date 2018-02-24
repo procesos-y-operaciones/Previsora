@@ -371,8 +371,8 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Sí tiene más pólizas, ingréselas por un guión.
-      sinisters_d: Sí tiene más si, ingréselas por un guión.
+      policies_d: Sí tiene más pólizas, ingréselas sepearadas por un guión.
+      sinisters_d: Sí tiene más si, ingréselos separados por un guión.
       base_d: Caso ON_BASE
       attorny_d: Abogado externo que representa a Previsora.
       attorny_date_d: Fecha en la cual se encarga el caso al abogado externo.
@@ -426,12 +426,12 @@ es-MX:
       protection_id_d: Amparo	Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
       number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE.
       exercise_d: Año de creación del siniestro en la herramienta tecnológica SISE.
-      branch_policy_id_d: Sucursal de la póliza	Lugar donde fue emitida la póliza.
+      branch_policy_id_d: Lugar donde fue emitida la póliza.
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Sí tiene más pólizas, ingréselas por un guión.
-      sinisters_d: Sí tiene más siniestros, ingréselas por un guión.
+      policies_d: Sí tiene más pólizas, ingréselas sepearadas por un guión.
+      sinisters_d: Sí tiene más siniestros, ingréselos por un guión.
       money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
       dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos.
       reserve_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de indemnización.
@@ -461,18 +461,18 @@ es-MX:
       payment_date_d: Momento en que tuvo lugar el pago de la suma acordada por parte de Previsora.
       recovery_d: Si con ocasión al fallo de instancia la aseguradora puede recobrar el valor de la condena impuesta a un tercero o a un afianzado.
       coactive_d: Si tiene el número de radicado del coactivo seleccione SI, de lo contrario seleccione NO.
-      coactive_radicate_d: Radicación.
+      coactive_radicate_d: Número que se le asigna al coactivo.
       coactive_value_cents_d: Valor coactivo.
       garnish_value_cents_d: Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar.
       last_performance_id_d: Estado actualizado del caso a la fecha.
       last_performance_date_d: Día en que se surtió la actuación registrada.
-      reserved_released_id_d: Reserva depurada
-      reconcilie_value_cents_d: En el caso que la decisión del Comité haya sido "CONCILIAR", debe especificarse el monto autorizado a título de ofrecimiento
+      reserved_released_id_d: Reserva depurada.
+      reconcilie_value_cents_d: Debe especificarse el monto acordado por las partes.
       reason_conc_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "NO CONCILIAR".
       reason_inv_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "INVIABLE".
       base_d: Caso ON_BASE
       attorny_d: Abogado externo que representa a Previsora.
-      attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo.
+      attorny_date_d: Fecha en la cual se encarga el caso al abogado externo.
       active_part_d: Nombre de los demandantes.
       passive_part_d: Nombre de los demandados.
       facts_d: Relación de las causas que originan la acción judicial.
@@ -503,7 +503,7 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Sí tiene más pólizas seleccione SI, de lo contrario seleccione NO.
-      policies_d: Sí tiene más pólizas, ingréselas por un guión.
+      policies_d: Sí tiene más pólizas, ingréselas sepearadas por un guión.
       sinisters_d: Sí tiene más siniestros, ingréselas por un guión.
       money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
       dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos
@@ -515,7 +515,7 @@ es-MX:
       notification_date_d: Fecha en la cual se surtió, con arreglo a la ley, la vinculación de la compañía
       process_radicate_d:  Consecutivo de 23 digitos asignado por el despacho judicial, o conjunto de números asignados por la entidad
       attorny_d: Abogado externo que representa a Previsora
-      attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo
+      attorny_date_d: Fecha en la cual se encarga el caso al abogado externo
       office_name_d: Juzgado o entidad donde cursa el caso
       active_part_d: Nombre de los demandantes
       passive_part_d: Nombre de los demandados
@@ -564,7 +564,7 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Sí tiene más pólizas, ingréselas por un guión.
+      policies_d: Sí tiene más pólizas, ingréselas sepearadas por un guión.
       sinisters_d: Sí tiene más siniestros, ingréselas por un guión.
       money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
       dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos
