@@ -1,5 +1,12 @@
+<h4 class="ligthgreen1">Nuevo Registro</h4>
+<br>
+
+
 <p class="justify">
-  Apreciado(a) <%= current_user.name.titleize %>, seleccione el tipo de proceso que desea ingresar en el Regitro Único de la Gerencia de Procesos Judiciales.
+  Apreciado(a) <%= current_user.name.titleize %>.
+  <br>
+  <br>
+  Seleccione el tipo de proceso que desea ingresar en el Regitro Único de la Gerencia de Procesos Judiciales.
 </p>
 <div class="offset-sm-3 col-sm-6">
   <br>
@@ -11,6 +18,7 @@
   <br>
   <%= link_to "Procedimiento Administrativo", new_administrative_path, class:"btn btn-grad mb-5 fw" %>
   <br>
-  <%= link_to "Tutela", new_tutelage_path, class:"btn btn-grad fw" %>
+  <%= link_to "Tutela", new_tutelage_path, class:"btn btn-grad mb-5 fw" %>
   <br><br>
+  <%= link_to 'Volver', index_home_path, class:"btn btn-grad mb-5 fw" %>
 </div>
