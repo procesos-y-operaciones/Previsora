@@ -375,7 +375,7 @@ es-MX:
       sinisters_d: Sí tiene más si, ingréselas por un guión.
       base_d: Caso ON_BASE
       attorny_d: Abogado externo que representa a Previsora.
-      attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo.
+      attorny_date_d: Fecha en la cual se encarga el caso al abogado externo.
       active_part_d: Nombre de los demandantes.
       passive_part_d: Nombre de los demandados.
       facts_d: Relación de las causas que originan la acción judicial.
