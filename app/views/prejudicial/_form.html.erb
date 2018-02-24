@@ -41,7 +41,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Número de radicado correspondencia" %>
+      <%= form.label "Número de radicado de correspondencia" %>
       <div class="input-group">
         <%= form.text_field :correspondency_radicate, onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", id:"correspondency_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -95,7 +95,7 @@
 
       <hr>
 
-      <%= form.label "Fuente de litigio" %>
+      <%= form.label "Fuente del litigio" %>
       <div class="input-group">
         <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {:prompt => 'SELECCIONE'}, {id:"litigationSource", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -131,7 +131,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Número (siniestro)" %>
+      <%= form.label "Número (Siniestro)" %>
       <div class="input-group">
         <%= form.number_field :number, id:"number", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -184,7 +184,7 @@
 
       <hr>
 
-      <%= form.label "Caso ON-BASE" %>
+      <%= form.label "Número de Caso en On-Base" %>
       <div class="input-group">
         <%= form.text_field :case_onbase, id:"case_onbase", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.base_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -196,7 +196,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Fecha de asignación apoderado Previsora" %>
+      <%= form.label "Fecha de asignación del apoderado en Previsora" %>
       <div class="input-group">
         <%= form.date_field :attorny_date, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -220,13 +220,13 @@
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Nombre despacho" %>
+      <%= form.label "Nombre del despacho" %>
       <div class="input-group">
         <%= form.text_field :office_name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Fecha de primera audiencia" %>
+      <%= form.label "Fecha de la primera audiencia" %>
       <div class="input-group">
         <%= form.date_field :desition_date, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.payment_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -234,7 +234,7 @@
 
       <hr>
 
-      <%= form.label "Tipo moneda" %>
+      <%= form.label "Tipo de moneda" %>
       <div class="input-group">
         <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {}, {class:"form-control", id:"moneyType"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.money_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -246,7 +246,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Valor pretensión" %>
+      <%= form.label "Valor de la pretensión" %>
       <div class="input-group">
         <%= form.text_field :detritment_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.detritment_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -258,13 +258,13 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.ensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Calificación contingencia" %>
+      <%= form.label "Calificación de la contingencia" %>
       <div class="input-group">
         <%= form.collection_select(:score_contingency, ScoreContingency.all, :name, :name, {}, {:class=>"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.score_contingency_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Valor contingencia" %>
+      <%= form.label "Valor de la contingencia" %>
       <div class="input-group">
         <%= form.text_field :contingency_value_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.contingency_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -272,25 +272,25 @@
 
       <hr>
 
-      <%= form.label "Ingresa al comité" %>
+      <%= form.label "¿Ingresa al Comité de defensa y conciliación?" %>
       <div class="input-group">
         <%= form.collection_select(:join_committee, JoinCommittee.all, :name, :name, {}, {class:"form-control", id:"join_committee"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.join_committee_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Decisión del comité" %>
+      <%= form.label "Decisión del Comité" %>
       <div class="input-group">
         <%= form.collection_select(:committee, Committee.all, :name, :name, {}, {class:"form-control", id:"committee"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.committee_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Valor autorizado por el comité" %>
+      <%= form.label "Valor autorizado por el Comité" %>
       <div class="input-group">
         <%= form.text_field :auth_value_cents, id:"auth_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Valor pagado Previsora" %>
+      <%= form.label "Valor pagado por Previsora" %>
       <div class="input-group">
         <%= form.text_field :payed_value_cents, id: "payed_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -308,13 +308,13 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reason_conc_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Razón de invialibilidad" %>
+      <%= form.label "Razón de inviabilidad" %>
       <div class="input-group">
         <%= form.text_area :reason_inv, id:"reason_inv", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reason_inv_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label "Reserva honorarios" %>
+      <%= form.label "Reserva de los honorarios" %>
       <div class="input-group">
         <%= form.text_field :reserved_fees_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
