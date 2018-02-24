@@ -3,7 +3,7 @@
       <h2 class="mt-50">Nuevo usuario</h2><br>
       <%= form_for(@user, as: @user_name, url: registration_path(@user)) do |f| %>
 
-        <%= f.label "Documento", class:"form-label" %><br />
+        <%= f.label "Documento de Identidad", class:"form-label" %><br />
         <%= f.text_field :document, pattern:"[0-9]*", title: t(:pattern), autofocus: true, placeholder: "INGRESE EL NÚMERO", class:"form-control" %>
         <br>
         <%= f.label "Nombre", class:"form-label" %><br />

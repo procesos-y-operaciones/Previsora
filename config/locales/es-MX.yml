@@ -367,12 +367,12 @@ es-MX:
       protection_id_d: Amparo	Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
       number_d: Consecutivo con el cual se registró la apertura del siniestro en la herramienta tecnológica SISE.
       exercise_d: Año de creación del siniestro en la herramienta tecnológica SISE.
-      branch_policy_id_d: Sucursal de la póliza	Lugar donde fue emitida la póliza.
+      branch_policy_id_d: Lugar donde fue emitida la póliza.
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Escriba aquí las demás pólizas.
-      sinisters_d: Escriba aquí los demás siniestros.
+      policies_d: Sí tiene más pólizas, ingréselas por un guión.
+      sinisters_d: Sí tiene más si, ingréselas por un guión.
       base_d: Caso ON_BASE
       attorny_d: Abogado externo que representa a Previsora.
       attorny_date_d: Previsora	Fecha en la cual se encarga el caso al abogado externo.
@@ -430,8 +430,8 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Más pólizas.
-      sinisters_d: Más siniestros.
+      policies_d: Sí tiene más pólizas, ingréselas por un guión.
+      sinisters_d: Sí tiene más siniestros, ingréselas por un guión.
       money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
       dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos.
       reserve_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de indemnización.
@@ -503,8 +503,8 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Sí tiene más pólizas seleccione SI, de lo contrario seleccione NO.
-      policies_d: Escriba aquí las demás pólizas.
-      sinisters_d: Escriba aquí los demás siniestros.
+      policies_d: Sí tiene más pólizas, ingréselas por un guión.
+      sinisters_d: Sí tiene más siniestros, ingréselas por un guión.
       money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
       dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos
       reserve_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de indemnización
@@ -564,8 +564,8 @@ es-MX:
       branch_commercial_id_d: Término en que se define el tipo de riesgo que cubren (Ramo de Automóviles, Ramo de Responsabilidad Civil, etc.).
       sinister_d: Lo compone el número de siniestro, el año de ejercicio, el ramo y la sucursal de la póliza (automático).
       more_policies_d: Si el caso consta de más polizas, seleccione SI de lo contrario seleccione NO.
-      policies_d: Escriba aquí las demás pólizas.
-      sinisters_d: Escriba aquí los demás siniestros.
+      policies_d: Sí tiene más pólizas, ingréselas por un guión.
+      sinisters_d: Sí tiene más siniestros, ingréselas por un guión.
       money_type_id_d: Unidad representativa del precio en que fueron asegurados los riesgos (pesos colombianos o dólares de EEUU).
       dolar_value_cents_d: Tasa de cambio representativa del mercado en cantidad de pesos colombianos
       reserve_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de indemnización
