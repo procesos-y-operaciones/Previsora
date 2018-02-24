@@ -110,7 +110,7 @@ es-MX:
   activerecord:
     attributes:
       user:
-        document: documento de identificación
+        document: Documento de Identificación
         confirmation_sent_at: Fecha de envío de confirmación
         confirmation_token: Código de confirmación
         confirmed_at: Fecha de confirmación
