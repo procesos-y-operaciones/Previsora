@@ -24,7 +24,7 @@
 
       <hr>
 
-      <%= form.label "Clase de proceso" %>
+      <%= form.label :process_class, "Clase de Proceso" %>
       <div class="input-group">
         <%= form.collection_select(:process_class, ProcessClass.prejudicial, :name, :name, {}, {class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -32,7 +32,7 @@
 
       <hr>
 
-      <%= form.label "¿Tiene número de radicado correspondencia?" %>
+      <%= form.label :radicate,  "¿Tiene número de radicado correspondencia?" %>
       <div class="input-group">
         <select id="radicate" class="form-control">
           <option value="Si">SI</option>
@@ -122,25 +122,25 @@
       <%= form.label "Amparo" %>
       <div class="input-group">
         <%= form.collection_select(:protection, Protection.all, :name, :name, {:selected => type_process.send(:protection)}, {id:"protection", multiple:true, class:"form-control"}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.protection_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.protection_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Otros amparos" %>
       <div class="input-group">
         <%= form.text_area :more_protections, id:"more_protections", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Número (Siniestro)" %>
       <div class="input-group">
         <%= form.number_field :number, id:"number", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.number_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Ejercicio" %>
       <div class="input-group">
         <%= form.number_field :exercise, id:"exercise", max:"99", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.exercise') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Sucursal de la póliza" %>

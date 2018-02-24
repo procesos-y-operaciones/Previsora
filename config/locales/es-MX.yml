@@ -401,6 +401,7 @@ es-MX:
       reason_conc_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "NO CONCILIAR".
       reason_inv_d: Razones de índole fáctico y jurídico por las cuales la compañía tomó la decisión de "INVIABLE".
       reserved_fees_cents_d: Asignación de una partida necesaria para el pago o reconocimiento futuro de obligaciones por concepto de honorarios profesionales a abogado.
+      more_protections_d: Sí tiene más amparos, ingréselos separados por un guión.
       other: Otro.
     judicial:
       process_class_id_d: Clase de juicio o actuación que es aplicable según la naturaleza de las partes, del asunto y funcionario competente.
