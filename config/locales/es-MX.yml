@@ -545,7 +545,7 @@ es-MX:
       gubernatorial_way_id_d: Motivo por el cual se vincula al asegurado al trámite respectivo
       radicate_d: Sí tiene el número de radicado de correspondencia seleccione SI, de lo contrario seleccione NO.
       correspondency_radicate_d: Consecutivo con el cual se registró el ingreso del primer documento asociado al caso
-      case_id_bap_d: Número de identificación del caso (Bizagi, Access y PA)	Consecutivo con el cual se registró el ingreso del caso a la herramienta tecnológica y/o base de datos
+      case_id_bap_d: Consecutivo con el cual se registró el ingreso del caso a la herramienta tecnológica y/o base de datos
       case_id_sise_d: Consecutivo con el cual se registró el ingreso del caso al Módulo de Procesos Judiciales de SISE
       creation_date_d: Fecha en la cual se crea el caso en la herramienta tecnológica y/o base de datos
       link_type_id_d:  Hace referencia a si Previsora tiene la calidad de demandante, demandado, llamada en garantía, tercero civilmente responsable o garante (procedimientos administrativos).
