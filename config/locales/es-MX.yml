@@ -554,7 +554,7 @@ es-MX:
       litigation_source_id_d: Fuente de litigio	Hace refencia a la causa que originó la vinculación de la compañía al caso; si su fuente inmediata fue un siniestro o una controversia ajena a un contrato de seguro
       ensurance_value_cents_d: Límite máximo de indemnización que va a pagar la aseguradora en caso de siniestro, de acuerdo con el amparo afectado
       reinsurance_type_id_d: Protección que contrata una aseguradora con otra (que recibe el nombre de reaseguradora), para cubrir el riesgo que previamente ha asegurado con la venta de una póliza determinada. Puede ser proporcional o no proporcional, facultativo, etc.
-      reinsurance_report_d: ...
+      reinsurance_report_d: Por la naturaleza del contrato de reaseguro, o la cuantía reclamada, el caso fue reportado a la Gerencia de Reaseguros.
       coensurance_type_id_d: Contrato de seguros suscrito de una parte por el asegurado y de otra parte, por varios aseguradores que asumen con entera independencia, los unos de otros, la obligación de responder separadamente de la parte del riesgo que les corresponda. Puede ser coaseguro cedido (se cede parte del seguro a una u otras compañías) o coaseguro aceptado (se acepta parte del riesgo asegurado en otra compañía).
       policy_cents_d: Documento con que se formalizan ciertos contratos de seguros y es el que sirve de fundamento para la vinculación de la compañía al caso concreto
       protection_id_d: Son todos los riesgos o posibilidades de siniestros que están cubiertas por el seguro y por los cuales, las compañías de seguros, pagan indemnización cuando ocurren.
