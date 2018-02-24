@@ -614,8 +614,8 @@ es-MX:
       failed_notification_date_d: Fecha en que notifican la decisión o fallo a la Compañía
       instance_id_d: Hace referencia a si el caso se encuentra en primera instancia, segunda instancia, en casación, revisión, etc.
       case_termination_id_d: Se selecciona de la lista de desplegable, la opcion "Favorable" o "Desfavorable", según el setido de la Decisión o Fallo.
-      objection_d: Fecha en que notifican la impugnación a la compañía.
-      imp_date_d: Cuando exista una petición de anulación de una resolución noticial.
+      objection_d: Cuando exista una petición de anulación de una resolución noticial.
+      imp_date_d: Fecha en que notifican la impugnación a la compañía.
       tutelage_imp_d: La persona que esta en desacuerdo con el fallo por que no le es favorable.
       objection_date_desition_d: Fecha del fallo de segunda instancia
       objection_date_desition_notification_d: Fecha de notificación del fallo de segunda instancia
