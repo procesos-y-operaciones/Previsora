@@ -229,7 +229,7 @@ LitigationSource.create([
   {name: 'PENDIENTE', n_type: 0},
   {name: 'SINIESTRO', n_type: 1},
   {name: 'PROVISION', n_type: 1},
-  {name: 'ESMITACION RECOBRO', n_type: 1},
+  {name: 'ESTIMACION RECOBRO', n_type: 1},
   {name: 'VINCULACION ERRADA', n_type: 1}
 ])
 
