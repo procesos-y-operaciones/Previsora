@@ -113,7 +113,7 @@
       <%= form.label "Valor del reaseguro" %>
       <div class="input-group">
         <%= form.text_field :reinsurance_value_cents, id:"reinsurance_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reinsurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Tipo de coaseguro" %>
@@ -125,7 +125,7 @@
       <%= form.label "Valor del coaseguro" %>
       <div class="input-group">
         <%= form.text_field :coensurance_value_cents, id:"coensurance_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control"%>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
@@ -222,37 +222,37 @@
       <%= form.label "Valor de la reserva" %>
       <div class="input-group">
         <%= form.text_field :reserve_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserve_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor de la provisión de la indemnización" %>
       <div class="input-group">
         <%= form.text_field :provision_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.provision_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor de la reserva para honorarios" %>
       <div class="input-group">
         <%= form.text_field :reserved_fees_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor de la pretensión / detrimento / estimación" %>
       <div class="input-group">
         <%= form.text_field :detritment_cents, id:"detrimetValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.detritment_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor asegurado" %>
       <div class="input-group">
         <%= form.text_field :ensurance_value_cents, id:"ensuranceValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.ensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor de la contingencia" %>
       <div class="input-group">
         <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
@@ -384,13 +384,13 @@
       <%= form.label "Valor de las costas" %>
       <div class="input-group">
         <%= form.text_field :cost_value_cents,  id:"cost_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class: "form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.cost_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor del fallo de la decisión" %>
       <div class="input-group">
         <%= form.text_field :fail_value_cents, id: "fail_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.fail_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor del fallo a cargo de Previsora" %>
@@ -435,13 +435,13 @@
       <%= form.label "Valor del coactivo" %>
       <div class="input-group">
         <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coactive_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor del embargo" %>
       <div class="input-group">
         <%= form.text_field :garnish_value_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.garnish_value_cents_d') %>"" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Última actuación" %>
@@ -477,13 +477,13 @@
       <%= form.label "Valor autorizado por el Comité" %>
       <div class="input-group">
         <%= form.text_field :auth_value_cents, id:"auth_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.auth_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Valor conciliado" %>
       <div class="input-group">
         <%= form.text_field :reconcilie_value_cents, id:"reconcilie_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="breve descripción" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reconcilie_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label "Razón de no conciliar" %>
