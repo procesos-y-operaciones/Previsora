@@ -1,11 +1,11 @@
 <%= javascript_include_tag "coordinator/management" %>
 
+<h4 class="ligthgreen1">Administrar Usuarios</h4>
+<br>
 <p class="justify">
-  Bienvenido apreciado(a) <%= @user.name.titleize %>.
-  <br><br>
-  Aquí podrá administrar los usuarios de la Base de datos única.
+  A través de esta funcionalidad usted podrá realizar búsquedas específicas de Usuarios o crear nuevos de acuerdo a lo que requiera la operación de la Gerencia de Procesos Judiciales.
 </p>
-
+<br>
 <%= search_form_for @search, url: coordinator_management_url, class:"" do |f| %>
   <div class="row">
     <div class="offset-md-1 col-md-4">
@@ -36,8 +36,9 @@
 <table class="table table-hover table-responsive">
   <thead>
     <tr class="to-uc">
-      <th scope="col" width="50%"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
-      <th scope="col" width="40%"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
+      <th scope="col" width="30%"><%= sort_link @search, :name, "Nombre", {}, :class => 'link' %></th>
+      <th scope="col" width="30%"><%= sort_link @search, :role, "Rol", {}, :class => 'link' %></th>
+      <th scope="col" width="30%"><%= sort_link @search, :charge, "Cargo", {}, :class => 'link' %></th>
       <th scope="col" width="5%"></th>
       <th scope="col" width="5%"></th>
     </tr>
@@ -47,8 +48,9 @@
     <% else %>
       <% @users.each do |u| %>
         <tr id=<%= u.id %>>
-          <td width="50%"><%= u.name.titleize %></td>
-          <td width="40%"><%= u.get_role_name.titleize %></td>
+          <td width="30%"><%= u.name.titleize %></td>
+          <td width="30%"><%= u.get_role_name.titleize %></td>
+          <td width="30%"><%= u.charge.titleize %></td>
           <td width="5%"><%= link_to coordinator_edit_path(u), id:"e#{u.id}", class:"link" do %><span class="fa fa-edit"></span><% end %></td>
           <td width="5%"><%= link_to coordinator_delete_path(u), id:"t#{u.id}", method: :delete, data: { confirm: '¿Esta seguro de eliminar al usuario?'}, class:"link" do %><span class="fa fa-trash-o"></span><% end %></td>
         </tr>
