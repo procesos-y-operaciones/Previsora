@@ -64,7 +64,7 @@
         <%= f.text_field :passive_part_cont, placeholder: "PARTE PASIVA", class:"form-control" %>
       </div>
       <div class="col-md-4">
-        <%= f.text_field :passive_part_cont, placeholder: "ESTADO DEL CASO", class:"form-control" %>
+        <%= f.collection_select(:case_state_eq, CaseState.all, :name, :name, {include_blank:"ESTADO DEL CASO"}, {class:"form-control"}) %>
       </div>
     </div>
 

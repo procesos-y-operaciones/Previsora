@@ -4,7 +4,7 @@
     <div class="offset-sm-4 col-sm-4">
       <% if @current.role == 2 %>
 
-        <%= f.label "Documento", class:"form-label" %><br />
+        <%= f.label "Documento de Identidad", class:"form-label" %><br />
         <%= f.text_field :document, pattern:"[0-9]*", title: t(:pattern), autofocus: true, class:"form-control" %>
 
         <%= f.label "Rol" %>

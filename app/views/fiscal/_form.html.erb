@@ -1,7 +1,5 @@
 <%= javascript_include_tag "fiscal" %>
 
-<p>El símbolo ( <span class="red">*</span> ) marca los campos que son obligatorios.</p>
-
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
@@ -16,6 +14,8 @@
 
   <div class="row">
     <div class="offset-lg-2 col-lg-8 ">
+
+      <p>El símbolo ( <span class="red">*</span> ) marca los campos que son obligatorios.</p>
 
       <% if current_user.role != 2 %>
         <%= form.hidden_field :p_type, :value => 3 %>
@@ -54,7 +54,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi, Acces y PA)" %>
+      <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi, Access y PA)" %>
       <div class="input-group">
         <%= form.text_field :case_id_bap, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_id_bap_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
