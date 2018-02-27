@@ -1,5 +1,7 @@
 <%= javascript_include_tag "tutelage" %>
 
+<p>El símbolo ( <span class="red">*</span> ) marca los campos que son obligatorios.</p>
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
