@@ -162,8 +162,8 @@ class TypeProcess < ApplicationRecord
      self.creation_date, self.get_link_type, self.get_departament, self.city_case,
      self.get_reinsurance_type, self.get_reinsurance_report, self.reinsurance_value_cents,
      self.get_coensurance_type, self.reinsurance_value_cents, self.get_litigation_source,
-     self.policy_cents.to_s + " " + self.policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
-     self.get_branch_commercial, self.sinister + " " + self.sinisters, self.get_money_type, self.dolar_value_cents,
+     self.policy_cents.to_s + " " + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
+     self.get_branch_commercial, self.sinister + " " + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
      self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents, self.contingency_value_cents,
      self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
      format_date(self.attorny_date), self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
@@ -237,8 +237,10 @@ class TypeProcess < ApplicationRecord
   def get_branch_commercial
     if self.branch_commercial == nil
       "NO APLICA"
+    elsif self.branch_commercial == "0"
+      "PENDIENTE"
     else
-      self.branch_commercial
+       BranchCommercial.find(self.branch_commercial).name
     end
   end
 
@@ -260,7 +262,7 @@ class TypeProcess < ApplicationRecord
 
   def get_protection
     if self.protection == [""]
-      "NO APLICA"
+      "- NO APLICA"
     else
       self.protection.join(" - ")
     end
@@ -341,8 +343,10 @@ class TypeProcess < ApplicationRecord
   def get_branch_policy
     if self.branch_policy == nil
       "NO APLICA"
+    elsif self.branch_policy == "0"
+      "PENDIENTE"
     else
-      self.branch_policy
+      BranchPolicy.find(self.branch_policy).name
     end
   end
 
@@ -432,6 +436,26 @@ class TypeProcess < ApplicationRecord
       "DD/MM/AAAA"
     else
       date
+    end
+  end
+
+  def get_sinister
+    #if self.sinister == "PEN"
+  end
+
+  def get_more_sinisters
+    if self.sinisters == "PENDIENTE"
+      ""
+    else
+      self.sinisters
+    end
+  end
+
+  def get_policies
+    if self.policies == "PENDIENTE"
+      ""
+    else
+      self.policies
     end
   end
 

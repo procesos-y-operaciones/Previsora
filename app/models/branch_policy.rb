@@ -15,8 +15,4 @@ class BranchPolicy < ApplicationRecord
     "#{num} - #{name}"
   end
 
-  def self.get_name(id)
-    id
-  end
-
 end
