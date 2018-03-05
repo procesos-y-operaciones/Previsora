@@ -17,8 +17,8 @@
     <div class="offset-lg-2 col-lg-8 ">
 
       <p>El símbolo ( <span class="red">*</span> ) marca los campos que son obligatorios.</p>
-      
-      <% if current_user.role != 2 %>
+
+      <% if current_user.role != 3 %>
         <%= form.hidden_field :p_type, :value => 5 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
