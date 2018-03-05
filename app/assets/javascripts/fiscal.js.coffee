@@ -1,15 +1,33 @@
 $ ->
+  #Patrón de todos los text_area
+  errorMessage = 'Ingrese sólo mayúsculas, numeros, guiones y/o espacios.'
+  $(this).find('textarea').on 'input change propertychange', ->
+    pattern = $(this).attr('pattern')
+    if typeof pattern != typeof undefined and pattern != false
+      patternRegex = new RegExp('^' + pattern.replace(/^\^|\$$/g, '') + '$', 'g')
+      hasError = !$(this).val().match(patternRegex)
+      if typeof @setCustomValidity == 'function'
+        @setCustomValidity if hasError then errorMessage else ''
+      else
+        $(this).toggleClass 'error', ! !hasError
+        $(this).toggleClass 'ok', !hasError
+        if hasError
+          $(this).attr 'title', errorMessage
+        else
+          $(this).removeAttr 'title'
+
   #Valores iniciales
   initial_values = ->
     if $('#passive_part').val() == "NO APLICA"
       $('#passive_part').val("PENDIENTE")
     if $('#contingency_reason').val() == "NO APLICA"
       $('#contingency_reason').val("PENDIENTE")
+    if $('#contingency_resume').val() == "NO APLICA"
+      $('#contingency_resume').val("PENDIENTE")
     if $('#facts').val() == "NO APLICA"
       $('#facts').val("PENDIENTE")
 
   initial_values()
-
 
   #Subclase de proceso
   subprocess_class_rule = ->

@@ -1,4 +1,21 @@
 $ ->
+  #Patrón de todos los text_area
+  errorMessage = 'Ingrese sólo mayúsculas, numeros, guiones y/o espacios.'
+  $(this).find('textarea').on 'input change propertychange', ->
+    pattern = $(this).attr('pattern')
+    if typeof pattern != typeof undefined and pattern != false
+      patternRegex = new RegExp('^' + pattern.replace(/^\^|\$$/g, '') + '$', 'g')
+      hasError = !$(this).val().match(patternRegex)
+      if typeof @setCustomValidity == 'function'
+        @setCustomValidity if hasError then errorMessage else ''
+      else
+        $(this).toggleClass 'error', ! !hasError
+        $(this).toggleClass 'ok', !hasError
+        if hasError
+          $(this).attr 'title', errorMessage
+        else
+          $(this).removeAttr 'title'
+          
   #Valores iniciales
   initial_values = ->
     if $('#case_id_bap').val() == "NO APLICA"
