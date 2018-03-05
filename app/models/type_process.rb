@@ -240,7 +240,7 @@ class TypeProcess < ApplicationRecord
     elsif self.branch_commercial == "0"
       "PENDIENTE"
     else
-       BranchCommercial.where(num: self.branch_commercial).name
+       BranchCommercial.where(num: self.branch_commercial)[0].name
     end
   end
 
@@ -346,7 +346,7 @@ class TypeProcess < ApplicationRecord
     elsif self.branch_policy == "0"
       "PENDIENTE"
     else
-      BranchPolicy.where(num: self.branch_policy).name
+      BranchPolicy.where(num: self.branch_policy)[0].name
     end
   end
 
