@@ -240,7 +240,7 @@ class TypeProcess < ApplicationRecord
     elsif self.branch_commercial == "0"
       "PENDIENTE"
     else
-       BranchCommercial.find(self.branch_commercial).name
+       BranchCommercial.where(num: self.branch_commercial)[0].name
     end
   end
 
@@ -264,7 +264,7 @@ class TypeProcess < ApplicationRecord
     if self.protection == [""]
       "- NO APLICA"
     else
-      self.protection.join(" - ")
+      self.protection.join(" , ")
     end
   end
 
@@ -272,7 +272,7 @@ class TypeProcess < ApplicationRecord
     if self.more_protections == nil
       " "
     else
-      " - " + self.more_protections
+      " , " + self.more_protections
     end
   end
 
@@ -346,7 +346,7 @@ class TypeProcess < ApplicationRecord
     elsif self.branch_policy == "0"
       "PENDIENTE"
     else
-      BranchPolicy.find(self.branch_policy).name
+      BranchPolicy.where(num: self.branch_policy)[0].name
     end
   end
 
