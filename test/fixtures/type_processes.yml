@@ -52,25 +52,25 @@
 #  coensurance_type                     :string
 #  more_protections                     :text
 #  facts                                :text             default("NO APLICA")
-#  dolar_value_cents                    :integer
-#  detritment_cents                     :integer
-#  ensurance_value_cents                :integer
-#  contingency_value_cents              :integer
-#  policy_cents                         :integer
-#  reserve_cents                        :integer
-#  reserved_fees_cents                  :integer
-#  provision_cents                      :integer
-#  fail_value_cents                     :integer
-#  fail_previ_cents                     :integer
-#  payed_value_cents                    :integer
-#  coactive_value_cents                 :integer
-#  garnish_value_cents                  :integer
-#  reensurance_gived_cents              :integer
-#  auth_value_cents                     :integer
-#  reinsurance_value_cents              :integer
-#  coensurance_value_cents              :integer
-#  reconcilie_value_cents               :integer
-#  cost_value_cents                     :integer
+#  dolar_value_cents                    :integer          default(0)
+#  detritment_cents                     :integer          default(0)
+#  ensurance_value_cents                :integer          default(0)
+#  contingency_value_cents              :integer          default(0)
+#  policy_cents                         :integer          default(0)
+#  reserve_cents                        :integer          default(0)
+#  reserved_fees_cents                  :integer          default(0)
+#  provision_cents                      :integer          default(0)
+#  fail_value_cents                     :integer          default(0)
+#  fail_previ_cents                     :integer          default(0)
+#  payed_value_cents                    :integer          default(0)
+#  coactive_value_cents                 :integer          default(0)
+#  garnish_value_cents                  :integer          default(0)
+#  reensurance_gived_cents              :integer          default(0)
+#  auth_value_cents                     :integer          default(0)
+#  reinsurance_value_cents              :integer          default(0)
+#  coensurance_value_cents              :integer          default(0)
+#  reconcilie_value_cents               :integer          default(0)
+#  cost_value_cents                     :integer          default(0)
 #  creation_date                        :date
 #  notification_date                    :date
 #  attorny_date                         :date
