@@ -269,7 +269,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_more_protection
-    if self.more_protections == "NO APLICA" || self.more_protections == ""
+    if self.more_protections == "NO APLICA" || self.more_protections == nil
       " "
     else
       "-" + self.more_protections
