@@ -253,7 +253,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_score_contingency
-    if self.score_contingency == nil
+    if self.score_contingency == ""
       "NO APLICA"
     else
       self.score_contingency
@@ -261,7 +261,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_protection
-    if self.protection == nil
+    if self.protection == nil || self.protection == [""]
       "NO APLICA"
     else
       self.protection[1..-1].join("-")
@@ -269,7 +269,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_more_protection
-    if self.more_protections == nil
+    if self.more_protections == "NO APLICA" || self.more_protections == ""
       " "
     else
       "-" + self.more_protections
