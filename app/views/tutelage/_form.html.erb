@@ -57,7 +57,7 @@
 
       <%= form.label :correspondency_radicate, "Número de radicado de Correspondencia o de Vicepresidencia" %>
       <div class="input-group">
-        <%= form.text_field :correspondency_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -77,13 +77,13 @@
 
       <%= form.label :active_part, "Parte activa" %>
       <div class="input-group">
-        <%= form.text_field :active_part, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <%= form.text_field :active_part, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :passive_part, "Parte pasiva" %>
       <div class="input-group">
-        <%= form.text_field :passive_part, pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <%= form.text_field :passive_part, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -93,7 +93,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
       <div class="input-group">
-        <%= form.text_field :other_office_name, id: "office_text", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
+        <%= form.text_field :other_office_name, id: "office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
       </div>
 
       <%= form.label :departament, "Departamento donde cursa el caso" %>
@@ -112,7 +112,7 @@
 
       <%= form.label :process_radicate, "Número de radicación del proceso" %>
       <div class="input-group">
-        <%= form.text_field :process_radicate, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :process_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -165,7 +165,7 @@
 
       <%= form.label :tutelage_imp, "Impugnante" %>
       <div class="input-group">
-        <%= form.text_field :tutelage_imp, id: "objecter", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, class:"form-control" %>
+        <%= form.text_field :tutelage_imp, id: "objecter", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.tutelage_imp_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

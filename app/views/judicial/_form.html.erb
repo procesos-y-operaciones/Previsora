@@ -54,25 +54,25 @@
 
       <%= form.label :correspondency_radicate, "Número de radicado correspondencia" %>
       <div class="input-group">
-        <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, id:"correspondency_radicate", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi, Acces y PA)" %>
       <div class="input-group">
-        <%= form.text_field :case_id_bap, id:"case_id_bap", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :case_id_bap, id:"case_id_bap", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_bap_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :case_id_sise, "Número de identificación del caso en SISE" %>
       <div class="input-group">
-        <%= form.text_field :case_id_sise, id:"case_id_sise", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :case_id_sise, id:"case_id_sise", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :case_id_ekogui, "Número de identificación del caso en eKOGUI" %>
       <div class="input-group">
-        <%= form.text_field :case_id_ekogui, id:"case_id_ekogui", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :case_id_ekogui, id:"case_id_ekogui", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_ekogui_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -152,7 +152,7 @@
 
       <%= form.label :more_protections, "Otros amparos" %>
       <div class="input-group">
-        <%= form.text_area :more_protections, id:"more_protections", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+        <%= form.text_area :more_protections, id:"more_protections", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -197,13 +197,13 @@
 
       <%= form.label :policies, "Número de pólizas" %>
       <div class="input-group">
-        <%= form.text_area :policies, id:"policies", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :policies, id:"policies", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :sinisters, "Número de siniestros" %>
       <div class="input-group">
-        <%= form.text_area :sinisters, id:"sinisters", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :sinisters, id:"sinisters", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.sinisters_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -267,13 +267,13 @@
 
       <%= form.label :process_radicate, "Número de radicación del proceso" %><span class="red">*</span>
       <div class="input-group">
-        <%= form.text_field :process_radicate, id:"process_radicate", pattern:"[0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"100", pattern:"[0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :attorny, "Apoderado en Previsora" %>
       <div class="input-group">
-        <%= form.text_field :attorny, pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <%= form.text_field :attorny, pattern:"[A-Z0-9\- ]*", maxlength:"100", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -289,18 +289,18 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
       <div class="input-group">
-        <%= form.text_field :other_office_name, id: "office_text", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
+        <%= form.text_field :other_office_name, id: "office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
       </div>
 
       <%= form.label :active_part, "Parte activa" %>
       <div class="input-group">
-        <%= form.text_field :active_part, id:"active_part", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <%= form.text_field :active_part, id:"active_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :passive_part, "Parte pasiva" %>
       <div class="input-group">
-        <%= form.text_field :passive_part, id:"passive_part", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <%= form.text_field :passive_part, id:"passive_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -312,19 +312,19 @@
 
       <%= form.label :contingency_reason, "Razón de la contingencia" %>
       <div class="input-group">
-        <%= form.text_area :contingency_reason, id:"contingency_reason", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :contingency_resume, "Resumen de la contingencia" %>
       <div class="input-group">
-        <%= form.text_area :contingency_resume, id:"contingency_resume", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :contingency_resume, id:"contingency_resume", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :facts, "Hechos" %>
       <div class="input-group">
-        <%= form.text_area :facts, id:"facts", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :facts, id:"facts", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -490,13 +490,13 @@
 
       <%= form.label :reason_conc, "Razón de no conciliar" %>
       <div class="input-group">
-        <%= form.text_area :reason_conc, id:"reason_conc", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :reason_conc, id:"reason_conc", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reason_conc_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reason_inv, "Razón de inviabilidad" %>
       <div class="input-group">
-        <%= form.text_area :reason_inv, id:"reason_inv", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :reason_inv, id:"reason_inv", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reason_inv_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
