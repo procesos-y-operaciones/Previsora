@@ -264,7 +264,7 @@ class TypeProcess < ApplicationRecord
     if self.protection == nil
       "NO APLICA"
     else
-      self.protection[1..-1].join(", ")
+      self.protection[1..-1].join("-")
     end
   end
 
@@ -272,7 +272,7 @@ class TypeProcess < ApplicationRecord
     if self.more_protections == nil
       " "
     else
-      ", " + self.more_protections
+      "-" + self.more_protections
     end
   end
 
