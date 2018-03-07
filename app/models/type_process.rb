@@ -116,6 +116,9 @@ class TypeProcess < ApplicationRecord
     if process_radicate != "NO PRESENTA" && process_radicate != "NO APLICA" && process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate).present?
       errors.add("Número de radicación del proceso", " ya existe")
     end
+    if correspondency_radicate != "NO PRESENTA" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => correspondency_radicate).present?
+      errors.add("Número de correspondencia", " ya existe")
+    end
   end
 
   def update_ids
