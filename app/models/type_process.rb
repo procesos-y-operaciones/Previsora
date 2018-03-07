@@ -105,7 +105,7 @@ class TypeProcess < ApplicationRecord
 
   def validate_ids
     if case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
-      errors.add("Número de identificación del caso (bizagi, access y pa)", " ya existe")
+      errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
     end
     if case_id_sise != "NO PRESENTA" && case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_bap).present?
       errors.add("Número de identificación del caso sise", " ya existe")
@@ -123,7 +123,7 @@ class TypeProcess < ApplicationRecord
 
   def update_ids
     if case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
-      errors.add("Número de identificación del caso (bizagi, access y pa)", " ya existe")
+      errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
     end
     if case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_bap)[0].id != id
       errors.add("Número de identificación del caso sise", " ya existe")
@@ -134,7 +134,7 @@ class TypeProcess < ApplicationRecord
     if process_radicate != "NO APLICA" && process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate)[0].id == id
       errors.add("Número de radicación del proceso", " ya existe")
     end
-    if correspondency_radicate != "NO PRESENTA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
+    if correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
       errors.add("Número de correspondencia", " ya existe")
     end
   end
