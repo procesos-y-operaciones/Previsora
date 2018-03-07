@@ -3,29 +3,28 @@
 <h4 class="ligthgreen1">Buscar Registro</h4>
 <br>
 
-
 <%= search_form_for @search, url: asignator_search_url, class:"" do |f| %>
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="offset-md-3 col-md-4">
       <div class="styled-select">
-        <%= f.select :p_type_eq, options_for_select([["SELECCIONE", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
+        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
       </div>
     </div>
-    <div class="offset-md-4 col-md-4 center">
-      <button type="submit" class="minibtn btn-default">
-        <span class="fa">&#xf002;</span>
-      </button>
-      <%= link_to asignator_search_path, class:"minibtn btn-default" do %>
-        <span class="fa">&#xf021;</span>
-      <% end %>
-      <button onclick="filter_btn(this)" type="button" class="minibtn btn-default" data-toggle="collapse" data-target="#demo">
-        <span class="fa fa-angle-double-down"></span>
-      </button>
-    </div>
+    <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
+      <span class="fa fa-search"></span>
+    <% end %>
+    <%= link_to asignator_search_path, class:"offset-md-7 minibtn btn-default m-1" do %>
+      <span class="fa fa-refresh"></span>
+    <% end %>
+    <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-8 minibtn btn-default m-1">
+      <span id="collapseButton" class="fa fa-angle-double-down"></span>
+    </button>
   </div>
 
-  <div id="demo" class="collapse">
+  <br>
+
+  <div id="filters" class="collapse">
     <div class="row">
       <div class="col-md-4">
         <div class="styled-select">

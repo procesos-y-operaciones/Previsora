@@ -25,7 +25,7 @@ User.create([
   {document: '71683546', name: 'FABIAN DE JESUS PASADA VELEZ', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '1118532099', name: 'MAYRA  MORENO ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '1016039726', name: 'MARIA ALEJANDRA  GUTIERREZ BECERRA', charge: 'PROFESIONAL GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
-  {document: '52976920', name: 'EDITHE JOHANNA VELASQUEZ GONZALES', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
+  {document: '52976920', name: 'EDITHE JOHANNA VELASQUEZ GONZALEZ', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '63358777', name: 'DALILA CRISTINA TAPIAS ACEVEDO', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '37901644', name: 'LUISA FERNANDA ORTEGA SOLANO', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '72272660', name: 'ARON JOSE ORTIZ ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
