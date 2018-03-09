@@ -167,7 +167,7 @@ class TypeProcess < ApplicationRecord
      self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui,
      self.creation_date, self.get_link_type, self.get_departament, self.city_case,
      self.get_reinsurance_type, self.get_reinsurance_report, self.reinsurance_value_cents,
-     self.get_coensurance_type, self.reinsurance_value_cents, self.get_litigation_source,
+     self.get_coensurance_type, self.coensurance_value_cents, self.get_litigation_source,
      self.policy_cents.to_s + " " + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
      self.get_branch_commercial, self.sinister + " " + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
      self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents, self.contingency_value_cents,
