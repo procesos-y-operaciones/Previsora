@@ -167,10 +167,10 @@ class TypeProcess < ApplicationRecord
      self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui,
      self.creation_date, self.get_link_type, self.get_departament, self.city_case,
      self.get_reinsurance_type, self.get_reinsurance_report, self.reinsurance_value_cents,
-     self.get_coensurance_type, self.reinsurance_value_cents, self.get_litigation_source,
-     self.policy_cents.to_s + " " + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
-     self.get_branch_commercial, self.sinister + " " + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
-     self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents, self.contingency_value_cents,
+     self.get_coensurance_type, self.coensurance_value_cents, self.get_litigation_source,
+     self.policy_cents.to_s + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
+     self.get_branch_commercial, self.sinister + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
+     self.reserve_cents, self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents,
      self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
      format_date(self.attorny_date), self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
      self.contingency_reason, self.contingency_resume, self.facts, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
@@ -233,7 +233,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_link_type
-    if self.link_type == nil
+    if self.link_type == nil || self.link_type == ""
       "NO APLICA"
     else
       self.link_type
@@ -247,6 +247,16 @@ class TypeProcess < ApplicationRecord
       "PENDIENTE"
     else
        BranchCommercial.where(num: self.branch_commercial)[0].name
+    end
+  end
+
+  def get_branch_policy
+    if self.branch_policy == nil
+      "NO APLICA"
+    elsif self.branch_policy == "0"
+      "PENDIENTE"
+    else
+      BranchPolicy.where(num: self.branch_policy)[0].name
     end
   end
 
@@ -270,7 +280,7 @@ class TypeProcess < ApplicationRecord
     if self.protection == nil || self.protection == [""]
       "NO APLICA"
     else
-      self.protection[1..-1].join("-")
+      self.protection[1..-1].join(" - ")
     end
   end
 
@@ -343,16 +353,6 @@ class TypeProcess < ApplicationRecord
       "NO APLICA"
     else
       self.coensurance_type
-    end
-  end
-
-  def get_branch_policy
-    if self.branch_policy == nil
-      "NO APLICA"
-    elsif self.branch_policy == "0"
-      "PENDIENTE"
-    else
-      BranchPolicy.where(num: self.branch_policy)[0].name
     end
   end
 
@@ -453,7 +453,7 @@ class TypeProcess < ApplicationRecord
     if self.sinisters == "PENDIENTE"
       ""
     else
-      self.sinisters
+      " " + self.sinisters
     end
   end
 
@@ -461,7 +461,7 @@ class TypeProcess < ApplicationRecord
     if self.policies == "PENDIENTE"
       ""
     else
-      self.policies
+      " - " + self.policies
     end
   end
 

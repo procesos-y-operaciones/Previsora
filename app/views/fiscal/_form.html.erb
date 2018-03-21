@@ -110,7 +110,7 @@
 
       <%= form.label :reinsurance_report, "Reaseguro reportado" %><br>
       <div class="input-group">
-        <%= form.select :reinsurance_report, options_for_select([["No", false], ["Si", true]]), {}, { class:'form-control' } %>
+        <%= form.select :reinsurance_report, options_for_select([["NO", false], ["SI", true]]), {}, { class:'form-control' } %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reinsurance_report_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -146,7 +146,7 @@
 
       <%= form.label :exercise, "Ejercicio" %>
       <div class="input-group">
-        <%= form.number_field :exercise, id:"exercise", class:"form-control" %>
+        <%= form.number_field :exercise, id:"exercise", max: "99", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.exercise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -179,13 +179,13 @@
 
       <%= form.label :policies, "Número de pólizas" %>
       <div class="input-group">
-        <%= form.text_area :policies, id:"policies", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+        <%= form.text_area :policies, id:"policies", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :sinisters, "Número de siniestros" %>
       <div class="input-group">
-        <%= form.text_area :sinisters, id:"sinisters", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", class:"form-control" %>
+        <%= form.text_area :sinisters, id:"sinisters", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.sinisters_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -200,7 +200,7 @@
       <%= form.label :dolar_value_cents, "Valor del dólar" %>
       <div class="input-group">
         <%= form.text_field :dolar_value_cents, id:"dolarValueCents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reserve_cents, "Reserva o provisión de la indemnización" %>
@@ -243,13 +243,13 @@
 
       <%= form.label :process_radicate, "Número de radicación del proceso" %>
       <div class="input-group">
-        <%= form.text_field :process_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', required: true, class:"form-control" %>
+        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"100", pattern:"[0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :attorny, "Apoderado de Previsora" %>
       <div class="input-group">
-        <%= form.text_field :attorny, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <%= form.text_field :attorny, id:"attorny", pattern:"[A-Z0-9\- ]*", maxlength:"100", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -330,7 +330,7 @@
 
       <%= form.label :case_termination, "Terminación del caso" %>
       <div class="input-group">
-        <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {}, {class:"form-control", id:"caseTermination"}) %>
+        <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -399,7 +399,7 @@
 
       <%= form.label :reserved_released, "¿La reserva fue depurada?" %>
       <div class="input-group">
-        <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
+        <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"reservedReleased"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reserved_released_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

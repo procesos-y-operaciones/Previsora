@@ -25,33 +25,33 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :reason_conc, default: "NO APLICA"
       t.string    :reason_inv, default: "NO APLICA"
       t.string    :office_name, default: "NO APLICA"
-      t.string    :other_office_name
-      t.string    :departament, default: "PENDIENTE"
-      t.string    :city_case, default: "PENDIENTE"
-      t.string    :process_class
-      t.string    :subprocess_class
-      t.string    :link_type
-      t.string    :branch_policy
-      t.string    :branch_commercial
-      t.string    :score_contingency
-      t.string    :protection
-      t.string    :current_stage
-      t.string    :litigation_source
-      t.string    :instance
-      t.string    :case_state
-      t.string    :case_termination
-      t.string    :reinsurance_type
-      t.string    :last_performance
-      t.string    :gubernatorial_way
-      t.string    :notification_type_second
-      t.string    :setence_type_second_company
-      t.string    :sentence_type_desacate
-      t.string    :reserved_released
-      t.string    :money_type
-      t.string    :join_committee
-      t.string    :committee
-      t.string    :coensurance_type
-      t.text      :more_protections
+      t.string    :other_office_name, default: "NO APLICA"
+      t.string    :departament, default: "NO APLICA"
+      t.string    :city_case, default: "SELECCIONE"
+      t.string    :process_class, default: "NO APLICA"
+      t.string    :subprocess_class, default: "NO APLICA"
+      t.string    :link_type, default: "NO APLICA"
+      t.string    :branch_policy, default: "NO APLICA"
+      t.string    :branch_commercial, default: "NO APLICA"
+      t.string    :score_contingency, default: "NO APLICA"
+      t.string    :protection, default: "NO APLICA"
+      t.string    :current_stage, default: "NO APLICA"
+      t.string    :litigation_source, default: "NO APLICA"
+      t.string    :instance, default: "NO APLICA"
+      t.string    :case_state, default: "NO APLICA"
+      t.string    :case_termination, default: "NO APLICA"
+      t.string    :reinsurance_type, default: "NO APLICA"
+      t.string    :last_performance, default: "NO APLICA"
+      t.string    :gubernatorial_way, default: "NO APLICA"
+      t.string    :notification_type_second, default: "NO APLICA"
+      t.string    :setence_type_second_company, default: "NO APLICA"
+      t.string    :sentence_type_desacate, default: "NO APLICA"
+      t.string    :reserved_released, default: "NO APLICA"
+      t.string    :money_type, default: "NO APLICA"
+      t.string    :join_committee, default: "NO APLICA"
+      t.string    :committee, default: "NO APLICA"
+      t.string    :coensurance_type, default: "NO APLICA"
+      t.text      :more_protections, default: "NO APLICA"
       t.text      :facts, default: "NO APLICA"
       #VALUES
       t.bigint  :dolar_value_cents, default: 0

@@ -32,6 +32,8 @@ $ ->
       $('#active_part').val("PENDIENTE")
     if $('#passive_part').val() == "NO APLICA"
       $('#passive_part').val("PENDIENTE")
+    if $('#attorny').val() == "NO APLICA"
+      $('#attorny').val("PENDIENTE")
 
 
   initial_values()
@@ -129,13 +131,12 @@ $ ->
         $('#currentStageDiv').show()
         $('#judicial_arbitral').prop( "disabled", false )
         $('#judicial_arbitral').show()
+      when "JURISDICCION CIVIL"
+        subprocess_civil_rule()
 
   $('#processClass').change ->
     process_class_rule()
     current_stage_rule()
-
-  process_class_rule()
-  current_stage_rule()
 
   #Subclase de proceso -> jurisdicción civil
   subprocess_civil_rule = ->
@@ -416,24 +417,24 @@ $ ->
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
+      $('#reservedReleased').val("PENDIENTE")
       $('#recovery').prop( "disabled", false )
+      $('#desition_date').prop( "disabled", false )
     else
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination').val("")
       $('#lastPerformance').prop( "disabled", true )
-      $('#lastPerformance').val("1")
+      $('#lastPerformance').val("PENDIENTE")
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#lastPerformanceDate').val("0-0-0")
       $('#reservedReleased').prop( "disabled", true )
-      $('#reservedReleased').val("1")
       $('#recovery').prop( "disabled", true )
-      $('#recovery').val("PENDIENTE")
+      $('#desition_date').prop( "disabled", true )      
 
   $('#caseState').change ->
     case_state_rule()
 
   case_state_rule()
-
 
   #Terminación del caso
   case_termination_rule = ->
@@ -458,7 +459,6 @@ $ ->
 
   case_termination_rule()
 
-
   #¿Tiene costas a favor?
   cost_rule = ->
     v_option = document.getElementById('cost').value
@@ -471,7 +471,6 @@ $ ->
     cost_rule()
 
   cost_rule()
-
 
   #¿Tiene número de radicado de coactivo?
   coactive_radicate_and_coactive_value_cents_rule = ->
@@ -500,6 +499,7 @@ $ ->
   $('#coactive').change ->
     coactive_rule()
 
+  coactive_rule()
 
   #¿Ingresa al comité?
   join_committee_rule = ->
@@ -511,7 +511,6 @@ $ ->
       document.getElementById("committee_date").readOnly = true
       $('#committee_date').val("0-0-0")
       $('#committee').prop( "disabled", true )
-      $('#committee').val("1")
 
   $('#join_committee').change ->
     join_committee_rule()
@@ -529,12 +528,6 @@ $ ->
       $('#reason_conc').val("PENDIENTE")
       document.getElementById("reason_inv").readOnly = true
       $('#reason_inv').val("PENDIENTE")
-      document.getElementById("fail_value").readOnly = true
-      $('#fail_value').val("0")
-      document.getElementById("fail_previ").readOnly = true
-      $('#fail_previ').val("0")
-      document.getElementById("payed_value").readOnly = true
-      $('#payed_value').val("0")
     else if v_option == "NO CONCILIA"
       document.getElementById("reconcilie_value").readOnly = true
       $('#reconcilie_value').val("0")
@@ -543,9 +536,6 @@ $ ->
       document.getElementById("reason_conc").readOnly = false
       document.getElementById("reason_inv").readOnly = true
       $('#reason_inv').val("PENDIENTE")
-      document.getElementById("fail_value").readOnly = false
-      document.getElementById("fail_previ").readOnly = false
-      document.getElementById("payed_value").readOnly = false
     else if v_option == "INVIABLE"
       document.getElementById("reconcilie_value").readOnly = true
       $('#reconcilie_value').val("0")
@@ -554,9 +544,6 @@ $ ->
       document.getElementById("reason_conc").readOnly = true
       $('#reason_conc').val("PENDIENTE")
       document.getElementById("reason_inv").readOnly = false
-      document.getElementById("fail_value").readOnly = false
-      document.getElementById("fail_previ").readOnly = false
-      document.getElementById("payed_value").readOnly = false
     else
       document.getElementById("reconcilie_value").readOnly = true
       $('#reconcilie_value').val("0")
@@ -566,14 +553,14 @@ $ ->
       $('#reason_conc').val("PENDIENTE")
       document.getElementById("reason_inv").readOnly = true
       $('#reason_inv').val("PENDIENTE")
-      document.getElementById("fail_value").readOnly = false
-      document.getElementById("fail_previ").readOnly = false
-      document.getElementById("payed_value").readOnly = false
 
   $('#committee').change ->
     committee_rule()
+
   committee_rule()
 
+  process_class_rule()
+  current_stage_rule()
 
   #Departamento donde cursa el caso
   $('#departament').change ->
@@ -584,6 +571,3 @@ $ ->
       $.each data, (i) ->
         opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
         output_state.append opt
-
-  #$('#committee').change ->
-  #  alert $('#committee').val()
