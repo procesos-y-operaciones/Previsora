@@ -51,6 +51,8 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       t.string    :join_committee, default: "NO APLICA"
       t.string    :committee, default: "NO APLICA"
       t.string    :coensurance_type, default: "NO APLICA"
+      t.string    :policy_taker, default: "NO APLICA"
+      t.string    :contract, default: "NO APLICA"
       t.text      :more_protections, default: "NO APLICA"
       t.text      :facts, default: "NO APLICA"
       #VALUES

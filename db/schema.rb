@@ -207,7 +207,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "office_name", default: "NO APLICA"
     t.string "other_office_name", default: "NO APLICA"
     t.string "departament", default: "NO APLICA"
-    t.string "city_case", default: "PENDIENTE"
+    t.string "city_case", default: "SELECCIONE"
     t.string "process_class", default: "NO APLICA"
     t.string "subprocess_class", default: "NO APLICA"
     t.string "link_type", default: "NO APLICA"
@@ -231,6 +231,8 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.string "join_committee", default: "NO APLICA"
     t.string "committee", default: "NO APLICA"
     t.string "coensurance_type", default: "NO APLICA"
+    t.string "policy_taker", default: "NO APLICA"
+    t.string "contract", default: "NO APLICA"
     t.text "more_protections", default: "NO APLICA"
     t.text "facts", default: "NO APLICA"
     t.bigint "dolar_value_cents", default: 0

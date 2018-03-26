@@ -159,7 +159,7 @@ class TypeProcess < ApplicationRecord
      'Fecha notificacion decision o fallo', 'Fecha de notificacion impugnacion', 'Impugnante',
      'Fecha decision impugnacion', 'Fecha de notificacion decision impugnacion', 'Tipo decision impugnacion',
      'Fecha notificacion incidente de desacato', 'Fecha de contestacion incidente de desacato',
-     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato']
+     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato', 'Tomador de la poliza', 'Contrato concesion']
   end
 
   def get_content_all
@@ -182,7 +182,7 @@ class TypeProcess < ApplicationRecord
      format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
      self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification),
      self.get_setence_type_second_company, format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),
-     format_date(self.date_notification_desition_desacate), self.get_sentence_type_desacate]
+     format_date(self.date_notification_desition_desacate), self.get_sentence_type_desacate, self.get_policy_taker, self.get_contract]
   end
 
   def self.to_csv(date_from, date_until, options = {})
@@ -279,6 +279,8 @@ class TypeProcess < ApplicationRecord
   def get_protection
     if self.protection == nil || self.protection == [""]
       "NO APLICA"
+    elsif self.protection == "CUMPLIMIENTO"
+      self.protection
     else
       self.protection[1..-1].join(" - ")
     end
@@ -462,6 +464,22 @@ class TypeProcess < ApplicationRecord
       ""
     else
       " - " + self.policies
+    end
+  end
+
+  def get_policy_taker
+    if self.policy_taker == nil
+      "NO APLICA"
+    else
+      self.policy_taker
+    end
+  end
+
+  def get_contract
+    if self.contract == nil
+      "NO APLICA"
+    else
+      self.contract
     end
   end
 

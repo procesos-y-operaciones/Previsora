@@ -474,6 +474,7 @@ CurrentStage.create([
   {name: 'EN TERMINOS PARA RESOLVER RECURSOS DE REPOSICION', n_type: 18},
   {name: 'AUDIENCIA SUSPENDIDA', n_type: 18},
   {name: 'AUDIENCIA QUE RESUELVE', n_type: 18},
+  {name: 'SANCION EN FIRME', n_type: 18},
   {name: 'PREJUDICIAL', n_type: 19},
 ])
 
