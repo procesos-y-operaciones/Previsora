@@ -1,4 +1,5 @@
 User.create([
+  {document: "12345678", name: "USUARIO MIGRACION", charge: 'MIGRACION', password: "Previsora2018", password_confirmation: "Previsora2018", role: 1},
   {document: "1032459412", name: "JONATHAN GRANADOS", charge: 'INGENIERO PYO', password: "Previsora2018", password_confirmation: "Previsora2018", role: 1},
   {document: "1", name: "COORDINADOR OPERATIVO", charge: 'INGENIERO PYO', password: "Previsora2018", password_confirmation: "Previsora2018", role: 2},
   {document: "2", name: "COORDINADOR LEGAL", charge: 'INGENIERO PYO', password: "Previsora2018", password_confirmation: "Previsora2018", role: 3},

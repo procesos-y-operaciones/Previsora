@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   post 'asignator/translate', :to => 'asignator#translate', :as => 'asignator_translate'
 
   get 'administrator/search'
+  get 'administrator/report'
 
   get 'cities/:state', to: 'application#cities'
 
