@@ -181,17 +181,23 @@ $ ->
   ensurance_value_rule = ->
     ensuranceValue = document.getElementById('ensuranceValue').value
     subClass = document.getElementById('subprocessClass').value
-    if ensuranceValue >= 1000000000 and subClass == '71'
+    ensuranceValue = ensuranceValue.split("'").join("")
+    ensuranceValue = ensuranceValue.split(",").join("")
+    if ensuranceValue >= 1000000000 and subClass == 'COLJUEGOS'
       $('#reinsuranceTypeSF').prop 'disabled', true
       $('#reinsuranceTypeSF').hide()
       $('#reinsuranceType').prop 'disabled', false
       $('#reinsuranceType').show()
+      $('#reinsurance_report').prop( "disabled", false )
     else
       $('#reinsuranceTypeSF').prop 'disabled', false
       $('#reinsuranceTypeSF').show()
       $('#reinsuranceType').prop 'disabled', true
       $('#reinsuranceType').hide()
       $('#reinsuranceType').val("")
+      $('#reinsurance_report').prop( "disabled", true )
+      $('#reinsurance_report').val("false")
+
 
   $('#ensuranceValue').change ->
     ensurance_value_rule()

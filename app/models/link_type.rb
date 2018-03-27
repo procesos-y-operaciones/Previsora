@@ -28,7 +28,7 @@ class LinkType < ApplicationRecord
   end
 
   def self.tutelage
-    LinkType.order(n_type: :desc, name: :asc).where(n_type: [0, 4])
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [0, 6])
   end
 
 end

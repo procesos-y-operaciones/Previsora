@@ -15,14 +15,17 @@ $ ->
           $(this).attr 'title', errorMessage
         else
           $(this).removeAttr 'title'
-          
+
   #Valores iniciales
   initial_values = ->
     if $('#process_radicate').val() == "NO APLICA"
       $('#process_radicate').val("PENDIENTE")
+    if $('#active_part').val() == "NO APLICA"
+      $('#active_part').val("PENDIENTE")
+    if $('#passive_part').val() == "NO APLICA"
+      $('#passive_part').val("PENDIENTE")
 
   initial_values()
-
 
   #¿Tiene número de radicado correspondencia?
   correspondency_radicate_rule = ->

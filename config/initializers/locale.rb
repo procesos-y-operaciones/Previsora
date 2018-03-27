@@ -44,6 +44,7 @@ CS.states(:co).each_pair do |k,v|
   CS.states(:co)[k] = v.upcase
 end
 
+CS.cities(:CHO, :co).append("PUTUMAYO")
 
 #Active Job
 BackupJob.perform_later
