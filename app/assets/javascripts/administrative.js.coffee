@@ -30,6 +30,9 @@ $ ->
       $('#policy_taker').val("PENDIENTE")
     if $('#contract').val() == "NO APLICA"
       $('#contract').val("PENDIENTE")
+      if $('#contingency_resume').val() == "NO APLICA"
+        $('#contingency_resume').val("PENDIENTE")
+
 
   initial_values()
 

@@ -172,7 +172,7 @@ class TypeProcess < ApplicationRecord
      self.get_branch_commercial, self.sinister + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
      self.reserve_cents, self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents,
      self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
-     format_date(self.attorny_date), self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
+     format_date(self.attorny_date), self.office_name, self.get_active_part, self.get_passive_part, self.get_score_contingency,
      self.contingency_reason, self.contingency_resume, self.facts, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
      self.get_case_termination, self.cost_value_cents, self.fail_value_cents, self.fail_previ_cents,
      self.payed_value_cents, format_date(self.payment_date), self.get_recovery, self.coactive_radicate, self.coactive_value_cents,
@@ -305,6 +305,8 @@ class TypeProcess < ApplicationRecord
   def get_litigation_source
     if self.litigation_source == nil
       "NO APLICA"
+    elsif self.litigation_source == ""
+      "PENDIENTE"
     else
       self.litigation_source
     end
@@ -480,6 +482,26 @@ class TypeProcess < ApplicationRecord
       "NO APLICA"
     else
       self.contract
+    end
+  end
+
+  def get_active_part
+    if self.active_part == nil
+      "NO APLICA"
+    elsif self.active_part == ""
+      "PENDIENTE"
+    else
+      self.active_part
+    end
+  end
+
+  def get_passive_part
+    if self.passive_part == nil
+      "NO APLICA"
+    elsif self.passive_part == ""
+      "PENDIENTE"
+    else
+      self.passive_part
     end
   end
 
