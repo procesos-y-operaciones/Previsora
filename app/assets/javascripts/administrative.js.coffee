@@ -277,6 +277,7 @@ $ ->
     v_option = document.getElementById("caseState").value
     if v_option == "EN CURSO"
       $('#currentStageVer').prop( "disabled", false )
+      $('#currentStageHid').prop( "disabled", true )
       $('#fail_value').prop( "disabled", true )
       $('#fail_value').val("0")
       $('#desition_date').prop( "disabled", true )
@@ -287,7 +288,7 @@ $ ->
       $('#caseTermination').val("")
     else
       $('#currentStageVer').prop( "disabled", true )
-      $('#currentStageVer').val("PENDIENTE")
+      $('#currentStageHid').prop( "disabled", false )
       $('#fail_value').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
       $('#fail_previ').prop( "disabled", false )

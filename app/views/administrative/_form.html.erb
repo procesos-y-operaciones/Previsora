@@ -315,6 +315,7 @@
       <%= form.label :current_stage, "Etapa actual", id:"currentStage" %>
       <div id="currentStageVerDiv" class="input-group">
         <%= form.collection_select(:current_stage, CurrentStage.administrative, :name, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
+        <%= form.hidden_field :current_stage, value:"PENDIENTE", id:"currentStageHid" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.current_stage_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

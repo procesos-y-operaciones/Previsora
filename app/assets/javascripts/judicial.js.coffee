@@ -302,10 +302,10 @@ $ ->
       document.getElementById("exercise").readOnly = true
       document.getElementById("more_protections").readOnly = true
       $('#exercise').val("0")
+      $('#branch_policy').val(0)
       $('#branch_policy').prop( "disabled", true )
-      $('#branch_policy').val("0")
+      $('#branch_commercial').val(0)
       $('#branch_commercial').prop( "disabled", true )
-      $('#branch_commercial').val("0")
       $('#more_policies').prop( "disabled", true )
       $('#more_policies').prop( "disabled", true )
       $("#sinister").val("NO APLICA")
@@ -417,19 +417,19 @@ $ ->
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
-      $('#reservedReleased').val("PENDIENTE")
       $('#recovery').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
     else
+      $('#caseTermination').val("PENDIENTE")
       $('#caseTermination').prop( "disabled", true )
-      $('#caseTermination').val("")
-      $('#lastPerformance').prop( "disabled", true )
       $('#lastPerformance').val("PENDIENTE")
+      $('#lastPerformance').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#lastPerformanceDate').val("0-0-0")
+      $('#reservedReleased').val("PENDIENTE")
       $('#reservedReleased').prop( "disabled", true )
       $('#recovery').prop( "disabled", true )
-      $('#desition_date').prop( "disabled", true )      
+      $('#desition_date').prop( "disabled", true )
 
   $('#caseState').change ->
     case_state_rule()

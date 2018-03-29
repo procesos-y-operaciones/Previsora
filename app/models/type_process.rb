@@ -241,7 +241,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_branch_commercial
-    if self.branch_commercial == nil
+    if self.branch_commercial == nil || self.branch_commercial == "NO APLICA"
       "NO APLICA"
     elsif self.branch_commercial == "0"
       "PENDIENTE"
@@ -251,7 +251,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_branch_policy
-    if self.branch_policy == nil
+    if self.branch_policy == nil || self.branch_policy == "NO APLICA"
       "NO APLICA"
     elsif self.branch_policy == "0"
       "PENDIENTE"
@@ -297,6 +297,8 @@ class TypeProcess < ApplicationRecord
   def get_current_stage
     if self.current_stage == nil
       "NO APLICA"
+    elsif self.current_stage == ""
+      "PENDIENTE"
     else
       self.current_stage
     end
@@ -347,6 +349,8 @@ class TypeProcess < ApplicationRecord
   def get_reinsurance_type
     if self.reinsurance_type == nil
       "NO APLICA"
+    elsif self.reinsurance_type == ""
+      "PENDIENTE"
     else
       self.reinsurance_type
     end
@@ -355,6 +359,8 @@ class TypeProcess < ApplicationRecord
   def get_coensurance_type
     if self.coensurance_type == nil
       "NO APLICA"
+    elsif self.coensurance_type == ""
+      "PENDIENTE"
     else
       self.coensurance_type
     end
