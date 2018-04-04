@@ -277,7 +277,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_protection
-    if self.protection == nil || self.protection == [""]
+    if self.protection == "NO APLICA" || self.protection == nil || self.protection == [""]
       "NO APLICA"
     elsif self.protection == "CUMPLIMIENTO"
       self.protection
