@@ -26,6 +26,10 @@ $ ->
       $('#contingency_resume').val("PENDIENTE")
     if $('#facts').val() == "NO APLICA"
       $('#facts').val("PENDIENTE")
+    if $('#process_radicate').val() == "NO APLICA"
+      $('#process_radicate').val("PENDIENTE")
+    if $('#attorny').val() == "NO APLICA"
+      $('#attorny').val("PENDIENTE")
 
   initial_values()
 
@@ -261,11 +265,11 @@ $ ->
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination').val("")
       $('#lastPerformance').prop( "disabled", true )
-      $('#lastPerformance').val("1")
+      $('#lastPerformance').val("PENDIENTE")
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#lastPerformanceDate').val("0-0-0")
       $('#reservedReleased').prop( "disabled", true )
-      $('#reservedReleased').val("1")
+      $('#reservedReleased').val("PENDIENTE")
       $('#recovery').prop( "disabled", true )
       $('#recovery').val("")
 

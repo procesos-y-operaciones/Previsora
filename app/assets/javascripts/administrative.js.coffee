@@ -15,7 +15,7 @@ $ ->
           $(this).attr 'title', errorMessage
         else
           $(this).removeAttr 'title'
-          
+
   #Valores iniciales
   initial_values = ->
     if $('#contingency_reason').val() == "NO APLICA"
@@ -26,9 +26,15 @@ $ ->
       $('#case_id_sise').val("PENDIENTE")
     if $('#attorny').val() == "NO APLICA"
       $('#attorny').val("PENDIENTE")
+    if $('#policy_taker').val() == "NO APLICA"
+      $('#policy_taker').val("PENDIENTE")
+    if $('#contract').val() == "NO APLICA"
+      $('#contract').val("PENDIENTE")
+      if $('#contingency_resume').val() == "NO APLICA"
+        $('#contingency_resume').val("PENDIENTE")
+
 
   initial_values()
-
 
   #Subclase de proceso
   subprocessClass_rule = ->
@@ -91,9 +97,6 @@ $ ->
 
   $('#subprocessClass').change ->
     subprocessClass_rule()
-
-  #$('#subprocessClass').ready ->
-  #  subprocessClass_rule()
 
   subprocessClass_rule()
 
@@ -181,17 +184,23 @@ $ ->
   ensurance_value_rule = ->
     ensuranceValue = document.getElementById('ensuranceValue').value
     subClass = document.getElementById('subprocessClass').value
-    if ensuranceValue >= 1000000000 and subClass == '71'
+    ensuranceValue = ensuranceValue.split("'").join("")
+    ensuranceValue = ensuranceValue.split(",").join("")
+    if ensuranceValue >= 1000000000 and subClass == 'COLJUEGOS'
       $('#reinsuranceTypeSF').prop 'disabled', true
       $('#reinsuranceTypeSF').hide()
       $('#reinsuranceType').prop 'disabled', false
       $('#reinsuranceType').show()
+      $('#reinsurance_report').prop( "disabled", false )
     else
       $('#reinsuranceTypeSF').prop 'disabled', false
       $('#reinsuranceTypeSF').show()
       $('#reinsuranceType').prop 'disabled', true
       $('#reinsuranceType').hide()
       $('#reinsuranceType').val("")
+      $('#reinsurance_report').prop( "disabled", true )
+      $('#reinsurance_report').val("false")
+
 
   $('#ensuranceValue').change ->
     ensurance_value_rule()
@@ -234,11 +243,11 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "1"
-      document.getElementById("dolarValueCents").readOnly = true
+    if v_option == "DOLAR"
+      document.getElementById("dolarValueCents").readOnly = false
       $("#dolarValueCents").val(0)
     else
-      document.getElementById("dolarValueCents").readOnly = false
+      document.getElementById("dolarValueCents").readOnly = true
 
   $('#moneyType').change ->
     money_type_rule()
@@ -263,11 +272,12 @@ $ ->
   office_rule()
 
 
-#Estado del caso
+  #Estado del caso
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
     if v_option == "EN CURSO"
       $('#currentStageVer').prop( "disabled", false )
+      $('#currentStageHid').prop( "disabled", true )
       $('#fail_value').prop( "disabled", true )
       $('#fail_value').val("0")
       $('#desition_date').prop( "disabled", true )
@@ -278,10 +288,10 @@ $ ->
       $('#caseTermination').val("")
     else
       $('#currentStageVer').prop( "disabled", true )
-      $('#currentStageVer').val("PENDIENTE")
+      $('#currentStageHid').prop( "disabled", false )
       $('#fail_value').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
-      $('#fail_previ').prop( "disabled", true )
+      $('#fail_previ').prop( "disabled", false )
       $('#caseTermination').prop( "disabled", false )
 
   $('#caseState').change ->
@@ -289,6 +299,25 @@ $ ->
 
   case_state_rule()
 
+  #Current Stage Rule
+  current_stage_rule = ->
+    v_option = document.getElementById("currentStageVer").value
+    if v_option == "SANCION EN FIRME"
+      $('#payed_value_cents').prop( "disabled", false )
+      $('#payment_date').prop( "disabled", false )
+      $('#coactive').prop( "disabled", false )
+    else
+      $('#payed_value_cents').prop( "disabled", true )
+      $('#payed_value_cents').val("0")
+      $('#payment_date').prop( "disabled", true )
+      $('#payment_date').val("")
+      $('#coactive').prop( "disabled", true )
+      $('#coactive').val("No")
+
+  $('#currentStageVer').change ->
+    current_stage_rule()
+
+  current_stage_rule()
 
   #¿Tiene número de radicado de coactivo?
   coactive_radicate_and_coactive_value_cents_rule = ->

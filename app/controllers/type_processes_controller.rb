@@ -94,7 +94,7 @@ class TypeProcessesController < ApplicationController
   def destroy
     @type_process.destroy
     respond_to do |format|
-      format.html { redirect_to type_processes_url, notice: 'Proceso borrado correctamente..' }
+      format.html { redirect_to asignator_search_path, notice: 'Proceso borrado correctamente..' }
       format.json { head :no_content }
     end
   end
@@ -127,6 +127,6 @@ class TypeProcessesController < ApplicationController
        :provision_cents, :cost_value_cents, :committee_date, :reconcilie_value_cents,
        :recovery, :answer_date, :failed_notification_date, :imp_date, :objection_date_desition,
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
-       :more_protections)
+       :more_protections, :policy_taker, :contract)
     end
 end

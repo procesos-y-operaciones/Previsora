@@ -159,7 +159,7 @@ class TypeProcess < ApplicationRecord
      'Fecha notificacion decision o fallo', 'Fecha de notificacion impugnacion', 'Impugnante',
      'Fecha decision impugnacion', 'Fecha de notificacion decision impugnacion', 'Tipo decision impugnacion',
      'Fecha notificacion incidente de desacato', 'Fecha de contestacion incidente de desacato',
-     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato']
+     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato', 'Tomador de la poliza', 'Contrato concesion']
   end
 
   def get_content_all
@@ -168,11 +168,17 @@ class TypeProcess < ApplicationRecord
      self.creation_date, self.get_link_type, self.get_departament, self.city_case,
      self.get_reinsurance_type, self.get_reinsurance_report, self.reinsurance_value_cents,
      self.get_coensurance_type, self.coensurance_value_cents, self.get_litigation_source,
+<<<<<<< HEAD
      self.policy_cents.to_s + " " + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
      self.get_branch_commercial, self.sinister + " " + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
      self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents, self.contingency_value_cents,
+=======
+     self.policy_cents.to_s + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
+     self.get_branch_commercial, self.sinister + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
+     self.reserve_cents, self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents,
+>>>>>>> ac03f3229c63d9003e83839b10d1d3a44fd7b2cc
      self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
-     format_date(self.attorny_date), self.office_name, self.active_part, self.passive_part, self.get_score_contingency,
+     format_date(self.attorny_date), self.office_name, self.get_active_part, self.get_passive_part, self.get_score_contingency,
      self.contingency_reason, self.contingency_resume, self.facts, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
      self.get_case_termination, self.cost_value_cents, self.fail_value_cents, self.fail_previ_cents,
      self.payed_value_cents, format_date(self.payment_date), self.get_recovery, self.coactive_radicate, self.coactive_value_cents,
@@ -182,7 +188,7 @@ class TypeProcess < ApplicationRecord
      format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
      self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification),
      self.get_setence_type_second_company, format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),
-     format_date(self.date_notification_desition_desacate), self.get_sentence_type_desacate]
+     format_date(self.date_notification_desition_desacate), self.get_sentence_type_desacate, self.get_policy_taker, self.get_contract]
   end
 
   def self.to_csv(date_from, date_until, options = {})
@@ -233,7 +239,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_link_type
-    if self.link_type == nil
+    if self.link_type == nil || self.link_type == ""
       "NO APLICA"
     else
       self.link_type
@@ -241,12 +247,22 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_branch_commercial
-    if self.branch_commercial == nil
+    if self.branch_commercial == nil || self.branch_commercial == "NO APLICA"
       "NO APLICA"
     elsif self.branch_commercial == "0"
       "PENDIENTE"
     else
        BranchCommercial.where(num: self.branch_commercial)[0].name
+    end
+  end
+
+  def get_branch_policy
+    if self.branch_policy == nil || self.branch_policy == "NO APLICA"
+      "NO APLICA"
+    elsif self.branch_policy == "0"
+      "PENDIENTE"
+    else
+      BranchPolicy.where(num: self.branch_policy)[0].name
     end
   end
 
@@ -267,10 +283,12 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_protection
-    if self.protection == nil || self.protection == [""]
+    if self.protection == "NO APLICA" || self.protection == nil || self.protection == [""]
       "NO APLICA"
+    elsif self.protection == "CUMPLIMIENTO"
+      self.protection
     else
-      self.protection[1..-1].join("-")
+      self.protection[1..-1].join(" - ")
     end
   end
 
@@ -285,6 +303,8 @@ class TypeProcess < ApplicationRecord
   def get_current_stage
     if self.current_stage == nil
       "NO APLICA"
+    elsif self.current_stage == ""
+      "PENDIENTE"
     else
       self.current_stage
     end
@@ -293,6 +313,8 @@ class TypeProcess < ApplicationRecord
   def get_litigation_source
     if self.litigation_source == nil
       "NO APLICA"
+    elsif self.litigation_source == ""
+      "PENDIENTE"
     else
       self.litigation_source
     end
@@ -333,6 +355,8 @@ class TypeProcess < ApplicationRecord
   def get_reinsurance_type
     if self.reinsurance_type == nil
       "NO APLICA"
+    elsif self.reinsurance_type == ""
+      "PENDIENTE"
     else
       self.reinsurance_type
     end
@@ -341,18 +365,10 @@ class TypeProcess < ApplicationRecord
   def get_coensurance_type
     if self.coensurance_type == nil
       "NO APLICA"
-    else
-      self.coensurance_type
-    end
-  end
-
-  def get_branch_policy
-    if self.branch_policy == nil
-      "NO APLICA"
-    elsif self.branch_policy == "0"
+    elsif self.coensurance_type == ""
       "PENDIENTE"
     else
-      BranchPolicy.where(num: self.branch_policy)[0].name
+      self.coensurance_type
     end
   end
 
@@ -453,7 +469,7 @@ class TypeProcess < ApplicationRecord
     if self.sinisters == "PENDIENTE"
       ""
     else
-      self.sinisters
+      " " + self.sinisters
     end
   end
 
@@ -461,7 +477,43 @@ class TypeProcess < ApplicationRecord
     if self.policies == "PENDIENTE"
       ""
     else
-      self.policies
+      " - " + self.policies
+    end
+  end
+
+  def get_policy_taker
+    if self.policy_taker == nil
+      "NO APLICA"
+    else
+      self.policy_taker
+    end
+  end
+
+  def get_contract
+    if self.contract == nil
+      "NO APLICA"
+    else
+      self.contract
+    end
+  end
+
+  def get_active_part
+    if self.active_part == nil
+      "NO APLICA"
+    elsif self.active_part == ""
+      "PENDIENTE"
+    else
+      self.active_part
+    end
+  end
+
+  def get_passive_part
+    if self.passive_part == nil
+      "NO APLICA"
+    elsif self.passive_part == ""
+      "PENDIENTE"
+    else
+      self.passive_part
     end
   end
 

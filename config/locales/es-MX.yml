@@ -584,17 +584,19 @@ es-MX:
       current_stage_id_d: Última etapa judicial que reposa en el expediente, en el informe del abogado externo, o en la página de la Rama Judicial (si aplica)
       fail_value_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo del asegurado
       desition_date_d: Día en que se profiere la decisión de la administración, a favor en contra de la compañía
-      fail_previ_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo de la compañía, constituyendo el monto a indemnizar
-      case_termination_id_d: Hace referencia a si proceso terminó "a favor" o "en contra"
-      payed_value_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo de la compañía, pagada a título de indemnización
-      payment_date_d: Fecha en que la compañía dio cumplimiento a la orden de pagar la indemnización
+      fail_previ_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo de la compañía, constituyendo el monto a indemnizar.
+      case_termination_id_d: Hace referencia a si proceso terminó "a favor" o "en contra".
+      payed_value_cents_d: Suma de dinero expresada en pesos colombianos fijada por la autoridad competente y que corre a cargo de la compañía, pagada a título de indemnización.
+      payment_date_d: Fecha en que la compañía dio cumplimiento a la orden de pagar la indemnización.
       coactive_d: Sí tiene el número de radicado del coactivo seleccione SI, de lo contrario seleccione NO.
-      coactive_radicate_d: Consecutivo asignado por la autoridad competente que libra mandamiento de pago en contra de la compañía
-      coactive_value_cents_d: Valor indicado en el mandamiento de pago proferido en contra de la compañía
-      garnish_value_cents_d: Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar
-      last_performance_id_d: Estado actualizado del caso a la fecha
-      last_performance_date_d: Día en que se surtió la actuación registrada
+      coactive_radicate_d: Consecutivo asignado por la autoridad competente que libra mandamiento de pago en contra de la compañía.
+      coactive_value_cents_d: Valor indicado en el mandamiento de pago proferido en contra de la compañía.
+      garnish_value_cents_d: Valor ordenado por la autoridad que ordena la retención de dineros en contra de la compañía como medida cautelar.
+      last_performance_id_d: Estado actualizado del caso a la fecha.
+      last_performance_date_d: Día en que se surtió la actuación registrada.
       reserved_released_id_d: Reserva depurada.
+      policy_taker_d: Descripción tomador de la póliza.
+      contract_d: Descripción contrato concesión.
     tutelage:
       process_class_id_d: Tutela
       subprocess_class_id_d: Se selecciona de la lista desplegable, la que tenga mas concordancia con los hechos y las pretenciones.

@@ -1,4 +1,5 @@
 User.create([
+  {document: "12345678", name: "USUARIO MIGRACION", charge: 'MIGRACION', password: "Previsora2018", password_confirmation: "Previsora2018", role: 1},
   {document: "1032459412", name: "JONATHAN GRANADOS", charge: 'INGENIERO PYO', password: "Previsora2018", password_confirmation: "Previsora2018", role: 1},
   {document: "1", name: "COORDINADOR OPERATIVO", charge: 'INGENIERO PYO', password: "Previsora2018", password_confirmation: "Previsora2018", role: 2},
   {document: "2", name: "COORDINADOR LEGAL", charge: 'INGENIERO PYO', password: "Previsora2018", password_confirmation: "Previsora2018", role: 3},
@@ -140,6 +141,9 @@ LinkType.create([
   {name: 'ACCIONANTE', n_type: 1},
   {name: 'ACCIONADO', n_type: 5},
   {name: 'VINCULADO', n_type: 5},
+  {name: 'TERCERO CIVILMENTE RESPONSABLE', n_type: 6},
+  {name: 'ACCIONADO', n_type: 6},
+  {name: 'CONVOCADO', n_type: 6}
 ])
 
 BranchPolicy.create([
@@ -474,6 +478,7 @@ CurrentStage.create([
   {name: 'EN TERMINOS PARA RESOLVER RECURSOS DE REPOSICION', n_type: 18},
   {name: 'AUDIENCIA SUSPENDIDA', n_type: 18},
   {name: 'AUDIENCIA QUE RESUELVE', n_type: 18},
+  {name: 'SANCION EN FIRME', n_type: 18},
   {name: 'PREJUDICIAL', n_type: 19},
 ])
 
