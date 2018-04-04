@@ -4,7 +4,7 @@
 <br>
 
 
-<%= search_form_for @search, url: lawyer_report_url, class:"" do |f| %>
+<%= search_form_for @search, url: lawyer_report_url do |f| %>
   <div class="row">
     <div class="offset-md-3 col-md-4">
       <div class="styled-select">
@@ -56,20 +56,19 @@
       </div>
     </div>
 
-
     <h5 class="center"><b>Fecha de creación</b></h5>
     <div class="row">
       <div class="offset-md-2 col-md-1">
         <%= f.label "Desde", class:"" %>
       </div>
       <div class="col-md-3">
-        <%= f.date_field :creation_date_gteq, value: "1980-01-01", class:"form-control" %>
+        <%= f.date_field :creation_date_gteq, class:"form-control" %>
       </div>
       <div class="col-md-1">
         <%= f.label "Hasta", class:"" %>
       </div>
       <div class="col-md-3">
-        <%= f.date_field :creation_date_lteq, value: Date.today, class:"form-control" %>
+        <%= f.date_field :creation_date_lteq, class:"form-control" %>
       </div>
     </div>
 
@@ -79,13 +78,13 @@
         <%= f.label "Desde" %>
       </div>
       <div class="col-md-3">
-        <%= f.date_field :desition_date_gteq, value: "1980-01-01", class:"form-control" %>
+        <%= f.date_field :desition_date_gteq, class:"form-control" %>
       </div>
       <div class="col-md-1">
         <%= f.label "Hasta" %>
       </div>
       <div class="col-md-3">
-        <%= f.date_field :desition_date_lteq, value: Date.today, class:"form-control" %>
+        <%= f.date_field :desition_date_lteq, class:"form-control" %>
       </div>
     </div>
 
@@ -95,15 +94,16 @@
         <%= f.label "Desde" %>
       </div>
       <div class="col-md-3">
-        <%= f.date_field :last_performance_date_gteq, value: "1980-01-01", class:"form-control" %>
+        <%= f.date_field :last_performance_date_gteq, class:"form-control" %>
       </div>
       <div class="col-md-1">
         <%= f.label "Hasta" %>
       </div>
       <div class="col-md-3">
-        <%= f.date_field :last_performance_date_lteq, value: Date.today, class:"form-control" %>
+        <%= f.date_field :last_performance_date_lteq, class:"form-control" %>
       </div>
     </div>
+
   </div>
 <% end %>
 <br>
