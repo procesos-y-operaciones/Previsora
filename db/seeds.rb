@@ -236,7 +236,11 @@ LitigationSource.create([
   {name: 'SINIESTRO', n_type: 1},
   {name: 'PROVISION', n_type: 1},
   {name: 'ESTIMACION RECOBRO', n_type: 1},
-  {name: 'VINCULACION ERRADA', n_type: 1}
+  {name: 'VINCULACION ERRADA', n_type: 1},
+  {name: 'VINCULACION ERRADA', n_type: 1},
+  {name: 'CONTRATO LABORAL', n_type: 1},
+  {name: 'CREDITO HIPOTECARIO', n_type: 1},
+  {name: 'DOLO O CULPA GRAVE', n_type: 1}
 ])
 
 Protection.create([
@@ -510,11 +514,11 @@ Instance.create([
 ])
 
 CaseTermination.create([
-  {name: 'PENDIENTE'},
-  {name: 'TERMINADO CON PAGO: EN CONTRA'},
-  {name: 'TERMINADO SIN PAGO: A FAVOR'},
-  {name: 'FAVORABLE'},
-  {name: 'DESFAVORABLE'}
+  {name: 'PENDIENTE', n_type: 0},
+  {name: 'TERMINADO CON PAGO: EN CONTRA', n_type: 1},
+  {name: 'TERMINADO SIN PAGO: A FAVOR', n_type: 1},
+  {name: 'FAVORABLE', n_type: 2},
+  {name: 'DESFAVORABLE', n_type: 2}
 ])
 
 GubernatorialWay.create([
@@ -536,7 +540,7 @@ ReinsuranceType.create([
 ])
 
 MoneyType.create([
-  {name: 'PESO'},
+  {name: 'PESOS'},
   {name: 'DOLAR'}
 ])
 
@@ -559,9 +563,15 @@ CaseState.create([
 
 LastPerformance.create([
   {name: 'PENDIENTE'},
-  {name: 'DESCARGOS'},
+  {name: 'OTRO'},
   {name: 'ALEGATOS'},
-  {name: 'RECURSO DE REPOSICION'}
+  {name: 'AUTO QUE TERMINA PROCESO POR CONCILIACION'},
+  {name: 'AUTO QUE TERMINA PROCESO POR TRANSACCION'},
+  {name: 'DESCARGOS'},
+  {name: 'GRADO DE CONSULTA'},
+  {name: 'RECURSO DE REPOSICION'},
+  {name: 'RECURSO DE APELACION'},
+  {name: 'SENTENCIA Y AUTOS GENERALES'}
 ])
 
 OfficeName.create([

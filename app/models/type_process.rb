@@ -140,27 +140,27 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.column_names_all
-    ['Id','Abogado interno','Tipo de proceso','Clase proceso','Subclase proceso',
-     'Radicado correspondencia','Identificacion Bizagi Access PA','Identificacion SISE',
-     'Identificacion E-KOGUI','Fecha de creacion','Tipo de vinculacion','Departamento',
-     'Ciudad donde cursa el caso','Tipo de reaseguro','Reaseguro reportado',
-     'Valor reaseguro','Tipo de coaseguro','Valor coaseguro','Fuente de litigio','Poliza',
-     'Amparo','Numero (siniestro)','Ejercicio','Sucursal de la poliza','Ramo comercial',
-     'Siniestro','Tipo de moneda','Valor del dolar','Reserva','Provision','Reserva honorarios',
-     'Valor detrimento','Valor asegurado','Valor contingencia','Fecha de notificacion',
-     'Numero de radicado del proceso','Apoderado Previsora','Fecha apoderado Previsora',
-     'Nombre despacho','Parte activa','Parte pasiva','Calificacion contingencia','Razon contingencia',
-     'Resumen contingencia','Hechos','Etapa actual','Instancia','Estado del caso','Fecha decision',
-     'Terminacion del caso','Valor costas','Valor fallo','Valor fallo Previsora','Valor pagado Previsora',
-     'Fecha de pago','Procede recobro','Radicacion coactivo','Valor coactivo','Valor embargo',
-     'Ultima actuacion','Fecha ultima actuacion','Ingresa al comite','Fecha ingreso al comite',
-     'Decision comite','Valor autorizado comite','Valor conciliado','Razon de no conciliar',
-     'Razon inviabilidad','Reserva liberada','Tipologia (Coljuegos)', 'Fecha de contestacion tutela',
-     'Fecha notificacion decision o fallo', 'Fecha de notificacion impugnacion', 'Impugnante',
-     'Fecha decision impugnacion', 'Fecha de notificacion decision impugnacion', 'Tipo decision impugnacion',
-     'Fecha notificacion incidente de desacato', 'Fecha de contestacion incidente de desacato',
-     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato',
-     'Tomador de la poliza', 'Contrato concesion']
+    ['IDENTIFICADOR','ABOGADO INTERNO','TIPO DE PROCESO','CLASE DE PROCESO','SUBCLASE DE PROCESO',
+     'RADICADO CORRESPONDENCIA','IDENFICACION BIZAGI ACCESS PA','IDENTIFICACION SISE',
+     'IDENTIFICACION E-KOGUI','FECHA DE CREACION','TIPO DE VINCULACION','DEPARTAMENTO',
+     'CIUDAD DONDE CURSA EL CASO','TIPO DE REASEGURO','REASEGURO REPORTADO',
+     'VALOR REASEGURO','TIPO DE COASEGURO','VALOR COASEGURO','FUENTE DEL LITIGIO','POLIZA',
+     'AMPARO','NUMERO DEL SINIESTRO','EJERCICIO','SUCURSAL DE LA POLIZA','RAMO COMERCIAL',
+     'SINIESTRO','TIPO DE MONEDA','VALOR DEL DOLAR','VALOR RESERVA','VALOR PROVISION','RESERVA HONORARIOS',
+     'VALOR PRETESION - DETRIMENTO - ESTIMACION','VALOR ASEGURADO','VALOR CONTINGENCIA','FECHA DE NOTIFICACION',
+     'NUMERO DE RADICADO DEL PROCESO','APODERADO EN PREVISORA','FECHA DE ASIGNACION DEL APODERADO EN PREVISORA',
+     'NOMBRE DEL DESPACHO','PARTE ACTIVA','PARTE PASIVA','CALIFICACION DE LA CONTINGENCIA','RAZON DE LA CONTINGENCIA',
+     'RESUMEN DE LA CONTINGENCIA','HECHOS','ETAPA ACTUAL','INSTANCIAS','ESTADO DEL CASO','FECHA DE LA DECISION',
+     'TERMINACION DEL CASO','VALOR COSTAS','VALOR FALLO','VALOR FALLO PREVISORA','VALOR PAGADO PREVISORA',
+     'FECHA DE PAGO','PROCEDE RECOBRO','RADICACION COACTIVO','VALOR COACTIVO','VALOR EMBARGO',
+     'ULTIMA ACTUACION','FECHA ULTIMA ACTUACION','INGRESA AL COMITE','FECHA DE INGRESO AL COMITE',
+     'DECISION DEL COMITE','VALOR AUTORIZADO COMITE','VALOR CONCILIADO','RAZON DE NO CONCILIAR',
+     'RAZON DE INVIABILIDAD','RESERVA LIBERADA','TIPOLOGIA (COLJUEGOS)', 'FECHA DE CONTESTACION TUTELA',
+     'FECHA NOTIFICACION O FALLO', 'FECHA NOTIFICACION IMPUGNACION', 'IMPUGNANTE',
+     'FECHA DECISION IMPUGNACION', 'FECHA DE NOTIFICACION DECISION IMPUGNACION', 'TIPO DE DECISION IMPUGNACION',
+     'FECHA NOTIFICACION INCIDENTE DESACATO', 'FECHA DE CONTESTACION INCIDENTE DESACATO',
+     'FECHA NOTIFICACION DECISION INDIDENTE DESACATO', 'TIPO SENTENCIA INCIDENTE DESACATO',
+     'TOMADOR DE LA POLIZA', 'CONTRATO CONCESION']
   end
 
   def get_content_all

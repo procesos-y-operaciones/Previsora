@@ -12,7 +12,7 @@
 class LitigationSource < ApplicationRecord
 
   def self.administrative
-    LitigationSource.order(name: :asc).where(n_type: [0, 1])
+    LitigationSource.order(n_type: :desc, name: :asc).where(n_type: [0, 1])
   end
 
   def self.ordered

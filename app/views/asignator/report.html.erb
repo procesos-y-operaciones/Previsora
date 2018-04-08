@@ -1,22 +1,23 @@
-<%= javascript_include_tag "administrator" %>
+<%= javascript_include_tag "asignator" %>
 
-<h4 class="ligthgreen1">Descargar Base de Datos</h4>
+<h4 class="ligthgreen1">Descargar Reporte</h4>
 <br>
 
-<%= search_form_for @search, url: administrator_report_url do |f| %>
+
+<%= search_form_for @search, url: asignator_report_url do |f| %>
   <div class="row">
     <div class="offset-md-3 col-md-4">
       <div class="styled-select">
-        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
+        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
       </div>
     </div>
     <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
       <span class="fa fa-search"></span>
     <% end %>
-    <%= link_to administrator_report_path, class:"offset-md-7 minibtn btn-default m-1" do %>
+    <%= link_to asignator_report_path, class:"offset-md-7 minibtn btn-default m-1" do %>
       <span class="fa fa-refresh"></span>
     <% end %>
-    <%= link_to administrator_report_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"minibtn btn-default offset-md-8" do %>
+    <%= link_to asignator_report_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"minibtn btn-default offset-md-8" do %>
       <span class="fa fa-download"></span>
     <% end %>
     <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-9 minibtn btn-default m-1">
@@ -27,6 +28,7 @@
   <br>
 
   <div id="filters" class="collapse">
+    <br>
     <div class="row">
       <div class="col-md-4">
         <div class="styled-select">
@@ -64,13 +66,13 @@
     <h5 class="center"><b>Fecha de creación</b></h5>
     <div class="row">
       <div class="offset-md-2 col-md-1">
-        <%= f.label "Desde" %>
+        <%= f.label "Desde", class:"" %>
       </div>
       <div class="col-md-3">
         <%= f.date_field :creation_date_gteq, class:"form-control" %>
       </div>
       <div class="col-md-1">
-        <%= f.label "Hasta" %>
+        <%= f.label "Hasta", class:"" %>
       </div>
       <div class="col-md-3">
         <%= f.date_field :creation_date_lteq, class:"form-control" %>
@@ -108,6 +110,7 @@
         <%= f.date_field :last_performance_date_lteq, class:"form-control" %>
       </div>
     </div>
+
   </div>
 <% end %>
 <br>
@@ -118,7 +121,7 @@
 <br>
 <br>
 
-<table class="table table-responsive">
+<table class="table table-hover table-responsive">
   <thead>
     <tr class="to-uc">
       <th class="center" scope="col"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>

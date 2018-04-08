@@ -205,9 +205,9 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :contract, "Contrato concesión" %>
+      <%= form.label :contract, "Contrato concesión - Obra" %>
       <div class="input-group">
-        <%= form.text_field :contract, id:"contract", maxlength:"5", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :contract, id:"contract", maxlength:"10", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contract_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -286,16 +286,16 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.score_contingency_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :contingency_reason, "Razón de la contingencia" %>
-      <div class="input-group">
-        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
       <%= form.label :contingency_resume, "Resumen de la contingencia" %>
       <div class="input-group">
         <%= form.text_area :contingency_resume, id:"contingency_resume", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :contingency_reason, "Motivos de la contingencia" %>
+      <div class="input-group">
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :instance, "Instancia" %>
@@ -339,7 +339,7 @@
 
       <%= form.label :case_termination, "Terminación del caso" %>
       <div class="input-group">
-        <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"caseTermination"}) %>
+        <%= form.collection_select(:case_termination, CaseTermination.other, :name, :name, {}, {class:"form-control", id:"caseTermination"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

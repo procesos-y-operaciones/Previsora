@@ -11,11 +11,11 @@
 class CaseTermination < ApplicationRecord
 
   def self.tutelage
-    CaseTermination.find([1, 4, 5])
+    CaseTermination.where(n_type: [0,2])
   end
 
   def self.other
-    CaseTermination.find([1, 2, 3])
+    CaseTermination.where(n_type: [0,1])
   end
 
 end

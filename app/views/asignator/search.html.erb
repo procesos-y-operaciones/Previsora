@@ -4,7 +4,6 @@
 <br>
 
 <%= search_form_for @search, url: asignator_search_url, class:"" do |f| %>
-
   <div class="row">
     <div class="offset-md-3 col-md-4">
       <div class="styled-select">
@@ -28,7 +27,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="styled-select">
-          <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament"} %>
+          <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament", class:"form-control"} %>
         </div>
       </div>
       <div class="col-md-4">
@@ -56,17 +55,27 @@
     </div>
 
     <div class="row">
+      <div class="col-md-4 ">
+        <%= f.text_field :process_radicate_cont, placeholder: "N° RADICADO DEL PROCESO", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :internal_lawyer_cont, placeholder: "NOMBRE ABOGADO INTERNO", class:"form-control" %>
+      </div>
       <div class="col-md-4">
         <%= f.text_field :active_part_cont, placeholder: "PARTE ACTIVA", class:"form-control" %>
       </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-4">
         <%= f.text_field :passive_part_cont, placeholder: "PARTE PASIVA", class:"form-control" %>
       </div>
       <div class="col-md-4">
-        <%= f.collection_select(:case_state_eq, CaseState.all, :name, :name, {include_blank:"ESTADO DEL CASO"}, {class:"form-control"}) %>
+        <div class="styled-select">
+          <%= f.collection_select(:case_state_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
+        </div>
       </div>
     </div>
-
   </div>
 <% end %>
 <br>

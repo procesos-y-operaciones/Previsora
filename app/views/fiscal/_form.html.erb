@@ -120,6 +120,12 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.coensurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :coensurance_value_cents, "Valor del coaseguro" %>
+      <div class="input-group">
+        <%= form.text_field :coensurance_value_cents, id:"coensurance_value", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control"%>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :policy_cents, "Póliza" %>
       <div class="input-group">
         <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
@@ -283,10 +289,10 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.score_contingency_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :contingency_reason, "Razón de la contingencia" %>
+      <%= form.label :facts, "Hechos" %>
       <div class="input-group">
-        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.text_area :facts, id:"facts", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :contingency_resume, "Resumen de la contingencia" %>
@@ -295,10 +301,10 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :facts, "Hechos" %>
+      <%= form.label :contingency_reason, "Motivos de la contingencia" %>
       <div class="input-group">
-        <%= form.text_area :facts, id:"facts", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
@@ -330,7 +336,7 @@
 
       <%= form.label :case_termination, "Terminación del caso" %>
       <div class="input-group">
-        <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
+        <%= form.collection_select(:case_termination, CaseTermination.other, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   get 'asignator/search'
   get 'asignator/asignate'
+  get 'asignator/report'
   post 'asignator/translate', :to => 'asignator#translate', :as => 'asignator_translate'
 
   get 'administrator/search'

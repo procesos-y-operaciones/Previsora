@@ -310,10 +310,10 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.score_contingency_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :contingency_reason, "Razón de la contingencia" %>
+      <%= form.label :facts, "Hechos" %>
       <div class="input-group">
-        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.text_area :facts, id:"facts", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :contingency_resume, "Resumen de la contingencia" %>
@@ -322,10 +322,10 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :facts, "Hechos" %>
+      <%= form.label :contingency_reason, "Motivos de la contingencia" %>
       <div class="input-group">
-        <%= form.text_area :facts, id:"facts", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
@@ -370,7 +370,7 @@
 
       <%= form.label :case_termination, "Terminación del caso" %>
       <div class="input-group">
-        <%= form.collection_select(:case_termination, CaseTermination.all, :name, :name, {include_blank: 'SELECCIONE'}, {id:"caseTermination", class:"form-control"}) %>
+        <%= form.collection_select(:case_termination, CaseTermination.other, :name, :name, {include_blank: 'SELECCIONE'}, {id:"caseTermination", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

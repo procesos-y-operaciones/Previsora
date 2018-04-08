@@ -22,7 +22,7 @@
         <%= f.text_field :document, autofocus: true, readOnly: true, class:"form-control" %>
 
         <%= f.label "Rol", class:"form-label" %>
-        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR OPERATIVO", 2], ["COORDINADOR LEGAL", 3], ["ADMINISTRADOR", 4]], @user.role), {}, {disabled: true} %>
+        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR OPERATIVO", 2], ["COORDINADOR LEGAL", 3], ["ADMINISTRADOR", 4]], @user.role), {}, {disabled: true, class:"form-control"} %>
 
         <%= f.label "Nombre", class:"form-label" %><br />
         <%= f.text_field :name, autofocus: true, readOnly: true, class:"form-control" %>
