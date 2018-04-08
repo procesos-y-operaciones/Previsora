@@ -109,7 +109,7 @@ class CoordinatorController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :document, :password, :password_confirmation, :role)
+      params.require(:user).permit(:name, :document, :password, :password_confirmation, :role, :charge)
     end
 
     def verificate
