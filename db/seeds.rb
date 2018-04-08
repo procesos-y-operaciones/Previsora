@@ -132,12 +132,14 @@ SubprocessClass.create([
 
 LinkType.create([
   {name: 'PENDIENTE', n_type: 0},
-  {name: 'CONVOCADO', n_type: 4},
+  {name: 'GARANTE', n_type: 4},
   {name: 'CONVOCANTE', n_type: 1},
   {name: 'DEMANDANTE', n_type: 2},
+  {name: 'TERCERO CIVILMENTE RESPONSABLE', n_type: 2},
+  {name: 'LLAMADA EN GARANTIA', n_type: 2},
   {name: 'DEMANDADO', n_type: 3},
   {name: 'TERCERO CIVILMENTE RESPONSABLE', n_type: 1},
-  {name: 'LLAMADO EN GARANTIA', n_type: 1},
+  {name: 'LLAMADA EN GARANTIA', n_type: 1},
   {name: 'ACCIONANTE', n_type: 1},
   {name: 'ACCIONADO', n_type: 5},
   {name: 'VINCULADO', n_type: 5},
