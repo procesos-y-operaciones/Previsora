@@ -47,4 +47,4 @@ end
 CS.cities(:CHO, :co).append("PUTUMAYO")
 
 #Active Job
-BackupJob.perform_later
+#BackupJob.perform_later
