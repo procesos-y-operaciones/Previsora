@@ -155,11 +155,12 @@ class TypeProcess < ApplicationRecord
      'Fecha de pago','Procede recobro','Radicacion coactivo','Valor coactivo','Valor embargo',
      'Ultima actuacion','Fecha ultima actuacion','Ingresa al comite','Fecha ingreso al comite',
      'Decision comite','Valor autorizado comite','Valor conciliado','Razon de no conciliar',
-     'Razon inviabilidad','Reserva liberada','Via gubertaniva', 'Fecha de contestacion tutela',
+     'Razon inviabilidad','Reserva liberada','Tipologia (Coljuegos)', 'Fecha de contestacion tutela',
      'Fecha notificacion decision o fallo', 'Fecha de notificacion impugnacion', 'Impugnante',
      'Fecha decision impugnacion', 'Fecha de notificacion decision impugnacion', 'Tipo decision impugnacion',
      'Fecha notificacion incidente de desacato', 'Fecha de contestacion incidente de desacato',
-     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato', 'Tomador de la poliza', 'Contrato concesion']
+     'Fecha notificacion decision incidente desacato', 'Tipo sentencia incidente de desacato',
+     'Tomador de la poliza', 'Contrato concesion']
   end
 
   def get_content_all
