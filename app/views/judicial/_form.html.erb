@@ -229,13 +229,13 @@
 
       <%= form.label :provision_cents, "Valor de la provisión de la indemnización" %>
       <div class="input-group">
-        <%= form.text_field :provision_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :provision_cents, id:"provision_cents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.provision_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reserved_fees_cents, "Valor de la reserva para honorarios" %>
       <div class="input-group">
-        <%= form.text_field :reserved_fees_cents, onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :reserved_fees_cents, id:"reserved_fees_cents", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

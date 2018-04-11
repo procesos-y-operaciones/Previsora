@@ -562,6 +562,21 @@ $ ->
   process_class_rule()
   current_stage_rule()
 
+  #Privision Rule
+  provision_cents_rule = ->
+    v_option = document.getElementById("provision_cents").value
+    v_option = v_option.split("'").join("")
+    v_option = v_option.split(",").join("")
+    if v_option > '0'
+      document.getElementById("reserved_fees_cents").readOnly = true
+    else
+      document.getElementById("reserved_fees_cents").readOnly = false
+
+  $('#provision_cents').change ->
+    provision_cents_rule()
+
+  provision_cents_rule()
+
   #Departamento donde cursa el caso
   $('#departament').change ->
     input_state = $(this)
