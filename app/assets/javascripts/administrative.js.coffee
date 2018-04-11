@@ -187,7 +187,7 @@ $ ->
     subClass = document.getElementById('subprocessClass').value
     ensuranceValue = ensuranceValue.split("'").join("")
     ensuranceValue = ensuranceValue.split(",").join("")
-    if ensuranceValue >= 1000000000 and subClass == 'ORDINARIO'
+    if ensuranceValue >= 1000000000
       $('#reinsuranceTypeSF').prop 'disabled', true
       $('#reinsuranceTypeSF').hide()
       $('#reinsuranceType').prop 'disabled', false
