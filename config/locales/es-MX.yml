@@ -1,5 +1,6 @@
 es-MX:
-  pattern: Solamente mayusculas, números, espacios y guiones. No se permiten tíldes, 'Ñ', etc...
+  pattern: Solamente s permiten mayúsculas, números, espacios y guiones. No se permiten tíldes, 'Ñ' u otro símbolo.
+  pattern_n: Solamente se permiten números.
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.

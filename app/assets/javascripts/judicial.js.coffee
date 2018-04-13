@@ -289,7 +289,9 @@ $ ->
       document.getElementById("exercise").readOnly = false
       document.getElementById("more_protections").readOnly = false
       $('#branch_policy').prop( "disabled", false )
+      $('#branch_policy_hid').prop( "disabled", true )
       $('#branch_commercial').prop( "disabled", false )
+      $('#branch_commercial_hid').prop( "disabled", true )
       $('#more_policies').prop( "disabled", false )
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
@@ -302,13 +304,12 @@ $ ->
       document.getElementById("exercise").readOnly = true
       document.getElementById("more_protections").readOnly = true
       $('#exercise').val("0")
-      $('#branch_policy').val(0)
       $('#branch_policy').prop( "disabled", true )
-      $('#branch_commercial').val(0)
+      $('#branch_policy_hid').prop( "disabled", false )
       $('#branch_commercial').prop( "disabled", true )
+      $('#branch_commercial_hid').prop( "disabled", false )
       $('#more_policies').prop( "disabled", true )
-      $('#more_policies').prop( "disabled", true )
-      $("#sinister").val("NO APLICA")
+      $("#sinister").val("NO PRESENTA")
 
   $('#litigationSource').change ->
     litigation_source_rule()

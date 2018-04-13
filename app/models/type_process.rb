@@ -227,15 +227,17 @@ class TypeProcess < ApplicationRecord
 
   def get_subprocess_class
     if self.subprocess_class == nil
-      "NO APLICA"
+      "NO PRESENTA"
     else
       self.subprocess_class
     end
   end
 
   def get_link_type
-    if self.link_type == nil || self.link_type == ""
-      "NO APLICA"
+    if self.link_type == nil
+      "NO PRESENTA"
+    elsif self.link_type == ""
+      "NO PRESENTA"
     else
       self.link_type
     end
@@ -244,6 +246,8 @@ class TypeProcess < ApplicationRecord
   def get_branch_commercial
     if self.branch_commercial == nil || self.branch_commercial == "NO APLICA"
       "NO APLICA"
+    elsif self.branch_commercial == "NO PRESENTA"
+      "NO PRESENTA"
     elsif self.branch_commercial == "0"
       "PENDIENTE"
     else
@@ -254,6 +258,8 @@ class TypeProcess < ApplicationRecord
   def get_branch_policy
     if self.branch_policy == nil || self.branch_policy == "NO APLICA"
       "NO APLICA"
+    elsif self.branch_policy == "NO PRESENTA"
+      "NO PRESENTA"
     elsif self.branch_policy == "0"
       "PENDIENTE"
     else
@@ -271,15 +277,17 @@ class TypeProcess < ApplicationRecord
 
   def get_score_contingency
     if self.score_contingency == ""
-      "NO APLICA"
+      "NO PRESENTA"
     else
       self.score_contingency
     end
   end
 
   def get_protection
-    if self.protection == "NO APLICA" || self.protection == nil || self.protection == [""]
+    if self.protection == "NO APLICA" || self.protection == nil
       "NO APLICA"
+    elsif self.protection == [""]
+      "NO PRESENTA"
     elsif self.protection == "CUMPLIMIENTO"
       self.protection
     else
@@ -288,10 +296,14 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_more_protection
-    if self.more_protections == "NO APLICA" || self.more_protections == nil
-      " "
+    if self.get_protection == "NO PRESENTA" || self.get_protection == "NO APLICA"
+      ""
     else
-      "-" + self.more_protections
+      if self.more_protections == "NO APLICA" || self.more_protections == nil
+        " "
+      else
+        "-" + self.more_protections
+      end
     end
   end
 

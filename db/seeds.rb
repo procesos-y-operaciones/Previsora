@@ -26,7 +26,7 @@ User.create([
   {document: '71683546', name: 'FABIAN DE JESUS PASADA VELEZ', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '1118532099', name: 'MAYRA  MORENO ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '1016039726', name: 'MARIA ALEJANDRA  GUTIERREZ BECERRA', charge: 'PROFESIONAL GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
-  {document: '52976920', name: 'EDITHE JOHANNA VELASQUEZ GONZALEZ', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
+  {document: '52976920', name: 'EDITH JOHANNA VELASQUEZ GONZALEZ', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '63358777', name: 'DALILA CRISTINA TAPIAS ACEVEDO', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '37901644', name: 'LUISA FERNANDA ORTEGA SOLANO', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
   {document: '72272660', name: 'ARON JOSE ORTIZ ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'Previsora2018', password_confirmation: 'Previsora2018', role: 1},
@@ -101,7 +101,6 @@ SubprocessClass.create([
   {name: 'EXPEDICION DE POLIZAS DE SERIDAD CANDIDATURA NO ASEGURABLE', n_type: 5},
   {name: 'ACTUACION TEMERARIA', n_type: 5},
   {name: 'PROCESOS PENALES', n_type: 21},
-  {name: "PROCESO ARBITRAL", n_type: 22},
   {name: 'NULIDAD POR INCONSTITUCIONALIDAD', n_type: 22},
   {name: 'CONTROL INMEDIATO DE LEGALIDAD', n_type: 22},
   {name: 'NULIDAD', n_type: 22},
@@ -125,9 +124,9 @@ SubprocessClass.create([
   {name: 'DISOLUCION, NULIDAD Y LIQUIDACION DE SOCIEDADES', n_type: 23},
   {name: 'INSOLVENCIA DE LA PERSONA NATURAL NO COMERCIANTE', n_type: 23},
   {name: 'PROCESO ORDINARIO', n_type: 23},
-  {name: 'PROCESO DIVISORIO', n_type: 24},
-  {name: 'PROCESO DE JURISDICCION VOLUNTARIA', n_type: 25},
-  {name: 'PROCESO ARBITRAL', n_type: 25}
+  {name: 'PROCESO ARBITRAL', n_type: 24},
+  {name: 'ESPECIAL', n_type: 25},
+  {name: 'ORDINARIO', n_type: 25}
 ])
 
 LinkType.create([
@@ -239,7 +238,8 @@ LitigationSource.create([
   {name: 'VINCULACION ERRADA', n_type: 1},
   {name: 'CONTRATO LABORAL', n_type: 1},
   {name: 'CREDITO HIPOTECARIO', n_type: 1},
-  {name: 'DOLO O CULPA GRAVE', n_type: 1}
+  {name: 'DOLO O CULPA GRAVE', n_type: 1},
+  {name: 'PRIMAS', n_type: 1}
 ])
 
 Protection.create([

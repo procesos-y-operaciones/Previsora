@@ -16,7 +16,7 @@ $ ->
     if $('#facts').val() == "NO APLICA"
       $('#facts').val("PENDIENTE")
     if $('#more_protections').val() == "NO APLICA"
-      $('#more_protections').val("PENDIENTE")
+      $('#more_protections').val("NO PRESENTA")
     if $('#office_name').val() == "NO APLICA"
       $('#office_name').val("PENDIENTE")
 
@@ -76,11 +76,15 @@ $ ->
       document.getElementById("exercise").readOnly = false
       document.getElementById("more_protections").readOnly = false
       $('#branch_policy').prop( "disabled", false )
+      $('#branch_policy_hid').prop( "disabled", true )
       $('#branch_commercial').prop( "disabled", false )
+      $('#branch_commercial_hid').prop( "disabled", true )
       $('#more_policies').prop( "disabled", false )
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
       $('#coensurance_type').prop( "disabled", false )
+      $('#coensurance_type_hid').prop( "disabled", true )
       $('#reinsurance_type').prop( "disabled", false )
+      $('#reinsurance_type_hid').prop( "disabled", true )
     else
       document.getElementById("policyCents").readOnly = true
       $('#policyCents').val("0")
@@ -92,13 +96,15 @@ $ ->
       document.getElementById("more_protections").readOnly = true
       $('#exercise').val("0")
       $('#branch_policy').prop( "disabled", true )
-      $('#branch_policy').val("0")
+      $('#branch_policy_hid').prop( "disabled", false )
       $('#branch_commercial').prop( "disabled", true )
-      $('#branch_commercial').val("0")
+      $('#branch_commercial_hid').prop( "disabled", false )
       $('#more_policies').prop( "disabled", true )
-      $("#sinister").val("NO APLICA")
+      $("#sinister").val("NO PRESENTA")
       $('#coensurance_type').prop( "disabled", true )
+      $('#coensurance_type_hid').prop( "disabled", false )
       $('#reinsurance_type').prop( "disabled", true )
+      $('#reinsurance_type_hid').prop( "disabled", false )
 
   $('#litigationSource').change ->
     litigation_source_rule()
@@ -187,8 +193,10 @@ $ ->
     v_option = document.getElementById("join_committee").value
     if v_option == "SI"
       $('#committee').prop( "disabled", false )
+      $('#committee_hid').prop( "disabled", true )
     else
       $('#committee').prop( "disabled", true )
+      $('#committee_hid').prop( "disabled", false )
 
   $('#join_committee').change ->
     join_committee_rule()
@@ -205,9 +213,9 @@ $ ->
         document.getElementById("payed_value").readOnly = false
         document.getElementById("payment_date").readOnly = false
         document.getElementById("reason_conc").readOnly = true
-        $('#reason_conc').val("PENDIENTE")
+        $('#reason_conc').val("NO PRESENTA")
         document.getElementById("reason_inv").readOnly = true
-        $('#reason_inv').val("PENDIENTE")
+        $('#reason_inv').val("NO PRESENTA")
       when "NO CONCILIA"
         document.getElementById("auth_value").readOnly = true
         $('#auth_value').val("0")
@@ -217,7 +225,7 @@ $ ->
         $('#payment_date').val("0")
         document.getElementById("reason_conc").readOnly = false
         document.getElementById("reason_inv").readOnly = true
-        $('#reason_inv').val("PENDIENTE")
+        $('#reason_inv').val("NO PRESENTA")
       when "INVIABLE"
         document.getElementById("auth_value").readOnly = true
         $('#auth_value').val("0")
@@ -226,7 +234,7 @@ $ ->
         document.getElementById("payment_date").readOnly = true
         $('#auth_value').val("0")
         document.getElementById("reason_conc").readOnly = true
-        $('#reason_conc').val("PENDIENTE")
+        $('#reason_conc').val("NO PRESENTA")
         document.getElementById("reason_inv").readOnly = false
       else
         document.getElementById("auth_value").readOnly = true
@@ -236,9 +244,9 @@ $ ->
         document.getElementById("payment_date").readOnly = true
         $('#auth_value').val("0")
         document.getElementById("reason_conc").readOnly = true
-        $('#reason_conc').val("PENDIENTE")
+        $('#reason_conc').val("NO PRESENTA")
         document.getElementById("reason_inv").readOnly = true
-        $('#reason_inv').val("PENDIENTE")
+        $('#reason_inv').val("NO PRESENTA")
 
   $('#committee').change ->
     committee_rule()

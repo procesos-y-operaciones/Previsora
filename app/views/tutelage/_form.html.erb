@@ -56,7 +56,7 @@
 
       <%= form.label :correspondency_radicate, "Número de radicado de Correspondencia o de Vicepresidencia" %>
       <div class="input-group">
-        <%= form.text_field :correspondency_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, maxlength:"100", pattern:"[0-9\- ]*", title: t(:pattern_n), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
