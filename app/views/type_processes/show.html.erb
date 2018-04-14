@@ -46,15 +46,15 @@
         </tr>
         <tr>
           <th scope="row">Nombre de despacho</th>
-          <td> <%= @type_process.office_name %> </td>
+          <td> <%= @type_process.get_office_name %> </td>
         </tr>
         <tr>
           <th scope="row">Parte activa</th>
-          <td> <%= @type_process.active_part %> </td>
+          <td> <%= @type_process.get_active_part %> </td>
         </tr>
         <tr>
           <th scope="row">Parte pasiva</th>
-          <td> <%= @type_process.passive_part %> </td>
+          <td> <%= @type_process.get_passive_part %> </td>
         </tr>
         <tr>
           <th scope="row">Terminación del caso</th>
@@ -83,6 +83,10 @@
         <tr>
           <th scope="row">Etapa actual</th>
           <td> <%= @type_process.get_current_stage %> </td>
+        </tr>
+        <tr>
+          <th scope="row">Tipo de Vinculación</th>
+          <td> <%= @type_process.get_link_type %> </td>
         </tr>
       </tbody>
     </table>

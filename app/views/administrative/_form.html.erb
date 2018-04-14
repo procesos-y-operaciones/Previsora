@@ -280,10 +280,10 @@
       <div class="input-group">
         <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
         <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {include_blank:"SELECCIONE"}, {id:"office_name_ord", class:"form-control"}) %>
-        <div>
-          <%= form.text_field :office_name, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:'NOMBRE DEL DESPACHO', required: true, id: "office_text", class: "form-control" %>
-        </div>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+      <div class="input-group">
+        <%= form.text_field :other_office_name, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:'NOMBRE DEL DESPACHO', required: true, id: "office_text", class: "form-control" %>
       </div>
 
       <%= form.label :score_contingency, "Calificación de la contingencia" %>

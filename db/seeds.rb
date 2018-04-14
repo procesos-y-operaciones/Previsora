@@ -142,9 +142,8 @@ LinkType.create([
   {name: 'ACCIONANTE', n_type: 1},
   {name: 'ACCIONADO', n_type: 5},
   {name: 'VINCULADO', n_type: 5},
-  {name: 'TERCERO CIVILMENTE RESPONSABLE', n_type: 6},
   {name: 'ACCIONADO', n_type: 6},
-  {name: 'CONVOCADO', n_type: 6}
+  {name: 'VINCULADO', n_type: 6}
 ])
 
 BranchPolicy.create([
@@ -279,7 +278,7 @@ Protection.create([
   {name: 'PERDIDA SEVERA POR HURTO', n_type: 1},
   {name: 'TERAPEUTICOS', n_type: 1},
   {name: 'CUMPLIMIENTO', n_type: 41},
-  {name: 'INCUMPLIMIENTO', n_type: 42},
+  {name: 'CUMPLIMIENTO', n_type: 42},
   {name: 'ESTABILIDAD LABORAL', n_type: 42},
   {name: 'SALARIOS Y PRESTACIONES E INDEMNIZACIONES', n_type: 42},
   {name: 'BUEN MANEJO DEL ANTICIPO', n_type: 42},
