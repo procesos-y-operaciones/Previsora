@@ -414,15 +414,23 @@ $ ->
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
+      $('#caseTermination').prop( "required", true )
       $('#caseTermination').prop( "disabled", false )
+      $('#lastPerformance').prop( "required", true )
       $('#lastPerformance').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
       $('#recovery').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
+      $('#cost').prop( "required", true )
+      $('#cost').prop( "disabled", false )
+      $('#cost_value').prop( "required", true )
+      $('#cost_value').prop( "disabled", false )
     else
+      $('#caseTermination').prop( "required", false )
       $('#caseTermination').val("PENDIENTE")
       $('#caseTermination').prop( "disabled", true )
+      $('#lastPerformance').prop( "required", false )
       $('#lastPerformance').val("PENDIENTE")
       $('#lastPerformance').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = true
@@ -431,6 +439,12 @@ $ ->
       $('#reservedReleased').prop( "disabled", true )
       $('#recovery').prop( "disabled", true )
       $('#desition_date').prop( "disabled", true )
+      $('#cost').prop( "required", false )
+      $('#cost').val("No")
+      $('#cost').prop( "disabled", true )
+      $('#cost_value').prop( "required", false )
+      $('#cost_value').val("0")
+      $('#cost_value').prop( "disabled", true )
 
   $('#caseState').change ->
     case_state_rule()
@@ -442,18 +456,29 @@ $ ->
     v_option = document.getElementById("caseTermination").value
     if v_option == "TERMINADO CON PAGO: EN CONTRA"
       document.getElementById("fail_value").readOnly = false
+      $('#fail_value').val("")
+      $('#fail_value').prop('required', true)
       document.getElementById("fail_previ").readOnly = false
+      $('#fail_previ').val("")
+      $('#fail_previ').prop('required', true)
       document.getElementById("payed_value").readOnly = false
+      $('#payed_value').val("")
+      $('#payed_value').prop('required', true)
       document.getElementById("payment_date").readOnly = false
+      ('#payment_date').prop('required', true)
     else
       document.getElementById("fail_value").readOnly = true
       $('#fail_value').val("0")
+      $('#fail_value').prop('required', false)
       document.getElementById("fail_previ").readOnly = true
       $('#fail_previ').val("0")
+      $('#fail_previ').prop('required', false)
       document.getElementById("payed_value").readOnly = true
       $('#payed_value').val("0")
+      $('#payed_value').prop('required', false)
       document.getElementById("payment_date").readOnly = true
       $('#payment_date').val("0-0-0")
+      $('#payment_date').prop('required', false)
 
   $('#caseTermination').change ->
     case_termination_rule()
@@ -518,6 +543,19 @@ $ ->
 
   join_committee_rule()
 
+  #Date Committee Rule
+  committee_date_rule = ->
+    v_option = document.getElementById("committee_date").value
+    a = new Date(v_option)
+    if a.getTime() > (new Date).getTime()
+      $('#committee').val("PENDIENTE")
+    else
+      $('#committee').val("")
+
+  $('#committee_date').change ->
+    committee_date_rule()
+
+  committee_date_rule()
 
   #Decisión del comité
   committee_rule = ->
@@ -577,6 +615,24 @@ $ ->
     provision_cents_rule()
 
   provision_cents_rule()
+
+  #Valor asegurado y Valor contingencia
+  pretension_value_rule = ->
+    detValCents = document.getElementById('detrimetValueCents').value
+    ensValCents = document.getElementById('ensuranceValueCents').value
+    if detValCents != 0 && ensValCents != 0
+      if detValCents < ensValCents
+        $('#contingencyValueCents').val detValCents
+      else
+        $('#contingencyValueCents').val ensValCents
+    else
+      $('#contingencyValueCents').val 0
+
+  $('#detrimetValueCents').change ->
+    pretension_value_rule()
+
+  $('#ensuranceValueCents').change ->
+    pretension_value_rule()
 
   #Departamento donde cursa el caso
   $('#departament').change ->

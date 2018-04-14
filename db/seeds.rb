@@ -506,17 +506,14 @@ Instance.create([
   {name: 'SEGUNDA'},
   {name: 'UNICA'},
   {name: 'GRADO DE CONSULTA'},
-  {name: 'RECURSO EXTRAORDINARIO'},
-  {name: 'PREJUDICIAL'},
-  {name: 'RECOBRO'},
-  {name: 'NO APLICA'}
+  {name: 'RECURSO EXTRAORDINARIO'}
 ])
 
 CaseTermination.create([
   {name: 'PENDIENTE', n_type: 0},
   {name: 'TERMINADO CON PAGO: EN CONTRA', n_type: 1},
   {name: 'TERMINADO SIN PAGO: A FAVOR', n_type: 1},
-  {name: 'TERMINADO SIN PAGO: EN CONTRA', n_type: 1},
+  {name: 'TERMINADO SIN PAGO: EN CONTRA', n_type: 3},
   {name: 'FAVORABLE', n_type: 2},
   {name: 'DESFAVORABLE', n_type: 2}
 ])

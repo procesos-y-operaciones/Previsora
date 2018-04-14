@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
   has_many :type_processes, dependent: :destroy
 
+  validates :document, uniqueness: true
   validate :password_complexity
 
   def password_complexity

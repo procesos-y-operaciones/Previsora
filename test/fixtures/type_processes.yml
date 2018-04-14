@@ -24,33 +24,35 @@
 #  reason_conc                          :string           default("NO APLICA")
 #  reason_inv                           :string           default("NO APLICA")
 #  office_name                          :string           default("NO APLICA")
-#  other_office_name                    :string
-#  departament                          :string           default("PENDIENTE")
-#  city_case                            :string           default("PENDIENTE")
-#  process_class                        :string
-#  subprocess_class                     :string
-#  link_type                            :string
-#  branch_policy                        :string
-#  branch_commercial                    :string
-#  score_contingency                    :string
-#  protection                           :string
-#  current_stage                        :string
-#  litigation_source                    :string
-#  instance                             :string
-#  case_state                           :string
-#  case_termination                     :string
-#  reinsurance_type                     :string
-#  last_performance                     :string
-#  gubernatorial_way                    :string
-#  notification_type_second             :string
-#  setence_type_second_company          :string
-#  sentence_type_desacate               :string
-#  reserved_released                    :string
-#  money_type                           :string
-#  join_committee                       :string
-#  committee                            :string
-#  coensurance_type                     :string
-#  more_protections                     :text
+#  other_office_name                    :string           default("NO APLICA")
+#  departament                          :string           default("NO APLICA")
+#  city_case                            :string           default("SELECCIONE")
+#  process_class                        :string           default("NO APLICA")
+#  subprocess_class                     :string           default("NO APLICA")
+#  link_type                            :string           default("NO APLICA")
+#  branch_policy                        :string           default("NO APLICA")
+#  branch_commercial                    :string           default("NO APLICA")
+#  score_contingency                    :string           default("NO APLICA")
+#  protection                           :string           default("NO APLICA")
+#  current_stage                        :string           default("NO APLICA")
+#  litigation_source                    :string           default("NO APLICA")
+#  instance                             :string           default("NO APLICA")
+#  case_state                           :string           default("NO APLICA")
+#  case_termination                     :string           default("NO APLICA")
+#  reinsurance_type                     :string           default("NO APLICA")
+#  last_performance                     :string           default("NO APLICA")
+#  gubernatorial_way                    :string           default("NO APLICA")
+#  notification_type_second             :string           default("NO APLICA")
+#  setence_type_second_company          :string           default("NO APLICA")
+#  sentence_type_desacate               :string           default("NO APLICA")
+#  reserved_released                    :string           default("NO APLICA")
+#  money_type                           :string           default("NO APLICA")
+#  join_committee                       :string           default("NO APLICA")
+#  committee                            :string           default("NO APLICA")
+#  coensurance_type                     :string           default("NO APLICA")
+#  policy_taker                         :string           default("NO APLICA")
+#  contract                             :string           default("NO APLICA")
+#  more_protections                     :text             default("NO APLICA")
 #  facts                                :text             default("NO APLICA")
 #  dolar_value_cents                    :integer          default(0)
 #  detritment_cents                     :integer          default(0)
