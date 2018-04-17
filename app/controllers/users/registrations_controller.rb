@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    if @user.save
      redirect_to root_path
    else
-     redirect_to root_path
+     redirect_to root_path, alert: 'Ya existe un usuario con este documento de identidad.'
    end
   end
 
