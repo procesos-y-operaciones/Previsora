@@ -143,7 +143,9 @@ LinkType.create([
   {name: 'ACCIONADO', n_type: 5},
   {name: 'VINCULADO', n_type: 5},
   {name: 'ACCIONADO', n_type: 6},
-  {name: 'VINCULADO', n_type: 6}
+  {name: 'VINCULADO', n_type: 6},
+  {name: 'CONVOCANTE', n_type: 7},
+  {name: 'CONVOCADO', n_type: 7}
 ])
 
 BranchPolicy.create([

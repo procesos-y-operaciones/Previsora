@@ -12,7 +12,7 @@
 class LinkType < ApplicationRecord
 
   def self.prejudicial
-    LinkType.order(name: :asc).where(n_type: [0, 1, 2, 3, 4, 5])
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [0,7])
   end
 
   def self.judicial

@@ -415,6 +415,7 @@ $ ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
       $('#caseTermination').prop( "required", true )
+      $('#caseTermination').val( "" )
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "required", true )
       $('#lastPerformance').prop( "disabled", false )
@@ -422,6 +423,8 @@ $ ->
       $('#reservedReleased').prop( "disabled", false )
       $('#recovery').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
+      $('#desition_date').val( "" )
+      $('#desition_date').prop( "required", true )
       $('#cost').prop( "required", true )
       $('#cost').prop( "disabled", false )
       $('#cost_value').prop( "required", true )
@@ -439,6 +442,7 @@ $ ->
       $('#reservedReleased').prop( "disabled", true )
       $('#recovery').prop( "disabled", true )
       $('#desition_date').prop( "disabled", true )
+      $('#desition_date').prop( "required", false )
       $('#cost').prop( "required", false )
       $('#cost').val("No")
       $('#cost').prop( "disabled", true )
