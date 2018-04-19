@@ -415,7 +415,7 @@ $ ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
       $('#caseTermination').prop( "required", true )
-      
+
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "required", true )
       $('#lastPerformance').prop( "disabled", false )
@@ -469,7 +469,7 @@ $ ->
       $('#payed_value').val("")
       $('#payed_value').prop('required', true)
       document.getElementById("payment_date").readOnly = false
-      ('#payment_date').prop('required', true)
+      $('#payment_date').prop('required', true)
     else
       document.getElementById("fail_value").readOnly = true
       $('#fail_value').val("0")
