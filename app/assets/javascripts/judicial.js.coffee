@@ -415,6 +415,7 @@ $ ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
       $('#caseTermination').prop( "required", true )
+      $('#caseTermination').val( "" )
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "required", true )
       $('#lastPerformance').prop( "disabled", false )
