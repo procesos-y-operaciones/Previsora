@@ -1,24 +1,20 @@
-# README
+# Registro Unico
+========================================
+URL: http://previsora.herokuapp.com/users/sign_in
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicación desarrollada para la unificación de bases de datos "satélite" en la **Previsora S.A**. La aplicación cuenta con:
 
-Things you may want to cover:
+* Autenticación de usuarios
+* Backup de la base de datos cada 2 semanas
+* Formularios con reglas de negocio
+* Filtros de bsqueda básicos y avanzados 
+* Reasignación de registros
+* Roles de usuario
+* Administración de usuarios
 
-* Ruby version
 
-* System dependencies
+Desarrollada bajo Ruby on Rails.
+Motor de Base de Datos: PostgresQL, producción. SQLite3, desarrollo.
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
