@@ -460,13 +460,10 @@ $ ->
     v_option = document.getElementById("caseTermination").value
     if v_option == "TERMINADO CON PAGO: EN CONTRA"
       document.getElementById("fail_value").readOnly = false
-      $('#fail_value').val("")
       $('#fail_value').prop('required', true)
       document.getElementById("fail_previ").readOnly = false
-      $('#fail_previ').val("")
       $('#fail_previ').prop('required', true)
       document.getElementById("payed_value").readOnly = false
-      $('#payed_value').val("")
       $('#payed_value').prop('required', true)
       document.getElementById("payment_date").readOnly = false
       $('#payment_date').prop('required', true)
