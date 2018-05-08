@@ -272,3 +272,5 @@ CS.cities(:VID, :co).clear
 VID.each do |i|
   CS.cities(:VID, :co).append(i)
 end
+
+puts "Cities loaded"
