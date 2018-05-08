@@ -272,6 +272,3 @@ CS.cities(:VID, :co).clear
 VID.each do |i|
   CS.cities(:VID, :co).append(i)
 end
-
-#Active Job
-BackupJob.perform_later
