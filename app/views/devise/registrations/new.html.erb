@@ -19,10 +19,10 @@
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        <%= f.password_field :password, autocomplete: "off", maxlength:30, class:"form-control" %>
         <br>
         <%= f.label "Confirmación", class:"form-label" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", maxlength:30, class:"form-control" %>
         <div class="actions">
           <%= link_to "Atrás", coordinator_management_path, class: "btn btn-default" %>
           <%= f.submit "Registrar", class:"btn btn-default floatRight" %>

@@ -12,12 +12,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-   @user = User.new(user_params)
-   if @user.save
-     redirect_to root_path
-   else
-     redirect_to root_path, alert: 'Ya existe un usuario con este documento de identidad.'
-   end
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to root_path, notice: 'Usuario creado correctamente.'
+    else
+      if @user.errors.full_messages.length > 0
+        redirect_to root_path, alert: @user.errors.full_messages.join(', ')
+      else
+        redirect_to root_path, alert: "Error creando usuario"
+      end
+    end
   end
 
   # GET /resource/edit
