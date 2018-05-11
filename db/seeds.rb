@@ -56,32 +56,6 @@ ProcessClass.create([
 ])
 
 SubprocessClass.create([
-  {name: 'PROCESOS ADMINISTRATIVOS', n_type: -1},
-  {name: 'JURISDICCION CIVIL', n_type: -1},
-  {name: 'OTRAS ENTIDADES', n_type: -1},
-  {name: 'COLJUEGOS', n_type: -1},
-  {name: 'POLIZAS VIDA GRUPO', n_type: -1},
-  {name: 'REPARACION DIRECTA', n_type: -1},
-  {name: 'NULIDAD Y RESTABLECIMIENTO', n_type: -1},
-  {name: 'EJECUTIVO', n_type: -1},
-  {name: 'ACCION POPULAR', n_type: -1},
-  {name: 'ACCION DE GRUPO', n_type: -1},
-  {name: 'ACCION DE NULIDAD', n_type: -1},
-  {name: 'ACCIO DE REPETICION', n_type: -1},
-  {name: 'ACCION CONTRA ACTUAL', n_type: -1},
-  {name: 'COACTIVO', n_type: -1},
-  {name: 'FAMILIA', n_type: -1},
-  {name: 'DISCIPLINARIO', n_type: -1},
-  {name: 'ACCION DE CUMPLIMIENTO', n_type: -1},
-  {name: 'ARBITRAMIENTO', n_type: -1},
-  {name: 'POR PRIMAS', n_type: -1},
-  {name: 'HIPOTECARIOS', n_type: -1},
-  {name: 'DIRECTOS', n_type: -1},
-  {name: 'ART. 86 -1437', n_type: -1},
-  {name: 'LEY 1437', n_type: -1},
-  {name: 'RESPONSABILIDAD FISCAL', n_type: -1},
-  {name: 'ORDINARIO', n_type: -1},
-  {name: 'ESPECIAL', n_type: -1},
   {name: 'VERBAL', n_type: 3},
   {name: 'ORDINARIO', n_type: 3},
   {name: 'ORDINARIO', n_type: 4},
@@ -145,7 +119,8 @@ LinkType.create([
   {name: 'ACCIONADO', n_type: 6},
   {name: 'VINCULADO', n_type: 6},
   {name: 'CONVOCANTE', n_type: 7},
-  {name: 'CONVOCADO', n_type: 7}
+  {name: 'CONVOCADO', n_type: 7},
+  {name: 'TERCERO CIVILMENTE RESPONSABLE', n_type: 8}
 ])
 
 BranchPolicy.create([
@@ -299,6 +274,7 @@ CurrentStage.create([
   {name: 'PENDIENTE', n_type: 0},
   {name: 'AUTO DE APERTURA', n_type: 1},
   {name: 'AUTO DE IMPUTACION', n_type: 1},
+  {name: 'AUTO DE APERTURA E IMPUTACION', n_type: 1},
   {name: 'ARGUMENTOS DE DEFENSA', n_type: 1},
   {name: 'ALEGATOS DE CONCLUSION', n_type: 1},
   {name: 'FALLO CON RESPONSABILIDAD FISCAL', n_type: 1},
@@ -308,6 +284,8 @@ CurrentStage.create([
   {name: 'AUTO QUE RESUELVE APELACION', n_type: 1},
   {name: 'FALLO SIN RESPONSABILIDAD FISCAL', n_type: 1},
   {name: 'AUTO QUE RESUELVE EL GRADO DE CONSULTA', n_type: 1},
+  {name: 'AUTO DE APERTURA', n_type: 2},
+  {name: 'AUTO DE IMPUTACION', n_type: 2},
   {name: 'AUTO DE APERTURA E IMPUTACION', n_type: 2},
   {name: 'AUDIENCIA DE DESCARGOS', n_type: 2},
   {name: 'AUDIENCIA DE DECISION', n_type: 2},

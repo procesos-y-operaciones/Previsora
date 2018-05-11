@@ -20,7 +20,7 @@ class LinkType < ApplicationRecord
   end
 
   def self.fiscal
-    LinkType.order(n_type: :desc, name: :asc).where(n_type: [3])
+    LinkType.order(n_type: :desc, name: :asc).where(n_type: [8])
   end
 
   def self.administrative
