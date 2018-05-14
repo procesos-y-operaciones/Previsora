@@ -18,7 +18,7 @@
 
       <div>
         <%= f.label :contraseña, class:"form-label" %><br />
-        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        <%= f.password_field :password, autocomplete: "off", maxlength:50, class:"form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
