@@ -38,7 +38,6 @@
           <td><%= p.correspondency_radicate %></td>
           <td><%= p.case_id_bap %></td>
           <td><%= p.case_id_sise %></td>
-          <td><%= p.user.name %></td>
           <td>Ciudad</td>
         </tr>
       <% end %>
@@ -48,5 +47,5 @@
 
 <p>
 Download:
-  <%= link_to "Excel", type_processes_path(format: "xls") %>
+  <%= link_to "Excel", type_processes_path(format: "xls", filename: Date.today) %>
 </p>

@@ -5,12 +5,31 @@ class TypeProcessesController < ApplicationController
   # GET /type_processes
   # GET /type_processes.json
   def index
+
+    if params[:page] == nil
+      @page = 0
+    else
+      @page = 10 * (params[:page].to_i - 1)
+    end
+
+    if params[:q] == nil || params[:q]["creation_date_gteq"] == nil
+      @date_from = "01-01-1980"
+    else
+      @date_from = params[:q]["creation_date_gteq"]
+    end
+
+    if params[:q] == nil || params[:q]["creation_date_lteq"] == nil
+      @date_till = Date.today
+    else
+      @date_till = params[:q]["creation_date_lteq"]
+    end
+
     @search = TypeProcess.ransack(params[:q])
     @processes = @search.result
     respond_to do |format|
       format.html
       format.csv { send_data @processes.to_csv }
-      format.xls { send_data @processes.to_csv }
+      format.xls { response.headers['Content-Disposition'] = "attachment; filename=wea.xlsx" }
     end
   end
 
