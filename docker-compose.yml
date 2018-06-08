@@ -1,7 +1,7 @@
 version: '2'
 services:
   previsora_proxy:
-    image: joagranadosme/proxy:Certificate
+    image: joagranadosme/proxy
     depends_on:
       - previsora_ms
     ports:
@@ -11,7 +11,11 @@ services:
     ports:
       - "5432:5432"
   previsora_ms:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:'
     command: bash -c "sleep 40 && rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails s -e production -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
