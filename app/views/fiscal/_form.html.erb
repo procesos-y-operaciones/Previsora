@@ -273,7 +273,7 @@
 
       <%= form.label :active_part, "Parte activa" %>
       <div class="input-group">
-        <%= form.text_field :active_part, id:"active_part", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), class:"form-control" %>
+        <%= form.text_field :active_part, id:"active_part", maxlength:"255", pattern:"[A-Z0-9\-\. ]*", title: t(:pattern), class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

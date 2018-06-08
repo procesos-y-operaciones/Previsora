@@ -176,7 +176,7 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "PESO"
+    if v_option == "PESOS"
       document.getElementById("dolarValueCents").readOnly = true
       $("#dolarValueCents").val(0)
     else

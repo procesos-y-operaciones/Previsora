@@ -169,19 +169,19 @@ class TypeProcess < ApplicationRecord
     [self.id, self.get_user, self.get_type_process, self.get_process_class, self.get_subprocess_class,
      self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui,
      self.creation_date, self.get_link_type, self.get_departament, self.city_case,
-     self.get_reinsurance_type, self.get_reinsurance_report, self.reinsurance_value_cents,
-     self.get_coensurance_type, self.coensurance_value_cents, self.get_litigation_source,
+     self.get_reinsurance_type, self.get_reinsurance_report, nilValue(self.reinsurance_value_cents),
+     self.get_coensurance_type, nilValue(self.coensurance_value_cents), self.get_litigation_source,
      self.policy_cents.to_s + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
-     self.get_branch_commercial, self.sinister + self.get_more_sinisters, self.get_money_type, self.dolar_value_cents,
-     self.reserve_cents, self.provision_cents, self.reserved_fees_cents, self.detritment_cents, self.ensurance_value_cents,
-     self.contingency_value_cents, format_date(self.notification_date), self.process_radicate, self.attorny,
+     self.get_branch_commercial, self.sinister + self.get_more_sinisters, self.get_money_type, nilValue(self.dolar_value_cents),
+     nilValue(self.reserve_cents), nilValue(self.provision_cents), nilValue(self.reserved_fees_cents), nilValue(self.detritment_cents), nilValue(self.ensurance_value_cents),
+     nilValue(self.contingency_value_cents), format_date(self.notification_date), self.process_radicate, self.attorny,
      format_date(self.attorny_date), self.get_office_name, self.get_active_part, self.get_passive_part, self.get_score_contingency,
      self.facts, self.contingency_resume, self.contingency_reason, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
-     self.get_case_termination, self.cost_value_cents, self.fail_value_cents, self.fail_previ_cents,
-     self.payed_value_cents, format_date(self.payment_date), self.get_recovery, self.coactive_radicate, self.coactive_value_cents,
-     self.garnish_value_cents, self.get_last_performance, format_date(self.last_performance_date),
-     self.get_join_committee, format_date(self.committee_date), self.get_committee, self.auth_value_cents,
-     self.reconcilie_value_cents, self.reason_conc, self.reason_inv, self.get_reserved_released, self.get_gubernatorial_way,
+     self.get_case_termination, nilValue(self.cost_value_cents), nilValue(self.fail_value_cents), nilValue(self.fail_previ_cents),
+     nilValue(self.payed_value_cents), format_date(self.payment_date), self.get_recovery, self.coactive_radicate, nilValue(self.coactive_value_cents),
+     nilValue(self.garnish_value_cents), self.get_last_performance, format_date(self.last_performance_date),
+     self.get_join_committee, format_date(self.committee_date), self.get_committee, nilValue(self.auth_value_cents),
+     nilValue(self.reconcilie_value_cents), self.reason_conc, self.reason_inv, self.get_reserved_released, self.get_gubernatorial_way,
      format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
      self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification),
      self.get_setence_type_second_company, format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),
@@ -461,15 +461,6 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def format_date(date)
-    if date == nil
-      #Time.new(0000,0,0).to_date
-      "DD/MM/AAAA"
-    else
-      date
-    end
-  end
-
   def get_sinister
     #if self.sinister == "PEN"
   end
@@ -523,6 +514,23 @@ class TypeProcess < ApplicationRecord
       "PENDIENTE"
     else
       self.passive_part
+    end
+  end
+
+  def format_date(date)
+    if date == nil
+      #Time.new(0000,0,0).to_date
+      "DD/MM/AAAA"
+    else
+      date
+    end
+  end
+
+  def nilValue(value)
+    if value == nil
+      0
+    else
+      value
     end
   end
 
