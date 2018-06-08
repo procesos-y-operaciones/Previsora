@@ -8,7 +8,7 @@
     <Table>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="4">
           <Data ss:Type="String">
             <%= "LA PREVISORA S.A. COMPANIA DE SEGUROS" %>
           </Data>
@@ -16,7 +16,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="4">
           <Data ss:Type="String">
             <%= "VICEPRESIDENCIA JURIDICA" %>
           </Data>
@@ -24,7 +24,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="4">
           <Data ss:Type="String">
             <%= "REPORTE DE PROCESOS REGISTRADOS" %>
           </Data>
@@ -32,7 +32,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="4">
           <Data ss:Type="String">
             <%= "FECHA DE GENERACION: #{Date.today}" %>
           </Data>
@@ -40,12 +40,14 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="4">
           <Data ss:Type="String">
             <%= "DESDE: #{@date_from} HASTA: #{@date_till}" %>
           </Data>
         </Cell>
       </Row>
+
+      <Row></Row>
 
       <Row>
         <% @report.column_names_all.each do |c| %>
