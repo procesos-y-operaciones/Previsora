@@ -42,7 +42,7 @@ class LawyerController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @report.to_csv }
-      format.xls { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xlsx" }
+      format.xls { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xls" }
     end
   end
 
