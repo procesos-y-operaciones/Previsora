@@ -58,14 +58,6 @@
       </Row>
 
 
-      <% @report.each do |process| %>
-        <Row>
-          <% process.get_content_all.each do |fields| %>
-            <Cell><Data ss:Type="AnyType"><%= fields %></Data></Cell>
-          <% end %>
-        </Row>
-      <% end %>
-
     </Table>
     
   </Worksheet>
