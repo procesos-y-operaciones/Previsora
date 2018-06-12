@@ -9,45 +9,7 @@
     
     <Table>
 
-      <Row>
-        <Cell>
-          <Data ss:Type="String">
-            <%= "LA PREVISORA SA COMPANIA DE SEGUROS" %>
-          </Data>
-        </Cell>
-      </Row>
-
-      <Row>
-        <Cell>
-          <Data ss:Type="String">
-            <%= "VICEPRESIDENCIA JURIDICA" %>
-          </Data>
-        </Cell>
-      </Row>
-
-      <Row>
-        <Cell>
-          <Data ss:Type="String">
-            <%= "REPORTE DE PROCESOS REGISTRADOS" %>
-          </Data>
-        </Cell>
-      </Row>
-
-      <Row>
-        <Cell>
-          <Data ss:Type="String">
-            <%= "FECHA DE GENERACION: #{Date.today}" %>
-          </Data>
-        </Cell>
-      </Row>
-
-      <Row>
-        <Cell>
-          <Data ss:Type="String">
-            <%= "DESDE: #{@date_from} HASTA: #{@date_till}" %>
-          </Data>
-        </Cell>
-      </Row>
+      
 
       <Row>
         <% @report.column_names_all.each do |c| %>
