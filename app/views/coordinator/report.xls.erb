@@ -9,22 +9,15 @@
     
     <Table>
 
-      
-
       <Row>
-        <% @report.column_names_all.each do |c| %>
-          <Cell><Data ss:Type="AnyType"><%= c %></Data></Cell>
-        <% end %>
+        <Cell>
+          <Data ss:Type="String">
+            <%= "LA PREVISORA SA COMPANIA DE SEGUROS" %>
+          </Data>
+        </Cell>
       </Row>
 
-
-      <% @report.each do |process| %>
-        <Row>
-          <% process.get_content_all.each do |fields| %>
-            <Cell><Data ss:Type="AnyType"><%= fields %></Data></Cell>
-          <% end %>
-        </Row>
-      <% end %>
+      
 
     </Table>
     
