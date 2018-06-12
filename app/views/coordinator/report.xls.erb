@@ -10,7 +10,7 @@
 
       <Row ss:Height="60">
         <Cell>
-          <Data ss:Type="String">
+          <Data ss:Type="AnyType">
             <%= "LA PREVISORA SA COMPANIA DE SEGUROS" %>
           </Data>
         </Cell>
@@ -18,7 +18,7 @@
 
       <Row>
         <Cell>
-          <Data ss:Type="String">
+          <Data ss:Type="AnyType">
             <%= "VICEPRESIDENCIA JURIDICA" %>
           </Data>
         </Cell>
@@ -26,7 +26,7 @@
 
       <Row>
         <Cell>
-          <Data ss:Type="String">
+          <Data ss:Type="AnyType">
             <%= "REPORTE DE PROCESOS REGISTRADOS" %>
           </Data>
         </Cell>
@@ -34,7 +34,7 @@
 
       <Row>
         <Cell>
-          <Data ss:Type="String">
+          <Data ss:Type="AnyType">
             <%= "FECHA DE GENERACION: #{Date.today}" %>
           </Data>
         </Cell>
@@ -42,7 +42,7 @@
 
       <Row>
         <Cell>
-          <Data ss:Type="String">
+          <Data ss:Type="AnyType">
             <%= "DESDE: #{@date_from} HASTA: #{@date_till}" %>
           </Data>
         </Cell>
@@ -52,7 +52,7 @@
 
       <Row>
         <% @report.column_names_all.each do |c| %>
-          <Cell><Data ss:Type="String"><%= c %></Data></Cell>
+          <Cell><Data ss:Type="AnyType"><%= c %></Data></Cell>
         <% end %>
       </Row>
 
