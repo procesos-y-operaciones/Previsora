@@ -56,7 +56,14 @@
           <Cell><Data ss:Type="String"><%= c %></Data></Cell>
         <% end %>
       </Row>
-
+      
+      <% @report.each do |process| %>
+        <Row>
+          <% process.get_content_all.each do |fields| %>
+            <Cell><Data ss:Type="String"><%= fields %></Data></Cell>
+          <% end %>
+        </Row>
+      <% end %>
 
     </Table>
     
