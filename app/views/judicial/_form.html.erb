@@ -480,8 +480,9 @@
 
       <%= form.label :committee, "Decisión del Comité de Defensa y Conciliación" %>
       <div class="input-group">
-        <%= form.collection_select(:committee, Committee.all, :name, :name, {include_blank: "SELECCIONE"}, {id:"committee", class:"form-control"}) %>
+        <%= form.collection_select(:committee, Committee.all, :name, :name, {}, {id:"committee", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.committee_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :committee, value:"NO PRESENTA", id:"committee_hid" %>
       </div>
 
       <%= form.label :auth_value_cents, "Valor autorizado por el Comité de Defensa y Conciliación" %>

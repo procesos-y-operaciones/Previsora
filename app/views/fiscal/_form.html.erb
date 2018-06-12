@@ -96,12 +96,6 @@
 
       <hr>
 
-      <%= form.label :litigation_source, "Fuente de litigio" %>
-      <div class="input-group">
-        <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {}, {id:"litigationSource", class:"form-control"}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
       <%= form.label :reinsurance_type, "Tipo de reaseguro" %>
       <div class="input-group">
         <%= form.collection_select(:reinsurance_type, ReinsuranceType.all, :name, :name, {}, {class:"form-control"}) %>
@@ -124,6 +118,12 @@
       <div class="input-group">
         <%= form.text_field :coensurance_value_cents, id:"coensurance_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control"%>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :litigation_source, "Fuente de litigio" %>
+      <div class="input-group">
+        <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {}, {id:"litigationSource", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :policy_cents, "Póliza" %>
@@ -160,12 +160,14 @@
       <div class="input-group">
         <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {}, {:id => "branch_policy", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :branch_policy, value:"NO PRESENTA", id:"branch_policy_hid" %>
       </div>
 
       <%= form.label :branch_commercial, "Ramo comercial" %>
       <div class="input-group">
         <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {}, {:id => "branch_commercial", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
       </div>
 
       <%= form.label :sinister, "Número del siniestro (completo)" %>

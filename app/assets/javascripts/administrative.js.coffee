@@ -34,6 +34,8 @@ $ ->
       $('#contingency_resume').val("PENDIENTE")
     if $('#process_radicate').val() == "NO APLICA"
       $('#process_radicate').val("PENDIENTE")
+    if $('#coactive_radicate').val() == "NO APLICA"
+      $('#coactive_radicate').val("PENDIENTE")
 
   initial_values()
 
@@ -139,8 +141,11 @@ $ ->
       $('#protection_ordinarie').prop('disabled', false)
       document.getElementById('number').readOnly = false
       document.getElementById('exercise').readOnly = false
-      $('#branch_policy').prop('disabled', false)
-      $('#branch_commercial').prop('disabled', false)
+      $('#branch_policy').prop( "disabled", false )
+      $('#branch_policy_hid').prop( "disabled", true )
+      $('#branch_commercial').prop( "disabled", false )
+      $('#branch_commercial_hid').prop( "disabled", true )
+      $('#more_policies').prop( "disabled", false )
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
       document.getElementById('protection_coljuegos').readOnly = true
@@ -153,11 +158,12 @@ $ ->
       $('#number').val("0")
       document.getElementById('exercise').readOnly = true
       $('#exercise').val("0")
-      $('#branch_policy').prop('disabled', true)
-      $('#branch_policy').val("0")
-      $('#branch_commercial').prop('disabled', true)
-      $('#branch_commercial').val("0")
-      $('#sinister').val 'NO APLICA'
+      $('#branch_policy').prop( "disabled", true )
+      $('#branch_policy_hid').prop( "disabled", false )
+      $('#branch_commercial').prop( "disabled", true )
+      $('#branch_commercial_hid').prop( "disabled", false )
+      $('#more_policies').prop( "disabled", true )
+      $("#sinister").val("NO PRESENTA")
 
   $('#litigationSource').change ->
     litigation_source_rule()
@@ -202,7 +208,6 @@ $ ->
       $('#reinsurance_report').prop( "disabled", true )
       $('#reinsurance_report').val("false")
 
-
   $('#ensuranceValue').change ->
     ensurance_value_rule()
   $('#subprocessClass').change ->
@@ -244,7 +249,7 @@ $ ->
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "DOLAR"
+    if v_option == "PESOS"
       document.getElementById("dolarValueCents").readOnly = false
       $("#dolarValueCents").val(0)
     else
@@ -325,7 +330,7 @@ $ ->
     coactiveRadicate = $('#coactive_radicate').val()
     coactiveValueCents = $('#coactive_value_cents').val()
     garnishValue = $('#garnish_value').val()
-    if (coactiveRadicate == "NO APLICA" and coactiveValueCents == "0" and garnishValue == "0")
+    if (coactiveRadicate == "NO PRESENTA" and coactiveValueCents == "0" and garnishValue == "0")
       $('#coactive').val('No')
       document.getElementById("coactive_radicate").readOnly = true
       document.getElementById("coactive_value_cents").readOnly = true
@@ -344,7 +349,7 @@ $ ->
       document.getElementById("garnish_value").readOnly = false
     if v_option == "No"
       document.getElementById("coactive_radicate").readOnly = true
-      $("#coactive_radicate").val("NO APLICA")
+      $("#coactive_radicate").val("NO PRESENTA")
       document.getElementById("coactive_value_cents").readOnly = true
       $("#coactive_value_cents").val("0")
       document.getElementById("garnish_value").readOnly = true

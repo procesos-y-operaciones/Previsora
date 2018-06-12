@@ -345,7 +345,7 @@
 
       <%= form.label :case_termination, "Terminación del caso" %>
       <div class="input-group">
-        <%= form.collection_select(:case_termination, CaseTermination.administrative, :name, :name, {}, {class:"form-control", id:"caseTermination"}) %>
+        <%= form.collection_select(:case_termination, CaseTermination.administrative, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

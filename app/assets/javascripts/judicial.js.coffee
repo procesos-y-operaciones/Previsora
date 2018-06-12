@@ -35,7 +35,6 @@ $ ->
     if $('#attorny').val() == "NO APLICA"
       $('#attorny').val("PENDIENTE")
 
-
   initial_values()
 
 
@@ -415,7 +414,6 @@ $ ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
       $('#caseTermination').prop( "required", true )
-
       $('#caseTermination').prop( "disabled", false )
       $('#lastPerformance').prop( "required", true )
       $('#lastPerformance').prop( "disabled", false )
@@ -503,7 +501,7 @@ $ ->
   coactive_radicate_and_coactive_value_cents_rule = ->
     coactiveRadicate = $('#coactive_radicate').val()
     coactiveValueCents = $('#coactive_value_cents').val()
-    if (coactiveRadicate == "NO APLICA" && coactiveValueCents == "0")
+    if (coactiveRadicate == "NO PRESENTA" && coactiveValueCents == "0")
       $('#coactive').val('No')
       document.getElementById("coactive_radicate").readOnly = true
       document.getElementById("coactive_value_cents").readOnly = true
@@ -519,7 +517,7 @@ $ ->
       document.getElementById("coactive_value_cents").readOnly = false
     if v_option == "No"
       document.getElementById("coactive_radicate").readOnly = true
-      $("#coactive_radicate").val("NO APLICA")
+      $("#coactive_radicate").val("NO PRESENTA")
       document.getElementById("coactive_value_cents").readOnly = true
       $("#coactive_value_cents").val("0")
 
@@ -534,10 +532,12 @@ $ ->
     if v_option == "SI"
       document.getElementById("committee_date").readOnly = false
       $('#committee').prop( "disabled", false )
+      $('#committee_hid').prop( "disabled", true )
     else
       document.getElementById("committee_date").readOnly = true
       $('#committee_date').val("0-0-0")
       $('#committee').prop( "disabled", true )
+      $('#committee_hid').prop( "disabled", false )
 
   $('#join_committee').change ->
     join_committee_rule()

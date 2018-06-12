@@ -4,11 +4,25 @@
   xmlns:x="urn:schemas-microsoft-com:office:excel"
   xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:html="http://www.w3.org/TR/REC-html40">
+
+  <Styles>
+    <Style ss:ID="s8">
+     <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+     <Borders>
+      <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+      <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+      <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+      <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+     </Borders>
+     <Font x:Family="Swiss" ss:Size="12" ss:Bold="1"/>
+    </Style>
+  </Styles>
+
   <Worksheet ss:Name="ReporteRegistroUnico">
     <Table>
 
-      <Row>
-        <Cell>
+      <Row ss:Height="60">
+        <Cell ss:MergeAcross="5" ss:StyleID="s8">
           <Data ss:Type="String">
             <%= "LA PREVISORA S.A. COMPANIA DE SEGUROS" %>
           </Data>
@@ -16,7 +30,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="5" ss:StyleID="s8">
           <Data ss:Type="String">
             <%= "VICEPRESIDENCIA JURIDICA" %>
           </Data>
@@ -24,7 +38,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="5" ss:StyleID="s8">
           <Data ss:Type="String">
             <%= "REPORTE DE PROCESOS REGISTRADOS" %>
           </Data>
@@ -32,7 +46,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="5" ss:StyleID="s8">
           <Data ss:Type="String">
             <%= "FECHA DE GENERACION: #{Date.today}" %>
           </Data>
@@ -40,7 +54,7 @@
       </Row>
 
       <Row>
-        <Cell>
+        <Cell ss:MergeAcross="5" ss:StyleID="s8">
           <Data ss:Type="String">
             <%= "DESDE: #{@date_from} HASTA: #{@date_till}" %>
           </Data>

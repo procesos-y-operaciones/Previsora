@@ -288,7 +288,7 @@ class TypeProcess < ApplicationRecord
   def get_protection
     if self.protection == "NO APLICA" || self.protection == nil
       "NO APLICA"
-    elsif self.protection == [""]
+    elsif self.protection == [""] || self.protection == ["", ""]
       "NO PRESENTA"
     elsif self.protection == "CUMPLIMIENTO"
       self.protection
@@ -340,6 +340,8 @@ class TypeProcess < ApplicationRecord
   def get_case_state
     if self.case_state == nil
       "NO APLICA"
+    elsif self.case_state == ""
+      "NO PRESENTA"
     else
       self.case_state
     end
@@ -466,7 +468,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_more_sinisters
-    if self.sinisters == "PENDIENTE"
+    if self.sinisters == "PENDIENTE" || self.sinister == "NO APLICA"
       ""
     else
       " " + self.sinisters
@@ -476,6 +478,8 @@ class TypeProcess < ApplicationRecord
   def get_policies
     if self.policies == "PENDIENTE"
       ""
+    elsif self.policies == nil
+      "NO APLICA"
     else
       " - " + self.policies
     end
