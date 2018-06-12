@@ -6,6 +6,7 @@
   xmlns:html="http://www.w3.org/TR/REC-html40">
 
   <Worksheet ss:Name="ReporteRegistroUnico">
+    
     <Table>
 
       <Row>
@@ -15,7 +16,7 @@
           </Data>
         </Cell>
       </Row>
-
+      
       <Row>
         <Cell>
           <Data ss:Type="String">
@@ -55,16 +56,17 @@
           <Cell><Data ss:Type="String"><%= c %></Data></Cell>
         <% end %>
       </Row>
-
-
+      
       <% @report.each do |process| %>
         <Row>
           <% process.get_content_all.each do |fields| %>
-            <Cell><Data ss:Type="AnyType"><%= fields %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= fields %></Data></Cell>
           <% end %>
         </Row>
       <% end %>
 
     </Table>
+    
   </Worksheet>
+  
 </Workbook>

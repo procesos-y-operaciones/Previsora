@@ -4,19 +4,21 @@
   xmlns:x="urn:schemas-microsoft-com:office:excel"
   xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:html="http://www.w3.org/TR/REC-html40">
+
   <Worksheet ss:Name="ReporteRegistroUnico">
+    
     <Table>
 
       <Row>
-        <Cell ss:MergeAcross="4">
+        <Cell>
           <Data ss:Type="String">
-            <%= "LA PREVISORA S.A. COMPANIA DE SEGUROS" %>
+            <%= "LA PREVISORA SA COMPANIA DE SEGUROS" %>
           </Data>
         </Cell>
       </Row>
-
+      
       <Row>
-        <Cell ss:MergeAcross="4">
+        <Cell>
           <Data ss:Type="String">
             <%= "VICEPRESIDENCIA JURIDICA" %>
           </Data>
@@ -24,7 +26,7 @@
       </Row>
 
       <Row>
-        <Cell ss:MergeAcross="4">
+        <Cell>
           <Data ss:Type="String">
             <%= "REPORTE DE PROCESOS REGISTRADOS" %>
           </Data>
@@ -32,7 +34,7 @@
       </Row>
 
       <Row>
-        <Cell ss:MergeAcross="4">
+        <Cell>
           <Data ss:Type="String">
             <%= "FECHA DE GENERACION: #{Date.today}" %>
           </Data>
@@ -40,7 +42,7 @@
       </Row>
 
       <Row>
-        <Cell ss:MergeAcross="4">
+        <Cell>
           <Data ss:Type="String">
             <%= "DESDE: #{@date_from} HASTA: #{@date_till}" %>
           </Data>
@@ -54,16 +56,17 @@
           <Cell><Data ss:Type="String"><%= c %></Data></Cell>
         <% end %>
       </Row>
-
-
+      
       <% @report.each do |process| %>
         <Row>
           <% process.get_content_all.each do |fields| %>
-            <Cell><Data ss:Type="AnyType"><%= fields %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= fields %></Data></Cell>
           <% end %>
         </Row>
       <% end %>
 
     </Table>
+    
   </Worksheet>
+  
 </Workbook>
