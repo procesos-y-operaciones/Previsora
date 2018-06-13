@@ -30,6 +30,12 @@ $ ->
       $('#process_radicate').val("PENDIENTE")
     if $('#attorny').val() == "NO APLICA"
       $('#attorny').val("PENDIENTE")
+    if $('#more_protections').val() == "NO APLICA"
+      $('#more_protections').val("NO PRESENTA")
+    if $('#active_part').val() == "NO APLICA"
+      $('#active_part').val("NO PRESENTA")
+    if $('#coactive_radicate').val() == "NO APLICA"
+      $('#coactive_radicate').val("NO PRESENTA")
 
   initial_values()
 
@@ -261,19 +267,25 @@ $ ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
       $('#caseTermination').prop( "disabled", false )
+      $('#caseTermination_hid').prop( "disabled", true )
       $('#lastPerformance').prop( "disabled", false )
+      $('#lastPerformance_hid').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
+      $('#reservedReleased_hid').prop( "disabled", true )
       $('#recovery').prop( "disabled", false )
     else
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination').val("")
+      $('#caseTermination_hid').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", true )
       $('#lastPerformance').val("PENDIENTE")
+      $('#lastPerformance_hid').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#lastPerformanceDate').val("0-0-0")
       $('#reservedReleased').prop( "disabled", true )
       $('#reservedReleased').val("PENDIENTE")
+      $('#reservedReleased_hid').prop( "disabled", false )
       $('#recovery').prop( "disabled", true )
       $('#recovery').val("")
 

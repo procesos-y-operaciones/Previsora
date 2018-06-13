@@ -34,6 +34,10 @@ $ ->
       $('#passive_part').val("PENDIENTE")
     if $('#attorny').val() == "NO APLICA"
       $('#attorny').val("PENDIENTE")
+    if $('#more_protections').val() == "NO APLICA"
+      $('#more_protections').val("NO PRESENTA")
+    if $('#coactive_radicate').val() == "NO APLICA"
+      $('#coactive_radicate').val("PENDIENTE")
 
   initial_values()
 
@@ -415,10 +419,13 @@ $ ->
     if v_option == "TERMINADO"
       $('#caseTermination').prop( "required", true )
       $('#caseTermination').prop( "disabled", false )
+      $('#caseTermination_hid').prop( "disabled", true )
       $('#lastPerformance').prop( "required", true )
       $('#lastPerformance').prop( "disabled", false )
+      $('#lastPerformance_hid').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = false
       $('#reservedReleased').prop( "disabled", false )
+      $('#reservedReleased_hid').prop( "disabled", true )
       $('#recovery').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
       $('#desition_date').val( "" )
@@ -431,13 +438,16 @@ $ ->
       $('#caseTermination').prop( "required", false )
       $('#caseTermination').val("PENDIENTE")
       $('#caseTermination').prop( "disabled", true )
+      $('#caseTermination_hid').prop( "disabled", false )
       $('#lastPerformance').prop( "required", false )
       $('#lastPerformance').val("PENDIENTE")
       $('#lastPerformance').prop( "disabled", true )
+      $('#lastPerformance_hid').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = true
       $('#lastPerformanceDate').val("0-0-0")
       $('#reservedReleased').val("PENDIENTE")
       $('#reservedReleased').prop( "disabled", true )
+      $('#reservedReleased_hid').prop( "disabled", false )
       $('#recovery').prop( "disabled", true )
       $('#desition_date').prop( "disabled", true )
       $('#desition_date').prop( "required", false )

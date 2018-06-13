@@ -292,6 +292,7 @@ $ ->
       $('#fail_previ').val("0")
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination').val("")
+      $('#caseTermination_hid').prop( "disabled", false )
     else
       $('#currentStageVer').prop( "disabled", true )
       $('#currentStageHid').prop( "disabled", false )
@@ -299,6 +300,7 @@ $ ->
       $('#desition_date').prop( "disabled", false )
       $('#fail_previ').prop( "disabled", false )
       $('#caseTermination').prop( "disabled", false )
+      $('#caseTermination_hid').prop( "disabled", true )
 
   $('#caseState').change ->
     case_state_rule()

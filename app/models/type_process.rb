@@ -335,6 +335,8 @@ class TypeProcess < ApplicationRecord
   def get_instance
     if self.instance == nil
       "NO APLICA"
+    elsif self.instance == ""
+      "PENDIENTE"
     else
       self.instance
     end
@@ -353,6 +355,8 @@ class TypeProcess < ApplicationRecord
   def get_case_termination
     if self.case_termination == nil
       "NO APLICA"
+    elsif self.case_termination == ""
+      "NO PRESENTA"
     else
       self.case_termination
     end

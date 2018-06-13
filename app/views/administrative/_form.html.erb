@@ -164,12 +164,14 @@
       <div class="input-group">
         <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :branch_policy, value:"NO PRESENTA", id:"branch_policy_hid" %>
       </div>
 
       <%= form.label :branch_commercial, "Ramo comercial" %>
       <div class="input-group">
         <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
       </div>
 
       <%= form.label :sinister, "Número del siniestro (completo)" %>
@@ -347,6 +349,7 @@
       <div class="input-group">
         <%= form.collection_select(:case_termination, CaseTermination.administrative, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :case_termination, value:"NO PRESENTA", id:"caseTermination_hid" %>
       </div>
 
       <%= form.label :payed_value_cents, "Valor pagado por Previsora" %>
