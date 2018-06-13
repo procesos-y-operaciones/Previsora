@@ -130,7 +130,7 @@
 
       <%= form.label :failed_notification_date, "Fecha de la notificación de la decisión o fallo." %>
       <div class="input-group">
-        <%= form.date_field :failed_notification_date, id: "failed_notification_date", class:"form-control" %>
+        <%= form.date_field :failed_notification_date, id: "failed_notification_date", class:"form-control", min:"1980-1-1", max:Date.today %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.failed_notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
