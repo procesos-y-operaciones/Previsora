@@ -98,6 +98,7 @@ class CreateTypeProcesses < ActiveRecord::Migration[5.1]
       #BOOLEANS
       t.boolean   :reinsurance_report, default: false
       t.boolean   :recovery, default: false
+      t.boolean   :more_policies, default: false
 
       t.belongs_to :user, optional: true
 

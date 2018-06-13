@@ -146,6 +146,6 @@ class TypeProcessesController < ApplicationController
        :provision_cents, :cost_value_cents, :committee_date, :reconcilie_value_cents,
        :recovery, :answer_date, :failed_notification_date, :imp_date, :objection_date_desition,
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
-       :more_protections, :policy_taker, :contract)
+       :more_protections, :policy_taker, :contract, :more_policies)
     end
 end

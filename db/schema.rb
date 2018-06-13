@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "city_cases", force: :cascade do |t|
     t.string "name"
+    t.string "code"
+    t.string "departament"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
 
   create_table "departaments", force: :cascade do |t|
     t.string "name"
+    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -275,6 +278,7 @@ ActiveRecord::Schema.define(version: 20171223021603) do
     t.integer "exercise", default: 0
     t.boolean "reinsurance_report", default: false
     t.boolean "recovery", default: false
+    t.boolean "more_policies", default: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

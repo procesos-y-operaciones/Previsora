@@ -1,6 +1,11 @@
 es-MX:
-  pattern: Solamente s permiten mayúsculas, números, espacios y guiones. No se permiten tíldes, 'Ñ' u otro símbolo.
-  pattern_n: Solamente se permiten números.
+  patterns:
+    numbers:
+      description: Solamente se permiten números.
+    identifiers:
+      description: Solamente se permiten letras mayúsculas, números, espaciones y guiones.
+    texts:
+      description: Solamente se permiten mayúsculas, números, espacios, guiones, comas y puntos. No se permiten tíldes, 'Ñ' u otro símbolo.
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.

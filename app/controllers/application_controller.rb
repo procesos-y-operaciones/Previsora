@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   #before_action :configure_permitted_parameters, if: :devise_controller?
 
   def cities
-    render json: CS.cities(params[:state], :co).to_json
+    #render json: CS.cities(params[:state], :co).to_json
+    render json: CityCase.select(:id, :name).where(departament: params[:state]).to_json
   end
 
   protected

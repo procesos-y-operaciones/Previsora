@@ -161,31 +161,31 @@ class TypeProcess < ApplicationRecord
      'FECHA NOTIFICACION O FALLO', 'FECHA NOTIFICACION IMPUGNACION', 'IMPUGNANTE',
      'FECHA DECISION IMPUGNACION', 'FECHA DE NOTIFICACION DECISION IMPUGNACION', 'TIPO DE DECISION IMPUGNACION',
      'FECHA NOTIFICACION INCIDENTE DESACATO', 'FECHA DE CONTESTACION INCIDENTE DESACATO',
-     'FECHA NOTIFICACION DECISION INDIDENTE DESACATO', 'TIPO SENTENCIA INCIDENTE DESACATO',
+     'FECHA NOTIFICACION DECISION INCIDENTE DESACATO', 'TIPO SENTENCIA INCIDENTE DESACATO',
      'TOMADOR DE LA POLIZA', 'CONTRATO CONCESION']
   end
 
   def get_content_all
-    [self.id, self.get_user, self.get_type_process, self.get_process_class, self.get_subprocess_class,
-     self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui,
+    [self.id, self.get_user, self.get_type_process, self.process_class, self.subprocess_class,
+     nilPendiente(self.correspondency_radicate), nilPendiente(self.case_id_bap), nilPendiente(self.case_id_sise), nilPendiente(self.case_id_ekogui),
      self.creation_date, self.get_link_type, self.get_departament, self.city_case,
-     self.get_reinsurance_type, self.get_reinsurance_report, nilValue(self.reinsurance_value_cents),
-     self.get_coensurance_type, nilValue(self.coensurance_value_cents), self.get_litigation_source,
-     self.policy_cents.to_s + self.get_policies, self.get_protection + self.get_more_protection, self.number, self.exercise, self.get_branch_policy,
-     self.get_branch_commercial, self.sinister + self.get_more_sinisters, self.get_money_type, nilValue(self.dolar_value_cents),
+     self.reinsurance_type, self.reinsurance_report, nilValue(self.reinsurance_value_cents),
+     self.coensurance_type, nilValue(self.coensurance_value_cents), self.litigation_source,
+     self.policy_cents.to_s + self.policies, self.get_protection + self.more_protections, self.number, self.exercise, self.branch_policy,
+     self.branch_commercial, self.sinister + self.sinisters, self.money_type, nilValue(self.dolar_value_cents),
      nilValue(self.reserve_cents), nilValue(self.provision_cents), nilValue(self.reserved_fees_cents), nilValue(self.detritment_cents), nilValue(self.ensurance_value_cents),
-     nilValue(self.contingency_value_cents), format_date(self.notification_date), self.process_radicate, self.attorny,
-     format_date(self.attorny_date), self.get_office_name, self.get_active_part, self.get_passive_part, self.get_score_contingency,
-     self.facts, self.contingency_resume, self.contingency_reason, self.get_current_stage, self.get_instance, self.get_case_state, format_date(self.desition_date),
-     self.get_case_termination, nilValue(self.cost_value_cents), nilValue(self.fail_value_cents), nilValue(self.fail_previ_cents),
-     nilValue(self.payed_value_cents), format_date(self.payment_date), self.get_recovery, self.coactive_radicate, nilValue(self.coactive_value_cents),
-     nilValue(self.garnish_value_cents), self.get_last_performance, format_date(self.last_performance_date),
-     self.get_join_committee, format_date(self.committee_date), self.get_committee, nilValue(self.auth_value_cents),
-     nilValue(self.reconcilie_value_cents), self.reason_conc, self.reason_inv, self.get_reserved_released, self.get_gubernatorial_way,
+     nilValue(self.contingency_value_cents), format_date(self.notification_date), nilPendiente(self.process_radicate), self.attorny,
+     format_date(self.attorny_date), self.office_name, self.active_part, self.passive_part, nilPendiente(self.score_contingency),
+     self.facts, self.contingency_resume, self.contingency_reason, self.current_stage, self.instance, self.case_state, format_date(self.desition_date),
+     self.case_termination, nilValue(self.cost_value_cents), nilValue(self.fail_value_cents), nilValue(self.fail_previ_cents),
+     nilValue(self.payed_value_cents), format_date(self.payment_date), self.recovery, self.coactive_radicate, nilValue(self.coactive_value_cents),
+     nilValue(self.garnish_value_cents), self.last_performance, format_date(self.last_performance_date),
+     self.join_committee, format_date(self.committee_date), self.committee, nilValue(self.auth_value_cents),
+     nilValue(self.reconcilie_value_cents), self.reason_conc, self.reason_inv, self.reserved_released, self.gubernatorial_way,
      format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
      self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification),
-     self.get_setence_type_second_company, format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),
-     format_date(self.date_notification_desition_desacate), self.get_sentence_type_desacate, self.get_policy_taker, self.get_contract]
+     self.setence_type_second_company, format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),
+     format_date(self.date_notification_desition_desacate), self.sentence_type_desacate, self.policy_taker, self.contract]
   end
 
   def self.to_csv(date_from, date_until, options = {})
@@ -219,6 +219,14 @@ class TypeProcess < ApplicationRecord
     end
   end
 
+  def get_user
+    if self.user_id == nil
+      "USUARIO NO EXISTE"
+    else
+      User.find(user_id).name
+    end
+  end
+
   def get_process_class
     if self.process_class == nil
       "NO APLICA"
@@ -235,269 +243,21 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def get_link_type
-    if self.link_type == nil
-      "NO PRESENTA"
-    elsif self.link_type == ""
-      "NO PRESENTA"
-    else
-      self.link_type
-    end
-  end
-
-  def get_branch_commercial
-    if self.branch_commercial == nil || self.branch_commercial == "NO APLICA"
-      "NO APLICA"
-    elsif self.branch_commercial == "NO PRESENTA"
-      "NO PRESENTA"
-    elsif self.branch_commercial == "0"
-      "PENDIENTE"
-    else
-       BranchCommercial.where(num: self.branch_commercial)[0].name
-    end
-  end
-
-  def get_branch_policy
-    if self.branch_policy == nil || self.branch_policy == "NO APLICA"
-      "NO APLICA"
-    elsif self.branch_policy == "NO PRESENTA"
-      "NO PRESENTA"
-    elsif self.branch_policy == "0"
-      "PENDIENTE"
-    else
-      BranchPolicy.where(num: self.branch_policy)[0].name
-    end
-  end
-
-  def get_money_type
-    if self.money_type == nil
-      "NO APLICA"
-    else
-      self.money_type
-    end
-  end
-
-  def get_score_contingency
-    if self.score_contingency == ""
-      "NO PRESENTA"
-    else
-      self.score_contingency
-    end
-  end
-
-  def get_protection
-    if self.protection == "NO APLICA" || self.protection == nil
-      "NO APLICA"
-    elsif self.protection == [""] || self.protection == ["", ""]
-      "NO PRESENTA"
-    elsif self.protection == "CUMPLIMIENTO"
-      self.protection
-    else
-      self.protection[1..-1].join(" - ")
-    end
-  end
-
-  def get_more_protection
-    if self.get_protection == "NO PRESENTA" || self.get_protection == "NO APLICA"
-      ""
-    else
-      if self.more_protections == "NO APLICA" || self.more_protections == nil
-        " "
-      else
-        "-" + self.more_protections
-      end
-    end
-  end
-
-  def get_current_stage
-    if self.current_stage == nil
-      "NO APLICA"
-    elsif self.current_stage == ""
-      "PENDIENTE"
-    else
-      self.current_stage
-    end
-  end
-
-  def get_litigation_source
-    if self.litigation_source == nil
-      "NO APLICA"
-    elsif self.litigation_source == ""
-      "PENDIENTE"
-    else
-      self.litigation_source
-    end
-  end
-
-  def get_instance
-    if self.instance == nil
-      "NO APLICA"
-    else
-      self.instance
-    end
-  end
-
-  def get_case_state
-    if self.case_state == nil
-      "NO APLICA"
-    elsif self.case_state == ""
-      "NO PRESENTA"
-    else
-      self.case_state
-    end
-  end
-
-  def get_case_termination
-    if self.case_termination == nil
-      "NO APLICA"
-    else
-      self.case_termination
-    end
-  end
-
-  def get_user
-    if self.user_id == nil
-      "USUARIO NO EXISTE"
-    else
-      User.find(user_id).name
-    end
-  end
-
-  def get_reinsurance_type
-    if self.reinsurance_type == nil
-      "NO APLICA"
-    elsif self.reinsurance_type == ""
-      "PENDIENTE"
-    else
-      self.reinsurance_type
-    end
-  end
-
-  def get_coensurance_type
-    if self.coensurance_type == nil
-      "NO APLICA"
-    elsif self.coensurance_type == ""
-      "PENDIENTE"
-    else
-      self.coensurance_type
-    end
-  end
-
-  def get_last_performance
-    if self.last_performance == nil
-      "NO APLICA"
-    else
-      self.last_performance
-    end
-  end
-
-  def get_join_committee
-    if self.join_committee == nil
-      "NO APLICA"
-    else
-      self.join_committee
-    end
-  end
-
-  def get_reserved_released
-    if self.reserved_released == nil
-      "NO APLICA"
-    else
-      self.reserved_released
-    end
-  end
-
-  def get_setence_type_second_company
-    if self.setence_type_second_company == nil
-      "NO APLICA"
-    else
-      self.setence_type_second_company
-    end
-  end
-
-  def get_sentence_type_desacate
-    if self.sentence_type_desacate == nil
-      "NO APLICA"
-    else
-      self.sentence_type_desacate
-    end
-  end
-
-  def get_gubernatorial_way
-    if self.gubernatorial_way == nil
-      "NO APLICA"
-    else
-      self.gubernatorial_way
-    end
-  end
-
-  def get_committee
-    if self.committee == nil
-      "NO APLICA"
-    else
-      self.committee
-    end
-  end
-
   def get_departament
-    if CS.states(:co)[self.departament.to_sym] == nil
+    if self.departament == nil
+      "NO PRESENTA"
+    else
+      Departament.where(code: self.departament)
+    end
+  end
+
+  def get_office_name
+    if self.office_name == ""
       "PENDIENTE"
+    elsif self.office_name == "OTRO"
+      self.other_office_name
     else
-      CS.states(:co)[self.departament.to_sym].upcase
-    end
-  end
-
-  def get_reinsurance_report
-    if self.reinsurance_report == true
-      "SI"
-    else
-      "NO"
-    end
-  end
-
-  def get_recovery
-    if self.recovery == true
-      "SI"
-    else
-      "NO"
-    end
-  end
-
-  def get_sinister
-    #if self.sinister == "PEN"
-  end
-
-  def get_more_sinisters
-    if self.sinisters == "PENDIENTE" || self.sinister == "NO APLICA"
-      ""
-    else
-      " " + self.sinisters
-    end
-  end
-
-  def get_policies
-    if self.policies == "PENDIENTE"
-      ""
-    elsif self.policies == nil
-      "NO APLICA"
-    else
-      " - " + self.policies
-    end
-  end
-
-  def get_policy_taker
-    if self.policy_taker == nil
-      "NO APLICA"
-    else
-      self.policy_taker
-    end
-  end
-
-  def get_contract
-    if self.contract == nil
-      "NO APLICA"
-    else
-      self.contract
+      self.office_name
     end
   end
 
@@ -521,6 +281,46 @@ class TypeProcess < ApplicationRecord
     end
   end
 
+  def get_protection
+    if self.protection == "NO APLICA" || self.protection == nil
+      "NO APLICA"
+    elsif self.protection == [""] || self.protection == ["", ""]
+      "NO PRESENTA"
+    elsif self.protection == "CUMPLIMIENTO"
+      self.protection
+    else
+      self.protection[1..-1].join(" - ")
+    end
+  end
+
+  def get_case_termination
+    if self.case_termination == nil
+      "NO APLICA"
+    else
+      self.case_termination
+    end
+  end
+
+  def get_current_stage
+    if self.current_stage == nil
+      "NO APLICA"
+    elsif self.current_stage == ""
+      "PENDIENTE"
+    else
+      self.current_stage
+    end
+  end
+
+  def get_link_type
+    if self.link_type == nil
+     "NO PRESENTA"
+    elsif self.link_type == ""
+     "NO PRESENTA"
+    else
+     self.link_type
+    end
+  end
+
   def format_date(date)
     if date == nil
       #Time.new(0000,0,0).to_date
@@ -538,18 +338,17 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def get_office_name
-    if self.office_name == ""
+  def nilPendiente(value)
+    if value == nil
       "PENDIENTE"
-    elsif self.office_name == "OTRO"
-      self.other_office_name
     else
-      self.office_name
+      value
     end
   end
 
   def self.get_all_departament
-    CS.states(:co).sort_by {|_key, value| value}.to_h
+    Departament.select(:code, :name).all
+    #CS.states(:co).sort_by {|_key, value| value}.to_h
   end
 
   def self.get_bog_departament
