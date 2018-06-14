@@ -145,12 +145,9 @@
 
       <hr>
 
-      <%= form.label :objection, "¿Hay impugnación?" %>
+      <%= form.label :has_impug, "¿Hay impugnación?" %>
       <div class="input-group">
-        <select id="objection" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
+        <%= form.select :has_impug, options_for_select([["NO", false], ["SI", true]]), {}, {id: "objection", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.objection_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -186,12 +183,9 @@
 
       <hr>
 
-      <%= form.label :desacate, "¿Hay desacato?" %>
+      <%= form.label :has_desacate, "¿Hay desacato?" %>
       <div class="input-group">
-        <select id="desacate" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
+        <%= form.select :has_desacate, options_for_select([["NO", false], ["SI", true]]), {}, {id: "desacate", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.desacate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

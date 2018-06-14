@@ -137,26 +137,12 @@ $ ->
 
 
   #¿Tiene más pólizas?
-  policies_and_sinisters_rule = ->
-    polici = $('#policies').val()
-    sinister = $('#sinisters').val()
-    if (polici == "NO APLICA" && sinister == "NO APLICA") || (polici == "PENDIENTE" && sinister == "PENDIENTE")
-      $('#more_policies').val('No')
-      document.getElementById("policies").readOnly = true
-      document.getElementById("sinisters").readOnly = true
-      $("#policies").val("PENDIENTE")
-      $("#sinisters").val("PENDIENTE")
-    else
-      $('#more_policies').val('Si')
-
-  policies_and_sinisters_rule()
-
   more_policies_rule = ->
     v_option = document.getElementById("more_policies").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("policies").readOnly = false
       document.getElementById("sinisters").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("policies").readOnly = true
       $("#policies").val("PENDIENTE")
       document.getElementById("sinisters").readOnly = true

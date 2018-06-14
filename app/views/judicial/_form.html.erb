@@ -191,13 +191,10 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :more_policies, "¿Tiene más pólizas?" %>
+      <%= form.label :has_more_polcies, "¿Tiene más pólizas?" %>
       <div class="input-group">
-        <select id="more_policies" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.select :has_more_polcies, options_for_select([["NO", false], ["SI", true]]), {}, {id: "more_policies", class:"form-control"} %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :policies, "Número de pólizas" %>
@@ -373,12 +370,9 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.desition_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :cost, "¿Tiene costas a favor?" %>
+      <%= form.label :has_costs, "¿Tiene costas a favor?" %>
       <div class="input-group">
-        <select id="cost" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
+        <%= form.select :has_costs, options_for_select([["NO", false], ["SI", true]]), {}, {id: "cost", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.cost_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -425,18 +419,15 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.recovery_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :coactive, "¿Tiene número de radicado de coactivo?" %>
+      <%= form.label :has_coactive_radicate, "¿Tiene número de radicado de coactivo?" %>
       <div class="input-group">
-        <select id="coactive" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
+        <%= form.select :has_coactive_radicate, options_for_select([["NO", false], ["SI", true]]), {}, {id: "coactive", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coactive_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :coactive_radicate, "Número de radicación del coactivo" %>
       <div class="input-group">
-        <%= form.text_field :coactive_radicate, id:"coactive_radicate", pattern:"[0-9\- ]*", title: t(:pattern_n), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :coactive_radicate, id:"coactive_radicate", pattern:"[0-9\- ]*", title: t(:pattern_n), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coactive_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

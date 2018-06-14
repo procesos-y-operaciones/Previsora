@@ -77,6 +77,23 @@ $ ->
 
   radicate_rule()
 
+  #¿Tiene número de radicado de coactivo?
+  coactive_rule = ->
+    v_option = document.getElementById("coactive").value
+    if v_option == "true"
+      document.getElementById("coactive_radicate").readOnly = false
+      document.getElementById("coactive_value_cents").readOnly = false
+    if v_option == "false"
+      document.getElementById("coactive_radicate").readOnly = true
+      $("#coactive_radicate").val("NO PRESENTA")
+      document.getElementById("coactive_value_cents").readOnly = true
+      $("#coactive_value_cents").val("0")
+
+  $('#coactive').change ->
+    coactive_rule()
+
+  coactive_rule()
+
   #Número de identificación del caso (Bizagi, Acces y PA)
   #Número de identificación del caso SISE
   case_id_bap_and_sise_rule = ->
@@ -182,26 +199,12 @@ $ ->
 
 
   #¿Tiene más pólizas?
-  policies_and_sinisters_rule = ->
-    polici = $('#policies').val()
-    sinister = $('#sinisters').val()
-    if (polici == "NO APLICA" && sinister == "NO APLICA") || (polici == "PENDIENTE" && sinister == "PENDIENTE")
-      $('#more_policies').val('No')
-      document.getElementById("policies").readOnly = true
-      document.getElementById("sinisters").readOnly = true
-      $("#policies").val("PENDIENTE")
-      $("#sinisters").val("PENDIENTE")
-    else
-      $('#more_policies').val('Si')
-
-  policies_and_sinisters_rule()
-
   more_policies_rule = ->
     v_option = document.getElementById("more_policies").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("policies").readOnly = false
       document.getElementById("sinisters").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("policies").readOnly = true
       $("#policies").val("PENDIENTE")
       document.getElementById("sinisters").readOnly = true
@@ -209,7 +212,6 @@ $ ->
 
   $('#more_policies').change ->
     more_policies_rule()
-
 
   #Tipo moneda
   money_type_rule = ->
@@ -313,6 +315,7 @@ $ ->
       $('#payment_date').prop( "disabled", true )
       $('#payment_date').prop( "required", false )
       $('#coactive').prop( "disabled", true )
+      $('#coactive').val( "false" )
       $('#coactive').prop( "required", false )
       $('#garnish_value_cents').prop( "disabled", true )
       $('#garnish_value_cents').prop( "required", false )

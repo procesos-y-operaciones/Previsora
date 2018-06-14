@@ -345,26 +345,12 @@ $ ->
 
 
   #¿Tiene más pólizas?
-  policies_and_sinisters_rule = ->
-    polici = $('#policies').val()
-    sinister = $('#sinisters').val()
-    if (polici == "NO APLICA" && sinister == "NO APLICA") || (polici == "PENDIENTE" && sinister == "PENDIENTE")
-      $('#more_policies').val('No')
-      document.getElementById("policies").readOnly = true
-      document.getElementById("sinisters").readOnly = true
-      $("#policies").val("PENDIENTE")
-      $("#sinisters").val("PENDIENTE")
-    else
-      $('#more_policies').val('Si')
-
-  policies_and_sinisters_rule()
-
   more_policies_rule = ->
     v_option = document.getElementById("more_policies").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("policies").readOnly = false
       document.getElementById("sinisters").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("policies").readOnly = true
       $("#policies").val("PENDIENTE")
       document.getElementById("sinisters").readOnly = true
@@ -443,7 +429,6 @@ $ ->
       $('#desition_date').prop( "disabled", true )
       $('#desition_date').prop( "required", false )
       $('#cost').prop( "required", false )
-      $('#cost').val("No")
       $('#cost').prop( "disabled", true )
       $('#cost_value').prop( "required", false )
       $('#cost_value').prop( "disabled", true )
@@ -483,7 +468,7 @@ $ ->
   #¿Tiene costas a favor?
   cost_rule = ->
     v_option = document.getElementById('cost').value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("cost_value").readOnly = false
     else
       document.getElementById("cost_value").readOnly = true
@@ -494,24 +479,12 @@ $ ->
   cost_rule()
 
   #¿Tiene número de radicado de coactivo?
-  coactive_radicate_and_coactive_value_cents_rule = ->
-    coactiveRadicate = $('#coactive_radicate').val()
-    coactiveValueCents = $('#coactive_value_cents').val()
-    if (coactiveRadicate == "NO PRESENTA" && coactiveValueCents == "0")
-      $('#coactive').val('No')
-      document.getElementById("coactive_radicate").readOnly = true
-      document.getElementById("coactive_value_cents").readOnly = true
-    else
-      $('#coactive').val('Si')
-
-  coactive_radicate_and_coactive_value_cents_rule()
-
   coactive_rule = ->
     v_option = document.getElementById("coactive").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("coactive_radicate").readOnly = false
       document.getElementById("coactive_value_cents").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("coactive_radicate").readOnly = true
       $("#coactive_radicate").val("NO PRESENTA")
       document.getElementById("coactive_value_cents").readOnly = true
