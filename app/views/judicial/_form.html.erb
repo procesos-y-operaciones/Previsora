@@ -120,7 +120,7 @@
 
       <%= form.label :reinsurance_value_cents, "Valor del reaseguro" %>
       <div class="input-group">
-        <%= form.text_field :reinsurance_value_cents, id:"reinsurance_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :reinsurance_value_cents, id:"reinsurance_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reinsurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -132,7 +132,7 @@
 
       <%= form.label :coensurance_value_cents, "Valor del coaseguro para Previsora" %>
       <div class="input-group">
-        <%= form.text_field :coensurance_value_cents, id:"coensurance_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control"%>
+        <%= form.text_field :coensurance_value_cents, id:"coensurance_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control"%>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -225,43 +225,43 @@
 
       <%= form.label :dolar_value_cents, "Valor del dólar" %>
       <div class="input-group">
-        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reserve_cents, "Valor de la reserva" %>
       <div class="input-group">
-        <%= form.text_field :reserve_cents, pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :reserve_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserve_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :provision_cents, "Valor de la provisión de la indemnización" %>
       <div class="input-group">
-        <%= form.text_field :provision_cents, id:"provision_cents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :provision_cents, id:"provision_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.provision_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reserved_fees_cents, "Valor de la reserva para honorarios" %>
       <div class="input-group">
-        <%= form.text_field :reserved_fees_cents, id:"reserved_fees_cents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :reserved_fees_cents, id:"reserved_fees_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :detritment_cents, "Valor de la pretensión / detrimento / estimación" %>
       <div class="input-group">
-        <%= form.text_field :detritment_cents, id:"detrimetValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :detritment_cents, id:"detrimetValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.detritment_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :ensurance_value_cents, "Valor asegurado" %>
       <div class="input-group">
-        <%= form.text_field :ensurance_value_cents, id:"ensuranceValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :ensurance_value_cents, id:"ensuranceValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.ensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :contingency_value_cents, "Valor de la contingencia" %>
       <div class="input-group">
-        <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -394,25 +394,25 @@
 
       <%= form.label :cost_value_cents, "Valor de las costas" %>
       <div class="input-group">
-        <%= form.text_field :cost_value_cents,  id:"cost_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class: "form-control" %>
+        <%= form.text_field :cost_value_cents,  id:"cost_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class: "form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.cost_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :fail_value_cents, "Valor del fallo de la decisión" %>
       <div class="input-group">
-        <%= form.text_field :fail_value_cents, id:"fail_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :fail_value_cents, id:"fail_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.fail_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :fail_previ_cents, "Valor del fallo a cargo de Previsora" %>
       <div class="input-group">
-        <%= form.text_field :fail_previ_cents, id: "fail_previ", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :fail_previ_cents, id: "fail_previ", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.fail_previ_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :payed_value_cents, "Valor pagado Previsora" %>
       <div class="input-group">
-        <%= form.text_field :payed_value_cents, id: "payed_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :payed_value_cents, id: "payed_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.payed_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -445,13 +445,13 @@
 
       <%= form.label :coactive_value_cents, "Valor del coactivo" %>
       <div class="input-group">
-        <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coactive_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :garnish_value_cents, "Valor del embargo" %>
       <div class="input-group">
-        <%= form.text_field :garnish_value_cents, pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :garnish_value_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.garnish_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -464,7 +464,7 @@
 
       <%= form.label :last_performance_date, "Fecha de la última actuación" %>
       <div class="input-group">
-        <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate", min:"1980-1-1", max:Date.today %>
+        <%= form.date_field :last_performance_date, id:"lastPerformanceDate", min:"1980-1-1", max:Date.today, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.last_performance_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -489,13 +489,13 @@
 
       <%= form.label :auth_value_cents, "Valor autorizado por el Comité de Defensa y Conciliación" %>
       <div class="input-group">
-        <%= form.text_field :auth_value_cents, id:"auth_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :auth_value_cents, id:"auth_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.auth_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reconcilie_value_cents, "Valor conciliado" %>
       <div class="input-group">
-        <%= form.text_field :reconcilie_value_cents, id:"reconcilie_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :reconcilie_value_cents, id:"reconcilie_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reconcilie_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
