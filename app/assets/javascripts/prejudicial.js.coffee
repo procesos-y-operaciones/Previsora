@@ -40,26 +40,18 @@ $ ->
           $(this).removeAttr 'title'
 
   #¿Tiene número de radicado correspondencia?
-  correspondency_radicate_rule = ->
-    if $('#correspondency_radicate').val() == "NO APLICA" or $('#correspondency_radicate').val() == "NO PRESENTA"
-      $('#radicate').val('No')
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-    else
-      $('#radicate').val('Si')
-
-  correspondency_radicate_rule()
-
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
     radicate_rule()
+
+  radicate_rule()
 
   #Fuente de litigio
   numSiniestro = ""

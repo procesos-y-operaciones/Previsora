@@ -195,26 +195,18 @@ $ ->
     subprocess_civil_rule()
 
   #¿Tiene número de radicado correspondencia?
-  correspondency_radicate_rule = ->
-    if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
-      $('#radicate').val('No')
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-    else
-      $('#radicate').val('Si')
-
-  correspondency_radicate_rule()
-
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
     radicate_rule()
+
+  radicate_rule()
 
 
   #Número de identificación del caso (Bizagi, Acces y PA)
@@ -428,7 +420,6 @@ $ ->
       $('#reservedReleased_hid').prop( "disabled", true )
       $('#recovery').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
-      $('#desition_date').val( "" )
       $('#desition_date').prop( "required", true )
       $('#cost').prop( "required", true )
       $('#cost').prop( "disabled", false )
@@ -455,7 +446,6 @@ $ ->
       $('#cost').val("No")
       $('#cost').prop( "disabled", true )
       $('#cost_value').prop( "required", false )
-      $('#cost_value').val("0")
       $('#cost_value').prop( "disabled", true )
 
   $('#caseState').change ->
@@ -477,16 +467,12 @@ $ ->
       $('#payment_date').prop('required', true)
     else
       document.getElementById("fail_value").readOnly = true
-      $('#fail_value').val("0")
       $('#fail_value').prop('required', false)
       document.getElementById("fail_previ").readOnly = true
-      $('#fail_previ').val("0")
       $('#fail_previ').prop('required', false)
       document.getElementById("payed_value").readOnly = true
-      $('#payed_value').val("0")
       $('#payed_value').prop('required', false)
       document.getElementById("payment_date").readOnly = true
-      $('#payment_date').val("0-0-0")
       $('#payment_date').prop('required', false)
 
   $('#caseTermination').change ->

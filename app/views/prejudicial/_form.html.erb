@@ -33,12 +33,9 @@
 
       <hr>
 
-      <%= form.label :radicate, "¿Tiene número de radicado correspondencia?" %>
+      <%= form.label :has_correspondency_radicate, "¿Tiene número de radicado correspondencia?" %>
       <div class="input-group">
-        <select id="radicate" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
+        <%= form.select :has_correspondency_radicate, options_for_select([["NO", false], ["SI", true]]), {}, {id: "radicate", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

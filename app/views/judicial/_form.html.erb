@@ -43,13 +43,10 @@
 
       <hr>
 
-      <%= form.label :radicate, "¿Tiene número de radicado de correspondencia?" %>
+      <%= form.label :has_correspondency_radicate, "¿Tiene número de radicado de correspondencia?" %>
       <div class="input-group">
-        <select id="radicate" class="form-control">
-          <option value="Si">SI</option>
-          <option value="No">NO</option>
-        </select>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.select :has_correspondency_radicate, options_for_select([["NO", false], ["SI", true]]), {}, {id: "radicate", class:"form-control"} %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :correspondency_radicate, "Número de radicado correspondencia" %>
@@ -366,7 +363,7 @@
 
       <%= form.label :case_state, "Estado del caso" %><span class="red">*</span>
       <div class="input-group">
-        <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"caseState", required: true}) %>
+        <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank: "SELECCIONE"}, {id:"caseState", required:true, class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -374,13 +371,6 @@
       <div class="input-group">
         <%= form.date_field :desition_date, id:"desition_date", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.desition_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :case_termination, "Terminación del caso" %>
-      <div class="input-group">
-        <%= form.collection_select(:case_termination, CaseTermination.other, :name, :name, {include_blank: 'SELECCIONE'}, {id:"caseTermination", class:"form-control"}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-        <%= form.hidden_field :case_termination, value:"NO PRESENTA", id:"caseTermination_hid" %>
       </div>
 
       <%= form.label :cost, "¿Tiene costas a favor?" %>
@@ -396,6 +386,13 @@
       <div class="input-group">
         <%= form.text_field :cost_value_cents,  id:"cost_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class: "form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.cost_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_termination, "Terminación del caso" %>
+      <div class="input-group">
+        <%= form.collection_select(:case_termination, CaseTermination.other, :name, :name, {include_blank: 'SELECCIONE'}, {id:"caseTermination", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :case_termination, value:"NO PRESENTA", id:"caseTermination_hid" %>
       </div>
 
       <%= form.label :fail_value_cents, "Valor del fallo de la decisión" %>

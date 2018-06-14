@@ -64,26 +64,18 @@ $ ->
   subprocess_class_rule()
 
   #¿Tiene número de radicado correspondencia?
-  correspondency_radicate_rule = ->
-    if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
-      $('#radicate').val('No')
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-    else
-      $('#radicate').val('Si')
-
-  correspondency_radicate_rule()
-
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
     radicate_rule()
+
+  radicate_rule()
 
   #Número de identificación del caso (Bizagi, Acces y PA)
   #Número de identificación del caso SISE
@@ -266,6 +258,7 @@ $ ->
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
+      $('#caseTermination').prop( "required", true )
       $('#caseTermination').prop( "disabled", false )
       $('#caseTermination_hid').prop( "disabled", true )
       $('#lastPerformance').prop( "disabled", false )
@@ -274,54 +267,61 @@ $ ->
       $('#reservedReleased').prop( "disabled", false )
       $('#reservedReleased_hid').prop( "disabled", true )
       $('#recovery').prop( "disabled", false )
+      $('#desition_date').prop( "disabled", false )
+      $('#desition_date').prop( "required", true )
     else
+      $('#caseTermination').prop( "required", false )
       $('#caseTermination').prop( "disabled", true )
-      $('#caseTermination').val("")
       $('#caseTermination_hid').prop( "disabled", false )
       $('#lastPerformance').prop( "disabled", true )
-      $('#lastPerformance').val("PENDIENTE")
       $('#lastPerformance_hid').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = true
-      $('#lastPerformanceDate').val("0-0-0")
       $('#reservedReleased').prop( "disabled", true )
-      $('#reservedReleased').val("PENDIENTE")
       $('#reservedReleased_hid').prop( "disabled", false )
       $('#recovery').prop( "disabled", true )
-      $('#recovery').val("")
+      $('#desition_date').prop( "disabled", true )
+      $('#desition_date').prop( "required", false )
 
   $('#caseState').change ->
     case_state_rule()
 
   case_state_rule()
 
-
-  #¿Tiene número de radicado de coactivo?
-  coactive_radicate_and_coactive_value_cents_rule = ->
-    coactiveRadicate = $('#coactive_radicate').val()
-    coactiveValueCents = $('#coactive_value_cents').val()
-    if (coactiveRadicate == "NO PRESENTA" && coactiveValueCents == "0")
-      $('#coactive').val('No')
-      document.getElementById("coactive_radicate").readOnly = true
-      document.getElementById("coactive_value_cents").readOnly = true
-      $('#coactive_radicate').val('PENDIENTE')
+  #Terminacion del caso
+  case_termination_rule = ->
+    v_option = document.getElementById("caseTermination").value
+    if v_option == "TERMINADO CON PAGO: EN CONTRA"
+      $('#fail_value_cents').prop( "disabled", false )
+      $('#fail_value_cents').prop( "required", true )
+      $('#fail_previ_cents').prop( "disabled", false )
+      $('#fail_previ_cents').prop( "required", true )
+      $('#payed_value_cents').prop( "disabled", false )
+      $('#payed_value_cents').prop( "required", true )
+      $('#payment_date').prop( "disabled", false )
+      $('#payment_date').prop( "required", true )
+      $('#coactive').prop( "disabled", false )
+      $('#coactive').prop( "required", true )
+      $('#garnish_value_cents').prop( "disabled", false )
+      $('#garnish_value_cents').prop( "required", true )
     else
-      $('#coactive').val('Si')
+      $('#fail_value_cents').prop( "disabled", true )
+      $('#fail_value_cents').prop( "required", false )
+      $('#fail_previ_cents').prop( "disabled", true )
+      $('#fail_previ_cents').prop( "required", false )
+      $('#payed_value_cents').prop( "disabled", true )
+      $('#payed_value_cents').prop( "required", false )
+      $('#payment_date').prop( "disabled", true )
+      $('#payment_date').prop( "required", false )
+      $('#coactive').prop( "disabled", true )
+      $('#coactive').prop( "required", false )
+      $('#garnish_value_cents').prop( "disabled", true )
+      $('#garnish_value_cents').prop( "required", false )
 
-  coactive_radicate_and_coactive_value_cents_rule()
+  $('#caseTermination').change ->
+    case_termination_rule()
 
-  coactive_rule = ->
-    v_option = document.getElementById("coactive").value
-    if v_option == "Si"
-      document.getElementById("coactive_radicate").readOnly = false
-      document.getElementById("coactive_value_cents").readOnly = false
-    if v_option == "No"
-      document.getElementById("coactive_radicate").readOnly = true
-      $("#coactive_radicate").val("NO PRESENTA")
-      document.getElementById("coactive_value_cents").readOnly = true
-      $("#coactive_value_cents").val("0")
+  case_termination_rule()
 
-  $('#coactive').change ->
-    coactive_rule()
 
   #Departamento donde cursa el caso
   $('#departament').change ->
