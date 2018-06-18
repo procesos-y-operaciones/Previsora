@@ -29,7 +29,7 @@ class TypeProcessesController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @processes.to_csv }
-      format.xls { response.headers['Content-Disposition'] = "attachment; filename=wea.xlsx" }
+      format.xls { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xls" }
     end
   end
 

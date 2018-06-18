@@ -48,7 +48,7 @@
       </Row>
 
       <Row>
-        <% @processes.column_names_all.each do |c| %>
+        <% @processes.total_headers.each do |c| %>
           <Cell><Data><%= c %></Data></Cell>
         <% end %>
       </Row>
@@ -56,7 +56,7 @@
 
       <% @processes.each do |process| %>
         <Row>
-          <% process.get_content_all.each do |fields| %>
+          <% process.get_total_content.each do |fields| %>
             <Cell><Data ss:Type="AnyType"><%= fields %></Data></Cell>
           <% end %>
         </Row>
