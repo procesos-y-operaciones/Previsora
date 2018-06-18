@@ -63,7 +63,7 @@
 
       <%= form.label :case_id_sise, "Número de identificación del caso en SISE" %>
       <div class="input-group">
-        <%= form.text_field :case_id_sise, id:"case_id_sise", maxlength:"12", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :case_id_sise, id:"case_id_sise", maxlength:"12", pattern:"[0-9]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -87,13 +87,13 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.link_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :departament, "Departamento donde cursa el caso" %>
+      <%= form.label :departament, "Departamento donde cursa el caso" %><span class="red">*</span>
       <div class="input-group">
-        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control"}) %>
+        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament", required:"true", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :cities, "Ciudad donde cursa el caso" %>
+      <%= form.label :cities, "Ciudad donde cursa el caso" %><span class="red">*</span>
       <div class="input-group">
         <select name="type_process[city_case]" id="cities" class="form-control" required="true">
           <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
@@ -263,17 +263,17 @@
 
       <%= form.label :notification_date, "Fecha de notificación / vinculación" %>
       <div class="input-group">
-        <%= form.date_field :notification_date, max:Date.today, class:"form-control", min:"1980-1-1", max:Date.today %>
+        <%= form.date_field :notification_date, min:"1980-1-1", max:Date.today, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :process_radicate, "Número de radicación del proceso" %><span class="red">*</span>
       <div class="input-group">
-        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"23", pattern:"[0-9\- ]*", title: t(:pattern_n), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"23", pattern:"[0-9]*", title: t(:pattern_n), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :attorny, "Apoderado en Previsora" %>
+      <%= form.label :attorny, "Apoderado en Previsora" %><span class="red">*</span>
       <div class="input-group">
         <%= form.text_field :attorny, id:"attorny", pattern:"[A-Z0-9\- ]*", maxlength:"100", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -285,7 +285,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %>
+      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %><span class="red">*</span>
       <div class="input-group">
         <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {id: "office", required: true, class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -294,13 +294,13 @@
         <%= form.text_field :other_office_name, id: "office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
       </div>
 
-      <%= form.label :active_part, "Parte activa" %>
+      <%= form.label :active_part, "Parte activa" %><span class="red">*</span>
       <div class="input-group">
         <%= form.text_field :active_part, id:"active_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :passive_part, "Parte pasiva" %>
+      <%= form.label :passive_part, "Parte pasiva" %><span class="red">*</span>
       <div class="input-group">
         <%= form.text_field :passive_part, id:"passive_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -314,19 +314,19 @@
 
       <%= form.label :facts, "Hechos" %>
       <div class="input-group">
-        <%= form.text_area :facts, id:"facts", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :facts, id:"facts", maxlength:"2500", pattern:"[A-Z0-9\-\.\, ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :contingency_resume, "Resumen de la contingencia" %>
       <div class="input-group">
-        <%= form.text_area :contingency_resume, id:"contingency_resume", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :contingency_resume, id:"contingency_resume", maxlength:"2500", pattern:"[A-Z0-9\-\.\, ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :contingency_reason, "Motivos de la contingencia" %>
       <div class="input-group">
-        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\-\.\, ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -409,7 +409,7 @@
 
       <%= form.label :payment_date, "Fecha de consignación" %>
       <div class="input-group">
-        <%= form.date_field :payment_date, id: "payment_date", class:"form-control" %>
+        <%= form.date_field :payment_date, id: "payment_date", min:"1980-1-1", max:Date.today, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.payment_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

@@ -253,7 +253,7 @@ Protection.create([
   {name: 'PERDIDA SEVERA POR HURTO', n_type: 1},
   {name: 'TERAPEUTICOS', n_type: 1},
   {name: 'CUMPLIMIENTO', n_type: 41},
-  {name: 'CUMPLIMIENTO', n_type: 42},
+  {name: 'CUMPLIMIENTO', n_type: 42},#TODO:Check
   {name: 'ESTABILIDAD LABORAL', n_type: 42},
   {name: 'SALARIOS Y PRESTACIONES E INDEMNIZACIONES', n_type: 42},
   {name: 'BUEN MANEJO DEL ANTICIPO', n_type: 42},

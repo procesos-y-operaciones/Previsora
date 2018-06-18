@@ -604,6 +604,18 @@ $ ->
   $('#ensuranceValueCents').change ->
     pretension_value_rule()
 
+  #Valot conciliado no mayor a valor comite
+  reconcilie_value_rule = ->
+    ensuranceValue = $('#reconcilie_value').val()
+    ensuranceValue = ensuranceValue.split("'").join("")
+    ensuranceValue = ensuranceValue.split(",").join("")
+    console.log(ensuranceValue)
+
+  $('#reconcilie_value').change() ->
+    reconcilie_value_rule()
+
+  reconcilie_value_rule()
+
   #Departamento donde cursa el caso
   $('#departament').change ->
     input_state = $(this)
