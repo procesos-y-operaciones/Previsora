@@ -604,14 +604,18 @@ $ ->
   $('#ensuranceValueCents').change ->
     pretension_value_rule()
 
-  #Valot conciliado no mayor a valor comite
+  #Valor conciliado no mayor a valor comite
   reconcilie_value_rule = ->
     ensuranceValue = $('#reconcilie_value').val()
     ensuranceValue = ensuranceValue.split("'").join("")
     ensuranceValue = ensuranceValue.split(",").join("")
-    console.log(ensuranceValue)
+    authValue = $('#auth_value').val()
+    authValue = authValue.split("'").join("")
+    authValue = authValue.split(",").join("")
+    if(ensuranceValue > authValue)
+      $('#reconcilie_value').val(authValue)
 
-  $('#reconcilie_value').change() ->
+  $('#reconcilie_value').change ->
     reconcilie_value_rule()
 
   reconcilie_value_rule()
