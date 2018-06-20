@@ -155,6 +155,10 @@ $ ->
         $('#currentStageDiv').show()
         $('#judicial_declarativos').prop( "disabled", false )
         $('#judicial_declarativos').show()
+      when "PROCESO DE LIQUIDACION DE SOCIEDADES CONYUGALES O PATRIMONIALES POR CAUSA DISTINTA DE LA MUERTE DE LOS CONYUGES O COMPANEROS PERMANENTES"
+        $('#currentStageDiv').show()
+        $('#judicial_declarativos').prop( "disabled", false )
+        $('#judicial_declarativos').show()
       when "PROCESO VERBAL SUMARIO"
         $('#currentStageDiv').show()
         $('#judicial_ejecutivo').prop( "disabled", false )
