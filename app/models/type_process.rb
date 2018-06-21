@@ -127,7 +127,7 @@ class TypeProcess < ApplicationRecord
     if case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
       errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
     end
-    if case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_bap)[0].id != id
+    if case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise)[0].id != id
       errors.add("Número de identificación del caso sise", " ya existe")
     end
     if case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
