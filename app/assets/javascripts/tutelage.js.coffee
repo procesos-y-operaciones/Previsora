@@ -26,6 +26,8 @@ $ ->
       $('#passive_part').val("PENDIENTE")
     if $('#objecter').val() == "NO APLICA"
       $('#objecter').val("PENDIENTE")
+    if $('#office_text').val() == "NO APLICA"
+      $('#office_text').val("PENDIENTE")
 
   initial_values()
 

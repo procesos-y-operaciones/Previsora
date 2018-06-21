@@ -117,7 +117,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :litigation_source, "Fuente de litigio" %>
+      <%= form.label :litigation_source, "Fuente del litigio" %>
       <div class="input-group">
         <%= form.collection_select(:litigation_source, LitigationSource.all, :name, :name, {}, {id:"litigationSource", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -167,7 +167,7 @@
         <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
       </div>
 
-      <%= form.label :sinister, "Número del siniestro (completo)" %>
+      <%= form.label :sinister, "Número de Siniestro (completo)" %>
       <div class="input-group">
         <%= form.text_field :sinister, id:"sinister", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), readonly: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
