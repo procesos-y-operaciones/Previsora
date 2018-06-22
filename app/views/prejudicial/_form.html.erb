@@ -131,7 +131,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :number, "Número (Siniestro)" %>
+      <%= form.label :number, "Número de Siniestro" %>
       <div class="input-group">
         <%= form.number_field :number, id:"number", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.number_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -157,7 +157,7 @@
         <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
       </div>
 
-      <%= form.label :sinister, "Número del siniestro (generado)" %>
+      <%= form.label :sinister, "Número de Siniestro (completo)" %>
       <div class="input-group">
         <%= form.text_field :sinister, pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"sinister", readOnly:true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>

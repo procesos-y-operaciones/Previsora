@@ -185,7 +185,7 @@
         <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
       </div>
 
-      <%= form.label :sinister, "Número del siniestro (completo)" %>
+      <%= form.label :sinister, "Número de Siniestro (completo)" %>
       <div class="input-group">
         <%= form.text_field :sinister, id:"sinister", readonly: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -291,7 +291,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
       <div class="input-group">
-        <%= form.text_field :other_office_name, id: "office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
+        <%= form.text_field :other_office_name, id:"office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", placeholder:'NOMBRE DEL DESPACHO', class:"form-control" %>
       </div>
 
       <%= form.label :active_part, "Parte activa" %><span class="red">*</span>

@@ -38,6 +38,8 @@ $ ->
       $('#more_protections').val("NO PRESENTA")
     if $('#coactive_radicate').val() == "NO APLICA"
       $('#coactive_radicate').val("PENDIENTE")
+    if $('#office_text').val() == "NO APLICA"
+      $('#office_text').val("PENDIENTE")
 
   initial_values()
 
