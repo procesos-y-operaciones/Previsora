@@ -122,7 +122,7 @@
       </div>
 
       <%= form.label :coensurance_type, "Tipo de coaseguro" %>
-      <div class="input-group">
+      <div class="inpu t-group">
         <%= form.collection_select(:coensurance_type, CoensuranceType.all, :name, :name, {include_blank: 'SELECCIONE'}, {id: "coensurance_type", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>

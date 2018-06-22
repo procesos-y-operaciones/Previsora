@@ -269,7 +269,7 @@ $ ->
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination').val("")
       $('#caseTermination_hid').prop( "disabled", false )
-    else
+    if v_option == "TERMINADO"
       $('#currentStageVer').prop( "disabled", true )
       $('#currentStageHid').prop( "disabled", false )
       $('#fail_value').prop( "disabled", false )
@@ -277,6 +277,19 @@ $ ->
       $('#fail_previ').prop( "disabled", false )
       $('#caseTermination').prop( "disabled", false )
       $('#caseTermination_hid').prop( "disabled", true )
+    else
+      $('#currentStageVer').prop( "disabled", false )
+      $('#currentStageHid').prop( "disabled", true )
+      $('#fail_value').prop( "disabled", true )
+      $('#fail_value').val("0")
+      $('#desition_date').prop( "disabled", true )
+      $('#desition_date').prop("0-0-0")
+      $('#fail_previ').prop( "disabled", true )
+      $('#fail_previ').val("0")
+      $('#caseTermination').prop( "disabled", true )
+      $('#caseTermination').val("")
+      $('#caseTermination_hid').prop( "disabled", false )
+
 
   $('#caseState').change ->
     case_state_rule()
