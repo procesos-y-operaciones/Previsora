@@ -222,9 +222,9 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :reserve_cents, "Reserva o provisión de la indemnización" %>
+      <%= form.label :provision_cents, "Reserva o provisión de la indemnización" %>
       <div class="input-group">
-        <%= form.text_field :reserve_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :provision_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.reserve_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
