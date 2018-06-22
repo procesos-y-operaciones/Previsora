@@ -40,6 +40,10 @@ $ ->
       $('#coactive_radicate').val("PENDIENTE")
     if $('#office_text').val() == "NO APLICA"
       $('#office_text').val("PENDIENTE")
+    if $('#document_active_part').val() == "NO APLICA"
+      $('#document_active_part').val("PENDIENTE")
+    if $('#document_passive_part').val() == "NO APLICA"
+      $('#document_passive_part').val("PENDIENTE")
 
   initial_values()
 

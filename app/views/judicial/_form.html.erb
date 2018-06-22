@@ -300,10 +300,22 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :document_active_part, "Cédula o NIT de la parte activa" %>
+      <div class="input-group">
+        <%= form.text_field :document_active_part, id:"document_active_part", maxlength:"100", pattern:"[PENDIENTE|0-9]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :passive_part, "Parte pasiva" %><span class="red">*</span>
       <div class="input-group">
         <%= form.text_field :passive_part, id:"passive_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :document_passive_part, "Cédula o NIT de la parte pasiva" %>
+      <div class="input-group">
+        <%= form.text_field :document_passive_part, id:"document_passive_part", maxlength:"100", pattern:"[PENDIENTE|0-9]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :score_contingency, "Calificación de la contingencia" %>

@@ -19,7 +19,11 @@ $ ->
       $('#more_protections').val("NO PRESENTA")
     if $('#office_name').val() == "NO APLICA"
       $('#office_name').val("PENDIENTE")
-
+    if $('#document_active_part').val() == "NO APLICA"
+      $('#document_active_part').val("PENDIENTE")
+    if $('#document_passive_part').val() == "NO APLICA"
+      $('#document_passive_part').val("PENDIENTE")
+      
   initial_values()
 
   #Patrón de todos los text_area

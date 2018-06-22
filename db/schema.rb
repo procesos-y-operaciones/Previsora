@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620215722) do
+ActiveRecord::Schema.define(version: 20180622223227) do
 
   create_table "branch_commercials", force: :cascade do |t|
     t.string "name"
@@ -284,6 +284,8 @@ ActiveRecord::Schema.define(version: 20180620215722) do
     t.boolean "has_coactive_radicate", default: false
     t.boolean "has_impug", default: false
     t.boolean "has_desacate", default: false
+    t.string "document_active_part", default: "NO APLICA"
+    t.string "document_passive_part", default: "NO APLICA"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 
