@@ -34,6 +34,8 @@ $ ->
       $('#contingency_resume').val("PENDIENTE")
     if $('#process_radicate').val() == "NO APLICA"
       $('#process_radicate').val("PENDIENTE")
+    if $('#coactive_radicate').val() == "NO APLICA"
+      $('#coactive_radicate').val("PENDIENTE")
 
   initial_values()
 
@@ -103,26 +105,18 @@ $ ->
 
 
   #¿Tiene número de radicado correspondencia?
-  correspondency_radicate_rule = ->
-    if $('#correspondency_radicate').val() == "NO APLICA" or $('#correspondency_radicate').val() == "NO PRESENTA"
-      $('#radicate').val('No')
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-    else
-      $('#radicate').val('Si')
-
-  correspondency_radicate_rule()
-
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
     radicate_rule()
+
+  radicate_rule()
 
 
   #Fuente de litigio
@@ -139,8 +133,11 @@ $ ->
       $('#protection_ordinarie').prop('disabled', false)
       document.getElementById('number').readOnly = false
       document.getElementById('exercise').readOnly = false
-      $('#branch_policy').prop('disabled', false)
-      $('#branch_commercial').prop('disabled', false)
+      $('#branch_policy').prop( "disabled", false )
+      $('#branch_policy_hid').prop( "disabled", true )
+      $('#branch_commercial').prop( "disabled", false )
+      $('#branch_commercial_hid').prop( "disabled", true )
+      $('#more_policies').prop( "disabled", false )
       $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
       document.getElementById('protection_coljuegos').readOnly = true
@@ -153,11 +150,12 @@ $ ->
       $('#number').val("0")
       document.getElementById('exercise').readOnly = true
       $('#exercise').val("0")
-      $('#branch_policy').prop('disabled', true)
-      $('#branch_policy').val("0")
-      $('#branch_commercial').prop('disabled', true)
-      $('#branch_commercial').val("0")
-      $('#sinister').val 'NO APLICA'
+      $('#branch_policy').prop( "disabled", true )
+      $('#branch_policy_hid').prop( "disabled", false )
+      $('#branch_commercial').prop( "disabled", true )
+      $('#branch_commercial_hid').prop( "disabled", false )
+      $('#more_policies').prop( "disabled", true )
+      $("#sinister").val("NO PRESENTA")
 
   $('#litigationSource').change ->
     litigation_source_rule()
@@ -202,7 +200,6 @@ $ ->
       $('#reinsurance_report').prop( "disabled", true )
       $('#reinsurance_report').val("false")
 
-
   $('#ensuranceValue').change ->
     ensurance_value_rule()
   $('#subprocessClass').change ->
@@ -210,28 +207,13 @@ $ ->
 
   ensurance_value_rule()
 
-
   #¿Tiene más pólizas?
-  policies_and_sinisters_rule = ->
-    polici = $('#policies').val()
-    sinister = $('#sinisters').val()
-    if (polici == "NO APLICA" && sinister == "NO APLICA") || (polici == "PENDIENTE" && sinister == "PENDIENTE")
-      $('#more_policies').val('No')
-      document.getElementById("policies").readOnly = true
-      document.getElementById("sinisters").readOnly = true
-      $("#policies").val("PENDIENTE")
-      $("#sinisters").val("PENDIENTE")
-    else
-      $('#more_policies').val('Si')
-
-  policies_and_sinisters_rule()
-
   more_policies_rule = ->
     v_option = document.getElementById("more_policies").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("policies").readOnly = false
       document.getElementById("sinisters").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("policies").readOnly = true
       $("#policies").val("PENDIENTE")
       document.getElementById("sinisters").readOnly = true
@@ -240,11 +222,10 @@ $ ->
   $('#more_policies').change ->
     more_policies_rule()
 
-
   #Tipo moneda
   money_type_rule = ->
     v_option = document.getElementById("moneyType").value
-    if v_option == "DOLAR"
+    if v_option == "PESOS"
       document.getElementById("dolarValueCents").readOnly = false
       $("#dolarValueCents").val(0)
     else
@@ -287,6 +268,7 @@ $ ->
       $('#fail_previ').val("0")
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination').val("")
+      $('#caseTermination_hid').prop( "disabled", false )
     else
       $('#currentStageVer').prop( "disabled", true )
       $('#currentStageHid').prop( "disabled", false )
@@ -294,6 +276,7 @@ $ ->
       $('#desition_date').prop( "disabled", false )
       $('#fail_previ').prop( "disabled", false )
       $('#caseTermination').prop( "disabled", false )
+      $('#caseTermination_hid').prop( "disabled", true )
 
   $('#caseState').change ->
     case_state_rule()
@@ -311,9 +294,8 @@ $ ->
       $('#payed_value_cents').prop( "disabled", true )
       $('#payed_value_cents').val("0")
       $('#payment_date').prop( "disabled", true )
-      $('#payment_date').val("")
+      $('#coactive').val( "false" )
       $('#coactive').prop( "disabled", true )
-      $('#coactive').val("No")
 
   $('#currentStageVer').change ->
     current_stage_rule()
@@ -321,40 +303,24 @@ $ ->
   current_stage_rule()
 
   #¿Tiene número de radicado de coactivo?
-  coactive_radicate_and_coactive_value_cents_rule = ->
-    coactiveRadicate = $('#coactive_radicate').val()
-    coactiveValueCents = $('#coactive_value_cents').val()
-    garnishValue = $('#garnish_value').val()
-    if (coactiveRadicate == "NO APLICA" and coactiveValueCents == "0" and garnishValue == "0")
-      $('#coactive').val('No')
-      document.getElementById("coactive_radicate").readOnly = true
-      document.getElementById("coactive_value_cents").readOnly = true
-      document.getElementById("garnish_value").readOnly = true
-      $('#coactive_radicate').val("PENDIENTE")
-    else
-      $('#coactive').val('Si')
-
-  coactive_radicate_and_coactive_value_cents_rule()
-
   coactive_rule = ->
     v_option = document.getElementById("coactive").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("coactive_radicate").readOnly = false
       document.getElementById("coactive_value_cents").readOnly = false
       document.getElementById("garnish_value").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("coactive_radicate").readOnly = true
-      $("#coactive_radicate").val("NO APLICA")
+      $("#coactive_radicate").val("NO PRESENTA")
       document.getElementById("coactive_value_cents").readOnly = true
-      $("#coactive_value_cents").val("0")
       document.getElementById("garnish_value").readOnly = true
-      $("#garnish_value").val("0")
 
   $('#coactive').change ->
     coactive_rule()
 
+  coactive_rule()
 
-    #Departamento donde cursa el caso
+  #Departamento donde cursa el caso
   $('#departament_ordinarie').change ->
     input_state = $(this)
     output_state = $('#cities')

@@ -24,30 +24,24 @@ $ ->
       $('#active_part').val("PENDIENTE")
     if $('#passive_part').val() == "NO APLICA"
       $('#passive_part').val("PENDIENTE")
+    if $('#objecter').val() == "NO APLICA"
+      $('#objecter').val("PENDIENTE")
 
   initial_values()
 
   #¿Tiene número de radicado correspondencia?
-  correspondency_radicate_rule = ->
-    if $('#correspondency_radicate').val() == "NO APLICA" || $('#correspondency_radicate').val() == "NO PRESENTA"
-      $('#radicate').val('No')
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-    else
-      $('#radicate').val('Si')
-
-  correspondency_radicate_rule()
-
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById("correspondency_radicate").readOnly = true
       $("#correspondency_radicate").val("NO PRESENTA")
 
   $('#radicate').change ->
     radicate_rule()
+
+  radicate_rule()
 
 
   #Nombre despacho / tipo contraloría
@@ -65,33 +59,15 @@ $ ->
 
   office_rule()
 
-
-  #¿Hay impugnación?
-  ###
-  objection_date_and_objecter = ->
-    objectionDate = $("#objection_date").val()
-    objecter = $("#objecter").val()
-    if objectionDate == "" and objecter == "NO APLICA"
-      $('#objection').val('No')
-      document.getElementById('objection_date').readOnly = true
-      $("#objection_date").val('0-0-0')
-      document.getElementById('objecter').readOnly = true
-      $("#objecter").val('NO APLICA')
-    else
-      $('#objection').val('Si')
-
-  objection_date_and_objecter()
-  ###
-
   objection_rule = ->
     v_option = document.getElementById('objection').value
-    if v_option == "No"
+    if v_option == "false"
       document.getElementById('objection_date').readOnly = true
       document.getElementById('objecter').readOnly = true
       document.getElementById('date_imp').readOnly = true
       document.getElementById('date_notification_imp').readOnly = true
       $('#setence_type_second_company_id').prop 'disabled', true
-    if v_option == "Si"
+    if v_option == "true"
       document.getElementById('objection_date').readOnly = false
       document.getElementById('objecter').readOnly = false
       document.getElementById('date_imp').readOnly = false
@@ -132,12 +108,12 @@ $ ->
 
   desacate_rule = ->
     v_option = document.getElementById('desacate').value
-    if v_option == "Si"
+    if v_option == "true"
       $('#setence_type_second_company_id').prop( "disabled", false )
-      document.getElementById('date_notification_desacate').readOnly = false
+      $('#date_notification_desacate').prop( "disabled", false )
       $('#sentence_type_desacate').prop( "disabled", false )
-      document.getElementById('date_notification_desition_desacate').readOnly = false
-      document.getElementById('date_answer_desacate').readOnly = false
+      $('#date_notification_desition_desacate').prop( "disabled", false )
+      $('#date_answer_desacate').prop( "disabled", false )
       $('#sentence_type_desacate').prop( "disabled", false )
     else
       $('#setence_type_second_company_id').prop( "disabled", true )

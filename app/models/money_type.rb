@@ -11,7 +11,7 @@
 class MoneyType < ApplicationRecord
 
   def self.cents
-    MoneyType.where(name: "PESO")
+    MoneyType.where(name: "PESOS")
   end
 
 end

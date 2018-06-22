@@ -278,6 +278,12 @@ ActiveRecord::Schema.define(version: 20180620234700) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "has_correspondency_radicate", default: false
+    t.boolean "has_more_polcies", default: false
+    t.boolean "has_costs", default: false
+    t.boolean "has_coactive_radicate", default: false
+    t.boolean "has_impug", default: false
+    t.boolean "has_desacate", default: false
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 
