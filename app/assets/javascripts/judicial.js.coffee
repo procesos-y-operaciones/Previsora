@@ -583,9 +583,9 @@ $ ->
     v_option = v_option.split("'").join("")
     v_option = v_option.split(",").join("")
     if v_option > '0'
-      document.getElementById("reserved_fees_cents").readOnly = true
-    else
       document.getElementById("reserved_fees_cents").readOnly = false
+    else
+      document.getElementById("reserved_fees_cents").readOnly = true
 
   $('#provision_cents').change ->
     provision_cents_rule()
