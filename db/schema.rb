@@ -284,6 +284,7 @@ ActiveRecord::Schema.define(version: 20180622223227) do
     t.boolean "has_coactive_radicate", default: false
     t.boolean "has_impug", default: false
     t.boolean "has_desacate", default: false
+    t.string "state", default: "REGISTRO NUEVO"
     t.string "document_active_part", default: "NO APLICA"
     t.string "document_passive_part", default: "NO APLICA"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
