@@ -436,6 +436,7 @@ $ ->
       $('#desition_date').prop( "required", false )
       $('#cost').prop( "required", false )
       $('#cost').prop( "disabled", true )
+      $('#cost').val( "false" )
       $('#cost_value').prop( "required", false )
       $('#cost_value').prop( "disabled", true )
 
@@ -595,14 +596,18 @@ $ ->
   #Valor asegurado y Valor contingencia
   pretension_value_rule = ->
     detValCents = document.getElementById('detrimetValueCents').value
+    detValCents = detValCents.split("'").join("")
+    detValCents = detValCents.split(",").join("")
     ensValCents = document.getElementById('ensuranceValueCents').value
+    ensValCents = ensValCents.split("'").join("")
+    ensValCents = ensValCents.split(",").join("")
     if detValCents != 0 && ensValCents != 0
-      if detValCents < ensValCents
-        $('#contingencyValueCents').val detValCents
+      if parseInt(detValCents) < parseInt(ensValCents)
+        $('#contingencyValueCents').val(detValCents)
       else
-        $('#contingencyValueCents').val ensValCents
+        $('#contingencyValueCents').val(ensValCents)
     else
-      $('#contingencyValueCents').val 0
+      $('#contingencyValueCents').val( 0 )
 
   $('#detrimetValueCents').change ->
     pretension_value_rule()
