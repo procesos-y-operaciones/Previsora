@@ -36,6 +36,10 @@ $ ->
       $('#active_part').val("NO PRESENTA")
     if $('#coactive_radicate').val() == "NO APLICA"
       $('#coactive_radicate').val("NO PRESENTA")
+    if $('#document_active_part').val() == "NO APLICA"
+      $('#document_active_part').val("PENDIENTE")
+    if $('#document_passive_part').val() == "NO APLICA"
+      $('#document_passive_part').val("PENDIENTE")
 
   initial_values()
 
