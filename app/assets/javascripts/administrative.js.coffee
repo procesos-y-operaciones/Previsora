@@ -36,6 +36,10 @@ $ ->
       $('#process_radicate').val("PENDIENTE")
     if $('#coactive_radicate').val() == "NO APLICA"
       $('#coactive_radicate').val("PENDIENTE")
+    if $('#policies').val() == "NO APLICA"
+      $('#policies').val("PENDIENTE")
+    if $('#sinisters').val() == "NO APLICA"
+      $('#sinisters').val("PENDIENTE")
 
   initial_values()
 

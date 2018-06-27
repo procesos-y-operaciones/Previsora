@@ -44,6 +44,10 @@ $ ->
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
       $('#document_passive_part').val("PENDIENTE")
+    if $('#policies').val() == "NO APLICA"
+      $('#policies').val("PENDIENTE")
+    if $('#sinisters').val() == "NO APLICA"
+      $('#sinisters').val("PENDIENTE")
 
   initial_values()
 
