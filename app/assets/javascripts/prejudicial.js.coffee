@@ -23,7 +23,7 @@ $ ->
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
       $('#document_passive_part').val("PENDIENTE")
-      
+
   initial_values()
 
   #Patrón de todos los text_area
@@ -154,6 +154,8 @@ $ ->
 
   $('#more_policies').change ->
     more_policies_rule()
+
+  more_policies_rule()
 
   #Tipo moneda
   money_type_rule = ->

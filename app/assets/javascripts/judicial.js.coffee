@@ -365,6 +365,8 @@ $ ->
   $('#more_policies').change ->
     more_policies_rule()
 
+  more_policies_rule()
+
 
   #Tipo moneda
   money_type_rule = ->
