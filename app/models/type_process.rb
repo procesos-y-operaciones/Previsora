@@ -155,7 +155,7 @@ class TypeProcess < ApplicationRecord
       'NUMERO DE IDENTIFICACION DEL CASO EN SISE',	'NUMERO DE IDENTIFICACION DEL CASO EN EKOGUI',	'NUMERO DE RADICACION DEL PROCESO - DESPACHO',
       'NUMERO DE SINIESTRO COMPLETO',	'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA',
       'NUMERO DE RADICACION DEL COACTIVO',	'NUMERO DE POLIZAS',	'NUMERO DE SINIESTROS',	'NUMERO DE CASO EN ON-BASE',	'IMPUGNANTE',	'RAZON DE NO CONCILIAR',
-      'RAZON DE INVIABILIDAD',	'NOMBRE DEL DESPACHO / TIPO DE CONTRALORIA',	'DEPARTAMENTO DONDE CURSA EL CASO',	'CIUDAD DONDE CURSA EL CASO',	'CLASE DE PROCESO',
+      'RAZON DE INVIABILIDAD',	'NOMBRE DEL DESPACHO / TIPO DE CONTRALORIA', 'DEPARTAMENTO DONDE CURSA EL CASO',	'CIUDAD DONDE CURSA EL CASO',	'CLASE DE PROCESO',
       'SUBCLASE DE PROCESO',	'TIPO DE VINCULACION',	'SUCURSAL DE LA POLIZA',	'RAMO COMERCIAL',	'CALIFICACION DE LA CONTINGENCIA',	'AMPARO',	'ETAPA ACTUAL',
       'FUENTE DEL LITIGIO',	'INSTANCIA EN LA QUE SE ENCUENTRA',	'ESTADO DEL CASO',	'TERMINACION DEL CASO',	'TIPO DE REASEGURO',	'ULTIMA ACTUACION',	'TIPOLOGIA',
       'TIPO DECISION IMPUGNACION',	'TIPO SENTENCIA DEL INCIDENTE DE DESACATO A LA COMPANIA',	'LA RESERVA YA FUE DEPURADA?',	'TIPO DE MONEDA',	'INGRESA AL COMITE DE DEFENSA Y CONCILIACION?',
@@ -174,20 +174,19 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_total_content
-    h = [
-      'id', 'internal_lawyer', 'correspondency_radicate', 'case_id_bap', 'case_id_sise', 'case_id_ekogui', 'process_radicate', 'sinister', 'attorny', 'active_part', 'passive_part',
-      'contingency_reason', 'contingency_resume', 'coactive_radicate', 'policies', 'sinisters', 'case_onbase', 'tutelage_imp', 'reason_conc', 'reason_inv', 'office_name', 'departament',
-      'city_case', 'process_class', 'subprocess_class', 'link_type', 'branch_policy', 'branch_commercial', 'score_contingency', 'protection', 'current_stage', 'litigation_source',
-      'instance', 'case_state', 'case_termination', 'reinsurance_type', 'last_performance', 'gubernatorial_way', 'setence_type_second_company', 'sentence_type_desacate',
-      'reserved_released', 'money_type', 'join_committee', 'committee', 'coensurance_type', 'policy_taker', 'contract', 'more_protections', 'facts', 'dolar_value_cents',
-      'detritment_cents', 'ensurance_value_cents', 'contingency_value_cents', 'policy_cents', 'reserve_cents', 'reserved_fees_cents', 'provision_cents', 'fail_value_cents',
-      'fail_previ_cents', 'payed_value_cents', 'coactive_value_cents', 'garnish_value_cents', 'auth_value_cents', 'reinsurance_value_cents', 'coensurance_value_cents',
-      'reconcilie_value_cents', 'cost_value_cents', 'creation_date', 'notification_date', 'attorny_date', 'failed_notification_date', 'answer_date', 'objection_date_desition',
-      'date_notification_desition_desacate', 'payment_date', 'imp_date', 'last_performance_date', 'desition_date', 'committee_date', 'date_notification_desacate',
-      'date_answer_desacate', 'objection_date_desition_notification', 'number', 'exercise', 'reinsurance_report', 'recovery', 'has_correspondency_radicate',
-      'has_more_polcies', 'has_costs', 'has_coactive_radicate', 'has_impug', 'has_desacate'
+    [
+      self.id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.attorny, self.get_active_part, self.get_passive_part,
+      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
+      self.city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
+      self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, format_date(self.last_performance_date), self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
+      self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
+      nilValue(self.detritment_cents), nilValue(self.ensurance_value_cents), nilValue(self.contingency_value_cents), self.policy_cents.to_s, nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents), nilValue(self.provision_cents), nilValue(self.fail_value_cents),
+      nilValue(self.fail_previ_cents), nilValue(self.payed_value_cents), nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), nilValue(self.auth_value_cents), nilValue(self.reinsurance_value_cents), nilValue(self.coensurance_value_cents),
+      nilValue(self.reconcilie_value_cents), nilValue(self.cost_value_cents), self.creation_date, format_date(self.notification_date), format_date(self.attorny_date), format_date(self.failed_notification_date), format_date(self.answer_date), format_date(self.objection_date_desition),
+      format_date(self.date_notification_desition_desacate), format_date(self.payment_date), format_date(self.imp_date),format_date(self.last_performance_date), format_date(self.desition_date), format_date(self.committee_date), format_date(self.date_notification_desacate),
+      format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.number, self.exercise, self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
+      booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate)
     ]
-    self.attributes.values_at(*h)
   end
 
   def self.column_names_all
@@ -235,7 +234,7 @@ class TypeProcess < ApplicationRecord
       self.coactive_radicate, nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), self.get_reserved_released, self.get_gubernatorial_way,
       format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
       self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
-      format_date(self.date_notification_desacate), format_date(self.date_answer_desacate),format_date(self.date_notification_desition_desacate),
+      format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
       self.get_sentence_type_desacate,  self.get_contract
     ]
   end
@@ -591,6 +590,14 @@ class TypeProcess < ApplicationRecord
       0
     else
       value
+    end
+  end
+
+  def booleanValue(value)
+    if value == true
+      "SI"
+    else
+      "NO"
     end
   end
 
