@@ -12,8 +12,9 @@
   Contamos con su compromiso en la verificación y validación de la información que registre o actualice en el desarrollo de su gestión, de su colaboración depende el éxito de la integridad de la información de los casos que realiza la Gerencia de Procesos Judiciales.
 </p>
 
+<br />
 <div class="row">
-  <div class="offset-sm-1 col-sm-2">
+  <div class="offset-sm-2 col-sm-2">
     <%= link_to coordinator_management_path, :class=>"btn-circle btn-inverse" do %>
       <span class="fa fa-users"></span>
     <% end %>
@@ -40,13 +41,26 @@
       Descargar Base de Datos
     </div>
   </div>
-  <div class="offset-sm-1 col-sm-2">
+</div>
+<br />
+<br />
+<div class="row">
+  <div class="offset-sm-3 col-sm-2">
     <%= link_to coordinator_files_path, class:"btn-circle btn-inverse" do %>
       <span class="fa">&#xf02d;</span>
     <% end %>
     <br>
     <div class="ligthgreen1">
       Historial de Reportes
+    </div>
+  </div>
+  <div class="offset-sm-2 col-sm-2">
+    <%= link_to coordinator_files_path, class:"btn-circle btn-inverse" do %>
+      <span class="fa">&#xf01a;</span>
+    <% end %>
+    <br>
+    <div class="ligthgreen1">
+      Reporte Global para Migración
     </div>
   </div>
 </div>
