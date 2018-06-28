@@ -1,4 +1,4 @@
-class MigrationAura < ActiveRecord::Migration[5.1]
+class Migrations < ActiveRecord::Migration[5.1]
 
   def change
 
