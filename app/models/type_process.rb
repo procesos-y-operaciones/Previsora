@@ -151,35 +151,41 @@ class TypeProcess < ApplicationRecord
 
   def self.total_headers
     [
-      'IDENTIFICADOR',  'ABOGADO INTERNO',  'RADICADO CORRESPONDENCIA',  'FECHA DE CREACION',  'APODERADO EN PREVISORA',  'FECHA DE ASIGNACION DEL APODERADO EN PREVISORA',
-      'FECHA DE NOTIFICACION',  'IDENFICACION BIZAGI ACCESS PA',  'IDENTIFICACION SISE',  'IDENTIFICACION E-KOGUI',  'TIPO DE PROCESO',  'CLASE DE PROCESO',  'SUBCLASE DE PROCESO',
-      'TIPO DE VINCULACION',  'PARTE ACTIVA',  'PARTE PASIVA',  'NUMERO DE RADICADO DEL PROCESO',  'NOMBRE DEL DESPACHO',  'DEPARTAMENTO',  'CIUDAD DONDE CURSA EL CASO',  'HECHOS',
-      'FUENTE DEL LITIGIO',  'NUMERO DEL SINIESTRO',  'SINIESTRO',  'EJERCICIO',  'SUCURSAL DE LA POLIZA',  'RAMO COMERCIAL',  'AMPARO',  'POLIZA',  'TOMADOR DE LA POLIZA',
-      'VALOR ASEGURADO',  'VALOR RESERVA INDEMNIZACIONES', 'VALOR PROVISION INDEMNIZACIONES', 'RESERVA HONORARIOS',  'VALOR PRETENSION - DETRIMENTO - ESTIMACION',  'VALOR CONTINGENCIA',
-      'CALIFICACION DE LA CONTINGENCIA',  'RAZON DE LA CONTINGENCIA',  'RESUMEN DE LA CONTINGENCIA',  'TIPO DE REASEGURO',  'REASEGURO REPORTADO',  'VALOR REASEGURO',  'TIPO DE COASEGURO',
-      'VALOR COASEGURO',  'TIPO DE MONEDA',  'VALOR DEL DOLAR',  'INSTANCIAS',  'ETAPA ACTUAL',  'ULTIMA ACTUACION',  'FECHA ULTIMA ACTUACION',  'ESTADO DEL CASO',  'INGRESA AL COMITE',
-      'FECHA DE INGRESO AL COMITE',  'DECISION DEL COMITE',  'VALOR AUTORIZADO COMITE',  'VALOR CONCILIADO',  'RAZON DE NO CONCILIAR',  'RAZON DE INVIABILIDAD',  'FECHA DE LA DECISION',
-      'TERMINACION DEL CASO',  'VALOR COSTAS',  'VALOR FALLO',  'VALOR FALLO PREVISORA',  'VALOR PAGADO PREVISORA',  'FECHA DE PAGO',  'PROCEDE RECOBRO',  'RADICACION COACTIVO',
-      'VALOR COACTIVO',  'VALOR EMBARGO',  'RESERVA LIBERADA',  'TIPOLOGIA (COLJUEGOS)',  'FECHA DE CONTESTACION TUTELA',  'FECHA NOTIFICACION O FALLO',  'FECHA NOTIFICACION IMPUGNACION',
-      'IMPUGNANTE',  'FECHA DECISION IMPUGNACION',  'FECHA DE NOTIFICACION DECISION IMPUGNACION',  'TIPO DE DECISION IMPUGNACION',  'FECHA NOTIFICACION INCIDENTE DESACATO',
-      'FECHA DE CONTESTACION INCIDENTE DESACATO',  'FECHA NOTIFICACION DECISION INDIDENTE DESACATO',  'TIPO SENTENCIA INCIDENTE DESACATO',  'CONTRATO CONCESION',  'MAS POLIZA',
-      'TIENE COSTAS A FAVOR',  'TIENE NUMERO DE RADICADO EN CORRESPONDENCIA',  'TIENE MAS POLIZAS',  'TIENE RADICACION DE COACTIVO',  'MAS SINIESTROS',  'REASEGURO CEDIDO',
-      'MAS AMPAROS',  'OTRO NOMBRE DESPACHO',  'TIENE IMPUGNACION',  'TIENE DESACATO',  'IDENTIFICACION DEL USUARIO',  'NUMERO DE CASO ON-BASE'
+      'IDENTIFICADOR', 'ABOGADO INTERNO',	'NUMERO DE RADICADO DE CORRESPONDENCIA O DE VICEPRESIDENCIA',	'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI, ACCESS Y PA)',
+      'NUMERO DE IDENTIFICACION DEL CASO EN SISE',	'NUMERO DE IDENTIFICACION DEL CASO EN EKOGUI',	'NUMERO DE RADICACION DEL PROCESO - DESPACHO',
+      'NUMERO DE SINIESTRO COMPLETO',	'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA',
+      'NUMERO DE RADICACION DEL COACTIVO',	'NUMERO DE POLIZAS',	'NUMERO DE SINIESTROS',	'NUMERO DE CASO EN ON-BASE',	'IMPUGNANTE',	'RAZON DE NO CONCILIAR',
+      'RAZON DE INVIABILIDAD',	'NOMBRE DEL DESPACHO / TIPO DE CONTRALORIA',	'DEPARTAMENTO DONDE CURSA EL CASO',	'CIUDAD DONDE CURSA EL CASO',	'CLASE DE PROCESO',
+      'SUBCLASE DE PROCESO',	'TIPO DE VINCULACION',	'SUCURSAL DE LA POLIZA',	'RAMO COMERCIAL',	'CALIFICACION DE LA CONTINGENCIA',	'AMPARO',	'ETAPA ACTUAL',
+      'FUENTE DEL LITIGIO',	'INSTANCIA EN LA QUE SE ENCUENTRA',	'ESTADO DEL CASO',	'TERMINACION DEL CASO',	'TIPO DE REASEGURO',	'ULTIMA ACTUACION',	'TIPOLOGIA',
+      'TIPO DECISION IMPUGNACION',	'TIPO SENTENCIA DEL INCIDENTE DE DESACATO A LA COMPANIA',	'LA RESERVA YA FUE DEPURADA?',	'TIPO DE MONEDA',	'INGRESA AL COMITE DE DEFENSA Y CONCILIACION?',
+      'DECISION DEL COMITE DE DEFENSA Y CONCILIACION',	'TIPO DE COASEGURO',	'TOMADOR DE LA POLIZA',	'CONTRATO CONCESION - OBRA',	'OTROS AMPAROS',	'HECHOS',	'VALOR DEL DOLAR',
+      'VALOR DE LA PRETENSION / DETRIMENTO / ESTIMACION',	'VALOR ASEGURADO',	'VALOR DE LA CONTINGENCIA',	'POLIZA',	'VALOR DE LA RESERVA',	'VALOR DE LA RESERVA PARA HONORARIOS',
+      'VALOR DE LA PROVISION DE LA INDEMNIZACION',	'VALOR DEL FALLO DE LA DECISION / SANCION',	'VALOR DEL FALLO / SANCION A CARGO DE PREVISORA',	'VALOR PAGADO POR PREVISORA',
+      'VALOR DEL COACTIVO',	'VALOR DEL EMBARGO', 'VALOR AUTORIZADO POR EL COMITE DE DEFENSA Y CONCILIACION',	'VALOR DEL REASEGURO',	'VALOR DEL COASEGURO PARA PREVISORA',
+      'VALOR CONCILIADO',	'VALOR DE LAS COSTAS',	'FECHA DE CREACION',	'FECHA DE LA NOTIFICACION / VINCULACION',	'FECHA DE ASIGNACION DEL APODERADO DE PREVISORA',
+      'FECHA DE LA PRIMERA AUDIENCIA / DECISION / ACTUACION / ACTO ADMINISTRATIVO / FALLO',	'FECHA DE CONTESTACION DE LA TUTELA',	'FECHA DECISION DE LA IMPUGNACION',
+      'FECHA DE NOTIFICACION DECISION DE LA IMPUGNACION',	'FECHA DE CONSIGNACION / PAGO',	'FECHA DE NOTIFICACION DE LA IMPUGNACION',	'FECHA DE LA ULTIMA ACTUACION',
+      'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO',	'FECHA INGRESO AL COMITE DE DEFENSA Y CONCILIACION',	'FECHA DE NOTIFICACION DEL INCIDENTE DEL DESACATO',
+      'FECHA DE CONTESTACION DEL INCIDENTE DE DESACATO',	'FECHA NOTIFICACION DE DECISION DEL INCIDENTE DE DESACATO',	'NUMERO DE SINIESTRO',	'EJERCICIO',	'REASEGURO REPORTADO',
+      'PROCEDE RECOBRO?',	'TIENE NUMERO DE RADICADO DE CORRESPONDENCIA / VICEPRESIDENCIA?',	'TIENE MAS POLIZAS?',	'TIENE COSTAS A FAVOR?',	'TIENE NUMERO DE RADICADO DE COACTIVO?',
+      'HAY IMPUGNACION?',	'HAY DESACATO?'
     ]
   end
 
   def get_total_content
     h = [
-      'id',  'internal_lawyer',  'correspondency_radicate',  'creation_date',  'attorny',  'attorny_date',  'notification_date',  'case_id_bap',  'case_id_sise',  'case_id_ekogui',
-      'p_type',  'process_class',  'subprocess_class',  'link_type',  'active_part',  'passive_part',  'process_radicate',  'office_name',  'departament',  'city_case',  'facts',  'litigation_source',
-      'number',  'sinister',  'exercise',  'branch_policy',  'branch_commercial',  'protection',  'policy_cents',  'policy_taker',  'ensurance_value_cents',  'reserve_cents', 'provision_cents',  'reserved_fees_cents',
-      'detritment_cents',  'contingency_value_cents',  'score_contingency',  'contingency_reason',  'contingency_resume',  'reinsurance_type',  'reinsurance_report',  'reinsurance_value_cents',
-      'coensurance_type',  'coensurance_value_cents',  'money_type',  'dolar_value_cents',  'instance',  'current_stage',  'last_performance',  'last_performance_date',  'case_state',  'join_committee',  'committee_date',
-      'committee',  'auth_value_cents',  'reconcilie_value_cents',  'reason_conc',  'reason_inv',  'desition_date',  'case_termination',  'cost_value_cents',  'fail_value_cents',  'fail_previ_cents',  'payed_value_cents',
-      'payment_date',  'recovery',  'coactive_radicate',  'coactive_value_cents',  'garnish_value_cents',  'reserved_released',  'gubernatorial_way',  'answer_date',  'failed_notification_date',  'imp_date',  'tutelage_imp',
-      'objection_date_desition',  'objection_date_desition_notification',  'setence_type_second_company',  'date_notification_desacate',  'date_answer_desacate',  'date_notification_desition_desacate',  'sentence_type_desacate',
-      'contract',  'policies',  'has_costs',  'has_correspondency_radicate',  'has_more_polcies',  'has_coactive_radicate',  'sinisters',  'reensurance_gived_cents',  'more_protections',  'other_office_name',  'has_impug',
-      'has_desacate',  'user_id', 'case_onbase'
+      'id', 'internal_lawyer', 'correspondency_radicate', 'case_id_bap', 'case_id_sise', 'case_id_ekogui', 'process_radicate', 'sinister', 'attorny', 'active_part', 'passive_part',
+      'contingency_reason', 'contingency_resume', 'coactive_radicate', 'policies', 'sinisters', 'case_onbase', 'tutelage_imp', 'reason_conc', 'reason_inv', 'office_name', 'departament',
+      'city_case', 'process_class', 'subprocess_class', 'link_type', 'branch_policy', 'branch_commercial', 'score_contingency', 'protection', 'current_stage', 'litigation_source',
+      'instance', 'case_state', 'case_termination', 'reinsurance_type', 'last_performance', 'gubernatorial_way', 'setence_type_second_company', 'sentence_type_desacate',
+      'reserved_released', 'money_type', 'join_committee', 'committee', 'coensurance_type', 'policy_taker', 'contract', 'more_protections', 'facts', 'dolar_value_cents',
+      'detritment_cents', 'ensurance_value_cents', 'contingency_value_cents', 'policy_cents', 'reserve_cents', 'reserved_fees_cents', 'provision_cents', 'fail_value_cents',
+      'fail_previ_cents', 'payed_value_cents', 'coactive_value_cents', 'garnish_value_cents', 'auth_value_cents', 'reinsurance_value_cents', 'coensurance_value_cents',
+      'reconcilie_value_cents', 'cost_value_cents', 'creation_date', 'notification_date', 'attorny_date', 'failed_notification_date', 'answer_date', 'objection_date_desition',
+      'date_notification_desition_desacate', 'payment_date', 'imp_date', 'last_performance_date', 'desition_date', 'committee_date', 'date_notification_desacate',
+      'date_answer_desacate', 'objection_date_desition_notification', 'number', 'exercise', 'reinsurance_report', 'recovery', 'has_correspondency_radicate',
+      'has_more_polcies', 'has_costs', 'has_coactive_radicate', 'has_impug', 'has_desacate'
     ]
     self.attributes.values_at(*h)
   end
