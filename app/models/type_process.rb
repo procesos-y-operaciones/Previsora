@@ -518,10 +518,6 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def get_sinister
-    #if self.sinister == "PEN"
-  end
-
   def get_more_sinisters
     if self.sinisters == "PENDIENTE" || self.sinister == "NO APLICA"
       ""
@@ -531,12 +527,10 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_policies
-    if self.policies == "PENDIENTE"
+    if self.policies == "PENDIENTE" || self.policy_cents == "NO APLICA"
       ""
-    elsif self.policies == nil
-      "NO APLICA"
     else
-      " - " + self.policies
+      " " + self.policies
     end
   end
 
