@@ -339,39 +339,41 @@ $ ->
 
   coactive_rule()
 
-  #Departamento donde cursa el caso
-  $('#departament_ordinarie').change ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
-      $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
 
-  $('#departament_ordinarie').ready ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
+  #Departamento donde cursa el caso
+  departament_rule = ->
+    value = $('#cities').val()
+    $.getJSON '/cities/' + $('#departament_ordinarie').val(), (data) ->
+      $('#cities').empty()
+      $('#cities').append '<option value="">SELECCIONE</option>'
       $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
+        if value == data[i].code
+          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
+        else
+          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
+        $('#cities').append(opt)
+
+  $('#departament_ordinarie').change ->
+    departament_rule()
+
+  departament_rule()
+
+  #Departamento donde cursa el caso
+  departament_rule_col = ->
+    value = $('#cities').val()
+    $.getJSON '/cities/' + $('#departament_coljuegos').val(), (data) ->
+      $('#cities').empty()
+      $.each data, (i) ->
+        if value == data[i].code
+          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
+        else
+          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
+        $('#cities').append(opt)
 
   $('#departament_coljuegos').change ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
-      $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
+    departament_rule_col()
 
-  $('#departament_coljuegos').ready ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
-      $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
+  departament_rule_col()
+
+#<%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"}) %>
+#<%= form.collection_select(:departament, TypeProcess.get_bog_departament, :first, :second, {selected: ":BOG"}, {id:"departament_coljuegos", class:"form-control"}) %>

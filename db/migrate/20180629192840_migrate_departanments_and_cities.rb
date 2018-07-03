@@ -203,7 +203,7 @@ class MigrateDepartanmentsAndCities < ActiveRecord::Migration[5.1]
     CityCase.create(name:'SOLEDAD', code: '758', departament: '08')
     CityCase.create(name:'PONEDERA', code: '560', departament: '08')
     CityCase.create(name:'PALMAR DE VARELA', code: '520', departament: '08')
-    CityCase.create(name:'BOGOTA, D.C.', code: '001', departament: '11')
+    CityCase.create(name:'BOGOTA DC', code: '001', departament: '11')
     CityCase.create(name:'SANTA CATALINA', code: '673', departament: '13')
     CityCase.create(name:'ZAMBRANO', code: '894', departament: '13')
     CityCase.create(name:'SAN PABLO', code: '670', departament: '13')

@@ -86,8 +86,8 @@
 
       <%= form.label :departament, "Departamento donde cursa el caso" %>
       <div class="input-group">
-        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"}) %>
-        <%= form.collection_select(:departament, TypeProcess.get_bog_departament, :first, :second, {selected: ":BOG"}, {id:"departament_coljuegos", class:"form-control"}) %>
+        <%= form.collection_select(:departament, Departament.get_all, :code, :name, {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"}) %>
+        <%= form.collection_select(:departament, Departament.get_all, :code, :name, {selected: "11"}, {id:"departament_coljuegos", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

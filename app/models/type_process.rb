@@ -341,8 +341,8 @@ class TypeProcess < ApplicationRecord
       "NO APLICA"
     elsif self.protection == [""] || self.protection == ["", ""]  || self.protection == nil || self.protection == "NO PRESENTA"
       "NO PRESENTA"
-    elsif self.protection == "CUMPLIMIENTO"
-      self.protection
+    elsif self.protection == "CUMPLIMIENTO" || self.protection == ["", "CUMPLIMIENTO"]
+      "CUMPLIMIENTO"
     else
       self.protection[1..-1].join(" - ")
     end
@@ -603,14 +603,6 @@ class TypeProcess < ApplicationRecord
     else
       self.office_name
     end
-  end
-
-  def self.get_all_departament
-    CS.states(:co).sort_by {|_key, value| value}.to_h
-  end
-
-  def self.get_bog_departament
-    {(CS.states(:co).assoc :DC).first => (CS.states(:co).assoc :DC).second.upcase}
   end
 
 end
