@@ -654,7 +654,35 @@ $ ->
           opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
         $('#cities').append(opt)
 
+  #Offices Rule
+  offices_rule = ->
+    param1 = $('#departament').find('option:selected').text()
+    param2 = $('#cities').find('option:selected').text()
+    param3 = $('#office_type').find('option:selected').text()
+    param4 = $('#office_number').val()
+
+    if param3 == "SELECCIONE"
+      param3 = ""
+
+    console.log ('/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4)
+    $.getJSON '/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4, (data) ->
+      $('#office').empty()
+      $('#office').append('<option value="">SELECCIONE</option>')
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].name + '">' + data[i].name + '</option>'
+        $('#office').append(opt)
+
   $('#departament').change ->
     departament_rule()
+    offices_rule()
 
   departament_rule()
+
+  $('#cities').change ->
+    offices_rule()
+
+  $('#office_number').change ->
+    offices_rule()
+
+  $('#office_type').change ->
+    offices_rule()
