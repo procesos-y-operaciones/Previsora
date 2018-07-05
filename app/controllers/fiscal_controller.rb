@@ -1,5 +1,6 @@
 class FiscalController < ApplicationController
 
+  before_action :verificate
   before_action :set_fiscal, only: [:show, :edit, :update, :destroy]
 
   def edit
@@ -33,6 +34,7 @@ class FiscalController < ApplicationController
   end
 
   private
+
     def set_fiscal
       @fiscal = TypeProcess.find(params[:id])
     end
@@ -52,6 +54,12 @@ class FiscalController < ApplicationController
         :office_name_id, :dolar_value_cents, :detritment_cents, :ensurance_value_cents, :contingency_value_cents, :policy_cents,
         :reserve_cents, :fail_value_cents, :payed_value_cents, :reserved_fees_cents, :coactive_value_cents, :garnish_value_cents,
         :reensurance_gived_cents)
+    end
+
+    def verificate
+      if !(current_user.role == 1 || current_user.role == 3)
+        redirect_to root_path, alert: "No tienes acceso aquí."
+      end
     end
 
 end

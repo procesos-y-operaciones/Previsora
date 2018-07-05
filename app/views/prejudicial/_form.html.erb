@@ -338,7 +338,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reason_conc_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :reason_inv, "Razón de inviabilidad" %>
+      <%= form.label :reason_inv, "Razón de inviabilidad del comité de defensa y conciliación" %>
       <div class="input-group">
         <%= form.text_area :reason_inv, id:"reason_inv", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", maxlength:"255", pattern:"[A-Z0-9 ]*", title:"Solo mayusculas", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reason_inv_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>

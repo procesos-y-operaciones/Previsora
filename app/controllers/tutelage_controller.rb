@@ -1,5 +1,6 @@
 class TutelageController < ApplicationController
 
+  before_action :verificate
   before_action :set_tutelage, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -36,6 +37,7 @@ class TutelageController < ApplicationController
   end
 
   private
+  
     def set_tutelage
       @tutelage = TypeProcess.find(params[:id])
     end
@@ -50,6 +52,12 @@ class TutelageController < ApplicationController
         :internal_lawyer_id, :case_state_id, :desition_date, :case_termination_id, :fail_value, :payed_value,
         :payment_date, :reserved_fees, :garnish_value, :reinsurance_type_id, :reensurance_gived, :last_performance_date,
         :join_committee_id, :committee_id, :auth_value, :reason_conc, :reason_inv, :reserved_released_id)
+    end
+
+    def verificate
+      if !(current_user.role == 1 || current_user.role == 3)
+        redirect_to root_path, alert: "No tienes acceso aquí."
+      end
     end
 
 end
