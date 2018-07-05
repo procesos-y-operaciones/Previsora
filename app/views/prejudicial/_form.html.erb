@@ -57,6 +57,12 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :case_id_ekogui, "Número de identificación del caso en eKOGUI" %>
+      <div class="input-group">
+        <%= form.text_field :case_id_ekogui, id:"case_id_ekogui", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_ekogui_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <hr>
 
       <%= form.label :creation_date, "Fecha de creación" %>
@@ -110,6 +116,12 @@
         <%= form.collection_select(:reinsurance_type, ReinsuranceType.all, :name, :name, {}, {id:"reinsurance_type", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reinsurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
         <%= form.hidden_field :reinsurance_type, value:"NO PRESENTA", id:"reinsurance_type_hid" %>
+      </div>
+
+      <%= form.label :reinsurance_report, "Reaseguro reportado" %><br>
+      <div class="input-group">
+        <%= form.select :reinsurance_report, options_for_select([["NO", false], ["SI", true]]), {}, { class:'form-control' } %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reinsurance_report_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :coensurance_type, "Tipo de coaseguro" %>
@@ -302,6 +314,12 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.auth_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :reconcilie_value_cents, "Valor conciliado" %>
+      <div class="input-group">
+        <%= form.text_field :reconcilie_value_cents, id:"reconcilie_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reconcilie_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :payed_value_cents, "Valor pagado por Previsora" %>
       <div class="input-group">
         <%= form.text_field :payed_value_cents, id: "payed_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
@@ -330,6 +348,13 @@
       <div class="input-group">
         <%= form.text_field :reserved_fees_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reserved_released, "¿La reserva ya fue depurada?" %>
+      <div class="input-group">
+        <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"reservedReleased"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserved_released_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :reserved_released, value:"NO PRESENTA", id:"reservedReleased_hid" %>
       </div>
 
       <hr>

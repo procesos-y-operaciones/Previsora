@@ -40,7 +40,7 @@ class CoordinatorController < ApplicationController
   end
 
   def search
-    @search = TypeProcess.ransack(params[:q])
+    @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
     if params[:page] == nil
@@ -73,7 +73,7 @@ class CoordinatorController < ApplicationController
   end
 
   def report
-    @search = TypeProcess.ransack(params[:q])
+    @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
 

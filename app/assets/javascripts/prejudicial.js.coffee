@@ -27,6 +27,8 @@ $ ->
       $('#policies').val("PENDIENTE")
     if $('#sinisters').val() == "NO APLICA"
       $('#sinisters').val("PENDIENTE")
+    if $('#case_id_ekogui').val() == "NO APLICA"
+      $('#case_id_ekogui').val("PENDIENTE")
 
   initial_values()
 
@@ -197,6 +199,7 @@ $ ->
     v_option = document.getElementById("committee").value
     switch v_option
       when "CONCILIA"
+        document.getElementById("reconcilie_value").readOnly = false
         document.getElementById("auth_value").readOnly = false
         document.getElementById("payed_value").readOnly = false
         document.getElementById("payment_date").readOnly = false
@@ -205,32 +208,26 @@ $ ->
         document.getElementById("reason_inv").readOnly = true
         $('#reason_inv').val("NO PRESENTA")
       when "NO CONCILIA"
+        document.getElementById("reconcilie_value").readOnly = true
         document.getElementById("auth_value").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("payed_value").readOnly = true
-        $('#payed_value').val("0")
         document.getElementById("payment_date").readOnly = true
-        $('#payment_date').val("0")
         document.getElementById("reason_conc").readOnly = false
         document.getElementById("reason_inv").readOnly = true
         $('#reason_inv').val("NO PRESENTA")
       when "INVIABLE"
+        document.getElementById("reconcilie_value").readOnly = true
         document.getElementById("auth_value").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("payed_value").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("payment_date").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("reason_conc").readOnly = true
         $('#reason_conc').val("NO PRESENTA")
         document.getElementById("reason_inv").readOnly = false
       else
+        document.getElementById("reconcilie_value").readOnly = true
         document.getElementById("auth_value").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("payed_value").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("payment_date").readOnly = true
-        $('#auth_value').val("0")
         document.getElementById("reason_conc").readOnly = true
         $('#reason_conc').val("NO PRESENTA")
         document.getElementById("reason_inv").readOnly = true

@@ -6,7 +6,7 @@ class LawyerController < ApplicationController
   end
 
   def search
-    @search = TypeProcess.ransack(params[:q])
+    @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
     if params[:page] == nil
@@ -17,7 +17,7 @@ class LawyerController < ApplicationController
   end
 
   def report
-    @search = current_user.type_processes.ransack(params[:q])
+    @search = current_user.get_processes.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
 
