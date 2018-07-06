@@ -10,7 +10,7 @@
         <%= f.text_field :name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), autofocus: true, placeholder: "INGRESE EL NOMBRE", class:"form-control" %>
         <br>
         <%= f.label "Rol", class:"form-label" %>
-        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR LEGAL", 2], ["COORDINADOR OPERATIVO", 3], ["ADMINISTRADOR", 4]]), {include_blank: "SELECCIONE"}, {class: "form-control"} %>
+        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR OPERATIVO", 2], ["COORDINADOR LEGAL", 3], ["ADMINISTRADOR", 4]]), {include_blank: "SELECCIONE"}, {class: "form-control"} %>
         <br>
         <%= f.label "Cargo", class:"form-label" %><br />
         <%= f.text_field :charge, pattern:"[A-Z0-9\- ]*", title: t(:pattern), autofocus: true, placeholder: "INGRESE EL CARGO", class:"form-control" %>
