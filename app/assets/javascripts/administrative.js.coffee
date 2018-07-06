@@ -358,20 +358,37 @@ $ ->
         opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
         output_state.append opt
 
-  $('#departament_coljuegos').change ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
+  #Departamento donde cursa el caso
+  departament_rule = ->
+    value = $('#cities').val()
+    $.getJSON '/cities/' + $('#departament_ordinarie').val(), (data) ->
+      $('#cities').empty()
+      $('#cities').append '<option value="">SELECCIONE</option>'
       $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
+        if value == data[i].code
+          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
+        else
+          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
+        $('#cities').append(opt)
 
-  $('#departament_coljuegos').ready ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
+  $('#departament_ordinarie').change ->
+    departament_rule()
+
+  departament_rule()
+
+  #Departamento donde cursa el caso
+  departament_rule_col = ->
+    value = $('#cities').val()
+    $.getJSON '/cities/' + $('#departament_coljuegos').val(), (data) ->
+      $('#cities').empty()
       $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
+        if value == data[i].code
+          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
+        else
+          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
+        $('#cities').append(opt)
+
+  $('#departament_coljuegos').change ->
+    departament_rule_col()
+
+  departament_rule_col()

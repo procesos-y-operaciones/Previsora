@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="styled-select">
-          <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament", class:"form-control"} %>
+          <%= f.select :departament_eq, options_from_collection_for_select(Departament.get_all, :code, :name, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament", class:"form-control"} %>
         </div>
       </div>
       <div class="col-md-4">
@@ -113,7 +113,7 @@
             <td class="center"><%= p.case_id_bap %></td>
             <td class="center"><%= p.case_id_sise %></td>
             <td class="center"><%= p.internal_lawyer %></td>
-            <td class="center"><%= p.city_case %></td>
+            <td class="center"><%= p.get_city_case %></td>
           </tr>
         <% end %>
       <% end %>

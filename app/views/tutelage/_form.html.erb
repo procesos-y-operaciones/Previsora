@@ -106,18 +106,18 @@
       </div>
 
       <%= form.label :departament, "Departamento donde cursa el caso" %>
-      <div class="input-group">
-        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control", required:true}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
+     <div class="input-group">
+       <%= form.collection_select(:departament, Departament.get_all, :code, :name, {include_blank: "SELECCIONE"}, {id:"departament", required:true, class:"form-control"}) %>
+       <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+     </div>
 
-      <%= form.label :cities, "Ciudad donde cursa el caso" %>
-      <div class="input-group">
-        <select name="type_process[city_case]" id="cities" class="form-control">
-          <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
-        </select>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
+     <%= form.label :cities, "Ciudad donde cursa el caso" %>
+     <div class="input-group">
+       <select name="type_process[city_case]" id="cities" class="form-control">
+         <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
+       </select>
+       <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+     </div>
 
       <%= form.label :process_radicate, "Número de radicación del proceso" %>
       <div class="input-group">

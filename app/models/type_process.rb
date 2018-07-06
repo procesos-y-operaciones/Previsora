@@ -177,7 +177,7 @@ class TypeProcess < ApplicationRecord
     [
       self.id, self.get_type_process, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.attorny, self.get_active_part, self.get_passive_part,
       self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
-      self.city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
+      self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, format_date(self.last_performance_date), self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
       self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
       nilValue(self.detritment_cents), nilValue(self.ensurance_value_cents), nilValue(self.contingency_value_cents), self.policy_cents.to_s, nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents), nilValue(self.provision_cents), nilValue(self.fail_value_cents),
@@ -220,7 +220,7 @@ class TypeProcess < ApplicationRecord
       self.attorny, format_date(self.attorny_date), format_date(self.notification_date),
       self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.get_type_process,
       self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_active_part, self.get_passive_part,
-      self.process_radicate, self.get_office_name, self.get_departament, self.city_case,
+      self.process_radicate, self.get_office_name, self.get_departament, self.get_city_case,
       self.facts, self.get_litigation_source, self.number, self.sinister + self.get_more_sinisters, self.exercise,
       self.get_branch_policy, self.get_branch_commercial, self.get_protection + self.get_more_protection, self.policy_cents.to_s + self.get_policies,
       self.get_policy_taker, nilValue(self.ensurance_value_cents), nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents),
@@ -495,10 +495,18 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_departament
-    if CS.states(:co)[self.departament.to_sym] == nil
-      "PENDIENTE"
+    if self.departament == nil
+      "NO PRESENTA"
     else
-      CS.states(:co)[self.departament.to_sym].upcase
+      Departament.where(code: self.departament)[0].name
+    end
+  end
+
+  def get_city_case
+    if self.departament == nil || self.city_case == nil
+      "NO PRESENTA"
+    else
+      CityCase.where(departament: self.departament, code: self.city_case)[0].name
     end
   end
 
@@ -608,6 +616,14 @@ class TypeProcess < ApplicationRecord
       self.other_office_name
     else
       self.office_name
+    end
+  end
+
+  def get_user
+    if User.exists?(self.user_id)
+      User.find(self.user_id).name
+    else
+      "NO EXISTE"
     end
   end
 
