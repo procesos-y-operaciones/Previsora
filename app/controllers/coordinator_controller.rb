@@ -102,6 +102,9 @@ class CoordinatorController < ApplicationController
     end
   end
 
+  def lists
+  end
+
   protected
 
     def set_user

@@ -11,12 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :attorny_name %>
-  </div>
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8 ">
 
-  <div class="actions">
-    <%= form.submit %>
+
+        <%= form.label :name, "Nombre del Abogado Externo" %>
+        <div class="input-group">
+          <%= form.text_field :name, id: :attorny_name, placeholder: "NOMBRE", class:"form-control" %>
+        </div>
+
+      <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
+
+    </div>
   </div>
 <% end %>
