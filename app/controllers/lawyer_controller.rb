@@ -48,10 +48,10 @@ class LawyerController < ApplicationController
 
   protected
 
-  def verificate
-    if current_user.role != 1
-      redirect_to root_path, alert: "No tienes acceso aquí."
+    def verificate
+      if current_user.role != 1
+        redirect_to root_path, alert: "No tienes acceso aquí."
+      end
     end
-  end
 
 end

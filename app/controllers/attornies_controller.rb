@@ -1,10 +1,17 @@
 class AttorniesController < ApplicationController
+  
   before_action :set_attorny, only: [:show, :edit, :update, :destroy]
 
   # GET /attornies
   # GET /attornies.json
   def index
-    @attornies = Attorny.all
+    @search = Attorny.all.ransack(params[:q])
+    @attornies = @search.result.paginate(page: params[:page], per_page: 10)
+    if params[:page] == nil
+      @page = 0
+    else
+      @page = 10 * (params[:page].to_i - 1)
+    end
   end
 
   # GET /attornies/1
@@ -69,6 +76,6 @@ class AttorniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attorny_params
-      params.require(:attorny).permit(:name)
+      params.require(:attorny).permit(:name, :code)
     end
 end

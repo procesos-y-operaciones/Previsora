@@ -1,27 +1,59 @@
-<p id="notice"><%= notice %></p>
+<h3 class="title">Nuevo Abogado Externo</h3>
 
-<h1>Attornies</h1>
+<%= search_form_for @search, url: attornies_url do |f| %>
+  <div class="row">
+    <div class="col-md-3">
+        <%= link_to 'Agregar', new_attorny_path, class:"btn btn-default" %>
+    </div>
+    <div class="offset-md-1 col-md-3">
+      <%= f.number_field :code_cont, placeholder:"Código", class:"form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :name_cont, placeholder:"Nombre", class:"form-control" %>
+    </div>
+    <div class="col-md-1">
+      <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
+        <span class="fa fa-search"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<br />
+
+<div class="container-fluid p-30">
+  <table class="table table-responsive-sm">
+    <thead class="darkgreen">
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th></th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
 
   <tbody>
-    <% @attornies.each do |attorny| %>
-      <tr>
-        <td><%= attorny.name %></td>
-        <td><%= link_to 'Show', attorny %></td>
-        <td><%= link_to 'Edit', edit_attorny_path(attorny) %></td>
-        <td><%= link_to 'Destroy', attorny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <tbody>
+      <% @attornies.each do |attorny| %>
+        <tr>
+          <td><%= attorny.code %></td>
+          <td><%= attorny.name %></td>
+          <td></td>
+          <td><%= link_to 'Editar', edit_attorny_path(attorny) %></td>
+          <td><%= link_to 'Borrar', attorny, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </tbody>
 </table>
 
+<hr />
+
+<br>
+<div class="floatRight">
+  <%= will_paginate @processes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, class:"pagination-lg" %>
+</div>
+
 <br>
 
-<%= link_to 'New Attorny', new_attorny_path %>
+<%= link_to 'Volver', coordinator_lists_path, class:"btn btn-default" %>

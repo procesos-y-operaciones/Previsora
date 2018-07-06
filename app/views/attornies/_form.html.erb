@@ -14,14 +14,18 @@
   <div class="row">
     <div class="offset-lg-2 col-lg-8 ">
 
+        <%= form.label :code, "Código Bizagi" %>
+        <div class="input-group">
+          <%= form.number_field :code, placeholder:"Número", class:"form-control" %>
+        </div>
 
         <%= form.label :name, "Nombre del Abogado Externo" %>
         <div class="input-group">
-          <%= form.text_field :name, id: :attorny_name, placeholder: "NOMBRE", class:"form-control" %>
+          <%= form.text_field :name, id: :attorny_name, placeholder: "Nombre completo", class:"form-control" %>
         </div>
-
-      <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
 
     </div>
   </div>
+
+  <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
 <% end %>
