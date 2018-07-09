@@ -123,9 +123,6 @@ class TypeProcess < ApplicationRecord
     if case_id_ekogui != "NO PRESENTA" && case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui).present?
       errors.add("Número de identificación del caso e-kogui", " ya existe")
     end
-    #if process_radicate != "NO PRESENTA" && process_radicate != "NO APLICA" && process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate).present?
-    #  errors.add("Número de radicación del proceso", " ya existe")
-    #end
     if correspondency_radicate != "NO PRESENTA" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate).present?
       errors.add("Número de correspondencia", " ya existe")
     end
@@ -141,9 +138,6 @@ class TypeProcess < ApplicationRecord
     if case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
       errors.add("Número de identificación del caso e-kogui", " ya existe")
     end
-    #if process_radicate != "NO APLICA" && process_radicate != "PENDIENTE" && TypeProcess.where(:process_radicate => process_radicate)[0].id == id
-    #  errors.add("Número de radicación del proceso", " ya existe")
-    #end
     if correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
       errors.add("Número de correspondencia", " ya existe")
     end
@@ -151,7 +145,7 @@ class TypeProcess < ApplicationRecord
 
   def self.total_headers
     [
-      'IDENTIFICADOR', 'TIPO DE PROCESO', 'IDENTIFICADOR ABOGADO INTERNO', 'ABOGADO INTERNO',	'NUMERO DE RADICADO DE CORRESPONDENCIA O DE VICEPRESIDENCIA',	'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI, ACCESS Y PA)',
+      'IDENTIFICADOR', 'TIPO DE PROCESO', 'IDENTIFICADOR ABOGADO INTERNO', 'ABOGADO INTERNO',	'NUMERO DE RADICADO DE CORRESPONDENCIA O DE VICEPRESIDENCIA',	'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI ACCESS Y PA)',
       'NUMERO DE IDENTIFICACION DEL CASO EN SISE',	'NUMERO DE IDENTIFICACION DEL CASO EN EKOGUI',	'NUMERO DE RADICACION DEL PROCESO - DESPACHO',
       'NUMERO DE SINIESTRO COMPLETO',	'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA',
       'NUMERO DE RADICACION DEL COACTIVO',	'NUMERO DE POLIZAS',	'NUMERO DE SINIESTROS',	'NUMERO DE CASO EN ON-BASE',	'IMPUGNANTE',	'RAZON DE NO CONCILIAR',
@@ -176,7 +170,7 @@ class TypeProcess < ApplicationRecord
   def get_total_content
     [
       self.id, self.get_type_process, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.attorny, self.get_active_part, self.get_passive_part,
-      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
+      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
       self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, format_date(self.last_performance_date), self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
       self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
@@ -341,8 +335,8 @@ class TypeProcess < ApplicationRecord
       "NO APLICA"
     elsif self.protection == [""] || self.protection == ["", ""]  || self.protection == nil || self.protection == "NO PRESENTA"
       "NO PRESENTA"
-    elsif self.protection == "CUMPLIMIENTO"
-      self.protection
+    elsif self.protection == "CUMPLIMIENTO" || self.protection == ["", "CUMPLIMIENTO"]
+      "CUMPLIMIENTO"
     else
       self.protection[1..-1].join(" - ")
     end

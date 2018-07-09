@@ -241,6 +241,16 @@ $ ->
 
   committee_rule()
 
+  #State value
+  state_value = ->
+    value = $('#state_val').val()
+    if(value) == "REGISTRO NUEVO"
+      $('#state_val').val("REGISTRO NUEVO ACTUALIZADO")
+    if(value) == "REGISTRO MIGRADO"
+      $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
+
+  state_value()
+
   #Departamento donde cursa el caso
   departament_rule = ->
     value = $('#cities').val()

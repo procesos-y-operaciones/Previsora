@@ -21,6 +21,7 @@
         <%= form.hidden_field :p_type, :value => 1 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
+        <%= form.hidden_field :state, id:"state_val" %>
       <% end %>
 
       <hr>
@@ -227,7 +228,7 @@
 
       <%= form.label :facts, "Hechos" %>
       <div class="input-group">
-        <%= form.text_area :facts, id:"facts", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_area :facts, id:"facts", maxlength:"2500", pattern:"[A-Z0-9\-\. ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
