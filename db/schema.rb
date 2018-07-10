@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180706222509) do
+ActiveRecord::Schema.define(version: 20180710195550) do
+
+  create_table "attornies", force: :cascade do |t|
+    t.string "name"
+    t.integer "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "branch_commercials", force: :cascade do |t|
     t.string "name"
@@ -211,7 +218,7 @@ ActiveRecord::Schema.define(version: 20180706222509) do
     t.string "office_name", default: "NO APLICA"
     t.string "other_office_name", default: "NO APLICA"
     t.string "departament", default: "00"
-    t.string "city_case", default: "000"
+    t.string "city_case", default: "00"
     t.string "process_class", default: "NO APLICA"
     t.string "subprocess_class", default: "NO APLICA"
     t.string "link_type", default: "NO APLICA"
@@ -239,25 +246,25 @@ ActiveRecord::Schema.define(version: 20180706222509) do
     t.string "contract", default: "NO APLICA"
     t.text "more_protections", default: "NO APLICA"
     t.text "facts", default: "NO APLICA"
-    t.bigint "dolar_value_cents"
-    t.bigint "detritment_cents"
-    t.bigint "ensurance_value_cents"
-    t.bigint "contingency_value_cents"
-    t.bigint "policy_cents"
-    t.bigint "reserve_cents"
-    t.bigint "reserved_fees_cents"
-    t.bigint "provision_cents"
-    t.bigint "fail_value_cents"
-    t.bigint "fail_previ_cents"
-    t.bigint "payed_value_cents"
-    t.bigint "coactive_value_cents"
-    t.bigint "garnish_value_cents"
-    t.bigint "reensurance_gived_cents"
-    t.bigint "auth_value_cents"
-    t.bigint "reinsurance_value_cents"
-    t.bigint "coensurance_value_cents"
-    t.bigint "reconcilie_value_cents"
-    t.bigint "cost_value_cents"
+    t.integer "dolar_value_cents", limit: 8
+    t.integer "detritment_cents", limit: 8
+    t.integer "ensurance_value_cents", limit: 8
+    t.integer "contingency_value_cents", limit: 8
+    t.integer "policy_cents", limit: 8
+    t.integer "reserve_cents", limit: 8
+    t.integer "reserved_fees_cents", limit: 8
+    t.integer "provision_cents", limit: 8
+    t.integer "fail_value_cents", limit: 8
+    t.integer "fail_previ_cents", limit: 8
+    t.integer "payed_value_cents", limit: 8
+    t.integer "coactive_value_cents", limit: 8
+    t.integer "garnish_value_cents", limit: 8
+    t.integer "reensurance_gived_cents", limit: 8
+    t.integer "auth_value_cents", limit: 8
+    t.integer "reinsurance_value_cents", limit: 8
+    t.integer "coensurance_value_cents", limit: 8
+    t.integer "reconcilie_value_cents", limit: 8
+    t.integer "cost_value_cents", limit: 8
     t.date "creation_date"
     t.date "notification_date"
     t.date "attorny_date"
