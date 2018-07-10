@@ -143,6 +143,10 @@ class TypeProcess < ApplicationRecord
     end
   end
 
+  def self.get_all
+    self.order('created_at DESC')
+  end
+
   def self.total_headers
     [
       'IDENTIFICADOR', 'TIPO DE PROCESO', 'ESTADO DE REGISTRO', 'IDENTIFICADOR ABOGADO INTERNO', 'ABOGADO INTERNO',	'NUMERO DE RADICADO DE CORRESPONDENCIA O DE VICEPRESIDENCIA',	'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI ACCESS Y PA)',
