@@ -340,25 +340,6 @@ $ ->
   coactive_rule()
 
   #Departamento donde cursa el caso
-  $('#departament_ordinarie').change ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
-      $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
-
-  $('#departament_ordinarie').ready ->
-    input_state = $(this)
-    output_state = $('#cities')
-    $.getJSON '/cities/' + $(this).val(), (data) ->
-      output_state.empty()
-      $.each data, (i) ->
-        opt = '<option value="' + data[i].toUpperCase() + '">' + data[i].toUpperCase() + '</option>'
-        output_state.append opt
-
-  #Departamento donde cursa el caso
   departament_rule = ->
     value = $('#cities').val()
     $.getJSON '/cities/' + $('#departament_ordinarie').val(), (data) ->
