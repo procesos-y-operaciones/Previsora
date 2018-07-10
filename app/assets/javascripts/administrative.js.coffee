@@ -43,10 +43,47 @@ $ ->
 
   initial_values()
 
+  #Departamento donde cursa el caso
+  departament_rule = ->
+    value = $('#cities').val()
+    $.getJSON '/cities/' + $('#departament_ordinarie').val(), (data) ->
+      $('#cities').empty()
+      $('#cities').append '<option value="">SELECCIONE</option>'
+      $.each data, (i) ->
+        if value == data[i].code
+          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
+        else
+          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
+        $('#cities').append(opt)
+
+  $('#departament_ordinarie').change ->
+    departament_rule()
+
+  #departament_rule()
+
+  #Departamento donde cursa el caso
+  departament_rule_col = ->
+    value = $('#cities').val()
+    $.getJSON '/cities/' + $('#departament_coljuegos').val(), (data) ->
+      $('#cities').empty()
+      $.each data, (i) ->
+        if value == data[i].code
+          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
+        else
+          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
+        $('#cities').append(opt)
+
+  $('#departament_coljuegos').change ->
+    departament_rule_col()
+
+  #departament_rule_col()
+
+
   #Subclase de proceso
   subprocessClass_rule = ->
     v_option = document.getElementById('subprocessClass').value
     if v_option == 'COLJUEGOS'
+      departament_rule_col()
       $('#gubernatorial_coljuegos').prop 'disabled', false
       $('#gubernatorial_coljuegos').show()
       $('#gubernatorial_ordinarie').prop 'disabled', true
@@ -56,25 +93,21 @@ $ ->
       $('#departament_coljuegos').trigger("change")
       $('#departament_ordinarie').prop 'disabled', true
       $('#departament_ordinarie').hide()
-      $('#departament_ordinarie').val("")
       $('#protection_coljuegos').prop 'disabled', false
       $('#protection_coljuegos').show()
       $('#protection_ordinarie').prop 'disabled', true
       $('#protection_ordinarie').hide()
-      $('#protection_ordinarie').val("")
       $('#moneyCents').prop 'disabled', false
       $('#moneyCents').show()
       $('#moneyType').prop 'disabled', true
       $('#moneyType').hide()
-      $('#moneyType').val("")
       document.getElementById('dolarValueCents').readOnly = true
-      $('#dolarValueCents').val("0")
       $('#office_name_col').prop 'disabled', false
       $('#office_name_col').show()
       $('#office_name_ord').prop 'disabled', true
       $('#office_name_ord').hide()
-      $('#office_name_ord').val("")
     else
+      departament_rule()
       $('#gubernatorial_coljuegos').prop 'disabled', true
       $('#gubernatorial_coljuegos').hide()
       $('#gubernatorial_ordinarie').prop 'disabled', true
@@ -87,7 +120,6 @@ $ ->
       $('#protection_coljuegos').show()
       $('#protection_ordinarie').prop 'disabled', true
       $('#protection_ordinarie').hide()
-      $('#protection_ordinarie').val("")
       $('#moneyCents').prop 'disabled', true
       $('#moneyCents').hide()
       $('#moneyType').prop 'disabled', false
@@ -338,38 +370,3 @@ $ ->
     coactive_rule()
 
   coactive_rule()
-
-  #Departamento donde cursa el caso
-  departament_rule = ->
-    value = $('#cities').val()
-    $.getJSON '/cities/' + $('#departament_ordinarie').val(), (data) ->
-      $('#cities').empty()
-      $('#cities').append '<option value="">SELECCIONE</option>'
-      $.each data, (i) ->
-        if value == data[i].code
-          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
-        else
-          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
-        $('#cities').append(opt)
-
-  $('#departament_ordinarie').change ->
-    departament_rule()
-
-  departament_rule()
-
-  #Departamento donde cursa el caso
-  departament_rule_col = ->
-    value = $('#cities').val()
-    $.getJSON '/cities/' + $('#departament_coljuegos').val(), (data) ->
-      $('#cities').empty()
-      $.each data, (i) ->
-        if value == data[i].code
-          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
-        else
-          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
-        $('#cities').append(opt)
-
-  $('#departament_coljuegos').change ->
-    departament_rule_col()
-
-  departament_rule_col()
