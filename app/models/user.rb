@@ -57,6 +57,14 @@ class User < ApplicationRecord
     end
   end
 
+  def get_processes
+   self.type_processes.order('created_at DESC')
+  end
+
+  def self.get_sorted
+    User.order(:name)
+  end
+
   def self.get_lawyers
     User.order(:name).where(role: 1)
   end

@@ -4,7 +4,7 @@ class AsignatorController < ApplicationController
   before_action :set_type_process, only: [:translate]
 
   def search
-    @search = TypeProcess.ransack(params[:q])
+    @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
     if params[:page] == nil
@@ -15,7 +15,7 @@ class AsignatorController < ApplicationController
   end
 
   def report
-    @search = TypeProcess.ransack(params[:q])
+    @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
 
@@ -46,7 +46,7 @@ class AsignatorController < ApplicationController
   end
 
   def asignate
-    @search = TypeProcess.ransack(params[:q])
+    @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
     if params[:page] == nil
