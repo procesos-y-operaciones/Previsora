@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180710195550) do
+ActiveRecord::Schema.define(version: 20180710204537) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 20180710195550) do
     t.string "case_id_ekogui", default: "NO APLICA"
     t.string "process_radicate", default: "NO APLICA"
     t.string "sinister", default: "NO APLICA"
-    t.string "attorny", default: "NO APLICA"
+    t.integer "attorny", default: 0
     t.string "active_part", default: "NO APLICA"
     t.string "passive_part", default: "NO APLICA"
     t.string "contingency_reason", default: "NO APLICA"
