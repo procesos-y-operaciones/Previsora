@@ -46,9 +46,10 @@ class AsignatorController < ApplicationController
   end
 
   def asignate
+    @number = params[:per_page] || 100
     @search = TypeProcess.get_all.ransack(params[:q])
     @report = @search.result
-    @processes = @search.result.paginate(page: params[:page], per_page: 10)
+    @processes = @search.result.paginate(page: params[:page], per_page: @number)
     if params[:page] == nil
       @page = 0
     else
