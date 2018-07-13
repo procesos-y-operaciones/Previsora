@@ -113,6 +113,8 @@ class TypeProcess < ApplicationRecord
 
   serialize :protection
 
+  self.per_page = 15
+
   def validate_ids
     if case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
       errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
@@ -208,7 +210,7 @@ class TypeProcess < ApplicationRecord
       'FECHA DE CONTESTACION TUTELA','FECHA NOTIFICACION DECISION O FALLO', 'FECHA NOTIFICACION IMPUGNACION',
       'IMPUGNANTE','FECHA DECISION IMPUGNACION', 'FECHA DE NOTIFICACION DECISION IMPUGNACION', 'TIPO DE DECISION IMPUGNACION',
       'FECHA NOTIFICACION INCIDENTE DESACATO', 'FECHA DE CONTESTACION INCIDENTE DESACATO','FECHA NOTIFICACION DECISION INDIDENTE DESACATO',
-      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION'
+      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION', 'ESTADO DE REGISTRO'
     ]
   end
 
@@ -233,7 +235,7 @@ class TypeProcess < ApplicationRecord
       format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
       self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
       format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
-      self.get_sentence_type_desacate,  self.get_contract
+      self.get_sentence_type_desacate,  self.get_contract, self.state
     ]
   end
 
