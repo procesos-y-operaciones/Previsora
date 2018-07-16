@@ -1,6 +1,6 @@
 class TypeProcessesController < ApplicationController
 
-  before_action :set_type_process, only: [:show, :edit, :update, :destroy]
+  before_action :set_type_process, only: [:show, :edit, :update, :destroy, :capture]
 
   # GET /type_processes
   # GET /type_processes.json
@@ -116,6 +116,9 @@ class TypeProcessesController < ApplicationController
       format.html { redirect_to asignator_search_path, notice: 'Proceso borrado correctamente..' }
       format.json { head :no_content }
     end
+  end
+
+  def capture
   end
 
   private

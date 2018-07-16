@@ -43,6 +43,15 @@ $ ->
 
   initial_values()
 
+  #State_value
+  state_value = ->
+    if('#state_val').val() == "REGISTRO MIGRADO"
+      ('#state_val').val("REGISTRO MIGRADO MODIFICADO")
+    if('#state_val').val() == "REGISTRO NUEVO"
+      ('#state_val').val("REGISTRO NUEVO MODIFICADO")
+
+  state_value()
+
   #Departamento donde cursa el caso
   departament_rule = ->
     value = $('#cities').val()

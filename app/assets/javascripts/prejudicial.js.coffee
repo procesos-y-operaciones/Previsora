@@ -30,6 +30,14 @@ $ ->
 
   initial_values()
 
+  state_value = ->
+    if('#state_val').val() == "REGISTRO MIGRADO"
+      ('#state_val').val("REGISTRO MIGRADO MODIFICADO")
+    if('#state_val').val() == "REGISTRO NUEVO"
+      ('#state_val').val("REGISTRO NUEVO MODIFICADO")
+
+  state_value()
+
   #Patrón de todos los text_area
   errorMessage = 'Ingrese sólo mayúsculas, numeros, guiones y/o espacios.'
   $(this).find('textarea').on 'input change propertychange', ->

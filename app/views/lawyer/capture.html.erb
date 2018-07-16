@@ -1,6 +1,6 @@
 <%= javascript_include_tag "lawyer" %>
 
-<h4 class="ligthgreen1">Buscar Registro</h4>
+<h4 class="ligthgreen1">Capture Registro</h4>
 <br>
 
 <%= search_form_for @search, url: lawyer_search_url do |f| %>
@@ -19,6 +19,9 @@
     <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-8 minibtn btn-default m-1">
       <span id="collapseButton" class="fa fa-angle-double-down"></span>
     </button>
+    <%= link_to new_type_process_path, class:"offset-md-7 minibtn btn-default m-1" do %>
+      <span class="fa fa-plus"></span>
+    <% end %>
   </div>
 
   <br>

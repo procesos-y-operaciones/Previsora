@@ -1,17 +1,90 @@
+<%= javascript_include_tag "type_process" %>
+
 <%= form_with(model: type_process, local: true) do |form| %>
   <% if type_process.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-
       <ul>
-      <% type_process.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% type_process.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <% if current_user.role != 3 %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
+    <%= form.hidden_field :state, value:"REGISTRO NUEVO CAPTURE" %>
+  <% end %>
+
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8 ">
+
+        <%= form.label :p_type, "Tipo de Proceso" %>
+        <div class="input-group">
+          <%= form.select :p_type, options_for_select([["PROCESO PREJUDICIAL", 1], ["POCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4]]), {include_blank: "SELECCIONE"}, {required:true, class:"form-control"} %>
+        </div>
+
+        <%= form.label :creation_date, "Fecha de creación" %>
+        <div class="input-group">
+          <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.creation_date_d') %>" class="input-group-addon fa fa-question m-1" style="font-size:20px"></span>
+        </div>
+
+        <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi, Access y PA)" %>
+        <div class="input-group">
+          <%= form.text_field :case_id_bap, id:"case_id_bap", placeholder: "INGRESE NÚMERO", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), required:"true", class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_bap_d') %>" class="input-group-addon fa fa-question m-1" style="font-size:20px"></span>
+        </div>
+
+        <%= form.label :case_id_sise, "Número de identificación del caso en SISE" %>
+        <div class="input-group">
+          <%= form.text_field :case_id_sise, id:"case_id_sise", placeholder: "INGRESE NÚMERO", maxlength:"12", pattern:"[0-9]*", title: t(:pattern), required:"true", class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1" style="font-size:20px"></span>
+        </div>
+
+        <%= form.label :policy_taker, "Asegurado" %>
+        <div class="input-group">
+          <%= form.text_field :policy_taker, id:"policy_taker", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required:"true", class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        </div>
+
+        <%= form.label :number, "Número de Siniestro" %>
+        <div class="input-group">
+          <%= form.number_field :number, id:"number", required:"true", class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.number_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        </div>
+
+        <%= form.label :exercise, "Ejercicio" %>
+        <div class="input-group">
+          <%= form.number_field :exercise, id:"exercise", max:"99", required:"true",  class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.exercise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        </div>
+
+        <%= form.label :branch_policy, "Sucursal de la póliza" %>
+        <div class="input-group">
+          <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {include_blank: "SELECCIONE"}, {required:"true", class:"form-control", :id => "branch_policy" }) %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+          <%= form.hidden_field :branch_policy, value:"NO PRESENTA", id:"branch_policy_hid" %>
+        </div>
+
+        <%= form.label :branch_commercial, "Ramo comercial" %>
+        <div class="input-group">
+          <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {include_blank: "SELECCIONE"}, {required:"true", class:"form-control", :id => "branch_commercial" }) %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+          <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
+        </div>
+
+        <%= form.label :sinister, "Número de Siniestro (completo)" %>
+        <div class="input-group">
+          <%= form.text_field :sinister, id:"sinister", readOnly:"readOnly", class:"form-control" %>
+          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        </div>
+
+    </div>
   </div>
+
+  <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
+
 <% end %>

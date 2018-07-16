@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :tutelage
   resources :administrative
 
+  get 'type_processes/capture/:id(.:format)', :to => 'type_processes#capture', :as => 'type_processes_capture'
+
   get 'index/home'
   get 'index/lawyer'
   get 'index/coordinator'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   get 'lawyer/new'
   get 'lawyer/search'
   get 'lawyer/report'
+  get 'lawyer/capture'
 
   get 'coordinator/new'
   get 'coordinator/management'
