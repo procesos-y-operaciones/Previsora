@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'coordinator/search'
   get 'coordinator/report'
   get 'coordinator/files'
+  get 'coordinator/capture'
   get 'coordinator/download_file'
   get "/edit/:id" => "coordinator#edit", as:'coordinator_edit'
   patch "/coordinator/:id(.:format)", :to => 'coordinator#update', :as => 'coordinator_update'
