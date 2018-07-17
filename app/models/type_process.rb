@@ -116,31 +116,31 @@ class TypeProcess < ApplicationRecord
   self.per_page = 15
 
   def validate_ids
-    if case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
+    if case_id_bap != "" && case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
       errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
     end
-    if case_id_sise != "NO PRESENTA" && case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise).present?
+    if case_id_sise != "" && case_id_sise != "NO PRESENTA" && case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise).present?
       errors.add("Número de identificación del caso sise", " ya existe")
     end
-    if case_id_ekogui != "NO PRESENTA" && case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui).present?
+    if case_id_ekogui != "" && case_id_ekogui != "NO PRESENTA" && case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui).present?
       errors.add("Número de identificación del caso e-kogui", " ya existe")
     end
-    if correspondency_radicate != "NO PRESENTA" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate).present?
+    if correspondency_radicate != "" && correspondency_radicate != "NO PRESENTA" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate).present?
       errors.add("Número de correspondencia", " ya existe")
     end
   end
 
   def update_ids
-    if case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
+    if case_id_bap != "" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
       errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
     end
-    if case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise)[0].id != id
+    if case_id_sise != "" && case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise)[0].id != id
       errors.add("Número de identificación del caso sise", " ya existe")
     end
-    if case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
+    if case_id_ekogui != "" && case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
       errors.add("Número de identificación del caso e-kogui", " ya existe")
     end
-    if correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
+    if correspondency_radicate != "" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
       errors.add("Número de correspondencia", " ya existe")
     end
   end
@@ -239,6 +239,24 @@ class TypeProcess < ApplicationRecord
     ]
   end
 
+  def self.capture_names
+    [
+      'IDENTIFICACION ABOGADO INTERNO', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
+      'TIPO DE PROCESO', 'SINIESTRO', 'EJERCICIO', 'SUCURSAL DE LA POLIZA', 'RAMO COMERCIAL', 'VALOR RESERVA HONORARIOS',
+      'VALOR MODIFICACION HONORARIOS', 'VALOR TOTAL HONORARIOS', 'FECHA MODIFICACION HONORARIOS', 'VALOR RESERVA INDEMNIZACION',
+      'VALOR MODIFICACION INDEMNIZACION', 'VALOR TOTAL INDEMNIZACION', 'FECHA MODIFICACION INDEMNIZACION'
+    ]
+  end
+
+  def capture_content
+    [
+      self.user_id, self.get_user, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
+      self.get_type_process, self.number, self.exercise, self.get_branch_policy, self.get_branch_commercial, numberValue(self.reserved_fees_cents),
+      numberValue(self.reserved_fees_cents_modify), numberValue(self.reserved_fees_cents_total), format_date(self.reserved_fees_cents_date), numberValue(self.reserve_cents),
+      numberValue(self.reserve_cents_modify), numberValue(self.reserve_cents_total), format_date(self.reserve_cents_date)
+    ]
+  end
+
   def self.to_csv(date_from, date_until, options = {})
     CSV.generate(options) do |csv|
       csv << ["LA PREVISORA S.A. COMPANIA DE SEGUROS"]
@@ -267,6 +285,22 @@ class TypeProcess < ApplicationRecord
       "TUTELA"
     else
       "NO APLICA"
+    end
+  end
+
+  def get_case_id_bap
+    if self.case_id_bap == ""
+      "NO PRESENTA"
+    else
+      self.case_id_bap
+    end
+  end
+
+  def get_case_id_sise
+    if self.case_id_sise == ""
+      "NO PRESENTA"
+    else
+      self.case_id_sise
     end
   end
 
@@ -606,6 +640,14 @@ class TypeProcess < ApplicationRecord
       "SI"
     else
       "NO"
+    end
+  end
+
+  def numberValue(value)
+    if value == "" || value == nil
+      "NO PRESENTA"
+    else
+      value
     end
   end
 

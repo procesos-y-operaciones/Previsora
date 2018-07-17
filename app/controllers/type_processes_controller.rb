@@ -1,6 +1,6 @@
 class TypeProcessesController < ApplicationController
 
-  before_action :set_type_process, only: [:show, :edit, :update, :destroy]
+  before_action :set_type_process, only: [:show, :edit, :update, :destroy, :capture]
 
   # GET /type_processes
   # GET /type_processes.json
@@ -41,6 +41,7 @@ class TypeProcessesController < ApplicationController
   # GET /type_processes/new
   def new
     @type_process = TypeProcess.new
+    @type_process.creation_date = Date.today
   end
 
   def new_process
@@ -73,7 +74,13 @@ class TypeProcessesController < ApplicationController
     @type_process = TypeProcess.new(type_process_params)
     respond_to do |format|
       if @type_process.save
-        format.html { redirect_to index_home_path, notice: 'Proceso creado correctamente.' }
+        format.html {
+          if @type_process.state == "REGISTRO NUEVO MODIFICADO CAPTURE"
+            redirect_to type_processes_capture_path(@type_process), notice: 'Proceso creado correctamente.'
+          else
+            redirect_to index_home_path, notice: 'Proceso creado correctamente.'
+          end
+        }
         format.json { render :show, status: :created, location: @type_process }
       else
         format.html {
@@ -118,6 +125,9 @@ class TypeProcessesController < ApplicationController
     end
   end
 
+  def capture
+  end
+
   private
     def set_type_process
       @type_process = TypeProcess.find(params[:id])
@@ -146,6 +156,9 @@ class TypeProcessesController < ApplicationController
        :provision_cents, :cost_value_cents, :committee_date, :reconcilie_value_cents,
        :recovery, :answer_date, :failed_notification_date, :imp_date, :objection_date_desition,
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
-       :more_protections, :policy_taker, :contract)
+       :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total,
+       :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date,
+       :state
+     )
     end
 end

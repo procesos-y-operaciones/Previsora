@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180714020920) do
+ActiveRecord::Schema.define(version: 20180716222921) do
 
   create_table "branch_commercials", force: :cascade do |t|
     t.string "name"
@@ -290,6 +290,12 @@ ActiveRecord::Schema.define(version: 20180714020920) do
     t.string "state", default: "REGISTRO NUEVO"
     t.string "document_active_part", default: "NO APLICA"
     t.string "document_passive_part", default: "NO APLICA"
+    t.bigint "reserve_cents_modify"
+    t.bigint "reserve_cents_total"
+    t.date "reserve_cents_date"
+    t.bigint "reserved_fees_cents_modify"
+    t.bigint "reserved_fees_cents_total"
+    t.date "reserved_fees_cents_date"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 

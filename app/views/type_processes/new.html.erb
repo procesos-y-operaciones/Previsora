@@ -1,17 +1,5 @@
-<%= @p_type %>
-<% case @p_type %>
-<% when '1' %>
-  <h1>Prejudicial</h1>
-<% when '2' %>
-  <h1>Judicial</h1>
-<% when '3' %>
-  <h1>Fiscal</h1>
-  <%= render 'form_fiscal', type_process: @type_process %>
-<% when '4' %>
-  <h1>administrativo</h1>
-<% when '5' %>
-  <h1>Tutela</h1>
-<% else %>
-  <h1>Error</h1>
-<% end %>
-<%= link_to 'Back', type_processes_path %>
+<h3 class="title">Nuevo Registro Capture</h3>
+<h4 class="title"><b class="darkgreen">Abogado Interno:</b> <%= current_user.name %></h4>
+
+<%= render 'form', type_process: @type_process %>
+<%= link_to 'Volver', lawyer_capture_path, class:"btn btn-default" %>

@@ -1,0 +1,156 @@
+<%= javascript_include_tag "coordinator" %>
+
+<h4 class="ligthgreen1">Descargar Reporte Capture</h4>
+<br>
+
+<%= search_form_for @search, url: coordinator_capture_url do |f| %>
+  <div class="row">
+    <div class="offset-md-3 col-md-4">
+      <div class="styled-select">
+        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
+      </div>
+    </div>
+    <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
+      <span class="fa fa-search"></span>
+    <% end %>
+    <%= link_to coordinator_capture_path, class:"offset-md-7 minibtn btn-default m-1" do %>
+      <span class="fa fa-refresh"></span>
+    <% end %>
+    <%= link_to coordinator_capture_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"minibtn btn-default offset-md-8" do %>
+      <span class="fa fa-download"></span>
+    <% end %>
+    <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-9 minibtn btn-default m-1">
+      <span id="collapseButton" class="fa fa-angle-double-down"></span>
+    </button>
+  </div>
+
+  <br>
+
+  <div id="filters" class="collapse">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="styled-select">
+          <%= f.select :departament_eq, options_from_collection_for_select(Departament.get_all, :code, :name, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament", class:"form-control"} %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="styled-select">
+          <select name="type_process[city_case_eq]" id="cities">
+            <option value="" selected="selected">CIUDAD</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :office_name_cont, placeholder: "NOMBRE DESPACHO", class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="styled-select">
+          <%= f.collection_select(:case_state_eq, CaseState.all, :name, :name, {include_blank:"ESTADO DEL CASO"}, {class:"form-control"}) %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="styled-select">
+          <%= f.collection_select(:case_termination_eq, CaseTermination.all, :name, :name, {include_blank:"TERMINACION DEL CASO"}, {class:"form-control"}) %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :internal_lawyer_cont, placeholder: "ABOGADO INTERNO", class:"form-control" %>
+      </div>
+    </div>
+
+    <h5 class="center"><b>Fecha de creación</b></h5>
+    <div class="row">
+      <div class="offset-md-2 col-md-1">
+        <%= f.label "Desde" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.date_field :creation_date_gteq, class:"form-control" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.label "Hasta" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.date_field :creation_date_lteq, class:"form-control" %>
+      </div>
+    </div>
+
+    <h5 class="center"><b>Fecha de decisión</b></h5>
+    <div class="row">
+      <div class="offset-md-2 col-md-1">
+        <%= f.label "Desde" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.date_field :desition_date_gteq, class:"form-control" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.label "Hasta" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.date_field :desition_date_lteq, class:"form-control" %>
+      </div>
+    </div>
+
+    <h5 class="center"><b>Fecha última actuación</b></h5>
+    <div class="row">
+      <div class="offset-md-2 col-md-1">
+        <%= f.label "Desde" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.date_field :last_performance_date_gteq, class:"form-control" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.label "Hasta" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.date_field :last_performance_date_lteq, class:"form-control" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<br>
+
+<div class="floatRight">
+  Registros <%= @page+1 %>-<%= @processes.length + @page %> de <%= @search.result.length %>
+</div>
+<br>
+<br>
+
+<table class="table table-responsive">
+  <thead>
+    <tr class="to-uc">
+      <th class="center" scope="col"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>
+      <th class="center" scope="col"><%= sort_link @search, :correspondency_radicate, "N° Correspondencia", {}, :class => 'link' %></th>
+      <th class="center" scope="col"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
+      <th class="center" scope="col"><%= sort_link @search, :case_id_sise, "N° SISE", {}, :class => 'link' %></th>
+      <th class="center" scope="col"><%= sort_link @search, :user_id, "Abogado", {}, :class => 'link' %></th>
+      <th class="center" scope="col"><%= sort_link @search, :city_case_id, "Ciudad", {}, :class => 'link' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @processes == [] %>
+      <tr>
+      </tr>
+    <% else %>
+      <% @processes.each do |p| %>
+        <tr>
+          <td class="center"><%= p.get_type_process %></td>
+          <td class="center"><%= p.correspondency_radicate %></td>
+          <td class="center"><%= p.case_id_bap %></td>
+          <td class="center"><%= p.case_id_sise %></td>
+          <td class="center"><%= p.get_user %></td>
+          <td class="center"><%= p.get_city_case %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
+<div class="floatRight">
+  <%= will_paginate @processes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, class:"pagination-lg" %>
+</div>
