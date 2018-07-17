@@ -3,6 +3,9 @@ $ ->
   initial_values = ->
     if $('#state_val').val() == "REGISTRO NUEVO" || $('#state_val').val() == "REGISTRO NUEVO MODIFICADO" || $('#state_val').val() == "REGISTRO NUEVO CAPTURE"
       $('#state_val').val("REGISTRO NUEVO MODIFICADO CAPTURE")
+    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO" || $('#state_val').val() == "REGISTRO MIGRADO CAPTURE"
+      $('#state_val').val("REGISTRO MIGRADO MODIFICADO CAPTURE")
+
 
   initial_values()
 

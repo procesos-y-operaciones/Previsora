@@ -40,9 +40,9 @@ $ ->
       $('#policies').val("PENDIENTE")
     if $('#sinisters').val() == "NO APLICA"
       $('#sinisters').val("PENDIENTE")
-    if $('#state_val').val() == "REGISTRO MIGRADO"
+    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO CAPTURE"
       $('#state_val').val("REGISTRO MIGRADO MODIFICADO")
-    if $('#state_val').val() == "REGISTRO NUEVO"
+    if $('#state_val').val() == "REGISTRO NUEVO" || $('#state_val').val() == "REGISTRO NUEVO MODIFICADO CAPTURE"
       $('#state_val').val("REGISTRO NUEVO MODIFICADO")
 
   initial_values()
