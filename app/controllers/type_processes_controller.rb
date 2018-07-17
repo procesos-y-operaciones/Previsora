@@ -109,7 +109,19 @@ class TypeProcessesController < ApplicationController
         format.html { redirect_to @type_process, notice: 'Proceso actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @type_process }
       else
-        format.html { render :edit }
+        format.html {
+          if @type_process.p_type == 1
+            redirect_to edit_prejudicial_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 2
+            redirect_to edit_judicial_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 3
+            redirect_to edit_fiscal_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 4
+            redirect_to edit_administrative_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 5
+            redirect_to edit_tutelage_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          end
+        }
         format.json { render json: @type_process.errors, status: :unprocessable_entity }
       end
     end
@@ -158,7 +170,7 @@ class TypeProcessesController < ApplicationController
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
        :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total,
        :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date,
-       :state
+       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part
      )
     end
 end
