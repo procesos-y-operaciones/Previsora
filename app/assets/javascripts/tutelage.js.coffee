@@ -32,16 +32,12 @@ $ ->
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
       $('#document_passive_part').val("PENDIENTE")
+    if $('#state_val').val() == "REGISTRO MIGRADO"
+      $('#state_val').val("REGISTRO MIGRADO MODIFICADO")
+    if $('#state_val').val() == "REGISTRO NUEVO"
+      $('#state_val').val("REGISTRO NUEVO MODIFICADO")
 
   initial_values()
-
-  state_value = ->
-    if('#state_val').val() == "REGISTRO MIGRADO"
-      ('#state_val').val("REGISTRO MIGRADO MODIFICADO")
-    if('#state_val').val() == "REGISTRO NUEVO"
-      ('#state_val').val("REGISTRO NUEVO MODIFICADO")
-
-  state_value()
 
   #¿Tiene número de radicado correspondencia?
   radicate_rule = ->
