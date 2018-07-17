@@ -41,6 +41,7 @@ class TypeProcessesController < ApplicationController
   # GET /type_processes/new
   def new
     @type_process = TypeProcess.new
+    @type_process.creation_date = Date.today
   end
 
   def new_process
