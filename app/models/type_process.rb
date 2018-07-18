@@ -110,10 +110,17 @@ class TypeProcess < ApplicationRecord
 
   validate :validate_ids, on: :create
   validate :update_ids, on: :edit
+  validate :state_migrate, on: :update
 
   serialize :protection
 
   self.per_page = 15
+
+  def state_migrate
+    if state == "REGISTRO MIGRADO MODIFICADO" && user_id == 1
+      errors.add("El registro no se puede modificar", "Estado Migrado Modificado")
+    end
+  end
 
   def validate_ids
     if case_id_bap != "" && case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?
