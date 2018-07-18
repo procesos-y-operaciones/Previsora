@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180710204537) do
+ActiveRecord::Schema.define(version: 20180718161257) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -218,7 +218,7 @@ ActiveRecord::Schema.define(version: 20180710204537) do
     t.string "office_name", default: "NO APLICA"
     t.string "other_office_name", default: "NO APLICA"
     t.string "departament", default: "00"
-    t.string "city_case", default: "00"
+    t.string "city_case", default: "000"
     t.string "process_class", default: "NO APLICA"
     t.string "subprocess_class", default: "NO APLICA"
     t.string "link_type", default: "NO APLICA"
