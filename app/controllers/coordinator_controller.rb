@@ -98,13 +98,14 @@ class CoordinatorController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @report.to_csv }
-      format.xlsx {}
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xlsx"
+      }
       format.xls {
-        #response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xls"
-        response.set_header('HEADER NAME', 'HEADER VALUE')
+        response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xls"
+        #response.set_header('HEADER NAME', 'HEADER VALUE')
         #redirect_to index_path, alert: "Archivo descargado."
       }
-      GC.start
     end
   end
 
