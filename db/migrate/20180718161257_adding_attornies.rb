@@ -165,6 +165,7 @@ class AddingAttornies < ActiveRecord::Migration[5.1]
     Attorny.create(id: 160, name: 'WILLIAM ADAN RODRIGUEZ CASTILLO', code: '00160')
     Attorny.create(id: 161, name: 'WINSTON HERMINSUL RUBIO SEGURA', code: '00161')
     Attorny.create(id: 162, name: 'YEZID GARCIA ARENAS', code: '00162')
+    Attorny.create(id: 163, name: 'CARLOS VARGAS', code: '00163')
 
   end
 
