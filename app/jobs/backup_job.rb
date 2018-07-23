@@ -13,6 +13,7 @@ class BackupJob < ApplicationJob
     end
     puts "Reporte del #{Time.now} creado correctamente."
     self.class.set(wait: RUN_EVERY).perform_later
+
   end
 
 end
