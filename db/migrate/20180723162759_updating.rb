@@ -12,37 +12,37 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(5).update(user_id: 93)
 
-    TypeProcess.find(6).update()
 
-    TypeProcess.find(7).update()
 
-    TypeProcess.find(8).update()
 
-    TypeProcess.find(9).update()
+
+
+
+
 
     TypeProcess.find(10).update(user_id: 7)
 
-    TypeProcess.find(11).update()
+
 
     TypeProcess.find(12).update(user_id: 35)
 
     TypeProcess.find(13).update(user_id: 35)
 
-    TypeProcess.find(14).update()
+
 
     TypeProcess.find(15).update(user_id: 74)
 
     TypeProcess.find(16).update(user_id: 74)
 
-    TypeProcess.find(17).update()
 
-    TypeProcess.find(18).update()
 
-    TypeProcess.find(19).update()
+
+
+
 
     TypeProcess.find(20).update(user_id: 74)
 
-    TypeProcess.find(21).update()
+
 
     TypeProcess.find(22).update(user_id: 35)
 
@@ -82,13 +82,13 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(40).update(user_id: 124)
 
-    TypeProcess.find(41).update()
 
-    TypeProcess.find(42).update()
 
-    TypeProcess.find(43).update()
 
-    TypeProcess.find(44).update()
+
+
+
+
 
     TypeProcess.find(45).update(user_id: 123)
 
@@ -96,9 +96,9 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(47).update(user_id: 14)
 
-    TypeProcess.find(48).update()
 
-    TypeProcess.find(49).update()
+
+
 
     TypeProcess.find(50).update(user_id: 123)
 
@@ -132,13 +132,13 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(65).update(user_id: 146)
 
-    TypeProcess.find(66).update()
+
 
     TypeProcess.find(67).update(user_id: 51)
 
-    TypeProcess.find(68).update()
 
-    TypeProcess.find(69).update()
+
+
 
     TypeProcess.find(70).update(user_id: 63)
 
@@ -154,29 +154,29 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(76).update(user_id: 96)
 
-    TypeProcess.find(77).update()
+
 
     TypeProcess.find(78).update(user_id: 14)
 
     TypeProcess.find(79).update(user_id: 74)
 
-    TypeProcess.find(80).update()
+
 
     TypeProcess.find(81).update(user_id: 82)
 
-    TypeProcess.find(82).update()
 
-    TypeProcess.find(83).update()
 
-    TypeProcess.find(84).update()
 
-    TypeProcess.find(85).update()
+
+
+
+
 
     TypeProcess.find(86).update(user_id: 93)
 
     TypeProcess.find(87).update(user_id: 93)
 
-    TypeProcess.find(88).update()
+
 
     TypeProcess.find(89).update(user_id: 96)
 
@@ -194,7 +194,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(96).update(user_id: 39)
 
-    TypeProcess.find(97).update()
+
 
     TypeProcess.find(98).update(user_id: 63)
 
@@ -212,13 +212,13 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(105).update(user_id: 110)
 
-    TypeProcess.find(106).update()
 
-    TypeProcess.find(107).update()
 
-    TypeProcess.find(108).update()
 
-    TypeProcess.find(109).update()
+
+
+
+
 
     TypeProcess.find(110).update(user_id: 63)
 
@@ -248,7 +248,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(123).update(user_id: 51)
 
-    TypeProcess.find(124).update()
+
 
     TypeProcess.find(125).update(user_id: 125)
 
@@ -264,7 +264,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(131).update(user_id: 22)
 
-    TypeProcess.find(132).update()
+
 
     TypeProcess.find(133).update(user_id: 55)
 
@@ -338,7 +338,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(168).update(user_id: 125)
 
-    TypeProcess.find(169).update()
+
 
     TypeProcess.find(170).update(user_id: 125)
 
@@ -346,15 +346,15 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(172).update(user_id: 125)
 
-    TypeProcess.find(173).update()
+
 
     TypeProcess.find(174).update(user_id: 74)
 
     TypeProcess.find(175).update(user_id: 63)
 
-    TypeProcess.find(176).update()
 
-    TypeProcess.find(177).update()
+
+
 
     TypeProcess.find(178).update(user_id: 135)
 
@@ -394,7 +394,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(196).update(user_id: 85)
 
-    TypeProcess.find(197).update()
+
 
     TypeProcess.find(198).update(user_id: 55)
 
@@ -406,7 +406,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(202).update(user_id: 51)
 
-    TypeProcess.find(203).update()
+
 
     TypeProcess.find(204).update(user_id: 110)
 
@@ -468,7 +468,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(233).update(user_id: 135)
 
-    TypeProcess.find(234).update()
+
 
     TypeProcess.find(235).update(user_id: 114)
 
@@ -492,29 +492,29 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(245).update(user_id: 68)
 
-    TypeProcess.find(246).update()
 
-    TypeProcess.find(247).update()
 
-    TypeProcess.find(248).update()
 
-    TypeProcess.find(249).update()
 
-    TypeProcess.find(250).update()
 
-    TypeProcess.find(251).update()
 
-    TypeProcess.find(252).update()
 
-    TypeProcess.find(253).update()
 
-    TypeProcess.find(254).update()
 
-    TypeProcess.find(255).update()
+
+
+
+
+
+
+
+
+
+
 
     TypeProcess.find(256).update(user_id: 63)
 
-    TypeProcess.find(257).update()
+
 
     TypeProcess.find(258).update(user_id: 59)
 
@@ -578,7 +578,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(288).update(user_id: 41)
 
-    TypeProcess.find(289).update()
+
 
     TypeProcess.find(290).update(user_id: 145)
 
@@ -624,11 +624,11 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(311).update(user_id: 14)
 
-    TypeProcess.find(312).update()
+
 
     TypeProcess.find(313).update(user_id: 154)
 
-    TypeProcess.find(314).update()
+
 
     TypeProcess.find(315).update(user_id: 93)
 
@@ -664,7 +664,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(331).update(user_id: 93)
 
-    TypeProcess.find(332).update()
+
 
     TypeProcess.find(333).update(user_id: 93)
 
@@ -672,11 +672,11 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(335).update(user_id: 93)
 
-    TypeProcess.find(336).update()
+
 
     TypeProcess.find(337).update(user_id: 93)
 
-    TypeProcess.find(338).update()
+
 
     TypeProcess.find(339).update(user_id: 93)
 
@@ -694,9 +694,9 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(346).update(user_id: 93)
 
-    TypeProcess.find(347).update()
 
-    TypeProcess.find(348).update()
+
+
 
     TypeProcess.find(349).update(user_id: 97)
 
@@ -916,11 +916,11 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(462).update(user_id: 136)
 
-    TypeProcess.find(463).update()
 
-    TypeProcess.find(464).update()
 
-    TypeProcess.find(465).update()
+
+
+
 
     TypeProcess.find(466).update(user_id: 123)
 
@@ -2478,7 +2478,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(1243).update(user_id: 112)
 
-    TypeProcess.find(1244).update()
+
 
     TypeProcess.find(1245).update(user_id: 143)
 
@@ -2534,7 +2534,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(1271).update(user_id: 111)
 
-    TypeProcess.find(1272).update()
+
 
     TypeProcess.find(1273).update(user_id: 86)
 
@@ -3092,7 +3092,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(1550).update(user_id: 125)
 
-    TypeProcess.find(1551).update()
+
 
     TypeProcess.find(1552).update(user_id: 86)
 
@@ -9006,7 +9006,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(4507).update(user_id: 30)
 
-    TypeProcess.find(4508).update()
+
 
     TypeProcess.find(4509).update(user_id: 25)
 
@@ -38200,15 +38200,15 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(19104).update(user_id: 107)
 
-    TypeProcess.find(19105).update()
 
-    TypeProcess.find(19106).update()
 
-    TypeProcess.find(19107).update()
 
-    TypeProcess.find(19108).update()
 
-    TypeProcess.find(19109).update()
+
+
+
+
+
 
     TypeProcess.find(19110).update(user_id: 82)
 
@@ -38230,7 +38230,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(19119).update(user_id: 135)
 
-    TypeProcess.find(19120).update()
+
 
     TypeProcess.find(19121).update(user_id: 22)
 
@@ -38246,7 +38246,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(19127).update(user_id: 43)
 
-    TypeProcess.find(19128).update()
+
 
     TypeProcess.find(19129).update(user_id: 74)
 
@@ -38280,7 +38280,7 @@ class Updating < ActiveRecord::Migration[5.1]
 
     TypeProcess.find(19144).update(user_id: 79)
 
-    TypeProcess.find(19145).update()
+
 
     TypeProcess.find(19146).update(user_id: 121)
 
