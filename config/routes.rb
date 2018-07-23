@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :attornies
   devise_for :users, controllers: { :registrations => "users/registrations" }
 
   resources :type_processes
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get 'coordinator/report'
   get 'coordinator/files'
   get 'coordinator/capture'
+  get 'coordinator/lists'
   get 'coordinator/download_file'
   get "/edit/:id" => "coordinator#edit", as:'coordinator_edit'
   patch "/coordinator/:id(.:format)", :to => 'coordinator#update', :as => 'coordinator_update'

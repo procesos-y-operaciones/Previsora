@@ -182,7 +182,7 @@ class TypeProcess < ApplicationRecord
 
   def get_total_content
     [
-      self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.attorny, self.get_active_part, self.get_passive_part,
+      self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.get_attorny, self.get_active_part, self.get_passive_part,
       self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
       self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, format_date(self.last_performance_date), self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
@@ -224,7 +224,7 @@ class TypeProcess < ApplicationRecord
   def get_content_all
     [
       self.id, self.get_user, self.correspondency_radicate, self.creation_date,
-      self.attorny, format_date(self.attorny_date), format_date(self.notification_date),
+      self.get_attorny, format_date(self.attorny_date), format_date(self.notification_date),
       self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.get_type_process,
       self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_active_part, self.get_passive_part,
       self.process_radicate, self.get_office_name, self.get_departament, self.get_city_case,
@@ -665,6 +665,14 @@ class TypeProcess < ApplicationRecord
       self.other_office_name
     else
       self.office_name
+    end
+  end
+
+  def get_attorny
+    if Attorny.exists?(self.attorny)
+      Attorny.find(self.attorny).name
+    else
+      "NO APLICA"
     end
   end
 

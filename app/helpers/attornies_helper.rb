@@ -1,0 +1,2 @@
+module AttorniesHelper
+end

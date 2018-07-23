@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20180718001638) do
     t.string "case_id_ekogui", default: "NO APLICA"
     t.string "process_radicate", default: "NO APLICA"
     t.string "sinister", default: "NO APLICA"
-    t.string "attorny", default: "NO APLICA"
+    t.integer "attorny", default: 0
     t.string "active_part", default: "NO APLICA"
     t.string "passive_part", default: "NO APLICA"
     t.string "contingency_reason", default: "NO APLICA"

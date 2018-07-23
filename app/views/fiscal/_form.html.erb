@@ -252,7 +252,7 @@
 
       <%= form.label :attorny, "Apoderado de Previsora" %>
       <div class="input-group">
-        <%= form.text_field :attorny, id:"attorny", pattern:"[A-Z0-9\- ]*", maxlength:"100", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <%= form.collection_select(:attorny, Attorny.all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
