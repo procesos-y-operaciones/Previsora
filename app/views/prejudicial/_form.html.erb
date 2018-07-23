@@ -192,7 +192,7 @@
 
       <%= form.label :attorny, "Apoderado Previsora" %>
       <div class="input-group">
-        <%= form.collection_select(:attorny, Attorny.all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny"}) %>
+        <%= form.collection_select(:attorny, Attorny.get_all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
