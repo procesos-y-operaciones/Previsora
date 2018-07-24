@@ -64,7 +64,7 @@
     </div>
   </div>
   <div class="offset-sm-2 col-sm-2">
-    <%= link_to type_processes_path(request.parameters.merge({:format => :xls})), download: 'reporte.xls', class:"btn-circle btn-inverse" do %>
+    <%= link_to type_processes_path(format: "xlsx"), :data => {:confirm => "A continuación se abrirá un nueva pestaña. Una vez el reporte se haya generado, esta se cerrará automáticamente. \n\nNo cierre la pestaña o genere otro reporte hasta que este proceso termine. \n\nEsto podría tardar varios minutos. \n\n¿Desea continuar?"}, target: '_blank', class:"btn-circle btn-inverse" do %>
       <span class="fa">&#xf01a;</span>
     <% end %>
     <br>

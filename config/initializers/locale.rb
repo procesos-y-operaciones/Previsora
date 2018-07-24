@@ -10,4 +10,3 @@ I18n.default_locale = :'es-MX'
 
 #Active Job
 #BackupJob.perform_later
-
