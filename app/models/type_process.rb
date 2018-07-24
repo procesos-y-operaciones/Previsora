@@ -636,9 +636,9 @@ class TypeProcess < ApplicationRecord
 
   def nilValue(value)
     if value == nil
-      0
+      ""
     else
-      value
+      ""+value.to_s
     end
   end
 
