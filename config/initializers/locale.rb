@@ -9,5 +9,5 @@ I18n.available_locales = [:en, :'es-MX']
 I18n.default_locale = :'es-MX'
 
 #Active Job
-BackupJob.perform_later
+#BackupJob.perform_later
 puts "Backup done"

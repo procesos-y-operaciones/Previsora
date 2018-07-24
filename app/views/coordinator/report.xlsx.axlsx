@@ -5,7 +5,7 @@ wb.add_worksheet(name: "Users") do |sheet|
   sheet.add_row @report.column_names_all
 
   @report.each do |process|
-    sheet.add_row process.get_content_all
+    sheet.add_row process.get_content_all, :types => [:string]*process.get_content_all.count
   end
 
 end
