@@ -15,10 +15,10 @@ class BackupJob < ApplicationJob
         sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
         sheet.add_row [""]
 
-        sheet.add_row TypeProcess.all.column_names_all
+        sheet.add_row TypeProcess.all.total_headers
 
         TypeProcess.all.each do |process|
-          sheet.add_row process.get_content_all, :types => [:string]*process.get_content_all.count
+          sheet.add_row process.get_total_content, :types => [:string]*process.get_content_all.count
         end
       end
       p.serialize("#{Rails.root}/public/files/#{Time.now.to_s}.xlsx")
