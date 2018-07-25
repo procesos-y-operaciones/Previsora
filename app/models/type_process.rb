@@ -672,7 +672,7 @@ class TypeProcess < ApplicationRecord
     if Attorny.exists?(self.attorny)
       Attorny.find(self.attorny).name
     else
-      "NO APLICA"
+      "NO PRESENTA"
     end
   end
 
