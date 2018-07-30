@@ -11,7 +11,7 @@
 #  case_id_ekogui                       :string           default("NO APLICA")
 #  process_radicate                     :string           default("NO APLICA")
 #  sinister                             :string           default("NO APLICA")
-#  attorny                              :string           default("NO APLICA")
+#  attorny                              :integer          default(0)
 #  active_part                          :string           default("NO APLICA")
 #  passive_part                         :string           default("NO APLICA")
 #  contingency_reason                   :string           default("NO APLICA")
@@ -25,8 +25,8 @@
 #  reason_inv                           :string           default("NO APLICA")
 #  office_name                          :string           default("NO APLICA")
 #  other_office_name                    :string           default("NO APLICA")
-#  departament                          :string           default("NO APLICA")
-#  city_case                            :string           default("SELECCIONE")
+#  departament                          :string           default("00")
+#  city_case                            :string           default("000")
 #  process_class                        :string           default("NO APLICA")
 #  subprocess_class                     :string           default("NO APLICA")
 #  link_type                            :string           default("NO APLICA")
@@ -54,25 +54,25 @@
 #  contract                             :string           default("NO APLICA")
 #  more_protections                     :text             default("NO APLICA")
 #  facts                                :text             default("NO APLICA")
-#  dolar_value_cents                    :bigint(8)
-#  detritment_cents                     :bigint(8)
-#  ensurance_value_cents                :bigint(8)
-#  contingency_value_cents              :bigint(8)
-#  policy_cents                         :bigint(8)
-#  reserve_cents                        :bigint(8)
-#  reserved_fees_cents                  :bigint(8)
-#  provision_cents                      :bigint(8)
-#  fail_value_cents                     :bigint(8)
-#  fail_previ_cents                     :bigint(8)
-#  payed_value_cents                    :bigint(8)
-#  coactive_value_cents                 :bigint(8)
-#  garnish_value_cents                  :bigint(8)
-#  reensurance_gived_cents              :bigint(8)
-#  auth_value_cents                     :bigint(8)
-#  reinsurance_value_cents              :bigint(8)
-#  coensurance_value_cents              :bigint(8)
-#  reconcilie_value_cents               :bigint(8)
-#  cost_value_cents                     :bigint(8)
+#  dolar_value_cents                    :integer
+#  detritment_cents                     :integer
+#  ensurance_value_cents                :integer
+#  contingency_value_cents              :integer
+#  policy_cents                         :integer
+#  reserve_cents                        :integer
+#  reserved_fees_cents                  :integer
+#  provision_cents                      :integer
+#  fail_value_cents                     :integer
+#  fail_previ_cents                     :integer
+#  payed_value_cents                    :integer
+#  coactive_value_cents                 :integer
+#  garnish_value_cents                  :integer
+#  reensurance_gived_cents              :integer
+#  auth_value_cents                     :integer
+#  reinsurance_value_cents              :integer
+#  coensurance_value_cents              :integer
+#  reconcilie_value_cents               :integer
+#  cost_value_cents                     :integer
 #  creation_date                        :date
 #  notification_date                    :date
 #  attorny_date                         :date
@@ -102,8 +102,15 @@
 #  has_coactive_radicate                :boolean          default(FALSE)
 #  has_impug                            :boolean          default(FALSE)
 #  has_desacate                         :boolean          default(FALSE)
+#  state                                :string           default("REGISTRO NUEVO")
 #  document_active_part                 :string           default("NO APLICA")
 #  document_passive_part                :string           default("NO APLICA")
+#  reserve_cents_modify                 :bigint(8)
+#  reserve_cents_total                  :bigint(8)
+#  reserve_cents_date                   :date
+#  reserved_fees_cents_modify           :bigint(8)
+#  reserved_fees_cents_total            :bigint(8)
+#  reserved_fees_cents_date             :date
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
