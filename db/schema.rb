@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718161257) do
+ActiveRecord::Schema.define(version: 20180730181755) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -185,6 +185,18 @@ ActiveRecord::Schema.define(version: 20180718161257) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sinisters", force: :cascade do |t|
+    t.bigint "reserve_cents"
+    t.bigint "reserve_cents_modify"
+    t.date "reserve_cents_date"
+    t.bigint "reserved_fees_cents"
+    t.bigint "reserved_fees_cents_modify"
+    t.bigint "reserved_fees_cents_total"
+    t.date "reserved_fees_cents_date"
+    t.integer "type_process_id"
+    t.index ["type_process_id"], name: "index_sinisters_on_type_process_id"
   end
 
   create_table "subprocess_classes", force: :cascade do |t|

@@ -114,6 +114,9 @@ class TypeProcess < ApplicationRecord
 
   serialize :protection
 
+  has_many :sinisters, dependent: :destroy
+  accepts_nested_attributes_for :sinisters, allow_destroy: true
+
   self.per_page = 15
 
   def state_migrate
