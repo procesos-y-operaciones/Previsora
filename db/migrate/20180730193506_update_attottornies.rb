@@ -1,6 +1,6 @@
 class UpdateAttottornies < ActiveRecord::Migration[5.1]
   def change
-    Attornies.delete_all
+    Attorny.delete_all
     Attorny.create(id: 1, name: 'ALBA INES GOMEZ VELEZ', code: '001')
     Attorny.create(id: 2, name: 'ALEX FONTALVO VELASQUEZ', code: '002')
     Attorny.create(id: 3, name: 'ALEXANDRA PATRICIA TORRES HERRERA', code: '003')
