@@ -9,10 +9,10 @@ wb.add_worksheet(name: "Users") do |sheet|
   sheet.add_row ["DESDE: #{@date_from} HASTA: #{@date_till}"]
   sheet.add_row [""]
 
-  sheet.add_row @report.total_headers
+  sheet.add_row @report.column_names_all
 
   @report.each do |process|
-    sheet.add_row process.get_total_content, :types => [:string]*process.get_content_all.count
+    sheet.add_row process.get_content_all, :types => [:string]*process.get_content_all.count
   end
 
 end

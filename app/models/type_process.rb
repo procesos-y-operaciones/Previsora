@@ -153,7 +153,8 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.get_all
-    self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :departament, :city_case, :created_at).order('created_at DESC')
+    self.order('created_at DESC')
+    #self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :user_id, :departament, :city_case, :created_at).order('created_at DESC')
   end
 
   def self.total_headers
