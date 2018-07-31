@@ -188,6 +188,11 @@ ActiveRecord::Schema.define(version: 20180730181755) do
   end
 
   create_table "sinisters", force: :cascade do |t|
+    t.integer "number", default: 0
+    t.integer "exercise", default: 0
+    t.string "branch_policy", default: "NO APLICA"
+    t.string "branch_commercial", default: "NO APLICA"
+    t.string "sinister", default: "NO APLICA"
     t.bigint "reserve_cents"
     t.bigint "reserve_cents_modify"
     t.date "reserve_cents_date"

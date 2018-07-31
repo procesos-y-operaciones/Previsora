@@ -47,6 +47,24 @@ $ ->
         else
           $(this).removeAttr 'title'
 
+  #Each sinister
+  $('#sinisters_container').on('cocoon:after-insert', (e, i) ->
+    num = i[0].childNodes[5].childNodes[1]
+    eje = i[0].childNodes[9].childNodes[1]
+    sp = i[0].childNodes[13].childNodes[1]
+    ra = i[0].childNodes[17].childNodes[1]
+    sg = i[0].childNodes[21].childNodes[1]
+
+    aux = ->
+      sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
+
+    num.onchange = aux
+    eje.onchange = aux
+    sp.onchange = aux
+    ra.onchange = aux
+
+  )
+
   #¿Tiene número de radicado correspondencia?
   radicate_rule = ->
     v_option = document.getElementById("radicate").value
@@ -62,45 +80,20 @@ $ ->
   radicate_rule()
 
   #Fuente de litigio
-  numSiniestro = ""
-  num = numSiniestro.concat(document.getElementById("number").value)
-  exer = numSiniestro.concat(document.getElementById("exercise").value)
-  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById("litigationSource").value
     if v_option == "SINIESTRO"
-      document.getElementById("policyCents").readOnly = false
+      $('#policyCents').prop( 'readOnly', false )
       $('#protection').prop( "disabled", false )
-      document.getElementById("number").readOnly = false
-      document.getElementById("exercise").readOnly = false
-      document.getElementById("more_protections").readOnly = false
-      $('#branch_policy').prop( "disabled", false )
-      $('#branch_policy_hid').prop( "disabled", true )
-      $('#branch_commercial').prop( "disabled", false )
-      $('#branch_commercial_hid').prop( "disabled", true )
-      $('#more_policies').prop( "disabled", false )
-      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
       $('#coensurance_type').prop( "disabled", false )
       $('#coensurance_type_hid').prop( "disabled", true )
       $('#reinsurance_type').prop( "disabled", false )
       $('#reinsurance_type_hid').prop( "disabled", true )
     else
-      document.getElementById("policyCents").readOnly = true
+      $('#policyCents').prop( 'readOnly', true )
       $('#policyCents').val("0")
-      $('#protection').prop( "disabled", true )
       $('#protection').val("")
-      document.getElementById("number").readOnly = true
-      $('#number').val("0")
-      document.getElementById("exercise").readOnly = true
-      document.getElementById("more_protections").readOnly = true
-      $('#exercise').val("0")
-      $('#branch_policy').prop( "disabled", true )
-      $('#branch_policy_hid').prop( "disabled", false )
-      $('#branch_commercial').prop( "disabled", true )
-      $('#branch_commercial_hid').prop( "disabled", false )
-      $('#more_policies').prop( "disabled", true )
-      $("#sinister").val("NO PRESENTA")
+      $('#protection').prop( "disabled", true )
       $('#coensurance_type').prop( "disabled", true )
       $('#coensurance_type_hid').prop( "disabled", false )
       $('#reinsurance_type').prop( "disabled", true )
@@ -126,23 +119,6 @@ $ ->
     protection_rule()
 
   protection_rule()
-
-  $("#number").change ->
-    num = numSiniestro.concat(document.getElementById("number").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#exercise').change ->
-    exer = numSiniestro.concat(document.getElementById("exercise").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_policy').change ->
-    poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_commercial').change ->
-    comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
 
   #Tipo moneda
   money_type_rule = ->
