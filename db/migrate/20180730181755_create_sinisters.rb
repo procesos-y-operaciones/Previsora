@@ -1,5 +1,9 @@
 class CreateSinisters < ActiveRecord::Migration[5.1]
   def change
+
+    remove_column :type_processes, :sinisters
+    remove_column :type_processes, :policies
+
     create_table :sinisters do |t|
 
       t.bigint  :reserve_cents

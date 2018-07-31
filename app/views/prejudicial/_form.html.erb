@@ -170,18 +170,6 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :policies, "Número de pólizas" %>
-      <div class="input-group">
-        <%= form.text_area :policies, id:"policies", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :sinisters, "Número de siniestros" %>
-      <div class="input-group">
-        <%= form.text_area :sinisters, id:"sinisters", maxlength:"255", pattern:"[0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.sinisters_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
       <hr>
 
       <%= form.label :case_onbase, "Número de Caso en On-Base" %>
@@ -334,6 +322,21 @@
       </div>
 
       <hr>
+
+      <div class="sinisters">
+        <%= form.label :sinisters, "Más siniestros" %>
+        <%= form.fields_for :sinisters do |sinister| %>
+          <%= render 'sinister_fields', f: sinister %>
+        <% end %>
+      </div>
+
+
+      <div class="input-group">
+        <%= link_to_add_association form, :sinisters, data: {association_insertion_node: '.sinisters', association_insertion_method: :append}, class: "minibtn btn-default m-1" do %>
+          <span class="fa">&#x2b;</span>
+        <% end %>
+      </div>
+
 
     </div>
   </div>

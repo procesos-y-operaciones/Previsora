@@ -23,10 +23,6 @@ $ ->
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
       $('#document_passive_part').val("PENDIENTE")
-    if $('#policies').val() == "NO APLICA"
-      $('#policies').val("PENDIENTE")
-    if $('#sinisters').val() == "NO APLICA"
-      $('#sinisters').val("PENDIENTE")
     if $('#state_val').val() == "REGISTRO MIGRADO"
       $('#state_val').val("REGISTRO MIGRADO MODIFICADO")
     if $('#state_val').val() == "REGISTRO NUEVO"
@@ -147,23 +143,6 @@ $ ->
     comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
     $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
 
-
-  #¿Tiene más pólizas?
-  more_policies_rule = ->
-    v_option = document.getElementById("more_policies").value
-    if v_option == "true"
-      document.getElementById("policies").readOnly = false
-      document.getElementById("sinisters").readOnly = false
-    if v_option == "false"
-      document.getElementById("policies").readOnly = true
-      $("#policies").val("PENDIENTE")
-      document.getElementById("sinisters").readOnly = true
-      $("#sinisters").val("PENDIENTE")
-
-  $('#more_policies').change ->
-    more_policies_rule()
-
-  more_policies_rule()
 
   #Tipo moneda
   money_type_rule = ->

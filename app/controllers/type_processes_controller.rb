@@ -151,7 +151,7 @@ class TypeProcessesController < ApplicationController
        :case_id_sise, :creation_date, :link_type, :departament, :city_case,
        :litigation_source, :reinsurance_type, :reinsurance_report, :coensurance_type,
        :policy_cents, :number, :exercise, :branch_policy, :branch_commercial, :money_type,
-       :dolar_value_cents, :sinister, :policies, :sinisters, :reserve_cents, :detritment_cents,
+       :dolar_value_cents, :sinister, :reserve_cents, :detritment_cents,
        :ensurance_value_cents, :contingency_value_cents, :notification_date, :process_radicate,
        :attorny, :attorny_date, :office_name, :active_part, :passive_part, :score_contingency,
        :contingency_reason, :contingency_resume, :facts, :instance, :case_state,
@@ -170,7 +170,8 @@ class TypeProcessesController < ApplicationController
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
        :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total,
        :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date,
-       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part
+       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part,
+       sinisters_attributes: Sinister.attribute_names.map(&:to_sym).push(:_destroy)
      )
     end
 end

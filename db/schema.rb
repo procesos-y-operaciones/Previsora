@@ -221,8 +221,6 @@ ActiveRecord::Schema.define(version: 20180730181755) do
     t.string "contingency_reason", default: "NO APLICA"
     t.string "contingency_resume", default: "NO APLICA"
     t.string "coactive_radicate", default: "NO APLICA"
-    t.string "policies", default: "NO APLICA"
-    t.string "sinisters", default: "NO APLICA"
     t.string "case_onbase", default: "NO APLICA"
     t.string "tutelage_imp", default: "NO APLICA"
     t.string "reason_conc", default: "NO APLICA"
@@ -309,11 +307,11 @@ ActiveRecord::Schema.define(version: 20180730181755) do
     t.string "state", default: "REGISTRO NUEVO"
     t.string "document_active_part", default: "NO APLICA"
     t.string "document_passive_part", default: "NO APLICA"
-    t.bigint "reserve_cents_modify"
-    t.bigint "reserve_cents_total"
+    t.integer "reserve_cents_modify", limit: 8
+    t.integer "reserve_cents_total", limit: 8
     t.date "reserve_cents_date"
-    t.bigint "reserved_fees_cents_modify"
-    t.bigint "reserved_fees_cents_total"
+    t.integer "reserved_fees_cents_modify", limit: 8
+    t.integer "reserved_fees_cents_total", limit: 8
     t.date "reserved_fees_cents_date"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
