@@ -6883,7 +6883,7 @@ TypeProcess.find(9700).update(sinister:'NO PRESENTA')
 TypeProcess.find(9704).update(sinister:'NO PRESENTA')
 TypeProcess.find(9713).update(sinister:'NO PRESENTA')
 TypeProcess.find(9716).update(sinister:'NO PRESENTA')
-TypeProcess.find(9720).update(sinister:'NO PRESENTA')
+
 TypeProcess.find(9723).update(sinister:'NO PRESENTA')
 TypeProcess.find(9724).update(sinister:'NO PRESENTA')
 TypeProcess.find(9725).update(sinister:'NO PRESENTA')
