@@ -47,7 +47,7 @@ $ ->
         else
           $(this).removeAttr 'title'
 
-  #Each sinister
+  #Siniestros
   $('#sinisters_container').on('cocoon:after-insert', (e, i) ->
     num = i[0].childNodes[5].childNodes[1]
     eje = i[0].childNodes[9].childNodes[1]
@@ -62,7 +62,6 @@ $ ->
     eje.onchange = aux
     sp.onchange = aux
     ra.onchange = aux
-
   )
 
   #¿Tiene número de radicado correspondencia?
@@ -81,7 +80,7 @@ $ ->
 
   #Fuente de litigio
   litigation_source_rule = ->
-    v_option = document.getElementById("litigationSource").value
+    v_option = $('#litigationSource').val()
     if v_option == "SINIESTRO"
       $('#policyCents').prop( 'readOnly', false )
       $('#protection').prop( "disabled", false )
@@ -89,6 +88,8 @@ $ ->
       $('#coensurance_type_hid').prop( "disabled", true )
       $('#reinsurance_type').prop( "disabled", false )
       $('#reinsurance_type_hid').prop( "disabled", true )
+      $('#siniesters_butt').show()
+      $('#policies_butt').show()
     else
       $('#policyCents').prop( 'readOnly', true )
       $('#policyCents').val("0")
@@ -98,6 +99,8 @@ $ ->
       $('#coensurance_type_hid').prop( "disabled", false )
       $('#reinsurance_type').prop( "disabled", true )
       $('#reinsurance_type_hid').prop( "disabled", false )
+      $('#siniesters_butt').hide()
+      $('#policies_butt').hide()
 
   $('#litigationSource').change ->
     litigation_source_rule()

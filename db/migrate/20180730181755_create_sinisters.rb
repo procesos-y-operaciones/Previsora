@@ -24,6 +24,17 @@ class CreateSinisters < ActiveRecord::Migration[5.1]
 
       t.belongs_to :type_process, index: true
 
+      t.timestamps
     end
+
+    create_table :policies do |t|
+
+      t.string  :policy_number
+
+      t.belongs_to  :type_process, index: true
+
+      t.timestamps
+    end
+
   end
 end

@@ -100,10 +100,32 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :policy_cents, "Póliza" %>
+      <%= form.label :sinisters, "Siniestro(s)" %>
+      <div id="sinisters_container" class="sinisters">
+        <%= form.fields_for :sinisters do |sinister| %>
+          <%= render 'sinister_fields', f: sinister %>
+        <% end %>
+      </div>
+
       <div class="input-group">
-        <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.policy_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= link_to_add_association form, :sinisters, data: {association_insertion_node: '.sinisters', association_insertion_method: :append}, id:"siniesters_butt", class: "minibtn btn-default m-1" do %>
+          <span class="fa">&#x2b;</span>
+          Agregar Siniestro
+        <% end %>
+      </div>
+
+      <%= form.label :policy_cents, "Póliza(s)" %>
+      <div id="policies_container" class="policies">
+        <%= form.fields_for :policies do |policy| %>
+          <%= render 'policy_fields', f: policy %>
+        <% end %>
+      </div>
+
+      <div class="input-group">
+        <%= link_to_add_association form, :policies, data: {association_insertion_node: '.policies', association_insertion_method: :append}, id:"policies_butt", class: "minibtn btn-default m-1" do %>
+          <span class="fa">&#x2b;</span>
+          Agregar Póliza
+        <% end %>
       </div>
 
       <%= form.label :reinsurance_type, "Tipo de reaseguro" %>
@@ -130,24 +152,6 @@
       <div class="input-group">
         <%= form.text_area :more_protections, id:"more_protections", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <div id="sinisters_container" class="sinisters">
-        <%= form.fields_for :sinisters do |sinister| %>
-          <%= render 'sinister_fields', f: sinister %>
-        <% end %>
-      </div>
-
-      <div class="input-group">
-        <%= link_to_add_association form, :sinisters, data: {association_insertion_node: '.sinisters', association_insertion_method: :append}, id:"siniesters_butt", class: "minibtn btn-default m-1" do %>
-          <span class="fa">&#x2b;</span>
-        <% end %>
-      </div>
-
-      <%= form.label :has_more_polcies, "¿Tiene más pólizas?" %>
-      <div class="input-group">
-        <%= form.select :has_more_polcies, options_for_select([["NO", false], ["SI", true]]), {}, {id: "more_policies", class:"form-control"} %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>

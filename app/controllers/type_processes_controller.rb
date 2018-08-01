@@ -171,7 +171,8 @@ class TypeProcessesController < ApplicationController
        :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total,
        :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date,
        :state, :has_correspondency_radicate, :document_active_part, :document_passive_part,
-       sinisters_attributes: Sinister.attribute_names.map(&:to_sym).push(:_destroy)
+       sinisters_attributes: Sinister.attribute_names.map(&:to_sym).push(:_destroy),
+       policies_attributes: Policy.attribute_names.map(&:to_sym).push(:_destroy)
      )
     end
 end

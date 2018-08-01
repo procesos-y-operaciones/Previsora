@@ -143,6 +143,14 @@ ActiveRecord::Schema.define(version: 20180730181755) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "policies", force: :cascade do |t|
+    t.string "policy_number"
+    t.integer "type_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_process_id"], name: "index_policies_on_type_process_id"
+  end
+
   create_table "process_classes", force: :cascade do |t|
     t.string "name"
     t.integer "n_type"
@@ -201,6 +209,8 @@ ActiveRecord::Schema.define(version: 20180730181755) do
     t.bigint "reserved_fees_cents_total"
     t.date "reserved_fees_cents_date"
     t.integer "type_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["type_process_id"], name: "index_sinisters_on_type_process_id"
   end
 

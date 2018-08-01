@@ -117,6 +117,9 @@ class TypeProcess < ApplicationRecord
   has_many :sinisters, dependent: :destroy
   accepts_nested_attributes_for :sinisters, allow_destroy: true
 
+  has_many :policies, dependent: :destroy
+  accepts_nested_attributes_for :policies, allow_destroy: true
+
   self.per_page = 15
 
   def state_migrate
@@ -186,7 +189,7 @@ class TypeProcess < ApplicationRecord
   def get_total_content
     [
       self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.get_attorny, self.get_active_part, self.get_passive_part,
-      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
+      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.get_sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
       self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, format_date(self.last_performance_date), self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
       self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
@@ -206,7 +209,7 @@ class TypeProcess < ApplicationRecord
       'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'IDENTIFICACION E-KOGUI','TIPO DE PROCESO',
       'CLASE DE PROCESO','SUBCLASE DE PROCESO', 'TIPO DE VINCULACION', 'PARTE ACTIVA','PARTE PASIVA',
       'NUMERO DE RADICADO DEL PROCESO','NOMBRE DEL DESPACHO','DEPARTAMENTO','CIUDAD DONDE CURSA EL CASO',
-      'HECHOS','FUENTE DEL LITIGIO','NUMERO DEL SINIESTRO','SINIESTRO','EJERCICIO',
+      'HECHOS','FUENTE DEL LITIGIO','SINIESTRO','NUMERO DEL SINIESTRO','EJERCICIO',
       'SUCURSAL DE LA POLIZA','RAMO COMERCIAL', 'AMPARO','POLIZA',
       'TOMADOR DE LA POLIZA', 'VALOR ASEGURADO', 'VALOR RESERVA INDEMNIZACIONES','RESERVA HONORARIOS',
       'VALOR PROVISION', 'VALOR PRETENSION - DETRIMENTO - ESTIMACION', 'VALOR CONTINGENCIA', 'CALIFICACION DE LA CONTINGENCIA',
@@ -231,8 +234,8 @@ class TypeProcess < ApplicationRecord
       self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.get_type_process,
       self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_active_part, self.get_passive_part,
       self.process_radicate, self.get_office_name, self.get_departament, self.get_city_case,
-      self.facts, self.get_litigation_source, self.number, self.sinister + self.get_more_sinisters, self.exercise,
-      self.get_branch_policy, self.get_branch_commercial, self.get_protection + self.get_more_protection, self.policy_cents.to_s + self.get_policies,
+      self.facts, self.get_litigation_source, self.get_sinisters, self.get_number, self.get_exercise,
+      self.get_branch_policy, self.get_branch_commercial, self.get_protection + self.get_more_protection, self.get_policies,
       self.get_policy_taker, nilValue(self.ensurance_value_cents), nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents),
       nilValue(self.provision_cents), nilValue(self.detritment_cents), nilValue(self.contingency_value_cents), self.get_score_contingency,
       self.contingency_reason, self.contingency_resume, self.get_reinsurance_type, self.get_reinsurance_report,
@@ -337,6 +340,58 @@ class TypeProcess < ApplicationRecord
       "NO PRESENTA"
     else
       self.link_type
+    end
+  end
+
+  def get_sinisters
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      sinisters = self.sinisters.pluck(:sinister)
+      if sinisters == []
+        "NO PRESENTA"
+      else
+        sinisters.join(" ")
+      end
+    end
+  end
+
+  def get_policies
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      policies = self.policies.pluck(:policy_number)
+      if policies == []
+        "NO PRESENTA"
+      else
+        policies.join(" ")
+      end
+    end
+  end
+
+  def get_number
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      number = self.sinisters.pluck(:number)[0]
+      if number == nil
+        "NO PRESENTA"
+      else
+        number
+      end
+    end
+  end
+
+  def get_exercise
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      exercise = self.sinisters.pluck(:exercise)[0]
+      if exercise
+        "NO PRESENTA"
+      else
+        exercise
+      end
     end
   end
 
@@ -570,28 +625,6 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def get_sinister
-    #if self.sinister == "PEN"
-  end
-
-  def get_more_sinisters
-    if self.sinisters == "PENDIENTE" || self.sinister == "NO APLICA"
-      ""
-    else
-      " " + self.sinisters
-    end
-  end
-
-  def get_policies
-    if self.policies == "PENDIENTE"
-      ""
-    elsif self.policies == nil
-      "NO APLICA"
-    else
-      " - " + self.policies
-    end
-  end
-
   def get_policy_taker
     if self.policy_taker == nil
       "NO APLICA"
@@ -685,14 +718,6 @@ class TypeProcess < ApplicationRecord
     else
       "NO EXISTE"
     end
-  end
-
-  def self.get_all_departament
-    CS.states(:co).sort_by {|_key, value| value}.to_h
-  end
-
-  def self.get_bog_departament
-    {(CS.states(:co).assoc :DC).first => (CS.states(:co).assoc :DC).second.upcase}
   end
 
 end
