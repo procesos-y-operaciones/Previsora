@@ -16,20 +16,42 @@ $ ->
         else
           $(this).removeAttr 'title'
 
-  #Valores iniciales
+  #Valores Iniciales
   initial_values = ->
-    if $('#case_id_bap').val() == "NO APLICA"
-      $('#case_id_bap').val("")
-    if $('#case_id_sise').val() == "NO APLICA"
-      $('#case_id_sise').val("")
-    if $('#policy_taker').val() == "NO APLICA"
-      $('#policy_taker').val("")
-    if $('#number').val() == "0"
-      $('#number').val("")
-    if $('#exercise').val() == "0"
-      $('#exercise').val("")
+  if $('#case_id_bap').val() == "NO APLICA"
+    $('#case_id_bap').val("")
+  if $('#case_id_sise').val() == "NO APLICA"
+    $('#case_id_sise').val("")
+  if $('#policy_taker').val() == "NO APLICA"
+    $('#policy_taker').val("")
 
   initial_values()
+
+  #Siniestros
+  $('#sinisters_container').on('cocoon:after-insert', (e, i) ->
+    num = i[0].childNodes[5].childNodes[1]
+    eje = i[0].childNodes[9].childNodes[1]
+    sp = i[0].childNodes[13].childNodes[1]
+    ra = i[0].childNodes[17].childNodes[1]
+    sg = i[0].childNodes[21].childNodes[1]
+
+    if num.value == "0"
+      num.value = ""
+
+    if eje.value == "0"
+      eje.value = ""
+
+    if sg.value == "NO APLICA"
+      sg.value = "0000-0000-00-00"
+
+    aux = ->
+      sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
+
+    num.onchange = aux
+    eje.onchange = aux
+    sp.onchange = aux
+    ra.onchange = aux
+  )
 
   #SISE o BIZAGI Rule
   id_rule = ->
@@ -45,25 +67,3 @@ $ ->
     id_rule()
 
   id_rule()
-
-  #Fuente de litigio
-  numSiniestro = ""
-  num = numSiniestro.concat(document.getElementById("number").value)
-  exer = numSiniestro.concat(document.getElementById("exercise").value)
-  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
-  $("#number").change ->
-    num = numSiniestro.concat(document.getElementById("number").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#exercise').change ->
-    exer = numSiniestro.concat(document.getElementById("exercise").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_policy').change ->
-    poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_commercial').change ->
-    comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)

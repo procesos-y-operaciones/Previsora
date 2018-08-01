@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(version: 20180730181755) do
     t.string "sinister", default: "NO APLICA"
     t.bigint "reserve_cents"
     t.bigint "reserve_cents_modify"
+    t.bigint "reserve_cents_total"
     t.date "reserve_cents_date"
     t.bigint "reserved_fees_cents"
     t.bigint "reserved_fees_cents_modify"

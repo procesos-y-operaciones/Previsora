@@ -14,7 +14,7 @@ class CreateSinisters < ActiveRecord::Migration[5.1]
 
       t.bigint  :reserve_cents
       t.bigint  :reserve_cents_modify
-      t.bigint  :reserve_cents_date
+      t.bigint  :reserve_cents_total
       t.date    :reserve_cents_date
 
       t.bigint  :reserved_fees_cents

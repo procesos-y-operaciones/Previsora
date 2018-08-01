@@ -50,36 +50,18 @@
           <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
         </div>
 
-        <%= form.label :number, "Número de Siniestro" %>
-        <div class="input-group">
-          <%= form.number_field :number, id:"number", required:"true", class:"form-control" %>
-          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.number_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.label :sinisters, "Siniestro(s)" %>
+        <div id="sinisters_container" class="sinisters">
+          <%= form.fields_for :sinisters do |sinister| %>
+            <%= render 'sinister_fields', f: sinister %>
+          <% end %>
         </div>
 
-        <%= form.label :exercise, "Ejercicio" %>
         <div class="input-group">
-          <%= form.number_field :exercise, id:"exercise", max:"99", required:"true",  class:"form-control" %>
-          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.exercise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-        </div>
-
-        <%= form.label :branch_policy, "Sucursal de la póliza" %>
-        <div class="input-group">
-          <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {include_blank: "SELECCIONE"}, {required:"true", class:"form-control", :id => "branch_policy" }) %>
-          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-          <%= form.hidden_field :branch_policy, value:"NO PRESENTA", id:"branch_policy_hid" %>
-        </div>
-
-        <%= form.label :branch_commercial, "Ramo comercial" %>
-        <div class="input-group">
-          <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {include_blank: "SELECCIONE"}, {required:"true", class:"form-control", :id => "branch_commercial" }) %>
-          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-          <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
-        </div>
-
-        <%= form.label :sinister, "Número de Siniestro (completo)" %>
-        <div class="input-group">
-          <%= form.text_field :sinister, id:"sinister", readOnly:"readOnly", class:"form-control" %>
-          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+          <%= link_to_add_association form, :sinisters, data: {association_insertion_node: '.sinisters', association_insertion_method: :append}, id:"siniesters_butt", class: "minibtn btn-default m-1" do %>
+            <span class="fa">&#x2b;</span>
+            Agregar Siniestro
+          <% end %>
         </div>
 
     </div>

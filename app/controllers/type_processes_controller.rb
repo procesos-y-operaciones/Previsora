@@ -138,6 +138,7 @@ class TypeProcessesController < ApplicationController
   end
 
   def capture
+    @sinisters = @type_process.sinisters
   end
 
   private
