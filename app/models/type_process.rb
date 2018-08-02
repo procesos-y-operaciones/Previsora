@@ -680,7 +680,7 @@ class TypeProcess < ApplicationRecord
     if Attorny.exists?(self.attorny)
       Attorny.find(self.attorny).name
     else
-      "NO PRESENTA"
+      "PENDIENTE"
     end
   end
 
