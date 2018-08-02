@@ -414,10 +414,10 @@ $ ->
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
     if v_option == "TERMINADO"
-      $('#caseTermination').prop( "required", true )
+      $('#caseTermination').attr( "required", true )
       $('#caseTermination').prop( "disabled", false )
       $('#caseTermination_hid').prop( "disabled", true )
-      $('#lastPerformance').prop( "required", true )
+      $('#lastPerformance').attr( "required", true )
       $('#lastPerformance').prop( "disabled", false )
       $('#lastPerformance_hid').prop( "disabled", true )
       document.getElementById("lastPerformanceDate").readOnly = false
@@ -425,17 +425,16 @@ $ ->
       $('#reservedReleased_hid').prop( "disabled", true )
       $('#recovery').prop( "disabled", false )
       $('#desition_date').prop( "disabled", false )
-      $('#desition_date').prop( "required", true )
-      $('#cost').prop( "required", true )
+      $('#desition_date').attr( "required", true )
+      $('#cost').attr( "required", true )
       $('#cost').prop( "disabled", false )
-      $('#cost_value').prop( "required", true )
       $('#cost_value').prop( "disabled", false )
     else
-      $('#caseTermination').prop( "required", false )
+      $('#caseTermination').attr( "required", false )
       $('#caseTermination').val("PENDIENTE")
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination_hid').prop( "disabled", false )
-      $('#lastPerformance').prop( "required", false )
+      $('#lastPerformance').attr( "required", false )
       $('#lastPerformance').val("PENDIENTE")
       $('#lastPerformance').prop( "disabled", true )
       $('#lastPerformance_hid').prop( "disabled", false )
@@ -446,11 +445,10 @@ $ ->
       $('#reservedReleased_hid').prop( "disabled", false )
       $('#recovery').prop( "disabled", true )
       $('#desition_date').prop( "disabled", true )
-      $('#desition_date').prop( "required", false )
-      $('#cost').prop( "required", false )
+      $('#desition_date').attr( "required", false )
+      $('#cost').attr( "required", false )
       $('#cost').prop( "disabled", true )
       $('#cost').val( "false" )
-      $('#cost_value').prop( "required", false )
       $('#cost_value').prop( "disabled", true )
 
   $('#caseState').change ->
