@@ -16,7 +16,7 @@
     <%= link_to coordinator_report_path, class:"offset-md-7 minibtn btn-default m-1" do %>
       <span class="fa fa-refresh"></span>
     <% end %>
-    <%= link_to coordinator_report_path(format: "xlsx"), :data => {:confirm => "A continuación se abrirá un nueva pestaña. Una vez el reporte se haya generado, esta se cerrará automáticamente. \n\nNo cierre la pestaña o genere otro reporte hasta que este proceso termine. \n\nEsto podría tardar varios minutos. \n\n¿Desea continuar?"}, target: '_blank', class:"minibtn btn-default offset-md-8" do %>
+    <%= link_to coordinator_report_path(format: "xlsx", params: request.query_parameters), :data => {:confirm => "A continuación se abrirá un nueva pestaña. Una vez el reporte se haya generado, esta se cerrará automáticamente. \n\nNo cierre la pestaña o genere otro reporte hasta que este proceso termine. \n\nEsto podría tardar varios minutos. \n\n¿Desea continuar?"}, target: '_blank', class:"minibtn btn-default offset-md-8" do %>
       <span class="fa fa-download"></span>
     <% end %>
     <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-9 minibtn btn-default m-1">
