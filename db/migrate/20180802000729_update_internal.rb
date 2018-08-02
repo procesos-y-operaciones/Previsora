@@ -4636,8 +4636,6 @@ TypeProcess.find(9709).update(user_id: 13)
 
 TypeProcess.find(9710).update(user_id: 13)
 
-TypeProcess.find(9720).update(user_id: 13)
-
 TypeProcess.find(9724).update(user_id: 33)
 
 TypeProcess.find(9725).update(user_id: 33)
