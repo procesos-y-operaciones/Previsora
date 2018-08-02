@@ -124,8 +124,8 @@ class TypeProcess < ApplicationRecord
   self.per_page = 15
 
   def state_migrate
-    if state == "REGISTRO MIGRADO MODIFICADO" && user_id == 1
-      errors.add("El registro no se puede modificar", "Estado Migrado Modificado")
+    if state == "REGISTRO MIGRADO ACTUALIZADO" && user_id == 1
+      errors.add("El registro no se puede modificar", "Estado Migrado Actualizado")
     end
   end
 

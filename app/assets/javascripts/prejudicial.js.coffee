@@ -27,10 +27,10 @@ $ ->
       $('#policies').val("PENDIENTE")
     if $('#sinisters').val() == "NO APLICA"
       $('#sinisters').val("PENDIENTE")
-    if $('#state_val').val() == "REGISTRO MIGRADO"
-      $('#state_val').val("REGISTRO MIGRADO MODIFICADO")
+    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MODIFICADO"
+      $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
     if $('#state_val').val() == "REGISTRO NUEVO"
-      $('#state_val').val("REGISTRO NUEVO MODIFICADO")
+      $('#state_val').val("REGISTRO NUEVO ACTUALIZADO")
 
   initial_values()
 
