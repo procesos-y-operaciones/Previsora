@@ -1,44 +1,60 @@
 User.create([
   {document: "12345678", name: "USUARIO MIGRACION", charge: 'MIGRACION', password: "JonathanG123", password_confirmation: "JonathanG123", role: 1},
-  {document: "1032459412", name: "JONATHAN GRANADOS", charge: 'INGENIERO PYO', password: "JonathanG123", password_confirmation: "JonathanG123", role: 1},
   {document: "1", name: "COORDINADOR OPERATIVO", charge: 'INGENIERO PYO', password: "CoordinadorOperativo2018", password_confirmation: "CoordinadorOperativo2018", role: 2},
   {document: "2", name: "COORDINADOR LEGAL", charge: 'INGENIERO PYO', password: "CoordinadorLegal2018", password_confirmation: "CoordinadorLegal2018", role: 3},
-  {document: "3", name: "ADMINISTRADOR", charge: 'INGENIERO PYO', password: "Administrador2018", password_confirmation: "Administrador2018", role: 4},
-  {document: "1234", name: "JONATHAN PRIETO", charge: 'INGENIERO PYO', password: "JonathanP123", password_confirmation: "JonathanP123", role: 1},
-  {document: '1020729468', name: 'NATALIA ALEJANDRA  MONCAYO RODRIGUEZ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'EO0wDxJX', password_confirmation: 'EO0wDxJX', role: 1},
-  {document: '49797396', name: 'BETSABE  MANTILLA DIAZ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'EGag5iL7', password_confirmation: 'EGag5iL7', role: 1},
-  {document: '1010169121', name: 'ANGELA LILIANA LOPEZ ALVAREZ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'QBa5OIEM', password_confirmation: 'QBa5OIEM', role: 1},
-  {document: '1031138340', name: 'LUIS EDUARDO LOPEZ  MORA', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: '0kRu6WCg', password_confirmation: '0kRu6WCg', role: 1},
-  {document: '1026252607', name: 'LUZ ANDREA JIMENEZ MUÑOZ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'ryo7CYYH', password_confirmation: 'ryo7CYYH', role: 1},
-  {document: '52780795', name: 'CRYSTHEL EMANUELLA GUTIERREZ RAMIREZ', charge: 'ABOGADO ESPECIALISTA CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'yFkj3sf8', password_confirmation: 'yFkj3sf8', role: 1},
-  {document: '39567180', name: 'LIDA MORELIA CALDERON RODRIGUEZ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: '0LeEPo7f', password_confirmation: '0LeEPo7f', role: 1},
-  {document: '1026570699', name: 'CHRISTIAN CAMILO  HERNANDEZ VEGA', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: '0M1U3p1R', password_confirmation: '0M1U3p1R', role: 1},
-  {document: '7181859', name: 'DANNY FABIAN GUIO MUÑOZ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'XGy9iCsT', password_confirmation: 'XGy9iCsT', role: 1},
-  {document: '80525785', name: 'FREDDY LEONEL ROJAS RIOS', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: '2ymcnbQx', password_confirmation: '2ymcnbQx', role: 1},
-  {document: '40216726', name: 'FLOR ANGELA TORRES HUERTAS', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'YbsUyrmI', password_confirmation: 'YbsUyrmI', role: 1},
-  {document: '1015441384', name: 'DANIEL ALEJANDRO PALACIOS BALLEN', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'FMfqHar4', password_confirmation: 'FMfqHar4', role: 1},
-  {document: '79828072', name: 'LEONARDO FABIO CALDERON GALLEGO', charge: 'ABOGADO ESPECIALISTA CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'giZPnjWt', password_confirmation: 'giZPnjWt', role: 1},
-  {document: '51779870', name: 'ANA PATRICIA MOLANO GACHANCIPA', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'TCTKnskD', password_confirmation: 'TCTKnskD', role: 1},
-  {document: '1018469232', name: 'AURA JESSICA MEDINA FANDIÑO', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'pl5BWtBD', password_confirmation: 'pl5BWtBD', role: 1},
-  {document: '79993930', name: 'EMIRO ANTONIO VAGAS ', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'xr2PmYT4', password_confirmation: 'xr2PmYT4', role: 1},
-  {document: '71683546', name: 'FABIAN DE JESUS PASADA VELEZ', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'q3iNLtfU', password_confirmation: 'q3iNLtfU', role: 1},
-  {document: '1118532099', name: 'MAYRA  MORENO ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'KC6vrchA', password_confirmation: 'KC6vrchA', role: 1},
-  {document: '1016039726', name: 'MARIA ALEJANDRA  GUTIERREZ BECERRA', charge: 'PROFESIONAL GERENCIA DE PROCESOS JUDICIALES', password: 'sURn9FFC', password_confirmation: 'sURn9FFC', role: 1},
-  {document: '52976920', name: 'EDITH JOHANNA VELASQUEZ GONZALEZ', charge: 'TECNICO CONTRATISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'itkDKpR9', password_confirmation: 'itkDKpR9', role: 1},
-  {document: '63358777', name: 'DALILA CRISTINA TAPIAS ACEVEDO', charge: 'ESPECIALISTA DE LA GERENCIA DE PROCESOS JUDICIALES', password: 'jZAMJL2o', password_confirmation: 'jZAMJL2o', role: 1},
-  {document: '37901644', name: 'LUISA FERNANDA ORTEGA SOLANO', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'TiFXWbff', password_confirmation: 'TiFXWbff', role: 1},
-  {document: '72272660', name: 'ARON JOSE ORTIZ ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: '3slGfSSq', password_confirmation: '3slGfSSq', role: 1},
-  {document: '1018442399', name: 'YURANY HASLEYDI NORE ORTEGA', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'k38pVBV8', password_confirmation: 'k38pVBV8', role: 1},
-  {document: '1018407179', name: 'IVAN  ORDOÑEZ ', charge: 'ABOGADO ESPECIALISTA CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'NbdP6l6Z', password_confirmation: 'NbdP6l6Z', role: 1},
-  {document: '80212112', name: 'JUAN MANUEL PEÑA TORRES', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'ftSqd3NO', password_confirmation: 'ftSqd3NO', role: 1},
-  {document: '1022372499', name: 'DAYANE ACOSTA AVILA ', charge: 'ABOGADO ESPECIALISTA CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: '4ggtKVFN', password_confirmation: '4ggtKVFN', role: 1},
-  {document: '20370708', name: 'SANDRA MILENA SANCHEZ RUIZ', charge: 'CONTADOR PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: '2dCi6SSc', password_confirmation: '2dCi6SSc', role: 1},
-  {document: '28554902', name: 'CLAUDIA  RODRIGUEZ PATRON', charge: 'ABOGADO ESPECIALISTA CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'hiecZniO', password_confirmation: 'hiecZniO', role: 1},
-  {document: '1047404034', name: 'CRISTIAN D POMARES ', charge: 'CONTADOR PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'uU9YYPlD', password_confirmation: 'uU9YYPlD', role: 1},
-  {document: '1012329910', name: 'INDIRA ALEXANDRA BEJARANO RAMIREZ', charge: 'ABOGADO PROFESIONAL CONTRATISTA GERENCIA DE PROCESOS JUDICIALES', password: 'ouqWmkJs', password_confirmation: 'ouqWmkJs', role: 1},
-  {document: '80110210', name: 'VICTOR ANDRES GOMEZ HENAO', charge: 'GERENTE DE PROCESOS JUDICIALES', password: 'H5cF44L0', password_confirmation: 'H5cF44L0', role: 1},
-  {document: '51575744', name: 'NOHORA MARLENI BOJACA MARTIN', charge: 'SUBGERENTE DE LITIGIOS', password: 'WLRWVHaK', password_confirmation: 'WLRWVHaK', role: 1}
+  {document: "3", name: "ADMINISTRADOR", charge: 'INGENIERO PYO', password: "Administrador2018", password_confirmation: "Administrador2018", role: 4}
 ])
+
+User.create(id: 101, document: 101, name: 'GERMAN RICARDO GALEANO SOTOMAYOR',  charge:  'ABOGADO EXTERNO',  password: 'Lf6056', password_confirmation: 'Lf6056')
+User.create(id: 102, document: 102, name: 'JUAN CAMILO ARANGO RIOS',  charge:  'ABOGADO EXTERNO',  password: 'Eh6085', password_confirmation: 'Eh6085')
+User.create(id: 103, document: 103, name: 'GUSTAVO ALBERTO HERRERA AVILA',  charge:  'ABOGADO EXTERNO',  password: 'Oy7980', password_confirmation: 'Oy7980')
+User.create(id: 104, document: 104, name: 'MARLIO MORA CABRERA',  charge:  'ABOGADO EXTERNO',  password: 'Dp5850', password_confirmation: 'Dp5850')
+User.create(id: 105, document: 105, name: 'MARINA AREVALO TORRES',  charge:  'ABOGADO EXTERNO',  password: 'Qb8265', password_confirmation: 'Qb8265')
+User.create(id: 106, document: 106, name: 'FRANCISCO YESIT FORERO GONZALEZ',  charge:  'ABOGADO EXTERNO',  password: 'Vk7376', password_confirmation: 'Vk7376')
+User.create(id: 107, document: 107, name: 'JHON FREDY ALVAREZ CARMAGO',  charge:  'ABOGADO EXTERNO',  password: 'Mi5283', password_confirmation: 'Mi5283')
+User.create(id: 108, document: 108, name: 'MANFRED CARLOS WAGENER HOLLMANN',  charge:  'ABOGADO EXTERNO',  password: 'Py6461', password_confirmation: 'Py6461')
+User.create(id: 109, document: 109, name: 'ROSARIO MULFORD CARBONELL',  charge:  'ABOGADO EXTERNO',  password: 'Jq5865', password_confirmation: 'Jq5865')
+User.create(id: 110, document: 110, name: 'CARLOS ALFONSO CIFUENTES NEIRA',  charge:  'ABOGADO EXTERNO',  password: 'Bg5187', password_confirmation: 'Bg5187')
+User.create(id: 111, document: 111, name: 'CLAUDIO HENRY YAMA SANTACRUZ',  charge:  'ABOGADO EXTERNO',  password: 'Iq7972', password_confirmation: 'Iq7972')
+User.create(id: 112, document: 112, name: 'OSCAR ORLANDO RIOS SILVA',  charge:  'ABOGADO EXTERNO',  password: 'Te5479', password_confirmation: 'Te5479')
+User.create(id: 113, document: 113, name: 'MARIA CAROLINA ECHEVERRI GONZALEZ',  charge:  'ABOGADO EXTERNO',  password: 'Kw5755', password_confirmation: 'Kw5755')
+User.create(id: 114, document: 114, name: 'JACQUELINE ROMERO ESTRADA',  charge:  'ABOGADO EXTERNO',  password: 'Eg7448', password_confirmation: 'Eg7448')
+User.create(id: 115, document: 115, name: 'EDMER LEANDRO LOPEZ PENA',  charge:  'ABOGADO EXTERNO',  password: 'Js6186', password_confirmation: 'Js6186')
+User.create(id: 116, document: 116, name: 'LILLY ESTHER AYCARDI GALEANO',  charge:  'ABOGADO EXTERNO',  password: 'Wz5873', password_confirmation: 'Wz5873')
+User.create(id: 117, document: 117, name: 'JORGE AUGUSTO FRANCO GIRALDO',  charge:  'ABOGADO EXTERNO',  password: 'Nm5852', password_confirmation: 'Nm5852')
+User.create(id: 118, document: 118, name: 'JOSE DEL CARMEN BERNAL CALVO',  charge:  'ABOGADO EXTERNO',  password: 'Sq8089', password_confirmation: 'Sq8089')
+User.create(id: 119, document: 119, name: 'JORGE ELIECER SALAZAR AVENIA',  charge:  'ABOGADO EXTERNO',  password: 'Sx8864', password_confirmation: 'Sx8864')
+User.create(id: 122, document: 122, name: 'ARTURO SANABRIA GOMEZ',  charge:  'ABOGADO EXTERNO',  password: 'Es5668', password_confirmation: 'Es5668')
+User.create(id: 123, document: 123, name: 'ALVARO AUGUSTO GOMEZ MONTES',  charge:  'ABOGADO EXTERNO',  password: 'Xi4878', password_confirmation: 'Xi4878')
+User.create(id: 124, document: 124, name: 'JUAN FERNANDO ARBELAEZ VILLADA',  charge:  'ABOGADO EXTERNO',  password: 'Tw5890', password_confirmation: 'Tw5890')
+User.create(id: 125, document: 125, name: 'ANGELA MARIA LOPEZ CASTANO',  charge:  'ABOGADO EXTERNO',  password: 'Qg7760', password_confirmation: 'Qg7760')
+User.create(id: 126, document: 126, name: 'JORGE ANDRES TABORDA JIMENEZ',  charge:  'ABOGADO EXTERNO',  password: 'Tg5054', password_confirmation: 'Tg5054')
+User.create(id: 127, document: 127, name: 'DIANA SANCLEMENTE TORRES',  charge:  'ABOGADO EXTERNO',  password: 'Vl7288', password_confirmation: 'Vl7288')
+User.create(id: 128, document: 128, name: 'ANA PIEDAD MONTANO COVALEDA',  charge:  'ABOGADO EXTERNO',  password: 'Qe8850', password_confirmation: 'Qe8850')
+User.create(id: 129, document: 129, name: 'ORLANDO LASPRILLA VASQUEZ',  charge:  'ABOGADO EXTERNO',  password: 'Pt4860', password_confirmation: 'Pt4860')
+User.create(id: 130, document: 130, name: 'CLAUDIA PATRICIA ASTUDILLO TIGREROS',  charge:  'ABOGADO EXTERNO',  password: 'Tk5154', password_confirmation: 'Tk5154')
+User.create(id: 131, document: 131, name: 'SERGIO ALEJANDRO VILLEGAS AGUDELO',  charge:  'ABOGADO EXTERNO',  password: 'Km8375', password_confirmation: 'Km8375')
+User.create(id: 132, document: 132, name: 'ALBA INES GOMEZ VELEZ',  charge:  'ABOGADO EXTERNO',  password: 'Yn5082', password_confirmation: 'Yn5082')
+User.create(id: 133, document: 133, name: 'LINA MARCELA GABELO VELASQUEZ',  charge:  'ABOGADO EXTERNO',  password: 'Oe6875', password_confirmation: 'Oe6875')
+User.create(id: 134, document: 134, name: 'MARIA PATRICIA RIOS CORREA',  charge:  'ABOGADO EXTERNO',  password: 'Ed6081', password_confirmation: 'Ed6081')
+User.create(id: 135, document: 135, name: 'MATEO PELAEZ GARCIA',  charge:  'ABOGADO EXTERNO',  password: 'Ac7574', password_confirmation: 'Ac7574')
+User.create(id: 136, document: 136, name: 'NELSON ROA REYES',  charge:  'ABOGADO EXTERNO',  password: 'Sz5378', password_confirmation: 'Sz5378')
+User.create(id: 137, document: 137, name: 'JUAN PABLO ARAUJO',  charge:  'ABOGADO EXTERNO',  password: 'Re8664', password_confirmation: 'Re8664')
+User.create(id: 138, document: 138, name: 'RICARDO VELEZ OCHOA',  charge:  'ABOGADO EXTERNO',  password: 'Fe8780', password_confirmation: 'Fe8780')
+User.create(id: 139, document: 139, name: 'NATALIA BOTERO ZAPATA',  charge:  'ABOGADO EXTERNO',  password: 'Ic7682', password_confirmation: 'Ic7682')
+User.create(id: 141, document: 141, name: 'BEATRIZ ELENA ESTRADA TOBON',  charge:  'ABOGADO EXTERNO',  password: 'Ok8654', password_confirmation: 'Ok8654')
+User.create(id: 142, document: 142, name: 'CARLOS FRANCISCO GARCIA HARKER',  charge:  'ABOGADO EXTERNO',  password: 'Xg5073', password_confirmation: 'Xg5073')
+User.create(id: 143, document: 143, name: 'RAFAEL ALBERTO ARIZA GOMEZ',  charge:  'ABOGADO EXTERNO',  password: 'Vp6071', password_confirmation: 'Vp6071')
+User.create(id: 144, document: 144, name: 'CARLOS ENRIQUE QUIJANO RUEDA',  charge:  'ABOGADO EXTERNO',  password: 'Pk9061', password_confirmation: 'Pk9061')
+User.create(id: 145, document: 145, name: 'OSCAR IVAN VILLANUEVA SEPULVEDA',  charge:  'ABOGADO EXTERNO',  password: 'Fv7854', password_confirmation: 'Fv7854')
+User.create(id: 146, document: 146, name: 'OSCAR ELIAS BOTERO CHALARCA',  charge:  'ABOGADO EXTERNO',  password: 'Ud7390', password_confirmation: 'Ud7390')
+User.create(id: 147, document: 147, name: 'GUILLERMO ENRIQUE BURBANO CORTES',  charge:  'ABOGADO EXTERNO',  password: 'Za8383', password_confirmation: 'Za8383')
+User.create(id: 148, document: 148, name: 'JORGE ANTONIO VELEZ BARRERA',  charge:  'ABOGADO EXTERNO',  password: 'Rd6464', password_confirmation: 'Rd6464')
+User.create(id: 149, document: 149, name: 'DIEGO DE JESUS VELEZ ACEVEDO',  charge:  'ABOGADO EXTERNO',  password: 'Tu6178', password_confirmation: 'Tu6178')
+User.create(id: 151, document: 151, name: 'LINA MARIA URIBE ZULUAGA',  charge:  'ABOGADO EXTERNO',  password: 'Wu7259', password_confirmation: 'Wu7259')
+User.create(id: 152, document: 152, name: 'GERMAN GONZALO VALDES SANCHEZ',  charge:  'ABOGADO EXTERNO',  password: 'Vm5288', password_confirmation: 'Vm5288')
+User.create(id: 153, document: 153, name: 'HAROLD ARISTIZABAL MARIN',  charge:  'ABOGADO EXTERNO',  password: 'Ak7051', password_confirmation: 'Ak7051')
+User.create(id: 154, document: 154, name: 'JOSE RIOS ALZATE',  charge:  'ABOGADO EXTERNO',  password: 'Wf5190', password_confirmation: 'Wf5190')
 
 ProcessClass.create([
   {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO', n_type:	2},
