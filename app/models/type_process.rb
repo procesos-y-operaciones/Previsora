@@ -544,7 +544,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_departament
-    if self.departament == nil
+    if self.departament == "00"
       "NO PRESENTA"
     else
       Departament.where(code: self.departament)[0].name
