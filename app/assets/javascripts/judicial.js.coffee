@@ -18,10 +18,10 @@ $ ->
 
   #Valores iniciales
   initial_values = ->
+    if $('#case_id_bap').val() == "NO APLICA"
+      $('#case_id_bap').val("PENDIENTE")
     if $('#case_id_ekogui').val() == "NO APLICA"
       $('#case_id_ekogui').val("PENDIENTE")
-    if $('#process_radicate').val() == "NO APLICA"
-      $('#process_radicate').val("PENDIENTE")
     if $('#contingency_reason').val() == "NO APLICA"
       $('#contingency_reason').val("PENDIENTE")
     if $('#contingency_resume').val() == "NO APLICA"
@@ -40,14 +40,16 @@ $ ->
       $('#coactive_radicate').val("PENDIENTE")
     if $('#office_text').val() == "NO APLICA"
       $('#office_text').val("PENDIENTE")
-    if $('#document_active_part').val() == "NO APLICA"
-      $('#document_active_part').val("PENDIENTE")
-    if $('#document_passive_part').val() == "NO APLICA"
-      $('#document_passive_part').val("PENDIENTE")
+    if $('#process_radicate').val() == "NO APLICA"
+      $('#process_radicate').val("")
     if $('#policies').val() == "NO APLICA"
       $('#policies').val("PENDIENTE")
-    if $('#sinisters').val() == "NO APLICA"
-      $('#sinisters').val("PENDIENTE")
+    if $('#reason_conc').val() == "NO APLICA"
+      $('#reason_conc').val("PENDIENTE")
+    if $('#reason_inv').val() == "NO APLICA"
+      $('#reason_inv').val("PENDIENTE")
+    if $('#cities').val() == "000"
+      $('#cities').val("")
     if $('#state_val').val() == "REGISTRO MIGRADO"
       $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
     if $('#state_val').val() == "REGISTRO NUEVO"
@@ -211,109 +213,23 @@ $ ->
   $('#subprocessCivil').change ->
     subprocess_civil_rule()
 
-  #¿Tiene número de radicado correspondencia?
-  radicate_rule = ->
-    v_option = document.getElementById("radicate").value
-    if v_option == "true"
-      document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "false"
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-
-  $('#radicate').change ->
-    radicate_rule()
-
-  radicate_rule()
-
-
-  #Número de identificación del caso (Bizagi, Acces y PA)
-  #Número de identificación del caso SISE
-  case_id_bap_and_sise_rule = ->
-    bapId = $('#case_id_bap').val()
-    sizeId = $('#case_id_sise').val()
-    if bapId == "NO APLICA" and sizeId == "NO APLICA"
-      $('#case_id_bap').val("PENDIENTE")
-      $('#case_id_sise').val("PENDIENTE")
-      document.getElementById("case_id_bap").required = true
-      document.getElementById("case_id_sise").required = false
-    if bapId != "" and bapId != "PENDIENTE"
-      document.getElementById("case_id_bap").required = true
-      document.getElementById("case_id_sise").required = false
-    else
-      if sizeId != "" and sizeId != "PENDIENTE"
-        document.getElementById("case_id_sise").required = true
-        document.getElementById("case_id_bap").required = false
-      else
-        document.getElementById("case_id_bap").required = true
-        document.getElementById("case_id_sise").required = false
-
-  case_id_bap_and_sise_rule()
-
-  $('#case_id_bap').change ->
-    case_id_bap_and_sise_rule()
-
-  $('#case_id_sise').change ->
-    case_id_bap_and_sise_rule()
-
-
-  #Tipo de reaseguro
-  reinsurance_type_rule = ->
-    v_option = document.getElementById("reinsurance_type").value
-    if v_option == "FACULTATIVO" || v_option == "CUOTA PARTE"
-      document.getElementById("reinsurance_value").readOnly = false
-    else
-      document.getElementById("reinsurance_value").readOnly = true
-      $("#reinsurance_value").val(0)
-
-  $("#reinsurance_type").change ->
-    reinsurance_type_rule()
-
-  reinsurance_type_rule()
-
-
-  #Tipo de coaseguro
-  coensurance_type_rule = ->
-    v_option = document.getElementById("coensurance_type").value
-    if v_option == "CEDIDO" || v_option == "ACEPTADO"
-      document.getElementById("coensurance_value").readOnly = false
-    else
-      document.getElementById("coensurance_value").readOnly = true
-      $("#coensurance_value").val(0)
-
-  $('#coensurance_type').change ->
-    coensurance_type_rule()
-
-  coensurance_type_rule()
-
-
   #Fuente de litigio
-  numSiniestro = ""
-  num = numSiniestro.concat(document.getElementById("number").value)
-  exer = numSiniestro.concat(document.getElementById("exercise").value)
-  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById("litigationSource").value
     if v_option == "SINIESTRO"
       document.getElementById("policyCents").readOnly = false
       $('#protection').prop( "disabled", false )
-      document.getElementById("number").readOnly = false
-      document.getElementById("exercise").readOnly = false
       document.getElementById("more_protections").readOnly = false
       $('#branch_policy').prop( "disabled", false )
       $('#branch_policy_hid').prop( "disabled", true )
       $('#branch_commercial').prop( "disabled", false )
       $('#branch_commercial_hid').prop( "disabled", true )
       $('#more_policies').prop( "disabled", false )
-      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
       document.getElementById("policyCents").readOnly = true
       $('#policyCents').val("0")
       $('#protection').prop( "disabled", true )
       $('#protection').val("")
-      document.getElementById("number").readOnly = true
-      $('#number').val("0")
-      document.getElementById("exercise").readOnly = true
       document.getElementById("more_protections").readOnly = true
       $('#exercise').val("0")
       $('#branch_policy').prop( "disabled", true )
@@ -321,7 +237,6 @@ $ ->
       $('#branch_commercial').prop( "disabled", true )
       $('#branch_commercial_hid').prop( "disabled", false )
       $('#more_policies').prop( "disabled", true )
-      $("#sinister").val("NO PRESENTA")
 
   $('#litigationSource').change ->
     litigation_source_rule()
@@ -344,54 +259,19 @@ $ ->
 
   protection_rule()
 
-  $("#number").change ->
-    num = numSiniestro.concat(document.getElementById("number").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#exercise').change ->
-    exer = numSiniestro.concat(document.getElementById("exercise").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_policy').change ->
-    poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_commercial').change ->
-    comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-
   #¿Tiene más pólizas?
   more_policies_rule = ->
     v_option = document.getElementById("more_policies").value
     if v_option == "true"
       document.getElementById("policies").readOnly = false
-      document.getElementById("sinisters").readOnly = false
     if v_option == "false"
       document.getElementById("policies").readOnly = true
-      $("#policies").val("PENDIENTE")
-      document.getElementById("sinisters").readOnly = true
-      $("#sinisters").val("PENDIENTE")
+      $("#policies").val("NO PRESENTA")
 
   $('#more_policies').change ->
     more_policies_rule()
 
   more_policies_rule()
-
-
-  #Tipo moneda
-  money_type_rule = ->
-    v_option = document.getElementById("moneyType").value
-    if v_option == "PESOS"
-      document.getElementById("dolarValueCents").readOnly = true
-      $("#dolarValueCents").val(0)
-    else
-      document.getElementById("dolarValueCents").readOnly = false
-
-  $('#moneyType').change ->
-    money_type_rule()
-
-  money_type_rule()
 
 
   #Nombre despacho / tipo contraloría
@@ -435,7 +315,7 @@ $ ->
       $('#caseTermination').prop( "disabled", true )
       $('#caseTermination_hid').prop( "disabled", false )
       $('#lastPerformance').attr( "required", false )
-      $('#lastPerformance').val("PENDIENTE")
+      $('#lastPerformance').val("")
       $('#lastPerformance').prop( "disabled", true )
       $('#lastPerformance_hid').prop( "disabled", false )
       document.getElementById("lastPerformanceDate").readOnly = true
@@ -464,8 +344,6 @@ $ ->
       $('#fail_value').prop('required', true)
       document.getElementById("fail_previ").readOnly = false
       $('#fail_previ').prop('required', true)
-      document.getElementById("payed_value").readOnly = false
-      $('#payed_value').prop('required', true)
       document.getElementById("payment_date").readOnly = false
       $('#payment_date').prop('required', true)
     else
@@ -473,8 +351,6 @@ $ ->
       $('#fail_value').prop('required', false)
       document.getElementById("fail_previ").readOnly = true
       $('#fail_previ').prop('required', false)
-      document.getElementById("payed_value").readOnly = true
-      $('#payed_value').prop('required', false)
       document.getElementById("payment_date").readOnly = true
       $('#payment_date').prop('required', false)
 
@@ -513,96 +389,8 @@ $ ->
 
   coactive_rule()
 
-  #¿Ingresa al comité?
-  join_committee_rule = ->
-    v_option = document.getElementById("join_committee").value
-    if v_option == "SI"
-      document.getElementById("committee_date").readOnly = false
-      $('#committee').prop( "disabled", false )
-      $('#committee_hid').prop( "disabled", true )
-    else
-      document.getElementById("committee_date").readOnly = true
-      $('#committee_date').val("0-0-0")
-      $('#committee').prop( "disabled", true )
-      $('#committee_hid').prop( "disabled", false )
-
-  $('#join_committee').change ->
-    join_committee_rule()
-
-  join_committee_rule()
-
-  #Date Committee Rule
-  committee_date_rule = ->
-    v_option = document.getElementById("committee_date").value
-    a = new Date(v_option)
-    if a.getTime() > (new Date).getTime()
-      $('#committee').val("PENDIENTE")
-    else
-      $('#committee').val("")
-
-  $('#committee_date').change ->
-    committee_date_rule()
-
-  committee_date_rule()
-
-  #Decisión del comité
-  committee_rule = ->
-    v_option = document.getElementById("committee").value
-    if v_option == "CONCILIA"
-      document.getElementById("reconcilie_value").readOnly = false
-      document.getElementById("auth_value").readOnly = false
-      document.getElementById("reason_conc").readOnly = true
-      $('#reason_conc').val("PENDIENTE")
-      document.getElementById("reason_inv").readOnly = true
-      $('#reason_inv').val("PENDIENTE")
-    else if v_option == "NO CONCILIA"
-      document.getElementById("reconcilie_value").readOnly = true
-      $('#reconcilie_value').val("0")
-      document.getElementById("auth_value").readOnly = true
-      $('#auth_value').val("0")
-      document.getElementById("reason_conc").readOnly = false
-      document.getElementById("reason_inv").readOnly = true
-      $('#reason_inv').val("PENDIENTE")
-    else if v_option == "INVIABLE"
-      document.getElementById("reconcilie_value").readOnly = true
-      $('#reconcilie_value').val("0")
-      document.getElementById("auth_value").readOnly = true
-      $('#auth_value').val("0")
-      document.getElementById("reason_conc").readOnly = true
-      $('#reason_conc').val("PENDIENTE")
-      document.getElementById("reason_inv").readOnly = false
-    else
-      document.getElementById("reconcilie_value").readOnly = true
-      $('#reconcilie_value').val("0")
-      document.getElementById("auth_value").readOnly = true
-      $('#auth_value').val("0")
-      document.getElementById("reason_conc").readOnly = true
-      $('#reason_conc').val("PENDIENTE")
-      document.getElementById("reason_inv").readOnly = true
-      $('#reason_inv').val("PENDIENTE")
-
-  $('#committee').change ->
-    committee_rule()
-
-  committee_rule()
-
   process_class_rule()
   current_stage_rule()
-
-  #Privision Rule
-  provision_cents_rule = ->
-    v_option = document.getElementById("provision_cents").value
-    v_option = v_option.split("'").join("")
-    v_option = v_option.split(",").join("")
-    if v_option > '0'
-      document.getElementById("reserved_fees_cents").readOnly = false
-    else
-      document.getElementById("reserved_fees_cents").readOnly = true
-
-  $('#provision_cents').change ->
-    provision_cents_rule()
-
-  provision_cents_rule()
 
   #Valor asegurado y Valor contingencia
   pretension_value_rule = ->

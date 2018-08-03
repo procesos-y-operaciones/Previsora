@@ -103,9 +103,6 @@ $ ->
       $('#protection_ordinarie').hide()
       $('#moneyCents').prop 'disabled', false
       $('#moneyCents').show()
-      $('#moneyType').prop 'disabled', true
-      $('#moneyType').hide()
-      document.getElementById('dolarValueCents').readOnly = true
       $('#office_name_col').prop 'disabled', false
       $('#office_name_col').show()
       $('#office_name_ord').prop 'disabled', true
@@ -126,9 +123,6 @@ $ ->
       $('#protection_ordinarie').hide()
       $('#moneyCents').prop 'disabled', true
       $('#moneyCents').hide()
-      $('#moneyType').prop 'disabled', false
-      $('#moneyType').show()
-      document.getElementById('dolarValueCents').readOnly = false
       $('#office_name_col').prop 'disabled', true
       $('#office_name_col').hide()
       $('#office_name_ord').prop 'disabled', false
@@ -144,41 +138,18 @@ $ ->
   subprocessClass_rule()
 
 
-  #¿Tiene número de radicado correspondencia?
-  radicate_rule = ->
-    v_option = document.getElementById("radicate").value
-    if v_option == "true"
-      document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "false"
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-
-  $('#radicate').change ->
-    radicate_rule()
-
-  radicate_rule()
-
-
   #Fuente de litigio
-  numSiniestro = ""
-  num = numSiniestro.concat(document.getElementById("number").value)
-  exer = numSiniestro.concat(document.getElementById("exercise").value)
-  poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-  comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
     if v_option == 'SINIESTRO'
       document.getElementById('policyCents').readOnly = false
       $('#protection_coljuegos').prop('disabled', false)
       $('#protection_ordinarie').prop('disabled', false)
-      document.getElementById('number').readOnly = false
-      document.getElementById('exercise').readOnly = false
       $('#branch_policy').prop( "disabled", false )
       $('#branch_policy_hid').prop( "disabled", true )
       $('#branch_commercial').prop( "disabled", false )
       $('#branch_commercial_hid').prop( "disabled", true )
       $('#more_policies').prop( "disabled", false )
-      $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
     else
       document.getElementById('protection_coljuegos').readOnly = true
       document.getElementById('protection_ordinarie').readOnly = true
@@ -186,38 +157,16 @@ $ ->
       $('#policyCents').val("0")
       $('#protection_coljuegos').prop('disabled', true)
       $('#protection_ordinarie').prop('disabled', true)
-      document.getElementById('number').readOnly = true
-      $('#number').val("0")
-      document.getElementById('exercise').readOnly = true
-      $('#exercise').val("0")
       $('#branch_policy').prop( "disabled", true )
       $('#branch_policy_hid').prop( "disabled", false )
       $('#branch_commercial').prop( "disabled", true )
       $('#branch_commercial_hid').prop( "disabled", false )
       $('#more_policies').prop( "disabled", true )
-      $("#sinister").val("NO PRESENTA")
 
   $('#litigationSource').change ->
     litigation_source_rule()
 
   litigation_source_rule()
-
-  $("#number").change ->
-    num = numSiniestro.concat(document.getElementById("number").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#exercise').change ->
-    exer = numSiniestro.concat(document.getElementById("exercise").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_policy').change ->
-    poly = numSiniestro.concat(document.getElementById("branch_policy").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
-  $('#branch_commercial').change ->
-    comm = numSiniestro.concat(document.getElementById("branch_commercial").value)
-    $("#sinister").val(num+"-"+exer+"-"+poly+"-"+comm)
-
 
   #Valor asegurado
   ensurance_value_rule = ->
@@ -252,32 +201,14 @@ $ ->
     v_option = document.getElementById("more_policies").value
     if v_option == "true"
       document.getElementById("policies").readOnly = false
-      document.getElementById("sinisters").readOnly = false
     if v_option == "false"
       document.getElementById("policies").readOnly = true
       $("#policies").val("PENDIENTE")
-      document.getElementById("sinisters").readOnly = true
-      $("#sinisters").val("PENDIENTE")
 
   $('#more_policies').change ->
     more_policies_rule()
 
   more_policies_rule()
-
-  #Tipo moneda
-  money_type_rule = ->
-    v_option = document.getElementById("moneyType").value
-    if v_option == "PESOS"
-      document.getElementById("dolarValueCents").readOnly = false
-      $("#dolarValueCents").val(0)
-    else
-      document.getElementById("dolarValueCents").readOnly = true
-
-  $('#moneyType').change ->
-    money_type_rule()
-
-  money_type_rule()
-
 
   #Nombre despacho / tipo contraloría
   office_rule = ->
