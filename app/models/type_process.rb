@@ -544,16 +544,16 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_departament
-    if self.departament == nil
-      "NO PRESENTA"
+    if self.departament == "00"
+      "PENDIENTE"
     else
       Departament.where(code: self.departament)[0].name
     end
   end
 
   def get_city_case
-    if self.departament == nil || self.city_case == nil
-      "NO PRESENTA"
+    if self.departament == "00" || self.city_case == "000"
+      "PENDIENTE"
     else
       CityCase.where(departament: self.departament, code: self.city_case)[0].name
     end
