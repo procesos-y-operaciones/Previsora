@@ -1,9 +1,6 @@
 class SinistersUpdate < ActiveRecord::Migration[5.1]
-  def change
 
-for i in 1..20100
-  TypeProcess.create(p_type: 1, user_id: 1)
-end
+  def change
 
 TypeProcess.find(21).update(sinisters: [Sinister.create(number: 0, exercise: 200, branch_policy: 0, branch_commercial: 13, reserve_cents:'', reserved_fees_cents:'', sinister: '0-200-0-13')])
 
@@ -566,4 +563,5 @@ TypeProcess.find(234).update(sinisters: [Sinister.create(number: 78282, exercise
 TypeProcess.find(329).update(sinisters: [Sinister.create(number: 80804, exercise: 2015, branch_policy: 25, branch_commercial: 8, reserve_cents:'', reserved_fees_cents:'', sinister: '80804-2015-25-8')])
 
   end
+  
 end
