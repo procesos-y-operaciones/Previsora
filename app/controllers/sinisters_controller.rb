@@ -42,7 +42,7 @@ class SinistersController < ApplicationController
   def update
     respond_to do |format|
       if @sinister.update(sinister_params)
-        format.html { redirect_to @sinister, notice: 'Sinister was successfully updated.' }
+        format.html { redirect_to type_processes_capture_path(@sinister), notice: 'Siniestro actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @sinister }
       else
         format.html { render :edit }
@@ -69,6 +69,9 @@ class SinistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sinister_params
-      params.fetch(:sinister, {})
+      params.require(:sinister).permit(:number,:exercise,:branch_policy,:branch_commercial,
+        :sinister,:reserve_cents,:reserve_cents_modify,:reserve_cents_total,:reserve_cents_date,
+        :reserved_fees_cents,:reserved_fees_cents_modify,:reserved_fees_cents_total,:reserved_fees_cents_date
+      )
     end
 end

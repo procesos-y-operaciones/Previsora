@@ -164,7 +164,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.get_capture(month)
-    self.find(Sinister.pluck(:type_process_id))
+    self.where(id: Sinister.get_capture(month).pluck(:type_process_id))
     #self.where(p_type: [1,2,3,4])
   end
 

@@ -110,9 +110,7 @@ class CoordinatorController < ApplicationController
       @month = params[:date][:month].to_i
     end
 
-    @aux = TypeProcess.get_capture(@month)
-
-    @search = @aux.ransack(params[:q])
+    @search = TypeProcess.get_capture(@month).ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
 

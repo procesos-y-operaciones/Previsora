@@ -2,6 +2,12 @@ class Sinister < ApplicationRecord
 
   belongs_to :type_process, optional: true
 
+  def self.get_capture(month)
+    dt = DateTime.new(Date.today.year, month)
+    boy = dt.beginning_of_month
+    eoy = dt.end_of_month
+    self.where("(reserve_cents_date >= ? and reserve_cents_date <= ?) or (reserved_fees_cents_date >= ? and reserved_fees_cents_date <= ?)", boy, eoy, boy, eoy)
+  end
 
   def get_branch_commercial
     if self.branch_commercial == nil || self.branch_commercial == "NO APLICA"
