@@ -87,14 +87,15 @@
 
       <%= form.label :departament, "Departamento donde cursa el caso" %>
       <div class="input-group">
-        <%= form.collection_select(:departament, Departament.get_all, :code, :name, {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"}) %>
-        <%= form.collection_select(:departament, Departament.get_bog, :code, :name, {selected: "11"}, {id:"departament_coljuegos", class:"form-control"}) %>
+        <%= form.collection_select(:departament, Departament.get_all, :code, :name, {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", required:true, class:"form-control"}) %>
+        <%= form.collection_select(:departament, Departament.get_bog, :code, :name, {selected: "11"}, {id:"departament_coljuegos", required:true, class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :cities, "Ciudad donde cursa el caso" %>
       <div class="input-group">
         <select name="type_process[city_case]" id="cities" class="form-control">
+          <option value="" disabled selected>SELECCIONE</option>
           <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
         </select>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -263,7 +264,7 @@
 
       <%= form.label :attorny, "Apoderado de Previsora" %>
       <div class="input-group">
-        <%= form.collection_select(:attorny, Attorny.get_all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny"}) %>
+        <%= form.collection_select(:attorny, Attorny.get_all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny", required:true}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

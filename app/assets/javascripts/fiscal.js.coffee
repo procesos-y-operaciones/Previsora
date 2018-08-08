@@ -40,10 +40,10 @@ $ ->
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
       $('#document_passive_part').val("PENDIENTE")
-    if $('#policies').val() == "NO APLICA"
-      $('#policies').val("PENDIENTE")
-    if $('#sinisters').val() == "NO APLICA"
-      $('#sinisters').val("PENDIENTE")
+    if $('#departament').val() == "00"
+      $('#departament').val("")
+    if $('#cities').val() == "000"
+      $('#cities').val("")
     if $('#state_val').val() == "REGISTRO MIGRADO"
       $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
     if $('#state_val').val() == "REGISTRO NUEVO"

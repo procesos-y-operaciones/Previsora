@@ -12,6 +12,10 @@
 
 class CityCase < ApplicationRecord
 
+  def self.get_all
+    CityCase.select(:id, :name, :code).order(name: :asc).where.not(code: "000")
+  end
+
   def self.bog
     CityCase.where(name: "ACANDI")
   end

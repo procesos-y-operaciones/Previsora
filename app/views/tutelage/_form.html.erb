@@ -115,6 +115,7 @@
      <%= form.label :cities, "Ciudad donde cursa el caso" %>
      <div class="input-group">
        <select name="type_process[city_case]" id="cities" class="form-control">
+         <option value="" disabled selected>SELECCIONE</option>
          <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
        </select>
        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>

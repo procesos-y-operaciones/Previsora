@@ -97,6 +97,7 @@
       <%= form.label :cities, "Ciudad donde cursa el caso" %><span class="red">*</span>
       <div class="input-group">
         <select name="type_process[city_case]" id="cities" class="form-control" required="true">
+          <option value="" disabled selected>SELECCIONE</option>
           <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
         </select>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
@@ -276,7 +277,7 @@
 
       <%= form.label :attorny, "Apoderado en Previsora" %><span class="red">*</span>
       <div class="input-group">
-        <%= form.collection_select(:attorny, Attorny.get_all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny"}) %>
+        <%= form.collection_select(:attorny, Attorny.get_all, :id, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"attorny", required:true}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

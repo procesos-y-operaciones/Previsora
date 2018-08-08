@@ -12,7 +12,7 @@
 class Departament < ApplicationRecord
 
   def self.get_all
-    Departament.select(:code, :name).order(name: :asc)
+    Departament.select(:code, :name).order(name: :asc).where.not(code: "00")
   end
 
   def self.get_bog

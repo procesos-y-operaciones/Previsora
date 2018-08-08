@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def cities
     #render json: CS.cities(params[:state], :co).to_json
-    render json: CityCase.select(:id, :code, :name).order(name: :asc).where(departament: params[:state]).to_json
+    render json: CityCase.get_all.order(name: :asc).where(departament: params[:state]).to_json
   end
 
   protected
