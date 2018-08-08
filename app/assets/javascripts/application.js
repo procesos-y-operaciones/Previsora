@@ -16,7 +16,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-        
+//= require cocoon
+
 function input_pendiente_rule(input) {
   var value = input.value;
   if (value === "PENDIENTE" && input.readOnly == false) {

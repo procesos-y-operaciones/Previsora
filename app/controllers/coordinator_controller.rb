@@ -103,7 +103,14 @@ class CoordinatorController < ApplicationController
   end
 
   def capture
-    @search = TypeProcess.get_all.ransack(params[:q])
+
+    if params[:date] == nil
+      @month = Date.today.month
+    else
+      @month = params[:date][:month].to_i
+    end
+
+    @search = TypeProcess.get_capture(@month).ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
 
@@ -128,7 +135,7 @@ class CoordinatorController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @report.to_csv }
-      format.xls { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xls" }#{ send_data @report.to_csv(@date_from, @date_till, col_sep: "\t"), filename: Date.today.to_s+'.xlsx' }
+      format.xlsx { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xlsx" }
     end
   end
 

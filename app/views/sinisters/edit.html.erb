@@ -1,0 +1,4 @@
+<h3 class="title">Capture Siniestro <%= @sinister.sinister %></h3>
+
+<%= render 'form', sinister: @sinister %>
+<%= link_to "Volver", type_processes_capture_path(@sinister.type_process_id), class:"btn btn-default" %>

@@ -1,0 +1,82 @@
+<%= javascript_include_tag "sinisters" %>
+
+<%= form_with(model: sinister, local: true) do |form| %>
+  <% if sinister.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sinister.errors.count, "error") %> prohibited this sinister from being saved:</h2>
+      <ul>
+      <% sinister.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8 ">
+
+      <%= form.label :reserve_type, "Tipo de Reserva" %>
+      <div class="input-group">
+        <select id="type_capture" class="form-control">
+          <option value="0" selected="selected">SELECCIONE</option>
+          <option value=2>HONORARIOS</option>
+          <option value=1>INDEMNIZACION</option>
+          <option value=3>HONORARIOS / INDEMNIZACION</option>
+        </select>
+      </div>
+
+      <hr />
+
+      <%= form.label :reserved_fees_cents, "Valor Reserva Honorarios" %>
+      <div class="input-group">
+        <%= form.text_field :reserved_fees_cents, id:"reserved_fees_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+      </div>
+
+      <%= form.label :reserved_fees_cents_modify, "Valor Modificación Honorarios" %>
+      <div class="input-group">
+        <%= form.text_field :reserved_fees_cents_modify, id:"reserved_fees_cents_modify", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+      </div>
+
+      <%= form.label :reserved_fees_cents_total, "Valor Total Honorarios" %>
+      <div class="input-group">
+        <%= form.text_field :reserved_fees_cents_total, id:"reserved_fees_cents_total", readOnly:true, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+      </div>
+
+      <%= form.label :reserved_fees_cents_date, "Fecha Modificación Honorarios" %>
+      <div class="input-group">
+        <%= form.date_field :reserved_fees_cents_date, id:"reserved_fees_cents_date", value:Date.today, :readonly => "readonly", class:"form-control" %>
+      </div>
+
+      <hr />
+
+      <%= form.label :reserve_cents, "Valor Reserva Indemnización" %>
+      <div class="input-group">
+        <%= form.text_field :reserve_cents, id:"reserve_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+      </div>
+
+      <%= form.label :reserve_cents_modify, "Valor Modificación Indemnización" %>
+      <div class="input-group">
+        <%= form.text_field :reserve_cents_modify, id:"reserve_cents_modify", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+      </div>
+
+      <%= form.label :reserve_cents_total, "Valor Total Indemnización" %>
+      <div class="input-group">
+        <%= form.text_field :reserve_cents_total, id:"reserve_cents_total", readOnly:true, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+      </div>
+
+      <%= form.label :reserve_cents_date, "Fecha Modificación Indemnización" %>
+      <div class="input-group">
+        <%= form.date_field :reserve_cents_date, id:"reserve_cents_date", value:Date.today, :readonly => "readonly", class:"form-control" %>
+      </div>
+
+      <hr />
+
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
+  </div>
+
+
+<% end %>

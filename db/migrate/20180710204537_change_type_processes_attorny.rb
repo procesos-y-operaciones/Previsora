@@ -1,5 +1,10 @@
 class ChangeTypeProcessesAttorny < ActiveRecord::Migration[5.1]
   def change
-    change_column :type_processes, :attorny, :integer
+
+    remove_column :type_processes, :attorny
+    
+    add_column :type_processes, :attorny, :integer
+
+    #change_column :type_processes, :attorny, :integer
   end
 end

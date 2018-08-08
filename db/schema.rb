@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718161257) do
+ActiveRecord::Schema.define(version: 20180802221911) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -143,6 +143,14 @@ ActiveRecord::Schema.define(version: 20180718161257) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "policies", force: :cascade do |t|
+    t.string "policy_number"
+    t.integer "type_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_process_id"], name: "index_policies_on_type_process_id"
+  end
+
   create_table "process_classes", force: :cascade do |t|
     t.string "name"
     t.integer "n_type"
@@ -187,6 +195,26 @@ ActiveRecord::Schema.define(version: 20180718161257) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sinisters", force: :cascade do |t|
+    t.integer "number", default: 0
+    t.integer "exercise", default: 0
+    t.string "branch_policy", default: "NO APLICA"
+    t.string "branch_commercial", default: "NO APLICA"
+    t.string "sinister", default: "NO APLICA"
+    t.bigint "reserve_cents"
+    t.bigint "reserve_cents_modify"
+    t.bigint "reserve_cents_total"
+    t.date "reserve_cents_date"
+    t.bigint "reserved_fees_cents"
+    t.bigint "reserved_fees_cents_modify"
+    t.bigint "reserved_fees_cents_total"
+    t.date "reserved_fees_cents_date"
+    t.integer "type_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_process_id"], name: "index_sinisters_on_type_process_id"
+  end
+
   create_table "subprocess_classes", force: :cascade do |t|
     t.string "name"
     t.integer "n_type"
@@ -203,14 +231,11 @@ ActiveRecord::Schema.define(version: 20180718161257) do
     t.string "case_id_ekogui", default: "NO APLICA"
     t.string "process_radicate", default: "NO APLICA"
     t.string "sinister", default: "NO APLICA"
-    t.integer "attorny", default: 0
     t.string "active_part", default: "NO APLICA"
     t.string "passive_part", default: "NO APLICA"
     t.string "contingency_reason", default: "NO APLICA"
     t.string "contingency_resume", default: "NO APLICA"
     t.string "coactive_radicate", default: "NO APLICA"
-    t.string "policies", default: "NO APLICA"
-    t.string "sinisters", default: "NO APLICA"
     t.string "case_onbase", default: "NO APLICA"
     t.string "tutelage_imp", default: "NO APLICA"
     t.string "reason_conc", default: "NO APLICA"
@@ -297,11 +322,12 @@ ActiveRecord::Schema.define(version: 20180718161257) do
     t.string "state", default: "REGISTRO NUEVO"
     t.string "document_active_part", default: "NO APLICA"
     t.string "document_passive_part", default: "NO APLICA"
-    t.bigint "reserve_cents_modify"
-    t.bigint "reserve_cents_total"
+    t.integer "attorny"
+    t.integer "reserve_cents_modify", limit: 8
+    t.integer "reserve_cents_total", limit: 8
     t.date "reserve_cents_date"
-    t.bigint "reserved_fees_cents_modify"
-    t.bigint "reserved_fees_cents_total"
+    t.integer "reserved_fees_cents_modify", limit: 8
+    t.integer "reserved_fees_cents_total", limit: 8
     t.date "reserved_fees_cents_date"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end

@@ -121,6 +121,12 @@ class TypeProcess < ApplicationRecord
 
   serialize :protection
 
+  has_many :sinisters, dependent: :destroy
+  accepts_nested_attributes_for :sinisters, allow_destroy: true
+
+  has_many :policies, dependent: :destroy
+  accepts_nested_attributes_for :policies, allow_destroy: true
+
   self.per_page = 15
 
   def state_migrate
@@ -160,8 +166,13 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.get_all
+    #self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :departament, :city_case, :created_at).order('created_at DESC')
     self.order('created_at DESC')
-    #self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :user_id, :departament, :city_case, :created_at).order('created_at DESC')
+  end
+
+  def self.get_capture(month)
+    self.where(id: Sinister.get_capture(month).pluck(:type_process_id))
+    #self.where(p_type: [1,2,3,4])
   end
 
   def self.total_headers
@@ -191,7 +202,7 @@ class TypeProcess < ApplicationRecord
   def get_total_content
     [
       self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.get_attorny, self.get_active_part, self.get_passive_part,
-      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
+      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.get_sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
       self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, self.get_last_performance, self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
       self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
@@ -211,7 +222,7 @@ class TypeProcess < ApplicationRecord
       'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'IDENTIFICACION E-KOGUI','TIPO DE PROCESO',
       'CLASE DE PROCESO','SUBCLASE DE PROCESO', 'TIPO DE VINCULACION', 'PARTE ACTIVA','PARTE PASIVA',
       'NUMERO DE RADICADO DEL PROCESO','NOMBRE DEL DESPACHO','DEPARTAMENTO','CIUDAD DONDE CURSA EL CASO',
-      'HECHOS','FUENTE DEL LITIGIO','NUMERO DEL SINIESTRO','SINIESTRO','EJERCICIO',
+      'HECHOS','FUENTE DEL LITIGIO','SINIESTRO','NUMERO DEL SINIESTRO','EJERCICIO',
       'SUCURSAL DE LA POLIZA','RAMO COMERCIAL', 'AMPARO','POLIZA',
       'TOMADOR DE LA POLIZA', 'VALOR ASEGURADO', 'VALOR RESERVA INDEMNIZACIONES','RESERVA HONORARIOS',
       'VALOR PROVISION', 'VALOR PRETENSION - DETRIMENTO - ESTIMACION', 'VALOR CONTINGENCIA', 'CALIFICACION DE LA CONTINGENCIA',
@@ -236,8 +247,8 @@ class TypeProcess < ApplicationRecord
       self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.get_type_process,
       self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_active_part, self.get_passive_part,
       self.process_radicate, self.get_office_name, self.get_departament, self.get_city_case,
-      self.facts, self.get_litigation_source, self.number, self.sinister + self.get_more_sinisters, self.exercise,
-      self.get_branch_policy, self.get_branch_commercial, self.get_protection + self.get_more_protection, self.policy_cents.to_s + self.get_policies,
+      self.facts, self.get_litigation_source, self.get_sinisters, self.get_number, self.get_exercise,
+      self.get_branch_policy, self.get_branch_commercial, self.get_protection + self.get_more_protection, self.get_policies,
       self.get_policy_taker, nilValue(self.ensurance_value_cents), nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents),
       nilValue(self.provision_cents), nilValue(self.detritment_cents), nilValue(self.contingency_value_cents), self.get_score_contingency,
       self.contingency_reason, self.contingency_resume, self.get_reinsurance_type, self.get_reinsurance_report,
@@ -256,7 +267,7 @@ class TypeProcess < ApplicationRecord
 
   def self.capture_names
     [
-      'IDENTIFICACION ABOGADO INTERNO', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
+      'IDENTIFICADOR', 'IDENTIFICACION ABOGADO INTERNO', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
       'TIPO DE PROCESO', 'SINIESTRO', 'EJERCICIO', 'SUCURSAL DE LA POLIZA', 'RAMO COMERCIAL', 'VALOR RESERVA HONORARIOS',
       'VALOR MODIFICACION HONORARIOS', 'VALOR TOTAL HONORARIOS', 'FECHA MODIFICACION HONORARIOS', 'VALOR RESERVA INDEMNIZACION',
       'VALOR MODIFICACION INDEMNIZACION', 'VALOR TOTAL INDEMNIZACION', 'FECHA MODIFICACION INDEMNIZACION'
@@ -264,12 +275,16 @@ class TypeProcess < ApplicationRecord
   end
 
   def capture_content
-    [
-      self.user_id, self.get_user, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
-      self.get_type_process, self.number, self.exercise, self.get_branch_policy, self.get_branch_commercial, numberValue(self.reserved_fees_cents),
-      numberValue(self.reserved_fees_cents_modify), numberValue(self.reserved_fees_cents_total), format_date(self.reserved_fees_cents_date), numberValue(self.reserve_cents),
-      numberValue(self.reserve_cents_modify), numberValue(self.reserve_cents_total), format_date(self.reserve_cents_date)
-    ]
+    r = []
+    self.sinisters.each do |s|
+      r << [
+        self.id, self.user_id, self.get_user, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
+        self.get_type_process, s.number, s.exercise, s.get_branch_policy, s.get_branch_commercial, numberValue(s.reserved_fees_cents),
+        numberValue(s.reserved_fees_cents_modify), numberValue(s.reserved_fees_cents_total), format_date(s.reserved_fees_cents_date), numberValue(s.reserve_cents),
+        numberValue(s.reserve_cents_modify), numberValue(s.reserve_cents_total), format_date(s.reserve_cents_date)
+      ]
+    end
+    r
   end
 
   def self.to_csv(date_from, date_until, options = {})
@@ -342,6 +357,58 @@ class TypeProcess < ApplicationRecord
       "NO PRESENTA"
     else
       self.link_type
+    end
+  end
+
+  def get_sinisters
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      sinisters = self.sinisters.pluck(:sinister)
+      if sinisters == []
+        "NO PRESENTA"
+      else
+        sinisters.join(" ")
+      end
+    end
+  end
+
+  def get_policies
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      policies = self.policies.pluck(:policy_number)
+      if policies == []
+        "NO PRESENTA"
+      else
+        policies.join(" ")
+      end
+    end
+  end
+
+  def get_number
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      number = self.sinisters.pluck(:number)[0]
+      if number == nil
+        "NO PRESENTA"
+      else
+        number
+      end
+    end
+  end
+
+  def get_exercise
+    if self.p_type == 5
+      "NO APLICA"
+    else
+      exercise = self.sinisters.pluck(:exercise)[0]
+      if exercise
+        "NO PRESENTA"
+      else
+        exercise
+      end
     end
   end
 
@@ -575,28 +642,6 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def get_sinister
-    #if self.sinister == "PEN"
-  end
-
-  def get_more_sinisters
-    if self.sinisters == "PENDIENTE" || self.sinister == "NO APLICA"
-      ""
-    else
-      " " + self.sinisters
-    end
-  end
-
-  def get_policies
-    if self.policies == "PENDIENTE"
-      ""
-    elsif self.policies == nil
-      "NO APLICA"
-    else
-      " - " + self.policies
-    end
-  end
-
   def get_policy_taker
     if self.policy_taker == nil
       "NO APLICA"
@@ -690,14 +735,6 @@ class TypeProcess < ApplicationRecord
     else
       "NO EXISTE"
     end
-  end
-
-  def self.get_all_departament
-    CS.states(:co).sort_by {|_key, value| value}.to_h
-  end
-
-  def self.get_bog_departament
-    {(CS.states(:co).assoc :DC).first => (CS.states(:co).assoc :DC).second.upcase}
   end
 
 end

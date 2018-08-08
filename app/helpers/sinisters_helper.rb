@@ -1,0 +1,2 @@
+module SinistersHelper
+end

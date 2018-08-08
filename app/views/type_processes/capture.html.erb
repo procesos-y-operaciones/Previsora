@@ -1,84 +1,62 @@
 <%= javascript_include_tag "capture" %>
 
-<%= form_with(model: @type_process, local: true) do |form| %>
-  <% if @type_process.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-      <ul>
-        <% @type_process.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <table class="table table-responsive">
+      <thead>
+        <tr class="darkgreen">
+          <th colspan="2" class="center">CAPTURE DEL REGISTRO: <%= @type_process.get_type_process %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"  width="50%">Abogado interno</th>
+          <td  width="50%"> <%= @type_process.get_user %> </td>
+        </tr>
+        <tr>
+          <th scope="row">Identificacion Bizagi Access y PA</th>
+          <td> <%= @type_process.case_id_bap %> </td>
+        </tr>
+        <tr>
+          <th scope="row">Identificacion SISE</th>
+          <td> <%= @type_process.case_id_sise %> </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <%= form.hidden_field :state, id:"state_val" %>
+    <br />
+    <hr />
+    <br />
 
-  <div class="row">
-    <div class="offset-lg-2 col-lg-8 ">
-
-      <%= form.label :reserve_type, "Tipo de Reserva" %>
-      <div class="input-group">
-        <select id="type_capture" class="form-control">
-          <option value="0" selected="selected">SELECCIONE</option>
-          <option value=2>HONORARIOS</option>
-          <option value=1>INDEMNIZACION</option>
-          <option value=3>HONORARIOS / INDEMNIZACION</option>
-        </select>
-      </div>
-
-      <hr />
-
-      <%= form.label :reserved_fees_cents, "Valor Reserva Honorarios" %>
-      <div class="input-group">
-        <%= form.text_field :reserved_fees_cents, id:"reserved_fees_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-      </div>
-
-      <%= form.label :reserved_fees_cents_modify, "Valor Modificación Honorarios" %>
-      <div class="input-group">
-        <%= form.text_field :reserved_fees_cents_modify, id:"reserved_fees_cents_modify", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-      </div>
-
-      <%= form.label :reserved_fees_cents_total, "Valor Total Honorarios" %>
-      <div class="input-group">
-        <%= form.text_field :reserved_fees_cents_total, id:"reserved_fees_cents_total", readOnly:true, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-      </div>
-
-      <%= form.label :reserved_fees_cents_date, "Fecha Modificación Honorarios" %>
-      <div class="input-group">
-        <%= form.date_field :reserved_fees_cents_date, id:"reserved_fees_cents_date", value:Date.today, :readonly => "readonly", class:"form-control" %>
-      </div>
-
-      <hr />
-
-      <%= form.label :reserve_cents, "Valor Reserva Indemnización" %>
-      <div class="input-group">
-        <%= form.text_field :reserve_cents, id:"reserve_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-      </div>
-
-      <%= form.label :reserve_cents_modify, "Valor Modificación Indemnización" %>
-      <div class="input-group">
-        <%= form.text_field :reserve_cents_modify, id:"reserve_cents_modify", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-      </div>
-
-      <%= form.label :reserve_cents_total, "Valor Total Indemnización" %>
-      <div class="input-group">
-        <%= form.text_field :reserve_cents_total, id:"reserve_cents_total", readOnly:true, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
-      </div>
-
-      <%= form.label :reserve_cents_date, "Fecha Modificación Indemnización" %>
-      <div class="input-group">
-        <%= form.date_field :reserve_cents_date, id:"reserve_cents_date", value:Date.today, :readonly => "readonly", class:"form-control" %>
-      </div>
-
-      <hr />
-
-    </div>
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr class="to-uc">
+          <th class="center" scope="col">Siniestro</th>
+          <th class="center" scope="col">Reserva Indemnización</th>
+          <th class="center" scope="col">Reserva Honorarios</th>
+          <th class="center" scope="col"></th>
+        </tr>
+        <tbody>
+          <% if @sinisters == [] %>
+            <tr class='clickable-row' data-href='#'>
+            </tr>
+          <% else %>
+            <% @sinisters.each do |p| %>
+              <tr class='clickable-row' data-href='<%= edit_sinister_path(p) %>'>
+                <td class="center"><%= p.sinister %></td>
+                <td class="center"><%= p.reserve_cents %></td>
+                <td class="center"><%= p.reserved_fees_cents %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </thead>
+    </table>
   </div>
+</div>
 
-  <div>
-    <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
-    <%= link_to 'Volver', lawyer_capture_path, class:"btn btn-default" %>
-  </div>
+<br />
+<br />
 
-<% end %>
+<%= link_to "Volver", type_process_path(@type_process), class:"btn btn-default" %>
+<%= link_to "Aceptar", index_home_path, class:"btn btn-default floatRight" %>

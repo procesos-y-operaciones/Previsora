@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :sinisters
   resources :attornies
+  
   devise_for :users, controllers: { :registrations => "users/registrations" }
 
   resources :type_processes
