@@ -109,6 +109,34 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :sinisters, "Siniestro(s)" %>
+      <div id="sinisters_container" class="sinisters">
+        <%= form.fields_for :sinisters do |sinister| %>
+          <%= render 'sinister_fields', f: sinister %>
+        <% end %>
+      </div>
+
+      <div class="input-group">
+        <%= link_to_add_association form, :sinisters, data: {association_insertion_node: '.sinisters', association_insertion_method: :append}, id:"siniesters_butt", class: "minibtn btn-default m-1" do %>
+          <span class="fa">&#x2b;</span>
+          Agregar Siniestro
+        <% end %>
+      </div>
+
+      <%= form.label :policy_cents, "Póliza(s)" %>
+      <div id="policies_container" class="policies">
+        <%= form.fields_for :policies do |policy| %>
+          <%= render 'policy_fields', f: policy %>
+        <% end %>
+      </div>
+
+      <div class="input-group">
+        <%= link_to_add_association form, :policies, data: {association_insertion_node: '.policies', association_insertion_method: :append}, id:"policies_butt", class: "minibtn btn-default m-1" do %>
+          <span class="fa">&#x2b;</span>
+          Agregar Póliza
+        <% end %>
+      </div>
+
       <%= form.label :ensurance_value_cents, "Valor asegurado" %>
       <div class="input-group">
         <%= form.text_field :ensurance_value_cents, id:"ensuranceValue", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
@@ -134,67 +162,11 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.coensurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :policy_cents, "Póliza" %>
-      <div class="input-group">
-        <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
       <%= form.label :protection, "Amparo" %>
       <div class="input-group">
         <%= form.collection_select(:protection, Protection.coljuegos, :name, :name, {:selected => type_process.send(:protection)}, {id:"protection_coljuegos", multiple:true, class:"form-control"}) %>
         <%= form.collection_select(:protection, Protection.ordinarie, :name, :name, {:selected => type_process.send(:protection)}, {id:"protection_ordinarie", multiple:true, class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.protection_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :number, "Número de Siniestro" %>
-      <div class="input-group">
-        <%= form.number_field :number, id:"number", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.number_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :exercise, "Ejercicio" %>
-      <div class="input-group">
-        <%= form.number_field :exercise, id:"exercise", max:"99", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.exercise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :branch_policy, "Sucursal de la póliza" %>
-      <div class="input-group">
-        <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-        <%= form.hidden_field :branch_policy, value:"NO PRESENTA", id:"branch_policy_hid" %>
-      </div>
-
-      <%= form.label :branch_commercial, "Ramo comercial" %>
-      <div class="input-group">
-        <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-        <%= form.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
-      </div>
-
-      <%= form.label :sinister, "Siniestro" %>
-      <div class="input-group">
-        <%= form.text_field :sinister, id:"sinister", readOnly:"readOnly", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :has_more_polcies, "¿Tiene más pólizas?" %>
-      <div class="input-group">
-        <%= form.select :has_more_polcies, options_for_select([["NO", false], ["SI", true]]), {}, {id: "more_policies", class:"form-control"} %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :policies, "Número de pólizas" %>
-      <div class="input-group">
-        <%= form.text_area :policies, maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", id:"policies", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :sinisters, "Número de siniestros" %>
-      <div class="input-group">
-        <%= form.text_area :sinisters, maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", id:"sinisters", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.sinisters_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :policy_taker, "Tomador de la póliza" %>
