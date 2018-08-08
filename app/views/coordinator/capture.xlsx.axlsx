@@ -1,0 +1,22 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Users") do |sheet|
+
+  sheet.add_row ["LA PREVISORA SA COMPANIA DE SEGUROS"]
+  sheet.add_row ["VICEPRESIDENCIA JURIDICA"]
+  sheet.add_row ["REPORTE DE PROCESOS CAPTURE"]
+  sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
+  sheet.add_row ["DESDE: #{@date_from} HASTA: #{@date_till}"]
+  sheet.add_row [""]
+
+  longitude = @report.capture_names.count
+
+  sheet.add_row @report.capture_names
+
+  @report.each do |process|
+    process.capture_content.each do |capture|
+      sheet.add_row capture, :types => [:string]*longitude
+    end
+  end
+
+end

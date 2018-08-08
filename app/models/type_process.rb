@@ -159,7 +159,13 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.get_all
-    self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :departament, :city_case, :created_at).order('created_at DESC')
+    #self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :departament, :city_case, :created_at).order('created_at DESC')
+    self.order('created_at DESC')
+  end
+
+  def self.get_capture(month)
+    self.find(Sinister.pluck(:type_process_id))
+    #self.where(p_type: [1,2,3,4])
   end
 
   def self.total_headers
@@ -254,7 +260,7 @@ class TypeProcess < ApplicationRecord
 
   def self.capture_names
     [
-      'IDENTIFICACION ABOGADO INTERNO', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
+      'IDENTIFICADOR', 'IDENTIFICACION ABOGADO INTERNO', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
       'TIPO DE PROCESO', 'SINIESTRO', 'EJERCICIO', 'SUCURSAL DE LA POLIZA', 'RAMO COMERCIAL', 'VALOR RESERVA HONORARIOS',
       'VALOR MODIFICACION HONORARIOS', 'VALOR TOTAL HONORARIOS', 'FECHA MODIFICACION HONORARIOS', 'VALOR RESERVA INDEMNIZACION',
       'VALOR MODIFICACION INDEMNIZACION', 'VALOR TOTAL INDEMNIZACION', 'FECHA MODIFICACION INDEMNIZACION'
@@ -262,12 +268,16 @@ class TypeProcess < ApplicationRecord
   end
 
   def capture_content
-    [
-      self.user_id, self.get_user, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
-      self.get_type_process, self.number, self.exercise, self.get_branch_policy, self.get_branch_commercial, numberValue(self.reserved_fees_cents),
-      numberValue(self.reserved_fees_cents_modify), numberValue(self.reserved_fees_cents_total), format_date(self.reserved_fees_cents_date), numberValue(self.reserve_cents),
-      numberValue(self.reserve_cents_modify), numberValue(self.reserve_cents_total), format_date(self.reserve_cents_date)
-    ]
+    r = []
+    self.sinisters.each do |s|
+      r << [
+        self.id, self.user_id, self.get_user, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
+        self.get_type_process, s.number, s.exercise, s.get_branch_policy, s.get_branch_commercial, numberValue(s.reserved_fees_cents),
+        numberValue(s.reserved_fees_cents_modify), numberValue(s.reserved_fees_cents_total), format_date(s.reserved_fees_cents_date), numberValue(s.reserve_cents),
+        numberValue(s.reserve_cents_modify), numberValue(s.reserve_cents_total), format_date(s.reserve_cents_date)
+      ]
+    end
+    r
   end
 
   def self.to_csv(date_from, date_until, options = {})
