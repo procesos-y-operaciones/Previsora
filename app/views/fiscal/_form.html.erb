@@ -26,6 +26,11 @@
 
       <hr>
 
+      <%= form.label :email, "Correo electrónico del Abogado Interno" %>
+      <div class="input-group">
+        <%= form.text_field :email, pattern:"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", title:"Ingrese un e-mail válido y en mayúsculas.", maxlength:"100", placeholder:"INGRESE E-MAIL", required:true, class:"form-control" %>
+      </div>
+
       <%= form.label :process_class, "Clase de Proceso" %>
       <div class="input-group">
         <%= form.collection_select(:process_class, ProcessClass.fiscal, :name, :name, {}, {class:"form-control"}) %>
