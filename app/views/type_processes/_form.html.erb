@@ -24,7 +24,7 @@
 
         <%= form.label :p_type, "Tipo de Proceso" %>
         <div class="input-group">
-          <%= form.select :p_type, options_for_select([["PROCESO PREJUDICIAL", 1], ["POCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4]]), {include_blank: "SELECCIONE"}, {required:true, class:"form-control"} %>
+          <%= form.select :p_type, options_for_select([["PROCESO PREJUDICIAL", 1], ["POCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4]], type_process.p_type), {include_blank: "SELECCIONE"}, {required:true, class:"form-control"} %>
         </div>
 
         <%= form.label :creation_date, "Fecha de creación" %>
@@ -45,12 +45,6 @@
           <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1" style="font-size:20px"></span>
         </div>
 
-        <%= form.label :policy_taker, "Asegurado" %>
-        <div class="input-group">
-          <%= form.text_field :policy_taker, id:"policy_taker", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required:"true", class:"form-control" %>
-          <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-        </div>
-
         <%= form.label :sinisters, "Siniestro(s)" %>
         <div id="sinisters_container" class="sinisters">
           <%= form.fields_for :sinisters do |sinister| %>
@@ -62,6 +56,20 @@
           <%= link_to_add_association form, :sinisters, data: {association_insertion_node: '.sinisters', association_insertion_method: :append}, id:"siniesters_butt", class: "minibtn btn-default m-1" do %>
             <span class="fa">&#x2b;</span>
             Agregar Siniestro
+          <% end %>
+        </div>
+
+        <%= form.label :policy_cents, "Póliza(s)" %>
+        <div id="policies_container" class="policies">
+          <%= form.fields_for :policies do |policy| %>
+            <%= render 'policy_fields', f: policy %>
+          <% end %>
+        </div>
+
+        <div class="input-group">
+          <%= link_to_add_association form, :policies, data: {association_insertion_node: '.policies', association_insertion_method: :append}, id:"policies_butt", class: "minibtn btn-default m-1" do %>
+            <span class="fa">&#x2b;</span>
+            Agregar Póliza
           <% end %>
         </div>
 

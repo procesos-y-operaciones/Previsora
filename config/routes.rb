@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :sinisters
   resources :attornies
-  
+
   devise_for :users, controllers: { :registrations => "users/registrations" }
 
   resources :type_processes
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :administrative
 
   get 'type_processes/capture/:id(.:format)', :to => 'type_processes#capture', :as => 'type_processes_capture'
+  get 'type_processes/capture_edit/:id(.:format)', :to => 'type_processes#capture_edit', :as => 'type_processes_capture_edit'
 
   get 'index/home'
   get 'index/lawyer'

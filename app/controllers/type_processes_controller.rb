@@ -1,6 +1,6 @@
 class TypeProcessesController < ApplicationController
 
-  before_action :set_type_process, only: [:show, :edit, :update, :destroy, :capture]
+  before_action :set_type_process, only: [:show, :edit, :update, :destroy, :capture, :capture_edit]
 
   # GET /type_processes
   # GET /type_processes.json
@@ -139,6 +139,9 @@ class TypeProcessesController < ApplicationController
 
   def capture
     @sinisters = @type_process.sinisters
+  end
+
+  def capture_edit
   end
 
   private
