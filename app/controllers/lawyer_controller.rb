@@ -47,7 +47,7 @@ class LawyerController < ApplicationController
   end
 
   def capture
-    @search = TypeProcess.get_all.ransack(params[:q])
+    @search = current_user.get_processes.ransack(params[:q])
     @report = @search.result
     @processes = @search.result.paginate(page: params[:page], per_page: 10)
     if params[:page] == nil
