@@ -207,7 +207,11 @@ $ ->
   #Valor asegurado y Valor contingencia
   pretension_value_rule = ->
     detValCents = document.getElementById('detrimetValueCents').value
+    detValCents = detValCents.split("'").join("")
+    detValCents = detValCents.split(",").join("")
     ensValCents = document.getElementById('ensuranceValueCents').value
+    ensValCents = ensValCents.split("'").join("")
+    ensValCents = ensValCents.split(",").join("")
     if detValCents != 0 && ensValCents != 0
       if detValCents < ensValCents
         $('#contingencyValueCents').val detValCents
