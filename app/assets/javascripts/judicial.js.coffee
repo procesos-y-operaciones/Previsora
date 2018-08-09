@@ -48,7 +48,7 @@ $ ->
       $('#departament').val("")
     if $('#cities').val() == "000"
       $('#cities').val("")
-    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO"
+    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO" || $('#state_val').val() == "REGISTRO MIGRADO SOBRESCRITO"
       $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
     if $('#state_val').val() == "REGISTRO NUEVO"
       $('#state_val').val("REGISTRO NUEVO ACTUALIZADO")

@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20180802221911) do
 
   create_table "policies", force: :cascade do |t|
     t.string "policy_number"
+    t.string "policy_taker"
     t.integer "type_process_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

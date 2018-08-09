@@ -30,6 +30,7 @@ class CreateSinisters < ActiveRecord::Migration[5.1]
     create_table :policies do |t|
 
       t.string  :policy_number
+      t.string  :policy_taker
 
       t.belongs_to  :type_process, index: true
 

@@ -4,8 +4,14 @@
 
   <%= f.label :policy_number, "Número de la póliza" %>
   <div class="input-group">
-    <%= f.text_field :policy_number, pattern:"[0-9]*", title: t(:pattern), class:"form-control" %>
+    <%= f.text_field :policy_number, required:true, pattern:"[0-9]*", title: t(:pattern), class:"form-control" %>
     <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+  </div>
+
+  <%= form.label :policy_taker, "Tomador de la póliza" %>
+  <div class="input-group">
+    <%= form.text_field :policy_taker, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+    <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
   </div>
 
   <div class="input-group">
