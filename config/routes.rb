@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'lawyer/search'
   get 'lawyer/report'
   get 'lawyer/capture'
+  get 'lawyer/tutorial'
 
   get 'coordinator/new'
   get 'coordinator/management'

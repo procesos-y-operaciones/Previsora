@@ -7,7 +7,7 @@
   <div class="row">
     <div class="offset-md-3 col-md-4">
       <div class="styled-select">
-        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
+        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4]]), {}, {class:"form-control"} %>
       </div>
     </div>
     <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
@@ -19,6 +19,9 @@
     <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-8 minibtn btn-default m-1">
       <span id="collapseButton" class="fa fa-angle-double-down"></span>
     </button>
+    <%= link_to lawyer_search_path(format: "xlsx", params: request.query_parameters), :data => {:confirm => "A continuación se abrirá un nueva pestaña. Una vez el reporte se haya generado, esta se cerrará automáticamente. \n\nNo cierre la pestaña o genere otro reporte hasta que este proceso termine. \n\nEsto podría tardar varios minutos. \n\n¿Desea continuar?"}, target: '_blank', class:"minibtn btn-default offset-md-8" do %>
+      <span class="fa fa-download"></span>
+    <% end %>
   </div>
 
   <br>
@@ -44,36 +47,24 @@
 
     <div class="row">
       <div class="col-md-4">
-        <%= f.text_field :correspondency_radicate_cont, placeholder: "N° RADICADO CORRESPONDENCIA", class:"form-control" %>
+        <div class="styled-select">
+          <%= f.collection_select(:case_state_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
+        </div>
       </div>
       <div class="col-md-4">
         <%= f.text_field :case_id_bap_cont, placeholder: "N° IDENTIFICACION BIZAGI ACCESS PA", class:"form-control" %>
       </div>
-      <div class="col-md-4">
-        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control" %>
-      </div>
-    </div>
-
-    <div class="row">
       <div class="col-md-4 ">
         <%= f.text_field :process_radicate_cont, placeholder: "N° RADICADO DEL PROCESO", class:"form-control" %>
       </div>
-      <div class="col-md-4">
-        <%= f.text_field :internal_lawyer_cont, placeholder: "NOMBRE ABOGADO INTERNO", class:"form-control" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.text_field :active_part_cont, placeholder: "PARTE ACTIVA", class:"form-control" %>
-      </div>
     </div>
 
     <div class="row">
       <div class="col-md-4">
-        <%= f.text_field :passive_part_cont, placeholder: "PARTE PASIVA", class:"form-control" %>
+        <%= f.text_field :active_part_cont, placeholder: "PARTE ACTIVA", class:"form-control" %>
       </div>
       <div class="col-md-4">
-        <div class="styled-select">
-          <%= f.collection_select(:case_state_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
-        </div>
+        <%= f.text_field :passive_part_cont, placeholder: "PARTE PASIVA", class:"form-control" %>
       </div>
     </div>
   </div>
