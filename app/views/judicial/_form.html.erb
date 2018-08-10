@@ -83,6 +83,30 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :office_type, "Tipo de despacho" %>
+     <div class="input-group">
+       <select id="office_type" class="form-control">
+         <option value="">SELECCIONE</option>
+         <option value="CONSEJO">CONSEJO</option>
+         <option value="DESPACHO">DESPACHO</option>
+         <option value="JUZGADO">JUZGADO</option>
+       </select>
+     </div>
+
+     <%= form.label :office_number, "Número del despacho" %>
+     <div class="input-group">
+       <input id="office_number" type="text" placeholder="Número de tres dígitos" pattern="[0-9]*" required title="Número de exactamente tres dígitos" class="form-control" />
+     </div>
+
+     <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %><span class="red">*</span>
+     <div class="input-group">
+       <select name="type_process[office_name]" id="office" class="form-control" required="true">
+         <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.office_name %></option>
+       </select>
+       <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+     </div>
+
+
       <hr>
 
       <%= form.label :litigation_source, "Fuente del litigio" %>
@@ -161,15 +185,6 @@
       <div class="input-group">
         <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"23", pattern:"[0-9]*", title: t(:pattern_n), placeholder: 'INGRESE EL NUMERO DEL PROCESO DE 23 DÍGITOS', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %><span class="red">*</span>
-      <div class="input-group">
-        <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {id: "office", required: true, class:"form-control"}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-      <div class="input-group">
-        <%= form.text_field :other_office_name, id:"office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", placeholder:'NOMBRE DEL DESPACHO', class:"form-control" %>
       </div>
 
       <%= form.label :score_contingency, "Calificación de la contingencia" %>
