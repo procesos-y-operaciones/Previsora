@@ -275,11 +275,11 @@ class TypeProcess < ApplicationRecord
     ]
   end
 
-  def self.external_content
+  def external_content
     [
       self.id, self.get_type_process, self.case_id_bap,
       self.case_id_ekogui, self.process_radicate, format_date(self.notification_date),
-      self.get_attorny, self.get_active_part, self.get_passive_part, self.contingency_reason, self.contingency_resume, self.get_score_contingency,
+      self.get_user, self.get_active_part, self.get_passive_part, self.contingency_reason, self.contingency_resume, self.get_score_contingency,
       booleanValue(self.has_correspondency_radicate), self.coactive_radicate,
       self.policy_cents.to_s, booleanValue(self.has_more_polcies), self.get_policies, self.get_policy_taker, nilValue(self.ensurance_value_cents), self.get_branch_policy, self.get_branch_commercial, self.get_protection, self.get_more_protection,
       self.get_office_name, self.get_departament, self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_current_stage,
@@ -626,9 +626,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_policies
-    if self.policies == "PENDIENTE"
-      ""
-    elsif self.policies == nil
+    if self.policies == nil
       "NO APLICA"
     else
       self.policies
