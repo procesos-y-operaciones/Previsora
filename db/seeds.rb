@@ -5,6 +5,7 @@ User.create([
   {document: "3", name: "ADMINISTRADOR", charge: 'INGENIERO PYO', password: "Administrador2018", password_confirmation: "Administrador2018", role: 4}
 ])
 
+User.create(id: 100, document: 101, name: 'USUARIO PRUEBAS',  charge:  'PRUEBAS',  password: 'Pruebas2018', password_confirmation: 'Pruebas2018',  role: 1)
 User.create(id: 101, document: 101, name: 'GERMAN RICARDO GALEANO SOTOMAYOR',  charge:  'ABOGADO EXTERNO',  password: 'Lf6056', password_confirmation: 'Lf6056',  role: 1)
 User.create(id: 102, document: 102, name: 'JUAN CAMILO ARANGO RIOS',  charge:  'ABOGADO EXTERNO',  password: 'Eh6085', password_confirmation: 'Eh6085',  role: 1)
 User.create(id: 103, document: 103, name: 'GUSTAVO ALBERTO HERRERA AVILA',  charge:  'ABOGADO EXTERNO',  password: 'Oy7980', password_confirmation: 'Oy7980',  role: 1)
