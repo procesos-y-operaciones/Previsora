@@ -44,6 +44,12 @@
 
       <hr>
 
+      <%= form.label :process_radicate, "Número de radicación del proceso" %><span class="red">*</span>
+      <div class="input-group">
+        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"23", pattern:"[0-9]*", title: t(:pattern_n), placeholder: 'INGRESE EL NUMERO DEL PROCESO DE 23 DÍGITOS', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi, Access y PA)" %>
       <div class="input-group">
         <%= form.text_field :case_id_bap, id:"case_id_bap", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
@@ -174,12 +180,6 @@
       <div class="input-group">
         <%= form.date_field :notification_date, min:"1980-1-1", max:Date.today, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :process_radicate, "Número de radicación del proceso" %><span class="red">*</span>
-      <div class="input-group">
-        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"23", pattern:"[0-9]*", title: t(:pattern_n), placeholder: 'INGRESE EL NUMERO DEL PROCESO DE 23 DÍGITOS', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :score_contingency, "Calificación de la contingencia" %>

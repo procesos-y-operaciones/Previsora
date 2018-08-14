@@ -40,6 +40,12 @@
 
       <hr>
 
+      <%= form.label :process_radicate, "Número de radicación del proceso" %>
+      <div class="input-group">
+        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi, Access y PA)" %>
       <div class="input-group">
         <%= form.text_field :case_id_bap, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
@@ -138,12 +144,6 @@
       <div class="input-group">
         <%= form.date_field :notification_date, class:"form-control", required: true, min:"1980-1-1", max:Date.today %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-
-      <%= form.label :process_radicate, "Número de radicación del proceso" %>
-      <div class="input-group">
-        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :office_name, "Nombre del despacho / Tipo de contraloría" %>
