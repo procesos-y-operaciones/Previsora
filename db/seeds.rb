@@ -1,64 +1,59 @@
 User.create([
-  {document: "12345678", name: "USUARIO MIGRACION", charge: 'MIGRACION', password: "JonathanG123", password_confirmation: "JonathanG123", role: 1},
-  {document: "1", name: "COORDINADOR OPERATIVO", charge: 'INGENIERO PYO', password: "CoordinadorOperativo2018", password_confirmation: "CoordinadorOperativo2018", role: 2},
-  {document: "2", name: "COORDINADOR LEGAL", charge: 'INGENIERO PYO', password: "CoordinadorLegal2018", password_confirmation: "CoordinadorLegal2018", role: 3},
-  {document: "3", name: "ADMINISTRADOR", charge: 'INGENIERO PYO', password: "Administrador2018", password_confirmation: "Administrador2018", role: 4}
+{document: "12345678", name: "USUARIO MIGRACION", charge: 'MIGRACION', password: "JonathanG123", password_confirmation: "JonathanG123", role: 1},
+{document: "1", name: "COORDINADOR OPERATIVO", charge: 'INGENIERO PYO', password: "CoordinadorOperativo2018", password_confirmation: "CoordinadorOperativo2018", role: 2},
+{document: "2", name: "COORDINADOR LEGAL", charge: 'INGENIERO PYO', password: "CoordinadorLegal2018", password_confirmation: "CoordinadorLegal2018", role: 3},
+{document: "3", name: "ADMINISTRADOR", charge: 'INGENIERO PYO', password: "Administrador2018", password_confirmation: "Administrador2018", role: 4},
+{document: '101', name: 'GERMAN RICARDO GALEANO SOTOMAYOR',  charge:  'ABOGADO EXTERNO',  password: 'Lf6056', password_confirmation: 'Lf6056',  role: 1},
+{document: '102', name: 'JUAN CAMILO ARANGO RIOS',  charge:  'ABOGADO EXTERNO',  password: 'Eh6085', password_confirmation: 'Eh6085',  role: 1},
+{document: '103', name: 'GUSTAVO ALBERTO HERRERA AVILA',  charge:  'ABOGADO EXTERNO',  password: 'Oy7980', password_confirmation: 'Oy7980',  role: 1},
+{document: '104', name: 'MARLIO MORA CABRERA',  charge:  'ABOGADO EXTERNO',  password: 'Dp5850', password_confirmation: 'Dp5850',  role: 1},
+{document: '105', name: 'MARINA AREVALO TORRES',  charge:  'ABOGADO EXTERNO',  password: 'Qb8265', password_confirmation: 'Qb8265',  role: 1},
+{document: '106', name: 'FRANCISCO YESIT FORERO GONZALEZ',  charge:  'ABOGADO EXTERNO',  password: 'Vk7376', password_confirmation: 'Vk7376',  role: 1},
+{document: '107', name: 'JHON FREDY ALVAREZ CARMAGO',  charge:  'ABOGADO EXTERNO',  password: 'Mi5283', password_confirmation: 'Mi5283',  role: 1},
+{document: '108', name: 'MANFRED CARLOS WAGENER HOLLMANN',  charge:  'ABOGADO EXTERNO',  password: 'Py6461', password_confirmation: 'Py6461',  role: 1},
+{document: '109', name: 'ROSARIO MULFORD CARBONELL',  charge:  'ABOGADO EXTERNO',  password: 'Jq5865', password_confirmation: 'Jq5865',  role: 1},
+{document: '110', name: 'CARLOS ALFONSO CIFUENTES NEIRA',  charge:  'ABOGADO EXTERNO',  password: 'Bg5187', password_confirmation: 'Bg5187',  role: 1},
+{document: '111', name: 'CLAUDIO HENRY YAMA SANTACRUZ',  charge:  'ABOGADO EXTERNO',  password: 'Iq7972', password_confirmation: 'Iq7972',  role: 1},
+{document: '112', name: 'OSCAR ORLANDO RIOS SILVA',  charge:  'ABOGADO EXTERNO',  password: 'Te5479', password_confirmation: 'Te5479',  role: 1},
+{document: '113', name: 'MARIA CAROLINA ECHEVERRI GONZALEZ',  charge:  'ABOGADO EXTERNO',  password: 'Kw5755', password_confirmation: 'Kw5755',  role: 1},
+{document: '114', name: 'JACQUELINE ROMERO ESTRADA',  charge:  'ABOGADO EXTERNO',  password: 'Eg7448', password_confirmation: 'Eg7448',  role: 1},
+{document: '115', name: 'EDMER LEANDRO LOPEZ PENA',  charge:  'ABOGADO EXTERNO',  password: 'Js6186', password_confirmation: 'Js6186',  role: 1},
+{document: '116', name: 'LILLY ESTHER AYCARDI GALEANO',  charge:  'ABOGADO EXTERNO',  password: 'Wz5873', password_confirmation: 'Wz5873',  role: 1},
+{document: '117', name: 'JORGE AUGUSTO FRANCO GIRALDO',  charge:  'ABOGADO EXTERNO',  password: 'Nm5852', password_confirmation: 'Nm5852',  role: 1},
+{document: '118', name: 'JOSE DEL CARMEN BERNAL CALVO',  charge:  'ABOGADO EXTERNO',  password: 'Sq8089', password_confirmation: 'Sq8089',  role: 1},
+{document: '119', name: 'JORGE ELIECER SALAZAR AVENIA',  charge:  'ABOGADO EXTERNO',  password: 'Sx8864', password_confirmation: 'Sx8864',  role: 1},
+{document: '122', name: 'ARTURO SANABRIA GOMEZ',  charge:  'ABOGADO EXTERNO',  password: 'Es5668', password_confirmation: 'Es5668',  role: 1},
+{document: '123', name: 'ALVARO AUGUSTO GOMEZ MONTES',  charge:  'ABOGADO EXTERNO',  password: 'Xi4878', password_confirmation: 'Xi4878',  role: 1},
+{document: '124', name: 'JUAN FERNANDO ARBELAEZ VILLADA',  charge:  'ABOGADO EXTERNO',  password: 'Tw5890', password_confirmation: 'Tw5890',  role: 1},
+{document: '125', name: 'ANGELA MARIA LOPEZ CASTANO',  charge:  'ABOGADO EXTERNO',  password: 'Qg7760', password_confirmation: 'Qg7760',  role: 1},
+{document: '126', name: 'JORGE ANDRES TABORDA JIMENEZ',  charge:  'ABOGADO EXTERNO',  password: 'Tg5054', password_confirmation: 'Tg5054',  role: 1},
+{document: '127', name: 'DIANA SANCLEMENTE TORRES',  charge:  'ABOGADO EXTERNO',  password: 'Vl7288', password_confirmation: 'Vl7288',  role: 1},
+{document: '128', name: 'ANA PIEDAD MONTANO COVALEDA',  charge:  'ABOGADO EXTERNO',  password: 'Qe8850', password_confirmation: 'Qe8850',  role: 1},
+{document: '129', name: 'ORLANDO LASPRILLA VASQUEZ',  charge:  'ABOGADO EXTERNO',  password: 'Pt4860', password_confirmation: 'Pt4860',  role: 1},
+{document: '130', name: 'CLAUDIA PATRICIA ASTUDILLO TIGREROS',  charge:  'ABOGADO EXTERNO',  password: 'Tk5154', password_confirmation: 'Tk5154',  role: 1},
+{document: '131', name: 'SERGIO ALEJANDRO VILLEGAS AGUDELO',  charge:  'ABOGADO EXTERNO',  password: 'Km8375', password_confirmation: 'Km8375',  role: 1},
+{document: '132', name: 'ALBA INES GOMEZ VELEZ',  charge:  'ABOGADO EXTERNO',  password: 'Yn5082', password_confirmation: 'Yn5082',  role: 1},
+{document: '133', name: 'LINA MARCELA GABELO VELASQUEZ',  charge:  'ABOGADO EXTERNO',  password: 'Oe6875', password_confirmation: 'Oe6875',  role: 1},
+{document: '134', name: 'MARIA PATRICIA RIOS CORREA',  charge:  'ABOGADO EXTERNO',  password: 'Ed6081', password_confirmation: 'Ed6081',  role: 1},
+{document: '135', name: 'MATEO PELAEZ GARCIA',  charge:  'ABOGADO EXTERNO',  password: 'Ac7574', password_confirmation: 'Ac7574',  role: 1},
+{document: '136', name: 'NELSON ROA REYES',  charge:  'ABOGADO EXTERNO',  password: 'Sz5378', password_confirmation: 'Sz5378',  role: 1},
+{document: '137', name: 'JUAN PABLO ARAUJO',  charge:  'ABOGADO EXTERNO',  password: 'Re8664', password_confirmation: 'Re8664',  role: 1},
+{document: '138', name: 'RICARDO VELEZ OCHOA',  charge:  'ABOGADO EXTERNO',  password: 'Fe8780', password_confirmation: 'Fe8780',  role: 1},
+{document: '139', name: 'NATALIA BOTERO ZAPATA',  charge:  'ABOGADO EXTERNO',  password: 'Ic7682', password_confirmation: 'Ic7682',  role: 1},
+{document: '141', name: 'BEATRIZ ELENA ESTRADA TOBON',  charge:  'ABOGADO EXTERNO',  password: 'Ok8654', password_confirmation: 'Ok8654',  role: 1},
+{document: '142', name: 'CARLOS FRANCISCO GARCIA HARKER',  charge:  'ABOGADO EXTERNO',  password: 'Xg5073', password_confirmation: 'Xg5073',  role: 1},
+{document: '143', name: 'RAFAEL ALBERTO ARIZA GOMEZ',  charge:  'ABOGADO EXTERNO',  password: 'Vp6071', password_confirmation: 'Vp6071',  role: 1},
+{document: '144', name: 'CARLOS ENRIQUE QUIJANO RUEDA',  charge:  'ABOGADO EXTERNO',  password: 'Pk9061', password_confirmation: 'Pk9061',  role: 1},
+{document: '145', name: 'OSCAR IVAN VILLANUEVA SEPULVEDA',  charge:  'ABOGADO EXTERNO',  password: 'Fv7854', password_confirmation: 'Fv7854',  role: 1},
+{document: '146', name: 'OSCAR ELIAS BOTERO CHALARCA',  charge:  'ABOGADO EXTERNO',  password: 'Ud7390', password_confirmation: 'Ud7390',  role: 1},
+{document: '147', name: 'GUILLERMO ENRIQUE BURBANO CORTES',  charge:  'ABOGADO EXTERNO',  password: 'Za8383', password_confirmation: 'Za8383',  role: 1},
+{document: '148', name: 'JORGE ANTONIO VELEZ BARRERA',  charge:  'ABOGADO EXTERNO',  password: 'Rd6464', password_confirmation: 'Rd6464',  role: 1},
+{document: '149', name: 'DIEGO DE JESUS VELEZ ACEVEDO',  charge:  'ABOGADO EXTERNO',  password: 'Tu6178', password_confirmation: 'Tu6178',  role: 1},
+{document: '151', name: 'LINA MARIA URIBE ZULUAGA',  charge:  'ABOGADO EXTERNO',  password: 'Wu7259', password_confirmation: 'Wu7259',  role: 1},
+{document: '152', name: 'GERMAN GONZALO VALDES SANCHEZ',  charge:  'ABOGADO EXTERNO',  password: 'Vm5288', password_confirmation: 'Vm5288',  role: 1},
+{document: '153', name: 'HAROLD ARISTIZABAL MARIN',  charge:  'ABOGADO EXTERNO',  password: 'Ak7051', password_confirmation: 'Ak7051',  role: 1},
+{document: '154', name: 'JOSE RIOS ALZATE',  charge:  'ABOGADO EXTERNO',  password: 'Wf5190', password_confirmation: 'Wf5190',  role: 1}
 ])
-
-User.create(document: '100', name: 'USUARIO PRUEBAS',  charge:  'PRUEBAS',  password: 'Pruebas2018', password_confirmation: 'Pruebas2018',  role: 1)
-User.create(document: '101', name: 'GERMAN RICARDO GALEANO SOTOMAYOR', password: '84AVQ67X', password_confirmation:  '84AVQ67X', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '102', name: 'JUAN CAMILO ARANGO RIOS', password: '5AZEP2SR', password_confirmation:  '5AZEP2SR', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '103', name: 'GUSTAVO ALBERTO HERRERA AVILA', password: '0IEZJBCP', password_confirmation:  '0IEZJBCP', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '104', name: 'MARLIO MORA CABRERA', password: '0G1POEYN', password_confirmation:  '0G1POEYN', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '105', name: 'MARINA AREVALO TORRES', password: 'AE7G4HW1', password_confirmation:  'AE7G4HW1', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '106', name: 'FRANCISCO YESIT FORERO GONZALEZ', password: 'TG5C18RF', password_confirmation:  'TG5C18RF', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '107', name: 'JHON FREDY ALVAREZ CARMAGO', password: 'TCF2W1C9', password_confirmation:  'TCF2W1C9', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '108', name: 'MANFRED CARLOS WAGENER HOLLMANN', password: '8GRUKH7B', password_confirmation:  '8GRUKH7B', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '109', name: 'ROSARIO MULFORD CARBONELL', password: 'RKW2H2YQ', password_confirmation:  'RKW2H2YQ', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '110', name: 'CARLOS ALFONSO CIFUENTES NEIRA', password: 'ZGTKZI4Z', password_confirmation:  'ZGTKZI4Z', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '111', name: 'CLAUDIO HENRY YAMA SANTACRUZ', password: 'N44689EA', password_confirmation:  'N44689EA', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '112', name: 'OSCAR ORLANDO RIOS SILVA', password: 'MINHXKH8', password_confirmation:  'MINHXKH8', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '113', name: 'MARIA CAROLINA ECHEVERRI GONZALEZ', password: '6BG01ALJ', password_confirmation:  '6BG01ALJ', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '114', name: 'JACQUELINE ROMERO ESTRADA', password: 'ND0DY5DP', password_confirmation:  'ND0DY5DP', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '115', name: 'EDMER LEANDRO LOPEZ PENA', password: 'JUPPR69S', password_confirmation:  'JUPPR69S', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '116', name: 'LILLY ESTHER AYCARDI GALEANO', password: 'LS1CMH76', password_confirmation:  'LS1CMH76', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '117', name: 'JORGE AUGUSTO FRANCO GIRALDO', password: 'VO6E3ELB', password_confirmation:  'VO6E3ELB', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '118', name: 'JOSE DEL CARMEN BERNAL CALVO', password: 'CLE07F0P', password_confirmation:  'CLE07F0P', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '119', name: 'JORGE ELIECER SALAZAR AVENIA', password: '6WDQV7N3', password_confirmation:  '6WDQV7N3', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '120', name: 'ALVARO AUGUSTO GOMEZ MONTES', password: 'E4HO6LEZ', password_confirmation:  'E4HO6LEZ', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '121', name: 'JUAN FERNANDO ARBELAEZ VILLADA', password: 'SC18CSA3', password_confirmation:  'SC18CSA3', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '122', name: 'ARTURO SANABRIA GOMEZ', password: 'IWE8VDT8', password_confirmation:  'IWE8VDT8', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '123', name: 'ANGELA MARIA LOPEZ CASTANO', password: 'G0MPVZPX', password_confirmation:  'G0MPVZPX', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '124', name: 'JORGE ANDRES TABORDA JIMENEZ', password: 'TCS1974Y', password_confirmation:  'TCS1974Y', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '125', name: 'DIANA SANCLEMENTE TORRES', password: 'HK8F9T20', password_confirmation:  'HK8F9T20', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '126', name: 'ANA PIEDAD MONTANO COVALEDA', password: 'JCTXYZ4J', password_confirmation:  'JCTXYZ4J', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '127', name: 'ORLANDO LASPRILLA VASQUEZ', password: '21GTQVXF', password_confirmation:  '21GTQVXF', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '128', name: 'CLAUDIA PATRICIA ASTUDILLO TIGREROS', password: 'XK38OVCQ', password_confirmation:  'XK38OVCQ', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '129', name: 'ALBA INES GOMEZ VELEZ', password: 'WAPLK7OG', password_confirmation:  'WAPLK7OG', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '130', name: 'SERGIO ALEJANDRO VILLEGAS AGUDELO', password: 'Q6FLSA29', password_confirmation:  'Q6FLSA29', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '131', name: 'LINA MARCELA GABELO VELASQUEZ', password: 'F371OP0A', password_confirmation:  'F371OP0A', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '132', name: 'MARIA PATRICIA RIOS CORREA', password: 'ZPSOWOHG', password_confirmation:  'ZPSOWOHG', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '133', name: 'MATEO PELAEZ GARCIA', password: 'A7IVXTL5', password_confirmation:  'A7IVXTL5', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '134', name: 'NELSON ROA REYES', password: 'UNP4E4CB', password_confirmation:  'UNP4E4CB', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '135', name: 'RICARDO VELEZ OCHOA', password: '7ANI6TW9', password_confirmation:  '7ANI6TW9', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '136', name: 'NATALIA BOTERO ZAPATA', password: 'ECMERXWO', password_confirmation:  'ECMERXWO', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '137', name: 'BEATRIZ ELENA ESTRADA TOBON', password: '5KWH6L1K', password_confirmation:  '5KWH6L1K', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '138', name: 'CARLOS FRANCISCO GARCIA HARKER', password: 'HOULFXYJ', password_confirmation:  'HOULFXYJ', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '139', name: 'RAFAEL ALBERTO ARIZA GOMEZ', password: 'T3ZFRRZ9', password_confirmation:  'T3ZFRRZ9', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '140', name: 'CARLOS ENRIQUE QUIJANO RUEDA', password: 'X0965RZK', password_confirmation:  'X0965RZK', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '141', name: 'OSCAR IVAN VILLANUEVA SEPULVEDA', password: 'CVS18NOP', password_confirmation:  'CVS18NOP', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '142', name: 'OSCAR ELIAS BOTERO CHALARCA', password: 'VDOV8PM3', password_confirmation:  'VDOV8PM3', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '143', name: 'GUILLERMO ENRIQUE BURBANO CORTES', password: 'OAC4H4F0', password_confirmation:  'OAC4H4F0', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '144', name: 'JORGE ANTONIO VELEZ BARRERA', password: 'GZOOW8X8', password_confirmation:  'GZOOW8X8', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '145', name: 'DIEGO DE JESUS VELEZ ACEVEDO', password: 'GRQ6AJAR', password_confirmation:  'GRQ6AJAR', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '146', name: 'LINA MARIA URIBE ZULUAGA', password: 'B4OYRPO2', password_confirmation:  'B4OYRPO2', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '147', name: 'GERMAN GONZALO VALDES SANCHEZ', password: 'LBQOR3C2', password_confirmation:  'LBQOR3C2', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '148', name: 'HAROLD ARISTIZABAL MARIN', password: 'QQFZI2J9', password_confirmation:  'QQFZI2J9', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '149', name: 'JOSE RIOS ALZATE', password: '9VO6G4RB', password_confirmation:  '9VO6G4RB', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '150', name: 'YEZID GARCIA ARENAS', password: 'I8J5L094', password_confirmation:  'I8J5L094', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '151', name: 'MILCIADES ALBERTO NOVOA VILLAMIL', password: 'Y6UQ66SE', password_confirmation:  'Y6UQ66SE', role: 1, charge: 'ABOGADO EXTERNO')
-User.create(document: '152', name: 'FABIO PEREZ QUESADA', password: 'A7EQ7G5V', password_confirmation:  'A7EQ7G5V', role: 1, charge: 'ABOGADO EXTERNO')
-
 
 ProcessClass.create([
   {name: 'JURISDICCION CONTENCIOSO ADMINISTRATIVO', n_type:	2},
