@@ -23,7 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: previsora_db
   username: postgres
   password:
   pool: 5
