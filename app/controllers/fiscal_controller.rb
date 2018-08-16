@@ -8,6 +8,7 @@ class FiscalController < ApplicationController
   def new
     @fiscal = TypeProcess.new
     @fiscal.creation_date = Date.today
+    @fiscal.internal_created = current_user.name
   end
 
   def create

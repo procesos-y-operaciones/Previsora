@@ -42,10 +42,12 @@ class TypeProcessesController < ApplicationController
   def new
     @type_process = TypeProcess.new
     @type_process.creation_date = Date.today
+    @type_process.internal_created = current_user.name
   end
 
   def new_process
     @type_process = TypeProcess.new
+    @type_process.creation_date = Date.today
   end
 
   # GET /type_processes/1/edit
@@ -105,6 +107,7 @@ class TypeProcessesController < ApplicationController
   # PATCH/PUT /type_processes/1.json
   def update
     respond_to do |format|
+      @type_process.internal_updated = current_user.name
       if @type_process.update(type_process_params)
         format.html { redirect_to @type_process, notice: 'Proceso actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @type_process }

@@ -46,6 +46,11 @@
     <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
   </div>
 
+  <%= f.label :internal_lawyer, "Abogado Interno a cargo" %>
+  <div class="input-group">
+    <%= f.text_field :internal_lawyer, id:"lawyer", readOnly:true, class:"form-control" %>
+  </div>
+
   <div class="input-group">
     <%= link_to_remove_association f, class: "minibtn btn-default m-1" do %>
       <span class="fa">&#x2212;</span>
