@@ -13,8 +13,6 @@
   <% end %>
 
   <% if current_user.role != 3 %>
-    <%= form.hidden_field :user_id, :value => current_user.id %>
-    <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
     <%= form.hidden_field :litigation_source, value: "SINIESTRO" %>
     <%= form.hidden_field :internal_created %>
     <%= form.hidden_field :internal_updated %>

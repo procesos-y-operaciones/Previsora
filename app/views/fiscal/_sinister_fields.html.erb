@@ -18,14 +18,12 @@
   <div class="input-group">
     <%= f.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {include_blank: "SELECCIONE"}, {required: true, class:"form-control", :id => "branch_policy" }) %>
     <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-    <%= f.hidden_field :branch_policy, value:"NO PRESENTA", id:"branch_policy_hid" %>
   </div>
 
   <%= f.label :branch_commercial, "Ramo comercial" %>
   <div class="input-group">
     <%= f.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {include_blank: "SELECCIONE"}, {required: true, class:"form-control", :id => "branch_commercial" }) %>
     <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-    <%= f.hidden_field :branch_commercial, value:"NO PRESENTA", id:"branch_commercial_hid" %>
   </div>
 
   <%= f.label :sinister, "Número de Siniestro (completo)" %>
@@ -44,11 +42,6 @@
   <div class="input-group">
     <%= f.text_field :reserved_fees_cents, maxlength:"20", required: true, pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
     <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-  </div>
-
-  <%= f.label :internal_lawyer, "Abogado Interno a cargo" %>
-  <div class="input-group">
-    <%= f.text_field :internal_lawyer, value: current_user.name,readOnly:true, class:"form-control" %>
   </div>
 
   <div class="input-group">
