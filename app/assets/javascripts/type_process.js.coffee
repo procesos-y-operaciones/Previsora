@@ -27,8 +27,27 @@ $ ->
 
   initial_values()
 
+  #console.log $('#sinisters_container')[0].childNodes
+
+  #Initialize functions for each sinister
+  $.map $('#sinisters_container')[0].childNodes, ( i ) ->
+    if i.className == "nested-fields"
+      num = i.childNodes[5].childNodes[1]
+      eje = i.childNodes[9].childNodes[1]
+      sp = i.childNodes[13].childNodes[1]
+      ra = i.childNodes[17].childNodes[1]
+      sg = i.childNodes[21].childNodes[1]
+
+      aux = ->
+        sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
+
+      num.onchange = aux
+      eje.onchange = aux
+      sp.onchange = aux
+      ra.onchange = aux
+
   #Siniestros
-  $('#sinisters_container').on('cocoon:after-insert', (e, i) ->
+  $('#sinisters_container').on('cocoon:before-insert', (e, i) ->
     num = i[0].childNodes[5].childNodes[1]
     eje = i[0].childNodes[9].childNodes[1]
     sp = i[0].childNodes[13].childNodes[1]

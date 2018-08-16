@@ -45,11 +45,6 @@ class TypeProcessesController < ApplicationController
     @type_process.internal_created = current_user.name
   end
 
-  def new_process
-    @type_process = TypeProcess.new
-    @type_process.creation_date = Date.today
-  end
-
   # GET /type_processes/1/edit
   def edit
     if current_user.role == 3 || current_user.type_processes.exists?(id: @type_process.id)
@@ -107,7 +102,6 @@ class TypeProcessesController < ApplicationController
   # PATCH/PUT /type_processes/1.json
   def update
     respond_to do |format|
-      @type_process.internal_updated = current_user.name
       if @type_process.update(type_process_params)
         format.html { redirect_to @type_process, notice: 'Proceso actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @type_process }
@@ -145,6 +139,7 @@ class TypeProcessesController < ApplicationController
   end
 
   def capture_edit
+    @type_process.internal_updated = current_user.name
   end
 
   private
@@ -177,7 +172,7 @@ class TypeProcessesController < ApplicationController
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
        :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total,
        :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date,
-       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part,
+       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part, :internal_created, :internal_updated,
        sinisters_attributes: Sinister.attribute_names.map(&:to_sym).push(:_destroy),
        policies_attributes: Policy.attribute_names.map(&:to_sym).push(:_destroy)
      )
