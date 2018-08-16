@@ -27,8 +27,6 @@ $ ->
 
   initial_values()
 
-  #console.log $('#sinisters_container')[0].childNodes
-
   #Initialize functions for each sinister
   $.map $('#sinisters_container')[0].childNodes, ( i ) ->
     if i.className == "nested-fields"
