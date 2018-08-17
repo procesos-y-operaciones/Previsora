@@ -1,6 +1,6 @@
 wb = xlsx_package.workbook
 
-wb.add_worksheet(name: "Users") do |sheet|
+wb.add_worksheet(name: "Reporte Registro Unico") do |sheet|
 
   sheet.add_row ["LA PREVISORA SA COMPANIA DE SEGUROS"]
   sheet.add_row ["VICEPRESIDENCIA JURIDICA"]
