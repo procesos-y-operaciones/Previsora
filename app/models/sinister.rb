@@ -1,5 +1,7 @@
 class Sinister < ApplicationRecord
 
+  after_commit :store_values
+
   belongs_to :type_process, optional: true
 
   def self.get_capture(month)
@@ -32,5 +34,17 @@ class Sinister < ApplicationRecord
       BranchPolicy.where(num: self.branch_policy)[0].name
     end
   end
+
+  private
+
+    def store_values
+      t_process = TypeProcess.find(self.type_process_id)
+      if t_process.p_type != 5
+        t_process.reserved_fees_cents = t_process.sinisters.pluck(:reserved_fees_cents).sum
+        t_process.reserve_cents = t_process.sinisters.pluck(:reserve_cents).sum
+        t_process.save
+      end
+    end
+
 
 end

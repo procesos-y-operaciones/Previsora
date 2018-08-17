@@ -42,7 +42,7 @@
 
       <%= form.label :correspondency_radicate, "Número de radicado de Correspondencia o de Vicepresidencia" %>
       <div class="input-group">
-        <%= form.text_field :correspondency_radicate, pattern:"[0-9\- ]*", title: t(:pattern_n), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", id:"correspondency_radicate", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
+        <%= form.text_field :correspondency_radicate, onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", id:"correspondency_radicate", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -239,7 +239,7 @@
 
       <%= form.label :dolar_value_cents, "Valor del dólar" %>
       <div class="input-group">
-        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -322,6 +322,12 @@
       <div class="input-group">
         <%= form.text_field :reserved_fees_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :provision_cents, "Valor de la provisión de la indemnización" %>
+      <div class="input-group">
+        <%= form.text_field :provision_cents, id:"provision_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.provision_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :reserved_released, "¿La reserva ya fue depurada?" %>

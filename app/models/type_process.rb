@@ -187,10 +187,10 @@ class TypeProcess < ApplicationRecord
     [
       'IDENTIFICADOR', 'TIPO DE PROCESO', 'ESTADO DE REGISTRO', 'IDENTIFICADOR ABOGADO INTERNO', 'ABOGADO INTERNO',	'NUMERO DE RADICADO DE CORRESPONDENCIA O DE VICEPRESIDENCIA',	'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI ACCESS Y PA)',
       'NUMERO DE IDENTIFICACION DEL CASO EN SISE',	'NUMERO DE IDENTIFICACION DEL CASO EN EKOGUI',	'NUMERO DE RADICACION DEL PROCESO - DESPACHO',
-      'NUMERO DE SINIESTRO COMPLETO',	'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA',
+      'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA',
       'NUMERO DE RADICACION DEL COACTIVO',	'NUMERO DE POLIZAS',	'NUMERO DE SINIESTROS',	'NUMERO DE CASO EN ON-BASE',	'IMPUGNANTE',	'RAZON DE NO CONCILIAR',
       'RAZON DE INVIABILIDAD',	'NOMBRE DEL DESPACHO / TIPO DE CONTRALORIA', 'DEPARTAMENTO DONDE CURSA EL CASO',	'CIUDAD DONDE CURSA EL CASO',	'CLASE DE PROCESO',
-      'SUBCLASE DE PROCESO',	'TIPO DE VINCULACION',	'SUCURSAL DE LA POLIZA',	'RAMO COMERCIAL',	'CALIFICACION DE LA CONTINGENCIA',	'AMPARO',	'ETAPA ACTUAL',
+      'SUBCLASE DE PROCESO',	'TIPO DE VINCULACION',	'CALIFICACION DE LA CONTINGENCIA',	'AMPARO',	'ETAPA ACTUAL',
       'FUENTE DEL LITIGIO',	'INSTANCIA EN LA QUE SE ENCUENTRA',	'ESTADO DEL CASO',	'TERMINACION DEL CASO',	'TIPO DE REASEGURO',	'ULTIMA ACTUACION',	'TIPOLOGIA',
       'TIPO DE DECISION IMPUGNACION',	'TIPO SENTENCIA DEL INCIDENTE DE DESACATO A LA COMPANIA',	'LA RESERVA YA FUE DEPURADA?',	'TIPO DE MONEDA',	'INGRESA AL COMITE DE DEFENSA Y CONCILIACION?',
       'DECISION DEL COMITE DE DEFENSA Y CONCILIACION',	'TIPO DE COASEGURO',	'TOMADOR DE LA POLIZA',	'CONTRATO CONCESION - OBRA',	'OTROS AMPAROS',	'HECHOS',	'VALOR DEL DOLAR',
@@ -200,8 +200,8 @@ class TypeProcess < ApplicationRecord
       'VALOR CONCILIADO',	'VALOR DE LAS COSTAS',	'FECHA DE CREACION',	'FECHA DE LA NOTIFICACION / VINCULACION',	'FECHA DE ASIGNACION DEL APODERADO DE PREVISORA',
       'FECHA DE LA PRIMERA AUDIENCIA / DECISION / ACTUACION / ACTO ADMINISTRATIVO / FALLO',	'FECHA DE CONTESTACION DE LA TUTELA',	'FECHA DECISION DE LA IMPUGNACION',
       'FECHA DE NOTIFICACION DECISION DE LA IMPUGNACION',	'FECHA DE CONSIGNACION / PAGO',	'FECHA DE NOTIFICACION DE LA IMPUGNACION',	'FECHA DE LA ULTIMA ACTUACION',
-      'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO',	'FECHA INGRESO AL COMITE DE DEFENSA Y CONCILIACION',	'FECHA DE NOTIFICACION DEL INCIDENTE DEL DESACATO',
-      'FECHA DE CONTESTACION DEL INCIDENTE DE DESACATO',	'FECHA NOTIFICACION DE DECISION DEL INCIDENTE DE DESACATO',	'NUMERO DE SINIESTRO',	'EJERCICIO',	'REASEGURO REPORTADO',
+      'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO', 'FECHA INGRESO AL COMITE DE DEFENSA Y CONCILIACION',	'FECHA DE NOTIFICACION DEL INCIDENTE DEL DESACATO',
+      'FECHA DE CONTESTACION DEL INCIDENTE DE DESACATO', 'FECHA NOTIFICACION DE DECISION DEL INCIDENTE DE DESACATO', 'REASEGURO REPORTADO',
       'PROCEDE RECOBRO?',	'TIENE NUMERO DE RADICADO DE CORRESPONDENCIA / VICEPRESIDENCIA?',	'TIENE MAS POLIZAS?',	'TIENE COSTAS A FAVOR?',	'TIENE NUMERO DE RADICADO DE COACTIVO?',
       'HAY IMPUGNACION?',	'HAY DESACATO?', 'OTRO DESPACHO', 'ULTIMA ACTUALIZACION'
     ]
@@ -209,16 +209,16 @@ class TypeProcess < ApplicationRecord
 
   def get_total_content
     [
-      self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.get_attorny, self.get_active_part, self.get_passive_part,
+      self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.get_attorny, self.get_active_part, self.get_passive_part,
       self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.get_sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
-      self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
+      self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, self.get_last_performance, self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
       self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
       nilValue(self.detritment_cents), nilValue(self.ensurance_value_cents), nilValue(self.contingency_value_cents), self.policy_cents.to_s, nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents), nilValue(self.provision_cents), nilValue(self.fail_value_cents),
       nilValue(self.fail_previ_cents), nilValue(self.payed_value_cents), nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), nilValue(self.auth_value_cents), nilValue(self.reinsurance_value_cents), nilValue(self.coensurance_value_cents),
       nilValue(self.reconcilie_value_cents), nilValue(self.cost_value_cents), self.creation_date, format_date(self.notification_date), format_date(self.attorny_date), format_date(self.failed_notification_date), format_date(self.answer_date), format_date(self.objection_date_desition),
       format_date(self.date_notification_desition_desacate), format_date(self.payment_date), format_date(self.imp_date),format_date(self.last_performance_date), format_date(self.desition_date), format_date(self.committee_date), format_date(self.date_notification_desacate),
-      format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.number, self.exercise, self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
+      format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
       booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.updated_at.strftime("%d/%m/%Y %H:%M")
     ]
   end
@@ -230,9 +230,8 @@ class TypeProcess < ApplicationRecord
       'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'IDENTIFICACION E-KOGUI','TIPO DE PROCESO',
       'CLASE DE PROCESO','SUBCLASE DE PROCESO', 'TIPO DE VINCULACION', 'PARTE ACTIVA','PARTE PASIVA',
       'NUMERO DE RADICADO DEL PROCESO','NOMBRE DEL DESPACHO','DEPARTAMENTO','CIUDAD DONDE CURSA EL CASO',
-      'HECHOS','FUENTE DEL LITIGIO','SINIESTRO','NUMERO DEL SINIESTRO','EJERCICIO',
-      'SUCURSAL DE LA POLIZA','RAMO COMERCIAL', 'AMPARO','POLIZA',
-      'TOMADOR DE LA POLIZA', 'VALOR ASEGURADO', 'VALOR RESERVA INDEMNIZACIONES','RESERVA HONORARIOS',
+      'HECHOS','FUENTE DEL LITIGIO','SINIESTROS','AMPARO','POLIZAS',
+      'VALOR RESERVA INDEMNIZACIONES','RESERVA HONORARIOS',
       'VALOR PROVISION', 'VALOR PRETENSION - DETRIMENTO - ESTIMACION', 'VALOR CONTINGENCIA', 'CALIFICACION DE LA CONTINGENCIA',
       'RAZON DE LA CONTINGENCIA','RESUMEN DE LA CONTINGENCIA','TIPO DE REASEGURO', 'REASEGURO REPORTADO',
       'VALOR REASEGURO','TIPO DE COASEGURO','VALOR COASEGURO','TIPO DE MONEDA','VALOR DEL DOLAR',
@@ -255,9 +254,8 @@ class TypeProcess < ApplicationRecord
       self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.get_type_process,
       self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_active_part, self.get_passive_part,
       self.process_radicate, self.get_office_name, self.get_departament, self.get_city_case,
-      self.facts, self.get_litigation_source, self.get_sinisters, self.get_number, self.get_exercise,
-      self.get_branch_policy, self.get_branch_commercial, self.get_protection + self.get_more_protection, self.get_policies,
-      self.get_policy_taker, nilValue(self.ensurance_value_cents), nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents),
+      self.facts, self.get_litigation_source, self.get_sinisters, self.get_protection + self.get_more_protection, self.get_policies,
+      nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents),
       nilValue(self.provision_cents), nilValue(self.detritment_cents), nilValue(self.contingency_value_cents), self.get_score_contingency,
       self.contingency_reason, self.contingency_resume, self.get_reinsurance_type, self.get_reinsurance_report,
       nilValue(self.reinsurance_value_cents), self.get_coensurance_type, nilValue(self.coensurance_value_cents), self.get_money_type, nilValue(self.dolar_value_cents),
