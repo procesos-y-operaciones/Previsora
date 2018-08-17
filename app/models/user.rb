@@ -69,4 +69,24 @@ class User < ApplicationRecord
     User.order(:name).where(role: 1)
   end
 
+  def self.get_user_header
+    [
+      "IDENTIFICACION", "NOMBRE USUARIO", "ULTIMO INICIO SESION", "NUMERO DE SESIONES"
+    ]
+  end
+
+  def get_last_sign_in_at
+    if self.last_sign_in_at == nil
+      "NUNCA"
+    else
+      (self.last_sign_in_at - 5.hour).strftime("%d/%m/%Y %H:%M")
+    end
+  end
+
+  def get_user_content
+    [
+      self.document, self.name, self.get_last_sign_in_at, self.sign_in_count
+    ]
+  end
+
 end

@@ -1,0 +1,16 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Reporte RU Usuarios") do |sheet|
+
+  sheet.add_row ["LA PREVISORA SA COMPANIA DE SEGUROS"]
+  sheet.add_row ["VICEPRESIDENCIA JURIDICA"]
+  sheet.add_row ["REPORTE DE MOVIMIENTO DE USUARIOS"]
+  sheet.add_row [""]
+
+  sheet.add_row @users.get_user_header
+
+  @users.each do |u|
+    sheet.add_row u.get_user_content, :types => [:string]*@users.get_user_header.count
+  end
+
+end

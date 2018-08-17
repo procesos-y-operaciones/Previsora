@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'coordinator/capture'
   get 'coordinator/lists'
   get 'coordinator/download_file'
+  get 'coordinator/users'
   get "/edit/:id" => "coordinator#edit", as:'coordinator_edit'
   patch "/coordinator/:id(.:format)", :to => 'coordinator#update', :as => 'coordinator_update'
   delete "/coordinator/:id(.:format)", :to => 'coordinator#destroy', :as => 'coordinator_delete'

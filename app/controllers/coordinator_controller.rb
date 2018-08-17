@@ -132,6 +132,14 @@ class CoordinatorController < ApplicationController
     end
   end
 
+  def users
+    @users = User.get_sorted
+    respond_to do |format|
+      format.html
+      format.xlsx { response.headers['Content-Disposition'] = "attachment; filename=Usuarios#{Date.today.to_s}.xlsx" }
+    end
+  end
+
   protected
 
     def set_user
