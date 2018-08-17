@@ -71,7 +71,7 @@ class User < ApplicationRecord
 
   def self.get_user_header
     [
-      "IDENTIFICACION", "NOMBRE USUARIO", "ULTIMO INICIO SESION", "NUMERO DE SESIONES"
+      "ID", "DOCUMENTO", "NOMBRE USUARIO", "ULTIMO INICIO SESION", "NUMERO DE SESIONES"
     ]
   end
 
@@ -85,7 +85,7 @@ class User < ApplicationRecord
 
   def get_user_content
     [
-      self.document, self.name, self.get_last_sign_in_at, self.sign_in_count
+      self.id, self.document, self.name, self.get_last_sign_in_at, self.sign_in_count
     ]
   end
 
