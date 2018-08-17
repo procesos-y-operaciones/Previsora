@@ -270,8 +270,8 @@ class TypeProcess < ApplicationRecord
       'VALOR DEL COACTIVO',	'VALOR DEL EMBARGO', 'VALOR AUTORIZADO POR EL COMITE DE DEFENSA Y CONCILIACION',
       'VALOR CONCILIADO',	'TIENE COSTAS A FAVOR?','VALOR DE LAS COSTAS',
       'FECHA DE LA PRIMERA AUDIENCIA / DECISION / ACTUACION / ACTO ADMINISTRATIVO / FALLO',
-      'FECHA DE LA ULTIMA ACTUACION',	'ULTIMA ACTUALIZACION', 'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO',
-      'PROCEDE RECOBRO?'
+      'FECHA DE LA ULTIMA ACTUACION',	'ULTIMA ACTUACION', 'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO',
+      'PROCEDE RECOBRO?', 'ULTIMA ACTUALIZACION'
     ]
   end
 
@@ -288,7 +288,7 @@ class TypeProcess < ApplicationRecord
       nilValue(self.detritment_cents), nilValue(self.reserve_cents),
       nilValue(self.fail_value_cents), nilValue(self.fail_previ_cents), nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), nilValue(self.auth_value_cents),
       nilValue(self.reconcilie_value_cents), booleanValue(self.has_costs), nilValue(self.cost_value_cents),
-      format_date(self.desition_date), format_date(self.last_performance_date), self.get_last_performance,format_date(self.failed_notification_date), self.get_recovery
+      format_date(self.desition_date), format_date(self.last_performance_date), self.get_last_performance,format_date(self.failed_notification_date), self.get_recovery, self.updated_at.strftime("%d/%m/%Y %H:%M")
     ]
   end
 
