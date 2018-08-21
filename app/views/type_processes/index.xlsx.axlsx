@@ -8,10 +8,10 @@ wb.add_worksheet(name: "Reporte Registro Unico") do |sheet|
   sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
   sheet.add_row [""]
 
-  sheet.add_row TypeProcess.all.total_headers
+  sheet.add_row TypeProcess.get_all.total_headers
 
-  TypeProcess.all.each do |process|
-    sheet.add_row process.get_total_content, :types => [:string]*process.get_content_all.count
+  TypeProcess.get_all.each do |process|
+    sheet.add_row process.get_total_content, :types => [:string]*TypeProcess.get_all.total_headers.count
   end
 
 end

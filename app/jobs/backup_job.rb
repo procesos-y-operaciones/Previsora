@@ -15,18 +15,14 @@ class BackupJob < ApplicationJob
         sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
         sheet.add_row [""]
 
-        sheet.add_row TypeProcess.all.total_headers
+        sheet.add_row TypeProcess.get_all.total_headers
 
-        TypeProcess.all.each do |process|
+        TypeProcess.get_all.each do |process|
           sheet.add_row process.get_total_content, :types => [:string]*process.get_content_all.count
         end
       end
       p.serialize("#{Rails.root}/public/files/#{Time.now.to_s}.xlsx")
     end
-    #directory = Dir.glob("#{Rails.root}/public/files/")
-    #File.open(File.join(directory, Time.now.to_s + '.xls'), 'w') do |f|
-    #  f.puts TypeProcess.all.to_csv("01-01-1980", Time.now, col_sep: "\t")
-    #end
     puts "Reporte del #{Time.now} creado correctamente."
     self.class.set(wait: RUN_EVERY).perform_later
 

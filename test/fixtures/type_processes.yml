@@ -11,14 +11,11 @@
 #  case_id_ekogui                       :string           default("NO APLICA")
 #  process_radicate                     :string           default("NO APLICA")
 #  sinister                             :string           default("NO APLICA")
-#  attorny                              :integer          default(0)
 #  active_part                          :string           default("NO APLICA")
 #  passive_part                         :string           default("NO APLICA")
 #  contingency_reason                   :string           default("NO APLICA")
 #  contingency_resume                   :string           default("NO APLICA")
 #  coactive_radicate                    :string           default("NO APLICA")
-#  policies                             :string           default("NO APLICA")
-#  sinisters                            :string           default("NO APLICA")
 #  case_onbase                          :string           default("NO APLICA")
 #  tutelage_imp                         :string           default("NO APLICA")
 #  reason_conc                          :string           default("NO APLICA")
@@ -105,12 +102,15 @@
 #  state                                :string           default("REGISTRO NUEVO")
 #  document_active_part                 :string           default("NO APLICA")
 #  document_passive_part                :string           default("NO APLICA")
-#  reserve_cents_modify                 :bigint(8)
-#  reserve_cents_total                  :bigint(8)
+#  attorny                              :integer
+#  reserve_cents_modify                 :integer
+#  reserve_cents_total                  :integer
 #  reserve_cents_date                   :date
-#  reserved_fees_cents_modify           :bigint(8)
-#  reserved_fees_cents_total            :bigint(8)
+#  reserved_fees_cents_modify           :integer
+#  reserved_fees_cents_total            :integer
 #  reserved_fees_cents_date             :date
+#  internal_created                     :string
+#  internal_updated                     :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

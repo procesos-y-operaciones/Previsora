@@ -10,6 +10,8 @@ class IndexController < ApplicationController
       redirect_to index_asignator_path
     elsif @user.role == 4
       redirect_to index_administrator_path
+    elsif @user.role == 5
+      redirect_to index_secret_path
     end
   end
 
@@ -36,6 +38,13 @@ class IndexController < ApplicationController
 
   def administrator
     if current_user.role != 4
+      redirect_to root_path, alert: "No tienes acceso aquí."
+    end
+    @user = current_user
+  end
+
+  def secret
+    if current_user.role != 5
       redirect_to root_path, alert: "No tienes acceso aquí."
     end
     @user = current_user

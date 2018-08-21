@@ -31,5 +31,9 @@ class ProcessClass < ApplicationRecord
     ProcessClass.order(n_type: :desc, name: :asc).where(n_type: [5])
   end
 
+  def self.laboral
+    ProcessClass.where(name: 'JURISDICCION LABORAL')
+  end
+
 
 end

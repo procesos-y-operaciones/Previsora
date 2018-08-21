@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :fiscal
   resources :tutelage
   resources :administrative
+  resources :secrets
 
   get 'type_processes/capture/:id(.:format)', :to => 'type_processes#capture', :as => 'type_processes_capture'
   get 'type_processes/capture_edit/:id(.:format)', :to => 'type_processes#capture_edit', :as => 'type_processes_capture_edit'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get 'index/coordinator'
   get 'index/asignator'
   get 'index/administrator'
+  get 'index/secret'
 
   get 'lawyer/new'
   get 'lawyer/search'
