@@ -66,7 +66,7 @@
 
       <%= form.label :link_type, "Tipo de vinculación" %><span class="red">*</span>
       <div class="input-group">
-        <%= form.collection_select(:link_type, LinkType.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {required: true, class:"form-control"}) %>
+        <%= form.collection_select(:link_type, LinkType.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.link_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
