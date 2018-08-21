@@ -178,6 +178,10 @@ class TypeProcess < ApplicationRecord
     self.where.not(p_type: 6).order('created_at DESC')
   end
 
+  def self.get_laboral
+    self.where(p_type: 6).order('created_at DESC')
+  end
+
   def self.get_capture(month)
     self.where(id: Sinister.get_capture(month).pluck(:type_process_id))
     #self.where(p_type: [1,2,3,4])

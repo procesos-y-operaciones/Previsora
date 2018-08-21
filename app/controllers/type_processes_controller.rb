@@ -129,7 +129,7 @@ class TypeProcessesController < ApplicationController
   def destroy
     @type_process.destroy
     respond_to do |format|
-      format.html { redirect_to asignator_search_path, notice: 'Proceso borrado correctamente..' }
+      format.html { redirect_to asignator_search_path, notice: 'Proceso borrado correctamente.' }
       format.json { head :no_content }
     end
   end

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'asignator/search'
   get 'asignator/asignate'
   get 'asignator/report'
+  get 'asignator/capture'
   post 'asignator/translate', :to => 'asignator#translate', :as => 'asignator_translate'
 
   get 'administrator/search'
