@@ -1,4 +1,4 @@
-class LongUpdate < ActiveRecord::Migration[5.1]
+class UpdateBmru0141 < ActiveRecord::Migration[5.1]
 
   def change
 
