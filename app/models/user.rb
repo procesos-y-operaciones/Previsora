@@ -71,7 +71,7 @@ class User < ApplicationRecord
 
   def self.get_user_header
     [
-      "ID", "DOCUMENTO", "NOMBRE USUARIO", "ULTIMO INICIO SESION", "NUMERO DE SESIONES"
+      "ID", "DOCUMENTO", "NOMBRE USUARIO", "ULTIMO INICIO SESION", "NUMERO DE SESIONES", "JUDICIALES", "FISCALES", "ADMINISTRATIVOS"
     ]
   end
 
@@ -83,9 +83,21 @@ class User < ApplicationRecord
     end
   end
 
+  def get_judicial
+    self.type_processes.where(p_type: 2).count
+  end
+
+  def get_fiscal
+    self.type_processes.where(p_type: 3).count
+  end
+
+  def get_administrative
+    self.type_processes.where(p_type: 4).count
+  end
+
   def get_user_content
     [
-      self.id, self.document, self.name, self.get_last_sign_in_at, self.sign_in_count
+      self.id, self.document, self.name, self.get_last_sign_in_at, self.sign_in_count, self.get_judicial, self.get_fiscal, self.get_administrative
     ]
   end
 
