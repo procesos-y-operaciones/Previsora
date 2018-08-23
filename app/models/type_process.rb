@@ -313,7 +313,7 @@ class TypeProcess < ApplicationRecord
   end
 
   def get_type_process
-    if self.p_type == 1
+    if    self.p_type == 1
       "PROCESO PREJUDICIAL"
     elsif self.p_type == 2
       "PROCESO JUDICIAL"
@@ -323,6 +323,8 @@ class TypeProcess < ApplicationRecord
       "PROCEDIMIENTO ADMINISTRATIVO"
     elsif self.p_type == 5
       "TUTELA"
+    elsif self.p_type == 6
+      "PROCESO LABORAL"
     else
       "NO APLICA"
     end
@@ -414,7 +416,7 @@ class TypeProcess < ApplicationRecord
       "NO APLICA"
     else
       exercise = self.sinisters.pluck(:exercise)[0]
-      if exercise
+      if exercise == nil
         "NO PRESENTA"
       else
         exercise

@@ -4,6 +4,7 @@ User.create([
   {document: "1", name: "COORDINADOR OPERATIVO", charge: 'INGENIERO PYO', password: "CoordinadorOperativo2018", password_confirmation: "CoordinadorOperativo2018", role: 2},
   {document: "2", name: "COORDINADOR LEGAL", charge: 'INGENIERO PYO', password: "CoordinadorLegal2018", password_confirmation: "CoordinadorLegal2018", role: 3},
   {document: "3", name: "ADMINISTRADOR", charge: 'INGENIERO PYO', password: "Administrador2018", password_confirmation: "Administrador2018", role: 4},
+  {document: "5", name: "LABORAL", charge: 'LABORAL', password: "Laboral2018", password_confirmation: "Laboral2018", role: 5},
   {document: "1234", name: "JONATHAN PRIETO", charge: 'INGENIERO PYO', password: "JonathanP123", password_confirmation: "JonathanP123", role: 1},
   {document: '1020729468', name: 'NATALIA ALEJANDRA  MONCAYO RODRIGUEZ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'EO0wDxJX', password_confirmation: 'EO0wDxJX', role: 1},
   {document: '49797396', name: 'BETSABE  MANTILLA DIAZ', charge: 'PROFESIONAL SUBGERENCIA DE LITIGIOS', password: 'EGag5iL7', password_confirmation: 'EGag5iL7', role: 1},
