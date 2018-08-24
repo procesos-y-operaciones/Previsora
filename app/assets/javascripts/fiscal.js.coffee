@@ -143,11 +143,12 @@ $ ->
   #¿Tiene más pólizas?
   more_policies_rule = ->
     v_option = document.getElementById("more_policies").value
+    console.log v_option
     if v_option == "true"
       document.getElementById("policies").readOnly = false
     if v_option == "false"
       document.getElementById("policies").readOnly = true
-      $("#policies").val("PENDIENTE")
+      $("#policies").val("NO PRESENTA")
 
   $('#more_policies').change ->
     more_policies_rule()

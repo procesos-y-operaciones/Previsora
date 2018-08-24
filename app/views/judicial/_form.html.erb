@@ -150,7 +150,7 @@
 
       <%= form.label :has_more_polcies, "¿Tiene más pólizas?" %>
       <div class="input-group">
-        <%= form.select :has_more_polcies, options_for_select([["NO", false], ["SI", true]]), {}, {id: "more_policies", class:"form-control"} %>
+        <%= form.select :has_more_polcies, options_for_select([["NO", false], ["SI", true]], type_process.has_more_polcies), {}, {id: "more_policies", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

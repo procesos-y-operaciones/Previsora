@@ -203,7 +203,7 @@ $ ->
       document.getElementById("policies").readOnly = false
     if v_option == "false"
       document.getElementById("policies").readOnly = true
-      $("#policies").val("PENDIENTE")
+      $("#policies").val("NO PRESENTA")
 
   $('#more_policies').change ->
     more_policies_rule()
