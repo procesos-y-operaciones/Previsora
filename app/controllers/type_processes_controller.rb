@@ -43,6 +43,7 @@ class TypeProcessesController < ApplicationController
     @type_process = TypeProcess.new
     @type_process.creation_date = Date.today
     @type_process.internal_created = current_user.name
+    @type_process.user_id = current_user.id
   end
 
   # GET /type_processes/1/edit
