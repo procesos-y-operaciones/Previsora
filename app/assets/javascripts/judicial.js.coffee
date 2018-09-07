@@ -469,6 +469,9 @@ $ ->
   $('#cities').change ->
     offices_rule()
 
+  $('#office_type').change ->
+    offices_rule()
+
   $('#office_number').change ->
     offices_rule()
 

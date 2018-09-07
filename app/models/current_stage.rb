@@ -20,63 +20,63 @@ class CurrentStage < ApplicationRecord
   end
 
   def self.judicial_admin
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 3])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 3, 99])
   end
 
   def self.judicial_laboral
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 4])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 4, 99])
   end
 
   def self.judicial_penal
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 5])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 5, 99])
   end
 
   def self.judicial_arbitral
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 6])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 6, 99])
   end
 
   def self.judicial_verbal
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 7])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 7, 99])
   end
 
   def self.judicial_verbal_sum
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 8])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 8, 99])
   end
 
   def self.judicial_monitorio
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 9])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 9, 99])
   end
 
   def self.judicial_ejecutivo
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 10])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 10, 99])
   end
 
   def self.judicial_declarativos
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 8, 11])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 8, 11, 99])
   end
 
   def self.judicial_sucesion
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 12])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 12, 99])
   end
 
   def self.judicial_liquidacion
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 13])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 13, 99])
   end
 
   def self.judicial_insolvencia
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 14])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 14, 99])
   end
 
   def self.judicial_voluntaria
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 15])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 15, 99])
   end
 
   def self.judicial_ordinario
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 16])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 16, 99])
   end
 
   def self.judicial_divisorio
-    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 17])
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 17, 99])
   end
 
   def self.administrative
