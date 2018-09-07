@@ -441,20 +441,12 @@ $ ->
       $('#fail_value').prop('required', true)
       document.getElementById("fail_previ").readOnly = false
       $('#fail_previ').prop('required', true)
-      document.getElementById("payed_value").readOnly = false
-      $('#payed_value').prop('required', true)
-      document.getElementById("payment_date").readOnly = false
-      $('#payment_date').prop('required', true)
     else
       document.getElementById("fail_value").readOnly = true
       $('#fail_value').prop('required', false)
       document.getElementById("fail_previ").readOnly = true
       $('#fail_previ').prop('required', false)
-      document.getElementById("payed_value").readOnly = true
-      $('#payed_value').prop('required', false)
-      document.getElementById("payment_date").readOnly = true
-      $('#payment_date').prop('required', false)
-
+      
   $('#caseTermination').change ->
     case_termination_rule()
 
