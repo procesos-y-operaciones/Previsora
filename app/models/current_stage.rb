@@ -88,3 +88,6 @@ class CurrentStage < ApplicationRecord
   end
 
 end
+
+
+#<CurrentStage id: 63, name: "ADMISION DEMANDA DE CASACION", n_type: 4, created_at: "2018-09-07 20:28:13", updated_at: "2018-09-07 20:28:13">
