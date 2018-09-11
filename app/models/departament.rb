@@ -23,8 +23,4 @@ class Departament < ApplicationRecord
     Departament.where(name: "CUNDINAMARCA")
   end
 
-  def get_zone
-    if self
-  end
-
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180816150333) do
+ActiveRecord::Schema.define(version: 20180907212158) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -332,6 +332,7 @@ ActiveRecord::Schema.define(version: 20180816150333) do
     t.integer "reserved_fees_cents_modify", limit: 8
     t.integer "reserved_fees_cents_total", limit: 8
     t.date "reserved_fees_cents_date"
+    t.string "email"
     t.string "internal_created"
     t.string "internal_updated"
     t.index ["user_id"], name: "index_type_processes_on_user_id"

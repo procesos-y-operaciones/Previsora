@@ -117,7 +117,7 @@ class TypeProcess < ApplicationRecord
 
   validate :validate_ids, on: :create
   validate :update_ids, on: :edit
-  #validate :state_migrate, :update_ids, on: :update
+  validate :state_migrate, :update_ids, on: :update
 
   serialize :protection
 
