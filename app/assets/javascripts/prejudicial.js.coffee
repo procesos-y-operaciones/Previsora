@@ -163,9 +163,12 @@ $ ->
   join_committee_rule = ->
     v_option = document.getElementById("join_committee").value
     if v_option == "SI"
+      document.getElementById("committee_date").readOnly = false
       $('#committee').prop( "disabled", false )
       $('#committee_hid').prop( "disabled", true )
     else
+      document.getElementById("committee_date").readOnly = true
+      $('#committee_date').val("0-0-0")
       $('#committee').prop( "disabled", true )
       $('#committee_hid').prop( "disabled", false )
 

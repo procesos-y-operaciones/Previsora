@@ -183,7 +183,7 @@
 
       <%= form.label :attorny_date, "Fecha de asignación del apoderado de Previsora" %>
       <div class="input-group">
-        <%= form.date_field :attorny_date, class:"form-control" %>
+        <%= form.date_field :attorny_date, required:true, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -201,7 +201,7 @@
 
       <%= form.label :passive_part, "Parte pasiva" %>
       <div class="input-group">
-        <%= form.text_field :passive_part, id:"passive_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :passive_part, id:"passive_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", required:true, title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -273,6 +273,12 @@
       <div class="input-group">
         <%= form.collection_select(:join_committee, JoinCommittee.all, :name, :name, {}, {class:"form-control", id:"join_committee"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.join_committee_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :committee_date, "Fecha ingreso al Comité de Defensa y Conciliación" %>
+      <div class="input-group">
+        <%= form.date_field :committee_date,  id:"committee_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.committee_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :committee, "Decisión del Comité de Defensa y Conciliación" %>

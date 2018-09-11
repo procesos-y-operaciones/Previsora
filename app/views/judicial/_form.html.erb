@@ -237,7 +237,7 @@
 
       <%= form.label :notification_date, "Fecha de la notificación / vinculación" %>
       <div class="input-group">
-        <%= form.date_field :notification_date, min:"1980-1-1", max:Date.today, class:"form-control" %>
+        <%= form.date_field :notification_date, required:true, min:"1980-1-1", max:Date.today, class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
