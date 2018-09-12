@@ -84,7 +84,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :cities, "Ciudad donde cursa el caso" %>
+      <%= form.label :cities, "Ciudad donde cursa el caso" %> <span class="red">*</span>
       <div class="input-group">
         <select name="type_process[city_case]" id="cities" required=true class="form-control">
           <option value="" disabled selected>SELECCIONE</option>
@@ -259,7 +259,7 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :passive_part, "Parte pasiva" %>
+      <%= form.label :passive_part, "Parte pasiva" %> <span class="red">*</span>
       <div class="input-group">
         <%= form.text_field :passive_part, id:"passive_part", maxlength:"255", required:true, pattern:"[A-Z0-9\-\. ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
