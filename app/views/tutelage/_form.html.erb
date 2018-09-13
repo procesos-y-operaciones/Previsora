@@ -34,7 +34,7 @@
 
       <%= form.label :subprocess_class, "Subclase de Proceso" %> <span class="red">*</span>
       <div class="input-group">
-        <%= form.collection_select(:subprocess_class, SubprocessClass.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
+        <%= form.collection_select(:subprocess_class, SubprocessClass.tutelage, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -97,34 +97,48 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
-      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %> <span class="red">*</span>
+      <%= form.label :process_radicate, "Número de radicación del proceso - despacho" %>
       <div class="input-group">
-        <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {id: "office", required: true, class:"form-control"}) %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-      </div>
-      <div class="input-group">
-        <%= form.text_field :other_office_name, id:"office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", placeholder:'NOMBRE DEL DESPACHO', class:"form-control" %>
+        <%= form.text_field :process_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :departament, "Departamento donde cursa el caso" %> <span class="red">*</span>
-     <div class="input-group">
+      <div class="input-group">
        <%= form.collection_select(:departament, Departament.get_all, :code, :name, {include_blank: "SELECCIONE"}, {id:"departament", required:true, class:"form-control"}) %>
        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-     </div>
+      </div>
 
-     <%= form.label :cities, "Ciudad donde cursa el caso" %> <span class="red">*</span>
-     <div class="input-group">
+      <%= form.label :cities, "Ciudad donde cursa el caso" %> <span class="red">*</span>
+      <div class="input-group">
        <select name="type_process[city_case]" id="cities" required=true class="form-control">
          <option value="" disabled selected>SELECCIONE</option>
          <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
        </select>
        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-     </div>
+      </div>
 
-      <%= form.label :process_radicate, "Número de radicación del proceso - despacho" %>
+      <%= form.label :office_type, "Tipo de despacho" %>
       <div class="input-group">
-        <%= form.text_field :process_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
-        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+       <select id="office_type" class="form-control">
+         <option value="">TIPO DE DESPACHO</option>
+         <option value="CONSEJO">CONSEJO</option>
+         <option value="CORTE SUPREMA">CORTE SUPREMA</option>
+         <option value="DESPACHO">DESPACHO</option>
+         <option value="JUZGADO">JUZGADO</option>
+         <option value="SUPERINTENDENCIA">SUPERINTENDENCIA</option>
+       </select>
+       <input id="office_number" type="text" placeholder="NUMERO DEL DESPACHO" pattern="[0-9]*" title="Número de exactamente tres dígitos" class="form-control" />
+       <span data-toggle="tooltip" data-html="true" title="Filtros para la búsqueda de despachos (estos campos no se guardan)" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %><span class="red">*</span>
+      <div class="input-group">
+       <select name="type_process[office_name]" id="office" class="form-control" required="true">
+         <option value="">SELECCIONE</option>
+         <option value="<%= type_process.office_name %>" selected="selected"><%= type_process.office_name %></option>
+       </select>
+       <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :answer_date, "Fecha de contestación de la Tutela" %>

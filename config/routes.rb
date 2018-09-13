@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get 'administrator/report'
 
   get 'cities/:state', to: 'application#cities'
+  get 'offices', to: 'application#offices'
 
   root :to => 'index#home'
 

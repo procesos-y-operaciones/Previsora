@@ -38,8 +38,6 @@ $ ->
       $('#more_protections').val("NO PRESENTA")
     if $('#coactive_radicate').val() == "NO APLICA"
       $('#coactive_radicate').val("PENDIENTE")
-    if $('#office_text').val() == "NO APLICA"
-      $('#office_text').val("PENDIENTE")
     if $('#document_active_part').val() == "NO APLICA"
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
@@ -48,6 +46,8 @@ $ ->
       $('#departament').val("")
     if $('#cities').val() == "000"
       $('#cities').val("")
+    if $('#office').val() == "NO APLICA"
+      $('#office').val("")
     if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO" || $('#state_val').val() == "REGISTRO MIGRADO SOBRESCRITO"
       $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
     if $('#state_val').val() == "REGISTRO NUEVO"
@@ -370,23 +370,6 @@ $ ->
 
   money_type_rule()
 
-
-  #Nombre despacho / tipo contraloría
-  office_rule = ->
-    v_option = document.getElementById('office').value
-    if v_option == 'OTRO'
-      $('#office_text').prop( "disabled", false )
-      $('#office_text').show()
-    else
-      $('#office_text').prop( "disabled", true )
-      $('#office_text').hide()
-
-  $('#office').change ->
-    office_rule()
-
-  office_rule()
-
-
   #Estado del caso
   case_state_rule = ->
     v_option = document.getElementById("caseState").value
@@ -446,7 +429,7 @@ $ ->
       $('#fail_value').prop('required', false)
       document.getElementById("fail_previ").readOnly = true
       $('#fail_previ').prop('required', false)
-      
+
   $('#caseTermination').change ->
     case_termination_rule()
 
@@ -626,5 +609,35 @@ $ ->
 
   $('#departament').change ->
     departament_rule()
+
+  departament_rule()
+
+  #Offices Rule
+  offices_rule = ->
+    param1 = $('#departament').find('option:selected').text()
+    param2 = $('#cities').find('option:selected').text()
+    param3 = $('#office_type').val()
+    param4 = $('#office_number').val()
+
+    console.log ('/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4)
+    $.getJSON '/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4, (data) ->
+      $('#office').empty()
+      $('#office').append('<option value="">SELECCIONE</option>')
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].name + '">' + data[i].name + '</option>'
+        $('#office').append(opt)
+
+  $('#departament').change ->
+    departament_rule()
+    offices_rule()
+
+  $('#cities').change ->
+    offices_rule()
+
+  $('#office_type').change ->
+    offices_rule()
+
+  $('#office_number').change ->
+    offices_rule()
 
   departament_rule()

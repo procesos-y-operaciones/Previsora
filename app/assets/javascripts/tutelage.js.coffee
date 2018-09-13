@@ -26,8 +26,6 @@ $ ->
       $('#passive_part').val("PENDIENTE")
     if $('#objecter').val() == "NO APLICA"
       $('#objecter').val("PENDIENTE")
-    if $('#office_text').val() == "NO APLICA"
-      $('#office_text').val("PENDIENTE")
     if $('#document_active_part').val() == "NO APLICA"
       $('#document_active_part').val("PENDIENTE")
     if $('#document_passive_part').val() == "NO APLICA"
@@ -56,22 +54,6 @@ $ ->
     radicate_rule()
 
   radicate_rule()
-
-
-  #Nombre despacho / tipo contraloría
-  office_rule = ->
-    v_option = document.getElementById('office').value
-    if v_option == 'OTRO'
-      $('#office_text').prop( "disabled", false )
-      $('#office_text').show()
-    else
-      $('#office_text').prop( "disabled", true )
-      $('#office_text').hide()
-
-  $('#office').change ->
-    office_rule()
-
-  office_rule()
 
   objection_rule = ->
     v_option = document.getElementById('objection').value
@@ -164,5 +146,35 @@ $ ->
 
   $('#departament').change ->
     departament_rule()
+
+  departament_rule()
+
+  #Offices Rule
+  offices_rule = ->
+    param1 = $('#departament').find('option:selected').text()
+    param2 = $('#cities').find('option:selected').text()
+    param3 = $('#office_type').val()
+    param4 = $('#office_number').val()
+
+    console.log ('/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4)
+    $.getJSON '/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4, (data) ->
+      $('#office').empty()
+      $('#office').append('<option value="">SELECCIONE</option>')
+      $.each data, (i) ->
+        opt = '<option value="' + data[i].name + '">' + data[i].name + '</option>'
+        $('#office').append(opt)
+
+  $('#departament').change ->
+    departament_rule()
+    offices_rule()
+
+  $('#cities').change ->
+    offices_rule()
+
+  $('#office_type').change ->
+    offices_rule()
+
+  $('#office_number').change ->
+    offices_rule()
 
   departament_rule()
