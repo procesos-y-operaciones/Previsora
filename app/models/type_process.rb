@@ -152,22 +152,22 @@ class TypeProcess < ApplicationRecord
 
   def update_ids
     if TypeProcess.where(:case_id_bap => case_id_bap)[0] != nil
-      if case_id_bap != "" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
+      if case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap)[0].id != id
         errors.add("Número de identificación del caso (Bizagi, Access y PA)", " ya existe")
       end
     end
     if TypeProcess.where(:case_id_sise => case_id_sise)[0] != nil
-      if case_id_sise != "" && case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise)[0].id != id
+      if case_id_sise != "NO PRESENTA" && case_id_sise != "NO APLICA" && case_id_sise != "PENDIENTE" && TypeProcess.where(:case_id_sise => case_id_sise)[0].id != id
         errors.add("Número de identificación del caso sise", " ya existe")
       end
     end
     if TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0] != nil
-      if case_id_ekogui != "" && case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
+      if case_id_ekogui != "NO PRESENTA" && case_id_ekogui != "NO APLICA" && case_id_ekogui != "PENDIENTE" && TypeProcess.where(:case_id_ekogui => case_id_ekogui)[0].id != id
         errors.add("Número de identificación del caso e-kogui", " ya existe")
       end
     end
     if TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0] != nil
-      if correspondency_radicate != "" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
+      if correspondency_radicate != "NO PRESENTA" && correspondency_radicate != "NO APLICA" && correspondency_radicate != "PENDIENTE" && TypeProcess.where(:correspondency_radicate => correspondency_radicate)[0].id == id
         errors.add("Número de correspondencia", " ya existe")
       end
     end

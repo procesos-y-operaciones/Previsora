@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180913210057) do
+ActiveRecord::Schema.define(version: 20180913224546) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -334,6 +334,7 @@ ActiveRecord::Schema.define(version: 20180913210057) do
     t.date "reserved_fees_cents_date"
     t.string "internal_created"
     t.string "internal_updated"
+    t.string "observations"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 
