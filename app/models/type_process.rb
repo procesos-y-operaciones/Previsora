@@ -207,7 +207,7 @@ class TypeProcess < ApplicationRecord
       'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO', 'FECHA INGRESO AL COMITE DE DEFENSA Y CONCILIACION',	'FECHA DE NOTIFICACION DEL INCIDENTE DEL DESACATO',
       'FECHA DE CONTESTACION DEL INCIDENTE DE DESACATO', 'FECHA NOTIFICACION DE DECISION DEL INCIDENTE DE DESACATO', 'REASEGURO REPORTADO',
       'PROCEDE RECOBRO?',	'TIENE NUMERO DE RADICADO DE CORRESPONDENCIA / VICEPRESIDENCIA?',	'TIENE MAS POLIZAS?',	'TIENE COSTAS A FAVOR?',	'TIENE NUMERO DE RADICADO DE COACTIVO?',
-      'HAY IMPUGNACION?',	'HAY DESACATO?', 'OTRO DESPACHO', 'ZONA', 'ULTIMA ACTUALIZACION'
+      'HAY IMPUGNACION?',	'HAY DESACATO?', 'OTRO DESPACHO', 'ZONA', 'ULTIMA ACTUALIZACION', 'OBSERVACIONES'
     ]
   end
 
@@ -223,7 +223,7 @@ class TypeProcess < ApplicationRecord
       nilValue(self.reconcilie_value_cents), nilValue(self.cost_value_cents), self.creation_date, format_date(self.notification_date), format_date(self.attorny_date), format_date(self.failed_notification_date), format_date(self.answer_date), format_date(self.objection_date_desition),
       format_date(self.date_notification_desition_desacate), format_date(self.payment_date), format_date(self.imp_date),format_date(self.last_performance_date), format_date(self.desition_date), format_date(self.committee_date), format_date(self.date_notification_desacate),
       format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
-      booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.get_zone, self.updated_at.strftime("%d/%m/%Y %H:%M")
+      booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.get_zone, self.updated_at.strftime("%d/%m/%Y %H:%M"), self.observations
     ]
   end
 
@@ -247,7 +247,7 @@ class TypeProcess < ApplicationRecord
       'FECHA DE CONTESTACION TUTELA','FECHA NOTIFICACION DECISION O FALLO', 'FECHA NOTIFICACION IMPUGNACION',
       'IMPUGNANTE','FECHA DECISION IMPUGNACION', 'FECHA DE NOTIFICACION DECISION IMPUGNACION', 'TIPO DE DECISION IMPUGNACION',
       'FECHA NOTIFICACION INCIDENTE DESACATO', 'FECHA DE CONTESTACION INCIDENTE DESACATO','FECHA NOTIFICACION DECISION INDIDENTE DESACATO',
-      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION', 'ZONA', 'ESTADO DE REGISTRO'
+      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION', 'ZONA', 'ESTADO DE REGISTRO', 'ULTIMA ACTUALIZACION', 'OBSERVACIONES'
     ]
   end
 
@@ -271,7 +271,7 @@ class TypeProcess < ApplicationRecord
       format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
       self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
       format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
-      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state
+      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, self.updated_at.strftime("%d/%m/%Y %H:%M"), self.observations
     ]
   end
 
