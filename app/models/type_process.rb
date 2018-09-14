@@ -223,7 +223,7 @@ class TypeProcess < ApplicationRecord
       nilValue(self.reconcilie_value_cents), nilValue(self.cost_value_cents), self.creation_date, format_date(self.notification_date), format_date(self.attorny_date), format_date(self.failed_notification_date), format_date(self.answer_date), format_date(self.objection_date_desition),
       format_date(self.date_notification_desition_desacate), format_date(self.payment_date), format_date(self.imp_date),format_date(self.last_performance_date), format_date(self.desition_date), format_date(self.committee_date), format_date(self.date_notification_desacate),
       format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
-      booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.get_zone, self.updated_at.strftime("%d/%m/%Y %H:%M"), self.observations
+      booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.get_zone, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations
     ]
   end
 
@@ -271,7 +271,7 @@ class TypeProcess < ApplicationRecord
       format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
       self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
       format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
-      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, self.updated_at.strftime("%d/%m/%Y %H:%M"), self.observations
+      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations
     ]
   end
 
