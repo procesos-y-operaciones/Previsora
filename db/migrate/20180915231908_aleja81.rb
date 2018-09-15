@@ -720,7 +720,6 @@ class Aleja81 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(19964).update(id: 19964,observations: 'Registro Duplicado',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(19970).update(id: 19970,observations: 'Registro Duplicado',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20034).update(id: 20034,observations: 'Registro Duplicado',state: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20045).update(id: 20045,observations: 'Registro Duplicado',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(22).update(id: 22,observations: 'Registro que no corresponde a Apoderado',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(32).update(id: 32,observations: 'Registro que no corresponde a Apoderado',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(35).update(id: 35,observations: 'Registro que no corresponde a Apoderado',state: 'REGISTRO MIGRADO SOBRESCRITO')
