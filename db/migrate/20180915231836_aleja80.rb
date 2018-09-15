@@ -97,7 +97,6 @@ class Aleja80 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(2138).update(id: 2138,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(2139).update(id: 2139,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(2140).update(id: 2140,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(2142).update(id: 2142,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(2154).update(id: 2154,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(2156).update(id: 2156,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(2168).update(id: 2168,case_state: 'TERMINADO',state: 'REGISTRO MIGRADO SOBRESCRITO')
