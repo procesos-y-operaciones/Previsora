@@ -103,6 +103,8 @@ $ ->
     $('#judicial_ordinario').hide()
     $('#judicial_divisorio').prop( 'disabled', true )
     $('#judicial_divisorio').hide()
+    $('#judicial_verbalcgp').prop( "disabled", true )
+    $('#judicial_verbalcgp').hide()
 
   process_class_rule = ->
     hide_all_subprocess()
