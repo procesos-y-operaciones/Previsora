@@ -2,7 +2,7 @@ class DepartamentsController < ApplicationController
   before_action :set_departament, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = Departament.all.ransack(params[:q])
+    @search = Departament.get_all.ransack(params[:q])
     @departaments = @search.result.paginate(page: params[:page], per_page: 10)
     if params[:page] == nil
       @page = 0

@@ -1,10 +1,10 @@
-<%= form_with(model: office_name, local: true) do |form| %>
-  <% if office_name.errors.any? %>
+<%= form_with(model: city_case, local: true) do |form| %>
+  <% if city_case.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(office_name.errors.count, "error") %> prohibited this office_name from being saved:</h2>
+      <h2><%= pluralize(city_case.errors.count, "error") %> prohibited this city_case from being saved:</h2>
 
       <ul>
-      <% office_name.errors.full_messages.each do |message| %>
+      <% city_case.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,14 +14,19 @@
   <div class="row">
     <div class="offset-lg-2 col-lg-8 ">
 
-        <%= form.label :code, "Código Despacho" %>
+        <%= form.label :code, "Código Ciudad / Municipio" %>
         <div class="input-group">
           <%= form.text_field :code, placeholder:"Número", class:"form-control" %>
         </div>
 
-        <%= form.label :name, "Nombre del despacho o contraloría" %>
+        <%= form.label :name, "Nombre Ciudad / Municipio" %>
         <div class="input-group">
           <%= form.text_field :name, placeholder: "Nombre completo", class:"form-control" %>
+        </div>
+
+        <%= form.label :departament, "Departamento" %>
+        <div class="input-group">
+          <%= form.collection_select(:departament, Departament.get_all, :code, :name, {include_blank: "SELECCIONE"}, {class:"form-control"}) %>
         </div>
 
     </div>
