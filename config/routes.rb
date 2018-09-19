@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :sinisters
   resources :attornies
+  resources :office_names
 
   devise_for :users, controllers: { :registrations => "users/registrations" }
 
