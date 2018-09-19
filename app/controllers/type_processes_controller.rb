@@ -73,7 +73,7 @@ class TypeProcessesController < ApplicationController
     respond_to do |format|
       if @type_process.save
         format.html {
-          if @type_process.state == "REGISTRO NUEVO MODIFICADO CAPTURE"
+          if @type_process.state == "REGISTRO MODIFICADO CAPTURE"
             redirect_to type_processes_capture_path(@type_process), notice: 'Proceso creado correctamente.'
           else
             redirect_to index_home_path, notice: 'Proceso creado correctamente.'
