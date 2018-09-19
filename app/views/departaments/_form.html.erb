@@ -1,0 +1,31 @@
+<%= form_with(model: departament, local: true) do |form| %>
+  <% if departament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(departament.errors.count, "error") %> prohibited this departament from being saved:</h2>
+
+      <ul>
+      <% departament.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8 ">
+
+        <%= form.label :code, "Código Despacho" %>
+        <div class="input-group">
+          <%= form.text_field :code, placeholder:"Número", class:"form-control" %>
+        </div>
+
+        <%= form.label :name, "Nombre del despacho o contraloría" %>
+        <div class="input-group">
+          <%= form.text_field :name, placeholder: "Nombre completo", class:"form-control" %>
+        </div>
+
+    </div>
+  </div>
+
+  <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
+<% end %>

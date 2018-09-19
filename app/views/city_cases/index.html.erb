@@ -1,0 +1,59 @@
+<h3 class="title">Despachos y Contralorías</h3>
+
+<%= search_form_for @search, url: office_names_url do |f| %>
+  <div class="row">
+    <div class="offset-md-1 col-md-3">
+      <%= f.text_field :code_cont, placeholder:"Código", class:"form-control" %>
+    </div>
+    <div class="offset-md-1 col-md-3">
+      <%= f.text_field :name_cont, placeholder:"Nombre", class:"form-control" %>
+    </div>
+    <div class="offset-md-1 col-md-3">
+      <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
+        <span class="fa fa-search"></span>
+      <% end %>
+      <%= link_to new_office_name_path, class:"offset-md-6 minibtn btn-default m-1" do %>
+        <span class="fa fa-plus"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<br />
+
+<div class="container-fluid p-30">
+  <table class="table table-responsive-sm">
+    <thead class="darkgreen">
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th></th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+  <tbody>
+    <tbody>
+      <% @office_names.each do |office| %>
+        <tr>
+          <td><%= office.code %></td>
+          <td><%= office.name %></td>
+          <td></td>
+          <td><%= link_to 'Editar', edit_office_name_path(office) %></td>
+          <td><%= link_to 'Borrar', office, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </tbody>
+</table>
+
+<hr />
+
+<br>
+<div class="floatRight">
+  <%= will_paginate @office_names, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, class:"pagination-lg" %>
+</div>
+
+<br>
+
+<%= link_to 'Volver', coordinator_lists_path, class:"btn btn-default" %>

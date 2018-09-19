@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :sinisters
   resources :attornies
   resources :office_names
+  resources :departaments
+  resources :city_cases
 
   devise_for :users, controllers: { :registrations => "users/registrations" }
 
