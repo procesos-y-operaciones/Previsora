@@ -87,6 +87,10 @@ class CurrentStage < ApplicationRecord
     CurrentStage.order(n_type: :desc, name: :asc).where(n_type: 19)
   end
 
+  def self.judicial_verbalcgp
+    CurrentStage.order(n_type: :desc, name: :asc).where(n_type: [0, 20, 99])
+  end
+
 end
 
 

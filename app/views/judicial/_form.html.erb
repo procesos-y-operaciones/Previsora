@@ -89,7 +89,7 @@
        <select id="office_type" class="form-control">
          <option value="">SELECCIONE</option>
          <option value="CONSEJO">CONSEJO</option>
-         <option value="CORTE SUPREMA">CORTE SUPREMA</option>         
+         <option value="CORTE SUPREMA">CORTE SUPREMA</option>
          <option value="DESPACHO">DESPACHO</option>
          <option value="JUZGADO">JUZGADO</option>
        </select>
@@ -230,6 +230,7 @@
         <%= form.collection_select(:current_stage, CurrentStage.judicial_verbal, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_verbal", class:"form-control"}) %>
         <%= form.collection_select(:current_stage, CurrentStage.judicial_verbal_sum, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_verbal_sum", class:"form-control"}) %>
         <%= form.collection_select(:current_stage, CurrentStage.judicial_monitorio, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_monitorio", class:"form-control"}) %>
+        <%= form.collection_select(:current_stage, CurrentStage.judicial_verbalcgp, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_verbalcgp", class:"form-control"}) %>
         <%= form.collection_select(:current_stage, CurrentStage.judicial_ejecutivo, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_ejecutivo", class:"form-control"}) %>
         <%= form.collection_select(:current_stage, CurrentStage.judicial_declarativos, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_declarativos", class:"form-control"}) %>
         <%= form.collection_select(:current_stage, CurrentStage.judicial_sucesion, :name, :name, {include_blank: 'SELECCIONE'}, {id:"judicial_sucesion", class:"form-control"}) %>

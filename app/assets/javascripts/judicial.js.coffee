@@ -209,6 +209,10 @@ $ ->
         $('#currentStageDiv').show()
         $('#judicial_voluntaria').prop( "disabled", false )
         $('#judicial_voluntaria').show()
+      when "VERBAL CGP"
+        $('#currentStageDiv').show()
+        $('#judicial_verbalcgp').prop( "disabled", false )
+        $('#judicial_verbalcgp').show()
 
   $('#subprocessCivil').change ->
     subprocess_civil_rule()
