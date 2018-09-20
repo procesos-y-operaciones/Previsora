@@ -20789,7 +20789,7 @@ class Aleja01 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(19970).update(case_state: 'NO PRESENTA')
     puts TypeProcess.find(19976).update(case_state: 'NO PRESENTA')
     puts TypeProcess.find(20034).update(case_state: 'NO PRESENTA')
-    puts TypeProcess.find(20045).update(case_state: 'NO PRESENTA')
+    #puts TypeProcess.find(20045).update(case_state: 'NO PRESENTA')
     puts TypeProcess.find(20092).update(case_state: 'NO PRESENTA')
   end
 end
