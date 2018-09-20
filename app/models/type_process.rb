@@ -277,7 +277,7 @@ class TypeProcess < ApplicationRecord
 
   def self.capture_names
     [
-      'IDENTIFICADOR', 'IDENTIFICACION ABOGADO INTERNO', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
+      'IDENTIFICADOR', 'ABOGADO INTERNO', 'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'ASEGURADO',
       'TIPO DE PROCESO', 'SINIESTRO', 'EJERCICIO', 'SUCURSAL DE LA POLIZA', 'RAMO COMERCIAL', 'VALOR RESERVA HONORARIOS',
       'VALOR MODIFICACION HONORARIOS', 'VALOR TOTAL HONORARIOS', 'FECHA MODIFICACION HONORARIOS', 'VALOR RESERVA INDEMNIZACION',
       'VALOR MODIFICACION INDEMNIZACION', 'VALOR TOTAL INDEMNIZACION', 'FECHA MODIFICACION INDEMNIZACION'
@@ -288,7 +288,7 @@ class TypeProcess < ApplicationRecord
     r = []
     self.sinisters.each do |s|
       r << [
-        self.id, self.user_id, self.get_user, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
+        self.id, s.internal_lawyer, self.get_case_id_bap, self.get_case_id_sise, self.policy_taker,
         self.get_type_process, s.number, s.exercise, s.get_branch_policy, s.get_branch_commercial, numberValue(s.reserved_fees_cents),
         numberValue(s.reserved_fees_cents_modify), numberValue(s.reserved_fees_cents_total), format_date(s.reserved_fees_cents_date), numberValue(s.reserve_cents),
         numberValue(s.reserve_cents_modify), numberValue(s.reserve_cents_total), format_date(s.reserve_cents_date)
