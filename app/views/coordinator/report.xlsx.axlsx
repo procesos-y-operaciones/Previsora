@@ -12,7 +12,7 @@ wb.add_worksheet(name: "Reporte Registro Unico") do |sheet|
   sheet.add_row @report.column_names_all
 
   @report.each do |process|
-    sheet.add_row process.get_content_all, :types => [:string]*process.get_content_all.count
+    sheet.add_row TypeProcess.find(process.id).get_content_all, :types => [:string]*TypeProcess.find(process.id).get_content_all.count
   end
 
 end
