@@ -174,8 +174,12 @@ class TypeProcess < ApplicationRecord
   end
 
   def self.get_all
-    #self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :departament, :city_case, :created_at).order('created_at DESC')
-    self.where.not(p_type: 6).order('created_at DESC')
+    self.select(
+      :id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :user_id,
+      :internal_lawyer, :departament, :city_case, :created_at, :office_name, :process_radicate,
+      :active_part, :passive_part, :case_state, :case_termination, :creation_date, :desition_date, :last_performance_date
+    ).where.not(p_type: 6).order('created_at DESC')
+    #self.where.not(p_type: 6).order('created_at DESC')
   end
 
   def self.get_laboral
