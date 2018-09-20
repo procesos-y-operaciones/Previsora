@@ -8,10 +8,25 @@
   <div class="row">
     <div class="col-md-4">
       <div class="styled-select">
+        <select id="date_month" name="date[month]">
+          <option value="0">GENERAL</option>
+          <option value="1">ENERO</option>
+          <option value="2">FEBRERO</option>
+          <option value="3">MARZO</option>
+          <option value="4">ABRIL</option>
+          <option value="5">MAYO</option>
+          <option value="6">JUNIO</option>
+          <option value="7">JULIO</option>
+          <option value="8">AGOSTO</option>
+          <option value="9">SEPTIEMBRE</option>
+          <option value="10">OCTUBRE</option>
+          <option value="11">NOVIEMBRE</option>
+          <option value="12">DICIEMBRE</option>
+        </select>
         <%= select_month(@month, field_name: "month") %>
       </div>
     </div>
-    <div class="offset-md-1 col-md-4">
+    <div class="col-md-4">
       <div class="styled-select">
         <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {} %>
       </div>
