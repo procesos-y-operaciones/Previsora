@@ -171,8 +171,8 @@ class TypeProcessesController < ApplicationController
        :provision_cents, :cost_value_cents, :committee_date, :reconcilie_value_cents,
        :recovery, :answer_date, :failed_notification_date, :imp_date, :objection_date_desition,
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
-       :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total,
-       :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date,
+       :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total, :has_costs, :has_coactive_radicate,
+       :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date, :has_impug, :has_desacate,
        :state, :has_correspondency_radicate, :document_active_part, :document_passive_part, :internal_created, :internal_updated,
        sinisters_attributes: Sinister.attribute_names.map(&:to_sym).push(:_destroy),
        policies_attributes: Policy.attribute_names.map(&:to_sym).push(:_destroy)

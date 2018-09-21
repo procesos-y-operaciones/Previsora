@@ -49,7 +49,7 @@
 
       <%= form.label :has_correspondency_radicate, "¿Tiene número de radicado de Correspondencia / Vicepresidencia?" %>
       <div class="input-group">
-        <%= form.select :has_correspondency_radicate, options_for_select([["NO", false], ["SI", true]]), {}, {id: "radicate", class:"form-control"} %>
+        <%= form.select :has_correspondency_radicate, [["NO", false], ["SI", true]], {}, {id: "radicate", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -99,7 +99,7 @@
 
       <%= form.label :process_radicate, "Número de radicación del proceso - despacho" %>
       <div class="input-group">
-        <%= form.text_field :process_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <%= form.text_field :process_radicate, minlength:"23", maxlength:"23", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -175,7 +175,7 @@
 
       <%= form.label :has_impug, "¿Hay impugnación?" %>
       <div class="input-group">
-        <%= form.select :has_impug, options_for_select([["NO", false], ["SI", true]]), {}, {id: "objection", class:"form-control"} %>
+        <%= form.select :has_impug, [["NO", false], ["SI", true]], {}, {id: "objection", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.objection_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -213,7 +213,7 @@
 
       <%= form.label :has_desacate, "¿Hay desacato?" %>
       <div class="input-group">
-        <%= form.select :has_desacate, options_for_select([["NO", false], ["SI", true]]), {}, {id: "desacate", class:"form-control"} %>
+        <%= form.select :has_desacate, [["NO", false], ["SI", true]], {}, {id: "desacate", class:"form-control"} %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.desacate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 

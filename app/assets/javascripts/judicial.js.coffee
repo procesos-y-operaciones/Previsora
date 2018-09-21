@@ -247,7 +247,7 @@ $ ->
 
   #¿Tiene número de radicado correspondencia?
   radicate_rule = ->
-    v_option = document.getElementById("radicate").value
+    v_option = $("#radicate").val()
     if v_option == "true"
       document.getElementById("correspondency_radicate").readOnly = false
     if v_option == "false"
@@ -487,10 +487,8 @@ $ ->
   committee_date_rule = ->
     v_option = document.getElementById("committee_date").value
     a = new Date(v_option)
-    if a.getTime() > (new Date).getTime()
+    if a.getTime() < (new Date).getTime()
       $('#committee').val("PENDIENTE")
-    else
-      $('#committee').val("")
 
   $('#committee_date').change ->
     committee_date_rule()
