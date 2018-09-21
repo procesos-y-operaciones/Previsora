@@ -44,10 +44,6 @@ $ ->
       $('#departament').val("")
     if $('#cities').val() == "000"
       $('#cities').val("")
-    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO" || $('#state_val').val() == "REGISTRO MIGRADO SOBRESCRITO"
-      $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
-    if $('#state_val').val() == "REGISTRO NUEVO"
-      $('#state_val').val("REGISTRO NUEVO ACTUALIZADO")
 
   initial_values()
 
@@ -226,16 +222,6 @@ $ ->
     committee_rule()
 
   committee_rule()
-
-  #State value
-  state_value = ->
-    value = $('#state_val').val()
-    if(value) == "REGISTRO NUEVO"
-      $('#state_val').val("REGISTRO NUEVO ACTUALIZADO")
-    if(value) == "REGISTRO MIGRADO"
-      $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
-
-  state_value()
 
   #Departamento donde cursa el caso
   departament_rule = ->

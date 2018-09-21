@@ -21,6 +21,7 @@
         <%= form.hidden_field :p_type, :value => 2 %>
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
+        <%= form.hidden_field :internal_created %>
         <%= form.hidden_field :state, id:"state_val" %>
       <% end %>
 

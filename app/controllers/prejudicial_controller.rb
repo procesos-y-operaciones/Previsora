@@ -8,6 +8,7 @@ class PrejudicialController < ApplicationController
   def new
     @prejudicial = TypeProcess.new
     @prejudicial.creation_date = Date.today
+    @prejudicial.internal_created = current_user.name
   end
 
   def edit
