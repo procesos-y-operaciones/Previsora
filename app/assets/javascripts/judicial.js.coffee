@@ -48,10 +48,6 @@ $ ->
       $('#cities').val("")
     if $('#office').val() == "NO APLICA"
       $('#office').val("")
-    if $('#state_val').val() == "REGISTRO MIGRADO" || $('#state_val').val() == "REGISTRO MIGRADO MODIFICADO" || $('#state_val').val() == "REGISTRO MIGRADO SOBRESCRITO"
-      $('#state_val').val("REGISTRO MIGRADO ACTUALIZADO")
-    if $('#state_val').val() == "REGISTRO NUEVO"
-      $('#state_val').val("REGISTRO NUEVO ACTUALIZADO")
 
   initial_values()
 
