@@ -8,6 +8,7 @@ class AdministrativeController < ApplicationController
   def new
     @administrative = TypeProcess.new
     @administrative.creation_date = Date.today
+    @administrative.internal_created = current_user.name
   end
 
   def create
