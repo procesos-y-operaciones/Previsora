@@ -95,10 +95,14 @@ class CoordinatorController < ApplicationController
       @date_till = params[:q]["creation_date_lteq"]
     end
 
+    @report_type = params[:q].nil? ? "" : params[:q]["p_type_eq"]
+
     respond_to do |format|
       format.html
       format.csv { send_data @report.to_csv }
-      format.xlsx { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xlsx" }
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xlsx"
+      }
     end
   end
 

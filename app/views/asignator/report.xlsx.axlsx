@@ -9,11 +9,43 @@ wb.add_worksheet(name: "Reporte Registro Unico") do |sheet|
   sheet.add_row ["DESDE: #{@date_from} HASTA: #{@date_till}"]
   sheet.add_row [""]
 
-  sheet.add_row @report.column_names_all
-  n = @report.column_names_all.count
-
-  @report.each do |process|
-    sheet.add_row TypeProcess.find(process.id).get_content_all, :types => [:string] * n
+  case @report_type
+  when "1"
+    n = @report.prejudicial_header.count
+    sheet.add_row @report.prejudicial_header
+    @report.each do |process|
+      sheet.add_row TypeProcess.find(process.id).prejudicial_content, :types => [:string] * n
+    end
+  when "2"
+    n = @report.judicial_header.count
+    sheet.add_row @report.judicial_header
+    @report.each do |process|
+      sheet.add_row TypeProcess.find(process.id).judicial_content, :types => [:string] * n
+    end
+  when "3"
+    n = @report.fiscal_header.count
+    sheet.add_row @report.fiscal_header
+    @report.each do |process|
+      sheet.add_row TypeProcess.find(process.id).fiscal_content, :types => [:string] * n
+    end
+  when "4"
+    n = @report.administrative_header.count
+    sheet.add_row @report.administrative_header
+    @report.each do |process|
+      sheet.add_row TypeProcess.find(process.id).administrative_content, :types => [:string] * n
+    end
+  when "5"
+    n = @report.tutelage_header.count
+    sheet.add_row @report.tutelage_header
+    @report.each do |process|
+      sheet.add_row TypeProcess.find(process.id).tutelage_content, :types => [:string] * n
+    end
+  else
+    n = @report.column_names_all.count
+    sheet.add_row @report.column_names_all
+    @report.each do |process|
+      sheet.add_row TypeProcess.find(process.id).get_content_all, :types => [:string] * n
+    end
   end
 
 end
