@@ -41,7 +41,7 @@
 
         <%= form.label :case_id_sise, "Número de identificación del caso en SISE" %>
         <div class="input-group">
-          <%= form.text_field :case_id_sise, id:"case_id_sise", placeholder: "INGRESE NÚMERO", maxlength:"12", pattern:"[0-9]*", title: t(:pattern), required:"true", class:"form-control" %>
+          <%= form.text_field :case_id_sise, id:"case_id_sise", placeholder: "INGRESE NÚMERO", maxlength:"12", pattern:"[A-Z0-9]*", title: t(:pattern), required:"true", class:"form-control" %>
           <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1" style="font-size:20px"></span>
         </div>
 
