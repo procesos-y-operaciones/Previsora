@@ -106,7 +106,12 @@ $ ->
       $('#reinsurance_type').prop( "disabled", false )
       $('#reinsurance_type_hid').prop( "disabled", true )
       $('#siniesters_butt').show()
+      $('#sinisters_label').show()
       $('#policies_butt').show()
+      $('#policies_label').show()
+      $('#provision_cents').prop( 'readOnly', true )
+      $('#reserved_fees_cents').prop( 'readOnly', true )
+      $('#ensurance_value_cents').prop( 'readOnly', true )
     else
       $('#policyCents').prop( 'readOnly', true )
       $('#policyCents').val("0")
@@ -117,12 +122,25 @@ $ ->
       $('#reinsurance_type').prop( "disabled", true )
       $('#reinsurance_type_hid').prop( "disabled", false )
       $('#siniesters_butt').hide()
+      $('#sinisters_label').hide()
       $('#policies_butt').hide()
+      $('#policies_label').hide()
+      $('#provision_cents').prop( 'readOnly', false )
+      $('#reserved_fees_cents').prop( 'readOnly', false )
+      $('#ensurance_value_cents').prop( 'readOnly', false )
 
   $('#litigationSource').change ->
     litigation_source_rule()
 
   litigation_source_rule()
+
+  reserve_cents_sum = ->
+    console.log $(".reserve_cents")
+
+  $(".reserve_cents").change ->
+    console.log "Change"
+    reserve_cents_sum()
+
 
   #Protection Rule
   protection_rule = ->
