@@ -47,6 +47,27 @@ $ ->
 
   initial_values()
 
+  #Summ reserve_cents
+  reserve_cents_sum = ->
+    sum = 0
+    $.map $(".reserve_cents"), ( i ) ->
+      sum += Number(i.value.split("'").join("").split(",").join(""))
+    $('#provision_cents').val( sum )
+
+  #Summ reserved_fees_cents
+  reserved_fees_cents_sum = ->
+    sum = 0
+    $.map $(".reserved_fees_cents"), ( i ) ->
+      sum += Number(i.value.split("'").join("").split(",").join(""))
+    $('#reserved_fees_cents').val( sum )
+
+  #Summ ensurance_value_cents
+  ensurance_value_cents_sum = ->
+    sum = 0
+    $.map $(".ensurance_value"), ( i ) ->
+      sum += Number(i.value.split("'").join("").split(",").join(""))
+    $('#ensurance_value_cents').val( sum )
+
   #Initialize functions for each sinister
   $.map $('#sinisters_container')[0].childNodes, ( i ) ->
     if i.className == "nested-fields"
@@ -55,6 +76,8 @@ $ ->
       sp = i.childNodes[13].childNodes[1]
       ra = i.childNodes[17].childNodes[1]
       sg = i.childNodes[21].childNodes[1]
+      ri = i.childNodes[25].childNodes[1]
+      rh = i.childNodes[29].childNodes[1]
 
       aux = ->
         sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
@@ -63,6 +86,8 @@ $ ->
       eje.onchange = aux
       sp.onchange = aux
       ra.onchange = aux
+      ri.onchange = reserve_cents_sum
+      rh.onchange = reserved_fees_cents_sum
 
   #Siniestros
   $('#sinisters_container').on('cocoon:after-insert', (e, i) ->
@@ -71,6 +96,8 @@ $ ->
     sp = i[0].childNodes[13].childNodes[1]
     ra = i[0].childNodes[17].childNodes[1]
     sg = i[0].childNodes[21].childNodes[1]
+    ri = i[0].childNodes[25].childNodes[1]
+    rh = i[0].childNodes[29].childNodes[1]
 
     aux = ->
       sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
@@ -79,6 +106,27 @@ $ ->
     eje.onchange = aux
     sp.onchange = aux
     ra.onchange = aux
+    ri.onchange = reserve_cents_sum
+    rh.onchange = reserved_fees_cents_sum
+  )
+  $('#sinisters_container').on('cocoon:after-remove', (e, i) ->
+    $('#provision_cents').val( $('#provision_cents').val() -  i[0].childNodes[25].childNodes[1].value.split("'").join("").split(",").join("") )
+    $('#reserved_fees_cents').val( $('#reserved_fees_cents').val() - i[0].childNodes[29].childNodes[1].value.split("'").join("").split(",").join("") )
+  )
+
+  #Initialize functions for each policy
+  $.map $('#policies_container')[0].childNodes, ( i ) ->
+    if i.className == "nested-fields"
+      va = i.childNodes[13].childNodes[1]
+      va.onchange = ensurance_value_cents_sum
+
+  #Polizas
+  $('#policies_container').on('cocoon:after-insert', (e, i) ->
+    va = i[0].childNodes[13].childNodes[1]
+    va.onchange = ensurance_value_cents_sum
+  )
+  $('#policies_container').on('cocoon:after-remove', (e, i) ->
+    ensurance_value_cents_sum()
   )
 
   #¿Tiene número de radicado correspondencia?
@@ -134,14 +182,6 @@ $ ->
 
   litigation_source_rule()
 
-  reserve_cents_sum = ->
-    console.log $(".reserve_cents")
-
-  $(".reserve_cents").change ->
-    console.log "Change"
-    reserve_cents_sum()
-
-
   #Protection Rule
   protection_rule = ->
     v_option = $("#protection option:selected")
@@ -190,7 +230,6 @@ $ ->
     join_committee_rule()
 
   join_committee_rule()
-
 
   #Decisión del comité
   committee_rule = ->

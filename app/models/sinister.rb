@@ -69,10 +69,9 @@ class Sinister < ApplicationRecord
       t_process = TypeProcess.find(self.type_process_id)
       if t_process.p_type != 5
         t_process.reserved_fees_cents = t_process.sinisters.pluck(:reserved_fees_cents).sum
-        t_process.reserve_cents = t_process.sinisters.pluck(:reserve_cents).sum
+        t_process.provision_cents = t_process.sinisters.pluck(:reserve_cents).sum
         t_process.save
       end
     end
-
 
 end

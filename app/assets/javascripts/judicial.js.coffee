@@ -51,6 +51,27 @@ $ ->
 
   initial_values()
 
+  #Summ reserve_cents
+  reserve_cents_sum = ->
+    sum = 0
+    $.map $(".reserve_cents"), ( i ) ->
+      sum += Number(i.value.split("'").join("").split(",").join(""))
+    $('#provision_cents').val( sum )
+
+  #Summ reserved_fees_cents
+  reserved_fees_cents_sum = ->
+    sum = 0
+    $.map $(".reserved_fees_cents"), ( i ) ->
+      sum += Number(i.value.split("'").join("").split(",").join(""))
+    $('#reserved_fees_cents').val( sum )
+
+  #Summ ensurance_value_cents
+  ensurance_value_cents_sum = ->
+    sum = 0
+    $.map $(".ensurance_value"), ( i ) ->
+      sum += Number(i.value.split("'").join("").split(",").join(""))
+    $('#ensurance_value_cents').val( sum )
+
   #Initialize functions for each sinister
   $.map $('#sinisters_container')[0].childNodes, ( i ) ->
     if i.className == "nested-fields"
@@ -59,6 +80,8 @@ $ ->
       sp = i.childNodes[13].childNodes[1]
       ra = i.childNodes[17].childNodes[1]
       sg = i.childNodes[21].childNodes[1]
+      ri = i.childNodes[25].childNodes[1]
+      rh = i.childNodes[29].childNodes[1]
 
       aux = ->
         sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
@@ -67,6 +90,8 @@ $ ->
       eje.onchange = aux
       sp.onchange = aux
       ra.onchange = aux
+      ri.onchange = reserve_cents_sum
+      rh.onchange = reserved_fees_cents_sum
 
   #Siniestros
   $('#sinisters_container').on('cocoon:after-insert', (e, i) ->
@@ -75,6 +100,8 @@ $ ->
     sp = i[0].childNodes[13].childNodes[1]
     ra = i[0].childNodes[17].childNodes[1]
     sg = i[0].childNodes[21].childNodes[1]
+    ri = i[0].childNodes[25].childNodes[1]
+    rh = i[0].childNodes[29].childNodes[1]
 
     aux = ->
       sg.value = num.value + "-" + eje.value + "-" + sp.value + "-" + ra.value
@@ -83,6 +110,27 @@ $ ->
     eje.onchange = aux
     sp.onchange = aux
     ra.onchange = aux
+    ri.onchange = reserve_cents_sum
+    rh.onchange = reserved_fees_cents_sum
+  )
+  $('#sinisters_container').on('cocoon:after-remove', (e, i) ->
+    $('#provision_cents').val( $('#provision_cents').val() -  i[0].childNodes[25].childNodes[1].value.split("'").join("").split(",").join("") )
+    $('#reserved_fees_cents').val( $('#reserved_fees_cents').val() - i[0].childNodes[29].childNodes[1].value.split("'").join("").split(",").join("") )
+  )
+
+  #Initialize functions for each policy
+  $.map $('#policies_container')[0].childNodes, ( i ) ->
+    if i.className == "nested-fields"
+      va = i.childNodes[13].childNodes[1]
+      va.onchange = ensurance_value_cents_sum
+
+  #Polizas
+  $('#policies_container').on('cocoon:after-insert', (e, i) ->
+    va = i[0].childNodes[13].childNodes[1]
+    va.onchange = ensurance_value_cents_sum
+  )
+  $('#policies_container').on('cocoon:after-remove', (e, i) ->
+    ensurance_value_cents_sum()
   )
 
   #Clase de proceso
@@ -323,13 +371,23 @@ $ ->
       $('#protection').prop( "disabled", false )
       document.getElementById("more_protections").readOnly = false
       $('#siniesters_butt').show()
+      $('#sinisters_label').show()
       $('#policies_butt').show()
+      $('#policies_label').show()
+      $('#provision_cents').prop( 'readOnly', true )
+      $('#reserved_fees_cents').prop( 'readOnly', true )
+      $('#ensurance_value_cents').prop( 'readOnly', true )
     else
       $('#protection').prop( "disabled", true )
       $('#protection').val("")
       document.getElementById("more_protections").readOnly = true
       $('#siniesters_butt').hide()
+      $('#sinisters_label').hide()
       $('#policies_butt').hide()
+      $('#policies_label').hide()
+      $('#provision_cents').prop( 'readOnly', false )
+      $('#reserved_fees_cents').prop( 'readOnly', false )
+      $('#ensurance_value_cents').prop( 'readOnly', false )
 
   $('#litigationSource').change ->
     litigation_source_rule()
@@ -535,27 +593,12 @@ $ ->
   process_class_rule()
   current_stage_rule()
 
-  #Privision Rule
-  provision_cents_rule = ->
-    v_option = document.getElementById("provision_cents").value
-    v_option = v_option.split("'").join("")
-    v_option = v_option.split(",").join("")
-    if v_option > '0'
-      document.getElementById("reserved_fees_cents").readOnly = false
-    else
-      document.getElementById("reserved_fees_cents").readOnly = true
-
-  $('#provision_cents').change ->
-    provision_cents_rule()
-
-  provision_cents_rule()
-
   #Valor asegurado y Valor contingencia
   pretension_value_rule = ->
     detValCents = document.getElementById('detrimetValueCents').value
     detValCents = detValCents.split("'").join("")
     detValCents = detValCents.split(",").join("")
-    ensValCents = document.getElementById('ensuranceValueCents').value
+    ensValCents = document.getElementById('ensurance_value_cents').value
     ensValCents = ensValCents.split("'").join("")
     ensValCents = ensValCents.split(",").join("")
     if detValCents != 0 && ensValCents != 0
@@ -569,7 +612,7 @@ $ ->
   $('#detrimetValueCents').change ->
     pretension_value_rule()
 
-  $('#ensuranceValueCents').change ->
+  $('#ensurance_value_cents').change ->
     pretension_value_rule()
 
   #Valor conciliado no mayor a valor comite
@@ -613,7 +656,6 @@ $ ->
     param3 = $('#office_type').val()
     param4 = $('#office_number').val()
 
-    console.log ('/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4)
     $.getJSON '/offices?name=' + param1 + "," + param2 + "," + param3 + "," + param4, (data) ->
       $('#office').empty()
       $('#office').append('<option value="">SELECCIONE</option>')
