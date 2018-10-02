@@ -256,6 +256,7 @@ $ ->
   #Departamento donde cursa el caso
   departament_rule = ->
     value = $('#cities').val()
+    console.log "VALUE: " + value
     $.getJSON '/cities/' + $('#departament').val(), (data) ->
       $('#cities').empty()
       $('#cities').append '<option value="">SELECCIONE</option>'
