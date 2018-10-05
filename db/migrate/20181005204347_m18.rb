@@ -1,0 +1,28 @@
+class M18 < ActiveRecord::Migration[5.1]
+  def change
+    puts TypeProcess.find(20615).update(id: 20615,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20614).update(id: 20614,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20609).update(id: 20609,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20596).update(id: 20596,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20593).update(id: 20593,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20579).update(id: 20579,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20578).update(id: 20578,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20577).update(id: 20577,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(20462).update(id: 20462,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19238).update(id: 19238,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19237).update(id: 19237,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19236).update(id: 19236,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19235).update(id: 19235,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19234).update(id: 19234,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19232).update(id: 19232,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19231).update(id: 19231,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19230).update(id: 19230,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19229).update(id: 19229,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19228).update(id: 19228,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19226).update(id: 19226,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19222).update(id: 19222,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19221).update(id: 19221,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19220).update(id: 19220,passive_part: 'PENDIENTE')
+    puts TypeProcess.find(19219).update(id: 19219,passive_part: 'PENDIENTE')
+  end
+end
