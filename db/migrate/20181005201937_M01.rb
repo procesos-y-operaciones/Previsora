@@ -1,4 +1,4 @@
-class 01 < ActiveRecord::Migration[5.1]
+class M01 < ActiveRecord::Migration[5.1]
   def change
     puts TypeProcess.find(20615).update(id: 20615,facts: 'PENDIENTE')
     puts TypeProcess.find(20614).update(id: 20614,facts: 'PENDIENTE')
