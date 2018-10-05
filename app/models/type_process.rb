@@ -460,11 +460,17 @@ class TypeProcess < ApplicationRecord
     if self.p_type == 5
       "NO APLICA"
     else
-      sinisters = self.sinisters.pluck(:sinister)
-      if sinisters == []
-        "NO PRESENTA"
+      if self.get_litigation_source == "SINIESTRO"
+        sinisters = self.sinisters.pluck(:sinister)
+        if sinisters == []
+          "PENDIENTE"
+        else
+          sinisters.join(" ")
+        end
+      elsif self.get_litigation_source == "PENDIENTE"
+        "PENDIENTE"
       else
-        sinisters.join(" ")
+        "NO PRESENTA"
       end
     end
   end
@@ -473,11 +479,17 @@ class TypeProcess < ApplicationRecord
     if self.p_type == 5
       "NO APLICA"
     else
-      policies = self.policies.pluck(:policy_number)
-      if policies == []
-        "NO PRESENTA"
+      if self.get_litigation_source == "SINIESTRO"
+        policies = self.policies.pluck(:policy_number)
+        if policies == []
+          "NO PRESENTA"
+        else
+          policies.join(" ")
+        end
+      elsif self.get_litigation_source == "PENDIENTE"
+        "PENDIENTE"
       else
-        policies.join(" ")
+        "NO PRESENTA"
       end
     end
   end
@@ -608,7 +620,7 @@ class TypeProcess < ApplicationRecord
     if self.case_state == nil
       "NO APLICA"
     elsif self.case_state == ""
-      "NO PRESENTA"
+      "PENDIENTE"
     else
       self.case_state
     end
@@ -618,7 +630,7 @@ class TypeProcess < ApplicationRecord
     if self.case_termination == nil
       "NO APLICA"
     elsif self.case_termination == ""
-      "NO PRESENTA"
+      "PENDIENTE"
     else
       self.case_termination
     end
