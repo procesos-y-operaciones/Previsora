@@ -859,7 +859,7 @@ class TypeProcess < ApplicationRecord
     if Attorny.exists?(self.attorny)
       Attorny.find(self.attorny).name
     else
-      "NO EXISTE"
+      "PENDIENTE"
     end
   end
 
@@ -867,7 +867,7 @@ class TypeProcess < ApplicationRecord
     if User.exists?(self.user_id)
       User.find(self.user_id).name
     else
-      "NO EXISTE"
+      "PENDIENTE"
     end
   end
 

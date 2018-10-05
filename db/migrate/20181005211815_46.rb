@@ -1,0 +1,25 @@
+class 46 < ActiveRecord::Migration[5.1]
+  def change
+    TypeProcess.find(21181).update(attorny: 0)
+    TypeProcess.find(21096).update(attorny: 0)
+    TypeProcess.find(20958).update(attorny: 0)
+    TypeProcess.find(19128).update(attorny: 0)
+    TypeProcess.find(19109).update(attorny: 0)
+    TypeProcess.find(19108).update(attorny: 0)
+    TypeProcess.find(19107).update(attorny: 0)
+    TypeProcess.find(19106).update(attorny: 0)
+    TypeProcess.find(338).update(attorny: 0)
+    TypeProcess.find(314).update(attorny: 0)
+    TypeProcess.find(312).update(attorny: 0)
+    TypeProcess.find(251).update(attorny: 0)
+    TypeProcess.find(177).update(attorny: 0)
+    TypeProcess.find(176).update(attorny: 0)
+    TypeProcess.find(169).update(attorny: 0)
+    TypeProcess.find(108).update(attorny: 0)
+    TypeProcess.find(107).update(attorny: 0)
+    TypeProcess.find(106).update(attorny: 0)
+    TypeProcess.find(43).update(attorny: 0)
+    TypeProcess.find(41).update(attorny: 0)
+    TypeProcess.find(18).update(attorny: 0)
+  end
+end
