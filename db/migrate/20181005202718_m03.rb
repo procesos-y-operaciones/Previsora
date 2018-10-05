@@ -1,4 +1,4 @@
-class 02 < ActiveRecord::Migration[5.1]
+class m03 < ActiveRecord::Migration[5.1]
   def change
     puts TypeProcess.find(21732).update(id: 21732,case_state: 'EN CURSO',case_termination: 'PENDIENTE',reinsurance_type: 'PENDIENTE',last_performance: 'PENDIENTE',reserved_released: 'PENDIENTE',money_type: 'PESOS',join_committee: 'PENDIENTE',committee: 'PENDIENTE',coensurance_type: 'PENDIENTE')
     puts TypeProcess.find(21731).update(id: 21731,case_state: 'EN CURSO',case_termination: 'PENDIENTE',reinsurance_type: 'PENDIENTE',last_performance: 'PENDIENTE',reserved_released: 'PENDIENTE',money_type: 'PESOS',join_committee: 'PENDIENTE',committee: 'PENDIENTE',coensurance_type: 'PENDIENTE')
