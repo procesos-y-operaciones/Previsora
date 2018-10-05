@@ -166,6 +166,12 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.instance_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :case_state, "Estado del caso" %> <span class="red">*</span>
+      <div class="input-group">
+        <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank: "SELECCIONE"}, {required:true, class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :case_termination, "Terminación del caso" %>
       <div class="input-group">
         <%= form.collection_select(:case_termination, CaseTermination.tutelage, :name, :name, {}, {class:"form-control", id: "caseTermination"}) %>
