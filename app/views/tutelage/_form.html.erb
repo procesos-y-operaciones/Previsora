@@ -214,6 +214,7 @@
       <div class="input-group">
         <%= form.collection_select(:setence_type_second_company, CaseTermination.tutelage, :name, :name, {}, {id: "setence_type_second_company_id", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.setence_type_second_company_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :setence_type_second_company, value:"PENDIENTE", id:"setence_type_second_company_hid" %>
       </div>
 
       <hr>
@@ -246,6 +247,7 @@
       <div class="input-group">
         <%= form.collection_select(:sentence_type_desacate, CaseTermination.tutelage, :name, :name, {}, {id: "sentence_type_desacate", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.sentence_type_desacate_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :sentence_type_desacate, value:"PENDIENTE", id:"sentence_type_desacate_hid" %>
       </div>
 
       <hr>

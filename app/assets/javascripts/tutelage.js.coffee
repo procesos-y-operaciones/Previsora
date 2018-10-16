@@ -34,7 +34,7 @@ $ ->
       $('#departament').val("")
     if $('#cities').val() == "000"
       $('#cities').val("")
-    
+
   initial_values()
 
   #¿Tiene número de radicado correspondencia?
@@ -59,12 +59,14 @@ $ ->
       document.getElementById('date_imp').readOnly = true
       document.getElementById('date_notification_imp').readOnly = true
       $('#setence_type_second_company_id').prop 'disabled', true
+      $('#setence_type_second_company_hid').prop 'disabled', false
     if v_option == "true"
       document.getElementById('objection_date').readOnly = false
       document.getElementById('objecter').readOnly = false
       document.getElementById('date_imp').readOnly = false
       document.getElementById('date_notification_imp').readOnly = false
       $('#setence_type_second_company_id').prop 'disabled', false
+      $('#setence_type_second_company_id').prop 'disabled', true
 
   $('#objection').change ->
     objection_rule()
@@ -104,21 +106,21 @@ $ ->
       $('#setence_type_second_company_id').prop( "disabled", false )
       $('#date_notification_desacate').prop( "disabled", false )
       $('#sentence_type_desacate').prop( "disabled", false )
+      $('#sentence_type_desacate_hid').prop( "disabled", true )
       $('#date_notification_desition_desacate').prop( "disabled", false )
       $('#date_answer_desacate').prop( "disabled", false )
-      $('#sentence_type_desacate').prop( "disabled", false )
     else
       $('#setence_type_second_company_id').prop( "disabled", true )
       $('#setence_type_second_company_id').val('PENDIENTE')
       $('#date_notification_desacate').prop( "disabled", true )
       $('#date_notification_desacate').val('')
       $('#sentence_type_desacate').prop( "disabled", true )
+      $('#sentence_type_desacate_hid').prop( "disabled", false )
       $('#sentence_type_desacate').val('PENDIENTE')
       $('#date_notification_desition_desacate').prop( "disabled", true )
       $('#date_notification_desition_desacate').val('')
       $('#date_answer_desacate').prop( "disabled", true )
       $('#date_answer_desacate').val('')
-      $('#sentence_type_desacate').prop( "disabled", true )
 
 
   $('#desacate').change ->
