@@ -123,12 +123,6 @@ class TypeProcess < ApplicationRecord
 
   serialize :protection
 
-  has_many :sinisters, dependent: :destroy
-  accepts_nested_attributes_for :sinisters, allow_destroy: true
-
-  has_many :policies, dependent: :destroy
-  accepts_nested_attributes_for :policies, allow_destroy: true
-
   self.per_page = 15
 
   def change_state
