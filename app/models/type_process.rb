@@ -224,7 +224,7 @@ class TypeProcess < ApplicationRecord
 
   def get_total_content
     [
-      self.id, self.get_type_process, self.state, self.get_capture_state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.get_attorny, self.get_active_part, self.get_passive_part,
+      self.id, self.get_type_process, self.state, "", self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.get_attorny, self.get_active_part, self.get_passive_part,
       self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.get_policies, self.get_sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
       self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
       self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, self.get_last_performance, self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
