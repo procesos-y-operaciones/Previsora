@@ -22,6 +22,8 @@ $ ->
       $('#case_id_bap').val("PENDIENTE")
     if $('#process_radicate').val() == "NO APLICA"
       $('#process_radicate').val("PENDIENTE")
+    if $('#case_id_ekogui').val() == "NO APLICA"
+      $('#case_id_ekogui').val("PENDIENTE")
     if $('#case_onbase').val() == "NO APLICA"
       $('#case_onbase').val("PENDIENTE")
     if $('#attorny').val() == "NO APLICA"
