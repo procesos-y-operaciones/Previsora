@@ -399,7 +399,7 @@
       <div class="input-group">
         <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"reservedReleased"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reserved_released_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
-        <%= form.hidden_field :reserved_released, value:"NO PRESENTA", id:"reservedReleased_hid" %>
+        <%= form.hidden_field :reserved_released, value:"PENDIENTE", id:"reservedReleased_hid" %>
       </div>
 
       <hr>
