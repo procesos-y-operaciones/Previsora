@@ -797,6 +797,10 @@ class TypeProcess < ApplicationRecord
     end
   end
 
+  def get_zone
+    ""
+  end
+
   def self.get_all_departament
     CS.states(:co).sort_by {|_key, value| value}.to_h
   end
