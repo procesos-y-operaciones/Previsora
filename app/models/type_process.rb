@@ -681,7 +681,8 @@ class TypeProcess < ApplicationRecord
     end
   end
 
-  def get_sinister
+  def get_sinisters
+    ""
     #if self.sinister == "PEN"
   end
 
