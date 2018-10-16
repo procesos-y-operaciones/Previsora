@@ -801,6 +801,10 @@ class TypeProcess < ApplicationRecord
     ""
   end
 
+  def observations
+    ""
+  end
+
   def self.get_all_departament
     CS.states(:co).sort_by {|_key, value| value}.to_h
   end
