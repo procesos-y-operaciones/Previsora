@@ -1,7 +1,7 @@
 class BackupJob < ApplicationJob
 
   #RUN_EVERY = 2.week
-  RUN_EVERY = 1.week
+  #RUN_EVERY = 1.week
 
   queue_as :default
 
@@ -25,8 +25,6 @@ class BackupJob < ApplicationJob
       p.serialize("#{Rails.root}/public/files/#{Time.now.to_s}.xlsx")
     end
     puts "Reporte del #{Time.now} creado correctamente."
-    self.class.set(wait: RUN_EVERY).perform_later
-
   end
 
 end

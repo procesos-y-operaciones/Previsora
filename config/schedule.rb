@@ -5,7 +5,6 @@
 
 # Example:
 #
-set :output, "/log/whenever.log"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -16,10 +15,10 @@ set :output, "/log/whenever.log"
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
-
-every 1.day, at: '1:00' do
-  rake "restart"
-  command "echo 'Server restarted'"
-end
-
 # Learn more: http://github.com/javan/whenever
+set :output, "log/cron_log.log"
+env :PATH, ENV['PATH']
+
+every 8.days, at: '11pm' do
+  runner "BackupJob.perform_now"
+end
