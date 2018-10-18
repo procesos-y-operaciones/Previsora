@@ -378,6 +378,44 @@ class TypeProcess < ApplicationRecord
     r
   end
 
+  def self.external_header
+    [
+      'IDENTIFICADOR', 'TIPO DE PROCESO', 'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI ACCESS Y PA)',
+      'NUMERO DE IDENTIFICACION DEL CASO EN EKOGUI',	'NUMERO DE RADICACION DEL PROCESO - DESPACHO', 'FECHA DE LA NOTIFICACION / VINCULACION',
+      'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA','CALIFICACION DE LA CONTINGENCIA',
+      'TIENE NUMERO DE RADICADO DE COACTIVO?', 'NUMERO DE RADICACION DEL COACTIVO',
+      'POLIZA','TIENE MAS POLIZAS?', 'MAS POLIZAS', 'TOMADOR DE LA POLIZA','VALOR ASEGURADO',	'SUCURSAL DE LA POLIZA','RAMO COMERCIAL','AMPARO','OTROS AMPAROS',
+      'NOMBRE DEL DESPACHO / TIPO DE CONTRALORIA', 'DEPARTAMENTO DONDE CURSA EL CASO',	'CIUDAD DONDE CURSA EL CASO',	'CLASE DE PROCESO',
+      'SUBCLASE DE PROCESO',	'TIPO DE VINCULACION',	'ETAPA ACTUAL',
+      'FUENTE DEL LITIGIO',	'INSTANCIA EN LA QUE SE ENCUENTRA',	'ESTADO DEL CASO',	'TERMINACION DEL CASO',	'ULTIMA ACTUACION',
+      'RAZON DE NO CONCILIAR','RAZON DE INVIABILIDAD','TIPO DE COASEGURO',	'CONTRATO CONCESION - OBRA',	'HECHOS',
+      'VALOR DE LA PRETENSION / DETRIMENTO',	'VALOR DE LA RESERVA',
+      'VALOR DEL FALLO DE LA DECISION / SANCION',	'VALOR DEL FALLO / SANCION A CARGO DE PREVISORA',
+      'VALOR DEL COACTIVO',	'VALOR DEL EMBARGO', 'VALOR AUTORIZADO POR EL COMITE DE DEFENSA Y CONCILIACION',
+      'VALOR CONCILIADO',	'TIENE COSTAS A FAVOR?','VALOR DE LAS COSTAS',
+      'FECHA DE LA PRIMERA AUDIENCIA / DECISION / ACTUACION / ACTO ADMINISTRATIVO / FALLO',
+      'FECHA DE LA ULTIMA ACTUACION',	'ULTIMA ACTUACION', 'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO',
+      'PROCEDE RECOBRO?', 'ESTADO DEL REGISTRO', 'ULTIMA ACTUALIZACION'
+    ]
+  end
+
+  def external_content
+    [
+      self.id, self.get_type_process, self.case_id_bap,
+      self.case_id_ekogui, self.process_radicate, format_date(self.notification_date),
+      self.get_user, self.get_active_part, self.get_passive_part, self.contingency_reason, self.contingency_resume, self.get_score_contingency,
+      booleanValue(self.has_correspondency_radicate), self.coactive_radicate,
+      self.policy_cents.to_s, booleanValue(self.has_more_polcies), self.get_policies, self.get_policy_taker, nilValue(self.ensurance_value_cents), self.get_branch_policy, self.get_branch_commercial, self.get_protection, self.get_more_protection,
+      self.get_office_name, self.get_departament, self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_current_stage,
+      self.get_litigation_source, self.get_instance, self.get_case_state, self.get_case_termination, self.get_last_performance,
+      self.reason_conc, self.reason_inv, self.get_coensurance_type, self.get_contract, self.facts,
+      nilValue(self.detritment_cents), nilValue(self.reserve_cents),
+      nilValue(self.fail_value_cents), nilValue(self.fail_previ_cents), nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), nilValue(self.auth_value_cents),
+      nilValue(self.reconcilie_value_cents), booleanValue(self.has_costs), nilValue(self.cost_value_cents),
+      format_date(self.desition_date), format_date(self.last_performance_date), self.get_last_performance,format_date(self.failed_notification_date), self.get_recovery, self.state, self.updated_at.strftime("%d/%m/%Y %H:%M")
+    ]
+end
+
   def self.to_csv(date_from, date_until, options = {})
     CSV.generate(options) do |csv|
       csv << ["LA PREVISORA S.A. COMPANIA DE SEGUROS"]
