@@ -11,7 +11,7 @@ wb.add_worksheet(name: "Users") do |sheet|
   sheet.add_row TypeProcess.all.total_headers
 
   TypeProcess.all.each do |process|
-    sheet.add_row process.get_total_content, :types => [:string]*process.get_content_all.count
+    sheet.add_row process.get_total_content, :types => [:string]*process.get_total_content.count
   end
 
 end
