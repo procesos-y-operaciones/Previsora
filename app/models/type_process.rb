@@ -116,8 +116,7 @@
 class TypeProcess < ApplicationRecord
 
   validate :validate_ids, on: :create
-  validate :update_ids, on: :edit
-  validate :state_migrate, :update_ids, on: :update
+  validate :update_ids, on: :update
 
   before_update :change_state
 
@@ -135,11 +134,8 @@ class TypeProcess < ApplicationRecord
     if self.state == "REGISTRO NUEVO"
       self.state = "REGISTRO NUEVO ACTUALIZADO"
     end
-  end
-
-  def state_migrate
-    if state == "REGISTRO MIGRADO ACTUALIZADO" && user_id == 1
-      errors.add("El registro no se puede modificar", "Estado Migrado Actualizado")
+    if self.state == "REGISTRO MIGRADO"
+      self.state = "REGISTRO MIGRADO ACTUALIZADO"
     end
   end
 
