@@ -255,7 +255,7 @@ class TypeProcess < ApplicationRecord
       'FECHA DE CONTESTACION TUTELA','FECHA NOTIFICACION DECISION O FALLO', 'FECHA NOTIFICACION IMPUGNACION',
       'IMPUGNANTE','FECHA DECISION IMPUGNACION', 'FECHA DE NOTIFICACION DECISION IMPUGNACION', 'TIPO DE DECISION IMPUGNACION',
       'FECHA NOTIFICACION INCIDENTE DESACATO', 'FECHA DE CONTESTACION INCIDENTE DESACATO','FECHA NOTIFICACION DECISION INDIDENTE DESACATO',
-      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION', 'ZONA', 'ESTADO DE REGISTRO', 'ULTIMA ACTUALIZACION', 'OBSERVACIONES','ESTADO CAPTURE'
+      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION', 'ZONA', 'ESTADO DE REGISTRO','ESTADO CONSULTORIA','ULTIMA ACTUALIZACION', 'OBSERVACIONES','ESTADO CAPTURE'
     ]
   end
 
@@ -279,7 +279,7 @@ class TypeProcess < ApplicationRecord
       format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
       self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
       format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
-      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, self.get_capture_state
+      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, self.state_db, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, self.get_capture_state
     ]
   end
 
