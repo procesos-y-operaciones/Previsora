@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180919190544) do
+ActiveRecord::Schema.define(version: 20181101194134) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -337,6 +337,7 @@ ActiveRecord::Schema.define(version: 20180919190544) do
     t.string "internal_updated"
     t.string "observations"
     t.string "state_capture", default: "NO MODIFICADO"
+    t.string "state_db", default: "REGISTRO NUEVO"
     t.index ["user_id"], name: "index_type_processes_on_user_id"
   end
 

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def offices
     @parameters = params[:name].split(",")
-    if @parameters[2] == "SUPERINTENDENCIA" || @parameters[2] == "CORTE SUPREMA"
+    if @parameters[2] == "SUPERINTENDENCIA" || @parameters[2] == "CORTE SUPREMA" || @parameters[2] == "CONSEJO"
       render json: OfficeName.select(:id, :name).order(name: :asc).where("name like ?", "%#{@parameters[2]}%")
     else
       render json: OfficeName.select(:id, :name).order(name: :asc).where(
