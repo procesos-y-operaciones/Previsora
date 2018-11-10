@@ -1,4 +1,4 @@
-class Al01 < ActiveRecord::Migration[5.1]
+class Al00 < ActiveRecord::Migration[5.1]
   def change
     TypeProcess.find(50041).update(id:20178)
     TypeProcess.find(50042).update(id:20179)
