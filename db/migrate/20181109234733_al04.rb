@@ -5244,7 +5244,6 @@ class Al04 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(19233).update(id: 19233,case_id_sise: '201311000143',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20020).update(id: 20020,case_id_sise: '201713013137',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20046).update(id: 20046,case_id_sise: '200910001671',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,case_id_sise: '201412000303',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,case_id_sise: '201412000302',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20161).update(id: 20161,case_id_sise: '201410004529',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20190).update(id: 20190,case_id_sise: '201713013063',state_db: 'REGISTRO MIGRADO SOBRESCRITO')

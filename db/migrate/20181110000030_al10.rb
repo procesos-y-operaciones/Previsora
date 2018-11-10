@@ -7857,7 +7857,6 @@ class Al10 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(20089).update(id: 20089,detritment_cents: 29703402640,state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20091).update(id: 20091,detritment_cents: 64793350,state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20095).update(id: 20095,detritment_cents: 1098964400,state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,detritment_cents: 1033500000,state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20098).update(id: 20098,detritment_cents: 328000000,state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,detritment_cents: 224413200,state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20101).update(id: 20101,detritment_cents: 1162359727,state_db: 'REGISTRO MIGRADO SOBRESCRITO')

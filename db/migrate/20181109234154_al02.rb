@@ -7180,7 +7180,6 @@ class Al02 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(20082).update(id: 20082,protection: ['', 'COBERTURA R.C CLINICAS Y HOSPITALES'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20083).update(id: 20083,protection: ['', 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20089).update(id: 20089,protection: ['', 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,protection: ['', 'COBERTURA R.C CLINICAS Y HOSPITALES'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20098).update(id: 20098,protection: ['', 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,protection: ['', 'COBERTURA R.C CLINICAS Y HOSPITALES'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20101).update(id: 20101,protection: ['', 'RESPONSABILIDAD CIVIL EXTRACONTRACTUAL'],state_db: 'REGISTRO MIGRADO SOBRESCRITO')

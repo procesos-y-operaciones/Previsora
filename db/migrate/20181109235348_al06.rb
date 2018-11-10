@@ -6226,7 +6226,6 @@ class Al06 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(20089).update(id: 20089,current_stage: 'AUTO ADMISORIO DE LA DEMANDA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20091).update(id: 20091,current_stage: 'CONTESTACION DE LA DEMANDA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20095).update(id: 20095,current_stage: 'PRUEBAS',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,current_stage: 'ALEGATOS DE CONCLUSION PRIMERA INSTANCIA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20098).update(id: 20098,current_stage: 'PRUEBAS',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,current_stage: 'PRUEBAS',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20101).update(id: 20101,current_stage: 'AUDIENCIA INICIAL, DE INSTRUCCION Y JUZGAMIENTO (SENTENCIA DE UNICA INSTANCIA)',state_db: 'REGISTRO MIGRADO SOBRESCRITO')

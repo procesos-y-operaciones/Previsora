@@ -230,7 +230,6 @@ class Al11 < ActiveRecord::Migration[5.1]
     TypeProcess.find(20038).update(observations: 'Anulado en Bizagi')
     TypeProcess.find(20042).update(observations: 'Duplicado')
     TypeProcess.find(20092).update(observations: 'Duplicado')
-    TypeProcess.find(20097).update(observations: 'Duplicado')
     TypeProcess.find(20100).update(observations: 'Duplicado')
     TypeProcess.find(20146).update(observations: 'Anulado en Bizagi')
     TypeProcess.find(20166).update(observations: 'Anulado en Bizagi')

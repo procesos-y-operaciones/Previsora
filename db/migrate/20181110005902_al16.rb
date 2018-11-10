@@ -2856,7 +2856,6 @@ class Al16 < ActiveRecord::Migration[5.1]
     TypeProcess.find(20093).update(state: 'REGISTRO NUEVO ACTUALIZADO')
     TypeProcess.find(20095).update(state: 'REGISTRO NUEVO ACTUALIZADO')
     TypeProcess.find(20096).update(state: 'REGISTRO NUEVO ACTUALIZADO')
-    TypeProcess.find(20097).update(state: 'REGISTRO NUEVO ACTUALIZADO')
     TypeProcess.find(20098).update(state: 'REGISTRO NUEVO ACTUALIZADO')
     TypeProcess.find(20100).update(state: 'REGISTRO NUEVO ACTUALIZADO')
     TypeProcess.find(20101).update(state: 'REGISTRO NUEVO ACTUALIZADO')

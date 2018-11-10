@@ -6662,7 +6662,6 @@ class Al14 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(20093).update(id: 20093,case_id_bap: 'GPJ-18142-2018',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20095).update(id: 20095,case_id_bap: 'GPJ-18010-2018',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20096).update(id: 20096,case_id_bap: 'GPJ-18081-2018',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,case_id_bap: 'GPJ-3310-2016',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20098).update(id: 20098,case_id_bap: 'GPJ-6687-2016',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,case_id_bap: 'GPJ-3334-2016',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20103).update(id: 20103,case_id_bap: 'GPJ-3332-2016 SINIESTRO 20066-15-12-13',state_db: 'REGISTRO MIGRADO SOBRESCRITO')

@@ -4321,7 +4321,6 @@ class Al05 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(20081).update(id: 20081,case_id_ekogui: '1303508',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20083).update(id: 20083,case_id_ekogui: '1160934',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20091).update(id: 20091,case_id_ekogui: '1314548',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,case_id_ekogui: '812374',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20098).update(id: 20098,case_id_ekogui: '708611',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,case_id_ekogui: '815865',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20101).update(id: 20101,case_id_ekogui: '422382',state_db: 'REGISTRO MIGRADO SOBRESCRITO')

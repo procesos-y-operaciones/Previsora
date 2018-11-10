@@ -8753,7 +8753,6 @@ class Al15 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(20093).update(id: 20093,score_contingency: 'EVENTUAL',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20095).update(id: 20095,score_contingency: 'EVENTUAL',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20096).update(id: 20096,score_contingency: 'PENDIENTE DE CALIFICAR POR ABOGADO EXTERNO',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(20097).update(id: 20097,score_contingency: 'PROCESO A FAVOR',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20098).update(id: 20098,score_contingency: 'EVENTUAL',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20100).update(id: 20100,score_contingency: 'PROCESO A FAVOR',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(20101).update(id: 20101,score_contingency: 'REMOTA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
