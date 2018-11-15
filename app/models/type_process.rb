@@ -172,43 +172,51 @@ class TypeProcess < ApplicationRecord
     #self.select(:id, :p_type, :correspondency_radicate, :case_id_bap, :case_id_sise, :internal_lawyer, :user_id, :departament, :city_case, :created_at).order('created_at DESC')
   end
 
-  def self.total_headers
+  def self.column_names_all
     [
-      'IDENTIFICADOR', 'TIPO DE PROCESO', 'ESTADO DE REGISTRO', 'IDENTIFICADOR ABOGADO INTERNO', 'ABOGADO INTERNO',	'NUMERO DE RADICADO DE CORRESPONDENCIA O DE VICEPRESIDENCIA',	'NUMERO DE IDENTIFICACION DEL CASO (BIZAGI ACCESS Y PA)',
-      'NUMERO DE IDENTIFICACION DEL CASO EN SISE',	'NUMERO DE IDENTIFICACION DEL CASO EN EKOGUI',	'NUMERO DE RADICACION DEL PROCESO - DESPACHO',
-      'NUMERO DE SINIESTRO COMPLETO',	'APODERADO DE PREVISORA',	'PARTE ACTIVA',	'PARTE PASIVA',	'MOTIVOS DE LA CONTINGENCIA',	'RESUMEN DE LA CONTINGENCIA',
-      'NUMERO DE RADICACION DEL COACTIVO',	'NUMERO DE POLIZAS',	'NUMERO DE SINIESTROS',	'NUMERO DE CASO EN ON-BASE',	'IMPUGNANTE',	'RAZON DE NO CONCILIAR',
-      'RAZON DE INVIABILIDAD',	'NOMBRE DEL DESPACHO / TIPO DE CONTRALORIA', 'DEPARTAMENTO DONDE CURSA EL CASO',	'CIUDAD DONDE CURSA EL CASO',	'CLASE DE PROCESO',
-      'SUBCLASE DE PROCESO',	'TIPO DE VINCULACION',	'SUCURSAL DE LA POLIZA',	'RAMO COMERCIAL',	'CALIFICACION DE LA CONTINGENCIA',	'AMPARO',	'ETAPA ACTUAL',
-      'FUENTE DEL LITIGIO',	'INSTANCIA EN LA QUE SE ENCUENTRA',	'ESTADO DEL CASO',	'TERMINACION DEL CASO',	'TIPO DE REASEGURO',	'ULTIMA ACTUACION',	'TIPOLOGIA',
-      'TIPO DE DECISION IMPUGNACION',	'TIPO SENTENCIA DEL INCIDENTE DE DESACATO A LA COMPANIA',	'LA RESERVA YA FUE DEPURADA?',	'TIPO DE MONEDA',	'INGRESA AL COMITE DE DEFENSA Y CONCILIACION?',
-      'DECISION DEL COMITE DE DEFENSA Y CONCILIACION',	'TIPO DE COASEGURO',	'TOMADOR DE LA POLIZA',	'CONTRATO CONCESION - OBRA',	'OTROS AMPAROS',	'HECHOS',	'VALOR DEL DOLAR',
-      'VALOR DE LA PRETENSION / DETRIMENTO / ESTIMACION',	'VALOR ASEGURADO',	'VALOR DE LA CONTINGENCIA',	'POLIZA',	'VALOR DE LA RESERVA',	'VALOR DE LA RESERVA PARA HONORARIOS',
-      'VALOR DE LA PROVISION DE LA INDEMNIZACION',	'VALOR DEL FALLO DE LA DECISION / SANCION',	'VALOR DEL FALLO / SANCION A CARGO DE PREVISORA',	'VALOR PAGADO POR PREVISORA',
-      'VALOR DEL COACTIVO',	'VALOR DEL EMBARGO', 'VALOR AUTORIZADO POR EL COMITE DE DEFENSA Y CONCILIACION',	'VALOR DEL REASEGURO',	'VALOR DEL COASEGURO PARA PREVISORA',
-      'VALOR CONCILIADO',	'VALOR DE LAS COSTAS',	'FECHA DE CREACION',	'FECHA DE LA NOTIFICACION / VINCULACION',	'FECHA DE ASIGNACION DEL APODERADO DE PREVISORA',
-      'FECHA DE LA PRIMERA AUDIENCIA / DECISION / ACTUACION / ACTO ADMINISTRATIVO / FALLO',	'FECHA DE CONTESTACION DE LA TUTELA',	'FECHA DECISION DE LA IMPUGNACION',
-      'FECHA DE NOTIFICACION DECISION DE LA IMPUGNACION',	'FECHA DE CONSIGNACION / PAGO',	'FECHA DE NOTIFICACION DE LA IMPUGNACION',	'FECHA DE LA ULTIMA ACTUACION',
-      'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO',	'FECHA INGRESO AL COMITE DE DEFENSA Y CONCILIACION',	'FECHA DE NOTIFICACION DEL INCIDENTE DEL DESACATO',
-      'FECHA DE CONTESTACION DEL INCIDENTE DE DESACATO',	'FECHA NOTIFICACION DE DECISION DEL INCIDENTE DE DESACATO',	'NUMERO DE SINIESTRO',	'EJERCICIO',	'REASEGURO REPORTADO',
-      'PROCEDE RECOBRO?',	'TIENE NUMERO DE RADICADO DE CORRESPONDENCIA / VICEPRESIDENCIA?',	'TIENE MAS POLIZAS?',	'TIENE COSTAS A FAVOR?',	'TIENE NUMERO DE RADICADO DE COACTIVO?',
-      'HAY IMPUGNACION?',	'HAY DESACATO?', 'OTRO DESPACHO', 'ULTIMA ACTUALIZACION'
+      'IDENTIFICADOR','ABOGADO INTERNO', 'RADICADO CORRESPONDENCIA','FECHA DE CREACION',
+      'APODERADO EN PREVISORA', 'FECHA DE ASIGNACION DEL APODERADO EN PREVISORA', 'FECHA DE NOTIFICACION',
+      'IDENFICACION BIZAGI ACCESS PA', 'IDENTIFICACION SISE', 'IDENTIFICACION E-KOGUI','TIPO DE PROCESO',
+      'CLASE DE PROCESO','SUBCLASE DE PROCESO', 'TIPO DE VINCULACION', 'PARTE ACTIVA','PARTE PASIVA',
+      'NUMERO DE RADICADO DEL PROCESO','NOMBRE DEL DESPACHO','DEPARTAMENTO','CIUDAD DONDE CURSA EL CASO',
+      'HECHOS','FUENTE DEL LITIGIO','SINIESTROS','AMPARO','POLIZAS',
+      'VALOR RESERVA INDEMNIZACIONES','RESERVA HONORARIOS',
+      'VALOR PROVISION', 'VALOR PRETENSION - DETRIMENTO - ESTIMACION', 'VALOR CONTINGENCIA', 'CALIFICACION DE LA CONTINGENCIA',
+      'RAZON DE LA CONTINGENCIA','RESUMEN DE LA CONTINGENCIA','TIPO DE REASEGURO', 'REASEGURO REPORTADO',
+      'VALOR REASEGURO','TIPO DE COASEGURO','VALOR COASEGURO','TIPO DE MONEDA','VALOR DEL DOLAR',
+      'INSTANCIAS','ETAPA ACTUAL','ULTIMA ACTUACION','FECHA ULTIMA ACTUACION','ESTADO DEL CASO',
+      'INGRESA AL COMITE', 'FECHA DE INGRESO AL COMITE', 'DECISION DEL COMITE', 'VALOR AUTORIZADO COMITE','VALOR CONCILIADO',
+      'RAZON DE NO CONCILIAR','RAZON DE INVIABILIDAD', 'FECHA DE LA DECISION','TERMINACION DEL CASO','VALOR COSTAS',
+      'VALOR FALLO','VALOR FALLO PREVISORA','VALOR PAGADO PREVISORA', 'FECHA DE PAGO', 'PROCEDE RECOBRO',
+      'RADICACION COACTIVO','VALOR COACTIVO','VALOR EMBARGO', 'RESERVA LIBERADA','TIPOLOGIA (COLJUEGOS)',
+      'FECHA DE CONTESTACION TUTELA','FECHA NOTIFICACION DECISION O FALLO', 'FECHA NOTIFICACION IMPUGNACION',
+      'IMPUGNANTE','FECHA DECISION IMPUGNACION', 'FECHA DE NOTIFICACION DECISION IMPUGNACION', 'TIPO DE DECISION IMPUGNACION',
+      'FECHA NOTIFICACION INCIDENTE DESACATO', 'FECHA DE CONTESTACION INCIDENTE DESACATO','FECHA NOTIFICACION DECISION INDIDENTE DESACATO',
+      'TIPO SENTENCIA INCIDENTE DESACATO','CONTRATO CONCESION', 'ZONA', 'ESTADO DE REGISTRO','ESTADO CONSULTORIA','ULTIMA ACTUALIZACION', 'OBSERVACIONES','ESTADO CAPTURE'
     ]
   end
 
-  def get_total_content
+  def get_content_all
     [
-      self.id, self.get_type_process, self.state, self.user_id, self.get_user, self.correspondency_radicate, self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.process_radicate, self.sinister, self.get_attorny, self.get_active_part, self.get_passive_part,
-      self.contingency_reason, self.contingency_resume, self.coactive_radicate, self.policies, self.sinisters, self.case_onbase, self.tutelage_imp, self.reason_conc, self.reason_inv, self.office_name, self.get_departament,
-      self.get_city_case, self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_branch_policy, self.get_branch_commercial, self.get_score_contingency, self.get_protection, self.get_current_stage, self.get_litigation_source,
-      self.get_instance, self.get_case_state, self.get_case_termination, self.get_reinsurance_type, self.get_last_performance, self.get_gubernatorial_way, self.get_setence_type_second_company, self.get_sentence_type_desacate,
-      self.get_reserved_released, self.get_money_type, self.get_join_committee, self.get_committee, self.get_coensurance_type, self.get_policy_taker, self.get_contract, self.more_protections, self.facts, nilValue(self.dolar_value_cents),
-      nilValue(self.detritment_cents), nilValue(self.ensurance_value_cents), nilValue(self.contingency_value_cents), self.policy_cents.to_s, nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents), nilValue(self.provision_cents), nilValue(self.fail_value_cents),
-      nilValue(self.fail_previ_cents), nilValue(self.payed_value_cents), nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), nilValue(self.auth_value_cents), nilValue(self.reinsurance_value_cents), nilValue(self.coensurance_value_cents),
-      nilValue(self.reconcilie_value_cents), nilValue(self.cost_value_cents), self.creation_date, format_date(self.notification_date), format_date(self.attorny_date), format_date(self.failed_notification_date), format_date(self.answer_date), format_date(self.objection_date_desition),
-      format_date(self.date_notification_desition_desacate), format_date(self.payment_date), format_date(self.imp_date),format_date(self.last_performance_date), format_date(self.desition_date), format_date(self.committee_date), format_date(self.date_notification_desacate),
-      format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.number, self.exercise, self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
-      booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.updated_at.strftime("%d/%m/%Y %H:%M")
+      self.id, self.get_user, self.correspondency_radicate, self.creation_date,
+      self.get_attorny, format_date(self.attorny_date), format_date(self.notification_date),
+      self.case_id_bap, self.case_id_sise, self.case_id_ekogui, self.get_type_process,
+      self.get_process_class, self.get_subprocess_class, self.get_link_type, self.get_active_part, self.get_passive_part,
+      self.process_radicate, self.get_office_name, self.get_departament, self.get_city_case,
+      self.facts, self.get_litigation_source, self.get_sinisters, self.get_protection + self.get_more_protection, self.get_policies,
+      nilValue(self.reserve_cents), nilValue(self.reserved_fees_cents),
+      nilValue(self.provision_cents), nilValue(self.detritment_cents), nilValue(self.contingency_value_cents), self.get_score_contingency,
+      self.contingency_reason, self.contingency_resume, self.get_reinsurance_type, self.get_reinsurance_report,
+      nilValue(self.reinsurance_value_cents), self.get_coensurance_type, nilValue(self.coensurance_value_cents), self.get_money_type, nilValue(self.dolar_value_cents),
+      self.get_instance, self.get_current_stage, self.get_last_performance, format_date(self.last_performance_date),self.get_case_state,
+      self.get_join_committee, format_date(self.committee_date), self.get_committee, nilValue(self.auth_value_cents), nilValue(self.reconcilie_value_cents),
+      self.reason_conc, self.reason_inv, format_date(self.desition_date), self.get_case_termination, nilValue(self.cost_value_cents),
+      nilValue(self.fail_value_cents), nilValue(self.fail_previ_cents), nilValue(self.payed_value_cents), format_date(self.payment_date), self.get_recovery,
+      self.coactive_radicate, nilValue(self.coactive_value_cents), nilValue(self.garnish_value_cents), self.get_reserved_released, self.get_gubernatorial_way,
+      format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
+      self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
+      format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
+      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, self.state_db, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, self.get_capture_state
     ]
   end
 

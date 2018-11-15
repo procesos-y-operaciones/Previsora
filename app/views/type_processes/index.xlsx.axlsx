@@ -8,10 +8,10 @@ wb.add_worksheet(name: "Users") do |sheet|
   sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
   sheet.add_row [""]
 
-  sheet.add_row TypeProcess.all.total_headers
+  sheet.add_row TypeProcess.column_names_all
 
   TypeProcess.all.each do |process|
-    sheet.add_row process.get_total_content, :types => [:string]*process.get_total_content.count
+    sheet.add_row process.get_content_all, :types => [:string]*process.get_content_all.count
   end
 
 end
