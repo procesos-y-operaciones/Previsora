@@ -216,7 +216,7 @@ class TypeProcess < ApplicationRecord
       format_date(self.answer_date), format_date(self.failed_notification_date), format_date(self.imp_date),
       self.tutelage_imp, format_date(self.objection_date_desition), format_date(self.objection_date_desition_notification), self.get_setence_type_second_company,
       format_date(self.date_notification_desacate), format_date(self.date_answer_desacate), format_date(self.date_notification_desition_desacate),
-      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, self.state_db, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, self.get_capture_state
+      self.get_sentence_type_desacate,  self.get_contract, self.get_zone, self.state, "NO APLICA", (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, "NO APLICA"
     ]
   end
 
