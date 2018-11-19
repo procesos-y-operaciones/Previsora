@@ -203,7 +203,7 @@ class Reasignation02 < ActiveRecord::Migration[5.1]
     TypeProcess.find(20472).update(user_id: 33)
     TypeProcess.find(20474).update(user_id: 33)
     TypeProcess.find(20475).update(user_id: 33)
-    TypeProcess.find(20476).update(user_id: 33)
+    #TypeProcess.find(20476).update(user_id: 33)
     TypeProcess.find(20483).update(user_id: 33)
     TypeProcess.find(20484).update(user_id: 33)
     TypeProcess.find(20485).update(user_id: 33)
