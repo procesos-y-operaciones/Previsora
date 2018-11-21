@@ -111,6 +111,9 @@
 #  reserved_fees_cents_date             :date
 #  internal_created                     :string
 #  internal_updated                     :string
+#  observations                         :string
+#  state_capture                        :string           default("NO MODIFICADO")
+#  state_db                             :string           default("REGISTRO NUEVO")
 #
 
 require 'test_helper'

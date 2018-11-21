@@ -111,6 +111,9 @@
 #  reserved_fees_cents_date             :date
 #  internal_created                     :string
 #  internal_updated                     :string
+#  observations                         :string
+#  state_capture                        :string           default("NO MODIFICADO")
+#  state_db                             :string           default("REGISTRO NUEVO")
 #
 
 class TypeProcess < ApplicationRecord
@@ -214,7 +217,8 @@ class TypeProcess < ApplicationRecord
       'FECHA DE LA NOTIFICACION DE LA DECISION O FALLO', 'FECHA INGRESO AL COMITE DE DEFENSA Y CONCILIACION',	'FECHA DE NOTIFICACION DEL INCIDENTE DEL DESACATO',
       'FECHA DE CONTESTACION DEL INCIDENTE DE DESACATO', 'FECHA NOTIFICACION DE DECISION DEL INCIDENTE DE DESACATO', 'REASEGURO REPORTADO',
       'PROCEDE RECOBRO?',	'TIENE NUMERO DE RADICADO DE CORRESPONDENCIA / VICEPRESIDENCIA?',	'TIENE MAS POLIZAS?',	'TIENE COSTAS A FAVOR?',	'TIENE NUMERO DE RADICADO DE COACTIVO?',
-      'HAY IMPUGNACION?',	'HAY DESACATO?', 'OTRO DESPACHO', 'ZONA', 'ULTIMA ACTUALIZACION', 'FECHA DE CREACION','OBSERVACIONES', 'SUCURSAL DE LA POLIZA', 'RAMO COMERCIAL','ESTADO CONSULTORIA'
+      'HAY IMPUGNACION?',	'HAY DESACATO?', 'OTRO DESPACHO', 'ZONA', 'ULTIMA ACTUALIZACION', 'FECHA DE CREACION','OBSERVACIONES', 'SUCURSAL DE LA POLIZA', 'RAMO COMERCIAL','ESTADO CONSULTORIA',
+      'CC / NIT PARTE PASIVA', 'CC / NIT PARTE ACTIVA'
     ]
   end
 
@@ -231,7 +235,8 @@ class TypeProcess < ApplicationRecord
       format_date(self.date_notification_desition_desacate), format_date(self.payment_date), format_date(self.imp_date),format_date(self.last_performance_date), format_date(self.desition_date), format_date(self.committee_date), format_date(self.date_notification_desacate),
       format_date(self.date_answer_desacate), format_date(self.objection_date_desition_notification), self.get_reinsurance_report, self.get_recovery, booleanValue(self.has_correspondency_radicate),
       booleanValue(self.has_more_polcies), booleanValue(self.has_costs), booleanValue(self.has_coactive_radicate), booleanValue(self.has_impug), booleanValue(self.has_desacate), self.other_office_name, self.get_zone, (self.updated_at-5.hour).strftime("%d/%m/%Y %H:%M"),
-      (self.created_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, self.get_branch_policy, self.get_branch_commercial, self.state_db
+      (self.created_at-5.hour).strftime("%d/%m/%Y %H:%M"), self.observations, self.get_branch_policy, self.get_branch_commercial, self.state_db,
+      self.document_active_part, self.document_passive_part
     ]
   end
 
