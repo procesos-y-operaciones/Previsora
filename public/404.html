@@ -226,6 +226,11 @@
                 100% {margin-left: -1000px;}
             }
   </style>
+  <script>
+    function goBack() {
+        window.history.back();
+    }
+  </script>
 </head>
 
 <body class="rails-default-error-page">
@@ -241,7 +246,7 @@
            <hr>
            <div class='_1'>PÁGINA</div>
            <div class='_2'>NO ENCONTRADA</div>
-           <a class='btn' href='/'>Volver</a>
+           <button class="btn" onclick="goBack()">Volver</button>
        </div>
 </body>
 </html>
