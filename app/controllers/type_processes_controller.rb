@@ -74,7 +74,7 @@ class TypeProcessesController < ApplicationController
     respond_to do |format|
       if @type_process.save
         format.html {
-          if @type_process.capture_state == "REGISTRO MODIFICADO CAPTURE"
+          if @type_process.state_capture == "REGISTRO MODIFICADO CAPTURE"
             redirect_to type_processes_capture_path(@type_process), notice: 'Proceso creado correctamente.'
           else
             redirect_to index_home_path, notice: 'Proceso creado correctamente.'
@@ -174,7 +174,7 @@ class TypeProcessesController < ApplicationController
        :objection_date_desition_notification, :setence_type_second_company, :other_office_name,
        :more_protections, :policy_taker, :contract, :reserve_cents_modify, :reserve_cents_total, :has_costs, :has_coactive_radicate,
        :reserve_cents_date, :reserved_fees_cents_modify, :reserved_fees_cents_total, :reserved_fees_cents_date, :has_impug, :has_desacate,
-       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part, :internal_created, :internal_updated, :capture_state,
+       :state, :has_correspondency_radicate, :document_active_part, :document_passive_part, :internal_created, :internal_updated, :state_capture,
        sinisters_attributes: Sinister.attribute_names.map(&:to_sym).push(:_destroy),
        policies_attributes: Policy.attribute_names.map(&:to_sym).push(:_destroy)
      )
