@@ -95,7 +95,7 @@
         <th scope="col" class="center"><%= sort_link @search, :correspondency_radicate, "N° Correspondencia", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :case_id_sise, "N° SISE", {}, :class => 'link' %></th>
-        <th scope="col" class="center"><%= sort_link @search, :internal_lawyer, "Abogado", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :user, "Abogado", {}, :class => 'link' %></th>
         <th scope="col" class="center"><%= sort_link @search, :city_case_id, "Ciudad", {}, :class => 'link' %></th>
       </tr>
     </thead>
@@ -111,7 +111,7 @@
             <td class="center"><%= p.correspondency_radicate %></td>
             <td class="center"><%= p.case_id_bap %></td>
             <td class="center"><%= p.case_id_sise %></td>
-            <td class="center"><%= p.internal_lawyer %></td>
+            <td class="center"><%= p.user.nil? ? "PENDIENTE" : p.user.name.upcase %></td>
             <td class="center"><%= p.get_city_case %></td>
           </tr>
         <% end %>

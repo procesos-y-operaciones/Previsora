@@ -118,6 +118,8 @@
 
 class TypeProcess < ApplicationRecord
 
+  belongs_to :user
+
   validate :validate_ids, on: :create
   validate :update_ids, on: :update
 
