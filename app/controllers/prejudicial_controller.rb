@@ -1,6 +1,6 @@
 class PrejudicialController < ApplicationController
 
-  before_action :set_prejudicial, only: [:show, :edit, :update, :destroy]
+  before_action :set_prejudicial, only: [:show, :edit, :update, :destroy, :old]
 
   def show
   end
@@ -12,6 +12,12 @@ class PrejudicialController < ApplicationController
   end
 
   def edit
+    if @prejudicial.state != "REGISTRO NUEVO MIGRACION LITISOFT"
+      redirect_to prejudicial_old_path(@prejudicial)
+    end
+  end
+
+  def old
   end
 
   def create

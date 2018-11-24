@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :administrative
   resources :secrets
 
+  get 'prejudicial/:id/old', :to => 'prejudicial#old', :as => 'prejudicial_old'
+
   get 'type_processes/capture/:id(.:format)', :to => 'type_processes#capture', :as => 'type_processes_capture'
   get 'type_processes/capture_edit/:id(.:format)', :to => 'type_processes#capture_edit', :as => 'type_processes_capture_edit'
 

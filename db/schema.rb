@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181101194134) do
+ActiveRecord::Schema.define(version: 20181124153940) do
 
   create_table "attornies", force: :cascade do |t|
     t.string "name"
@@ -323,7 +323,7 @@ ActiveRecord::Schema.define(version: 20181101194134) do
     t.boolean "has_coactive_radicate", default: false
     t.boolean "has_impug", default: false
     t.boolean "has_desacate", default: false
-    t.string "state", default: "REGISTRO NUEVO"
+    t.string "state", default: "REGISTRIO NUEVO MIGRACION LITISOFT"
     t.string "document_active_part", default: "NO APLICA"
     t.string "document_passive_part", default: "NO APLICA"
     t.integer "attorny"
