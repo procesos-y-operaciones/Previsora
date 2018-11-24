@@ -1,6 +1,6 @@
 class JudicialController < ApplicationController
 
-  before_action :set_judicial, only: [:show, :edit, :update, :destroy]
+  before_action :set_judicial, only: [:show, :edit, :update, :destroy, :old]
 
   def show
   end
@@ -12,6 +12,12 @@ class JudicialController < ApplicationController
   end
 
   def edit
+    if @judicial.state != "REGISTRO NUEVO MIGRACION LITISOFT"
+      redirect_to judicial_old_path(@judicial)
+    end
+  end
+
+  def old
   end
 
   def create
