@@ -1,14 +1,23 @@
 class FiscalController < ApplicationController
 
-  before_action :set_fiscal, only: [:show, :edit, :update, :destroy]
+  before_action :set_fiscal, only: [:show, :edit, :update, :destroy, :old]
 
-  def edit
+  def show
   end
 
   def new
     @fiscal = TypeProcess.new
     @fiscal.creation_date = Date.today
     @fiscal.internal_created = current_user.name
+  end
+
+  def edit
+    if @fiscal.state != "REGISTRO NUEVO MIGRACION LITISOFT"
+      redirect_to fiscal_old_path(@fiscal)
+    end
+  end
+
+  def old
   end
 
   def create

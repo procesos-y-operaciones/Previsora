@@ -1,16 +1,8 @@
-<%= javascript_include_tag "fiscal" %>
+<%= javascript_include_tag "old" %>
 
-<%= form_with(model: type_process, local: true) do |form| %>
-  <% if type_process.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
-      <ul>
-        <% type_process.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<h3 class="title">Registro Antiguo Responsabilidad Fiscal</h3>
+
+<%= form_for @fiscal, url: type_process_url do |form| %>
 
   <div class="row">
     <div class="offset-lg-2 col-lg-8 ">
@@ -53,6 +45,18 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi Access y PA)" %>
+      <div class="input-group">
+        <%= form.text_field :case_id_bap, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"case_id_bap", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_id_bap_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_id_sise, "Número de identificación del caso en SISE" %>
+      <div class="input-group">
+        <%= form.text_field :case_id_sise, maxlength:"12", pattern:"[A-Z0-9\- ]*", title: t(:pattern),  id:"case_id_sise",onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <hr>
 
       <%= form.label :creation_date, "Fecha de creación" %>
@@ -77,12 +81,36 @@
       <div class="input-group">
         <select name="type_process[city_case]" id="cities" required=true class="form-control">
           <option value="" disabled selected>SELECCIONE</option>
-          <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
+          <option value="<%= @fiscal.city_case %>" selected="selected"><%= @fiscal.city_case %></option>
         </select>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <hr>
+
+      <%= form.label :reinsurance_type, "Tipo de reaseguro" %>
+      <div class="input-group">
+        <%= form.collection_select(:reinsurance_type, ReinsuranceType.all, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reinsurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reinsurance_report, "Reaseguro reportado" %><br>
+      <div class="input-group">
+        <%= form.select :reinsurance_report, options_for_select([["NO", false], ["SI", true]]), {}, { class:'form-control' } %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reinsurance_report_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :coensurance_type, "Tipo de coaseguro" %>
+      <div class="input-group">
+        <%= form.collection_select(:coensurance_type, CoensuranceType.all, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.coensurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :coensurance_value_cents, "Valor del coaseguro para Previsora" %>
+      <div class="input-group">
+        <%= form.text_field :coensurance_value_cents, id:"coensurance_value", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control"%>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.coensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
 
       <%= form.label :litigation_source, "Fuente del litigio" %>
       <div class="input-group">
@@ -120,6 +148,18 @@
 
       <hr />
 
+      <%= form.label :provision_cents, "Valor de la provisión de la indemnización" %>
+      <div class="input-group">
+        <%= form.text_field :provision_cents, id:"provision_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.provision_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reserved_fees_cents, "Valor de la reserva para honorarios" %>
+      <div class="input-group">
+        <%= form.text_field :reserved_fees_cents, id:"reserved_fees_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :ensurance_value_cents, "Valor asegurado" %>
       <div class="input-group">
         <%= form.text_field :ensurance_value_cents, id:"ensurance_value_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
@@ -127,6 +167,38 @@
       </div>
 
       <hr />
+
+      <%= form.label :protection, "Amparo" %>
+      <div class="input-group">
+        <%= form.collection_select(:protection, Protection.ordered, :name, :name, {:selected => @fiscal.send(:protection)}, {id:"protection", multiple:true, class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.protection_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :more_protections, "Otros amparos" %>
+      <div class="input-group">
+        <%= form.text_area :more_protections, id:"more_protections", maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.more_protections_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :money_type, "Tipo de moneda" %>
+      <div class="input-group">
+        <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {}, {class:"form-control", id:"moneyType"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.money_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :dolar_value_cents, "Valor del dólar" %>
+      <div class="input-group">
+        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reserve_cents, "Valor de la reserva" %>
+      <div class="input-group">
+        <%= form.text_field :reserve_cents, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.reserve_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
 
       <%= form.label :detritment_cents, "Valor de la pretensión / detrimento" %>
       <div class="input-group">
@@ -208,12 +280,23 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.facts_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :contingency_resume, "Resumen de la contingencia" %>
+      <div class="input-group">
+        <%= form.text_area :contingency_resume, id:"contingency_resume", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :contingency_reason, "Motivos de la contingencia" %>
+      <div class="input-group">
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <hr>
 
       <%= form.label :current_stage, "Etapa actual" %>
       <div class="input-group">
-        <%= form.collection_select(:current_stage, CurrentStage.fiscal_ver, :name, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
-        <%= form.collection_select(:current_stage, CurrentStage.fiscal_ord, :name, :name, {}, {id:"currentStageOrd", class:"form-control"}) %>
+        <%= form.text_field :current_stage, placeholder:'PENDIENTE', class:"form-control" %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.current_stage_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
@@ -227,6 +310,43 @@
       <div class="input-group">
         <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank: "SELECCIONE"}, {id:"caseState", class:"form-control"}) %>
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :desition_date, "Fecha de la primera audiencia / decisión / actuación / acto administrativo / fallo" %>
+      <div class="input-group">
+        <%= form.date_field :desition_date, id:"desition_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.desition_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_termination, "Terminación del caso" %> <span class="red">*</span>
+      <div class="input-group">
+        <%= form.collection_select(:case_termination, CaseTermination.other, :name, :name, {include_blank: 'SELECCIONE'}, {id:"caseTermination", required:true, class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :case_termination, value:"NO PRESENTA", id:"caseTermination_hid" %>
+      </div>
+
+      <%= form.label :fail_value_cents, "Valor del fallo de la decisión / sanción" %>
+      <div class="input-group">
+        <%= form.text_field :fail_value_cents, id:"fail_value_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.fail_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :fail_previ_cents, "Valor del fallo / sanción a cargo de Previsora" %>
+      <div class="input-group">
+        <%= form.text_field :fail_previ_cents, id:"fail_previ_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.fail_previ_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :payed_value_cents, "Valor pagado por Previsora" %>
+      <div class="input-group">
+        <%= form.text_field :payed_value_cents, id:"payed_value_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.payed_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :payment_date, "Fecha de consignación / pago" %>
+      <div class="input-group">
+        <%= form.date_field :payment_date, id:"payment_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.payment_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
       <%= form.label :has_coactive_radicate, "¿Tiene número de radicado de coactivo?" %>
@@ -247,6 +367,12 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.coactive_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :garnish_value_cents, "Valor del embargo" %>
+      <div class="input-group">
+        <%= form.text_field :garnish_value_cents, id:"garnish_value_cents", maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.garnish_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
       <%= form.label :last_performance, "Última actuación" %>
       <div class="input-group">
         <%= form.collection_select(:last_performance, LastPerformance.all, :name, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
@@ -260,11 +386,18 @@
         <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.last_performance_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
       </div>
 
+      <%= form.label :reserved_released, "¿La reserva ya fue depurada?" %>
+      <div class="input-group">
+        <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"reservedReleased"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.reserved_released_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+        <%= form.hidden_field :reserved_released, value:"PENDIENTE", id:"reservedReleased_hid" %>
+      </div>
+
       <hr>
 
     </div>
   </div>
 
-  <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
-
 <% end %>
+
+<%= link_to "Volver", type_process_path(@fiscal), class:"btn btn-default" %>

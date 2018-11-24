@@ -184,41 +184,11 @@ $ ->
 
   coactive_rule()
 
-  #Número de identificación del caso (Bizagi, Acces y PA)
-  #Número de identificación del caso SISE
-  case_id_bap_and_sise_rule = ->
-    bapId = $('#case_id_bap').val()
-    sizeId = $('#case_id_sise').val()
-    if bapId == "NO APLICA" and sizeId == "NO APLICA"
-      $('#case_id_bap').val("PENDIENTE")
-      $('#case_id_sise').val("PENDIENTE")
-      document.getElementById("case_id_bap").required = true
-      document.getElementById("case_id_sise").required = false
-    if bapId != "" and bapId != "PENDIENTE"
-      document.getElementById("case_id_bap").required = true
-      document.getElementById("case_id_sise").required = false
-    else
-      if sizeId != "" and sizeId != "PENDIENTE"
-        document.getElementById("case_id_sise").required = true
-        document.getElementById("case_id_bap").required = false
-      else
-        document.getElementById("case_id_bap").required = true
-        document.getElementById("case_id_sise").required = false
-
-  case_id_bap_and_sise_rule()
-
-  $('#case_id_bap').change ->
-    case_id_bap_and_sise_rule()
-
-  $('#case_id_sise').change ->
-    case_id_bap_and_sise_rule()
-
   #Fuente de litigio
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
     if v_option == 'SINIESTRO'
       $('#protection').prop('disabled', false)
-      document.getElementById("more_protections").readOnly = false
       $('#siniesters_butt').show()
       $('#sinisters_label').show()
       $('#policies_butt').show()
@@ -229,7 +199,6 @@ $ ->
     else
       $('#protection').prop('disabled', true)
       $('#protection').val("")
-      document.getElementById("more_protections").readOnly = true
       $('#more_policies').prop( "disabled", true )
       $('#siniesters_butt').hide()
       $('#sinisters_label').hide()
@@ -243,37 +212,6 @@ $ ->
     litigation_source_rule()
 
   litigation_source_rule()
-
-  #Protection Rule
-  protection_rule = ->
-    v_option = $("#protection option:selected")
-    if v_option.size() > 0
-      if v_option[v_option.size() - 1].innerHTML == "OTRO"
-        document.getElementById("more_protections").readOnly = false
-      else
-        document.getElementById("more_protections").readOnly = true
-    else
-      document.getElementById("more_protections").readOnly = true
-
-  $('#protection').change ->
-    protection_rule()
-
-  protection_rule()
-
-  #Tipo moneda
-  money_type_rule = ->
-    v_option = document.getElementById("moneyType").value
-    if v_option == "PESOS"
-      document.getElementById("dolarValueCents").readOnly = true
-      $("#dolarValueCents").val(0)
-    else
-      document.getElementById("dolarValueCents").readOnly = false
-
-  $('#moneyType').change ->
-    money_type_rule()
-
-  money_type_rule()
-
 
   #Valor asegurado y Valor contingencia
   pretension_value_rule = ->
@@ -339,35 +277,6 @@ $ ->
     case_state_rule()
 
   case_state_rule()
-
-  #Terminacion del caso
-  case_termination_rule = ->
-    v_option = document.getElementById("caseTermination").value
-    if v_option == "TERMINADO CON PAGO: EN CONTRA"
-      $('#fail_value_cents').prop( "disabled", false )
-      $('#fail_value_cents').prop( "required", true )
-      $('#fail_previ_cents').prop( "disabled", false )
-      $('#fail_previ_cents').prop( "required", true )
-      $('#coactive').prop( "disabled", false )
-      $('#coactive').prop( "required", true )
-      $('#garnish_value_cents').prop( "disabled", false )
-      $('#garnish_value_cents').prop( "required", true )
-    else
-      $('#fail_value_cents').prop( "disabled", true )
-      $('#fail_value_cents').prop( "required", false )
-      $('#fail_previ_cents').prop( "disabled", true )
-      $('#fail_previ_cents').prop( "required", false )
-      $('#coactive').prop( "disabled", true )
-      $('#coactive').val( "false" )
-      $('#coactive').prop( "required", false )
-      $('#garnish_value_cents').prop( "disabled", true )
-      $('#garnish_value_cents').prop( "required", false )
-
-  $('#caseTermination').change ->
-    case_termination_rule()
-
-  case_termination_rule()
-
 
   #Departamento donde cursa el caso
   departament_rule = ->
