@@ -1,0 +1,32 @@
+<div class='nested-fields'>
+
+  <hr>
+
+  <%= f.label :policy_number, "Número de la póliza" %>
+  <div class="input-group">
+    <%= f.text_field :policy_number, pattern:"[0-9]*", title: t(:pattern), placeholder: 'NUMERO COMPLETO', class:"form-control" %>
+    <span data-toggle="tooltip" data-html="true" title="<%= t('processes.prejudicial.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+  </div>
+
+  <%= f.label :policy_taker, "Tomador de la póliza" %>
+  <div class="input-group">
+    <%= f.text_field :policy_taker, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+    <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+  </div>
+
+  <%= f.label :ensurance_value, "Valor asegurado" %>
+  <div class="input-group">
+    <%= f.text_field :ensurance_value, maxlength:"20", pattern:"[0-9\,\' ]*", title: t(:pattern_n), placeholder: 'VALOR COMPLETO', onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"ensurance_value form-control" %>
+    <span data-toggle="tooltip" data-html="true" title="<%= t('processes.fiscal.ensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+  </div>
+
+  <div class="input-group">
+    <%= link_to_remove_association f, class: "minibtn btn-default m-1" do %>
+      <span class="fa">&#x2212;</span>
+      Borrar Póliza
+    <% end %>
+  </div>
+
+  <hr>
+
+</div>

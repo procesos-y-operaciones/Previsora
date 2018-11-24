@@ -61,6 +61,8 @@ class TypeProcessesController < ApplicationController
         redirect_to edit_administrative_path(@type_process.id)
       when 5
         redirect_to edit_tutelage_path(@type_process.id)
+      when 6
+        redirect_to edit_coljuego_path(@type_process.id)
       end
     else
       redirect_to root_path, notice: "No puedes acceder a esto."
@@ -93,6 +95,8 @@ class TypeProcessesController < ApplicationController
             redirect_to new_administrative_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 5
             redirect_to new_tutelage_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 6
+            redirect_to new_coljuego_path, :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           end
          }
         format.json { render json: @type_process.errors, status: :unprocessable_entity }
@@ -119,6 +123,8 @@ class TypeProcessesController < ApplicationController
             redirect_to edit_administrative_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           elsif @type_process.p_type == 5
             redirect_to edit_tutelage_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
+          elsif @type_process.p_type == 6
+            redirect_to edit_coluego_path(@type_process), :flash => { :alert => @type_process.errors.full_messages.join(', ') }
           end
         }
         format.json { render json: @type_process.errors, status: :unprocessable_entity }

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :tutelage
   resources :administrative
   resources :secrets
+  resources :coljuegos
 
   get 'prejudicial/:id/old', :to => 'prejudicial#old', :as => 'prejudicial_old'
   get 'judicial/:id/old', :to => 'judicial#old', :as => 'judicial_old'
