@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :secrets
 
   get 'prejudicial/:id/old', :to => 'prejudicial#old', :as => 'prejudicial_old'
+  get 'judicial/:id/old', :to => 'judicial#old', :as => 'judicial_old'
+  get 'fiscal/:id/old', :to => 'fiscal#old', :as => 'fiscal_old'
+  get 'administrative/:id/old', :to => 'administrative#old', :as => 'administrative_old'
+  get 'tutelage/:id/old', :to => 'tutelage#old', :as => 'tutelage_old'
 
   get 'type_processes/capture/:id(.:format)', :to => 'type_processes#capture', :as => 'type_processes_capture'
   get 'type_processes/capture_edit/:id(.:format)', :to => 'type_processes#capture_edit', :as => 'type_processes_capture_edit'

@@ -123,8 +123,6 @@ class TypeProcess < ApplicationRecord
   validate :validate_ids, on: :create
   validate :update_ids, on: :update
 
-  before_update :change_state
-
   serialize :protection
 
   has_many :sinisters, dependent: :destroy
@@ -134,15 +132,6 @@ class TypeProcess < ApplicationRecord
   accepts_nested_attributes_for :policies, allow_destroy: true
 
   self.per_page = 15
-
-  def change_state
-    if self.state == "REGISTRO NUEVO"
-      self.state = "REGISTRO NUEVO ACTUALIZADO"
-    end
-    if self.state == "REGISTRO MIGRADO"
-      self.state = "REGISTRO MIGRADO ACTUALIZADO"
-    end
-  end
 
   def validate_ids
     if case_id_bap != "" && case_id_bap != "NO PRESENTA" && case_id_bap != "NO APLICA" && case_id_bap != "PENDIENTE" && TypeProcess.where(:case_id_bap => case_id_bap).present?

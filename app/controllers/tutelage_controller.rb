@@ -1,6 +1,6 @@
 class TutelageController < ApplicationController
 
-  before_action :set_tutelage, only: [:show, :edit, :update, :destroy]
+  before_action :set_tutelage, only: [:show, :edit, :update, :destroy, :old]
 
   def show
   end
@@ -12,6 +12,12 @@ class TutelageController < ApplicationController
   end
 
   def edit
+    if @tutelage.state != "REGISTRO NUEVO MIGRACION LITISOFT"
+      redirect_to tutelage_old_path(@tutelage)
+    end
+  end
+
+  def old
   end
 
   def create
