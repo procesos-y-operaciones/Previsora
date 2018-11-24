@@ -1,14 +1,23 @@
 class AdministrativeController < ApplicationController
 
-  before_action :set_administrative, only: [:show, :edit, :update, :destroy]
+  before_action :set_administrative, only: [:show, :edit, :update, :destroy, :old]
 
-  def edit
+  def show
   end
 
   def new
     @administrative = TypeProcess.new
     @administrative.creation_date = Date.today
     @administrative.internal_created = current_user.name
+  end
+
+  def edit
+    if @administrative.state != "REGISTRO NUEVO MIGRACION LITISOFT"
+      redirect_to administrative_old_path(@administrative)
+    end
+  end
+
+  def old
   end
 
   def create

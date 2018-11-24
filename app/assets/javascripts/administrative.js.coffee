@@ -183,7 +183,6 @@ $ ->
       $('#moneyCents').show()
       $('#moneyType').prop 'disabled', true
       $('#moneyType').hide()
-      document.getElementById('dolarValueCents').readOnly = true
       $('#office_name_col').prop 'disabled', false
       $('#office_name_col').show()
       $('#office_name_ord').prop 'disabled', true
@@ -206,7 +205,6 @@ $ ->
       $('#moneyCents').hide()
       $('#moneyType').prop 'disabled', false
       $('#moneyType').show()
-      document.getElementById('dolarValueCents').readOnly = false
       $('#office_name_col').prop 'disabled', true
       $('#office_name_col').hide()
       $('#office_name_ord').prop 'disabled', false
@@ -267,49 +265,6 @@ $ ->
     litigation_source_rule()
 
   litigation_source_rule()
-
-  #Valor asegurado
-  ensurance_value_rule = ->
-    ensurance_value_cents = document.getElementById('ensurance_value_cents').value
-    subClass = document.getElementById('subprocessClass').value
-    ensurance_value_cents = ensurance_value_cents.split("'").join("")
-    ensurance_value_cents = ensurance_value_cents.split(",").join("")
-    if ensurance_value_cents >= 1000000000
-      $('#reinsuranceTypeSF').prop 'disabled', true
-      $('#reinsuranceTypeSF').hide()
-      $('#reinsuranceType').prop 'disabled', false
-      $('#reinsuranceType').show()
-      $('#reinsurance_report').prop( "disabled", false )
-    else
-      $('#reinsuranceTypeSF').prop 'disabled', false
-      $('#reinsuranceTypeSF').show()
-      $('#reinsuranceType').prop 'disabled', true
-      $('#reinsuranceType').hide()
-      $('#reinsuranceType').val("")
-      $('#reinsurance_report').prop( "disabled", true )
-      $('#reinsurance_report').val("false")
-
-  $('#ensurance_value_cents').change ->
-    ensurance_value_rule()
-  $('#subprocessClass').change ->
-    ensurance_value_rule()
-
-  ensurance_value_rule()
-
-  #Tipo moneda
-  money_type_rule = ->
-    v_option = document.getElementById("moneyType").value
-    if v_option == "PESOS"
-      document.getElementById("dolarValueCents").readOnly = false
-      $("#dolarValueCents").val(0)
-    else
-      document.getElementById("dolarValueCents").readOnly = true
-
-  $('#moneyType').change ->
-    money_type_rule()
-
-  money_type_rule()
-
 
   #Nombre despacho / tipo contraloría
   office_rule = ->
@@ -388,21 +343,3 @@ $ ->
     current_stage_rule()
 
   current_stage_rule()
-
-  #¿Tiene número de radicado de coactivo?
-  coactive_rule = ->
-    v_option = document.getElementById("coactive").value
-    if v_option == "true"
-      document.getElementById("coactive_radicate").readOnly = false
-      document.getElementById("coactive_value_cents").readOnly = false
-      document.getElementById("garnish_value").readOnly = false
-    if v_option == "false"
-      document.getElementById("coactive_radicate").readOnly = true
-      $("#coactive_radicate").val("NO PRESENTA")
-      document.getElementById("coactive_value_cents").readOnly = true
-      document.getElementById("garnish_value").readOnly = true
-
-  $('#coactive').change ->
-    coactive_rule()
-
-  coactive_rule()
