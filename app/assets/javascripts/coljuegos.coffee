@@ -126,24 +126,6 @@ $ ->
   )
 
   #Departamento donde cursa el caso
-  departament_rule = ->
-    value = $('#cities').val()
-    $.getJSON '/cities/' + $('#departament_ordinarie').val(), (data) ->
-      $('#cities').empty()
-      $('#cities').append '<option value="">SELECCIONE</option>'
-      $.each data, (i) ->
-        if value == data[i].code
-          opt = '<option selected="selected" value="' + data[i].code + '">' + data[i].name + '</option>'
-        else
-          opt = '<option value="' + data[i].code + '">' + data[i].name + '</option>'
-        $('#cities').append(opt)
-
-  $('#departament_ordinarie').change ->
-    departament_rule()
-
-  #departament_rule()
-
-  #Departamento donde cursa el caso
   departament_rule_col = ->
     value = $('#cities').val()
     $.getJSON '/cities/' + $('#departament_coljuegos').val(), (data) ->
@@ -158,8 +140,7 @@ $ ->
   $('#departament_coljuegos').change ->
     departament_rule_col()
 
-  #departament_rule_col()
-
+  departament_rule_col()
 
   #Subclase de proceso
   subprocessClass_rule = ->
@@ -219,22 +200,6 @@ $ ->
 
   subprocessClass_rule()
 
-
-  #¿Tiene número de radicado correspondencia?
-  radicate_rule = ->
-    v_option = document.getElementById("radicate").value
-    if v_option == "true"
-      document.getElementById("correspondency_radicate").readOnly = false
-    if v_option == "false"
-      document.getElementById("correspondency_radicate").readOnly = true
-      $("#correspondency_radicate").val("NO PRESENTA")
-
-  $('#radicate').change ->
-    radicate_rule()
-
-  radicate_rule()
-
-
   #Fuente de litigio
   litigation_source_rule = ->
     v_option = document.getElementById('litigationSource').value
@@ -249,8 +214,6 @@ $ ->
       $('#reserved_fees_cents').prop( 'readOnly', true )
       $('#ensurance_value_cents').prop( 'readOnly', true )
     else
-      document.getElementById('protection_coljuegos').readOnly = true
-      document.getElementById('protection_ordinarie').readOnly = true
       $('#protection_coljuegos').prop('disabled', true)
       $('#protection_ordinarie').prop('disabled', true)
       $('#siniesters_butt').hide()
@@ -265,81 +228,4 @@ $ ->
     litigation_source_rule()
 
   litigation_source_rule()
-
-  #Nombre despacho / tipo contraloría
-  office_rule = ->
-    v_option = document.getElementById('office_name_ord').value
-    if v_option == "OTRO"
-      $('#office_text').prop( "disabled", false )
-      $('#office_text').show()
-    else
-      $('#office_text').prop( "disabled", true )
-      $('#office_text').hide()
-      $('#office_text').val("")
-
-  $('#office_name_ord').change ->
-    office_rule()
-
-  office_rule()
-
-
-  #Estado del caso
-  case_state_rule = ->
-    v_option = document.getElementById("caseState").value
-    if v_option == "EN CURSO"
-      $('#currentStageVer').prop( "disabled", false )
-      $('#currentStageHid').prop( "disabled", true )
-      $('#fail_value').prop( "disabled", true )
-      $('#fail_value').val("0")
-      $('#desition_date').prop( "disabled", true )
-      $('#desition_date').prop("0-0-0")
-      $('#fail_previ').prop( "disabled", true )
-      $('#fail_previ').val("0")
-      $('#caseTermination').prop( "disabled", true )
-      $('#caseTermination').val("")
-      $('#caseTermination_hid').prop( "disabled", false )
-    if v_option == "TERMINADO"
-      $('#currentStageVer').prop( "disabled", true )
-      $('#currentStageHid').prop( "disabled", false )
-      $('#fail_value').prop( "disabled", false )
-      $('#desition_date').prop( "disabled", false )
-      $('#fail_previ').prop( "disabled", false )
-      $('#caseTermination').prop( "disabled", false )
-      $('#caseTermination_hid').prop( "disabled", true )
-    else
-      $('#currentStageVer').prop( "disabled", false )
-      $('#currentStageHid').prop( "disabled", true )
-      $('#fail_value').prop( "disabled", true )
-      $('#fail_value').val("0")
-      $('#desition_date').prop( "disabled", true )
-      $('#desition_date').prop("0-0-0")
-      $('#fail_previ').prop( "disabled", true )
-      $('#fail_previ').val("0")
-      $('#caseTermination').prop( "disabled", true )
-      $('#caseTermination').val("")
-      $('#caseTermination_hid').prop( "disabled", false )
-
-
-  $('#caseState').change ->
-    case_state_rule()
-
-  case_state_rule()
-
-  #Current Stage Rule
-  current_stage_rule = ->
-    v_option = document.getElementById("currentStageVer").value
-    if v_option == "SANCION EN FIRME"
-      $('#payed_value_cents').prop( "disabled", false )
-      $('#payment_date').prop( "disabled", false )
-      $('#coactive').prop( "disabled", false )
-    else
-      $('#payed_value_cents').prop( "disabled", true )
-      $('#payed_value_cents').val("0")
-      $('#payment_date').prop( "disabled", true )
-      $('#coactive').val( "false" )
-      $('#coactive').prop( "disabled", true )
-
-  $('#currentStageVer').change ->
-    current_stage_rule()
-
-  current_stage_rule()
+  
