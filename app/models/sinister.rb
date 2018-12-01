@@ -39,6 +39,18 @@ class Sinister < ApplicationRecord
     end
   end
 
+  def self.get_header
+    [
+      "IDENTIFICADOR", "NUMERO", "EJERCICIO", "SUCURSAL DE LA POLIZA", "RAMO COMERCIAL", "SINIESTRO COMPLETO", "RESERVA INDEMNIZACION", "RESERVA HONORARIOS", "REGISTRO ASOCIADO"
+    ]
+  end
+
+  def get_content
+    [
+      self.id, self.number, self.exercise, self.get_branch_policy, self.get_branch_commercial, self.sinister, self.reserve_cents, self.reserved_fees_cents, self.type_process_id
+    ]
+  end
+
   def get_branch_commercial
     if self.branch_commercial == nil || self.branch_commercial == "NO APLICA"
       "NO APLICA"

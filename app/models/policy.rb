@@ -17,6 +17,18 @@ class Policy < ApplicationRecord
 
   belongs_to :type_process, optional: true
 
+  def self.get_header
+    [
+      "IDENTIFICADOR", "NUMERO DE POLIZA", "TOMADOR DE LA POLIZA", "REGISTRO ASOCIADO"
+    ]
+  end
+
+  def get_content
+    [
+      self.id, self.policy_number, self.policy_taker, self.type_process_id      
+    ]
+  end
+
   private
 
     def store_values

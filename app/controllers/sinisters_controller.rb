@@ -5,6 +5,9 @@ class SinistersController < ApplicationController
   # GET /sinisters.json
   def index
     @sinisters = Sinister.all
+    respond_to do |format|
+      format.xlsx { response.headers['Content-Disposition'] = "attachment; filename=#{Date.today.to_s}.xlsx" }
+    end
   end
 
   # GET /sinisters/1

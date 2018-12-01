@@ -72,6 +72,24 @@
       Reporte Global para Migración
     </div>
   </div>
+  <div class="offset-sm-3 col-sm-2">
+    <%= link_to sinisters_path(format: "xlsx"), :data => {:confirm => "A continuación se abrirá un nueva pestaña. Una vez el reporte se haya generado, esta se cerrará automáticamente. \n\nNo cierre la pestaña o genere otro reporte hasta que este proceso termine. \n\nEsto podría tardar varios minutos. \n\n¿Desea continuar?"}, target: '_blank', class:"btn-circle btn-inverse" do %>
+    <span class="fa">&#xf01a;</span>
+    <% end %>
+    <br>
+    <div class="ligthgreen1">
+      Reporte Siniestros
+    </div>
+  </div>
+  <div class="offset-sm-2 col-sm-2">
+    <%= link_to policies_path(format: "xlsx"), :data => {:confirm => "A continuación se abrirá un nueva pestaña. Una vez el reporte se haya generado, esta se cerrará automáticamente. \n\nNo cierre la pestaña o genere otro reporte hasta que este proceso termine. \n\nEsto podría tardar varios minutos. \n\n¿Desea continuar?"}, target: '_blank', class:"btn-circle btn-inverse" do %>
+    <span class="fa">&#xf01a;</span>
+    <% end %>
+    <br>
+    <div class="ligthgreen1">
+      Reporte Pólizas
+    </div>
+  </div>
 </div>
 <br />
 <br />

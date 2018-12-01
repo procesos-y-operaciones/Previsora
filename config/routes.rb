@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :policies
   resources :sinisters
   resources :attornies
   resources :office_names

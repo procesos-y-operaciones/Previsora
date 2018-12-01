@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Reporte Registro Unico") do |sheet|
+
+  sheet.add_row ["LA PREVISORA SA COMPANIA DE SEGUROS"]
+  sheet.add_row ["VICEPRESIDENCIA JURIDICA"]
+  sheet.add_row ["REPORTE DE SINIESTROS REGISTRADOS"]
+  sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
+  sheet.add_row [""]
+
+  sheet.add_row Sinister.get_header
+  n = Sinister.get_header.count
+
+  Sinister.all.pluck(:id).each do |s|
+    sheet.add_row Sinister.find(s).get_content, :types => [:string] * n
+  end
+
+end

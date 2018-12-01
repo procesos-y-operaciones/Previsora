@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Reporte Registro Unico") do |sheet|
+
+  sheet.add_row ["LA PREVISORA SA COMPANIA DE SEGUROS"]
+  sheet.add_row ["VICEPRESIDENCIA JURIDICA"]
+  sheet.add_row ["REPORTE DE POLIZAS REGISTRADAS"]
+  sheet.add_row ["FECHA DE GENERACION: #{Date.today}"]
+  sheet.add_row [""]
+
+  sheet.add_row Policy.get_header
+  n = Policy.get_header.count
+
+  Policy.all.pluck(:id).each do |p|
+    sheet.add_row Policy.find(p).get_content, :types => [:string] * n
+  end
+
+end
