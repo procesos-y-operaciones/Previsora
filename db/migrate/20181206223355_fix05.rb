@@ -1,0 +1,14 @@
+class Fix05 < ActiveRecord::Migration[5.1]
+  def change
+    puts TypeProcess.find(22661).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22659).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22582).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'DEMANDADO',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'SINIESTRO',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22581).update(process_class: 'PENDIENTE',subprocess_class: 'REPARACION DIRECTA',link_type: 'LLAMADA EN GARANTIA',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'SINIESTRO',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22541).update(process_class: 'PENDIENTE',subprocess_class: 'REPARACION DIRECTA',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22519).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22516).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22512).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22511).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(22510).update(process_class: 'PENDIENTE',subprocess_class: 'PENDIENTE',link_type: 'PENDIENTE',protection: ['', 'PENDIENTE'],current_stage: 'PENDIENTE',litigation_source: 'PENDIENTE',case_termination: 'PENDIENTE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+  end
+end
