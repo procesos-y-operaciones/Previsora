@@ -1,0 +1,25 @@
+class Fix22 < ActiveRecord::Migration[5.1]
+  def change
+    puts TypeProcess.find(22373).update(passive_part: 'MUNICIPIO DE SANTIAGO DE CALI',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(21829).update(passive_part: 'ESE HOSPITAL REGIONAL MANUELA BELTRAN',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(21023).update(passive_part: 'MUNICIPIO DE CALI',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20952).update(passive_part: 'COMPA?IA COLOMBIANA DE SALUD COLSALUD S.A.',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20948).update(passive_part: 'CENTRO DE SALUD ANCUYA ESE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20947).update(passive_part: 'COMFAMILIAR DE NARIÑO',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20860).update(passive_part: 'CENTRO DE CIRUGIA LASER OCULAR LTDA.',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20630).update(passive_part: 'Nación - Ministerio de Transporte',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20614).update(passive_part: 'TRANSPORTES T.E.V. S.A.',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20351).update(passive_part: 'HOSPITAL UNIVERSITARIO HERNANDO MONCALEANO',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(20348).update(passive_part: 'ESE HOSPITAL DEPARTAMENTAL SAN ANTONIO DE PITALITO HUILA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(12721).update(passive_part: 'E.S.E. HOSPITAL OCTAVIO OLIVARES',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(12699).update(passive_part: 'MUNICIPIO DE PUERTO NARE',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(11724).update(passive_part: 'CRISTIAN FERNANDEZ SANCHEZ',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(1305).update(passive_part: 'LA PREVISORA S.A. CIA. DE SEGUROS',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(367).update(passive_part: 'EMPRESA DE TRANSPORTE MASIVO DEL VALLE DE ABURRÁ LTDA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(101).update(passive_part: 'COOMEVA E P S SA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(100).update(passive_part: 'EPS CAPRECOM',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(85).update(passive_part: 'SERVICIO MEDICO LIMITADA',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(73).update(passive_part: 'HOSPITAL MILITAR CENTRAL',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    puts TypeProcess.find(47).update(passive_part: 'ESE HOSPITAL DEPARTAMENTAL DE VILLAVICENCIO',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+  end
+end
