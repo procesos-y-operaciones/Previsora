@@ -56,7 +56,7 @@ class Update01 < ActiveRecord::Migration[5.1]
     puts TypeProcess.find(18914).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:57',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(18913).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:58',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(18809).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:59',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
-    puts TypeProcess.find(18614).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:60',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
+    #puts TypeProcess.find(18614).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:60',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(18610).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:61',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(18492).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:62',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
     puts TypeProcess.find(18428).update(case_state: 'TERMINADO',updated_at: '06/12/2018 23:63',state_db: 'REGISTRO MIGRADO SOBRESCRITO')
