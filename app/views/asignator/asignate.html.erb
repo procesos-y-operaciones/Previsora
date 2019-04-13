@@ -1,0 +1,137 @@
+<%= javascript_include_tag "asignator" %>
+
+<h4 class="ligthgreen1">Reasignar Registro</h4>
+<br>
+
+<%= search_form_for @search, url: asignator_asignate_url do |f| %>
+<div class="shadow p-15">
+  <div class="row">
+    <div class="offset-md-3 col-md-4">
+      <div class="styled-select">
+        <%= f.select :p_type_eq, options_for_select([["TIPO DE PROCESO", nil], ["PROCESO PREJUDICIAL", 1], ["PROCESO JUDICIAL", 2], ["RESPONSABILIDAD FISCAL", 3], ["PROCEDIMIENTO ADMINISTRATIVO", 4], ["TUTELA", 5]]), {}, {class:"form-control"} %>
+      </div>
+    </div>
+    <%= button_tag(type: 'submit', class:"offset-md-6 minibtn btn-default m-1") do %>
+      <span class="fa fa-search"></span>
+    <% end %>
+    <%= link_to asignator_search_path, class:"offset-md-7 minibtn btn-default m-1" do %>
+      <span class="fa fa-refresh"></span>
+    <% end %>
+    <button type="button" data-toggle="collapse" data-target="#filters" class="offset-md-8 minibtn btn-default m-1">
+      <span id="collapseButton" class="fa fa-angle-double-down"></span>
+    </button>
+  </div>
+
+  <br>
+
+  <div id="filters" class="collapse">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="styled-select">
+          <%= f.select :departament_eq, options_from_collection_for_select(TypeProcess.get_all_departament, :first, :last, '2'), {prompt: "DEPARTAMENTO"}, {id:"departament", class:"form-control"} %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="styled-select">
+          <select name="type_process[city_case_eq]" id="cities">
+            <option value="" selected="selected
+            ">CIUDAD</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :office_name_cont, placeholder: "NOMBRE DESPACHO", class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.text_field :correspondency_radicate_cont, placeholder: "N° RADICADO CORRESPONDENCIA", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :case_id_bap_cont, placeholder: "N° IDENTIFICACION BIZAGI ACCESS PA", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :case_id_sise_cont, placeholder: "N° IDENTIFICACION SISE", class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 ">
+        <%= f.text_field :process_radicate_cont, placeholder: "N° RADICADO DEL PROCESO", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :internal_lawyer_cont, placeholder: "NOMBRE ABOGADO INTERNO", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :active_part_cont, placeholder: "PARTE ACTIVA", class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.text_field :passive_part_cont, placeholder: "PARTE PASIVA", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <div class="styled-select">
+          <%= f.collection_select(:case_state_eq, CaseState.all, :id, :name, {prompt: "ESTADO DEL CASO"}, {class:"form-control"}) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<br>
+
+<%= form_tag asignator_translate_path do %>
+
+  <div class="row">
+    <div class="offset-md-2 col-md-4">
+      <div class="styled-select">
+        <%= collection_select("", "user_id", User.get_lawyers, "id", "name", {prompt: "ABOGADO INTERNO"}, {class: 'form-control'}) %>
+      </div>
+    </div>
+    <div class="col-md-4 center">
+      <%= submit_tag "Trasladar", class:"minibtn btn-default" %>
+    </div>
+  </div>
+
+  <div class="floatRight">
+    Registros <%= @page+1 %>-<%= @processes.length + @page %> de <%= @search.result.length %>
+  </div>
+  <br><br>
+
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th><input id="all" type="checkbox" /></th>
+        <th scope="col" class="center"><%= sort_link @search, :p_type, "Proceso", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :correspondency_radicate, "N° Correspondencia", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :case_id_bap, "N° Bizagi, Acces, PA", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :case_id_sise, "N° SISE", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :internal_lawyer, "Abogado", {}, :class => 'link' %></th>
+        <th scope="col" class="center"><%= sort_link @search, :city_case, "Ciudad", {}, :class => 'link' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @processes.each do |p| %>
+        <tr>
+          <td><%= check_box_tag "processes_ids[]", p.id %></td>
+          <td class="center"><%= p.get_type_process %></td>
+          <td class="center"><%= p.correspondency_radicate %></td>
+          <td class="center"><%= p.case_id_bap %></td>
+          <td class="center"><%= p.case_id_sise %></td>
+          <td class="center"><%= p.internal_lawyer %></td>
+          <td class="center"><%= p.city_case %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>
+
+<%= link_to 'Volver', index_home_path, class:"btn btn-default" %>
+<div class="floatRight">
+  <%= will_paginate @processes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, class:"pagination-lg" %>
+</div>

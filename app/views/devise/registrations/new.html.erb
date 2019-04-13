@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="offset-sm-4 col-sm-4">
+      <h2 class="mt-50">Nuevo usuario</h2><br>
+      <%= form_for(@user, as: @user_name, url: registration_path(@user)) do |f| %>
+
+        <%= f.label "Documento de Identidad", class:"form-label" %><br />
+        <%= f.text_field :document, pattern:"[0-9]*", title: t(:pattern), autofocus: true, placeholder: "INGRESE EL NÚMERO", class:"form-control" %>
+        <br>
+        <%= f.label "Nombre", class:"form-label" %><br />
+        <%= f.text_field :name, pattern:"[A-Z0-9\- ]*", title: t(:pattern), autofocus: true, placeholder: "INGRESE EL NOMBRE", class:"form-control" %>
+        <br>
+        <%= f.label "Rol", class:"form-label" %>
+        <%= f.select :role, options_for_select([["ABOGADO INTERNO", 1], ["COORDINADOR LEGAL", 2], ["COORDINADOR OPERATIVO", 3], ["ADMINISTRADOR", 4]]), {include_blank: "SELECCIONE"}, {class: "form-control"} %>
+        <br>
+        <%= f.label "Cargo", class:"form-label" %><br />
+        <%= f.text_field :charge, pattern:"[A-Z0-9\- ]*", title: t(:pattern), autofocus: true, placeholder: "INGRESE EL CARGO", class:"form-control" %>
+        <br>
+        <%= f.label "Contraseña", class:"form-label" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", maxlength:30, class:"form-control" %>
+        <br>
+        <%= f.label "Confirmación", class:"form-label" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", maxlength:30, class:"form-control" %>
+        <div class="actions">
+          <%= link_to "Atrás", coordinator_management_path, class: "btn btn-default" %>
+          <%= f.submit "Registrar", class:"btn btn-default floatRight" %>
+        </div>
+      <% end %>
+  </div>
+</div>

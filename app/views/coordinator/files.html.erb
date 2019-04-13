@@ -1,0 +1,13 @@
+<h4 class="ligthgreen1">Historial de Reportes</h4>
+<br>
+
+<div class="row">
+  <div class="offset-sm-1 col-sm-10">
+    <ol>
+      <% @files.sort.each do |f| %>
+        <li><%= link_to "#{File.basename f}", coordinator_download_file_url(:file => (File.basename f)), download: (File.basename f), class:"link" %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+<%= link_to 'Volver', index_home_path, class:"btn btn-default" %>

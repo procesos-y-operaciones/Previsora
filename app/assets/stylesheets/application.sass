@@ -1,0 +1,394 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+@import "bootstrap"
+
+
+/* ==================================================
+ Colors
+ ================================================== */
+$ligthgreen0: #00b800
+$ligthgreen1: #008c00
+$darkgreen: #1b492c
+$green: #006400
+$ligthblue: #42dcf4
+$white: #fff
+$darkgrey: #555555
+$grey: #cccccc
+$black: #000
+$red: #de443d
+
+/* ==================================================
+ Elements
+ form
+ buttons
+ flex-box
+ navbar
+ grid
+ table
+ pagination
+ unique
+ ================================================== */
+
+/* ==================================================
+ General
+
+ margin & padding
+ ================================================== */
+html, body
+    overflow-x: hidden
+    font-family: 'Open Sans', 'Josefin Slab', 'Arvo', 'Lato'
+    font-style: normal
+    font-variant: normal
+    font-weight: 400
+    line-height: 20px
+
+/* ================== text ========================*/
+.title
+    text-align: center
+    font-weight: 200px
+    color: darken($darkgreen, 2.5%)
+    margin-bottom: 50px
+.to-uc
+    text-transform: uppercase
+.lh-150
+    line-height: 150%
+.ls-1
+    letter-spacing: 1px
+h1, h2, h3, h4, h5, h6, p, th, ol, li, label, select, input
+    font-family: 'Open Sans', 'Josefin Slab', 'Arvo', 'Lato'
+    font-style: normal
+    font-variant: normal
+    font-weight: 400
+    line-height: 25px
+p, th, ol, li, label
+    font-size: 16px
+select, input
+    font-size: 14px !important
+td
+    font-size: 12px
+*, *:before, *:after
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    -webkit-o-sizing: border-box
+    -ms-box-sizing: border-box
+    box-sizing: border-box
+.edge
+    border: 1px solid darken($black, 2.5%)
+/* =============margin & padding ==================*/
+.m-0
+    margin: 0px
+.m-1
+    margin: 1px
+.m-5
+    margin: 5px
+.mb-5
+    margin-bottom: 5px !important
+.m-30
+    margin: 30px
+.m-50
+    margin-top: 50px
+    margin-right: 100px
+    margin-left: 100px
+.m-50-60-30
+    margin: 50px 60px 30px
+.mt-30
+    margin-top: 30px
+.mb-25
+    margin-bottom: 25px
+.mb-30
+    margin-bottom: 30px
+.mt-50
+    margin-top: 50px
+.p-0
+    padding: 0
+.p-5
+    padding: 5px
+.p-15
+    padding: 15px
+.p-30
+    padding: 30px
+.p-0-30
+    padding: 0 30px
+/* ================ aligment ======================*/
+.left
+    text-align: left
+.center
+    text-align: center
+.right
+    text-align: right
+.justify
+    text-align: justify
+.floatRight
+    float: right
+
+/* ================= color ========================*/
+.grey
+    color: darken($white, 2.5%)
+.white
+    color: darken($grey, 2.5%)
+.black
+    color: darken($black, 2.5%)
+.ligthgreen1
+    color: darken($ligthgreen1, 2.5%)
+.green
+    color: darken($green, 2.5%)
+.darkgreen
+    color: darken($darkgreen, 2.5%)
+.ligthblue
+    color: darken($ligthblue, 2.5%)
+.red
+    color: darken($red, 2.5%)
+/* =============== background color ===============*/
+.bg-dgtolg
+    background: darken($ligthgreen1, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+
+
+/* ================== others ======================*/
+.hw
+    width: 50%
+.fw
+    width: 100%
+.shadow
+    box-shadow: 0 0 20px darken($grey, 2.5%)
+hr
+    border-top: 1px solid darken($darkgreen, 2.5%)
+
+/* ==================================================
+  form
+  ================================================== */
+.form-label
+    text-align: left
+    font-size: 15px
+    font-weight: 200px
+    color: darken($darkgreen, 2.5%)
+.myform-control
+    width: 100%
+.input-group, .form-control
+    margin-bottom: 25px
+.input-group-addon
+    border: 0px !important
+    background-color:  darken($white, 2.5%) !important
+
+.styled-select
+    width: 100%
+    height: 34px
+    border: 1px solid darken($grey, 2.5%)
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    border-radius: 4px
+    background: url("caret.png") no-repeat right 0
+    overflow: hidden
+.styled-select select
+    border: none
+    width: 100%
+    height: inherit
+    background: transparent
+    padding: 5px
+    -webkit-appearance: none
+    -moz-appearance: none
+    text-indent: 1px
+    text-overflow: ''
+
+input[type='number']
+    -moz-appearance: textfield
+    appearance: textfield
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none
+    margin: 0
+
+/* ==================================================
+  buttons
+  ================================================== */
+.btn
+    border-radius: 5px
+    padding: 10px 30px
+    font-size: 16px !important
+    font-weight: bold
+.btn-circle
+    border-radius: 100%
+    height: 60px
+    width: 60px
+    display: table-cell
+    padding: 30px
+    text-align: center
+    vertical-align: middle
+    font-size: 45px
+    transition: .5s
+.minibtn
+    margin: 5px
+    border-radius: 5px
+    padding: 5px 10px
+    font-size: 16px !important
+.btn-erease
+    background: transparent
+    border: 0px
+    padding: 0px
+    margin: 0px
+
+
+.btn-default, .btn-default:link, .btn-default:visited
+    border: 1px solid darken($ligthgreen1, 2.5%)
+    background-color: darken($ligthgreen1, 2.5%)
+    color: darken($white, 2.5%)
+.btn-default:hover
+    border: 1px solid darken($ligthgreen1, 2.5%)
+    background-color: darken($white, 2.5%) !important
+    color: darken($ligthgreen1, 2.5%)
+.btn-default:active
+    border: 1px solid darken($ligthgreen1, 2.5%)
+    background-color: darken($white, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
+
+.btn-inverse, .btn-inverse:link, .btn-inverse:visited
+    background: darken($white, 2.5%)
+    border: 6px double darken($ligthgreen1, 2.5%)
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.46)
+    color: darken($ligthgreen1, 2.5%)
+.btn-inverse:hover
+    border-color: darken($grey, 2.5%)
+    color: darken($grey, 2.5%)
+.btn-inverse:active
+    border-color: darken($grey, 2.5%)
+    color: darken($grey, 2.5%)
+
+.btn-grad, .btn-grad:link, .btn-grad:visited
+    background: darken($ligthgreen1, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+    color: darken($white, 2.5%)
+.btn-grad:hover
+    border: 1px solid darken($ligthgreen1, 2.5%)
+    background: darken($white, 2.5%) !important
+    color: darken($ligthgreen1, 2.5%)
+.btn-grad:active
+    border: 1px solid darken($ligthgreen1, 2.5%)
+    background: darken($white, 2.5%)
+    color: darken($ligthgreen1, 2.5%)
+
+.link, .link:link, .link:visited
+    margin: 5px
+    background-color: transparent !important
+    color: darken($darkgreen, 2.5%)
+.link:hover
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($ligthgreen1, 2.5%)
+.link:active
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($ligthgreen1, 2.5%)
+
+.link-inverse, .link-inverse:link, .link-inverse:visited
+    margin: 0 10px
+    background-color: transparent !important
+    color: darken($white, 2.5%)
+    font-size: 15px
+    font-weight: bold
+.link-inverse:hover
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($darkgreen, 2.5%)
+.link-inverse:active
+    background-color: transparent !important
+    text-decoration: none !important
+    color: darken($darkgreen, 2.5%)
+
+/* ==================================================
+ flex-boxes
+ ================================================== */
+.flexBox
+    display: -moz-flex
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+.flexWrap
+    -moz-flex-wrap: wrap
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+.verticalCenter
+    -moz-align-items: center
+    -webkit-align-items: center
+    -ms-align-items: center
+    align-items: center
+.horizintalCenter
+    -moz-justify-content: center
+    -webkit-justify-content: center
+    -ms-justify-content: center
+    justify-content: center
+
+/* ==================================================
+  navbar
+  ================================================== */
+.nav-bg
+    background: darken($ligthgreen1, 2.5%)
+    background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+    background-image: url("bannerprevisora.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    height: 150px
+    padding-top: 0 !important
+/*#collapsibleNavbar
+    margin-top: 0 !important
+    top: 0 !important
+    height: 50px
+    line-height: 50px
+/*.navbar-nav
+    /*background: darken($darkgreen, 2.5%)
+.nav-link
+    font-weight: bold
+    color: #fff !important
+@media (max-width: 768px)
+    .navbar-expand-md .navbar-collapse
+        border-radius: 3px
+        padding: 15px
+        background: darken($ligthgreen1, 2.5%)
+        background: linear-gradient(to right, darken($darkgreen, 2.5%), darken($ligthgreen0, 2.5%))
+        /*color: darken($white, 2.5%) !important
+
+/* ==================================================
+  grid
+  ================================================== */
+
+/* ==================================================
+  table
+  ================================================== */
+thead tr th
+    color: darken($darkgreen, 2.5%)
+
+/* ==================================================
+  pagination
+  ================================================== */
+
+.pagination li>span, .pagination li>a, .pagination li>a:hover
+    color: darken($ligthgreen1, 2.5%)
+.pagination .active>span, .pagination .active>span:hover, .pagination .active .page-link
+    border: darken($ligthgreen1, 2.5%)
+    background: darken($ligthgreen1, 2.5%)
+    color: darken($white, 2.5%)
+
+/* ==================================================
+  unique
+  ================================================== */
+.firtsHeader
+    width: 100%
+    height: 80px
+    background-color: darken($darkgreen, 2.5%)
+.secondHeader
+    height: 300px
+    background: darken($darkgreen, 2.5%) url("header.jpeg") no-repeat
+    background-size: cover

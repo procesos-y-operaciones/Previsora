@@ -1,0 +1,26 @@
+version: '2'
+services:
+  previsora_db:
+    image: postgres
+    environment:
+      POSTGRES_USER: registro_unico
+      POSTGRES_PASSWORD: previsora2019
+      POSTGRES_DB: previsora
+    ports:
+      - "5432:5432"
+  previsora_ms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/previsora_ms'
+    command: bash -c "sleep 40 && rm -f tmp/pids/server.pid && bundle exec rails assets:clobber assets:precompile RAILS_ENV=production && bundle exec rails s -e production -p 3000 -b '0.0.0.0'"
+    environment:
+      RAILS_ENV: production
+      RAILS_SERVE_STATIC_FILES: 'yes'
+      DB_PASSWORD: previsora2019
+      SECRET_KEY_BASE: 1177bac74d7619cb4b725f91897929279cb12c71be05c8ae73ebb65b2270714c4e386e25975a08d33728183e1f212cdd2dd2404646e12185e2be57570bf3a224
+    ports:
+      - "3000:3000"
+    depends_on:
+      - previsora_db

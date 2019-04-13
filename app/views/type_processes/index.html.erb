@@ -1,0 +1,51 @@
+<h1>Type Processes</h1>
+
+<%= search_form_for @search do |f| %>
+  <%= f.label :p_type_eq %>
+  <%= f.number_field :p_type_eq %>
+  <%= f.label :p_type_eq %>
+  <%= f.number_field :p_type_eq %>
+  <%= f.submit "Buscar" %>
+<% end %>
+
+<div class="alert alert-danger m-30">
+  <%= @search.inspect %>
+</div>
+
+<% if @processes == [] %>
+  <div class="alert alert-danger m-30">
+    <h4>Aún no tienes procesos creados.</h4>
+  </div>
+<% else %>
+
+  <div class="container-fluid p-30">
+    <table class="table table-responsive-sm table-hover">
+      <thead class="darkgreen">
+        <tr>
+          <th>TIPO DE PROCESO</th>
+          <th># Radicado correspondencia</th>
+          <th># Identificación (Bizagi, access y PA)</th>
+          <th>#Identificación (SISE)</th>
+          <th>Abogado interno</th>
+          <th>Ciudad donde cursa</th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <% @processes.each do |p| %>
+        <tr class='clickable-row' data-href='#'>
+          <td><%= p.p_type %></td>
+          <td><%= p.correspondency_radicate %></td>
+          <td><%= p.case_id_bap %></td>
+          <td><%= p.case_id_sise %></td>
+          <td>Ciudad</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<p>
+Download:
+  <%= link_to "Excel", type_processes_path(format: "xls", filename: Date.today) %>
+</p>

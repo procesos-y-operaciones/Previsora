@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <div style="margin-top: 90px">
+
+      <h2 class="white center">Nuevo usuario</h2>
+
+        <%= form_for(@user, as: @user_name, url: registration_path(@user)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="">
+            <%= f.label :document, class:"form-label" %><br />
+            <%= f.number_field :document, autofocus: true, class:"form-control" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="">
+            <%= f.label :password, class:"form-label" %> <i>(Dejelo en blanco si no quiere cambiarlo)</i><br />
+            <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+            <% if @minimum_password_length %>
+              <p style="margin:-25px 0 25px"><i><%= @minimum_password_length %> characters minimum</i></p>
+            <% end %>
+          </div>
+
+          <div class="">
+            <%= f.label :password_confirmation, class:"form-label" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+          </div>
+
+          <div class="">
+            <%= f.label :current_password, class:"form-label" %>
+            <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Guardar Cambios", class:"btn btn-default fw" %>
+          </div>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,416 @@
+<%= javascript_include_tag "administrative" %>
+
+<%= form_with(model: type_process, local: true) do |form| %>
+  <% if type_process.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
+      <ul>
+        <% type_process.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8 ">
+
+      <p>El símbolo ( <span class="red">*</span> ) marca los campos que son obligatorios.</p>
+
+      <% if current_user.role != 3 %>
+        <%= form.hidden_field :p_type, :value => 4 %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
+      <% end %>
+
+      <hr>
+
+      <%= form.label :process_class, "Clase de Proceso" %>
+      <div class="input-group">
+        <%= form.collection_select(:process_class , ProcessClass.administrative, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :subprocess_class, "Subclase del Proceso" %><span class="red">*</span>
+      <div class="input-group">
+        <%= form.collection_select(:subprocess_class , SubprocessClass.administrative, :name , :name, {include_blank: "SELECCIONE"}, {class:"form-control", id:"subprocessClass", required: true}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :gubernatorial_way, "Tipología" %>
+      <div class="input-group">
+        <%= form.collection_select(:gubernatorial_way , GubernatorialWay.coljuegos, :name, :name, {include_blank: "SELECCIONE"}, {id:"gubernatorial_coljuegos", class:"form-control"}) %>
+        <%= form.collection_select(:gubernatorial_way, GubernatorialWay.ordinarie, :name, :name, {}, {id:"gubernatorial_ordinarie", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.gubernatorial_way_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :radicate, "¿Tiene número de radicado de correspondencia?" %>
+      <div class="input-group">
+        <select id="radicate" class="form-control">
+          <option value="Si">SI</option>
+          <option value="No">NO</option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :correspondency_radicate, "Número de radicado correspondencia" %>
+      <div class="input-group">
+        <%= form.text_field :correspondency_radicate, maxlength:"100", pattern:"[0-9\- ]*", title: t(:pattern_n), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_id_bap, "Número de identificación del caso (Bizagi y PA)" %>
+      <div class="input-group">
+        <%= form.text_field :case_id_bap, id:"case_id_bap", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_id_bap_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_id_bap, "Número de identificación del caso en SISE" %>
+      <div class="input-group">
+        <%= form.text_field :case_id_sise, id:"case_id_sise", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: "INGRESE EL NUMERO", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_id_sise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :creation_date, "Fecha de creación" %>
+      <div class="input-group">
+        <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.creation_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :link_type, "Tipo de vinculación" %>
+      <div class="input-group">
+        <%= form.collection_select(:link_type, LinkType.administrative, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.link_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :departament, "Departamento donde cursa el caso" %>
+      <div class="input-group">
+        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament_ordinarie", class:"form-control"}) %>
+        <%= form.collection_select(:departament, TypeProcess.get_bog_departament, :first, :second, {selected: ":BOG"}, {id:"departament_coljuegos", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :cities, "Ciudad donde cursa el caso" %>
+      <div class="input-group">
+        <select name="type_process[city_case]" id="cities" class="form-control">
+          <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :litigation_source, "Fuente del litigio" %>
+      <div class="input-group">
+        <%= form.collection_select(:litigation_source, LitigationSource.administrative, :name, :name, {include_blank: "SELECCIONE"}, {id:"litigationSource", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.litigation_source_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :ensurance_value_cents, "Valor asegurado" %>
+      <div class="input-group">
+        <%= form.text_field :ensurance_value_cents, id:"ensuranceValue", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.ensurance_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reinsurance_type, "Tipo de reaseguro" %>
+      <div class="input-group">
+        <%= form.collection_select(:reinsurance_type, ReinsuranceType.separate, :name, :name, {include_blank: "SELECCIONE"}, {id:"reinsuranceType", class:"form-control"}) %>
+        <%= form.collection_select(:reinsurance_type, ReinsuranceType.separateFree, :name, :name, {}, {id:"reinsuranceTypeSF", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.reinsurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reinsurance_report, "Reaseguro reportado" %><br>
+      <div class="input-group">
+        <%= form.select :reinsurance_report, options_for_select([["NO", false], ["SI", true]], type_process.reinsurance_report), {}, { id:"reinsurance_report", class:"form-control" } %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.reinsurance_report_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :coensurance_type, "Tipo de coaseguro" %>
+      <div class="input-group">
+        <%= form.collection_select(:coensurance_type, CoensuranceType.all, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.coensurance_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :policy_cents, "Póliza" %>
+      <div class="input-group">
+        <%= form.number_field :policy_cents, id:"policyCents", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :protection, "Amparo" %>
+      <div class="input-group">
+        <%= form.collection_select(:protection, Protection.coljuegos, :name, :name, {:selected => type_process.send(:protection)}, {id:"protection_coljuegos", multiple:true, class:"form-control"}) %>
+        <%= form.collection_select(:protection, Protection.ordinarie, :name, :name, {:selected => type_process.send(:protection)}, {id:"protection_ordinarie", multiple:true, class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.protection_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :number, "Número de Siniestro" %>
+      <div class="input-group">
+        <%= form.number_field :number, id:"number", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.number_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :exercise, "Ejercicio" %>
+      <div class="input-group">
+        <%= form.number_field :exercise, id:"exercise", max:"99", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.exercise_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :branch_policy, "Sucursal de la póliza" %>
+      <div class="input-group">
+        <%= form.collection_select(:branch_policy, BranchPolicy.all, :num, :large_name, {}, {class:"form-control", :id => "branch_policy" }) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_policy_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :branch_commercial, "Ramo comercial" %>
+      <div class="input-group">
+        <%= form.collection_select(:branch_commercial, BranchCommercial.all, :num, :large_name, {}, {class:"form-control", :id => "branch_commercial" }) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.branch_commercial_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :sinister, "Número del siniestro (completo)" %>
+      <div class="input-group">
+        <%= form.text_field :sinister, id:"sinister", readOnly:"readOnly", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.sinister_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :more_policies, "¿Tiene más pólizas?" %>
+      <div class="input-group">
+        <select id="more_policies" class="form-control">
+          <option value="Si">SI</option>
+          <option value="No">NO</option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.more_policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :policies, "Número de pólizas" %>
+      <div class="input-group">
+        <%= form.text_area :policies, maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", id:"policies", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policies_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :sinisters, "Número de siniestros" %>
+      <div class="input-group">
+        <%= form.text_area :sinisters, maxlength:"255", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", id:"sinisters", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.sinisters_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :policy_taker, "Tomador de la póliza" %>
+      <div class="input-group">
+        <%= form.text_field :policy_taker, id:"policy_taker", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.policy_taker_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :contract, "Contrato concesión - Obra" %>
+      <div class="input-group">
+        <%= form.text_field :contract, id:"contract", maxlength:"10", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contract_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :money_type, "Tipo de moneda" %>
+      <div class="input-group">
+        <%= form.collection_select(:money_type, MoneyType.all, :name, :name, {include_blank: "SELECCIONE"}, {id:"moneyType", class:"form-control"}) %>
+        <%= form.collection_select(:money_type, MoneyType.cents, :name, :name, {}, {id:"moneyCents", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.money_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :dolar_value_cents, "Valor del dólar" %>
+      <div class="input-group">
+        <%= form.text_field :dolar_value_cents, id:"dolarValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.dolar_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reserve_cents, "Reserva o provisión de la indemnización" %>
+      <div class="input-group">
+        <%= form.text_field :reserve_cents, pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.reserve_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reserved_fees_cents, "Reserva de los honorarios" %>
+      <div class="input-group">
+        <%= form.text_field :reserved_fees_cents, pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.reserved_fees_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :detritment_cents, "Valor de la pretensión / detrimento / estimación" %>
+      <div class="input-group">
+        <%= form.text_field :detritment_cents, id:"detrimetValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.detritment_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :contingency_value_cents, "Valor de la contingencia" %>
+      <div class="input-group">
+        <%= form.text_field :contingency_value_cents, id:"contingencyValueCents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contingency_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :notification_date, "Fecha de notificación / vinculación" %><span class="red">*</span>
+      <div class="input-group">
+        <%= form.date_field :notification_date, class:"form-control", required: true %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :process_radicate, "Número de radicación del proceso" %><span class="red">*</span>
+      <div class="input-group">
+        <%= form.text_field :process_radicate, id:"process_radicate", maxlength:"100", pattern:"[0-9\- ]*", title: t(:pattern), placeholder: 'INGRESE EL NUMERO', onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", required: true, class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :attorny, "Apoderado de Previsora" %>
+      <div class="input-group">
+        <%= form.text_field :attorny, id:"attorny", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE COMPLETO', required: true, onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.attorny_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :attorny_date, "Fecha de asignación del apoderado de Previsora" %>
+      <div class="input-group">
+        <%= form.date_field :attorny_date, title: t(:pattern), class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.attorny_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %>
+      <div class="input-group">
+        <%= form.collection_select(:office_name, OfficeName.coljuegos, :name, :name, {}, {id:"office_name_col", class:"form-control"}) %>
+        <%= form.collection_select(:office_name, OfficeName.ordinare, :name, :name, {include_blank:"SELECCIONE"}, {id:"office_name_ord", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+      <div class="input-group">
+        <%= form.text_field :other_office_name, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder:'NOMBRE DEL DESPACHO', required: true, id: "office_text", class: "form-control" %>
+      </div>
+
+      <%= form.label :score_contingency, "Calificación de la contingencia" %>
+      <div class="input-group">
+        <%= form.collection_select(:score_contingency, ScoreContingency.all, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.score_contingency_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :contingency_resume, "Resumen de la contingencia" %>
+      <div class="input-group">
+        <%= form.text_area :contingency_resume, id:"contingency_resume", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contingency_resume_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :contingency_reason, "Motivos de la contingencia" %>
+      <div class="input-group">
+        <%= form.text_area :contingency_reason, id:"contingency_reason", maxlength:"2500", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.contingency_reason_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :instance, "Instancia" %>
+      <div class="input-group">
+        <%= form.collection_select(:instance, Instance.administrative, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.instance_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_state, "Estado del caso" %>
+      <div class="input-group">
+        <%= form.collection_select(:case_state, CaseState.all, :name, :name, {include_blank:"SELECCIONE"}, {class:"form-control", id:"caseState"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_state_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :current_stage, "Etapa actual", id:"currentStage" %>
+      <div id="currentStageVerDiv" class="input-group">
+        <%= form.collection_select(:current_stage, CurrentStage.administrative, :name, :name, {}, {id:"currentStageVer", class:"form-control"}) %>
+        <%= form.hidden_field :current_stage, value:"PENDIENTE", id:"currentStageHid" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.current_stage_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :fail_value_cents, "Valor de la sanción" %>
+      <div class="input-group">
+        <%= form.text_field :fail_value_cents, id:"fail_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.fail_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :desition_date, "Fecha del acto administrativo" %>
+      <div class="input-group">
+        <%= form.date_field :desition_date, class:"form-control", id:"desition_date" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.desition_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :fail_previ_cents, "Valor de la sanción a cargo de Previsora" %>
+      <div class="input-group">
+        <%= form.text_field :fail_previ_cents, id:"fail_previ", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.fail_previ_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_termination, "Terminación del caso" %>
+      <div class="input-group">
+        <%= form.collection_select(:case_termination, CaseTermination.administrative, :name, :name, {include_blank: 'SELECCIONE'}, {class:"form-control", id:"caseTermination"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :payed_value_cents, "Valor pagado por Previsora" %>
+      <div class="input-group">
+        <%= form.text_field :payed_value_cents, id:"payed_value_cents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.payed_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :payment_date, "Fecha del pago realizado" %>
+      <div class="input-group">
+        <%= form.date_field :payment_date, id:"payment_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.payment_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :coactive, "¿Tiene número de radicado de coactivo?" %>
+      <div class="input-group">
+        <select id="coactive" class="form-control">
+          <option value="Si">SI</option>
+          <option value="No">NO</option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.coactive_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :coactive_radicate, "Número de radicación de coactivo" %>
+      <div class="input-group">
+        <%= form.text_field :coactive_radicate, id:"coactive_radicate",  onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.coactive_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :coactive_value_cents, "Valor del coactivo" %>
+      <div class="input-group">
+        <%= form.text_field :coactive_value_cents, id:"coactive_value_cents", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.coactive_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :garnish_value_cents, "Valor del embargo" %>
+      <div class="input-group">
+        <%= form.text_field :garnish_value_cents, id:"garnish_value", pattern:"[0-9\,\' ]*", title: t(:pattern_n), onclick:"formatting_number(this)", onkeyup:"formatting_number(this)", onblur:"formatting_empty_number(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.garnish_value_cents_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :last_performance, "Última actuación" %>
+      <div class="input-group">
+        <%= form.collection_select(:last_performance, LastPerformance.all, :name, :name, {}, {class:"form-control", id:"lastPerformance"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.last_performance_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :last_performance_date, "Fecha de la última actuación" %>
+      <div class="input-group">
+        <%= form.date_field :last_performance_date, class:"form-control",  id:"lastPerformanceDate" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.last_performance_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :reserved_released, "¿La reserva ya fue depurada?" %>
+      <div class="input-group">
+        <%= form.collection_select(:reserved_released, ReservedReleased.all, :name, :name, {}, {class:"form-control", id:"reservedReleased"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.administrative.reserved_released_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+    </div>
+  </div>
+
+  <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
+
+<% end %>

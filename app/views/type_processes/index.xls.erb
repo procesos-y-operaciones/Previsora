@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="ReporteRegistroUnico">
+    <Table>
+
+      <Row>
+        <Cell>
+          <Data>
+            <%= "LA PREVISORA S.A. COMPANIA DE SEGUROS" %>
+          </Data>
+        </Cell>
+      </Row>
+
+      <Row>
+        <Cell>
+          <Data>
+            <%= "VICEPRESIDENCIA JURIDICA" %>
+          </Data>
+        </Cell>
+      </Row>
+
+      <Row>
+        <Cell>
+          <Data>
+            <%= "REPORTE DE PROCESOS REGISTRADOS" %>
+          </Data>
+        </Cell>
+      </Row>
+
+      <Row>
+        <Cell>
+          <Data>
+            <%= "FECHA DE GENERACION: #{Date.today}" %>
+          </Data>
+        </Cell>
+      </Row>
+
+      <Row>
+        <Cell>
+          <Data>
+            <%= "DESDE: #{@date_from} HASTA: #{@date_till}" %>
+          </Data>
+        </Cell>
+      </Row>
+
+      <Row>
+        <% @processes.column_names_all.each do |c| %>
+          <Cell><Data><%= c %></Data></Cell>
+        <% end %>
+      </Row>
+
+
+      <% @processes.each do |process| %>
+        <Row>
+          <% process.get_content_all.each do |fields| %>
+            <Cell><Data ss:Type="AnyType"><%= fields %></Data></Cell>
+          <% end %>
+        </Row>
+      <% end %>
+
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -1,0 +1,232 @@
+<%= javascript_include_tag "tutelage" %>
+
+<%= form_with(model: type_process, local: true) do |form| %>
+  <% if type_process.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(type_process.errors.count, "error") %> prohibited this type_process from being saved:</h2>
+      <ul>
+        <% type_process.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8 ">
+
+      <p>El símbolo ( <span class="red">*</span> ) marca los campos que son obligatorios.</p>
+
+      <% if current_user.role != 3 %>
+        <%= form.hidden_field :p_type, :value => 5 %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        <%= form.hidden_field :internal_lawyer, :value => current_user.name %>
+      <% end %>
+
+      <hr>
+
+      <%= form.label :process_class, "Clase de Proceso" %>
+      <div class="input-group">
+        <%= form.collection_select(:process_class, ProcessClass.tutelage, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.process_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :subprocess_class, "Subclase del Proceso" %><span class="red">*</span>
+      <div class="input-group">
+        <%= form.collection_select(:subprocess_class, SubprocessClass.tutelage, :name, :name, {:prompt => 'SELECCIONE'}, {class:"form-control", id:"a", required: true}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.subprocess_class_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :notification_date, "Fecha de notificación / vinculación" %>
+      <div class="input-group">
+        <%= form.date_field :notification_date, class:"form-control" %>
+        <span data-
+        toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :radicate, "¿Tiene número de radicado de correspondencia o de vicepresidencia?" %>
+      <div class="input-group">
+        <select id="radicate" class="form-control">
+          <option value="Si">SI</option>
+          <option value="No">NO</option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :correspondency_radicate, "Número de radicado de Correspondencia o de Vicepresidencia" %>
+      <div class="input-group">
+        <%= form.text_field :correspondency_radicate, maxlength:"100", pattern:"[0-9\- ]*", title: t(:pattern_n), placeholder: "INGRESE EL NUMERO", id:"correspondency_radicate", onclick:"input_nopresenta_rule(this)", onblur:"input_empty_nopresenta_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.correspondency_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :creation_date, "Fecha de creación" %>
+      <div class="input-group">
+        <%= form.date_field :creation_date, :readonly => "readonly", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.creation_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :link_type, "Tipo de vinculación" %>
+      <div class="input-group">
+        <%= form.collection_select(:link_type, LinkType.tutelage, :name, :name, {include_blank: "SELECCIONE"}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.link_type_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :active_part, "Parte activa" %>
+      <div class="input-group">
+        <%= form.text_field :active_part, id:"active_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.active_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :passive_part, "Parte pasiva" %>
+      <div class="input-group">
+        <%= form.text_field :passive_part, id:"passive_part", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", :placeholder => 'NOMBRE COMPLETO', required: true, class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.passive_part_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :office_name, "Nombre del despacho / Tipo de Contraloría" %>
+      <div class="input-group">
+        <%= form.collection_select(:office_name, OfficeName.judicial, :name, :name, {include_blank: 'SELECCIONE'}, {id: "office", required: true, class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.judicial.office_name_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+      <div class="input-group">
+        <%= form.text_field :other_office_name, id: "office_text", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), placeholder: 'NOMBRE DEL DESPACHO', class: "form-control", required: true %>
+      </div>
+
+      <%= form.label :departament, "Departamento donde cursa el caso" %>
+      <div class="input-group">
+        <%= form.collection_select(:departament, TypeProcess.get_all_departament, :first, :second, {include_blank: "SELECCIONE"}, {id:"departament", class:"form-control", required:true}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.departament_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :cities, "Ciudad donde cursa el caso" %>
+      <div class="input-group">
+        <select name="type_process[city_case]" id="cities" class="form-control">
+          <option value="<%= type_process.city_case %>" selected="selected"><%= type_process.city_case %></option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.city_case_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :process_radicate, "Número de radicación del proceso" %>
+      <div class="input-group">
+        <%= form.text_field :process_radicate, maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), id:"process_radicate", onclick:"input_pendiente_rule(this)", onblur:"input_empty_pendiente_rule(this)", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.process_radicate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :answer_date, "Fecha de contestación de la Tutela" %>
+      <div class="input-group">
+        <%= form.date_field :answer_date, id: "answer_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.answer_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :desition_date, "Fecha de la decisión o fallo" %>
+      <div class="input-group">
+        <%= form.date_field :desition_date, id: "desition_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.desition_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :failed_notification_date, "Fecha de la notificación de la decisión o fallo." %>
+      <div class="input-group">
+        <%= form.date_field :failed_notification_date, id: "failed_notification_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.failed_notification_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :instance, "Instancia" %>
+      <div class="input-group">
+        <%= form.collection_select(:instance, Instance.all, :name, :name, {}, {class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.instance_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :case_termination, "Terminación del caso" %>
+      <div class="input-group">
+        <%= form.collection_select(:case_termination, CaseTermination.tutelage, :name, :name, {}, {class:"form-control", id: "caseTermination"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.case_termination_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :objection, "¿Hay impugnación?" %>
+      <div class="input-group">
+        <select id="objection" class="form-control">
+          <option value="Si">SI</option>
+          <option value="No">NO</option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.objection_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :imp_date, "Fecha de notificación de la impugnación" %>
+      <div class="input-group">
+        <%= form.date_field :imp_date, id: "objection_date", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.imp_date_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :tutelage_imp, "Impugnante" %>
+      <div class="input-group">
+        <%= form.text_field :tutelage_imp, id: "objecter", maxlength:"100", pattern:"[A-Z0-9\- ]*", title: t(:pattern), onclick:"input_noaplica_rule(this)", onblur:"input_empty_noaplica_rule(this)", placeholder: "NOMBRE COMPLETO", required: true, class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.tutelage_imp_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :objection_date_desition, "Fecha decisión de la impugnación" %>
+      <div class="input-group">
+        <%= form.date_field :objection_date_desition, id: "date_imp", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.objection_date_desition_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :objection_date_desition_notification, "Fecha de notificación decisión de la impugnación" %>
+      <div class="input-group">
+        <%= form.date_field :objection_date_desition_notification, id: "date_notification_imp", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.objection_date_desition_notification_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :setence_type_second_company, "Tipo decisión impugnación" %>
+      <div class="input-group">
+        <%= form.collection_select(:setence_type_second_company, CaseTermination.tutelage, :name, :name, {}, {id: "setence_type_second_company_id", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.setence_type_second_company_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+      <%= form.label :desacate, "¿Hay desacato?" %>
+      <div class="input-group">
+        <select id="desacate" class="form-control">
+          <option value="Si">SI</option>
+          <option value="No">NO</option>
+        </select>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.desacate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :date_notification_desacate, "Fecha de notificación del incidente del desacato" %>
+      <div class="input-group">
+        <%= form.date_field :date_notification_desacate, id: "date_notification_desacate", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.date_notification_desacate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :date_answer_desacate, "Fecha de contestación del incidente de desacato" %>
+      <div class="input-group">
+        <%= form.date_field :date_answer_desacate, id:"date_answer_desacate", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.date_answer_desacate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :date_notification_desition_desacate, "Fecha notificación de decisión del incidente de desacato" %>
+      <div class="input-group">
+        <%= form.date_field :date_notification_desition_desacate, id: "date_notification_desition_desacate", class:"form-control" %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.date_notification_desition_desacate_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <%= form.label :sentence_type_desacate, "Tipo sentencia del incidente de desacato a la compañía" %>
+      <div class="input-group">
+        <%= form.collection_select(:sentence_type_desacate, CaseTermination.tutelage, :name, :name, {}, {id: "sentence_type_desacate", class:"form-control"}) %>
+        <span data-toggle="tooltip" data-html="true" title="<%= t('processes.tutelage.sentence_type_desacate_id_d') %>" class="input-group-addon fa fa-question m-1"  style="font-size:20px"></span>
+      </div>
+
+      <hr>
+
+    </div>
+  </div>
+
+  <%= form.submit "Guardar", class:"btn btn-default floatRight" %>
+
+<% end %>
