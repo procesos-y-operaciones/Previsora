@@ -24,10 +24,13 @@ Motor de Base de Datos: PostgresQL, producción. SQLite3, desarrollo.
   * Docker-compose
 
 * Build & Run
-  * Run the command shell: 
-    * `docker-compose build`
-    * `docker-compose up`
-    * `docker exec -it previsora_ms /bin/bash`
-    * `rails db:migrate`
-    * `rails db:seed`
-
+  * Production Environment
+    * Run the command shell: 
+      * `docker-compose build`
+      * `docker-compose up`
+      * `docker exec -it previsora_ms /bin/bash`
+      * `rails db:migrate`
+      * `rails db:seed`
+  * Development Environment
+    * Run the command shell: 
+      * `rails s`
